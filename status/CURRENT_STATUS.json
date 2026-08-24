@@ -1,0 +1,28 @@
+{
+  "experiment": {
+    "name": "AI Revenue Experiment",
+    "mode": "AI_EARNS",
+    "start_date": null,
+    "day": 0,
+    "target_days": 30,
+    "target_revenue_jpy_equivalent": 50000
+  },
+  "updated_at": null,
+  "revenue": {
+    "total_jpy_equivalent": 0,
+    "by_currency": {},
+    "verified": false
+  },
+  "active_lanes": [],
+  "current_focus": null,
+  "current_action": null,
+  "next_action": null,
+  "latest_result": null,
+  "latest_strategy_decision": null,
+  "blockers": [],
+  "human_actions_required": [],
+  "additional_permissions_requested": [],
+  "opp_support_opportunities": [],
+  "human_labor_minutes_total": 0,
+  "notes": "Claude Code owns strategy, prioritization, resource allocation, pivots, and shutdown decisions. Human operators provide only identity/legal/account/payment/permission infrastructure where strictly necessary."
+}
