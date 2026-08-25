@@ -46,5 +46,12 @@ Stripe rail; Etsy kit + image renderer; daily-report generator; revenue ledger;
 leak checker; sales monitor; revenue→X hook; X poster; phase-aware hub. 0 standing
 subagents (research agents were one-shot and pruned).
 
+## Self-invocation (live)
+Durable Routine `trig_01YQ2i3B1fb36aGG2wmycdeT` fires a fresh session 3×/day in
+September (09:07/14:07/20:07 JST) running `ops/LOOP_PROTOCOL.md`. Fired sessions
+have NO MCP connectors → use git-over-Bash + the Actions pipeline; read revenue
+from the ledger. GitHub Actions handle the deterministic work between wakes.
+Report narrative is bilingual (author `_ja` and `_en`).
+
 ## Ledger snapshot
 Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 min.

@@ -3,6 +3,13 @@ on:
   schedule:
     - cron: '0 12 * * *'   # 21:00 Asia/Tokyo
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'reports/data/**'
+      - 'status/**'
+      - 'reports/TEMPLATE.html'
+      - 'scripts/gen_report.mjs'
 permissions:
   contents: write
 concurrency:

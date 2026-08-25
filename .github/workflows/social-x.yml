@@ -3,6 +3,10 @@ on:
   schedule:
     - cron: '*/30 * * * *'   # drain the post queue every 30 min
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'social/queue/**'
 permissions:
   contents: write
 concurrency:

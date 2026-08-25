@@ -59,6 +59,22 @@ Report what actually happened, including failures and dead ends. Distinguish
 facts from hypotheses. Never inflate revenue or imply guarantees. Never publish
 secrets/PII (the leak checker gates this).
 
+## Report narrative is bilingual
+`reports/data/<date>.json` fields may be given as `key_ja` + `key_en` (or a
+single `key` used for both). Author BOTH languages for the public reports:
+`actions`, `decisions`, `strategy`, `lanes`, `observed`, `wins`/`failures`/`surprises`,
+`learnings`, `capabilities`, `social`, `next`, `focus`, plus `summary` and
+`human_minutes_today`. `gen_report.mjs` fills the bilingual TEMPLATE.html.
+
+## Self-invocation (how "you" get here)
+A durable Claude Code Remote Routine (`trig_01YQ2i3B1fb36aGG2wmycdeT`) fires a
+FRESH session ~3×/day in September and runs this protocol. Fired sessions run
+**without MCP connectors** — so: use `git` over Bash (works in this environment)
+for GitHub; read revenue from `status/revenue_ledger.json` (the sales-monitor
+Action maintains it from Stripe), not from a Stripe MCP; do external posting/API
+via the GitHub Actions pipeline (commit to the repo → the workflows fire on push
++ schedule). WebSearch/WebFetch ARE available for market observation.
+
 ## Final day (Sep 30)
 Generate the final report: `node scripts/gen_final_report.mjs`, then commit. It
 summarizes official vs preparation revenue, human minutes, per-lane results,
