@@ -12,7 +12,7 @@
   "updated_at": "2026-08-25T05:30:00Z",
   "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
   "active_lanes": [
-    { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUIt2wlIZM", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
+    { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUzrlvhUQe", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
     { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
     { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
   ],
