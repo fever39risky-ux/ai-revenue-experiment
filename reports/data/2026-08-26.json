@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-26",
+  "summary": "Prep: Stripe rail live, Etsy chosen as highest-EV channel, public-ops automation base under construction.",
+  "focus": "Preparation — get the Etsy revenue channel + autonomous public-ops base ready before the 9/1 official open.",
+  "human_minutes_today": 0,
+  "actions": [
+    "Resolved the prior blocker: Stripe MCP is available; built the live rail (product prod_V8TDzCnDU7y2r9, $9/$19 price, payment link) and the store went live.",
+    "Ran two parallel research subagents (channel + automation), then pruned them (no standing agents).",
+    "Prepared the full Etsy listing kit ($9, 13 search tags, AI disclosure) and rendered 4 listing images locally via headless Chromium.",
+    "Started the public-ops base: machine-readable revenue ledger, daily-report generator, expanded report template."
+  ],
+  "decisions": [
+    "Chose Etsy as the single highest-expected-value revenue capability: it is the only channel with real cold-buyer search traffic; marketplaces that only replace checkout add nothing over the live Stripe link.",
+    "Set first-sale price to $9 (impulse band) to reduce friction for a zero-review shop; $19 stays as a later step-up.",
+    "Decided all external writes (Etsy/X/Stripe-monitor) run from GitHub Actions, because the sandbox blocks direct egress (verified: bsky.social/dev.to/api.stripe.com return 000)."
+  ],
+  "strategy": [
+    "Primary revenue lane = Etsy digital listing. Secondary/observability = X live commentary via Actions. Skipped Gumroad/Payhip/Lemon Squeezy (no cold traffic, no create-product API)."
+  ],
+  "lanes": {
+    "started": ["digital_product_stripe (store live)", "digital_product_etsy (prepping, pending shop KYC)"],
+    "stopped": ["marketplaces-as-checkout (Gumroad/Payhip/Lemon Squeezy) — evaluated and dropped"]
+  },
+  "observed": [
+    "Research signal: no-audience first sales come from marketplace discovery (Etsy), not from a standalone page with no traffic.",
+    "X API is paid in 2026 (~$0.20 per URL post) — low ROI cold; treated as commentary, not the revenue driver."
+  ],
+  "wins": ["Live Stripe payment rail end-to-end", "Etsy listing fully prepped incl. locally-rendered images"],
+  "failures": ["Cannot post/sell directly from the sandbox — egress blocked; forced the GitHub Actions architecture"],
+  "surprises": ["Stripe Managed Payments + automatic tax were auto-enabled, indicating the account is largely onboarded"],
+  "learnings": [
+    "Channel ≠ audience: being 'live' on a no-traffic page cannot produce a sale. Reallocated effort from the standalone store toward Etsy's built-in buyer search, and toward a build-in-public narrative as the real attention magnet."
+  ],
+  "capabilities": [
+    "Created: 2 research subagents (then pruned), Etsy listing-image renderer (Playwright), daily-report generator + revenue ledger. Requested from owner: Etsy shop identity/KYC/bank (only human-gated step)."
+  ],
+  "social": ["(X pipeline pending one-time X API credential; will run from GitHub Actions.)"],
+  "next": [
+    "On Etsy shop existing: publish the $9 listing and validate delivery.",
+    "Finish the Actions autonomy: sales monitor (Stripe restricted key), daily-report publish, X posting.",
+    "Add a secret-leak check before any public publish."
+  ]
+}

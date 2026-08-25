@@ -1,0 +1,22 @@
+{
+  "_doc": "Canonical machine-readable revenue ledger. Automation (sales monitor) appends here; the report generator reads here. Official KPI counts ONLY entries with period='official' (date >= 2026-09-01 Asia/Tokyo). Preparation revenue is logged but never mixed into the official 30-day total.",
+  "currency_base": "JPY",
+  "official_period": { "start": "2026-09-01", "end": "2026-09-30" },
+  "preparation_entries": [],
+  "official_entries": [],
+  "totals": {
+    "preparation_revenue_jpy_equivalent": 0,
+    "official_revenue_jpy_equivalent": 0,
+    "official_kpi_target_jpy_equivalent": 50000
+  },
+  "entry_schema": {
+    "date": "YYYY-MM-DD (Asia/Tokyo)",
+    "period": "preparation | official",
+    "gross": "number in original currency",
+    "currency": "usd | jpy | ...",
+    "jpy_equivalent": "number",
+    "source": "stripe | etsy | ...",
+    "reference": "charge/payment id (no secrets)",
+    "verified": "boolean"
+  }
+}
