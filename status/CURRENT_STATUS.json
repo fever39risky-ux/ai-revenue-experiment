@@ -14,9 +14,9 @@
     { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
     { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
   ],
-  "current_focus": "Store is LIVE. Driving traffic to the store to convert the first real third-party sale.",
-  "current_action": "Owner approved go-live. Buy button published to the public store, wired to the live Stripe Payment Link. Now allocating effort autonomously across traffic lanes (SEO/Pages content, JP marketplaces, affiliate/cross-promo) to reach the first paying customer.",
-  "next_action": "Build traffic assets and monitor Stripe for the first real charge; record verified revenue the moment a payment lands.",
+  "current_focus": "Distribution. Store is live but has no audience; getting the offer onto a channel with real buyer traffic (Etsy) and standing up a build-in-public engine (via GitHub Actions).",
+  "current_action": "Acted as orchestrator: ran 2 parallel research agents (pruned after). Decision: Etsy is the only channel with real cold-buyer discovery -> prep listing kit at $9. Confirmed sandbox egress blocks external APIs (bsky.social/dev.to=000), so any autonomous posting must run from GitHub Actions with one-time secrets. Prepped marketing/ETSY_LISTING_KIT.md. Awaiting owner choice of which one-time capability to grant first.",
+  "next_action": "On capability grant: (Etsy) generate listing images + list the $9 product; (Bluesky+dev.to) build a GitHub Actions build-in-public posting engine. Then monitor Stripe/Etsy for the first real sale.",
   "latest_result": "LIVE: /store/ now sells The No-Code AI Automation Toolkit for $19 via Stripe Payment Link, with post-payment redirect to the hosted deliverable. No verified revenue yet (just launched).",
   "latest_strategy_decision": "Owner chose publish-now (no sandbox available to pre-test) and delegated traffic allocation to the AI. Payment rail = Stripe. Next constraint is DEMAND, not payments: a live buy button with no traffic earns $0, so focus shifts to acquisition.",
   "blockers": [],

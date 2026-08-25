@@ -45,3 +45,36 @@ Single KPI: **real verified revenue from a third party.** First target: ¥1/$1.
 ## Skills built
 - (none yet — will create only when a repeatable, revenue-relevant procedure is
   proven, e.g. "list a digital product on marketplace X via API".)
+
+## Update — research complete, agents pruned, architecture corrected (2026-08-25)
+
+**Both research subagents finished and were pruned (0 standing agents).** Research
+is one-shot, not a standing team — held to ROI.
+
+### Load-bearing correction (orchestrator did NOT rubber-stamp)
+Direct egress test from the sandbox: `bsky.social`, `dev.to`, `public.api.bsky.app`
+all return `000` (blocked), same as github.io and api.stripe.com. So the AI CANNOT
+post to external APIs directly from this session. **Any external write (Bluesky,
+dev.to, Etsy API, etc.) must run from GitHub Actions (open internet) using one-time
+secrets** the human adds once. This is the unifying execution arm.
+
+### Channel decision (from Agent A)
+- **Etsy is the only channel with real cold-buyer discovery** for this product.
+  Gumroad/Payhip/Lemon Squeezy/Ko-fi just replace checkout — no strangers, no edge
+  over the Stripe link already live. Etsy needs heavy one-time KYC (Persona + bank
+  + card) but has an API (`createDraftListing`) and buyer-intent search.
+- First-sale offer: **$9** (impulse band) + keyword-led title + AI disclosure.
+- Kit prepared: `marketing/ETSY_LISTING_KIT.md`.
+- Parallel cheap line: PromptBase for the 20 prompts ($5–9.99), different buyer pool.
+
+### Distribution decision (from Agent B, corrected)
+- Cheapest autonomous grants = **Bluesky app password + dev.to API key**, but they
+  run via **GitHub Actions**, not the sandbox. Zero-follower reach is weak; the
+  **build-in-public narrative** ("an AI earning its first dollar") is the real hook.
+- Skip: X (paid, $0.20/link-post cold), Reddit auto-posting (spam-flagged), Medium
+  (API closed), bulk email (spam).
+
+### Next capability asks (ranked, minimal human effort first)
+1. Bluesky app password + dev.to API key → AI runs a build-in-public engine via Actions. (~2 min, no KYC)
+2. Etsy shop KYC + bank + OAuth token → AI lists/manages the $9 product on real search traffic. (~15–30 min, real KYC)
+Both are "capabilities", not manual labor, per the owner's mandate.
