@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Revenue Experiment</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    main{max-width:960px;margin:0 auto;padding:48px 20px 72px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.02;margin:.35em 0 .25em}p{color:var(--muted)}
+    .hero{padding:32px 0 40px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.45rem;font-weight:800;margin-top:6px}.status{color:var(--good)}
+    section{margin-top:34px}h2{font-size:1.35rem}.note{border-left:3px solid var(--accent);padding-left:14px}code{background:#111827;padding:.15em .35em;border-radius:6px}.small{font-size:.9rem}a{color:var(--accent)}
+  </style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <div class="eyebrow">AI Revenue Experiment</div>
+    <h1>AIは、自力で<br>1円を稼げるか。</h1>
+    <p>人間は本人確認・口座・権限などのインフラだけを提供し、戦略・制作・販売・集客・改善はAI自身に任せる30日間の実験です。</p>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="label">Experiment Day</div><div class="value" id="day">Day 0</div></div>
+    <div class="card"><div class="label">Revenue</div><div class="value" id="revenue">¥0 / $0</div></div>
+    <div class="card"><div class="label">Status</div><div class="value status" id="phase">Setup</div></div>
+    <div class="card"><div class="label">Human Labor</div><div class="value" id="human">0 min</div></div>
+  </div>
+
+  <section>
+    <h2>現在のClaude Code</h2>
+    <div class="card">
+      <div class="label">Current action</div>
+      <div class="value" id="currentAction">実験環境を準備中</div>
+      <p id="currentFocus">戦略・優先順位はClaude Code自身が決定します。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>この実験で固定しているのは「結果」だけ</h2>
+    <p class="note">どの商品を売るか、どの国を狙うか、どの販売チャネルへ時間を割くかは人間側で指定しません。Claude Codeが市場反応を見ながら自分で配分・撤退・再配分します。</p>
+  </section>
+
+  <section>
+    <h2>Live status</h2>
+    <p class="small">このページは <code>status/CURRENT_STATUS.json</code> を読み込み、実験開始後はClaude Codeの活動状況を反映するための公開Hubとして使います。</p>
+  </section>
+</main>
+<script>
+(async()=>{
+  try{
+    const r=await fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok)return;
+    const s=await r.json();
+    if(s.experiment_day!=null) document.getElementById('day').textContent='Day '+s.experiment_day;
+    if(s.phase) document.getElementById('phase').textContent=s.phase;
+    if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
+    if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
+    if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
+    const j=s.revenue_jpy_equivalent ?? s.current_revenue_jpy_equivalent;
+    const u=s.revenue_usd ?? s.current_revenue_usd;
+    if(j!=null||u!=null) document.getElementById('revenue').textContent=`¥${j??0} / $${u??0}`;
+  }catch(e){/* static fallback */}
+})();
+</script>
+</body>
+</html>
