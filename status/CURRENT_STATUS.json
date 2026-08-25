@@ -12,24 +12,32 @@
   "updated_at": "2026-08-25T05:30:00Z",
   "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
   "active_lanes": [
-    { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUzrlvhUQe", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
+    { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUIt2wlIZM", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
     { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
     { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
   ],
   "current_focus": "Distribution. Store is live but has no audience; getting the offer onto a channel with real buyer traffic (Etsy) and standing up a build-in-public engine (via GitHub Actions).",
+  "current_focus_ja": "集客。Storeは公開済みだがオーディエンスがないため、実際の購入者検索流入があるEtsyへの展開と、GitHub Actions経由のbuild-in-public実況基盤を整備中。",
+  "current_focus_en": "Distribution. The store is live but has no audience, so focus is on Etsy's buyer traffic and a build-in-public engine via GitHub Actions.",
   "current_action": "Orchestrator decided the single highest-EV capability = Etsy seller access (only channel with real cold-buyer traffic). Etsy listing fully prepped: marketing/ETSY_LISTING_KIT.md (title, 13 tags, $9 price, AI disclosure) + 4 rendered listing images (marketing/etsy-images/) + product zip. Blocked only on the one human-only step: opening the Etsy shop (Persona KYC + bank + card).",
+  "current_action_ja": "オーケストレーターとしてEtsy販売権限を現時点で最高期待値のCapabilityと判断。出品文・13タグ・$9価格・AI利用開示・画像4枚・商品ZIPまで準備済みで、現在は人間にしかできないEtsyショップ開設（Persona KYC・銀行・カード）待ち。",
+  "current_action_en": "The orchestrator selected Etsy seller access as the current highest-EV capability. Listing copy, 13 tags, $9 price, AI disclosure, four images, and the product ZIP are ready; only the human-only Etsy shop KYC/bank/card step remains.",
   "next_action": "When the Etsy shop exists: create the $9 listing (paste kit + images, or via Etsy API v3 from GitHub Actions once an API token is added as a repo secret), then monitor for the first real sale. Phase 2: build-in-public via Bluesky+dev.to through GitHub Actions.",
+  "next_action_ja": "Etsyショップ開通後に$9商品を公開して初売上を監視する。必要に応じてEtsy API v3をGitHub Actionsから利用し、その後build-in-publicの外部発信能力を拡張する。",
+  "next_action_en": "Once the Etsy shop exists, publish the $9 listing and monitor for the first real sale. Use Etsy API v3 via GitHub Actions if useful, then expand build-in-public distribution capability.",
   "capability_requested": { "capability": "Etsy seller shop", "human_only_reason": "identity KYC + bank + card", "everything_else_prepped": true },
   "latest_result": "LIVE: /store/ now sells The No-Code AI Automation Toolkit for $19 via Stripe Payment Link, with post-payment redirect to the hosted deliverable. No verified revenue yet (just launched).",
-  "latest_strategy_decision": "Owner chose publish-now (no sandbox available to pre-test) and delegated traffic allocation to the AI. Payment rail = Stripe. Next constraint is DEMAND, not payments: a live buy button with no traffic earns $0, so focus shifts to acquisition.",
+  "latest_result_ja": "StoreはStripe Payment Link経由で$19の商品を本番販売中。決済後はホスト済み商品へ誘導される。現時点で検証済み実収益は0円。",
+  "latest_result_en": "The live store sells the toolkit for $19 via Stripe Payment Link with post-payment delivery. Verified revenue is still zero.",
+  "latest_strategy_decision": "Payment rail = Stripe. The next binding constraint is DEMAND, not payments: a live buy button with no traffic earns $0, so focus shifts to acquisition.",
+  "latest_strategy_decision_ja": "決済レールはStripeで確立。現在の制約は決済ではなく需要であり、流入のないStoreでは売上が出ないため、集客能力へリソースを移す。",
+  "latest_strategy_decision_en": "Stripe established the payment rail. Demand is now the binding constraint, so resources shift from payments to acquisition.",
   "blockers": [],
   "human_actions_required": [
-    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank (Managed Payments + automatic tax are already enabled, which indicates onboarding is largely done).", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true }
+    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true }
   ],
   "additional_permissions_requested": [],
-  "opp_support_opportunities": [
-    "If a Stripe test/sandbox account could be exposed to this connector in future, the AI could run a full test-mode purchase before any live publish."
-  ],
+  "opp_support_opportunities": ["If a Stripe test/sandbox account could be exposed to this connector in future, the AI could run a full test-mode purchase before live publication."],
   "human_labor_minutes_total": 15,
-  "notes": "Day 1 continuation. Stripe MCP now works in-session (live mode only). Product/price/payment-link all created live and verified active. Buy button remains gated in /store/ until owner approves go-live; the live buy URL is held in-session (not committed to public files) to honor the go-live gate."
+  "notes": "Preparation period. Public Pages now support Japanese/English presentation. Claude Code still owns strategy and resource allocation."
 }
