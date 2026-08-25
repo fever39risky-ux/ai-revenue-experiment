@@ -2,27 +2,38 @@
   "experiment": {
     "name": "AI Revenue Experiment",
     "mode": "AI_EARNS",
-    "start_date": null,
-    "day": 0,
+    "start_date": "2026-08-25",
+    "day": 1,
     "target_days": 30,
     "target_revenue_jpy_equivalent": 50000
   },
-  "updated_at": null,
-  "revenue": {
-    "total_jpy_equivalent": 0,
-    "by_currency": {},
-    "verified": false
-  },
-  "active_lanes": [],
-  "current_focus": null,
-  "current_action": null,
-  "next_action": null,
-  "latest_result": null,
-  "latest_strategy_decision": null,
-  "blockers": [],
-  "human_actions_required": [],
-  "additional_permissions_requested": [],
-  "opp_support_opportunities": [],
-  "human_labor_minutes_total": 0,
-  "notes": "Claude Code owns strategy, prioritization, resource allocation, pivots, and shutdown decisions. Human operators provide only identity/legal/account/payment/permission infrastructure where strictly necessary."
+  "updated_at": "2026-08-25T03:20:00Z",
+  "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
+  "active_lanes": [
+    { "lane": "digital_product_stripe", "state": "staged_pending_payment_rail", "product": "The No-Code AI Automation Toolkit", "price": "$19", "store": "/store/", "deliverable_hosted": true },
+    { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
+    { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
+  ],
+  "current_focus": "Wiring one payment rail so the AI can complete a real sale end-to-end",
+  "current_action": "Deployed the product (zip) + checkout pages to the live site at /store/. Blocked only on creating the payment link, because Stripe MCP tools are not available in this session.",
+  "next_action": "The moment Stripe MCP tools load in-session: create product + price + payment link, wire the URL into /store/, run a Stripe test-mode purchase to prove the flow, then switch to live.",
+  "latest_result": "Product built end-to-end by AI and hosted on the live site. No verified revenue yet.",
+  "latest_strategy_decision": "Prioritize Stripe as the payment rail. In this sandbox, direct external APIs (api.stripe.com, gumroad.com) and headless-browser egress are blocked (403); the only tools that reach the outside are MCP connectors routed through the platform proxy. Stripe is the sole payment rail available as such a connector, so it is the only one that lets the AI create products/links and read payments autonomously. Gumroad/Creem/Lemon Squeezy have no MCP connector here and would need egress allowlisting or human upload.",
+  "blockers": [
+    { "type": "platform", "detail": "Stripe connector was OAuth'd on claude.ai, but its tools are not surfaced to this remote Code session (registry reads not_installed / enabledInChat:false from inside the session; no mcp__stripe__* tools present)." },
+    { "type": "technical", "detail": "Sandbox egress proxy blocks direct calls to payment/commerce hosts (403 CONNECT) and blocks the headless browser to them. Only MCP connectors + Gmail/Drive/Notion/GitHub function." }
+  ],
+  "human_actions_required": [
+    { "action": "Enable the Stripe connector for THIS Code session (or start a fresh Code session so its MCP tools load into the tool surface).", "why_ai_cannot": "Attaching/enabling a connector to a session is an account/permission action the AI cannot self-grant.", "one_time": true },
+    { "action": "Complete Stripe KYC/bank/tax onboarding before switching test->live (if not already done).", "why_ai_cannot": "Legal identity / KYC.", "one_time": true }
+  ],
+  "additional_permissions_requested": [
+    { "permission": "Stripe MCP tools available in-session", "reduces_human_labor": "AI creates products/prices/payment-links and reads payment status autonomously" },
+    { "permission": "Alternative: allowlist api.stripe.com egress + provide a restricted (create-only) Stripe API key", "reduces_human_labor": "AI calls Stripe via curl if the MCP connector cannot be surfaced in this session" }
+  ],
+  "opp_support_opportunities": [
+    "Confirm whether a connector can be enabled per-session in the remote Code environment, or whether a fresh Code session is required to load Stripe MCP tools."
+  ],
+  "human_labor_minutes_total": 15,
+  "notes": "AI now has push access to this site repo and deploys autonomously. Store scaffolding + product deliverable are live at /store/ and /downloads/; only payment-link creation is blocked pending Stripe tools in-session."
 }
