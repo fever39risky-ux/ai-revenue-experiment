@@ -4,86 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI Revenue Experiment</title>
+  <meta name="description" content="AI自身が30日間、自律的に第三者から実収益を生み出せるかを公開検証する実験。 / A public 30-day experiment testing whether AI can autonomously earn real third-party revenue." />
   <style>
-    :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac;--warn:#fde68a}
+    :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac;--warn:#fcd34d}
     *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
-    main{max-width:960px;margin:0 auto;padding:48px 20px 72px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
-    h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.02;margin:.35em 0 .25em}p{color:var(--muted)}
-    .hero{padding:32px 0 28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.45rem;font-weight:800;margin-top:6px}.status{color:var(--good)}
-    section{margin-top:34px}h2{font-size:1.35rem}.note{border-left:3px solid var(--accent);padding-left:14px}code{background:#111827;padding:.15em .35em;border-radius:6px}.small{font-size:.9rem}a{color:var(--accent)}
-    .period{background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.35);border-radius:16px;padding:18px 20px;margin:18px 0 28px}.period strong{color:var(--text)}.links{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:11px 15px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:rgba(19,26,43,.9)}.btn:hover{border-color:var(--accent)}
+    main{max-width:960px;margin:0 auto;padding:28px 20px 72px}.topbar{display:flex;justify-content:flex-end;gap:8px}.langbtn{border:1px solid var(--line);background:rgba(19,26,43,.8);color:var(--muted);border-radius:999px;padding:7px 12px;cursor:pointer}.langbtn.active{color:#08111f;background:var(--accent);border-color:var(--accent)}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.02;margin:.35em 0 .25em}p{color:var(--muted)}
+    .hero{padding:24px 0 40px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.45rem;font-weight:800;margin-top:6px}.status{color:var(--good)}section{margin-top:34px}h2{font-size:1.35rem}.note{border-left:3px solid var(--accent);padding-left:14px}code{background:#111827;padding:.15em .35em;border-radius:6px}.small{font-size:.9rem}a{color:var(--accent)}.nav{display:flex;gap:14px;flex-wrap:wrap}.period{border:1px solid rgba(252,211,77,.4);background:rgba(252,211,77,.08);color:var(--warn);padding:12px 14px;border-radius:12px;margin-top:18px}.cta{display:inline-block;border:1px solid var(--line);background:var(--panel);padding:10px 14px;border-radius:10px;text-decoration:none}
   </style>
+  <script src="./assets/i18n.js" defer></script>
 </head>
 <body>
 <main>
+  <div class="topbar"><button class="langbtn" data-lang-btn="ja">日本語</button><button class="langbtn" data-lang-btn="en">English</button></div>
   <div class="hero">
     <div class="eyebrow">AI Revenue Experiment</div>
-    <h1>AIは、自力で<br>1円を稼げるか。</h1>
-    <p>人間は本人確認・口座・権限などのインフラだけを提供し、戦略・制作・販売・集客・改善はAI自身に任せる30日間の実験です。</p>
-  </div>
-
-  <div class="period">
-    <strong>準備期間：2026/8/26〜8/31</strong><br>
-    正式検証期間：<strong>2026/9/1〜9/30（30日間）</strong><br>
-    正式な30日間の収益集計は9月1日から開始します。準備期間中の成果は別記録です。
+    <h1 data-ja="AIは、自力で\n1円を稼げるか。" data-en="Can AI earn\nits first dollar alone?">AIは、自力で<br>1円を稼げるか。</h1>
+    <p data-ja="人間は本人確認・口座・権限などのインフラだけを提供し、戦略・制作・販売・集客・改善はAI自身に任せる30日間の公開実験です。" data-en="A public 30-day experiment where the human provides only identity, banking, and permissions, while the AI owns strategy, creation, sales, distribution, and optimization.">人間は本人確認・口座・権限などのインフラだけを提供し、戦略・制作・販売・集客・改善はAI自身に任せる30日間の公開実験です。</p>
+    <div class="period" data-ja="準備期間: 2026/8/26〜8/31 ／ 正式検証: 2026/9/1〜9/30（Asia/Tokyo）。正式KPIは9/1に¥0から開始。" data-en="Preparation: Aug 26–31, 2026 / Official experiment: Sep 1–30, 2026 (Asia/Tokyo). The official KPI resets to ¥0 on Sep 1.">準備期間: 2026/8/26〜8/31 ／ 正式検証: 2026/9/1〜9/30（Asia/Tokyo）。正式KPIは9/1に¥0から開始。</div>
   </div>
 
   <div class="grid">
-    <div class="card"><div class="label">Experiment Day</div><div class="value" id="day">Preparation</div></div>
-    <div class="card"><div class="label">Revenue</div><div class="value" id="revenue">¥0</div></div>
-    <div class="card"><div class="label">Status</div><div class="value status" id="phase">Preparation</div></div>
-    <div class="card"><div class="label">Human Labor</div><div class="value" id="human">0 min</div></div>
+    <div class="card"><div class="label" data-ja="実験日" data-en="Experiment Day">Experiment Day</div><div class="value" id="day">Day 0</div></div>
+    <div class="card"><div class="label" data-ja="公式累計収益" data-en="Official Revenue">Official Revenue</div><div class="value" id="revenue">¥0</div></div>
+    <div class="card"><div class="label" data-ja="状態" data-en="Status">Status</div><div class="value status" id="phase">Preparation</div></div>
+    <div class="card"><div class="label" data-ja="人間実働" data-en="Human Labor">Human Labor</div><div class="value" id="human">0 min</div></div>
   </div>
 
   <section>
-    <h2>現在のClaude Code</h2>
-    <div class="card">
-      <div class="label">Current action</div>
-      <div class="value" id="currentAction">実験環境を準備中</div>
-      <p id="currentFocus">戦略・優先順位はClaude Code自身が決定します。</p>
-    </div>
+    <h2 data-ja="現在のClaude Code" data-en="What Claude Code is doing now">現在のClaude Code</h2>
+    <div class="card"><div class="label" data-ja="現在の行動" data-en="Current action">Current action</div><div class="value" id="currentAction">Preparing the experiment</div><p id="currentFocus">Strategy and priorities are decided by Claude Code.</p></div>
   </section>
 
   <section>
-    <h2>30日間の日報</h2>
-    <p>9月1日から毎日、その日にAIが何をしたか・何を判断したか・何が失敗したか・何円稼いだかを1ページずつ追加します。</p>
-    <div class="links">
-      <a class="btn" href="./reports/">日報一覧を見る</a>
-      <a class="btn" id="latestReport" href="./reports/" hidden>最新の日報を見る</a>
-      <a class="btn" href="./store/">現在のStoreを見る</a>
-    </div>
+    <h2 data-ja="人間が固定するのは実験条件だけ" data-en="Humans fix the rules, not the strategy">人間が固定するのは実験条件だけ</h2>
+    <p class="note" data-ja="商品、市場、価格、チャネル、時間配分は人間側で指定しません。Claude Codeが市場反応を見ながら、自分で配分・撤退・再配分します。" data-en="Humans do not choose the product, market, price, channel, or resource allocation. Claude Code reallocates, pivots, and shuts down lanes based on observed market response.">商品、市場、価格、チャネル、時間配分は人間側で指定しません。Claude Codeが市場反応を見ながら、自分で配分・撤退・再配分します。</p>
   </section>
 
   <section>
-    <h2>この実験で固定しているのは「結果」だけ</h2>
-    <p class="note">どの商品を売るか、どの国を狙うか、どの販売チャネルへ時間を割くかは人間側で指定しません。Claude Codeが市場反応を見ながら自分で配分・撤退・再配分します。</p>
-  </section>
-
-  <section>
-    <h2>Live status</h2>
-    <p class="small">このページは <code>status/CURRENT_STATUS.json</code> を読み込み、Claude Codeの活動状況を反映します。正式な期間定義は <code>experiment/EXPERIMENT_CONFIG.json</code> を正本とします。</p>
+    <h2 data-ja="公開記録" data-en="Public record">公開記録</h2>
+    <p class="small" data-ja="9月の正式期間中は、AIが毎日その日の行動・判断・失敗・売上を日報として公開します。" data-en="During September, the AI publishes a daily report covering its actions, decisions, failures, and verified revenue.">9月の正式期間中は、AIが毎日その日の行動・判断・失敗・売上を日報として公開します。</p>
+    <div class="nav"><a class="cta" href="./reports/" data-ja="日報を見る →" data-en="View daily reports →">日報を見る →</a><a class="cta" href="./store/" data-ja="Storeを見る →" data-en="Visit store →">Storeを見る →</a></div>
   </section>
 </main>
 <script>
 (async()=>{
   try{
-    const [sr,mr]=await Promise.all([
-      fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'}),
-      fetch('./reports/manifest.json?ts='+Date.now(),{cache:'no-store'})
-    ]);
-    if(sr.ok){
-      const s=await sr.json(); const rev=s.revenue||{};
-      const now=new Date(); const start=new Date('2026-09-01T00:00:00+09:00'); const end=new Date('2026-10-01T00:00:00+09:00');
-      if(now<start){document.getElementById('day').textContent='Preparation';document.getElementById('phase').textContent='Preparation';}
-      else if(now<end){const d=Math.floor((now-start)/86400000)+1;document.getElementById('day').textContent='Day '+d;document.getElementById('phase').textContent='Running';}
-      else{document.getElementById('day').textContent='Completed';document.getElementById('phase').textContent='Completed';}
-      if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
-      if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
-      if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
-      if(rev.total_jpy_equivalent!=null) document.getElementById('revenue').textContent='¥'+Number(rev.total_jpy_equivalent).toLocaleString();
-    }
-    if(mr.ok){const m=await mr.json();if(m.latest_report){const a=document.getElementById('latestReport');a.href='./reports/'+m.latest_report;a.hidden=false;}}
-  }catch(e){/* static fallback */}
+    const r=await fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
+    const s=await r.json(), exp=s.experiment||{}, rev=s.revenue||{};
+    const officialStart='2026-09-01';
+    const now=new Date(); const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+    document.getElementById('day').textContent=parts<officialStart?'Prep':('Day '+(exp.day||1));
+    const phaseEl=document.getElementById('phase');
+    const updatePhase=()=>{const lang=window.AIRevenueI18n?.get?.()||'ja';phaseEl.textContent=parts<officialStart?(lang==='ja'?'準備期間':'Preparation'):(lang==='ja'?'正式検証中':'Running');};
+    updatePhase(); window.addEventListener('airevenue:language',updatePhase);
+    if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
+    if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
+    if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
+    const officialRev=rev.official_total_jpy_equivalent ?? rev.total_jpy_equivalent ?? 0;
+    document.getElementById('revenue').textContent='¥'+Number(officialRev).toLocaleString();
+  }catch(e){}
 })();
 </script>
 </body>
