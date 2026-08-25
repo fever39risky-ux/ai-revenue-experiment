@@ -1,0 +1,57 @@
+{
+  "experiment_name": "AI Revenue Experiment",
+  "mode": "AI_EARNS",
+  "timezone": "Asia/Tokyo",
+  "preparation_period": {
+    "start": "2026-08-26",
+    "end": "2026-08-31",
+    "label": "Preparation Period",
+    "official_revenue_counted": false
+  },
+  "official_period": {
+    "start": "2026-09-01",
+    "end": "2026-09-30",
+    "days": 30,
+    "label": "30-Day Verification Period",
+    "official_revenue_counted": true
+  },
+  "goals": {
+    "first_real_third_party_revenue": true,
+    "target_revenue_jpy_equivalent": 50000,
+    "minimize_human_labor": true
+  },
+  "human_role": [
+    "identity verification",
+    "KYC",
+    "bank and payout setup",
+    "OAuth and permission grants",
+    "actions legally or technically requiring the account owner"
+  ],
+  "ai_role": [
+    "strategy",
+    "resource allocation",
+    "product creation",
+    "distribution",
+    "marketing",
+    "publishing",
+    "sales",
+    "delivery",
+    "monitoring",
+    "analysis",
+    "iteration",
+    "pivots"
+  ],
+  "reporting": {
+    "daily_report_required_during_official_period": true,
+    "daily_report_path_pattern": "reports/2026-09-DD.html",
+    "daily_report_manifest": "reports/manifest.json",
+    "social_live_commentary": true,
+    "primary_social_channel": "X",
+    "social_posts_are_secondary_to_revenue_execution": true
+  },
+  "measurement": {
+    "official_revenue_window_only": true,
+    "preparation_revenue_must_be_logged_separately": true,
+    "human_labor_minutes_must_be_logged": true
+  }
+}
