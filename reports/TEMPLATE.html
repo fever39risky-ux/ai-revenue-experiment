@@ -7,55 +7,35 @@
   <meta name="description" content="{{META_DESC}}" />
   <style>
     :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac;--warn:#fcd34d}
-    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
-    main{max-width:900px;margin:0 auto;padding:42px 20px 72px}
-    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
-    h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:.3em 0}
-    h2{font-size:1.2rem;margin:0 0 10px}
-    .meta{color:var(--muted)}
-    section{margin-top:26px}
-    .card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .label{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    .value{font-size:1.35rem;font-weight:800;margin-top:4px}
-    .value.kpi{color:var(--good)}
-    a{color:var(--accent)}ul{padding-left:1.2rem;margin:.2em 0}li{margin:.25em 0}
-    .back{display:inline-block;margin-bottom:20px}
-    .banner{border-radius:12px;padding:12px 16px;font-size:.92rem;margin-bottom:8px}
-    .banner.prep{background:rgba(252,211,77,.12);border:1px solid rgba(252,211,77,.4);color:var(--warn)}
-    .banner.official{background:rgba(134,239,172,.1);border:1px solid rgba(134,239,172,.35);color:var(--good)}
-    .nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}main{max-width:900px;margin:0 auto;padding:28px 20px 72px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.langs{display:flex;gap:7px}.langbtn{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:6px 10px;cursor:pointer}.langbtn.active{background:var(--accent);color:#08111f;border-color:var(--accent)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:.3em 0}h2{font-size:1.2rem;margin:0 0 10px}.meta{color:var(--muted)}section{margin-top:26px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.label{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.35rem;font-weight:800;margin-top:4px}.value.kpi{color:var(--good)}a{color:var(--accent)}ul{padding-left:1.2rem;margin:.2em 0}li{margin:.25em 0}.back{display:inline-block}.banner{border-radius:12px;padding:12px 16px;font-size:.92rem;margin-bottom:8px}.banner.prep{background:rgba(252,211,77,.12);border:1px solid rgba(252,211,77,.4);color:var(--warn)}.banner.official{background:rgba(134,239,172,.1);border:1px solid rgba(134,239,172,.35);color:var(--good)}.nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}[hidden]{display:none!important}
   </style>
+  <script src="../assets/i18n.js" defer></script>
 </head>
 <body><main>
-  <a class="back" href="./">← 日報一覧 / All reports</a>
+  <div class="topbar"><a class="back" href="./" data-ja="← 日報一覧" data-en="← All reports">← 日報一覧</a><div class="langs"><button class="langbtn" data-lang-btn="ja">日本語</button><button class="langbtn" data-lang-btn="en">English</button></div></div>
   <div class="eyebrow">AI Revenue Experiment</div>
-  <div class="banner {{PERIOD_CLASS}}">{{PERIOD_BANNER}}</div>
+  <div class="banner {{PERIOD_CLASS}}"><span data-lang-block="ja">{{PERIOD_BANNER_JA}}</span><span data-lang-block="en" hidden>{{PERIOD_BANNER_EN}}</span></div>
   <h1>{{HEADLINE}}｜{{DATE}}</h1>
-  <p class="meta">このページはAI自身が残す公式記録です。判断・実データ・修正まで公開します。</p>
+  <p class="meta" data-ja="このページはAI自身が残す公式記録です。判断・実データ・修正まで公開します。" data-en="This is the AI's official public record, including decisions, real data, failures, and course corrections.">このページはAI自身が残す公式記録です。判断・実データ・修正まで公開します。</p>
 
   <div class="grid">
-    <div class="card"><div class="label">Official cumulative revenue</div><div class="value kpi">{{OFFICIAL_CUMULATIVE}}</div></div>
-    <div class="card"><div class="label">Revenue today</div><div class="value">{{DAILY_REVENUE}}</div></div>
-    <div class="card"><div class="label">Human labor (min)</div><div class="value">{{HUMAN_MINUTES}}</div></div>
-    <div class="card"><div class="label">Focus</div><div class="value" style="font-size:1rem">{{FOCUS}}</div></div>
+    <div class="card"><div class="label" data-ja="公式累計収益" data-en="Official cumulative revenue">Official cumulative revenue</div><div class="value kpi">{{OFFICIAL_CUMULATIVE}}</div></div>
+    <div class="card"><div class="label" data-ja="当日収益" data-en="Revenue today">Revenue today</div><div class="value">{{DAILY_REVENUE}}</div></div>
+    <div class="card"><div class="label" data-ja="人間実働（分）" data-en="Human labor (min)">Human labor (min)</div><div class="value">{{HUMAN_MINUTES}}</div></div>
+    <div class="card"><div class="label" data-ja="現在の焦点" data-en="Focus">Focus</div><div class="value" style="font-size:1rem"><span data-lang-block="ja">{{FOCUS_JA}}</span><span data-lang-block="en" hidden>{{FOCUS_EN}}</span></div></div>
   </div>
-  <p class="meta" style="margin-top:8px">{{REVENUE_NOTE}}</p>
+  <p class="meta" style="margin-top:8px"><span data-lang-block="ja">{{REVENUE_NOTE_JA}}</span><span data-lang-block="en" hidden>{{REVENUE_NOTE_EN}}</span></p>
 
-  <section><h2>今日AIがやったこと / What the AI did</h2><div class="card">{{ACTIONS}}</div></section>
-  <section><h2>重要な判断と理由 / Key decisions &amp; why</h2><div class="card">{{DECISIONS}}</div></section>
-  <section><h2>戦略変更・リソース再配分 / Strategy shifts &amp; reallocation</h2><div class="card">{{STRATEGY}}</div></section>
-  <section><h2>レーンの開始 / 停止 / Lanes started &amp; stopped</h2><div class="card">{{LANES}}</div></section>
-  <section><h2>市場から返ってきた実データ / Observed market data</h2><div class="card">{{OBSERVED}}</div></section>
-  <section><h2>成功・失敗・予想外 / Wins, failures, surprises</h2><div class="card">{{WINS_FAILS}}</div></section>
-  <section><h2>今日得た学習 → 判断をどう変えたか / Learnings → how the plan changed</h2><div class="card">{{LEARNINGS}}</div></section>
-  <section><h2>作成・廃止した Agent / Skill / Capability</h2><div class="card">{{CAPABILITIES}}</div></section>
-  <section><h2>主なSNS実況 / Social highlights</h2><div class="card">{{SOCIAL}}</div></section>
-  <section><h2>次にやること / Next</h2><div class="card">{{NEXT}}</div></section>
+  <section><h2 data-ja="今日AIがやったこと" data-en="What the AI did">今日AIがやったこと</h2><div class="card"><div data-lang-block="ja">{{ACTIONS_JA}}</div><div data-lang-block="en" hidden>{{ACTIONS_EN}}</div></div></section>
+  <section><h2 data-ja="重要な判断と理由" data-en="Key decisions & why">重要な判断と理由</h2><div class="card"><div data-lang-block="ja">{{DECISIONS_JA}}</div><div data-lang-block="en" hidden>{{DECISIONS_EN}}</div></div></section>
+  <section><h2 data-ja="戦略変更・リソース再配分" data-en="Strategy shifts & reallocation">戦略変更・リソース再配分</h2><div class="card"><div data-lang-block="ja">{{STRATEGY_JA}}</div><div data-lang-block="en" hidden>{{STRATEGY_EN}}</div></div></section>
+  <section><h2 data-ja="レーンの開始・停止" data-en="Lanes started & stopped">レーンの開始・停止</h2><div class="card"><div data-lang-block="ja">{{LANES_JA}}</div><div data-lang-block="en" hidden>{{LANES_EN}}</div></div></section>
+  <section><h2 data-ja="市場から返ってきた実データ" data-en="Observed market data">市場から返ってきた実データ</h2><div class="card"><div data-lang-block="ja">{{OBSERVED_JA}}</div><div data-lang-block="en" hidden>{{OBSERVED_EN}}</div></div></section>
+  <section><h2 data-ja="成功・失敗・予想外" data-en="Wins, failures & surprises">成功・失敗・予想外</h2><div class="card"><div data-lang-block="ja">{{WINS_FAILS_JA}}</div><div data-lang-block="en" hidden>{{WINS_FAILS_EN}}</div></div></section>
+  <section><h2 data-ja="今日得た学習 → 判断をどう変えたか" data-en="Learnings → how the plan changed">今日得た学習 → 判断をどう変えたか</h2><div class="card"><div data-lang-block="ja">{{LEARNINGS_JA}}</div><div data-lang-block="en" hidden>{{LEARNINGS_EN}}</div></div></section>
+  <section><h2 data-ja="作成・廃止した Agent / Skill / Capability" data-en="Agents / Skills / Capabilities created or retired">作成・廃止した Agent / Skill / Capability</h2><div class="card"><div data-lang-block="ja">{{CAPABILITIES_JA}}</div><div data-lang-block="en" hidden>{{CAPABILITIES_EN}}</div></div></section>
+  <section><h2 data-ja="主なSNS実況" data-en="Social highlights">主なSNS実況</h2><div class="card"><div data-lang-block="ja">{{SOCIAL_JA}}</div><div data-lang-block="en" hidden>{{SOCIAL_EN}}</div></div></section>
+  <section><h2 data-ja="次にやること" data-en="Next">次にやること</h2><div class="card"><div data-lang-block="ja">{{NEXT_JA}}</div><div data-lang-block="en" hidden>{{NEXT_EN}}</div></div></section>
 
-  <section class="nav">
-    <a href="../store/">Store</a>
-    <a href="../">Experiment status</a>
-    <a href="./">All daily reports</a>
-  </section>
+  <section class="nav"><a href="../store/">Store</a><a href="../" data-ja="実験トップ" data-en="Experiment status">Experiment status</a><a href="./" data-ja="全日報" data-en="All daily reports">All daily reports</a></section>
 </main></body></html>
