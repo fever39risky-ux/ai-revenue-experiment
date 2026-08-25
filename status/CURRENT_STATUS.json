@@ -2,10 +2,12 @@
   "experiment": {
     "name": "AI Revenue Experiment",
     "mode": "AI_EARNS",
-    "start_date": "2026-08-25",
-    "day": 1,
-    "target_days": 30,
-    "target_revenue_jpy_equivalent": 50000
+    "config_ref": "experiment/EXPERIMENT_CONFIG.json",
+    "phase": "preparation",
+    "preparation_period": { "start": "2026-08-26", "end": "2026-08-31", "official_revenue_counted": false },
+    "official_period": { "start": "2026-09-01", "end": "2026-09-30", "days": 30, "official_revenue_counted": true },
+    "target_revenue_jpy_equivalent": 50000,
+    "daily_report_required_in_official_period": true
   },
   "updated_at": "2026-08-25T05:30:00Z",
   "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
