@@ -1,52 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank you — Download your Toolkit</title>
-<meta name="robots" content="noindex">
-<!--
-  Payment Link の after-payment redirect 先。
-  DOWNLOAD_URL に、納品ファイル(zip)の配布URLを入れる:
-   - GitHub Pages の /downloads/AI_Automation_Toolkit.zip（推測困難名にする）または
-   - Google Drive の共有リンク
-  ※ 静的サイトのため支払い検証はStripe側の確認メッセージ/領収書に依存。
-    厳密なゲートが必要なら worker/ の Level 2（署名付きURL）へ。
--->
-<script>window.DOWNLOAD_URL = "../downloads/ai-automation-toolkit-8f3a2c.zip";</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you — Download your Toolkit</title><meta name="robots" content="noindex">
+<script>window.DOWNLOAD_URL="../downloads/ai-automation-toolkit-8f3a2c.zip";</script>
 <style>
-  :root{--bg:#0f1720;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f}
-  @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8}}
-  *{box-sizing:border-box}body{margin:0;font-family:"Inter",-apple-system,system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1118);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.7}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px 32px;max-width:520px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.4)}
-  .check{width:64px;height:64px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;color:#fff}
-  h1{font-family:"Space Grotesk",system-ui,sans-serif;font-size:26px;margin:0 0 12px}
-  p{color:var(--sub);font-size:15px;margin:0 0 22px}
-  .dl{display:inline-flex;align-items:center;gap:10px;font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:17px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:15px 28px;border-radius:13px;box-shadow:0 10px 26px rgba(62,166,160,.35)}
-  .steps{text-align:left;background:var(--soft);border-radius:12px;padding:16px 18px;margin-top:24px;font-size:13.5px;color:var(--sub)}
-  .steps b{color:var(--ink)}
-  .mini{font-size:12.5px;color:var(--sub);margin-top:18px}
-</style>
-</head>
-<body>
-<div class="card">
-  <div class="check">✓</div>
-  <h1>Payment complete — thank you!</h1>
-  <p>Your receipt is on its way by email. Download your toolkit below (also keep this link).</p>
-  <a class="dl" id="dl" href="#">⬇ Download the Toolkit (.zip)</a>
-  <div class="steps">
-    <b>Start here:</b><br>
-    1. Open <b>1_AI_Automation_Toolkit.pdf</b> and do Workflow 1 (~5 min).<br>
-    2. Import <b>2_prompt_library.csv</b> into Google Sheets or Notion.<br>
-    3. For automation, paste <b>3_ai_batch.gs</b> into Sheets → Extensions → Apps Script.<br>
-    Questions? Just reply to your receipt email. Updates are free.
-  </div>
-  <div class="mini">Trouble downloading? Reply to your Stripe receipt and we'll send it directly.</div>
-</div>
-<script>
-  var a=document.getElementById("dl"), u=window.DOWNLOAD_URL;
-  if(u && u.indexOf("../downloads/ai-automation-toolkit-8f3a2c.zip")!==0){ a.href=u; a.setAttribute("download",""); }
-  else { a.textContent="Download link will appear here at launch"; }
-</script>
-</body>
-</html>
+:root{--bg:#0f1720;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f}@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8}}*{box-sizing:border-box}body{margin:0;font-family:"Inter",-apple-system,system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1118);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.7}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 32px 40px;max-width:560px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.4)}.langs{display:flex;justify-content:flex-end;gap:7px;margin-bottom:16px}.langbtn{border:1px solid var(--line);background:var(--card);color:var(--sub);border-radius:999px;padding:6px 10px;cursor:pointer}.langbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.check{width:64px;height:64px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;color:#fff}h1{font-family:"Space Grotesk",system-ui,sans-serif;font-size:26px;margin:0 0 12px}p{color:var(--sub);font-size:15px;margin:0 0 22px}.dl{display:inline-flex;align-items:center;gap:10px;font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:17px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:15px 28px;border-radius:13px;box-shadow:0 10px 26px rgba(62,166,160,.35)}.steps{text-align:left;background:var(--soft);border-radius:12px;padding:16px 18px;margin-top:24px;font-size:13.5px;color:var(--sub)}.steps b{color:var(--ink)}.mini{font-size:12.5px;color:var(--sub);margin-top:18px}
+</style><script src="../assets/i18n.js" defer></script>
+</head><body><div class="card"><div class="langs"><button class="langbtn" data-lang-btn="ja">日本語</button><button class="langbtn" data-lang-btn="en">English</button></div><div class="check">✓</div>
+<h1 data-ja="お支払い完了 — ありがとうございます！" data-en="Payment complete — thank you!">Payment complete — thank you!</h1>
+<p data-ja="領収書はメールで届きます。下のボタンからツールキットをダウンロードしてください。" data-en="Your receipt is on its way by email. Download your toolkit below and keep this page handy.">Your receipt is on its way by email.</p>
+<a class="dl" id="dl" href="#" data-ja="⬇ ツールキットをダウンロード (.zip)" data-en="⬇ Download the Toolkit (.zip)">⬇ Download the Toolkit (.zip)</a>
+<div class="steps" data-lang-block="en"><b>Start here:</b><br>1. Open <b>1_AI_Automation_Toolkit.pdf</b> and do Workflow 1 (~5 min).<br>2. Import <b>2_prompt_library.csv</b> into Google Sheets or Notion.<br>3. For automation, paste <b>3_ai_batch.gs</b> into Sheets → Extensions → Apps Script.<br>Questions? Reply to your receipt email. Updates are free.</div>
+<div class="steps" data-lang-block="ja" hidden><b>最初にやること:</b><br>1. <b>1_AI_Automation_Toolkit.pdf</b> を開いてWorkflow 1を試す（約5分）。<br>2. <b>2_prompt_library.csv</b> をGoogle SheetsまたはNotionへ取り込む。<br>3. 自動化する場合は <b>3_ai_batch.gs</b> を Sheets → 拡張機能 → Apps Script に貼り付ける。<br>質問があれば領収書メールへ返信してください。アップデートは無料です。</div>
+<div class="mini" data-ja="ダウンロードで問題があれば、Stripeの領収書メールへ返信してください。" data-en="Trouble downloading? Reply to your Stripe receipt and we'll send it directly.">Trouble downloading? Reply to your Stripe receipt.</div>
+</div><script>var a=document.getElementById('dl'),u=window.DOWNLOAD_URL;if(u){a.href=u;a.setAttribute('download','');}</script></body></html>
