@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI Revenue Experiment</title>
   <style>
-    :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac}
+    :root{--bg:#0b1020;--panel:#131a2b;--text:#eef2ff;--muted:#a9b3c9;--line:#26314b;--accent:#7dd3fc;--good:#86efac;--warn:#fde68a}
     *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
     main{max-width:960px;margin:0 auto;padding:48px 20px 72px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
     h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.02;margin:.35em 0 .25em}p{color:var(--muted)}
-    .hero{padding:32px 0 40px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.45rem;font-weight:800;margin-top:6px}.status{color:var(--good)}
+    .hero{padding:32px 0 28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:rgba(19,26,43,.9);border:1px solid var(--line);border-radius:16px;padding:20px}.label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.45rem;font-weight:800;margin-top:6px}.status{color:var(--good)}
     section{margin-top:34px}h2{font-size:1.35rem}.note{border-left:3px solid var(--accent);padding-left:14px}code{background:#111827;padding:.15em .35em;border-radius:6px}.small{font-size:.9rem}a{color:var(--accent)}
+    .period{background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.35);border-radius:16px;padding:18px 20px;margin:18px 0 28px}.period strong{color:var(--text)}.links{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:11px 15px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:rgba(19,26,43,.9)}.btn:hover{border-color:var(--accent)}
   </style>
 </head>
 <body>
@@ -21,10 +22,16 @@
     <p>人間は本人確認・口座・権限などのインフラだけを提供し、戦略・制作・販売・集客・改善はAI自身に任せる30日間の実験です。</p>
   </div>
 
+  <div class="period">
+    <strong>準備期間：2026/8/26〜8/31</strong><br>
+    正式検証期間：<strong>2026/9/1〜9/30（30日間）</strong><br>
+    正式な30日間の収益集計は9月1日から開始します。準備期間中の成果は別記録です。
+  </div>
+
   <div class="grid">
-    <div class="card"><div class="label">Experiment Day</div><div class="value" id="day">Day 0</div></div>
+    <div class="card"><div class="label">Experiment Day</div><div class="value" id="day">Preparation</div></div>
     <div class="card"><div class="label">Revenue</div><div class="value" id="revenue">¥0</div></div>
-    <div class="card"><div class="label">Status</div><div class="value status" id="phase">Setup</div></div>
+    <div class="card"><div class="label">Status</div><div class="value status" id="phase">Preparation</div></div>
     <div class="card"><div class="label">Human Labor</div><div class="value" id="human">0 min</div></div>
   </div>
 
@@ -38,29 +45,44 @@
   </section>
 
   <section>
+    <h2>30日間の日報</h2>
+    <p>9月1日から毎日、その日にAIが何をしたか・何を判断したか・何が失敗したか・何円稼いだかを1ページずつ追加します。</p>
+    <div class="links">
+      <a class="btn" href="./reports/">日報一覧を見る</a>
+      <a class="btn" id="latestReport" href="./reports/" hidden>最新の日報を見る</a>
+      <a class="btn" href="./store/">現在のStoreを見る</a>
+    </div>
+  </section>
+
+  <section>
     <h2>この実験で固定しているのは「結果」だけ</h2>
     <p class="note">どの商品を売るか、どの国を狙うか、どの販売チャネルへ時間を割くかは人間側で指定しません。Claude Codeが市場反応を見ながら自分で配分・撤退・再配分します。</p>
   </section>
 
   <section>
     <h2>Live status</h2>
-    <p class="small">このページは <code>status/CURRENT_STATUS.json</code> を読み込み、実験開始後はClaude Codeの活動状況を反映するための公開Hubとして使います。</p>
+    <p class="small">このページは <code>status/CURRENT_STATUS.json</code> を読み込み、Claude Codeの活動状況を反映します。正式な期間定義は <code>experiment/EXPERIMENT_CONFIG.json</code> を正本とします。</p>
   </section>
 </main>
 <script>
 (async()=>{
   try{
-    const r=await fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'});
-    if(!r.ok)return;
-    const s=await r.json();
-    const exp=s.experiment||{};
-    const rev=s.revenue||{};
-    if(exp.day!=null) document.getElementById('day').textContent='Day '+exp.day;
-    document.getElementById('phase').textContent=exp.day>0?'Running':'Setup';
-    if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
-    if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
-    if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
-    if(rev.total_jpy_equivalent!=null) document.getElementById('revenue').textContent='¥'+Number(rev.total_jpy_equivalent).toLocaleString();
+    const [sr,mr]=await Promise.all([
+      fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'}),
+      fetch('./reports/manifest.json?ts='+Date.now(),{cache:'no-store'})
+    ]);
+    if(sr.ok){
+      const s=await sr.json(); const rev=s.revenue||{};
+      const now=new Date(); const start=new Date('2026-09-01T00:00:00+09:00'); const end=new Date('2026-10-01T00:00:00+09:00');
+      if(now<start){document.getElementById('day').textContent='Preparation';document.getElementById('phase').textContent='Preparation';}
+      else if(now<end){const d=Math.floor((now-start)/86400000)+1;document.getElementById('day').textContent='Day '+d;document.getElementById('phase').textContent='Running';}
+      else{document.getElementById('day').textContent='Completed';document.getElementById('phase').textContent='Completed';}
+      if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
+      if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
+      if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
+      if(rev.total_jpy_equivalent!=null) document.getElementById('revenue').textContent='¥'+Number(rev.total_jpy_equivalent).toLocaleString();
+    }
+    if(mr.ok){const m=await mr.json();if(m.latest_report){const a=document.getElementById('latestReport');a.href='./reports/'+m.latest_report;a.hidden=false;}}
   }catch(e){/* static fallback */}
 })();
 </script>
