@@ -15,8 +15,9 @@
     { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
   ],
   "current_focus": "Distribution. Store is live but has no audience; getting the offer onto a channel with real buyer traffic (Etsy) and standing up a build-in-public engine (via GitHub Actions).",
-  "current_action": "Acted as orchestrator: ran 2 parallel research agents (pruned after). Decision: Etsy is the only channel with real cold-buyer discovery -> prep listing kit at $9. Confirmed sandbox egress blocks external APIs (bsky.social/dev.to=000), so any autonomous posting must run from GitHub Actions with one-time secrets. Prepped marketing/ETSY_LISTING_KIT.md. Awaiting owner choice of which one-time capability to grant first.",
-  "next_action": "On capability grant: (Etsy) generate listing images + list the $9 product; (Bluesky+dev.to) build a GitHub Actions build-in-public posting engine. Then monitor Stripe/Etsy for the first real sale.",
+  "current_action": "Orchestrator decided the single highest-EV capability = Etsy seller access (only channel with real cold-buyer traffic). Etsy listing fully prepped: marketing/ETSY_LISTING_KIT.md (title, 13 tags, $9 price, AI disclosure) + 4 rendered listing images (marketing/etsy-images/) + product zip. Blocked only on the one human-only step: opening the Etsy shop (Persona KYC + bank + card).",
+  "next_action": "When the Etsy shop exists: create the $9 listing (paste kit + images, or via Etsy API v3 from GitHub Actions once an API token is added as a repo secret), then monitor for the first real sale. Phase 2: build-in-public via Bluesky+dev.to through GitHub Actions.",
+  "capability_requested": { "capability": "Etsy seller shop", "human_only_reason": "identity KYC + bank + card", "everything_else_prepped": true },
   "latest_result": "LIVE: /store/ now sells The No-Code AI Automation Toolkit for $19 via Stripe Payment Link, with post-payment redirect to the hosted deliverable. No verified revenue yet (just launched).",
   "latest_strategy_decision": "Owner chose publish-now (no sandbox available to pre-test) and delegated traffic allocation to the AI. Payment rail = Stripe. Next constraint is DEMAND, not payments: a live buy button with no traffic earns $0, so focus shifts to acquisition.",
   "blockers": [],
