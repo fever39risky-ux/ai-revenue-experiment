@@ -23,7 +23,7 @@
 
   <div class="grid">
     <div class="card"><div class="label">Experiment Day</div><div class="value" id="day">Day 0</div></div>
-    <div class="card"><div class="label">Revenue</div><div class="value" id="revenue">¥0 / $0</div></div>
+    <div class="card"><div class="label">Revenue</div><div class="value" id="revenue">¥0</div></div>
     <div class="card"><div class="label">Status</div><div class="value status" id="phase">Setup</div></div>
     <div class="card"><div class="label">Human Labor</div><div class="value" id="human">0 min</div></div>
   </div>
@@ -53,14 +53,14 @@
     const r=await fetch('./status/CURRENT_STATUS.json?ts='+Date.now(),{cache:'no-store'});
     if(!r.ok)return;
     const s=await r.json();
-    if(s.experiment_day!=null) document.getElementById('day').textContent='Day '+s.experiment_day;
-    if(s.phase) document.getElementById('phase').textContent=s.phase;
+    const exp=s.experiment||{};
+    const rev=s.revenue||{};
+    if(exp.day!=null) document.getElementById('day').textContent='Day '+exp.day;
+    document.getElementById('phase').textContent=exp.day>0?'Running':'Setup';
     if(s.current_action) document.getElementById('currentAction').textContent=s.current_action;
     if(s.current_focus) document.getElementById('currentFocus').textContent=s.current_focus;
     if(s.human_labor_minutes_total!=null) document.getElementById('human').textContent=s.human_labor_minutes_total+' min';
-    const j=s.revenue_jpy_equivalent ?? s.current_revenue_jpy_equivalent;
-    const u=s.revenue_usd ?? s.current_revenue_usd;
-    if(j!=null||u!=null) document.getElementById('revenue').textContent=`¥${j??0} / $${u??0}`;
+    if(rev.total_jpy_equivalent!=null) document.getElementById('revenue').textContent='¥'+Number(rev.total_jpy_equivalent).toLocaleString();
   }catch(e){/* static fallback */}
 })();
 </script>
