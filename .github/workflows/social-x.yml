@@ -1,0 +1,37 @@
+name: X poster
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # drain the post queue every 30 min
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Post queued X updates
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: node scripts/post_x.mjs
+      - name: Commit queue changes
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add social/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(social): drain X post queue $(date -u +%FT%TZ)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no social changes"
+          fi

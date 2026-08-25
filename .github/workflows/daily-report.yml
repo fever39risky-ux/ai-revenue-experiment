@@ -1,0 +1,34 @@
+name: Daily report
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 21:00 Asia/Tokyo
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Secret-leak check (gate)
+        run: node scripts/leak_check.mjs
+      - name: Generate today's report (Asia/Tokyo)
+        run: node scripts/gen_report.mjs
+      - name: Commit & push if changed
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/ status/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(report): auto daily report $(TZ=Asia/Tokyo date +%F)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no report changes"
+          fi
