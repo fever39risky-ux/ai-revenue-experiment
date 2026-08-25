@@ -1,110 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The No-Code AI Automation Toolkit</title>
-<meta name="description" content="10 copy-paste AI workflows + ready-to-run scripts to cut 20+ hours/month of repetitive work. No coding. Instant download.">
-<meta property="og:title" content="The No-Code AI Automation Toolkit">
-<meta property="og:description" content="Cut 20+ hours/month of repetitive work with AI. 10 workflows + scripts. No coding. $19, instant download.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/store/">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "The No-Code AI Automation Toolkit",
-  "description": "10 copy-paste AI workflows + 2 ready-to-run Google Apps Script tools + 20 business prompts + templates. Cut 20+ hours/month of repetitive work. No coding. Instant download.",
-  "brand": {"@type": "Brand", "name": "AI Revenue Experiment"},
-  "url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
-  "offers": {
-    "@type": "Offer",
-    "price": "19.00",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/"
-  }
-}
-</script>
-<!--
-  Stripe決済: 下の BUY_URL に、作成した Stripe Payment Link の URL を入れる。
-  Payment Link方式のためフロントにAPIキーは不要（安全）。
--->
-<script>window.BUY_URL = "https://buy.stripe.com/dRm00j3pIdxQ60F22h9k400";</script>
+<meta name="description" content="10 copy-paste AI workflows + ready-to-run scripts to cut repetitive work. No coding. Instant download. 日本語・English対応。">
+<meta property="og:title" content="The No-Code AI Automation Toolkit"><meta property="og:description" content="10 AI workflows + scripts. No coding. $19, instant download."><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/store/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The No-Code AI Automation Toolkit","description":"10 copy-paste AI workflows + 2 ready-to-run Google Apps Script tools + 20 business prompts + templates.","brand":{"@type":"Brand","name":"AI Revenue Experiment"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/store/","offers":{"@type":"Offer","price":"19.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://fever39risky-ux.github.io/ai-revenue-experiment/store/"}}</script>
+<script>window.BUY_URL="https://buy.stripe.com/dRm00j3pIdxQ60F22h9k400";</script>
 <style>
-  :root{
-    --bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;
-    --accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;
-    --shadow:0 16px 40px rgba(0,0,0,.4);--radius:18px;
-    --disp:"Space Grotesk","Segoe UI",system-ui,sans-serif;--body:"Inter",-apple-system,system-ui,sans-serif;
-  }
-  @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
-    --bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--shadow:0 14px 36px rgba(23,35,46,.1);
-  }}
-  :root[data-theme="light"]{--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--shadow:0 14px 36px rgba(23,35,46,.1)}
-  *{box-sizing:border-box}body{margin:0;font-family:var(--body);background:radial-gradient(1200px 600px at 70% -10%,rgba(62,166,160,.15),transparent),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
-  .wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px}
-  .eyebrow{display:inline-block;font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:7px 14px;margin-bottom:22px}
-  h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;letter-spacing:-.02em;text-wrap:balance}
-  h1 .g{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .lead{font-size:18px;color:var(--sub);max-width:580px;margin:0 0 28px}
-  .buy{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:18px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:16px 30px;border-radius:14px;box-shadow:0 10px 26px rgba(62,166,160,.35);transition:transform .06s,filter .2s;border:0;cursor:pointer}
-  .buy:hover{filter:brightness(1.07)} .buy:active{transform:translateY(1px)}
-  .price{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--ink);margin:14px 0 0}
-  .price s{color:var(--sub);font-weight:400}
-  .mini{font-size:13px;color:var(--sub);margin-top:10px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:40px}
-  h2{font-family:var(--disp);font-size:22px;margin:0 0 16px;font-weight:700}
-  ul.kit{list-style:none;padding:0;margin:0}
-  ul.kit li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
-  ul.kit li:last-child{border-bottom:0}
-  ul.kit .n{flex:0 0 28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;font-family:var(--disp);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
-  .who{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-  .who div{flex:1;min-width:230px;background:var(--soft);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--sub)}
-  .who b{color:var(--ink);display:block;margin-bottom:5px}
-  .honest{border:1px dashed var(--line);border-radius:14px;padding:16px 18px;margin-top:22px;font-size:13.5px;color:var(--sub)}
-  .honest b{color:var(--warn)}
-  .foot{text-align:center;font-size:12.5px;color:var(--sub);margin-top:44px;border-top:1px solid var(--line);padding-top:22px}
-  .cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:26px}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--shadow:0 16px 40px rgba(0,0,0,.4);--radius:18px;--disp:"Space Grotesk","Segoe UI",system-ui,sans-serif;--body:"Inter",-apple-system,system-ui,sans-serif}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--shadow:0 14px 36px rgba(23,35,46,.1)}}
+*{box-sizing:border-box}body{margin:0;font-family:var(--body);background:radial-gradient(1200px 600px at 70% -10%,rgba(62,166,160,.15),transparent),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.7;min-height:100vh}.wrap{max-width:720px;margin:0 auto;padding:26px 20px 80px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.home{color:var(--sub);text-decoration:none;font-size:13px}.langs{display:flex;gap:7px}.langbtn{border:1px solid var(--line);background:var(--card);color:var(--sub);border-radius:999px;padding:6px 10px;cursor:pointer}.langbtn.active{background:var(--accent);color:white;border-color:var(--accent)}.eyebrow{display:inline-block;font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:7px 14px;margin-bottom:22px}h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;letter-spacing:-.02em}h1 .g{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.lead{font-size:18px;color:var(--sub);max-width:600px;margin:0 0 28px}.buy{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:18px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:16px 30px;border-radius:14px;box-shadow:0 10px 26px rgba(62,166,160,.35)}.price{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--ink);margin:14px 0 0}.price s{color:var(--sub);font-weight:400}.mini{font-size:13px;color:var(--sub);margin-top:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:40px}h2{font-family:var(--disp);font-size:22px;margin:0 0 16px}.kit{list-style:none;padding:0;margin:0}.kit li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}.kit li:last-child{border-bottom:0}.n{flex:0 0 28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;font-family:var(--disp);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}.who{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}.who div{flex:1;min-width:230px;background:var(--soft);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--sub)}.who b{color:var(--ink);display:block;margin-bottom:5px}.honest{border:1px dashed var(--line);border-radius:14px;padding:16px 18px;margin-top:22px;font-size:13.5px;color:var(--sub)}.honest b{color:var(--warn)}.foot{text-align:center;font-size:12.5px;color:var(--sub);margin-top:44px;border-top:1px solid var(--line);padding-top:22px}.cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 </style>
+<script src="../assets/i18n.js" defer></script>
 </head>
-<body>
-<div class="wrap">
-  <span class="eyebrow">AI automation · no code · instant download</span>
-  <h1>Stop reading about AI.<br><span class="g">Automate your work today.</span></h1>
-  <p class="lead">10 copy-paste workflows and ready-to-run scripts that cut the repetitive work — email, meeting notes, spreadsheets, invoices. Built for solopreneurs and small teams. No coding.</p>
-  <div class="cta-row">
-    <a class="buy" id="buy" href="#">Get the Toolkit — $19 →</a>
-    <div><div class="price">$19 <s>$29</s> · one-time</div><div class="mini">Secure checkout by Stripe · instant download</div></div>
-  </div>
-
-  <div class="card">
-    <h2>What's inside</h2>
-    <ul class="kit">
-      <li><span class="n">1</span><div><b>10 workflows</b> — email replies, transcript→minutes+tasks, spreadsheet cleanup, batch copy, invoices, prompt library, AI compliance check, bulk processing, auto reports, custom tools</div></li>
-      <li><span class="n">2</span><div><b>2 ready-to-run Google Apps Script tools</b> — bulk-process a sheet column with AI; automated daily summary email</div></li>
-      <li><span class="n">3</span><div><b>20 business prompts</b> (CSV) — import into Sheets/Notion</div></li>
-      <li><span class="n">4</span><div><b>Invoice template + safety checklist</b> + free updates</div></li>
-    </ul>
-    <div class="who">
-      <div><b>For</b> Solopreneurs, freelancers, small teams, ops/admin, agencies. No coding needed.</div>
-      <div><b>You need</b> ChatGPT or Claude (free tier works) + Google Sheets. Some scripts use a cheap OpenAI API key.</div>
-    </div>
-  </div>
-
-  <div class="honest">
-    <b>Honest note:</b> no income or time-saving guarantees — results depend on your workflows. Some scripts use a pay-as-you-go OpenAI API key (cheap). What's guaranteed: you can run your first automation today. Digital product — no refunds after download.
-  </div>
-
-  <div class="foot">Secure payment processed by Stripe. Questions? Contact via the email on your receipt.<br>An experiment in autonomous AI operations.</div>
+<body><div class="wrap">
+<div class="topbar"><a class="home" href="../" data-ja="← 実験トップ" data-en="← Experiment home">← Experiment home</a><div class="langs"><button class="langbtn" data-lang-btn="ja">日本語</button><button class="langbtn" data-lang-btn="en">English</button></div></div>
+<span class="eyebrow" data-ja="AI自動化 · ノーコード · 即時ダウンロード" data-en="AI automation · no code · instant download">AI automation · no code · instant download</span>
+<h1 data-lang-block="en">Stop reading about AI.<br><span class="g">Automate your work today.</span></h1>
+<h1 data-lang-block="ja" hidden>AIを読むだけで終わらせない。<br><span class="g">今日から仕事を自動化。</span></h1>
+<p class="lead" data-ja="メール返信、議事録、スプレッドシート、請求書などの反復作業を減らす、コピペで使える10個のAIワークフローと実行用スクリプト。個人事業主・フリーランス・小規模チーム向け。コード不要。" data-en="10 copy-paste workflows and ready-to-run scripts that cut repetitive work — email, meeting notes, spreadsheets, invoices. Built for solopreneurs and small teams. No coding.">10 copy-paste workflows and ready-to-run scripts that cut repetitive work.</p>
+<div class="cta-row"><a class="buy" id="buy" href="#" data-ja="ツールキットを購入 — $19 →" data-en="Get the Toolkit — $19 →">Get the Toolkit — $19 →</a><div><div class="price">$19 <s>$29</s> · <span data-ja="買い切り" data-en="one-time">one-time</span></div><div class="mini" data-ja="Stripeによる安全な決済 · 即時ダウンロード" data-en="Secure checkout by Stripe · instant download">Secure checkout by Stripe · instant download</div></div></div>
+<div class="card"><h2 data-ja="内容物" data-en="What's inside">What's inside</h2><ul class="kit">
+<li><span class="n">1</span><div data-ja="10個のワークフロー — メール返信、文字起こし→議事録＋タスク、シート整理、一括コピー、請求、プロンプトライブラリ、AIコンプラチェック、一括処理、自動レポート、カスタムツール" data-en="10 workflows — email replies, transcript→minutes+tasks, spreadsheet cleanup, batch copy, invoices, prompt library, AI compliance check, bulk processing, auto reports, custom tools">10 workflows</div></li>
+<li><span class="n">2</span><div data-ja="すぐ使えるGoogle Apps Scriptツール2本 — シート列のAI一括処理、自動日次要約メール" data-en="2 ready-to-run Google Apps Script tools — bulk-process a sheet column with AI; automated daily summary email">2 ready-to-run Google Apps Script tools</div></li>
+<li><span class="n">3</span><div data-ja="業務用プロンプト20本（CSV）— Sheets / Notionへ取り込み可能" data-en="20 business prompts (CSV) — import into Sheets/Notion">20 business prompts (CSV)</div></li>
+<li><span class="n">4</span><div data-ja="請求書テンプレート + 安全チェックリスト + 無料アップデート" data-en="Invoice template + safety checklist + free updates">Invoice template + safety checklist + free updates</div></li></ul>
+<div class="who"><div><b data-ja="対象" data-en="For">For</b><span data-ja="個人事業主、フリーランス、小規模チーム、事務・運用、代理店。コード不要。" data-en="Solopreneurs, freelancers, small teams, ops/admin, agencies. No coding needed.">Solopreneurs, freelancers, small teams.</span></div><div><b data-ja="必要なもの" data-en="You need">You need</b><span data-ja="ChatGPT または Claude（無料プランでも可）+ Google Sheets。一部スクリプトはOpenAI APIキーを使用します。" data-en="ChatGPT or Claude (free tier works) + Google Sheets. Some scripts use a cheap OpenAI API key.">ChatGPT or Claude + Google Sheets.</span></div></div></div>
+<div class="honest"><b data-ja="正直な注意:" data-en="Honest note:">Honest note:</b> <span data-ja="収益や時短効果を保証する商品ではありません。結果は使う業務によって異なります。一部スクリプトでは従量課金のOpenAI APIキーが必要です。デジタル商品のため、ダウンロード後の返金はできません。" data-en="No income or time-saving guarantees — results depend on your workflows. Some scripts use a pay-as-you-go OpenAI API key. Digital product — no refunds after download.">No income or time-saving guarantees.</span></div>
+<div class="foot" data-ja="決済はStripeが安全に処理します。これはAIが自律的に収益化できるかを検証する公開実験の一部です。" data-en="Secure payment processed by Stripe. This store is part of a public experiment in autonomous AI revenue generation.">Secure payment processed by Stripe.</div>
 </div>
-<script>
-  var b=document.getElementById("buy"), u=window.BUY_URL;
-  if(u && u.indexOf("STRIPE_PAYMENT_LINK")!==0){ b.href=u; }
-  else { b.addEventListener("click",function(e){e.preventDefault(); b.textContent="Checkout link goes live at launch"; setTimeout(function(){b.textContent="Get the Toolkit — $19 →";},2200);}); }
-</script>
-</body>
-</html>
+<script>var b=document.getElementById('buy'),u=window.BUY_URL;if(u&&u.indexOf('STRIPE_PAYMENT_LINK')!==0)b.href=u;</script>
+</body></html>
