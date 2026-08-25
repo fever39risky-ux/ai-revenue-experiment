@@ -7,33 +7,29 @@
     "target_days": 30,
     "target_revenue_jpy_equivalent": 50000
   },
-  "updated_at": "2026-08-25T03:20:00Z",
+  "updated_at": "2026-08-25T05:10:00Z",
   "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
   "active_lanes": [
-    { "lane": "digital_product_stripe", "state": "staged_pending_payment_rail", "product": "The No-Code AI Automation Toolkit", "price": "$19", "store": "/store/", "deliverable_hosted": true },
+    { "lane": "digital_product_stripe", "state": "live_rail_built_pending_go_live_approval", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUzrlvhUQe", "managed_payments": true, "automatic_tax": true },
     { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
     { "lane": "jp_marketplaces_note_booth_coconala", "state": "listings_ready_pending_human_publish" }
   ],
-  "current_focus": "Wiring one payment rail so the AI can complete a real sale end-to-end",
-  "current_action": "Deployed the product (zip) + checkout pages to the live site at /store/. Blocked only on creating the payment link, because Stripe MCP tools are not available in this session.",
-  "next_action": "The moment Stripe MCP tools load in-session: create product + price + payment link, wire the URL into /store/, run a Stripe test-mode purchase to prove the flow, then switch to live.",
-  "latest_result": "Product built end-to-end by AI and hosted on the live site. No verified revenue yet.",
-  "latest_strategy_decision": "Prioritize Stripe as the payment rail. In this sandbox, direct external APIs (api.stripe.com, gumroad.com) and headless-browser egress are blocked (403); the only tools that reach the outside are MCP connectors routed through the platform proxy. Stripe is the sole payment rail available as such a connector, so it is the only one that lets the AI create products/links and read payments autonomously. Gumroad/Creem/Lemon Squeezy have no MCP connector here and would need egress allowlisting or human upload.",
+  "current_focus": "Live Stripe payment rail is built end-to-end; awaiting owner go-live approval to publish the buy button to the public store.",
+  "current_action": "Prior-session blocker resolved: Stripe MCP tools are now available in-session. Created LIVE product + $19 price + Payment Link (redirects to the delivery page). Sandbox/test mode is NOT available via this OAuth connector (live mode only), so the sandbox-first test payment step could not be run. Holding publication behind owner approval per the live-migration gate.",
+  "next_action": "On owner go-live approval: wire the Payment Link URL into /store/index.html (replace BUY_URL placeholder), push to main to publish, then monitor Stripe for the first real charge and record verified revenue.",
+  "latest_result": "Full live payment rail assembled (product -> price -> payment link -> post-payment redirect to hosted deliverable). No verified revenue yet; buy button intentionally still gated pending approval.",
+  "latest_strategy_decision": "Stripe remains the payment rail (only rail exposed as a proxy-routed MCP connector). Because only live mode is reachable (no sandbox), the create->price->link steps were executed live but kept dormant (no public buy button, buy URL not broadcast) so nothing is chargeable by third parties until the owner approves go-live.",
   "blockers": [
-    { "type": "platform", "detail": "Stripe connector was OAuth'd on claude.ai, but its tools are not surfaced to this remote Code session (registry reads not_installed / enabledInChat:false from inside the session; no mcp__stripe__* tools present)." },
-    { "type": "technical", "detail": "Sandbox egress proxy blocks direct calls to payment/commerce hosts (403 CONNECT) and blocks the headless browser to them. Only MCP connectors + Gmail/Drive/Notion/GitHub function." }
+    { "type": "consent_gate", "detail": "Owner approval required to publish the live buy button (the reserved live-migration gate). Sandbox test payment was the intended precondition but sandbox/test mode is not reachable through this Stripe OAuth connector." }
   ],
   "human_actions_required": [
-    { "action": "Enable the Stripe connector for THIS Code session (or start a fresh Code session so its MCP tools load into the tool surface).", "why_ai_cannot": "Attaching/enabling a connector to a session is an account/permission action the AI cannot self-grant.", "one_time": true },
-    { "action": "Complete Stripe KYC/bank/tax onboarding before switching test->live (if not already done).", "why_ai_cannot": "Legal identity / KYC.", "one_time": true }
+    { "action": "Approve going live: publish the Payment Link into the public store so third parties can purchase.", "why_ai_cannot": "Owner reserved live-migration/publication as a consent-gated decision (real money, owner's Stripe account).", "one_time": true },
+    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle (Managed Payments + automatic tax are already enabled, which indicates onboarding is largely done).", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true }
   ],
-  "additional_permissions_requested": [
-    { "permission": "Stripe MCP tools available in-session", "reduces_human_labor": "AI creates products/prices/payment-links and reads payment status autonomously" },
-    { "permission": "Alternative: allowlist api.stripe.com egress + provide a restricted (create-only) Stripe API key", "reduces_human_labor": "AI calls Stripe via curl if the MCP connector cannot be surfaced in this session" }
-  ],
+  "additional_permissions_requested": [],
   "opp_support_opportunities": [
-    "Confirm whether a connector can be enabled per-session in the remote Code environment, or whether a fresh Code session is required to load Stripe MCP tools."
+    "If a Stripe test/sandbox account could be exposed to this connector in future, the AI could run a full test-mode purchase before any live publish."
   ],
   "human_labor_minutes_total": 15,
-  "notes": "AI now has push access to this site repo and deploys autonomously. Store scaffolding + product deliverable are live at /store/ and /downloads/; only payment-link creation is blocked pending Stripe tools in-session."
+  "notes": "Day 1 continuation. Stripe MCP now works in-session (live mode only). Product/price/payment-link all created live and verified active. Buy button remains gated in /store/ until owner approves go-live; the live buy URL is held in-session (not committed to public files) to honor the go-live gate."
 }

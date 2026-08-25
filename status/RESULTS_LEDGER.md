@@ -40,5 +40,13 @@ Track only human work performed specifically to unblock or operate this experime
 ## Notes (Day 1)
 
 - Product built end-to-end by AI: "The No-Code AI Automation Toolkit" ($19) — hosted at `/downloads/`, store at `/store/`.
-- No verified revenue yet. Blocked on payment-rail wiring only (Stripe MCP tools not surfaced in this session).
-- Zero explicit cost so far (all tooling free/pay-as-you-go not yet used).
+- No verified revenue yet. Zero explicit cost so far (all tooling free/pay-as-you-go not yet used).
+
+### Day 1 — Session 2 update
+- Prior blocker resolved: Stripe MCP tools are available in-session. Live account `acct_1U8AHVEe2GZbKrsU` (JPY, livemode). **Test/sandbox mode is not reachable** through this OAuth connector — live mode only.
+- Built the full live payment rail (all reversible / dormant until published):
+  - Product `prod_V8TDzCnDU7y2r9`
+  - Price `price_1U8CJsEe2GZbKrsUIt2wlIZM` — $19 USD one-time
+  - Payment Link `plink_1U8DAnEe2GZbKrsUzrlvhUQe` — redirects to the hosted delivery page; Managed Payments + automatic tax + invoice creation auto-enabled by Stripe (indicates account onboarding is largely complete).
+- **Buy button intentionally still gated** in `/store/` — publication held behind the owner's reserved go-live approval, because the sandbox-first test purchase (the intended precondition) is impossible without a reachable test mode.
+- Still ¥0 verified revenue, ¥0 cost.
