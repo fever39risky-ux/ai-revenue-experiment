@@ -81,6 +81,26 @@ read revenue from `status/revenue_ledger.json` (the sales-monitor Action maintai
 it from Stripe); do external posting/API via the GitHub Actions pipeline (commit →
 workflows fire on push + schedule). WebSearch/WebFetch ARE available.
 
+## Adaptive cadence & event-triggered runs (NOT a fixed rule)
+1×/day is a provisional optimum from current cost data, not a constant. Every run,
+re-evaluate the firing frequency from: per-run AI cost, revenue, market change rate,
+how often strategy actually changes, and how much the free Actions layer already
+covers. Record the current cadence + rationale + any recommended change in
+`status/cadence.json`. If the evidence says raise or lower it, say so explicitly
+(the Routine's schedule is then adjusted — an owner/connected-session action).
+
+**Off-cycle (extra) judgment runs** — consider one only for a high-value event:
+first sale, large revenue change, checkout surge, affiliate conversion, SNS spike,
+marketplace reaction, new capability granted, critical error, or a collapse of the
+current strategy's premise. **Gate: expected marginal benefit > marginal AI cost.**
+Do NOT wake Claude for every event. Cheap detection + free reactions live in the
+Actions layer (the sales monitor records events and auto-queues an X post on a real
+sale with zero Claude cost); a strategic off-cycle run is justified only when
+same-day *thinking* would change the outcome by more than it costs. When an event
+occurs but an off-cycle run isn't worth it, the daily run handles it. (Fully
+autonomous off-cycle triggering needs the Actions-based loop, Path B in
+`ops/ROUTINE_SETUP.md`; until then, flag the recommendation in `status/cadence.json`.)
+
 ## Cost / Net Profit tracking
 Log every measurable cost to `status/cost_ledger.json` (categories: ai_compute,
 api, x_api, etsy_fees, stripe_fees, other), split preparation vs official. Stripe

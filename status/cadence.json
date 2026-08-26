@@ -1,0 +1,14 @@
+{
+  "_doc": "Adaptive firing-cadence policy for the autonomous judgment loop. The loop re-evaluates this each run from cost vs. benefit. Not a fixed rule.",
+  "current_cadence": "1x/day",
+  "current_time_jst": "20:07",
+  "cron_utc": "7 11 * 9 *",
+  "rationale": "Provisional optimum. Measured $3.30/run; 3x/day x 30d ~= $297 ~= entire ¥50k target -> not economically rational. Free Actions layer covers fast event detection + immediate reactions between daily runs.",
+  "reevaluate_from": ["per_run_ai_cost", "revenue", "market_change_rate", "strategy_change_frequency", "coverage_by_actions_layer"],
+  "off_cycle_run_gate": "expected marginal benefit > marginal AI cost",
+  "off_cycle_trigger_events": ["first_sale", "large_revenue_change", "checkout_surge", "affiliate_conversion", "sns_spike", "marketplace_reaction", "new_capability_granted", "critical_error", "strategy_premise_collapse"],
+  "recommended_change": null,
+  "history": [
+    { "date": "2026-08-26", "change": "3x/day -> 1x/day", "reason": "economic rationality from measured $3.30/run" }
+  ]
+}
