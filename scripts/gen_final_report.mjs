@@ -13,10 +13,17 @@ const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 const list = v => Array.isArray(v)&&v.length ? '<ul>'+v.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>' : (v?esc(v):'<span class="muted">—</span>');
 
 const ledger = read('status/revenue_ledger.json', { official_entries:[], preparation_entries:[] });
+const costLedger = read('status/cost_ledger.json', { official_entries:[], preparation_entries:[] });
 const n = read('reports/data/final.json', {});
 const official = (ledger.official_entries||[]).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
 const prep = (ledger.preparation_entries||[]).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
 const sales = (ledger.official_entries||[]).length;
+const officialCost = (costLedger.official_entries||[]).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
+const prepCost = (costLedger.preparation_entries||[]).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
+const netOfficial = official - officialCost;
+const costByCat = {};
+for (const e of (costLedger.official_entries||[])) costByCat[e.category] = (costByCat[e.category]||0) + Number(e.jpy_equivalent||0);
+const costLines = Object.entries(costByCat).map(([k,v]) => `${k}: ${yen(v)}`);
 const status = read('status/CURRENT_STATUS.json', {});
 const humanMin = status.human_labor_minutes_total ?? n.human_minutes_total ?? 0;
 const target = (ledger.totals && ledger.totals.official_kpi_target_jpy_equivalent) || 50000;
@@ -48,7 +55,12 @@ section{margin-top:28px}a{color:#7dd3fc}ul{padding-left:1.2rem}li{margin:.25em 0
 <section><h2>収益レーン別の結果 / Results by lane</h2><div class="card">${list(n.lanes)}</div></section>
 <section><h2>Agent / Skill / Capability の変遷</h2><div class="card">${list(n.capabilities)}</div></section>
 <section><h2>能力追加（API / Connector / OAuth）</h2><div class="card">${list(n.grants)}</div></section>
-<section><h2>最終利益 / Net</h2><div class="card">${n.net ? esc(n.net) : '<span class="muted">Revenue '+yen(official)+' − costs (see ledger) </span>'}</div></section>
+<section><h2>収支 / Net Profit</h2><div class="card">
+  <div>Gross official revenue: <b>${yen(official)}</b></div>
+  <div class="muted">− Experiment cost (official): ${yen(officialCost)}${costLines.length ? ' ('+costLines.join(', ')+')' : ''}</div>
+  <div style="margin-top:8px;font-size:1.3rem;font-weight:800;color:${netOfficial>=0?'#86efac':'#fca5a5'}">= Net: ${yen(netOfficial)}</div>
+  <div class="muted" style="margin-top:8px">Preparation-period cost (excluded from official Net): ${yen(prepCost)}. ${n.net ? esc(n.net) : ''}</div>
+</div></section>
 <section><h2>30日間で得た学習 / Learnings</h2><div class="card">${list(n.learnings)}</div></section>
 <section><h2>結論 / Verdict</h2><div class="card">${n.verdict ? esc(n.verdict) : '<span class="muted">—</span>'}</div></section>
 <p style="margin-top:30px"><a href="../">Experiment status</a> · <a href="../store/">Store</a> · <a href="./">Daily reports</a></p>

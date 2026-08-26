@@ -14,16 +14,22 @@ The fix is a one-time setup only the account owner can do.
 ## Path A (recommended): create the Routine from the claude.ai Routines UI
 Create it from the UI so the fired sessions inherit your repo push access + connectors.
 
-1. Go to the Routines/Scheduled-tasks UI on claude.ai (Claude Code), with
-   **`fever39risky-ux/ai-revenue-experiment`** as the working repository.
-2. New Routine:
-   - **Name:** AI Revenue Experiment — autonomous loop (Sep 2026)
-   - **Schedule (cron, UTC):** `7 0,5,11 * 9 *`  (= 09:07 / 14:07 / 20:07 JST daily, Sep 1–30)
-   - **Repository:** ai-revenue-experiment (with write/push)
-   - **New session each run:** yes
-   - **Prompt:** paste the block in `ops/LOOP_PROMPT.txt` (kept in sync with the loop).
-3. Confirm the first fired session pushes a commit (its self-test note lands in
-   `ops/AGENT_LOOP.md`). If it does, the loop is live for September.
+### Exact operations
+1. Open **https://claude.ai/code** and sign in.
+2. Open the **`fever39risky-ux/ai-revenue-experiment`** repository/environment (so the Routine is bound to THIS repo, not ai-company-system).
+3. Open **Routines / Scheduled tasks** (the clock/schedule icon or "Automations" menu) → **New / Create routine**.
+4. Fill in:
+   - **Name:** `AI Revenue Experiment — autonomous loop (Sep 2026)`
+   - **Repository / source:** `ai-revenue-experiment` (write access).
+   - **Runs in:** a **new session each time** (not "this session").
+   - **Schedule:** once per day. If it accepts cron, use UTC **`7 11 * 9 *`** (= **20:07 JST daily, Sep 1–30**). If it only offers a time picker, choose **daily at 20:07 (Asia/Tokyo)** and, if it asks for a date range, Sep 1–30.
+   - **Model:** leave default (Sonnet-class is fine and cheaper than Opus).
+   - **Prompt:** paste the entire contents of **`ops/LOOP_PROMPT.txt`**.
+5. Save. Then use **"Run now"** once to smoke-test.
+6. **Verify it persisted:** within a few minutes, `ops/AGENT_LOOP.md` on `main` should gain a new "Loop self-test log" line and there should be a fresh commit. If yes → Path A works; the loop is live for September. If it still can't push → tell me and I'll build Path B.
+
+### Cadence = 1×/day (economic decision, not fixed by the human)
+The smoke-test measured **$3.30 / run**. 3×/day × 30d ≈ **$297** in Claude compute — almost the entire ¥50,000 target, so it fails the experiment's own economic-rationality test. **1×/day** (≈$99, and less once bound to this small repo with a lean prompt + early-stop) is the ROI-optimized default. I will keep re-evaluating this from real cost data and may lower it further.
 
 ## Path B (fallback, fully AI-buildable): run the loop from GitHub Actions
 If UI-created Routines still can't push, I can move the judgment loop into a

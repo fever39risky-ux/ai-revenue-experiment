@@ -1,0 +1,23 @@
+{
+  "_doc": "Experiment cost ledger. Net Profit = Gross Revenue - AI/API cost - platform fees - other costs. Costs are split preparation vs official (same boundary as revenue: official = date >= 2026-09-01 Asia/Tokyo). Preparation costs are tracked but excluded from the official 30-day Net.",
+  "currency_base": "JPY",
+  "fx_note": "USD amounts converted at ~150 JPY/USD for reporting; provider billing is authoritative. jpy_equivalent is the figure used in totals.",
+  "categories": ["ai_compute", "api", "x_api", "etsy_fees", "stripe_fees", "other"],
+  "preparation_entries": [
+    { "date": "2026-08-25", "period": "preparation", "category": "ai_compute", "amount": 3.30, "currency": "usd", "jpy_equivalent": 495, "note": "Durable-Routine smoke-test: one fired Claude session (~46k output tokens). Measured baseline for cadence/ROI decisions." }
+  ],
+  "official_entries": [],
+  "totals": {
+    "preparation_cost_jpy_equivalent": 495,
+    "official_cost_jpy_equivalent": 0
+  },
+  "entry_schema": {
+    "date": "YYYY-MM-DD (Asia/Tokyo)",
+    "period": "preparation | official",
+    "category": "one of categories",
+    "amount": "number in original currency",
+    "currency": "usd | jpy | ...",
+    "jpy_equivalent": "number used in totals",
+    "note": "no secrets"
+  }
+}

@@ -47,11 +47,15 @@ leak checker; sales monitor; revenue→X hook; X poster; phase-aware hub. 0 stan
 subagents (research agents were one-shot and pruned).
 
 ## Self-invocation (live)
-Durable Routine `trig_01YQ2i3B1fb36aGG2wmycdeT` fires a fresh session 3×/day in
-September (09:07/14:07/20:07 JST) running `ops/LOOP_PROTOCOL.md`. Fired sessions
-have NO MCP connectors → use git-over-Bash + the Actions pipeline; read revenue
-from the ledger. GitHub Actions handle the deterministic work between wakes.
-Report narrative is bilingual (author `_ja` and `_en`).
+Loop cadence: **1×/day** (20:07 JST), cut from 3×/day after a run measured $3.30
+(3×/day×30d ≈ $297 ≈ the whole ¥50k target — not economically rational). The
+MCP-created trigger `trig_01YQ2i3B1fb36aGG2wmycdeT` is DISABLED (its fired sessions
+could not push). The working Routine is (re)created by the owner from the claude.ai
+Routines UI bound to this repo — see `ops/ROUTINE_SETUP.md` + `ops/LOOP_PROMPT.txt`.
+Fired sessions have NO MCP connectors → git-over-Bash + the Actions pipeline; read
+revenue from the ledger. Each run: minimize tokens, no subagents unless revenue+,
+stop early if idle, and log run cost to `status/cost_ledger.json`. Report narrative
+is bilingual (`_ja`/`_en`).
 
 ## Ledger snapshot
 Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 min.

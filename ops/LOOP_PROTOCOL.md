@@ -66,14 +66,28 @@ single `key` used for both). Author BOTH languages for the public reports:
 `learnings`, `capabilities`, `social`, `next`, `focus`, plus `summary` and
 `human_minutes_today`. `gen_report.mjs` fills the bilingual TEMPLATE.html.
 
-## Self-invocation (how "you" get here)
-A durable Claude Code Remote Routine (`trig_01YQ2i3B1fb36aGG2wmycdeT`) fires a
-FRESH session ~3×/day in September and runs this protocol. Fired sessions run
-**without MCP connectors** — so: use `git` over Bash (works in this environment)
-for GitHub; read revenue from `status/revenue_ledger.json` (the sales-monitor
-Action maintains it from Stripe), not from a Stripe MCP; do external posting/API
-via the GitHub Actions pipeline (commit to the repo → the workflows fire on push
-+ schedule). WebSearch/WebFetch ARE available for market observation.
+## Self-invocation (how "you" get here) + COST DISCIPLINE
+A durable Claude Code Remote Routine fires a FRESH session **1×/day** (20:07 JST)
+in September and runs this protocol. (An MCP-created trigger could not push, so the
+Routine is (re)created by the owner from the claude.ai Routines UI bound to this
+repo — see `ops/ROUTINE_SETUP.md`.) Cadence was cut from 3×/day to 1×/day because
+a run measured **$3.30**; 3×/day×30d ≈ $297 ≈ the whole ¥50k target. **Each run
+costs money — spend the minimum:** read only `ops/AGENT_LOOP.md` + the tail of
+EVENTS + the ledgers; don't read the whole repo; don't spawn subagents unless
+clearly revenue-positive; STOP EARLY when nothing material changed; and append an
+estimated run cost to `status/cost_ledger.json` (category `ai_compute`).
+Fired sessions run **without MCP connectors** — use `git` over Bash for GitHub;
+read revenue from `status/revenue_ledger.json` (the sales-monitor Action maintains
+it from Stripe); do external posting/API via the GitHub Actions pipeline (commit →
+workflows fire on push + schedule). WebSearch/WebFetch ARE available.
+
+## Cost / Net Profit tracking
+Log every measurable cost to `status/cost_ledger.json` (categories: ai_compute,
+api, x_api, etsy_fees, stripe_fees, other), split preparation vs official. Stripe
+fees are captured automatically by the sales monitor. **Net Profit = Gross official
+revenue − official costs.** The economic question is not "did the AI run" but "did
+the AI earn more than it cost." Prefer free/cheap lanes; a lane whose cost exceeds
+its revenue gets cut.
 
 ## Final day (Sep 30)
 Generate the final report: `node scripts/gen_final_report.mjs`, then commit. It

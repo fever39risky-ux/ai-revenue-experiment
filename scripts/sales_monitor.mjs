@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync, appendFileSync } from 'fs';
 const KEY = process.env.STRIPE_RESTRICTED_KEY;
 const OFFICIAL_START = '2026-09-01';
 const LEDGER = 'status/revenue_ledger.json';
+const COSTS = 'status/cost_ledger.json';
 const EVENTS = 'status/EVENTS.jsonl';
 
 if (!KEY) { console.log('sales_monitor: no STRIPE_RESTRICTED_KEY set — skipping (no-op).'); process.exit(0); }
@@ -35,6 +36,12 @@ const ledger = JSON.parse(readFileSync(LEDGER, 'utf8'));
 ledger.preparation_entries ||= [];
 ledger.official_entries ||= [];
 const seen = new Set([...ledger.preparation_entries, ...ledger.official_entries].map(e => e.reference));
+
+// Cost ledger — capture Stripe fees automatically (fee is in account currency, JPY).
+let costs = null;
+try { costs = JSON.parse(readFileSync(COSTS, 'utf8')); } catch { costs = null; }
+if (costs) { costs.preparation_entries ||= []; costs.official_entries ||= []; costs.totals ||= {}; }
+const costSeen = costs ? new Set([...costs.preparation_entries, ...costs.official_entries].filter(e => e.reference).map(e => e.reference)) : new Set();
 
 // type=charge balance transactions = money received, already in account currency (JPY).
 const bt = await stripeGet('balance_transactions?type=charge&limit=100');
@@ -57,12 +64,24 @@ for (const t of (bt.data || [])) {
     type: 'revenue_detected', timestamp: new Date().toISOString(), period, actor: 'sales-monitor',
     details: { source: 'stripe', jpy_equivalent: t.amount, currency: t.currency, reference: t.id, date }
   }) + '\n');
+  // Record the Stripe fee for this charge as an experiment cost.
+  if (costs && Number(t.fee) > 0 && !costSeen.has('fee:' + t.id)) {
+    const c = { date, period, category: 'stripe_fees', amount: t.fee, currency: (t.currency || 'jpy'), jpy_equivalent: t.fee, reference: 'fee:' + t.id, note: 'Stripe fee for ' + t.id };
+    (period === 'official' ? costs.official_entries : costs.preparation_entries).push(c);
+    costSeen.add('fee:' + t.id);
+  }
   added++;
-  console.log(`+ ${period} revenue ${entry.jpy_equivalent} JPY (${t.id}) on ${date}`);
+  console.log(`+ ${period} revenue ${entry.jpy_equivalent} JPY (${t.id}) on ${date}, fee ${t.fee} JPY`);
 }
 
 ledger.totals ||= {};
 ledger.totals.preparation_revenue_jpy_equivalent = ledger.preparation_entries.reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
 ledger.totals.official_revenue_jpy_equivalent = ledger.official_entries.reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
 writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
-console.log(`sales_monitor: ${added} new charge(s). official=${ledger.totals.official_revenue_jpy_equivalent} prep=${ledger.totals.preparation_revenue_jpy_equivalent} JPY`);
+
+if (costs) {
+  costs.totals.preparation_cost_jpy_equivalent = costs.preparation_entries.reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
+  costs.totals.official_cost_jpy_equivalent = costs.official_entries.reduce((s,e)=>s+Number(e.jpy_equivalent||0),0);
+  writeFileSync(COSTS, JSON.stringify(costs, null, 2) + '\n');
+}
+console.log(`sales_monitor: ${added} new charge(s). official rev=${ledger.totals.official_revenue_jpy_equivalent} prep rev=${ledger.totals.preparation_revenue_jpy_equivalent} JPY`);
