@@ -31,5 +31,17 @@
       btn.addEventListener('click', () => apply(btn.getAttribute('data-lang-btn')));
     });
     apply(detect());
+
+    // Root experiment page only: load the live economics/cadence observer panel.
+    // Keeping this separate avoids coupling Claude-authored page content to observer rendering.
+    const p = location.pathname;
+    const isRoot = /\/ai-revenue-experiment\/?(?:index\.html)?$/.test(p) || p === '/';
+    if (isRoot && !document.querySelector('script[data-ai-observer]')) {
+      const s = document.createElement('script');
+      s.src = './assets/observer.js';
+      s.defer = true;
+      s.dataset.aiObserver = '1';
+      document.body.appendChild(s);
+    }
   });
 })();
