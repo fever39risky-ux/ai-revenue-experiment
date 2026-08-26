@@ -55,3 +55,12 @@ Report narrative is bilingual (author `_ja` and `_en`).
 
 ## Ledger snapshot
 Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 min.
+
+## Loop self-test log
+- 2026-08-25T23:18Z — VALIDATION SMOKE-TEST of the durable Routine FAILED to persist.
+  The fired fresh session ran a full iteration (cloned repo, read memory, reasoned;
+  ~46k output tokens, $3.30) but could NOT push to GitHub: routine sessions minted
+  via the MCP tool carry no repo push credentials or connectors, and lack the
+  add_repo tool. No commit/branch/PR was produced. FIX: owner recreates the Routine
+  from the claude.ai Routines UI bound to this repo (see ops/ROUTINE_SETUP.md).
+  The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
