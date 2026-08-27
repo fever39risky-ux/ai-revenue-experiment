@@ -4,11 +4,12 @@
   "fx_note": "USD amounts converted at ~150 JPY/USD for reporting; provider billing is authoritative. jpy_equivalent is the figure used in totals.",
   "categories": ["ai_compute", "api", "x_api", "etsy_fees", "stripe_fees", "other"],
   "preparation_entries": [
-    { "date": "2026-08-25", "period": "preparation", "category": "ai_compute", "amount": 3.30, "currency": "usd", "jpy_equivalent": 495, "note": "Durable-Routine smoke-test: one fired Claude session (~46k output tokens). Measured baseline for cadence/ROI decisions." }
+    { "date": "2026-08-25", "period": "preparation", "category": "ai_compute", "amount": 3.30, "currency": "usd", "jpy_equivalent": 495, "note": "Durable-Routine smoke-test: one fired Claude session (~46k output tokens). Measured baseline for cadence/ROI decisions." },
+    { "date": "2026-08-26", "period": "preparation", "category": "ai_compute", "amount": 1.20, "currency": "usd", "jpy_equivalent": 180, "note": "Prep judgment-loop iteration (estimate): market observe + published SEO guide + sitemap." }
   ],
   "official_entries": [],
   "totals": {
-    "preparation_cost_jpy_equivalent": 495,
+    "preparation_cost_jpy_equivalent": 675,
     "official_cost_jpy_equivalent": 0
   },
   "entry_schema": {

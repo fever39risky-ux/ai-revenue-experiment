@@ -68,3 +68,14 @@ Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 m
   add_repo tool. No commit/branch/PR was produced. FIX: owner recreates the Routine
   from the claude.ai Routines UI bound to this repo (see ops/ROUTINE_SETUP.md).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
+
+## Iteration log
+- 2026-08-26 (prep, human-run loop): OBSERVE ¥0 revenue, no capability granted yet;
+  market data confirms ChatGPT-prompt/AI-template packs are a top-growing Etsy category
+  → current Etsy positioning is validated (no change needed). DIAGNOSE: only binding
+  constraint = zero buyer traffic; all buyer channels human-credential-gated. DECIDE:
+  activate the one autonomous, compounding, ~zero-cost traffic lever. EXECUTE: published
+  SEO guide `guides/automate-work-with-ai-no-code.html` funneling to /store/ + `sitemap.xml`.
+  NEXT BEST ACTION: when Etsy opens, also list a standalone "20 ChatGPT Business Prompts"
+  pack ($5–9) — the single hottest, lowest-friction Etsy category (reuses existing asset).
+  Still blocked-on-human: Etsy shop KYC, STRIPE_RESTRICTED_KEY, X tokens, working Routine (UI).
