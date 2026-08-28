@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fever39risky-ux.github.io/ai-revenue-experiment/sitemap.xml

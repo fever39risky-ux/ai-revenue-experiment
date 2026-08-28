@@ -79,3 +79,10 @@ Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 m
   NEXT BEST ACTION: when Etsy opens, also list a standalone "20 ChatGPT Business Prompts"
   pack ($5–9) — the single hottest, lowest-friction Etsy category (reuses existing asset).
   Still blocked-on-human: Etsy shop KYC, STRIPE_RESTRICTED_KEY, X tokens, working Routine (UI).
+
+- 2026-08-26 (prep loop #2, early-stop): OBSERVE no material change (revenue ¥0, no
+  capability granted). DECIDE: further prep-period AI runs are negative-EV while all
+  buyer channels are human-gated. EXECUTE (near-zero cost): added robots.txt→sitemap
+  for crawl discovery of the guide/store. RECOMMENDATION (status/cadence.json):
+  PAUSE loop runs until a capability is granted or the official window opens; resuming
+  earlier only spends AI cost without moving revenue. Prep cost so far: ¥735.
