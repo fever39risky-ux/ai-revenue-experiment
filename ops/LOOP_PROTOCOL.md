@@ -18,6 +18,20 @@ is logged separately and never counted in the official total.
 2. **Load memory.** Read: `ops/AGENT_LOOP.md` (operating brief / where I left off),
    `status/CURRENT_STATUS.json`, the tail of `status/EVENTS.jsonl`,
    `status/revenue_ledger.json`, `reports/manifest.json`, `ops/EXECUTION_SYSTEM.md`.
+
+   **Branch note:** the Routine harness may only grant push access to a
+   `claude/**` branch, not `main`, for a given fired session (confirmed
+   2026-08-28). That's fine -- commit and push to whatever branch the
+   session is scoped to, per its own git instructions. Persisting that work
+   onto `main` (the actual long-term memory + Pages source) is handled
+   automatically by `.github/workflows/promote-branch.yml`: it fast-forwards
+   `main` to the branch's HEAD once it verifies the branch is strictly ahead
+   of `main` (0 behind), `leak_check.mjs` passes, and `promotion_check.mjs`
+   (structural sanity on the ledgers/reports) passes. No merge commits, no
+   force pushes -- if it can't cleanly fast-forward, it opens/updates a
+   single "Promotion blocked: <branch>" GitHub issue instead of touching
+   `main`, and the next iteration should check for one before assuming its
+   prior work reached `main`.
 3. **Observe reality.** Check what actually changed since last run:
    - Stripe revenue (via Stripe MCP if available in-session, else the ledger the
      sales-monitor Action maintains).
@@ -76,7 +90,9 @@ costs money — spend the minimum:** read only `ops/AGENT_LOOP.md` + the tail of
 EVENTS + the ledgers; don't read the whole repo; don't spawn subagents unless
 clearly revenue-positive; STOP EARLY when nothing material changed; and append an
 estimated run cost to `status/cost_ledger.json` (category `ai_compute`).
-Fired sessions run **without MCP connectors** — use `git` over Bash for GitHub;
+Fired sessions may run **without MCP connectors**, or with them but scoped to a
+`claude/**` branch rather than `main` (see the branch note in step 2 above) —
+either way, use `git` over Bash for GitHub;
 read revenue from `status/revenue_ledger.json` (the sales-monitor Action maintains
 it from Stripe); do external posting/API via the GitHub Actions pipeline (commit →
 workflows fire on push + schedule). WebSearch/WebFetch ARE available.

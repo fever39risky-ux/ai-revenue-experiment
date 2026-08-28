@@ -1,0 +1,113 @@
+name: Promote claude branch to main
+# Autonomous judgment runs (Claude Code Routine / Claude Code on the web) are
+# harness-scoped to push to a claude/** branch, never directly to main. This
+# workflow is the unattended promotion layer: it fast-forwards main to a
+# claude/** branch's HEAD when, and only when, that's provably safe. No merge
+# commits, no force pushes -- if it isn't a clean fast-forward it does not touch
+# main, and it records why so a human can see it without watching Action logs.
+on:
+  push:
+    branches:
+      - 'claude/**'
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check fast-forward eligibility
+        id: ff
+        run: |
+          git fetch origin main
+          BRANCH_SHA=$(git rev-parse HEAD)
+          MAIN_SHA=$(git rev-parse origin/main)
+          echo "branch_sha=$BRANCH_SHA" >> "$GITHUB_OUTPUT"
+          echo "main_sha=$MAIN_SHA" >> "$GITHUB_OUTPUT"
+          if [ "$BRANCH_SHA" = "$MAIN_SHA" ]; then
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            echo "reason=branch already equals main, nothing to promote" >> "$GITHUB_OUTPUT"
+          elif git merge-base --is-ancestor origin/main HEAD; then
+            AHEAD=$(git rev-list --count origin/main..HEAD)
+            echo "eligible=true" >> "$GITHUB_OUTPUT"
+            echo "reason=fast-forward candidate, ${AHEAD} commit(s) ahead of main, 0 behind" >> "$GITHUB_OUTPUT"
+          else
+            BEHIND=$(git rev-list --count HEAD..origin/main)
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            echo "reason=not fast-forwardable: branch is ${BEHIND} commit(s) behind/diverged from main" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Secret-leak check (gate)
+        id: leak
+        if: steps.ff.outputs.eligible == 'true'
+        continue-on-error: true
+        run: node scripts/leak_check.mjs
+
+      - name: Durable-state sanity check (gate)
+        id: sanity
+        if: steps.ff.outputs.eligible == 'true'
+        continue-on-error: true
+        run: node scripts/promotion_check.mjs
+
+      - name: Fast-forward main
+        id: promote
+        if: steps.ff.outputs.eligible == 'true' && steps.leak.outcome == 'success' && steps.sanity.outcome == 'success'
+        continue-on-error: true
+        run: git push origin HEAD:refs/heads/main
+
+      - name: Record blocked promotion
+        if: steps.ff.outputs.eligible == 'false' || steps.leak.outcome == 'failure' || steps.sanity.outcome == 'failure' || steps.promote.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          if [ "${{ steps.ff.outputs.eligible }}" = "false" ]; then
+            REASON="${{ steps.ff.outputs.reason }}"
+          elif [ "${{ steps.leak.outcome }}" = "failure" ]; then
+            REASON="leak_check.mjs failed -- possible secret in this commit"
+          elif [ "${{ steps.sanity.outcome }}" = "failure" ]; then
+            REASON="promotion_check.mjs failed -- durable state (status/reports JSON) looks malformed"
+          else
+            REASON="push to main was rejected (main moved concurrently between the eligibility check and the push) -- would need a force push, which this pipeline never does"
+          fi
+          TITLE="Promotion blocked: $BRANCH"
+          BODY="Automatic fast-forward promotion of \`$BRANCH\` to \`main\` did **not** run.
+
+          - reason: $REASON
+          - branch head: \`${{ steps.ff.outputs.branch_sha }}\`
+          - main head at check time: \`${{ steps.ff.outputs.main_sha }}\`
+          - run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          **Capability blocker: conflict resolution needed.** No automatic action was taken on \`main\` -- no merge commit, no force push. To resolve: bring \`$BRANCH\` up to date with \`main\` (merge or rebase) so it fast-forwards cleanly, or fix the failed check, then push \`$BRANCH\` again."
+          EXISTING=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+            gh issue comment "$EXISTING" --repo "$GITHUB_REPOSITORY" --body "$BODY"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body "$BODY"
+          fi
+          echo "::notice::Promotion blocked -- $REASON"
+
+      - name: Close blocked-promotion issue on success
+        if: steps.promote.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          TITLE="Promotion blocked: $BRANCH"
+          EXISTING=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+            gh issue comment "$EXISTING" --repo "$GITHUB_REPOSITORY" --body "Resolved: \`$BRANCH\` fast-forward-promoted to \`main\` at \`${{ steps.ff.outputs.branch_sha }}\`."
+            gh issue close "$EXISTING" --repo "$GITHUB_REPOSITORY" --reason completed
+          fi
+          echo "::notice::Promoted $BRANCH to main at ${{ steps.ff.outputs.branch_sha }}"

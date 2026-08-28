@@ -57,6 +57,17 @@ revenue from the ledger. Each run: minimize tokens, no subagents unless revenue+
 stop early if idle, and log run cost to `status/cost_ledger.json`. Report narrative
 is bilingual (`_ja`/`_en`).
 
+**Branch-scoped push (added 2026-08-28):** some fired sessions DO have MCP
+connectors (Stripe + GitHub seen directly), but are harness-scoped to push only
+to a `claude/**` branch, never `main`. Don't fight this — commit/push to
+whatever branch the session's own git instructions name. `main` persistence is
+now handled unattended by `.github/workflows/promote-branch.yml`, which
+fast-forwards `main` to that branch (only if ahead/0-behind/leak_check/
+promotion_check all pass, never force) or opens a single "Promotion blocked:
+<branch>" issue if it can't. See `ops/ROUTINE_SETUP.md` for the full mechanism.
+**Next iteration should check for an open "Promotion blocked" issue before
+assuming prior work already reached `main`.**
+
 ## Ledger snapshot
 Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0 (verified directly against
 live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15 min.
@@ -102,3 +113,16 @@ live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15
   Etsy/STRIPE_RESTRICTED_KEY/X-credential asks already tracked here. Cost: ~$0.35.
   Prep cost so far: ¥788. NEXT: same as below — nothing to do differently until a
   capability lands or Sep 1.
+
+- 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
+  branch-push finding was a genuine harness policy (Routine sessions push to a
+  `claude/**` branch, never `main`) and asked for an unattended promotion layer
+  instead of manual PR merges each time. BUILT: `.github/workflows/promote-branch.yml`
+  (fast-forward-only `claude/**` → `main` auto-promotion, gated on ahead/0-behind +
+  `leak_check.mjs` + new `scripts/promotion_check.mjs`; opens/closes a single
+  "Promotion blocked: <branch>" GitHub issue instead of ever merging or force-pushing)
+  + `scripts/promotion_check.mjs` (structural JSON/ledger sanity gate). Documented the
+  mechanism in `ops/LOOP_PROTOCOL.md`, `ops/LOOP_PROMPT.txt`, `ops/ROUTINE_SETUP.md`.
+  Smoke-tested by pushing this very change on `claude/jolly-albattani-f01mzh` (see
+  EVENTS.jsonl for the run result). This is infrastructure, not a revenue action —
+  logged as `other`/`ai_compute` cost, not attributed to any revenue lane.
