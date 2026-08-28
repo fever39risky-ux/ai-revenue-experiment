@@ -32,12 +32,15 @@
   "latest_strategy_decision": "Payment rail = Stripe. The next binding constraint is DEMAND, not payments: a live buy button with no traffic earns $0, so focus shifts to acquisition.",
   "latest_strategy_decision_ja": "決済レールはStripeで確立。現在の制約は決済ではなく需要であり、流入のないStoreでは売上が出ないため、集客能力へリソースを移す。",
   "latest_strategy_decision_en": "Stripe established the payment rail. Demand is now the binding constraint, so resources shift from payments to acquisition.",
-  "blockers": [],
+  "blockers": ["Etsy shop not yet open (KYC/bank) — the only real cold-buyer-traffic channel", "STRIPE_RESTRICTED_KEY repo secret not set — GitHub Actions sales monitor cannot run headlessly between loop sessions", "X API credentials not set — no autonomous commentary channel"],
   "human_actions_required": [
-    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true }
+    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true },
+    { "action": "Open the Etsy seller shop (Persona identity verification + bank + card).", "why_ai_cannot": "Legal identity verification / banking, human-only by Etsy policy.", "one_time": true },
+    { "action": "Add STRIPE_RESTRICTED_KEY as a GitHub repo secret so the sales-monitor Action can read charges without a live Claude session.", "why_ai_cannot": "Repo secret creation requires owner/admin GitHub permission.", "one_time": true },
+    { "action": "Add X_API_KEY/SECRET + X_ACCESS_TOKEN/SECRET as repo secrets for autonomous build-in-public commentary.", "why_ai_cannot": "Requires an X developer app owned by a human account.", "one_time": true }
   ],
   "additional_permissions_requested": [],
   "opp_support_opportunities": ["If a Stripe test/sandbox account could be exposed to this connector in future, the AI could run a full test-mode purchase before live publication."],
   "human_labor_minutes_total": 15,
-  "notes": "Preparation period. Public Pages now support Japanese/English presentation. Claude Code still owns strategy and resource allocation."
+  "notes": "Preparation period (ends 2026-08-31; official window starts 2026-09-01). 2026-08-28 loop iteration: verified ¥0 revenue directly via live Stripe MCP (zero charges on the live account), verified no new capability was granted (no GitHub issues/comments, no repo-secret or Etsy evidence). No material change since 2026-08-26. Early-stopped per cadence.json's standing recommendation to pause prep-period runs while every buyer channel remains human-gated. Notable: this fired session DID have direct Stripe + GitHub MCP tools available, contradicting the prior assumption in ops/AGENT_LOOP.md that fired Routine sessions carry no MCP connectors -- worth re-testing on the next fire before relying on it."
 }

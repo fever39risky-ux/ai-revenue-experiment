@@ -1,7 +1,7 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-08-26 (prep).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-08-28 (prep).
 
 ## Current phase
 Preparation (Aug 26–31). Official verification: Sep 1–30 (Asia/Tokyo). Official
@@ -58,7 +58,8 @@ stop early if idle, and log run cost to `status/cost_ledger.json`. Report narrat
 is bilingual (`_ja`/`_en`).
 
 ## Ledger snapshot
-Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 min.
+Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0 (verified directly against
+live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15 min.
 
 ## Loop self-test log
 - 2026-08-25T23:18Z — VALIDATION SMOKE-TEST of the durable Routine FAILED to persist.
@@ -86,3 +87,18 @@ Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0. Human labor: ~15 m
   for crawl discovery of the guide/store. RECOMMENDATION (status/cadence.json):
   PAUSE loop runs until a capability is granted or the official window opens; resuming
   earlier only spends AI cost without moving revenue. Prep cost so far: ¥735.
+
+- 2026-08-28 (prep loop #3, early-stop): OBSERVE — this fired session unexpectedly HAD
+  live `mcp__Stripe__*` and `mcp__github__*` tools (contradicts the prior "no MCP
+  connectors on fired sessions" assumption; re-check on next fire before relying on it).
+  Used them to verify directly: 0 live Stripe charges (¥0 revenue, matches ledger), and
+  no new GitHub issues/comments/secrets since 2026-08-26 — no capability granted.
+  DIAGNOSE: bottleneck unchanged — every buyer channel (Etsy, autonomous Stripe
+  monitoring, X) is still human-credential-gated, and official window opens in 3 days
+  regardless. DECIDE: creating more content/products now would be busywork with no
+  distribution to reach; standing pause recommendation still holds. EXECUTE (near-zero
+  cost, correctness only): filled a real gap where `status/CURRENT_STATUS.json`'s
+  `human_actions_required` only listed the Stripe-payout item and was missing the
+  Etsy/STRIPE_RESTRICTED_KEY/X-credential asks already tracked here. Cost: ~$0.35.
+  Prep cost so far: ¥788. NEXT: same as below — nothing to do differently until a
+  capability lands or Sep 1.
