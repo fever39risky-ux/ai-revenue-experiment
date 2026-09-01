@@ -9,10 +9,12 @@
     { "date": "2026-08-26", "period": "preparation", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Prep loop iteration (light/early-stop): no material change; added robots.txt; recommended pausing prep runs to avoid negative-EV spend." },
     { "date": "2026-08-28", "period": "preparation", "category": "ai_compute", "amount": 0.35, "currency": "usd", "jpy_equivalent": 53, "note": "Prep loop iteration (light/early-stop, estimated): verified ¥0 revenue directly via live Stripe MCP, verified no new capability granted, fixed a status-ledger bookkeeping gap; no new product/content work (would have been negative-EV busywork with 3 days left in prep and every buyer channel still human-gated)." }
   ],
-  "official_entries": [],
+  "official_entries": [
+    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work." }
+  ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 0
+    "official_cost_jpy_equivalent": 60
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

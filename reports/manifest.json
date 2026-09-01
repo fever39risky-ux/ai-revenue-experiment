@@ -7,19 +7,19 @@
       "day": 1,
       "date": "2026-09-01",
       "path": "reports/2026-09-01.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Day 1 of the official verification window. Revenue and cost both start at ¥0. An earlier session today (owner check-in) already clarified that the live Stripe MCP connector is separate from the STRIPE_RESTRICTED_KEY repo secret. This scheduled cadence run confirmed no material change since then: no new GitHub issues or capabilities, the latest Sales Monitor run (05:09 UTC) detected no new revenue, and no 'Promotion blocked' issue exists (main is already caught up to the prior branch). All three human-gated blockers (Etsy shop, STRIPE_RESTRICTED_KEY, X API credentials) are unchanged since Aug 26. Today's public report data file was missing (a gap from the earlier same-day commit) — fixed that instead of manufacturing new content, since no distribution channel exists yet to justify more content.",
+      "summary_ja": "公式検証期間 初日。売上は¥0、コストも¥0からスタート。前回セッション（オーナーからの確認依頼）でStripe MCP接続とSTRIPE_RESTRICTED_KEYリポジトリシークレットが別物であることを明確化済み。本セッションはスケジュール実行の定期巡回で、状況に変化がないことを確認：新規GitHub Issue/Capability付与なし、Sales Monitorの直近実行（05:09 UTC）も新規売上を検出せず、Promotion Blockedのissueも無い（mainは前回branchへ既に追従済み）。3つの人間依存ブロッカー（Etsyショップ開通・STRIPE_RESTRICTED_KEY・X APIキー）は26日から変化なし。本日分の公開レポートデータが未作成だったため、その記録漏れを修正した。新規コンテンツ・商品は作成せず（配信チャネルが無い状態での追加コンテンツは費用対効果が低いと判断）。",
+      "summary_en": "Day 1 of the official verification window. Revenue and cost both start at ¥0. An earlier session today (owner check-in) already clarified that the live Stripe MCP connector is separate from the STRIPE_RESTRICTED_KEY repo secret. This scheduled cadence run confirmed no material change since then: no new GitHub issues or capabilities, the latest Sales Monitor run (05:09 UTC) detected no new revenue, and no 'Promotion blocked' issue exists (main is already caught up to the prior branch). All three human-gated blockers (Etsy shop, STRIPE_RESTRICTED_KEY, X API credentials) are unchanged since Aug 26. Today's public report data file was missing (a gap from the earlier same-day commit) — fixed that instead of manufacturing new content, since no distribution channel exists yet to justify more content.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 60,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 0,
-      "cumulative_net_profit_jpy_equivalent": 0
+      "cumulative_cost_jpy_equivalent": 60,
+      "cumulative_net_profit_jpy_equivalent": -60
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 0,
-  "official_net_profit_jpy_equivalent": 0
+  "official_cost_jpy_equivalent": 60,
+  "official_net_profit_jpy_equivalent": -60
 }

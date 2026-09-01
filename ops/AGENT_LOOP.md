@@ -71,8 +71,9 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0 (starts 9/1). Preparation revenue: ¥0 (verified directly against
-live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15 min.
+Official revenue: ¥0. Official cost: ¥60 (as of 2026-09-01 cadence run). Preparation
+revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
+Preparation cost: ¥788. Human labor: ~15 min.
 
 ## Loop self-test log
 - 2026-08-25T23:18Z — VALIDATION SMOKE-TEST of the durable Routine FAILED to persist.
@@ -129,6 +130,27 @@ live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15
   the official window starts from the same ¥0 as prep. NEXT: same as ever — Etsy KYC
   is the single highest-leverage unblock; STRIPE_RESTRICTED_KEY is second (closes the
   headless-monitoring gap even before Etsy).
+
+- 2026-09-01 (official day 1, scheduled cadence run, early-stop): OBSERVE — this
+  fired session had NO Stripe MCP tools (auth required, unavailable headlessly),
+  confirming that direct-MCP access is session-dependent, not guaranteed on every
+  fire as 2026-08-28 speculated. Verified via GitHub API instead: 0 open issues,
+  no "Promotion blocked" issue (main already fast-forwarded to the prior branch
+  head 0136763 — promotion pipeline working as designed), and the Sales Monitor
+  Action's latest run (2026-09-01T05:09 UTC, #23) completed but produced no new
+  revenue commit. DIAGNOSE: unchanged — all three human-gated blockers (Etsy shop,
+  STRIPE_RESTRICTED_KEY, X credentials) still open since 2026-08-26; no new
+  evidence to act on. DECIDE: no revenue-moving action is available; producing
+  more content/product without a distribution channel would be negative-EV
+  busywork (consistent with prior iterations' reasoning). EXECUTE (near-zero
+  cost, correctness only): found and fixed a real gap — `reports/data/2026-09-01.json`
+  was missing, so the Day-1 public report (required daily during the official
+  period per experiment config) had rendered with empty narrative fields. Wrote
+  it honestly (¥0 revenue, blockers unchanged, no wins/product this run). Logged
+  ~$0.40 official-period cost. NEXT: unchanged — Etsy KYC is still the single
+  highest-leverage unblock; STRIPE_RESTRICTED_KEY second (closes headless
+  monitoring gap even before Etsy). Cadence (1x/day) confirmed still rational —
+  nothing this run would have differed at a higher frequency.
 
 - 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
   branch-push finding was a genuine harness policy (Routine sessions push to a
