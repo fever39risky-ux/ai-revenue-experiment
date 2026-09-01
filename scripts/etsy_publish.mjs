@@ -48,7 +48,13 @@ mask(ETSY_ACCESS_TOKEN); mask(ETSY_REFRESH_TOKEN);
 const refreshRes = await fetch('https://api.etsy.com/v3/public/oauth/token', {
   method: 'POST',
   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  body: new URLSearchParams({ grant_type: 'refresh_token', client_id: ETSY_API_KEYSTRING, refresh_token: ETSY_REFRESH_TOKEN }),
+  body: (() => {
+    const p = new URLSearchParams();
+    p.set('grant_type', 'refresh_token');
+    p.set('client_id', ETSY_API_KEYSTRING);
+    p.set('refresh_token', ETSY_REFRESH_TOKEN);
+    return p;
+  })(),
 });
 const refreshed = await refreshRes.json();
 if (!refreshRes.ok) { console.error('etsy_publish: token refresh failed:', refreshed); process.exit(1); }

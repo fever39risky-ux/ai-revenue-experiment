@@ -238,6 +238,31 @@ Preparation cost: ¥788. Human labor: ~15 min.
   the result, iterate against the live API's actual error messages if any
   field is rejected.
 
+- 2026-09-01 (owner-directed, browser/Computer-Use investigation): owner
+  asked to keep the Etsy API pipeline as a future stable capability but NOT
+  treat it as the required path for the first listing — try a Browser/
+  Computer-Use route through the Seller Dashboard first, since the goal is
+  fast real revenue, not a finished API. Investigated genuinely: ToolSearch
+  (multiple keyword sets) and ListConnectors found no interactive
+  browser-driving/computer-use tool in this session — only a read-only fetch
+  tool. Confirmed Chromium IS installed locally, but a live connectivity
+  test shows sandbox egress to `www.etsy.com` is blocked at the network
+  policy level (403 connect_rejected), matching the same class of block
+  already documented for other external hosts during prep. No Etsy
+  credentials/session exist anywhere accessible to the AI either way.
+  Considered and rejected a 4th option (GitHub-Actions browser automation
+  using the owner's real Etsy password): likely to trigger Etsy's bot/2FA
+  detection on a new automated login (human-only anyway) and risks violating
+  Etsy's ToS against automating the human seller UI outside the API — a real
+  risk to the only working channel, squarely matching the owner's own
+  "technically unstable / ToS-inappropriate" fallback condition. CONCLUSION:
+  the Etsy API v3 + OAuth grant (already built) is confirmed necessary, not
+  merely convenient — recorded in `ops/ETSY_API_SETUP.md`'s new "why not
+  browser automation" section, `status/EVENTS.jsonl`, and
+  `status/CURRENT_STATUS.json`. No code changes needed (the pipeline was
+  already built); this iteration was investigation + honest recording only.
+  NEXT: unchanged — the Etsy OAuth grant remains the single true blocker.
+
 - 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
   branch-push finding was a genuine harness policy (Routine sessions push to a
   `claude/**` branch, never `main`) and asked for an unattended promotion layer

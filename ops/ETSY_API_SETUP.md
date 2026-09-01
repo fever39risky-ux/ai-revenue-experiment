@@ -1,5 +1,42 @@
 # Etsy API v3 setup — one-time OAuth grant
 
+## Why API/OAuth, not browser automation (investigated 2026-09-01)
+
+Before building this, and again when asked to prioritize it, the AI checked
+whether a browser/Computer-Use capability could publish directly through the
+Etsy Seller Dashboard instead, to avoid asking for any technical grant at
+all. Confirmed NOT viable, for three independent reasons:
+
+1. **No interactive browser-driving tool is exposed to the Claude session
+   that does this work.** Only a read-only fetch-and-summarize tool exists
+   (cannot click, type, fill forms, or upload files).
+2. **Sandbox network egress to Etsy is blocked at the infrastructure level**,
+   confirmed by a live test: `CONNECT www.etsy.com:443` → `403,
+   policy denial`. This is the same egress block already documented for
+   other external hosts during preparation (`bsky.social`, `dev.to`,
+   `api.stripe.com` all returned blocked/000). Even the Chromium binary
+   that happens to be preinstalled in the sandbox has nowhere to connect to.
+3. **No Etsy login/session exists anywhere the AI can reach** — the owner
+   completed KYC/bank/ToS in their own separate browser, correctly without
+   sharing login access.
+
+A fourth path was considered and rejected: running browser automation from
+GitHub Actions instead (which does have open internet) using the owner's
+actual Etsy password as a secret. Rejected because it would very likely (a)
+trigger Etsy's new-device/bot-detection (2FA/CAPTCHA) on a first automated
+login, which is human-only anyway and defeats the point, and (b) risks
+violating Etsy's Terms of Service against automating the human-facing seller
+UI outside the sanctioned API — a real risk to the only working revenue
+channel, not a hypothetical one. Etsy API v3 + OAuth is the sanctioned,
+ToS-compliant path and does not carry that risk.
+
+This confirms the OAuth grant below as the correct next capability — not
+because completing an API was treated as a goal in itself, but because it's
+the fastest path to a real listing that was actually tried, tested, and
+found necessary once the browser alternative was ruled out.
+
+## Setup
+
 The Etsy shop is now open (KYC/bank done — thank you). Everything else about
 the first listing is already decided and prepared by the AI:
 `marketing/etsy_listing_config.json` (content), `marketing/etsy-images/`
