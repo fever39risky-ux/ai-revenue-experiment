@@ -8,9 +8,18 @@
  * Nothing here is committed or sent anywhere but Etsy's own API.
  *
  * Prereq: register an app at https://www.etsy.com/developers/register
- * (needs your own Etsy login) and note its "Keystring" (Client ID) and
- * a Redirect URI you register on the app (any URI works, even one that
- * doesn't resolve to a real server — see the prompt below).
+ * (needs your own Etsy login), for PERSONAL/OWN-SHOP use (not a commercial
+ * multi-shop app — that needs Etsy's review, personal use doesn't). Note
+ * its "Keystring" (Client ID). Ignore the "Shared Secret" Etsy also shows —
+ * this script uses PKCE (a public-client flow), which authenticates with
+ * the code_verifier below instead, so the Shared Secret is never needed and
+ * should NOT be added as a repo secret.
+ *
+ * Redirect URI: register one on the app. Etsy requires it to be HTTPS,
+ * EXCEPT it allows plain http://localhost (or http://127.0.0.1) for local
+ * testing — that's why the example below is localhost, not "any URI works."
+ * It does not need to resolve to a real running server; you'll copy the
+ * `code` out of the browser's address bar after the redirect fails to load.
  *
  * Usage: node scripts/etsy_oauth_setup.mjs
  */
@@ -22,13 +31,19 @@ const b64url = buf => buf.toString('base64').replace(/\+/g, '-').replace(/\//g, 
 
 async function main() {
   console.log('Etsy API v3 OAuth (PKCE) one-time setup\n');
-  const keystring = (await rl.question('Paste your Etsy app Keystring (Client ID): ')).trim();
-  const redirectUri = (await rl.question('Redirect URI registered on the app (e.g. http://localhost:3003/callback): ')).trim();
+  const keystring = (await rl.question('Paste your Etsy app Keystring (Client ID) — NOT the Shared Secret: ')).trim();
+  const redirectUri = (await rl.question('Redirect URI registered on the app (must be HTTPS, or http://localhost:PORT/... for testing): ')).trim();
 
   const verifier = b64url(randomBytes(32));
   const challenge = b64url(createHash('sha256').update(verifier).digest());
   const state = b64url(randomBytes(12));
-  const scopes = ['listings_w', 'listings_r', 'shops_r', 'shops_w', 'transactions_r'].join('%20');
+  // Minimum scope for what scripts/etsy_publish.mjs actually does: create/
+  // update a listing + upload its images/file (listings_w), read listing/
+  // taxonomy data (listings_r), and look up the shop id during this setup
+  // (shops_r). No shop-settings writes and no order/transaction reads happen
+  // anywhere in this pipeline, so shops_w and transactions_r are deliberately
+  // NOT requested (least privilege).
+  const scopes = ['listings_w', 'listings_r', 'shops_r'].join('%20');
 
   const authorizeUrl = `https://www.etsy.com/oauth/connect?response_type=code&client_id=${encodeURIComponent(keystring)}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes}&state=${state}&code_challenge=${challenge}&code_challenge_method=S256`;
 
@@ -70,9 +85,10 @@ async function main() {
   console.log('ETSY_REFRESH_TOKEN =', tok.refresh_token);
   console.log('ETSY_SHOP_ID       =', shopId ?? '(could not auto-detect — check the shops endpoint manually)');
   console.log('\nNote: the access token expires in ~1h, but scripts/etsy_publish.mjs refreshes it');
-  console.log('automatically from ETSY_REFRESH_TOKEN on every run. Etsy ROTATES the refresh token on');
-  console.log('each use, so after the publish workflow runs once, ETSY_REFRESH_TOKEN must be updated');
-  console.log('to the new value for the next run to keep working — see ops/ETSY_API_SETUP.md.');
+  console.log('automatically from ETSY_REFRESH_TOKEN on every run. The refresh token itself is valid');
+  console.log('~90 days AND rotates (single-use) on every refresh call, so after the publish workflow');
+  console.log('runs once, ETSY_REFRESH_TOKEN must be updated to the new value for the next run to keep');
+  console.log('working — see ops/ETSY_API_SETUP.md.');
   rl.close();
 }
 main().catch(e => { console.error(e); process.exit(1); });

@@ -35,6 +35,62 @@ because completing an API was treated as a goal in itself, but because it's
 the fastest path to a real listing that was actually tried, tested, and
 found necessary once the browser alternative was ruled out.
 
+## Spec verification (2026-09-01, before the OAuth grant)
+
+Checked against six specific points before asking for the grant. Honesty
+note: this session cannot reach Etsy's live docs or API (no egress — see
+above), so this is verification from the implementation + documented Etsy
+API v3 behavior, not a live-tested confirmation. Point 6 in particular stays
+explicitly unverified.
+
+1. **`redirect_uri` HTTPS requirement** — FIXED. The setup doc previously said
+   "any value works," which was imprecise: Etsy requires the redirect URI to
+   be HTTPS, with a specific exception for `http://localhost` (or
+   `http://127.0.0.1`) for local testing — which is why the example is
+   `http://localhost:3003/callback`, not an arbitrary HTTP URL. Corrected the
+   wording in `scripts/etsy_oauth_setup.mjs`'s prompt and below.
+2. **Keystring + Shared Secret handling** — FIXED (was previously
+   undocumented, not wrong, but a real gap). Etsy's app registration issues
+   both a **Keystring** (Client ID) and a **Shared Secret** (Client Secret).
+   This integration uses **PKCE** (`code_challenge`/`code_verifier`), a
+   public-client OAuth flow that authenticates the token exchange with the
+   verifier instead of a client secret — so the **Shared Secret is never
+   used and must not be added as a repo secret**. `scripts/etsy_oauth_setup.mjs`
+   now says this explicitly so it isn't pasted in by mistake.
+3. **Minimum OAuth scope** — FIXED, was over-scoped. Previously requested
+   `listings_w listings_r shops_r shops_w transactions_r`. `shops_w` (shop
+   settings writes) and `transactions_r` (order/receipt reads) are not used
+   anywhere in `scripts/etsy_publish.mjs` or the setup flow — trimmed to
+   `listings_w listings_r shops_r` (create/update the listing + its images/
+   file, read listing/taxonomy data, resolve the shop id during setup). Least
+   privilege: the OAuth consent screen the owner approves now matches
+   exactly what the code does, nothing more.
+4. **Access Level as a Seller App** — clarified, with an honest limit. Etsy
+   distinguishes apps built for the developer's own shop (no review, usable
+   immediately) from commercial apps serving other sellers (needs Etsy's
+   review). This integration is single-shop, own-use only, so it should
+   qualify for immediate use. This session cannot browse Etsy's current
+   registration form to confirm the exact field name/wording (egress
+   blocked), so: **when registering, pick whichever option indicates
+   personal / your-own-shop use, not a public or multi-shop commercial
+   app** — if the form's exact wording differs from what's described here,
+   that's an Etsy UI detail, not a change to the request itself.
+5. **Refresh token, current spec** — confirmed / tightened. Etsy refresh
+   tokens are valid **~90 days** and **rotate (single-use) on every refresh
+   call** — using one invalidates it and issues a new one. Already handled:
+   `etsy_publish.mjs` refreshes on every run and the setup script's final
+   output now states the 90-day figure explicitly (see the known-limitation
+   section below for what rotation means operationally).
+6. **Digital listing publish flow — required fields** — documented, still
+   the one open risk. `scripts/etsy_publish.mjs` sends `quantity`, `title`,
+   `description`, `price`, `who_made`, `when_made`, `taxonomy_id`, and
+   `type: "download"` to create the draft (no `shipping_profile_id`, which
+   Etsy only requires for physical listings), then uploads images and the
+   digital file as separate calls, then activates. This matches the
+   documented v3 schema as trained, but has never been run against the live
+   endpoint — see "Known limitation: untested against the live API" below,
+   which is unchanged and still the honest status.
+
 ## Setup
 
 The Etsy shop is now open (KYC/bank done — thank you). Everything else about
@@ -52,10 +108,15 @@ with no further manual posting.
 
 1. **Register an app**: go to https://www.etsy.com/developers/register
    (log in as the shop owner). Any app name works (e.g. "AI Revenue
-   Experiment Publisher"). No special review needed for your own shop's
-   listings. Set a **Redirect URI** — any value works, even a non-running
-   URL like `http://localhost:3003/callback` (see step 3).
-2. Copy the app's **Keystring** (Client ID) once created.
+   Experiment Publisher"). Pick the option for **personal / your own shop's
+   use** if the form asks (not a public/commercial multi-shop app) — that's
+   what avoids Etsy's app-review process. Set a **Redirect URI**: it must be
+   HTTPS, except Etsy allows plain `http://localhost:PORT/...` for local
+   testing — use e.g. `http://localhost:3003/callback` (it does not need to
+   be a real running server; see step 3).
+2. Copy the app's **Keystring** (Client ID) once created — NOT the "Shared
+   Secret" shown alongside it. This flow uses PKCE and never needs the
+   Shared Secret; don't copy or store it anywhere.
 3. On your own machine (not this AI session — it has no internet access to
    Etsy), run:
    ```
@@ -80,8 +141,9 @@ with no further manual posting.
 
 ## Known limitation: refresh-token rotation
 
-Etsy **rotates the refresh token on every use**. `etsy_publish.mjs` refreshes
-the access token each run, and the workflow log will note the new refresh
+Etsy refresh tokens are valid **~90 days** and **rotate on every use**
+(single-use). `etsy_publish.mjs` refreshes the access token each run, and the
+workflow log will note the new refresh
 token's fingerprint (last 6 chars) without ever printing the full value
 (masked, since Actions logs on a public repo are publicly visible). After the
 **first** publish run succeeds, `ETSY_REFRESH_TOKEN` must be updated to the
