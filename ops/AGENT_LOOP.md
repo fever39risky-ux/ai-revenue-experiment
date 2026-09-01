@@ -31,10 +31,26 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    or add a second low-friction product/variant.
 3. Always: check Stripe for any real sale; if found, it's the headline.
 
-## Blocked on human (one-time capability grants only)
-- Etsy shop: Persona KYC + bank + card (revenue-critical).
-- `STRIPE_RESTRICTED_KEY` repo secret (autonomous revenue recording).
-- `X_API_KEY/SECRET`, `X_ACCESS_TOKEN/SECRET` repo secrets (autonomous commentary).
+## Blocked on human — TRUE blocker only (revised 2026-09-01, owner correction)
+- Etsy shop: Persona KYC + bank + card. This is the single binding constraint
+  on the next revenue milestone — the only channel with real cold-buyer search
+  traffic, and everything else about the listing is already prepped.
+- (Stripe payouts/bank/KYC settlement is also human-only, but is about money
+  reaching the owner, not about whether the AI can operate — not a lane blocker.)
+
+## Optional capabilities (NOT blockers — do not treat as gating the experiment)
+- `STRIPE_RESTRICTED_KEY` repo secret: NOT required for Stripe checkout to
+  work (it already does). Only adds headless revenue detection via
+  `sales-monitor.yml` between Routine sessions. **Observation fallback per
+  run — never assume either state:** (1) if this session has a live Stripe
+  MCP connector, query it directly; (2) if not, read
+  `status/revenue_ledger.json` + the sales-monitor Action's latest run log;
+  (3) if the repo secret exists, the Actions-level 4-hourly monitor is also
+  live and feeding that ledger. MCP availability has varied run to run
+  (present 2026-08-28, absent 2026-09-01) — observe it each time, don't assume.
+- `X_API_KEY/SECRET`, `X_ACCESS_TOKEN/SECRET` repo secrets: optional —
+  enables autonomous X commentary. Not required for the core Etsy/Stripe
+  revenue mechanism.
 
 ## Open tasks / lanes
 - [ ] Publish Etsy listing (blocked on shop)
@@ -151,6 +167,19 @@ Preparation cost: ¥788. Human labor: ~15 min.
   highest-leverage unblock; STRIPE_RESTRICTED_KEY second (closes headless
   monitoring gap even before Etsy). Cadence (1x/day) confirmed still rational —
   nothing this run would have differed at a higher frequency.
+
+- 2026-09-01 (owner correction, record-accuracy fix, not a strategy change):
+  owner pointed out `human_actions_required` incorrectly conflated a true
+  blocker (Etsy shop KYC/bank) with two optional capability grants
+  (`STRIPE_RESTRICTED_KEY`, X API credentials) that only enhance monitoring/
+  commentary and do not gate revenue. Reclassified in
+  `status/CURRENT_STATUS.json`: `human_actions_required` now holds only Etsy
+  shop access + Stripe payout/bank/KYC settlement; the two optional items
+  moved to `additional_permissions_requested` with an explicit per-run
+  observation fallback (Stripe MCP if available this run, else
+  revenue_ledger.json + sales-monitor log; never assume MCP presence/absence
+  across runs). Diagnosed bottleneck is unchanged: Etsy shop access remains
+  the true binding constraint.
 
 - 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
   branch-push finding was a genuine harness policy (Routine sessions push to a

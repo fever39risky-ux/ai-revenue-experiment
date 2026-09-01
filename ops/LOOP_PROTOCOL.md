@@ -33,8 +33,16 @@ is logged separately and never counted in the official total.
    `main`, and the next iteration should check for one before assuming its
    prior work reached `main`.
 3. **Observe reality.** Check what actually changed since last run:
-   - Stripe revenue (via Stripe MCP if available in-session, else the ledger the
-     sales-monitor Action maintains).
+   - Stripe revenue — **observe this run's actual capability, never assume a
+     fixed state:** (1) if this session has a live Stripe MCP connector, query
+     it directly; (2) if not, read `status/revenue_ledger.json` + the
+     sales-monitor Action's latest run log. MCP availability has varied
+     between fires (present 2026-08-28, absent 2026-09-01) — it is neither
+     "always available" nor "never available" on a Routine session; check
+     each time. `STRIPE_RESTRICTED_KEY` (if set) additionally keeps the
+     Actions-level 4-hourly headless monitor feeding that ledger between
+     sessions — it is an optional monitoring enhancement, not required for
+     Stripe checkout itself to work.
    - Etsy/marketplace results, if that lane is live (API/analytics).
    - SNS metrics if reachable (impressions/clicks) — evaluate which commentary
      actually drove traffic/checkouts, per the social protocol.
@@ -63,10 +71,25 @@ is logged separately and never counted in the official total.
 
 ## Human-only requests (do NOT block the loop)
 The loop cannot summon a human mid-run. If something needs KYC/OAuth/bank/API
-credential/consent, record it in `status/CURRENT_STATUS.json.human_actions_required`,
-append an EVENT, and surface it in the day's report — then continue with whatever
-lane is NOT blocked. Never turn the owner into a manual operator; ask only for a
+credential/consent, record it — then continue with whatever lane is NOT
+blocked. Never turn the owner into a manual operator; ask only for a
 one-time capability grant.
+
+**Classify by whether it actually gates revenue, not by whether it's human-only:**
+- `status/CURRENT_STATUS.json.human_actions_required` — ONLY items that are a
+  true binding constraint on the next revenue milestone (e.g. Etsy shop
+  KYC/bank/card; Stripe payout/bank/KYC so real revenue can settle). This
+  list should stay short and should change only when the actual bottleneck
+  changes.
+- `status/CURRENT_STATUS.json.additional_permissions_requested` — human-only
+  items that only enhance monitoring, commentary, or convenience and do NOT
+  block revenue (e.g. `STRIPE_RESTRICTED_KEY` for headless Actions-level
+  sales detection, X API credentials for autonomous commentary). Include
+  the fallback the loop already uses without the grant, so it's clear these
+  are optional, not stalling anything.
+
+Don't conflate the two lists — an item belongs in `human_actions_required`
+only if its absence is the reason revenue isn't moving.
 
 ## Honesty
 Report what actually happened, including failures and dead ends. Distinguish
