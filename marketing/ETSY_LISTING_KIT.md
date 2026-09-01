@@ -65,14 +65,11 @@ Etsy needs at least 1 image (ideally 5+). AI to generate simple branded mockups:
 a cover tile ("No-Code AI Automation Toolkit"), a "what's inside" checklist tile,
 a prompts-preview tile. (Placeholder task — generate before publish.)
 
-## The ONE-TIME human grant this needs (why AI can't self-serve)
-1. Open an Etsy seller shop; complete **Persona identity KYC**; add **bank
-   account + card on file**. (Legal identity / banking — human only.)
-2. Either (a) create the listing manually by pasting the fields above (~15 min),
-   OR (b) register **Seller App Access** (approved in minutes for own-shop use),
-   complete OAuth, and hand the AI the **access + refresh token** so the AI
-   creates/manages the listing via the Etsy API v3 `createDraftListing` —
-   executed from **GitHub Actions** (open internet; the sandbox egress is blocked).
-
-Everything above (copy, tags, price, disclosure, file, images) is prepared, so
-the human step is only identity/bank/OAuth.
+## Status (2026-09-01): shop is open, publishing capability is built
+The shop-opening grant (Persona identity KYC + bank/card) is **done**. The
+content below is now machine-readable in `marketing/etsy_listing_config.json`,
+consumed by `scripts/etsy_publish.mjs`, which creates/images/attaches/
+activates the listing via Etsy API v3 from GitHub Actions. The one remaining
+one-time grant is the Etsy OAuth token — see `ops/ETSY_API_SETUP.md` for the
+exact steps. Once granted, publishing (and any future price/content change)
+runs from GitHub Actions with no manual listing paste.

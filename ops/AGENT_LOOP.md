@@ -5,17 +5,24 @@ Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-01 (official
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
-official cost ¥0 (both start counting today). Target ¥50,000 equivalent in 30 days.
-Day-1 reality check: no revenue-driving blocker resolved at the transition — this
-starts from the same ¥0 base preparation ended on, not a running start.
+official cost small (see cost_ledger.json). Target ¥50,000 equivalent in 30 days.
+2026-09-01 update: the Etsy shop was granted (owner KYC/bank/card done). The
+publish mechanism itself is now built (this session) but untested/ungranted —
+still ¥0 revenue, not a running start yet, but the last blocking piece is
+now purely technical (an OAuth grant), not a market or product problem.
 
 ## Current strategy (as of last update)
 - **Primary revenue lane: Etsy** — the only channel with real cold-buyer search
-  traffic. Listing fully prepped at $9 (`marketing/ETSY_LISTING_KIT.md` + images).
-  Blocked ONLY on the owner opening the Etsy shop (KYC/bank) — human-only.
+  traffic. Listing content finalized (`marketing/etsy_listing_config.json`,
+  reused from `marketing/ETSY_LISTING_KIT.md` unchanged — no market evidence
+  yet to justify changing it) + 4 images + product zip. Shop is open. Publish
+  mechanism (`scripts/etsy_publish.mjs` + `.github/workflows/etsy-publish.yml`)
+  is built. **Blocked ONLY on a one-time Etsy API OAuth token grant** —
+  `ops/ETSY_API_SETUP.md` — after which a Claude session triggers the publish
+  Action itself (GitHub MCP `actions_run_trigger`), no manual paste needed.
 - **Live now: Stripe store** (`/store/`, $19 payment link) — works, but no traffic
   on its own; treat as the destination the narrative/SEO funnels to.
-- **Observability/commentary: X** via GitHub Actions (pending X API secrets).
+- **Observability/commentary: X** via GitHub Actions (pending X API secrets, optional).
 - Skipped: Gumroad/Payhip/Lemon Squeezy (no cold traffic, no create-product API).
 
 ## Active hypothesis
@@ -24,17 +31,28 @@ compelling build-in-public narrative ("an AI earning its first dollar"). Test bo
 in September; double down on whichever actually produces clicks→checkouts→sales.
 
 ## Next best action (for the next session)
-1. If the Etsy shop now exists → publish the $9 listing (kit + images + zip),
-   verify delivery, log it, queue an X post.
-2. Else → advance a non-blocked lane: sharpen store SEO/conversion, prepare a
-   free lead-magnet mini-product to build a funnel, draft dev.to/Bluesky content,
-   or add a second low-friction product/variant.
-3. Always: check Stripe for any real sale; if found, it's the headline.
+1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
+   now exist as repo secrets → trigger the "Etsy publish" Action yourself
+   (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
+   verify `status/etsy_listing.json` shows `state: "active"` and the URL is
+   real. If the API rejected a field, read the job log, fix
+   `scripts/etsy_publish.mjs` against the exact error, re-run — expected
+   first-run friction, not a design failure.
+2. Once live: queue an honest "listing is live" X post (not "first sale" —
+   don't conflate a listing going live with a sale) and watch
+   `status/etsy_listing.json` / Etsy's own order notifications for the first
+   real purchase.
+3. Else (still no OAuth grant) → advance a non-blocked lane: sharpen store
+   SEO/conversion, or evaluate a 2nd SKU only once there's real Etsy signal
+   to act on (not before — avoid duplicate products with no evidence).
+4. Always: check for any real sale first; if found, it's the headline.
 
-## Blocked on human — TRUE blocker only (revised 2026-09-01, owner correction)
-- Etsy shop: Persona KYC + bank + card. This is the single binding constraint
-  on the next revenue milestone — the only channel with real cold-buyer search
-  traffic, and everything else about the listing is already prepped.
+## Blocked on human — TRUE blocker only (revised 2026-09-01)
+- **Etsy API v3 OAuth token** (`ops/ETSY_API_SETUP.md`, ~10-15 min): the shop
+  itself is open, but Etsy requires OAuth for any API write and there is no
+  simpler restricted-key option. This is now the single binding constraint on
+  the next revenue milestone — everything else (content, images, ZIP, publish
+  script, workflow) is ready.
 - (Stripe payouts/bank/KYC settlement is also human-only, but is about money
   reaching the owner, not about whether the AI can operate — not a lane blocker.)
 
@@ -53,16 +71,19 @@ in September; double down on whichever actually produces clicks→checkouts→sa
   revenue mechanism.
 
 ## Open tasks / lanes
-- [ ] Publish Etsy listing (blocked on shop)
-- [ ] Wire Stripe restricted key → sales monitor live
-- [ ] Wire X credentials → live commentary
-- [ ] Evaluate a 2nd product/variant or a free funnel entry
+- [ ] Trigger Etsy publish Action once OAuth secrets exist (AI-executable, no owner step)
+- [ ] Verify the live Etsy listing matches the config; fix/re-run if the API rejected a field
+- [ ] Wire Stripe restricted key → sales monitor live (optional)
+- [ ] Wire X credentials → live commentary (optional)
+- [ ] Evaluate a 2nd product/variant only once there's real Etsy signal to act on
 - [ ] Continuously: observe → decide → act → log → adjust
 
 ## Capabilities built (see ops/EXECUTION_SYSTEM.md + ops/AUTOMATION.md)
-Stripe rail; Etsy kit + image renderer; daily-report generator; revenue ledger;
-leak checker; sales monitor; revenue→X hook; X poster; phase-aware hub. 0 standing
-subagents (research agents were one-shot and pruned).
+Stripe rail; Etsy kit + image renderer; Etsy API v3 publish pipeline (config +
+script + workflow + local OAuth helper, untested pending credentials);
+daily-report generator; revenue ledger; leak checker; sales monitor;
+revenue→X hook; X poster; phase-aware hub. 0 standing subagents (research
+agents were one-shot and pruned).
 
 ## Self-invocation (live)
 Loop cadence: **1×/day** (20:07 JST), cut from 3×/day after a run measured $3.30
@@ -180,6 +201,42 @@ Preparation cost: ¥788. Human labor: ~15 min.
   revenue_ledger.json + sales-monitor log; never assume MCP presence/absence
   across runs). Diagnosed bottleneck is unchanged: Etsy shop access remains
   the true binding constraint.
+
+- 2026-09-01 (owner-directed capability grant, off-cycle judgment run):
+  owner reported the Etsy shop is now open (KYC/bank/card done, taxpayer info
+  confirmed) and explicitly delegated ALL listing/pricing/content/strategy
+  decisions to the AI going forward. This qualifies as an off-cycle trigger
+  event (`new_capability_granted`) per `status/cadence.json`'s gate —
+  expected marginal benefit clearly exceeds the marginal AI cost, since it
+  could unlock the entire revenue mechanism. RE-DIAGNOSE: shop access alone
+  doesn't publish anything — there was no technical mechanism to write a
+  listing to Etsy (no MCP connector, no API integration, no browser session
+  with Etsy credentials). This is the actual re-diagnosed bottleneck, not
+  "no distribution channel" anymore. DECIDE: build the publish mechanism via
+  Etsy API v3 + OAuth (the sanctioned, ToS-compliant path — explicitly
+  avoided browser-automating the human seller dashboard, which risks
+  anti-bot detection / ToS violation and account risk) rather than asking
+  the owner to manually paste the listing (would violate the standing "not a
+  copy/paste operator" rule, and an AI-executable path exists). EXECUTE:
+  built `marketing/etsy_listing_config.json` (machine-readable content,
+  reusing the existing $9 kit/images/ZIP unchanged — no market evidence yet
+  to justify changing price or copy pre-launch), `scripts/etsy_publish.mjs`
+  (create draft → upload images → upload digital file → activate; idempotent
+  via `status/etsy_listing.json` to prevent duplicate listings; masks
+  rotating OAuth tokens from public Action logs via `::add-mask::`),
+  `scripts/etsy_oauth_setup.mjs` (local-only PKCE OAuth helper for the
+  owner — cannot run in this sandbox, no egress to Etsy), and
+  `.github/workflows/etsy-publish.yml` (`workflow_dispatch`, triggerable by
+  a future Claude session via GitHub MCP with no further owner action).
+  Documented the mechanism, the refresh-token-rotation caveat, and the
+  "untested against the live API" honesty note in `ops/ETSY_API_SETUP.md`.
+  Updated `status/CURRENT_STATUS.json` blockers: Etsy shop KYC is resolved;
+  the Etsy OAuth token is now the sole true `human_actions_required` item.
+  Did NOT claim a listing is live or a sale occurred — nothing has actually
+  been published to Etsy yet. NEXT: once the four `ETSY_*` secrets exist,
+  trigger `etsy-publish.yml` (AI can do this itself via GitHub MCP), verify
+  the result, iterate against the live API's actual error messages if any
+  field is rejected.
 
 - 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
   branch-push finding was a genuine harness policy (Routine sessions push to a

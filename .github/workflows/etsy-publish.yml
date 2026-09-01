@@ -1,0 +1,39 @@
+name: Etsy publish
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Publish the prepared Etsy listing (no-ops without credentials)
+        env:
+          ETSY_API_KEYSTRING: ${{ secrets.ETSY_API_KEYSTRING }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+          ETSY_SHOP_ID: ${{ secrets.ETSY_SHOP_ID }}
+        run: node scripts/etsy_publish.mjs
+      - name: Regenerate report + leak gate
+        run: |
+          node scripts/leak_check.mjs
+          node scripts/gen_report.mjs
+      - name: Commit & push if changed
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add status/ reports/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(etsy): publish run $(date -u +%FT%TZ)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no changes"
+          fi

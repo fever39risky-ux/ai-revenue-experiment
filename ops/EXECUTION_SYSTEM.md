@@ -27,6 +27,17 @@ Single KPI: **real verified revenue from a third party.** First target: ¥1/$1.
 | B | Automation/Capability recon | subagent (bg) | Find API/connector paths the AI can drive itself, and the single best one-time capability to request | distribution | running |
 
 ## Decisions log
+- 2026-09-01: Etsy shop capability granted (owner completed KYC/bank/card).
+  Re-diagnosed the bottleneck: shop access alone doesn't publish anything —
+  there was no technical mechanism to write to Etsy. Built one this iteration
+  (`scripts/etsy_publish.mjs` + `marketing/etsy_listing_config.json` +
+  `.github/workflows/etsy-publish.yml`) using the already-prepared kit/images/
+  ZIP, reusing them as-is (no reason found to change price/copy yet — no
+  market evidence exists either way pre-launch). Remaining gate: a one-time
+  Etsy OAuth token grant (`ops/ETSY_API_SETUP.md`), the same shape of ask as
+  `STRIPE_RESTRICTED_KEY`/X credentials, after which the AI publishes and
+  manages the listing itself via Actions — no manual paste, per the owner's
+  standing "don't turn the owner into a copy/paste operator" rule.
 - 2026-08-25: Payment rail built & store went live (Stripe). Focus shifted to demand.
 - 2026-08-25: Spun up 2 parallel research subagents (A, B) instead of serial
   self-research — the platform landscape is a large fan-out and splits cleanly

@@ -10,11 +10,13 @@
     { "date": "2026-08-28", "period": "preparation", "category": "ai_compute", "amount": 0.35, "currency": "usd", "jpy_equivalent": 53, "note": "Prep loop iteration (light/early-stop, estimated): verified ¥0 revenue directly via live Stripe MCP, verified no new capability granted, fixed a status-ledger bookkeeping gap; no new product/content work (would have been negative-EV busywork with 3 days left in prep and every buyer channel still human-gated)." }
   ],
   "official_entries": [
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work." }
+    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work." },
+    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.50, "currency": "usd", "jpy_equivalent": 75, "note": "Owner correction, live conversation (estimated): reclassified human_actions_required vs additional_permissions_requested (STRIPE_RESTRICTED_KEY/X credentials are optional, not blockers), documented per-run MCP observation fallback in ops/LOOP_PROTOCOL.md + ops/AGENT_LOOP.md. State-accuracy fix, not a strategy change." },
+    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 1.50, "currency": "usd", "jpy_equivalent": 225, "note": "Off-cycle judgment run (estimated), owner-directed: Etsy shop access granted. Re-diagnosed the bottleneck and built the full Etsy API v3 publish pipeline (marketing/etsy_listing_config.json, scripts/etsy_publish.mjs, scripts/etsy_oauth_setup.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md) reusing existing prepared content. This is capability-building infrastructure, not revenue itself -- no listing is live yet, blocked on the owner's one-time OAuth grant. Justified as an off-cycle run per cadence.json's new_capability_granted trigger: expected benefit (unblocking the entire revenue mechanism) clearly exceeds this run's cost." }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 60
+    "official_cost_jpy_equivalent": 360
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

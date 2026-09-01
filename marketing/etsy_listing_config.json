@@ -1,0 +1,34 @@
+{
+  "_doc": "Machine-readable Etsy listing content, read by scripts/etsy_publish.mjs. Content decisions live here (edit freely without touching script logic); marketing/ETSY_LISTING_KIT.md is the human-readable source this was derived from.",
+  "title": "ChatGPT Prompts + AI Automation Toolkit — 20 Business Prompts, No-Code Guide & Google Sheets Scripts (Instant Download)",
+  "description": "Stop reading about AI — start automating today. This no-code toolkit gives you 10 copy-paste AI workflows, 2 ready-to-run Google Apps Script tools, 20 business prompts (CSV), and templates that cut 20+ hours/month of repetitive work. Built for solopreneurs, freelancers, and small teams. No coding required.\n\nWhat's inside:\n• 10 workflows — email replies, meeting notes → minutes + tasks, spreadsheet cleanup, batch copy, invoices, prompt library, AI compliance check, bulk processing, auto reports, and building your own tools.\n• 2 working Google Apps Script tools — bulk-process a sheet column with AI; send an automated daily summary email.\n• 20 business prompts (CSV) — import straight into Sheets or Notion.\n• Invoice template + a safety checklist + free updates.\n\nYou'll need: ChatGPT or Claude (free tier works) + Google Sheets. Some scripts use a cheap pay-as-you-go OpenAI API key.\n\nInstant download — you get the ZIP immediately after purchase. Digital product, so no refunds after download. Questions? Message me any time.\n\nNote: This toolkit's contents were created with the help of AI. It is an original compiled product, not resold or drop-shipped.",
+  "price": 9.00,
+  "currency_note": "Priced in USD terms per the first-sale strategy in ETSY_LISTING_KIT.md. Etsy bills in the shop's own bank currency — VERIFY the shop's listing currency before the first real run (may need to be JPY, e.g. ~¥1350 at the repo's ~150 JPY/USD reporting rate) and adjust this field if so. scripts/etsy_publish.mjs sends this value as-is; it does not convert.",
+  "tags": [
+    "chatgpt prompts",
+    "ai automation",
+    "business prompts",
+    "ai toolkit",
+    "no code automation",
+    "productivity template",
+    "small business ai",
+    "google sheets script",
+    "ai workflow",
+    "prompt pack",
+    "digital download",
+    "solopreneur tools",
+    "work automation"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images/01-cover.png",
+    "marketing/etsy-images/02-inside.png",
+    "marketing/etsy-images/03-prompts.png",
+    "marketing/etsy-images/04-who.png"
+  ],
+  "digital_file": "downloads/ai-automation-toolkit-8f3a2c.zip",
+  "digital_file_name": "AI-Automation-Toolkit.zip"
+}
