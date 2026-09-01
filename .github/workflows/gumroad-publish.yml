@@ -14,18 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install the official Gumroad CLI
-        run: |
-          curl -fsSL https://gumroad.com/install-cli.sh | bash
-          # Exact install location isn't confirmed live -- check the common
-          # candidates and add whichever actually has the binary, rather
-          # than guessing one path silently.
-          for d in "$HOME/.local/bin" "/usr/local/bin" "$HOME/bin"; do
-            if [ -x "$d/gumroad" ]; then echo "$d" >> "$GITHUB_PATH"; fi
-          done
-          hash -r
-          gumroad --version || { echo "::error::gumroad CLI not found on PATH after install — check the installer's actual output above and fix this step's PATH candidates."; exit 1; }
-      - name: Publish the prepared Gumroad listing (no-ops without credentials)
+      - name: Publish the prepared Gumroad listing via the official REST API (no-ops without credentials)
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: node scripts/gumroad_publish.mjs

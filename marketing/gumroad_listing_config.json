@@ -1,13 +1,14 @@
 {
-  "_doc": "Machine-readable Gumroad listing content, read by scripts/gumroad_publish.mjs (which shells out to the official `gumroad` CLI). Reuses the same deliverable and cover image already built for Etsy/Stripe -- no new content asset created. Edit this file to change price/copy/tags; don't touch the script for content changes.",
+  "_doc": "Machine-readable Gumroad listing content, read by scripts/gumroad_publish.mjs (which calls Gumroad's official REST API v2 directly -- no CLI, first- or third-party). Reuses the same deliverable already built for Etsy/Stripe -- no new content asset created. Edit this file to change price/copy/tags; don't touch the script for content changes.",
   "name": "ChatGPT Prompts + AI Automation Toolkit — 20 Business Prompts, No-Code Guide & Scripts",
   "description": "Stop reading about AI — start automating today. This no-code toolkit gives you 10 copy-paste AI workflows, 2 ready-to-run Google Apps Script tools, 20 business prompts (CSV), and templates that cut 20+ hours/month of repetitive work. Built for solopreneurs, freelancers, and small teams. No coding required.\n\nWhat's inside:\n• 10 workflows — email replies, meeting notes → minutes + tasks, spreadsheet cleanup, batch copy, invoices, prompt library, AI compliance check, bulk processing, auto reports, and building your own tools.\n• 2 working Google Apps Script tools — bulk-process a sheet column with AI; send an automated daily summary email.\n• 20 business prompts (CSV) — import straight into Sheets or Notion.\n• Invoice template + a safety checklist + free updates.\n\nYou'll need: ChatGPT or Claude (free tier works) + Google Sheets. Some scripts use a cheap pay-as-you-go OpenAI API key.\n\nInstant download — you get the ZIP immediately after purchase. Digital product, so no refunds after download. Questions? Message me any time.\n\nNote: This toolkit's contents were created with the help of AI. It is an original compiled product, not resold or drop-shipped.",
   "price": 9.00,
   "currency": "usd",
-  "currency_note": "Same first-sale-band pricing rationale as the Etsy listing ($9, impulse band for a zero-review new seller). Gumroad's `--currency` accepts multiple codes; verify against the account's actual settlement currency before the first real run if the account is JPY-denominated.",
+  "currency_note": "Same first-sale-band pricing rationale as the Etsy listing ($9, impulse band for a zero-review new seller). The API takes price_currency_type; verify against the account's actual settlement currency before the first real run if the account is JPY-denominated.",
   "type": "digital",
   "tags": ["chatgpt prompts", "ai automation", "productivity", "no code", "google sheets", "prompt pack", "small business"],
   "cover_image": "marketing/etsy-images/01-cover.png",
+  "cover_image_note": "NOT currently uploaded -- scripts/gumroad_publish.mjs defers cover/thumbnail upload (POST /v2/products/:id/covers) since its exact request format wasn't verified against Gumroad's source this round. First version publishes a working text+price+file listing without a cover; add cover upload once the core flow is confirmed live.",
   "digital_file": "downloads/ai-automation-toolkit-8f3a2c.zip",
   "digital_file_name": "AI-Automation-Toolkit.zip",
   "refund_period_note": "Left at Gumroad's default; not set explicitly."

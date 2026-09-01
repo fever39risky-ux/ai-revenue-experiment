@@ -24,8 +24,10 @@ now purely technical (an OAuth grant), not a market or product problem.
   on its own; treat as the destination the narrative/SEO funnels to.
 - **Observability/commentary: X** via GitHub Actions (pending X API secrets, optional).
 - **Gumroad: account confirmed by owner, being activated in parallel with
-  Etsy** — see corrected inventory below. Lower technical friction than
-  Etsy (single access token via an official CLI, not full OAuth).
+  Etsy** — see corrected inventory below. Publishes via Gumroad's official
+  REST API v2 directly (verified against actual production source code,
+  2026-09-01) — no CLI, first- or third-party. Still simpler grant than
+  Etsy (one personal access token from account settings, no app registration).
 - **Creem: account confirmed by owner, last known state = under review** —
   deprioritized regardless of approval outcome; functionally duplicates
   Stripe's already-live role, no distribution-value differentiator found.
@@ -49,25 +51,40 @@ now purely technical (an OAuth grant), not a market or product problem.
 |---|---|---|---|---|
 | Stripe | **live** | confirmed_in_repo | payment rail / destination, not discovery | Live since 2026-08-25; ¥0 revenue (0 owned traffic) |
 | Etsy | **shop open / publishing capability setup in progress** | confirmed_by_owner (shop) + confirmed_in_repo (pipeline) | primary discovery channel | Publish pipeline built + spec-verified; blocked only on the owner's OAuth walkthrough |
-| Gumroad | **account + KYC + bank confirmed by owner; current selling/product state needs re-verification** | confirmed_by_owner (account) + needs_re_verification (live selling status) | candidate parallel discovery channel | Owner: JP account, bank registered, Stripe-based identity verification done, prior warnings resolved, $100 JP payout threshold seen. Technical path verified LIVE this session (WebSearch/WebFetch, not memory): official `antiwork/gumroad-cli`, single access-token auth, full product-create+publish support — lower friction than Etsy. **Being built this iteration.** |
+| Gumroad | **account + KYC + bank confirmed by owner; current selling/product state needs re-verification** | confirmed_by_owner (account) + needs_re_verification (live selling status) | candidate parallel discovery channel | Owner: JP account, bank registered, Stripe-based identity verification done, prior warnings resolved, $100 JP payout threshold seen. Technical path RE-verified 2026-09-01T16:00 UTC against actual production source code (antiwork/gumroad routes.rb + controllers), after the owner flagged that the CLI's own docs weren't sufficient evidence -- confirmed `POST /v2/products`, file upload via direct_uploads, and `PUT .../enable` (publish) are real, unguarded routes requiring only the `edit_products` OAuth scope. Publishes via direct REST API calls, no CLI. **Built this iteration.** |
 | Creem | **account + KYC + bank confirmed by owner; last known state = under review, current approval needs re-verification** | confirmed_by_owner (account) + needs_re_verification (approval outcome) | payment rail, duplicates Stripe's role | API confirmed to exist (verified live), but Creem doesn't add buyer-search discovery beyond what Stripe already provides. Deprioritized regardless of approval status absent a specific advantage — worth a quick owner re-check, not a build target. |
 | Lemon Squeezy | **abandoned** | confirmed_by_owner | n/a | Owner attempted, didn't complete, intentionally abandoned. Not revisited without new justification. |
 
 **Net-Profit conclusion (re-evaluated with corrected facts):** Etsy stays
 primary (validated buyer search-intent, remaining friction is one scoped
 step). Gumroad is now ALSO worth activating in parallel, not instead of
-Etsy: the account is already fully KYC'd/bank-linked, and the verified
-technical path (official CLI, one access token) is meaningfully lower
-friction than Etsy's OAuth+PKCE flow — the marginal cost of building it is
-low and it reuses the same product ZIP. Expected per-listing demand is
-still lower than Etsy's (Gumroad Discover favors listings with existing
-sales/reviews), but at near-zero incremental cost this is a positive-EV
-parallel bet, not a distraction from Etsy. Creem stays deprioritized even
-with account+KYC confirmed: it's payment infrastructure duplicating
-Stripe's already-live role, not a discovery channel, and no differentiator
-has been identified — building it now would be exactly the "redundant
-infra without evidence of added value" anti-pattern, independent of the
-correction above.
+Etsy: the account is already fully KYC'd/bank-linked, and the technical
+path — after being re-verified against Gumroad's actual production source
+code, not the CLI's own docs — is a direct REST API call needing one
+personal access token, still simpler than Etsy's OAuth+PKCE app
+registration. Expected per-listing demand is still lower than Etsy's
+(Gumroad Discover favors listings with existing sales/reviews), but at low
+incremental cost this is a positive-EV parallel bet, not a distraction from
+Etsy. Creem stays deprioritized even with account+KYC confirmed: it's
+payment infrastructure duplicating Stripe's already-live role, not a
+discovery channel, and no differentiator has been identified — building it
+now would be exactly the "redundant infra without evidence of added value"
+anti-pattern, independent of the correction above.
+
+**Second correction, same day (2026-09-01T16:00 UTC):** the first Gumroad
+build depended on `antiwork/gumroad-cli`'s own documentation for its
+`products create`/`publish` commands. The owner flagged that this wasn't
+sufficient verification — Gumroad's official help center only documents
+that CLI for Pages/Profile publishing, not product management, and a
+separate check suggested the REST endpoint might not even be implemented.
+Re-checked against the actual source (not secondary claims): Gumroad's own
+production repo confirms the routes and controller logic are real and
+functional. Rebuilt `scripts/gumroad_publish.mjs` to call the REST API
+directly — no CLI dependency, first-party or third-party — per the user's
+explicit instruction not to rely on any CLI. Two implementation details
+(exact `direct_uploads` response field names; exact `files` array entry
+shape) remain genuinely unverified against a live call and are flagged as
+such, not glossed over.
 
 ## Active hypothesis
 A cold digital product only sells where buyers already search (Etsy) or via a
@@ -76,12 +93,16 @@ in September; double down on whichever actually produces clicks→checkouts→sa
 
 ## Next best action (for the next session)
 0. Gumroad account is confirmed (owner, 2026-09-01). Check whether
-   `GUMROAD_ACCESS_TOKEN` now exists as a repo secret (`ops/GUMROAD_CLI_SETUP.md`
-   has the owner's steps). If so → trigger the "Gumroad publish" Action
+   `GUMROAD_ACCESS_TOKEN` now exists as a repo secret (`ops/GUMROAD_API_SETUP.md`
+   has the owner's steps — Settings → Advanced → generate an access token,
+   no CLI install). If so → trigger the "Gumroad publish" Action
    (`gumroad-publish.yml`), verify `status/gumroad_listing.json` shows a
-   published product and the URL is real. Etsy stays primary; this is a
-   parallel addition, not a substitute — don't let it distract from finishing
-   Etsy.
+   published product and the URL is real. If the API rejects a field or the
+   direct-upload response shape doesn't match, read the job log and fix
+   `scripts/gumroad_publish.mjs` against the exact response — the two
+   specific unverified details are flagged in `ops/GUMROAD_API_SETUP.md`.
+   Etsy stays primary; this is a parallel addition, not a substitute — don't
+   let it distract from finishing Etsy.
 1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
    now exist as repo secrets → trigger the "Etsy publish" Action yourself
    (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
@@ -173,6 +194,44 @@ Preparation cost: ¥788. Human labor: ~15 min.
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-01 (owner correction #2 — verification rigor on Gumroad):
+  owner flagged that the just-built Gumroad pipeline rested on an
+  insufficiently verified premise: `scripts/gumroad_publish.mjs` shelled
+  out to `antiwork/gumroad-cli`, trusting that CLI's own README/SKILL.md
+  as evidence its `products create`/`publish` commands work. Owner's own
+  check of Gumroad's official help center found the CLI documented there
+  only for Pages/Profile publishing, not product management, and
+  distinguished it from an unrelated third-party "GumroadPro CLI" that
+  shows up in searches — a real category error risk (repo-org CLI ≠
+  officially-documented-and-supported CLI). OBSERVE: re-ran verification
+  from scratch, this time reading Gumroad's actual production Rails
+  source directly (`antiwork/gumroad` — `config/routes.rb` +
+  `app/controllers/api/v2/{links,direct_uploads}_controller.rb`) instead
+  of the CLI's docs or WebSearch summaries, one of which had separately
+  (and, per the source, incorrectly) claimed `POST /v2/products` returns
+  404. The routes and controller logic are real: `POST /v2/products`
+  (create, requires `edit_products` scope, no feature flag, creates in
+  draft), `PUT /v2/products/:id/enable` (publish), and a standard Rails
+  ActiveStorage direct-upload flow (`POST /v2/direct_uploads` → presigned
+  PUT → reference the blob in the `files` array) for the deliverable
+  file. DECIDE: drop the CLI dependency entirely per the owner's explicit
+  instruction (no first- or third-party CLI), rebuild
+  `scripts/gumroad_publish.mjs` to call the REST API directly, and switch
+  the owner's one-time grant to Gumroad's long-documented simplest path
+  (Settings → Advanced → generate a personal access token) instead of the
+  CLI's device-flow login — fewer moving parts, nothing to install.
+  EXECUTE: rewrote the publish script (fetch-based, MD5 checksum for the
+  ActiveStorage blob, defensive parsing since two response-shape details
+  are still unverified against a live call), simplified
+  `.github/workflows/gumroad-publish.yml` (no CLI install step), replaced
+  `ops/GUMROAD_CLI_SETUP.md` with `ops/GUMROAD_API_SETUP.md`. Did NOT
+  claim full certainty this works — explicitly flagged the two remaining
+  unverified details (direct_uploads response field names; files-array
+  entry shape) rather than presenting the rebuild as fully confirmed.
+  Strategic conclusion held but now on firmer footing: Gumroad's grant is
+  still simpler than Etsy's, verified against primary source this time,
+  not repo-adjacent documentation.
+
 - 2026-09-01 (owner correction + Gumroad activation): owner corrected the
   prior inventory's core error — "no GitHub record" had been wrongly read
   as "capability doesn't exist." Owner directly confirmed: Gumroad account
