@@ -11,10 +11,10 @@
       "summary_ja": "公式検証期間 初日。売上は¥0のまま。日中に多数の動きがあった中で最も重要なのは、AI自身の診断ミスとその訂正：全チャネル棚卸しの際、『GitHubリポジトリに開通記録が無い』ことを『Gumroad/Creemのアカウントが存在しない』と誤って同一視して報告した。オーナーから直接訂正を受け、実際には両方ともアカウント開設・KYC・銀行設定が完了済み（Gumroadは完全に準備完了、Creemは前回確認時点で審査中）であり、単に人間側の実施事実がGitHub正本へ移管されていなかっただけだと判明した。この訂正を受けて再評価した結果、GumroadはEtsyより技術的に低摩擦（公式CLI・アクセストークン1つのみ）であることを実地調査（WebSearch/WebFetch、憶測ではなく）で確認し、Etsyと並行する出品パイプラインを新規構築した。Creemは引き続き構築を見送った（Stripeと機能重複するため）。ほかの動き：定期巡回、STRIPE_RESTRICTED_KEY等のブロッカー再分類、Etsy出品パイプライン構築、Browser/Computer Use調査、Etsy OAuth仕様検証。残るブロッカーはEtsy OAuthトークンとGumroadアクセストークンの2つの付与のみ。",
       "summary_en": "Day 1 of the official verification window. Revenue remains ¥0. Among today's several events, the most important was an AI diagnostic error and its correction: during a full channel inventory, the AI wrongly equated 'no record in the GitHub repo' with 'the Gumroad/Creem accounts don't exist.' The owner corrected this directly — both accounts are actually open with KYC and bank setup done (Gumroad fully ready; Creem last known under review) — the human had done this work, it just hadn't been migrated into the GitHub source of truth. On the corrected facts, re-evaluation (using live WebSearch/WebFetch, not guesswork) found Gumroad's technical path is genuinely lower-friction than Etsy's (a single access token via an official CLI), so the AI built a parallel Gumroad publish pipeline alongside Etsy's. Creem stays un-built (duplicates Stripe's role). Other events today: a scheduled cadence run, reclassifying STRIPE_RESTRICTED_KEY/X credentials as optional, building the Etsy publish pipeline, a Browser/Computer-Use investigation, and Etsy OAuth spec verification. The two remaining blockers are the Etsy OAuth token grant and the Gumroad access-token grant.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 1036,
+      "daily_cost_jpy_equivalent": 1096,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1036,
-      "cumulative_net_profit_jpy_equivalent": -1036
+      "cumulative_cost_jpy_equivalent": 1096,
+      "cumulative_net_profit_jpy_equivalent": -1096
     },
     {
       "day": 2,
@@ -26,13 +26,13 @@
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1036,
-      "cumulative_net_profit_jpy_equivalent": -1036
+      "cumulative_cost_jpy_equivalent": 1096,
+      "cumulative_net_profit_jpy_equivalent": -1096
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 1036,
-  "official_net_profit_jpy_equivalent": -1036
+  "official_cost_jpy_equivalent": 1096,
+  "official_net_profit_jpy_equivalent": -1096
 }

@@ -194,6 +194,26 @@ Preparation cost: ¥788. Human labor: ~15 min.
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-01 (owner-directed, Gumroad browser/Computer-Use re-check):
+  owner asked to try Browser/Computer-Use publishing for Gumroad
+  specifically, before treating the REST API as the path — same priority
+  order as the earlier Etsy investigation, deliberately re-applied fresh
+  rather than assumed to carry over. Investigated with live tests this
+  turn: re-searched the tool surface (no browser-driving/computer-use tool,
+  same as before), and ran a direct connectivity test — `gumroad.com`,
+  `app.gumroad.com`, and `gumroad.com/login` all returned `403
+  connect_rejected` at the sandbox egress proxy, confirming a whole-domain
+  block, not a narrower subdomain restriction like the earlier Creem-docs
+  case. No Gumroad credentials/session exist anywhere accessible to the AI
+  either way. CONCLUSION: browser-based publish is technically impossible
+  in this session (no tool + no network path), which per the owner's own
+  fallback rule confirms the already-built REST API pipeline
+  (`scripts/gumroad_publish.mjs`) as necessary, not merely convenient. No
+  code changes needed — recorded the investigation in
+  `ops/GUMROAD_API_SETUP.md`, `status/CURRENT_STATUS.json`, and
+  `status/EVENTS.jsonl`. NEXT: unchanged — GUMROAD_ACCESS_TOKEN grant
+  remains the active next step for this lane.
+
 - 2026-09-01 (owner correction #2 — verification rigor on Gumroad):
   owner flagged that the just-built Gumroad pipeline rested on an
   insufficiently verified premise: `scripts/gumroad_publish.mjs` shelled

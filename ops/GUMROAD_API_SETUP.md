@@ -1,5 +1,31 @@
 # Gumroad publish setup — one-time access-token grant
 
+## Why API, not Browser/Computer-Use (investigated 2026-09-01, second time)
+
+Before finalizing the API path, the owner asked to try browser automation
+FIRST — same priority order as the earlier Etsy decision, re-applied to
+Gumroad specifically rather than assumed to carry over. Investigated fresh,
+with live tests this time, not reused claims:
+
+1. **No interactive browser-driving/Computer-Use/GUI-automation tool is
+   exposed to this session.** Re-searched the full tool surface; only a
+   read-only fetch-and-summarize tool exists (cannot click, type, fill
+   forms, or upload files).
+2. **No network path to Gumroad at all**, confirmed by a direct live test:
+   `gumroad.com`, `app.gumroad.com`, and `gumroad.com/login` all returned
+   `403 connect_rejected` (organization policy) at the sandbox's egress
+   proxy — not a narrower subdomain-specific block, the whole domain.
+3. **No existing Gumroad login/session** exists anywhere accessible to the
+   AI — the owner's account access lives only in their own browser,
+   correctly never shared.
+
+(1) and (2) alone make browser-based publish technically impossible in this
+session — reaching the product-creation screen, uploading files, or
+publishing without human confirmation are moot questions when there is no
+network path to the site at all. Per the owner's own fallback rule
+("confirmed technically impossible → use the API path"), this confirms the
+REST API pipeline below as necessary, not merely convenient.
+
 ## Correction (2026-09-01): dropped the CLI dependency
 
 An earlier version of this pipeline was built around Gumroad's first-party
