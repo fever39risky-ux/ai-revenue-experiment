@@ -1,11 +1,13 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-08-28 (prep).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-01 (official day 1).
 
 ## Current phase
-Preparation (Aug 26–31). Official verification: Sep 1–30 (Asia/Tokyo). Official
-KPI starts at ¥0 on Sep 1. Target ¥50,000 equivalent in 30 days.
+**OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
+official cost ¥0 (both start counting today). Target ¥50,000 equivalent in 30 days.
+Day-1 reality check: no revenue-driving blocker resolved at the transition — this
+starts from the same ¥0 base preparation ended on, not a running start.
 
 ## Current strategy (as of last update)
 - **Primary revenue lane: Etsy** — the only channel with real cold-buyer search
@@ -113,6 +115,20 @@ live Stripe on 2026-08-28: 0 charges). Preparation cost: ¥788. Human labor: ~15
   Etsy/STRIPE_RESTRICTED_KEY/X-credential asks already tracked here. Cost: ~$0.35.
   Prep cost so far: ¥788. NEXT: same as below — nothing to do differently until a
   capability lands or Sep 1.
+
+- 2026-09-01 (official window opens, owner check-in): owner asked to confirm everything
+  is ready. OBSERVE: live Stripe MCP re-confirms ¥0 (0 charges). Owner stated "Stripe is
+  connected via MCP" -- verified this is real but is a DIFFERENT thing from the
+  `STRIPE_RESTRICTED_KEY` repo secret: MCP only works while a Claude session is live;
+  pulled the actual sales-monitor.yml job log (2026-08-31T21:28 JST run) and confirmed
+  the env var is empty and the script no-ops. So the 4-hourly headless revenue monitor
+  is still blind between loop sessions. All three human-gated blockers (Etsy shop,
+  STRIPE_RESTRICTED_KEY, X credentials) unchanged since 2026-08-26. Gave the owner an
+  honest, non-optimistic status: infra (payment rail, reporting, promotion pipeline) is
+  solid and tested, but the actual demand-side lever (Etsy) hasn't moved, so day 1 of
+  the official window starts from the same ¥0 as prep. NEXT: same as ever — Etsy KYC
+  is the single highest-leverage unblock; STRIPE_RESTRICTED_KEY is second (closes the
+  headless-monitoring gap even before Etsy).
 
 - 2026-08-28 (owner-directed, capability build): the owner confirmed the prior
   branch-push finding was a genuine harness policy (Routine sessions push to a

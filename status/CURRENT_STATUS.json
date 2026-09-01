@@ -3,14 +3,14 @@
     "name": "AI Revenue Experiment",
     "mode": "AI_EARNS",
     "config_ref": "experiment/EXPERIMENT_CONFIG.json",
-    "phase": "preparation",
+    "phase": "official",
     "preparation_period": { "start": "2026-08-26", "end": "2026-08-31", "official_revenue_counted": false },
     "official_period": { "start": "2026-09-01", "end": "2026-09-30", "days": 30, "official_revenue_counted": true },
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-08-25T05:30:00Z",
-  "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": false },
+  "updated_at": "2026-09-01T02:00:00Z",
+  "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": true, "verified_how": "direct live Stripe MCP query (GetCharges) on 2026-09-01, 0 charges" },
   "active_lanes": [
     { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUzrlvhUQe", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
     { "lane": "affiliate", "state": "content_ready_pending_program_signup" },
@@ -36,11 +36,11 @@
   "human_actions_required": [
     { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true },
     { "action": "Open the Etsy seller shop (Persona identity verification + bank + card).", "why_ai_cannot": "Legal identity verification / banking, human-only by Etsy policy.", "one_time": true },
-    { "action": "Add STRIPE_RESTRICTED_KEY as a GitHub repo secret so the sales-monitor Action can read charges without a live Claude session.", "why_ai_cannot": "Repo secret creation requires owner/admin GitHub permission.", "one_time": true },
+    { "action": "Add STRIPE_RESTRICTED_KEY as a GitHub repo secret (Stripe Dashboard -> Developers -> API keys -> create a restricted key with Charges/Balance Transactions read access) so sales-monitor.yml can detect revenue headlessly every 4h, not only when a Claude session happens to be running. Verified 2026-09-01T21:28 JST run log: env var is empty, script prints 'no STRIPE_RESTRICTED_KEY set — skipping (no-op)'. Note: this is separate from the Stripe MCP connector, which is live and lets an active Claude session query Stripe directly, but only while that session is running.", "why_ai_cannot": "Repo secret creation requires owner/admin GitHub permission.", "one_time": true },
     { "action": "Add X_API_KEY/SECRET + X_ACCESS_TOKEN/SECRET as repo secrets for autonomous build-in-public commentary.", "why_ai_cannot": "Requires an X developer app owned by a human account.", "one_time": true }
   ],
   "additional_permissions_requested": [],
   "opp_support_opportunities": ["If a Stripe test/sandbox account could be exposed to this connector in future, the AI could run a full test-mode purchase before live publication."],
   "human_labor_minutes_total": 15,
-  "notes": "Preparation period (ends 2026-08-31; official window starts 2026-09-01). 2026-08-28 loop iteration: verified ¥0 revenue directly via live Stripe MCP (zero charges on the live account), verified no new capability was granted (no GitHub issues/comments, no repo-secret or Etsy evidence). No material change since 2026-08-26. Early-stopped per cadence.json's standing recommendation to pause prep-period runs while every buyer channel remains human-gated. Notable: this fired session DID have direct Stripe + GitHub MCP tools available, contradicting the prior assumption in ops/AGENT_LOOP.md that fired Routine sessions carry no MCP connectors -- worth re-testing on the next fire before relying on it."
+  "notes": "OFFICIAL WINDOW OPENED 2026-09-01 (Asia/Tokyo). Official revenue ¥0, official cost ¥0 so far (both start counting today). 2026-09-01 check: verified live via Stripe MCP that charges are still 0 (matches ledger); confirmed via an actual sales-monitor.yml job log (run 2026-08-31T21:28 JST, job 99650629702) that STRIPE_RESTRICTED_KEY is genuinely not set as a repo secret -- the owner had Stripe MCP connected in a Claude session, which is a different thing (session-scoped, not a standing repo credential); the Actions-level headless monitor is still a no-op. All three human-gated blockers (Etsy shop KYC, STRIPE_RESTRICTED_KEY secret, X API credentials) are unchanged since 2026-08-26. Honest read for the owner: infrastructure (payment rail, reporting, promotion pipeline) is solid and tested, but the actual revenue-driving lever (Etsy buyer traffic) has not moved, so day 1 of the official window starts from the same ¥0 base as prep, not from a running start."
 }
