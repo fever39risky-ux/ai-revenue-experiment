@@ -23,36 +23,51 @@ now purely technical (an OAuth grant), not a market or product problem.
 - **Live now: Stripe store** (`/store/`, $19 payment link) — works, but no traffic
   on its own; treat as the destination the narrative/SEO funnels to.
 - **Observability/commentary: X** via GitHub Actions (pending X API secrets, optional).
-- Gumroad/Creem: **status unknown, NOT skipped-with-confidence** — see full
-  inventory below (2026-09-01). No repo evidence either was ever opened by
-  the owner; asked for confirmation rather than assuming.
-- Lemon Squeezy: abandoned, per explicit owner instruction not to restart
-  without new justification.
+- **Gumroad: account confirmed by owner, being activated in parallel with
+  Etsy** — see corrected inventory below. Lower technical friction than
+  Etsy (single access token via an official CLI, not full OAuth).
+- **Creem: account confirmed by owner, last known state = under review** —
+  deprioritized regardless of approval outcome; functionally duplicates
+  Stripe's already-live role, no distribution-value differentiator found.
+- Lemon Squeezy: owner attempted to open an account, it didn't complete,
+  intentionally abandoned. Not restarting without new justification.
 
-## Channel inventory (2026-09-01, full re-check against real repo evidence)
-Owner asked for this specifically to make sure a real, already-open human
-capability wasn't being overlooked while building new API infrastructure.
-Full detail + reasoning: `status/CURRENT_STATUS.json.channel_inventory`.
+## Channel inventory — CORRECTED 2026-09-01T15:00 UTC (see correction note)
+> **Correction note:** an earlier version of this inventory (same day,
+> ~14:30 UTC) classified Gumroad and Creem as "status unknown" / effectively
+> not-yet-opened, reasoning from an absence of GitHub repo records. That was
+> a real error: **absence of a repo record was wrongly treated as absence of
+> the capability itself.** The owner corrected this directly — both accounts
+> were opened, KYC'd, and bank-linked by the human before this experiment's
+> GitHub memory captured it; the gap was in what got migrated to the source
+> of truth, not in what the owner actually did. Every row below now carries
+> an explicit verification level so this distinction is never collapsed
+> again: `confirmed_in_repo` | `confirmed_by_owner` | `status_unknown` |
+> `needs_re_verification`. Full detail: `status/CURRENT_STATUS.json.channel_inventory`.
 
-| Channel | State | Role | Evidence |
-|---|---|---|---|
-| Stripe | **live** | payment rail / destination, not discovery | Live product/price/payment link since 2026-08-25; store selling $19; ¥0 revenue (0 traffic of its own) |
-| Etsy | **pending** | primary discovery channel | Shop open (owner KYC 2026-09-01); publish pipeline built + spec-verified; blocked only on the owner's OAuth walkthrough (already provided) |
-| Gumroad | **blocked** (status unknown) | unconfirmed | No account/KYC/payout evidence anywhere in the repo. 2026-08-25 research skip cited "no create-product API" — **that claim was wrong**; Gumroad does have one, and notably lower friction than Etsy (a personal access token, no full OAuth). Asked owner to confirm account status; will NOT build an integration before that's confirmed. |
-| Creem | **blocked** (status unknown) | unconfirmed, likely low-value even if opened | No account/approval evidence anywhere. It's payment/billing infra (MoR checkout) — the same role Stripe already fills live, not a discovery/marketplace channel. No identified differentiator over Stripe. Lowest priority; asked for status only for completeness. |
-| Lemon Squeezy | **abandoned** | n/a | Skipped 2026-08-25; owner reaffirmed 2026-09-01 not to restart without new justification. |
+| Channel | State | Verification | Role | Notes |
+|---|---|---|---|---|
+| Stripe | **live** | confirmed_in_repo | payment rail / destination, not discovery | Live since 2026-08-25; ¥0 revenue (0 owned traffic) |
+| Etsy | **shop open / publishing capability setup in progress** | confirmed_by_owner (shop) + confirmed_in_repo (pipeline) | primary discovery channel | Publish pipeline built + spec-verified; blocked only on the owner's OAuth walkthrough |
+| Gumroad | **account + KYC + bank confirmed by owner; current selling/product state needs re-verification** | confirmed_by_owner (account) + needs_re_verification (live selling status) | candidate parallel discovery channel | Owner: JP account, bank registered, Stripe-based identity verification done, prior warnings resolved, $100 JP payout threshold seen. Technical path verified LIVE this session (WebSearch/WebFetch, not memory): official `antiwork/gumroad-cli`, single access-token auth, full product-create+publish support — lower friction than Etsy. **Being built this iteration.** |
+| Creem | **account + KYC + bank confirmed by owner; last known state = under review, current approval needs re-verification** | confirmed_by_owner (account) + needs_re_verification (approval outcome) | payment rail, duplicates Stripe's role | API confirmed to exist (verified live), but Creem doesn't add buyer-search discovery beyond what Stripe already provides. Deprioritized regardless of approval status absent a specific advantage — worth a quick owner re-check, not a build target. |
+| Lemon Squeezy | **abandoned** | confirmed_by_owner | n/a | Owner attempted, didn't complete, intentionally abandoned. Not revisited without new justification. |
 
-**Net-Profit conclusion:** Etsy stays the primary next action — it's the only
-channel with both a real, already-open human-side account AND validated
-buyer search-intent, and its remaining friction is a single scoped step, not
-more building. Did NOT build Gumroad/Creem integration code this iteration
-despite Gumroad's lower technical friction, because there's no confirmed
-account to build against — that would be the same "overlooked existing
-state" mistake in reverse (building for an unconfirmed channel instead of
-missing a confirmed one). If the owner confirms a Gumroad account already
-exists and is payout-ready, building its publish path becomes a legitimate
-low-cost parallel addition to Etsy (same product ZIP); Creem stays
-deprioritized regardless absent a specific identified advantage.
+**Net-Profit conclusion (re-evaluated with corrected facts):** Etsy stays
+primary (validated buyer search-intent, remaining friction is one scoped
+step). Gumroad is now ALSO worth activating in parallel, not instead of
+Etsy: the account is already fully KYC'd/bank-linked, and the verified
+technical path (official CLI, one access token) is meaningfully lower
+friction than Etsy's OAuth+PKCE flow — the marginal cost of building it is
+low and it reuses the same product ZIP. Expected per-listing demand is
+still lower than Etsy's (Gumroad Discover favors listings with existing
+sales/reviews), but at near-zero incremental cost this is a positive-EV
+parallel bet, not a distraction from Etsy. Creem stays deprioritized even
+with account+KYC confirmed: it's payment infrastructure duplicating
+Stripe's already-live role, not a discovery channel, and no differentiator
+has been identified — building it now would be exactly the "redundant
+infra without evidence of added value" anti-pattern, independent of the
+correction above.
 
 ## Active hypothesis
 A cold digital product only sells where buyers already search (Etsy) or via a
@@ -60,12 +75,13 @@ compelling build-in-public narrative ("an AI earning its first dollar"). Test bo
 in September; double down on whichever actually produces clicks→checkouts→sales.
 
 ## Next best action (for the next session)
-0. Check whether the owner answered the Gumroad/Creem status question
-   (`status/CURRENT_STATUS.json.human_actions_required`). If a Gumroad
-   account is confirmed open + payout-ready, that becomes a legitimate
-   low-cost parallel build (personal-access-token path, lower friction than
-   Etsy's OAuth) — but Etsy stays primary either way; don't let this become
-   a distraction from finishing Etsy.
+0. Gumroad account is confirmed (owner, 2026-09-01). Check whether
+   `GUMROAD_ACCESS_TOKEN` now exists as a repo secret (`ops/GUMROAD_CLI_SETUP.md`
+   has the owner's steps). If so → trigger the "Gumroad publish" Action
+   (`gumroad-publish.yml`), verify `status/gumroad_listing.json` shows a
+   published product and the URL is real. Etsy stays primary; this is a
+   parallel addition, not a substitute — don't let it distract from finishing
+   Etsy.
 1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
    now exist as repo secrets → trigger the "Etsy publish" Action yourself
    (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
@@ -157,6 +173,31 @@ Preparation cost: ¥788. Human labor: ~15 min.
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-01 (owner correction + Gumroad activation): owner corrected the
+  prior inventory's core error — "no GitHub record" had been wrongly read
+  as "capability doesn't exist." Owner directly confirmed: Gumroad account
+  open (Japan, bank registered, Stripe-based identity verification done,
+  prior warnings resolved, $100 JP payout threshold seen) and Creem account
+  open (Store/business info, KYC/PEP, bank/payout done, last known state
+  under review). Both existed before this experiment's GitHub memory
+  captured them — a migration gap, not a capability that was never granted.
+  RE-EVALUATED (not just recorded) using real verification this time:
+  WebSearch/WebFetch confirmed Gumroad ships an official CLI
+  (`antiwork/gumroad-cli`) purpose-built for CI/agent product publishing —
+  single access-token auth (device-flow login, no OAuth app registration),
+  full create/upload/publish support. This is genuinely lower friction than
+  Etsy's OAuth+PKCE flow, and the account is already fully KYC'd/bank-ready.
+  DECIDED: build the Gumroad publish capability now, as a parallel low-cost
+  addition to Etsy (not a replacement — Etsy still has the stronger
+  validated buyer-search demand). Creem stays deprioritized regardless of
+  its confirmed account/API, since it duplicates Stripe's payment-rail role
+  with no identified distribution advantage — recommended a quick owner
+  status re-check, not a build. Corrected `status/CURRENT_STATUS.json`,
+  this file, and `status/EVENTS.jsonl` with an explicit verification-level
+  taxonomy (confirmed_in_repo / confirmed_by_owner / status_unknown /
+  needs_re_verification) so this class of error — silence read as absence —
+  isn't repeated.
+
 - 2026-09-01 (owner-directed, full channel inventory): owner asked to
   inventory ALL sales channels (Stripe/Etsy/Gumroad/Creem/Lemon Squeezy)
   before continuing further with Etsy, specifically to catch any
