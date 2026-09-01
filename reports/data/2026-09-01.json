@@ -11,7 +11,9 @@
     "【Etsy Capability対応】Etsyショップ開通の報告を受け、再診断：出品を妨げているのはショップの有無ではなく、Etsy APIへの技術的接続手段が無いことだと特定。",
     "marketing/etsy_listing_config.json（機械可読な出品内容、既存kitをそのまま流用）、scripts/etsy_publish.mjs（Etsy API v3でドラフト作成→画像アップロード→デジタルファイル添付→公開、冪等性あり）、scripts/etsy_oauth_setup.mjs（オーナーがローカルで一度だけ実行するOAuthセットアップ）、.github/workflows/etsy-publish.yml（workflow_dispatch）、ops/ETSY_API_SETUP.md（手順書）を新規構築した。",
     "出品はまだ実行していない（OAuthトークン未付与のため）。実APIでの動作は未検証であることを正直に記録した。",
-    "【Browser/Computer Use調査】オーナーの指示を受け、ブラウザ操作でEtsyに直接出品できるか調査。本セッションにブラウザ操作ツールが無いこと、サンドボックスからEtsyへの通信がネットワークポリシーで遮断されていること（実測: 403 connect_rejected）、Etsyログイン情報が一切無いことを確認し、GitHub Actions+パスワード共有によるブラウザ自動化案も規約・アカウントリスクの観点から却下。結果をops/ETSY_API_SETUP.mdに記録した。"
+    "【Browser/Computer Use調査】オーナーの指示を受け、ブラウザ操作でEtsyに直接出品できるか調査。本セッションにブラウザ操作ツールが無いこと、サンドボックスからEtsyへの通信がネットワークポリシーで遮断されていること（実測: 403 connect_rejected）、Etsyログイン情報が一切無いことを確認し、GitHub Actions+パスワード共有によるブラウザ自動化案も規約・アカウントリスクの観点から却下。結果をops/ETSY_API_SETUP.mdに記録した。",
+    "【スペック検証】OAuth付与前に、redirect_uriのHTTPS要件・Keystring/Shared Secretの扱い・最小OAuth scope（listings_w/listings_r/shops_rへ縮小）・Seller AppのAccess Level・refresh tokenの現行仕様（約90日）・digital listing必須フィールドの6点を検証し修正した（1点は実APIでの検証待ちと正直に記載）。",
+    "【全チャネル棚卸し】Stripe/Etsy/Gumroad/Creem/Lemon Squeezyを実際のリポジトリ証跡と照合。GumroadもCreemも人間側で開通した記録が一切無いことを確認し、Gumroadには出品APIが無いという過去の記載が誤りだったことも判明。アカウント存在未確認のまま連携コードは構築せず、オーナーへ事実確認を1件依頼した。"
   ],
   "actions_en": [
     "[Scheduled run] Confirmed main is caught up to the claude/** branch with no 'Promotion blocked' issue, and created the missing reports/data/2026-09-01.json.",
@@ -19,7 +21,9 @@
     "[Etsy capability] On hearing the Etsy shop is open, re-diagnosed the bottleneck: it isn't shop access itself, it's the absence of any technical mechanism to write a listing to Etsy.",
     "Built marketing/etsy_listing_config.json (machine-readable listing content, reusing the existing kit as-is), scripts/etsy_publish.mjs (Etsy API v3: create draft -> upload images -> upload digital file -> activate, idempotent), scripts/etsy_oauth_setup.mjs (owner's one-time local OAuth helper), .github/workflows/etsy-publish.yml (workflow_dispatch), and ops/ETSY_API_SETUP.md (step-by-step instructions).",
     "Did not actually publish yet (OAuth token not granted). Recorded honestly that this is untested against the live Etsy API.",
-    "[Browser/Computer-Use investigation] At the owner's request, investigated whether browser automation could publish directly to Etsy. Confirmed: no browser-driving tool exists in this session, sandbox egress to Etsy is blocked at the network policy level (measured: 403 connect_rejected), and no Etsy login credentials exist anywhere. Also rejected a GitHub-Actions-plus-shared-password alternative on ToS/account-risk grounds. Recorded the full finding in ops/ETSY_API_SETUP.md."
+    "[Browser/Computer-Use investigation] At the owner's request, investigated whether browser automation could publish directly to Etsy. Confirmed: no browser-driving tool exists in this session, sandbox egress to Etsy is blocked at the network policy level (measured: 403 connect_rejected), and no Etsy login credentials exist anywhere. Also rejected a GitHub-Actions-plus-shared-password alternative on ToS/account-risk grounds. Recorded the full finding in ops/ETSY_API_SETUP.md.",
+    "[Spec verification] Verified the Etsy implementation against 6 spec points before the OAuth grant: fixed the redirect_uri wording (HTTPS required, localhost is the documented exception), clarified Keystring vs Shared Secret handling (PKCE never needs the latter), trimmed OAuth scope to least-privilege (listings_w/listings_r/shops_r, dropped unused shops_w/transactions_r), added Seller-App access-level guidance, tightened the refresh-token lifetime figure (~90 days), and enumerated the digital-listing required fields (one point honestly still unverified pending a live run).",
+    "[Full channel inventory] Re-checked Stripe/Etsy/Gumroad/Creem/Lemon Squeezy against real repo evidence before any further build work. Found no evidence Gumroad or Creem were ever opened by the owner (both remain 2026-08-25 research-stage skips); corrected an inaccurate prior claim that Gumroad lacks a create-product API. Did not build any Gumroad/Creem integration code without confirmed account existence — asked the owner one factual status question instead."
   ],
   "decisions_ja": [
     "オーナーの指摘通り、収益を止めている真のブロッカーとそれ以外のOptional Capabilityを区別する原則を採用（状態記録の正確性であり戦略変更ではない）。",
@@ -63,6 +67,6 @@
   "capabilities_en": ["Built the full Etsy API v3 publish pipeline (config, scripts, workflow, OAuth setup guide) this session. Untested."],
   "social_ja": ["Etsyショップ開通とAIによる出品パイプライン構築（コピペ依頼をせず自律構築したこと）をXキューに投稿予約した。『初売上』とは明確に区別し、まだ売上が無いことを正直に記載。"],
   "social_en": ["Queued an X post about the Etsy shop grant and the AI building its own publish pipeline (rather than asking for a manual paste). Clearly distinguished from a 'first sale' claim — honestly notes no sale yet."],
-  "next_ja": ["Etsy OAuthトークンが付与され次第、AI自身がetsy-publish.yml Actionを起動する。", "実APIでフィールドが拒否された場合はエラー内容に応じてscripts/etsy_publish.mjsを修正し再実行する。", "出品後は初売上を監視し、確認できた時点でXに投稿する。"],
-  "next_en": ["Once the Etsy OAuth secrets exist, trigger the etsy-publish.yml Action directly (AI-executable, no further owner step).", "If the live API rejects a field, fix scripts/etsy_publish.mjs against the exact error and re-run.", "Watch for the first real sale after publish and post to X once confirmed."]
+  "next_ja": ["Etsy OAuthトークンが付与され次第、AI自身がetsy-publish.yml Actionを起動する。", "実APIでフィールドが拒否された場合はエラー内容に応じてscripts/etsy_publish.mjsを修正し再実行する。", "出品後は初売上を監視し、確認できた時点でXに投稿する。", "Gumroad/Creemのアカウント状態についてオーナーからの回答を待つ（Gumroadが開通済みと確認できれば低コストな並行レーンとして構築を検討）。"],
+  "next_en": ["Once the Etsy OAuth secrets exist, trigger the etsy-publish.yml Action directly (AI-executable, no further owner step).", "If the live API rejects a field, fix scripts/etsy_publish.mjs against the exact error and re-run.", "Watch for the first real sale after publish and post to X once confirmed.", "Await the owner's answer on Gumroad/Creem account status (if Gumroad is confirmed open, consider it as a low-cost parallel lane)."]
 }

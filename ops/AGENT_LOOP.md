@@ -23,7 +23,36 @@ now purely technical (an OAuth grant), not a market or product problem.
 - **Live now: Stripe store** (`/store/`, $19 payment link) — works, but no traffic
   on its own; treat as the destination the narrative/SEO funnels to.
 - **Observability/commentary: X** via GitHub Actions (pending X API secrets, optional).
-- Skipped: Gumroad/Payhip/Lemon Squeezy (no cold traffic, no create-product API).
+- Gumroad/Creem: **status unknown, NOT skipped-with-confidence** — see full
+  inventory below (2026-09-01). No repo evidence either was ever opened by
+  the owner; asked for confirmation rather than assuming.
+- Lemon Squeezy: abandoned, per explicit owner instruction not to restart
+  without new justification.
+
+## Channel inventory (2026-09-01, full re-check against real repo evidence)
+Owner asked for this specifically to make sure a real, already-open human
+capability wasn't being overlooked while building new API infrastructure.
+Full detail + reasoning: `status/CURRENT_STATUS.json.channel_inventory`.
+
+| Channel | State | Role | Evidence |
+|---|---|---|---|
+| Stripe | **live** | payment rail / destination, not discovery | Live product/price/payment link since 2026-08-25; store selling $19; ¥0 revenue (0 traffic of its own) |
+| Etsy | **pending** | primary discovery channel | Shop open (owner KYC 2026-09-01); publish pipeline built + spec-verified; blocked only on the owner's OAuth walkthrough (already provided) |
+| Gumroad | **blocked** (status unknown) | unconfirmed | No account/KYC/payout evidence anywhere in the repo. 2026-08-25 research skip cited "no create-product API" — **that claim was wrong**; Gumroad does have one, and notably lower friction than Etsy (a personal access token, no full OAuth). Asked owner to confirm account status; will NOT build an integration before that's confirmed. |
+| Creem | **blocked** (status unknown) | unconfirmed, likely low-value even if opened | No account/approval evidence anywhere. It's payment/billing infra (MoR checkout) — the same role Stripe already fills live, not a discovery/marketplace channel. No identified differentiator over Stripe. Lowest priority; asked for status only for completeness. |
+| Lemon Squeezy | **abandoned** | n/a | Skipped 2026-08-25; owner reaffirmed 2026-09-01 not to restart without new justification. |
+
+**Net-Profit conclusion:** Etsy stays the primary next action — it's the only
+channel with both a real, already-open human-side account AND validated
+buyer search-intent, and its remaining friction is a single scoped step, not
+more building. Did NOT build Gumroad/Creem integration code this iteration
+despite Gumroad's lower technical friction, because there's no confirmed
+account to build against — that would be the same "overlooked existing
+state" mistake in reverse (building for an unconfirmed channel instead of
+missing a confirmed one). If the owner confirms a Gumroad account already
+exists and is payout-ready, building its publish path becomes a legitimate
+low-cost parallel addition to Etsy (same product ZIP); Creem stays
+deprioritized regardless absent a specific identified advantage.
 
 ## Active hypothesis
 A cold digital product only sells where buyers already search (Etsy) or via a
@@ -31,6 +60,12 @@ compelling build-in-public narrative ("an AI earning its first dollar"). Test bo
 in September; double down on whichever actually produces clicks→checkouts→sales.
 
 ## Next best action (for the next session)
+0. Check whether the owner answered the Gumroad/Creem status question
+   (`status/CURRENT_STATUS.json.human_actions_required`). If a Gumroad
+   account is confirmed open + payout-ready, that becomes a legitimate
+   low-cost parallel build (personal-access-token path, lower friction than
+   Etsy's OAuth) — but Etsy stays primary either way; don't let this become
+   a distraction from finishing Etsy.
 1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
    now exist as repo secrets → trigger the "Etsy publish" Action yourself
    (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
@@ -122,6 +157,33 @@ Preparation cost: ¥788. Human labor: ~15 min.
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-01 (owner-directed, full channel inventory): owner asked to
+  inventory ALL sales channels (Stripe/Etsy/Gumroad/Creem/Lemon Squeezy)
+  before continuing further with Etsy, specifically to catch any
+  already-human-opened capability being overlooked while new API
+  infrastructure gets built. OBSERVE: checked git history, EVENTS.jsonl,
+  GitHub issues, and connectors for each. No repo evidence Gumroad or Creem
+  were EVER opened — both remain 2026-08-25 research-stage skips, not
+  human-opened channels; the 2026-08-25 Gumroad skip reason ("no
+  create-product API") was itself factually wrong — Gumroad does have one,
+  and it's lower-friction than Etsy's OAuth (personal access token, no PKCE
+  redirect flow). DIAGNOSE: the real question isn't "which is technically
+  easiest" but "which is confirmed to actually exist" — building toward an
+  unconfirmed channel would repeat the exact mistake being corrected, aimed
+  at a channel instead of at a blocker. DECIDE: keep Etsy as the primary
+  next action (confirmed open + validated demand + fully scoped remaining
+  step); do not build any Gumroad/Creem integration code without confirmed
+  account existence; ask the owner one factual, non-blocking status
+  question instead of guessing. Creem specifically stays deprioritized even
+  if opened, since it's payment infra duplicating Stripe's already-live
+  role with no identified distribution advantage. Lemon Squeezy: no
+  re-investigation, stays abandoned per explicit instruction. EXECUTE:
+  recorded the full inventory + reasoning in
+  `status/CURRENT_STATUS.json.channel_inventory`, this file, and
+  `status/EVENTS.jsonl`. No code changes. NEXT: Etsy OAuth grant remains
+  the active next step (walkthrough already given); Gumroad/Creem wait on
+  the owner's answer.
+
 - 2026-08-26 (prep, human-run loop): OBSERVE ¥0 revenue, no capability granted yet;
   market data confirms ChatGPT-prompt/AI-template packs are a top-growing Etsy category
   → current Etsy positioning is validated (no change needed). DIAGNOSE: only binding
