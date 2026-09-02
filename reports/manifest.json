@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-02.html",
+  "latest_report": "reports/2026-09-03.html",
   "reports": [
     {
       "day": 1,
@@ -25,6 +25,19 @@
       "summary_en": "Day 2 of the official verification window. Revenue remains ¥0. Nothing changed since yesterday, but rather than assume that, the AI actually triggered both the Etsy publish Action (etsy-publish.yml) and the Gumroad publish Action (gumroad-publish.yml) itself via GitHub MCP and read the real run results. Both jobs completed successfully, but each run's log explicitly says 'no-ops without credentials' — empirically confirming that neither the Etsy OAuth token nor GUMROAD_ACCESS_TOKEN has been granted yet, rather than relying on an assumption carried over from yesterday. No open GitHub issues, no 'Promotion blocked' issue; main is at the same commit as this branch (c5113d9). The automated Stripe sales monitor's latest run (2026-09-02T04:35 UTC) also detected no new revenue (status/revenue_ledger.json is still empty). No new content or product was built this run — the two publish pipelines are confirmed technically ready and waiting only on the token grants, verified at near-zero cost (GitHub Actions' free tier) rather than assumed.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 53,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 1149,
+      "cumulative_net_profit_jpy_equivalent": -1149
+    },
+    {
+      "day": 3,
+      "date": "2026-09-03",
+      "path": "reports/2026-09-03.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 1149,
       "cumulative_net_profit_jpy_equivalent": -1149
