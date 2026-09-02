@@ -15,41 +15,42 @@
  *
  * Listing content lives in marketing/gumroad_listing_config.json, not here.
  *
- * Spec source: this endpoint sequence was verified 2026-09-01 against
- * Gumroad's actual production Rails source (antiwork/gumroad on GitHub --
- * config/routes.rb + app/controllers/api/v2/{links,direct_uploads}_controller.rb),
- * NOT the antiwork/gumroad-cli tool's own docs and NOT a third-party CLI.
- * An earlier version of this pipeline depended on gumroad-cli's documented
- * `products create`/`publish` commands, which turned out to be an
- * unverified premise -- Gumroad's help center only documents the CLI for
- * Pages/Profile publishing, not product management, and a search result
- * separately (and, per the source-code read below, apparently incorrectly)
- * claimed POST /v2/products 404s. Reading the actual routes.rb and
- * controller source directly resolved the contradiction: the route and
- * controller action are real, unguarded by any feature flag, and require
- * only the `edit_products` OAuth scope.
+ * Spec source: this endpoint sequence was verified against Gumroad's
+ * actual production Rails source (antiwork/gumroad on GitHub), NOT the
+ * antiwork/gumroad-cli tool's own docs and NOT a third-party CLI.
  *
- * Flow (per that source read):
- *   1. POST /v2/direct_uploads (blob: filename, byte_size, checksum,
- *      content_type) -> presigned upload URL/headers + a blob reference
- *      to use in the products call. This is standard Rails ActiveStorage
- *      direct upload.
- *   2. PUT the raw file bytes to the presigned URL.
- *   3. POST /v2/products (draft created automatically: draft=true,
- *      purchase_disabled_at set) with name/price/description/tags/files.
- *   4. PUT /v2/products/:id/enable to publish (calls @product.publish!).
+ * CORRECTED 2026-09-02 after a live run: the first version of this script
+ * used POST /v2/direct_uploads (Rails ActiveStorage) for the digital file
+ * and got a real, concrete error back: `400 content_type must be JPEG,
+ * PNG, GIF, or video` -- that endpoint is for media (covers/images), not
+ * arbitrary downloadable files. The correct mechanism, per routes.rb, is a
+ * SEPARATE S3-multipart flow under a different controller:
+ *   1. POST /v2/files/presign { filename, file_size } -> { upload_id, key,
+ *      file_url, parts: [{ part_number, presigned_url }] }.
+ *   2. PUT the file bytes to each part's presigned_url (our file is small,
+ *      so this is expected to be exactly one part -- code below fails
+ *      loudly rather than guessing a byte-splitting scheme if the server
+ *      ever returns more than one).
+ *   3. POST /v2/files/complete { upload_id, key, parts: [{ part_number,
+ *      etag }] } -> { file_url }.
+ *   4. Reference the file in POST /v2/products' `files` array. The exact
+ *      entry shape was reconstructed from antiwork/gumroad-cli's own
+ *      source (internal/cmd/products/create.go): `{ id, url }`, where
+ *      `url` is the `file_url` from step 3. `id`'s exact origin was NOT
+ *      confirmed (a sibling code path used `external_id` instead of `id`,
+ *      and its value's origin was unclear) -- using the presign response's
+ *      `key` as a reasonable, but explicitly flagged, best guess.
+ *   5. PUT /v2/products/:id/enable to publish (calls @product.publish!) --
+ *      unaffected by this correction, not re-verified again here.
  *
- * Confidence note: the route/controller code is a strong primary source,
- * but two details were NOT confirmed against a live call and are the most
- * likely spots to need a one-round fix: (a) the exact response JSON key
- * names from POST /v2/direct_uploads (the upload URL/headers/blob
- * reference), and (b) the exact shape of an entry in the `files` array
- * passed to POST /v2/products (does it take the blob's signed_id directly,
- * or a constructed URL referencing it?). Both are handled defensively
- * below and fail with the raw response body if not found where expected.
+ * Confidence note: steps 1-3 (the S3 multipart flow itself) come from a
+ * primary source (the actual files_controller.rb) with reasonable
+ * confidence. Step 4's exact `files` entry shape is the most likely
+ * remaining spot to need another one-round fix -- code below fails with
+ * the raw response body if the create call rejects it, rather than
+ * retrying blindly.
  */
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'fs';
-import { createHash } from 'crypto';
 
 const { GUMROAD_ACCESS_TOKEN } = process.env;
 if (!GUMROAD_ACCESS_TOKEN) {
@@ -89,33 +90,47 @@ function saveState(patch) {
   return next;
 }
 
-// Direct upload the digital deliverable via Gumroad's ActiveStorage flow.
-// Returns a blob reference to include in the product's `files` array.
-async function uploadFile(filePath, contentType) {
+// Upload the digital deliverable via Gumroad's S3-multipart /v2/files flow
+// (NOT /v2/direct_uploads, which is media-only -- see the correction note
+// above). Returns { id, url } to place directly into the product's `files`
+// array entry.
+async function uploadFile(filePath) {
   const bytes = readFileSync(filePath);
   const filename = filePath.split('/').pop();
-  const checksum = createHash('md5').update(bytes).digest('base64');
 
-  const presign = await gumroadApi('POST', '/direct_uploads', {
-    blob: { filename, byte_size: bytes.length, checksum, content_type: contentType },
+  const presign = await gumroadApi('POST', '/files/presign', {
+    filename, file_size: bytes.length,
   });
-
-  const uploadUrl = presign.direct_upload?.url ?? presign.url;
-  const uploadHeaders = presign.direct_upload?.headers ?? presign.headers ?? {};
-  const blobRef = presign.signed_id ?? presign.direct_upload?.signed_id ?? presign.blob_signed_id;
-  if (!uploadUrl || !blobRef) {
-    throw new Error(`direct_uploads response missing expected fields: ${JSON.stringify(presign)}`);
+  const { upload_id: uploadId, key, parts } = presign;
+  if (!uploadId || !key || !Array.isArray(parts) || parts.length === 0) {
+    throw new Error(`files/presign response missing expected fields: ${JSON.stringify(presign)}`);
+  }
+  if (parts.length !== 1) {
+    // Our deliverable is small; a multi-part response would mean the
+    // server chunked it, and we'd need to know the exact byte-range
+    // convention per part to split correctly. Rather than guess (risking
+    // silent corruption), fail loudly so this can be handled deliberately.
+    throw new Error(`files/presign returned ${parts.length} parts, expected 1 for a ${bytes.length}-byte file -- byte-range splitting not implemented, refusing to guess.`);
   }
 
-  const putRes = await fetch(uploadUrl, { method: 'PUT', headers: uploadHeaders, body: bytes });
-  if (!putRes.ok) throw new Error(`Direct upload PUT failed: ${putRes.status} ${await putRes.text()}`);
+  const part = parts[0];
+  const putRes = await fetch(part.presigned_url, { method: 'PUT', body: bytes });
+  if (!putRes.ok) throw new Error(`S3 part PUT failed: ${putRes.status} ${await putRes.text()}`);
+  const etag = putRes.headers.get('etag');
+  if (!etag) throw new Error('S3 part PUT succeeded but returned no ETag header -- cannot complete the multipart upload.');
 
-  console.log(`gumroad_publish: uploaded ${filename} (${bytes.length} bytes) -> blob ${blobRef}`);
-  return blobRef;
+  const completed = await gumroadApi('POST', '/files/complete', {
+    upload_id: uploadId, key, parts: [{ part_number: part.part_number, etag }],
+  });
+  const fileUrl = completed.file_url;
+  if (!fileUrl) throw new Error(`files/complete response missing file_url: ${JSON.stringify(completed)}`);
+
+  console.log(`gumroad_publish: uploaded ${filename} (${bytes.length} bytes) -> ${fileUrl}`);
+  return { id: key, url: fileUrl };
 }
 
 try {
-  const fileBlobRef = await uploadFile(cfg.digital_file, 'application/zip');
+  const uploadedFile = await uploadFile(cfg.digital_file);
 
   const created = await gumroadApi('POST', '/products', {
     name: cfg.name,
@@ -123,7 +138,7 @@ try {
     price_currency_type: cfg.currency ?? 'usd',
     description: cfg.description,
     tags: cfg.tags || [],
-    files: [{ signed_id: fileBlobRef, name: cfg.digital_file_name || cfg.digital_file.split('/').pop() }],
+    files: [{ ...uploadedFile, display_name: cfg.digital_file_name || cfg.digital_file.split('/').pop() }],
   });
   const product = created.product ?? created;
   const productId = product.id ?? product.custom_permalink;
