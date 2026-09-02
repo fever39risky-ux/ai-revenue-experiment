@@ -63,7 +63,7 @@ const EVENTS = 'status/EVENTS.jsonl';
 const CONFIG = 'marketing/gumroad_listing_config.json';
 const API = 'https://api.gumroad.com/v2';
 
-const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
+let state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
 if (state.product_id) {
   console.log(`gumroad_publish: product ${state.product_id} already recorded — skipping (idempotent no-op).`);
   process.exit(0);
@@ -84,10 +84,13 @@ async function gumroadApi(method, path, body) {
   return json;
 }
 
+// Mutates the outer `state` so the 2nd call (publish) doesn't clobber
+// fields the 1st call (create) already persisted, e.g. product_id -- losing
+// that would break the idempotency check at the top of this file.
 function saveState(patch) {
-  const next = { ...state, ...patch };
-  writeFileSync(STATE, JSON.stringify(next, null, 2) + '\n');
-  return next;
+  state = { ...state, ...patch };
+  writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n');
+  return state;
 }
 
 // Upload the digital deliverable via Gumroad's S3-multipart /v2/files flow

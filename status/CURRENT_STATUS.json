@@ -11,6 +11,13 @@
   },
   "updated_at": "2026-09-03T05:30:00Z",
   "revenue": { "total_jpy_equivalent": 0, "by_currency": {}, "verified": true, "verified_how": "status/revenue_ledger.json (empty) + Sales Monitor Action's latest run 2026-09-02T04:35 UTC (no new revenue commit); no Stripe MCP connector in this session" },
+  "live_capabilities": {
+    "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
+    "entries": [
+      { "capability": "stripe_checkout", "confirmed_at": "2026-08-25", "evidence": "Live payment link plink_1U8DAnEe2GZbKrsUzrlvhUQe, store published at /store/." },
+      { "capability": "gumroad_publish", "confirmed_at": "2026-09-02T22:16:48.702Z", "evidence": "Real end-to-end publish run (create -> file upload -> activate) succeeded via GitHub Actions against Gumroad's live production API. Listing: https://feverish50.gumroad.com/l/uhajxo, product_id KVChszgZy59QBao2fz609A==, $9. status/gumroad_listing.json is the machine-readable record.", "note": "Publishing capability confirmed live; a first SALE has not yet occurred -- kept as a separate, not-yet-met milestone (see revenue.total_jpy_equivalent)." }
+    ]
+  },
   "active_lanes": [
     { "lane": "digital_product_stripe", "state": "LIVE_selling", "product": "The No-Code AI Automation Toolkit", "price": "$19 USD (one-time)", "store": "/store/", "deliverable_hosted": true, "stripe_product": "prod_V8TDzCnDU7y2r9", "stripe_price": "price_1U8CJsEe2GZbKrsUIt2wlIZM", "stripe_payment_link": "plink_1U8DAnEe2GZbKrsUzrlvhUQe", "managed_payments": true, "automatic_tax": true, "buy_button_published": true },
     { "lane": "etsy_digital_product", "state": "shop_open_listing_finalized_pending_api_oauth", "product": "ChatGPT Prompts + AI Automation Toolkit", "price": "$9.00 (verify shop currency before first run)", "config": "marketing/etsy_listing_config.json", "publish_script": "scripts/etsy_publish.mjs", "workflow": "github: etsy-publish.yml (workflow_dispatch)", "note": "Shop access granted 2026-09-01 (owner KYC/bank/card). AI built the full publish mechanism this iteration (API integration, idempotent, images+file+activate). Blocked only on a one-time Etsy OAuth token grant (ops/ETSY_API_SETUP.md) — everything after that runs unattended." },

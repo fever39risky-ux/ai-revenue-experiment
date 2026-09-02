@@ -135,6 +135,23 @@ in September; double down on whichever actually produces clicks→checkouts→sa
   enables autonomous X commentary. Not required for the core Etsy/Stripe
   revenue mechanism.
 
+## Gumroad sale detection (added 2026-09-03)
+Same observation-fallback discipline as Stripe above, applied to Gumroad:
+`scripts/gumroad_sales_monitor.mjs` was added as one extra step in the
+*existing* `sales-monitor.yml` cron (no new schedule, near-zero incremental
+cost) — it calls `GET /v2/sales` with the already-granted
+`GUMROAD_ACCESS_TOKEN` and appends any new sale to
+`status/revenue_ledger.json`. **Open question, not yet empirically
+resolved:** whether that token actually carries the `view_sales` scope
+(it's optional, not default — see `ops/GUMROAD_API_SETUP.md`'s "Sales
+detection" section). The script fails soft (no-op, not a workflow failure)
+if the scope is missing, and logs plainly which case occurred — check the
+next `sales-monitor.yml` job log to find out, rather than assuming either
+way. If scope turns out missing, the fallback is a low-priority owner ask
+(regenerate the token with `view_sales`, or glance at the Gumroad dashboard
+occasionally) — not a new monitoring build, since at $9/sale the cost of a
+short detection delay is far below the cost of a second automation path.
+
 ## Open tasks / lanes
 - [ ] Trigger Etsy publish Action once OAuth secrets exist (AI-executable, no owner step)
 - [ ] Verify the live Etsy listing matches the config; fix/re-run if the API rejected a field
@@ -147,10 +164,12 @@ in September; double down on whichever actually produces clicks→checkouts→sa
 Stripe rail; Etsy kit + image renderer; Etsy API v3 publish pipeline (config +
 script + workflow + local OAuth helper, untested pending credentials);
 Gumroad REST API v2 publish pipeline (config + script + workflow) --
-**proven working end-to-end 2026-09-02**, listing live; daily-report
-generator; revenue ledger; leak checker; sales monitor; revenue→X hook; X
-poster; phase-aware hub. 0 standing subagents (research agents were
-one-shot and pruned).
+**proven working end-to-end 2026-09-02**, listing live; Gumroad sales
+monitor (`scripts/gumroad_sales_monitor.mjs`, wired into the existing
+Stripe cron, scope not yet empirically confirmed); daily-report generator;
+revenue ledger; leak checker; sales monitor; revenue→X hook; X poster;
+phase-aware hub. 0 standing subagents (research agents were one-shot and
+pruned).
 
 ## Self-invocation (live)
 Loop cadence: **1×/day** (20:07 JST), cut from 3×/day after a run measured $3.30
@@ -175,9 +194,9 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥1,329 (cumulative through 2026-09-02→03). Preparation
+Official revenue: ¥0. Official cost: ¥1,472 (cumulative through 2026-09-03). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~18 min. Net Profit (official): -¥1,329.
+Preparation cost: ¥788. Human labor: ~18 min. Net Profit (official): -¥1,472.
 Non-monetary milestone this period: first real, live, third-party-purchasable
 listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo) -- not yet a sale.
 
@@ -191,6 +210,49 @@ listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo) -- not yet a sale
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-03 (owner-directed, formalize Gumroad + build sale detection):
+  owner asked to (1) formally record the Gumroad publish success as a live
+  capability and (2) determine the minimal path for the AI to detect and
+  record a real Gumroad sale, in priority order: official API → low-cost
+  GitHub Actions → Routine-launch check → human dashboard fallback — with
+  the explicit goal of not over-building monitoring infra and keeping
+  detection cost well under the expected revenue (same discipline as the
+  Stripe monitor). (1) EXECUTE: added a canonical
+  `status/CURRENT_STATUS.json.live_capabilities` list distinguishing
+  "confirmed working end-to-end" from "built/deployed"; also found and
+  fixed a real idempotency bug while in `scripts/gumroad_publish.mjs`
+  (`saveState()`'s two calls each started from the original in-memory
+  `state`, so the 2nd call silently dropped the 1st call's `product_id` —
+  confirmed by the fact `status/gumroad_listing.json` was actually missing
+  `product_id` on disk; restored it from the already-recorded
+  `EVENTS.jsonl` fact and fixed the function to accumulate). (2) OBSERVE:
+  read Gumroad's actual production source directly (not docs) —
+  `api/v2/sales_controller.rb` confirms `GET /v2/sales` is real, requires
+  the `view_sales` OAuth scope, supports `after`/`before`/`page_key`;
+  `purchase.rb#as_json(version: 2)` gives the exact response fields
+  (`order_id`, `price` cents, `currency`, `created_at`, `refunded`,
+  `gumroad_fee`). Also confirmed `view_sales` is an *optional* scope, not a
+  default one (`doorkeeper.rb`), and a personal access token's scope comes
+  from its owning OAuth application (`oauth_application.rb`) — so whether
+  the existing `GUMROAD_ACCESS_TOKEN` actually has `view_sales` is a real
+  open question, not assumed either way. DECIDE: tier 1 (official API) is
+  viable and cheapest; tier 2 (GitHub Actions) needs no new schedule since
+  the Stripe cron already fires every 4h — just add one step to it. EXECUTE:
+  wrote `scripts/gumroad_sales_monitor.mjs` (dedup by `order_id`, converts
+  USD→JPY at the same ~150 rate used elsewhere, records the Gumroad fee as
+  a cost-ledger entry, fails soft with a clear log message rather than
+  guessing if the API rejects the call for scope/permission reasons — same
+  "diagnose from the real response, don't retry blindly" discipline used
+  for the publish fix); added it as a step in the existing
+  `sales-monitor.yml` job (zero new Actions runs); documented the full
+  priority order, the open scope question, and the tier-4 fallback in
+  `ops/GUMROAD_API_SETUP.md`. Added `gumroad_fees` to
+  `status/cost_ledger.json`'s category list. NEXT: trigger
+  `sales-monitor.yml` once and read its job log to find out empirically
+  whether `view_sales` is actually granted — if not, ask the owner
+  (low-priority, non-blocking) to regenerate the token with that scope, per
+  the documented fallback; do not build a second monitoring path.
+
 - 2026-09-02→03 (owner-directed, live Gumroad publish): owner registered
   `GUMROAD_ACCESS_TOKEN` as a repo secret and asked for a real end-to-end
   publish, not just capability-building — final judgment on product name/

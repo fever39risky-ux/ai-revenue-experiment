@@ -114,6 +114,61 @@ first version of this pipeline publishes a working text+price+file listing
 without a cover image — a real but non-blocking gap; add cover upload in a
 later iteration once the core flow is confirmed working.
 
+## Sales detection (revenue monitoring, added 2026-09-03)
+
+Goal: never miss a real Gumroad sale in `status/revenue_ledger.json`, at a
+detection cost that stays well under the expected revenue from a $9 item —
+mirroring the existing Stripe monitor's cost discipline, not building
+monitoring infrastructure for its own sake. Evaluated in priority order:
+
+1. **Official API (`GET /v2/sales`)** — verified to exist and be real by
+   reading Gumroad's actual production source directly
+   (`app/controllers/api/v2/sales_controller.rb`,
+   `app/models/purchase.rb`), same methodology used for the publish
+   pipeline. Requires the `view_sales` OAuth scope; returns `order_id`
+   (dedup key), `price`/`currency` (cents), `created_at`, `refunded`,
+   `gumroad_fee`. **Chosen — this is what `scripts/gumroad_sales_monitor.mjs`
+   calls.**
+2. **GitHub Actions, low-cost** — implemented by adding one step to the
+   *existing* `sales-monitor.yml` cron (every 4h, already running for
+   Stripe) rather than creating a new scheduled workflow. This adds **zero**
+   new Actions runs — just one extra HTTP GET inside a job that fires
+   anyway. Reuses `GUMROAD_ACCESS_TOKEN` (already granted).
+3. **Routine-launch check** — not needed as a separate mechanism: every
+   scheduled/off-cycle session already reads `status/revenue_ledger.json` +
+   the sales-monitor Action's own job log as part of its normal observe
+   step (same pattern already documented for Stripe in `ops/AGENT_LOOP.md`'s
+   optional-capabilities section). No new code required for this tier.
+4. **Human dashboard check (final fallback)** — only needed if tier 1 turns
+   out to be blocked by scope. See below.
+
+### Known open question: does the existing token have `view_sales`?
+
+A personal access token's scopes come from the OAuth application it
+belongs to (`Doorkeeper::Application#get_or_generate_access_token` uses
+`self.scopes`, verified against `app/models/oauth_application.rb`), and
+`view_sales` is an **optional** scope, not a default one (verified against
+`config/initializers/doorkeeper.rb`). The existing `GUMROAD_ACCESS_TOKEN`
+is confirmed to carry `edit_products` (the publish run succeeded), but
+`view_sales` was never separately confirmed — this is a genuinely open
+question, not assumed either way.
+
+`scripts/gumroad_sales_monitor.mjs` is written to find out empirically, the
+same way the file-upload path's real shape was found: it calls the real
+API and, if the response indicates missing scope/permission, logs that
+plainly and **no-ops** (exits 0, does not fail the workflow, does not
+guess or retry). Check the `sales-monitor.yml` job log after it next runs
+to see which case applies.
+
+**If `view_sales` turns out to be missing** (tier 1 fails): the fallback is
+tier 4, not a new build — ask the owner to either (a) regenerate the
+Gumroad access token with the `view_sales` scope included (same Settings →
+Advanced flow as before, a couple of minutes, non-blocking for the
+existing listing), or (b) periodically glance at the Gumroad
+sales/analytics dashboard and report any sale. Not treated as urgent: at
+$9/sale the cost of a short delay in automated detection is far below the
+cost of building a second monitoring path.
+
 ## Currency check
 
 `marketing/gumroad_listing_config.json` prices the listing at **9.00 USD**
