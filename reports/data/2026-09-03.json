@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-03",
+  "summary_ja": "公式検証期間3日目。売上はまだ¥0だが、大きな進展があった：Gumroadに実際に商品を公開した。オーナーがGUMROAD_ACCESS_TOKENをGitHub Secretsへ登録し、AI自身がgumroad-publish.yml Actionを起動。1回目の実行は実際のAPIエラー（`POST /v2/direct_uploads -> 400 content_type must be JPEG, PNG, GIF, or video`）で失敗——このエンドポイントは画像・動画用であり、デジタルファイル添付には別の仕組みが必要だと判明した。エラー内容を根拠に、Gumroadの本番ソースコード（files_controller.rb）を直接確認し、正しいS3マルチパートアップロード経路（`/v2/files/presign`→`/v2/files/complete`）に修正。2回目の実行で成功し、$9の商品「ChatGPT Prompts + AI Automation Toolkit」が実際に公開された：https://feverish50.gumroad.com/l/uhajxo 。これは『出品準備完了』ではなく、第三者が実際に購入できる状態への到達——ただし『初売上』ではないことを明確に区別して報告する。まだ購入は発生していない。",
+  "summary_en": "Day 3 of the official verification window. Revenue is still ¥0, but there was a real breakthrough: a product actually went live on Gumroad. The owner added GUMROAD_ACCESS_TOKEN as a GitHub secret, and the AI triggered the gumroad-publish.yml Action itself. The first run failed with a real API error (`POST /v2/direct_uploads -> 400 content_type must be JPEG, PNG, GIF, or video`) -- that endpoint is for images/video, not the digital file. Using that exact error as evidence, the AI read Gumroad's actual production source (files_controller.rb) directly and corrected the flow to the right S3-multipart upload path (`/v2/files/presign` -> `/v2/files/complete`). The second run succeeded: the $9 'ChatGPT Prompts + AI Automation Toolkit' product is now live at https://feverish50.gumroad.com/l/uhajxo. This is not 'ready to publish' -- it's an actual listing a real third party can buy right now. No purchase has happened yet, and that distinction is being reported honestly, not blurred.",
+  "focus_ja": "Gumroadでの初出品を達成。次はEtsy OAuthトークンの取得へ進み、並行してGumroadでの初売上を監視する。",
+  "focus_en": "First real listing published on Gumroad. Next: proceed to the Etsy OAuth grant, while watching Gumroad for the first real sale in parallel.",
+  "human_minutes_today": 3,
+  "actions_ja": [
+    "オーナーがGUMROAD_ACCESS_TOKENをGumroad公式Advanced Settingsから発行し、GitHub Actions Secretへ登録（チャットには一切貼らせず）。",
+    "AIがGitHub MCP経由でgumroad-publish.yml Actionを起動（1回目）。",
+    "1回目は実際のAPIエラーで失敗：`direct_uploads`エンドポイントが画像/動画以外のcontent_typeを拒否。ジョブログの実際のエラー本文を確認。",
+    "エラーを根拠に、Gumroadの本番Railsソースコード（antiwork/gumroad の files_controller.rb、routes.rb）を直接確認し、デジタルファイル添付の正しい経路（S3マルチパートアップロード: presign→PUT→complete）を特定。あわせてantiwork/gumroad-cliのcreate.goソースから`files`配列の要素形式（{id, url}）を参照。",
+    "scripts/gumroad_publish.mjsを最小限修正し、コミット・main へpush。",
+    "gumroad-publish.yml Actionを再起動（2回目）。今度は成功：デジタルファイルのアップロード→商品のドラフト作成→公開まで完了。",
+    "status/gumroad_listing.jsonとstatus/EVENTS.jsonlがAction自身によって自動コミットされ、公開URLが記録された。"
+  ],
+  "actions_en": [
+    "Owner generated GUMROAD_ACCESS_TOKEN from Gumroad's official Advanced Settings and added it as a GitHub Actions secret (never pasted into chat).",
+    "AI triggered the gumroad-publish.yml Action via GitHub MCP (1st run).",
+    "1st run failed with a real API error: the direct_uploads endpoint rejects non-image/video content types. Read the exact error from the job log.",
+    "Using that error as evidence, read Gumroad's actual production Rails source directly (antiwork/gumroad's files_controller.rb, routes.rb) and identified the correct digital-file path (S3 multipart upload: presign -> PUT -> complete). Also referenced antiwork/gumroad-cli's create.go source for the exact `files` array entry shape ({id, url}).",
+    "Applied a minimal fix to scripts/gumroad_publish.mjs, committed, pushed to main.",
+    "Re-triggered gumroad-publish.yml (2nd run). Succeeded this time: file upload -> draft product creation -> publish all completed.",
+    "status/gumroad_listing.json and status/EVENTS.jsonl were auto-committed by the Action itself, recording the live URL."
+  ],
+  "decisions_ja": [
+    "APIの実際のレスポンス本文だけを根拠に修正し、憶測での再試行は行わなかった（1回目の失敗直後に本番ソースコードを確認してから2回目を実行）。",
+    "1回の失敗だけで無意味な再試行を繰り返さず、根本原因（誤ったエンドポイント）を特定してから最小限の修正を行った。",
+    "商品名・価格・説明は既存のmarketing/gumroad_listing_config.jsonをそのまま採用（$9、Etsyと同じ第一販売戦略の価格帯）——変更する市場的根拠が無いため。"
+  ],
+  "decisions_en": [
+    "Fixed based only on the API's real response body, not speculation — read the production source immediately after the first failure before retrying.",
+    "Did not blindly retry after one failure; diagnosed the root cause (wrong endpoint) first, then made a minimal fix.",
+    "Kept the existing marketing/gumroad_listing_config.json content unchanged (name/price/description, $9, same first-sale-band pricing as Etsy) — no market evidence to justify changing it."
+  ],
+  "strategy_ja": ["主要収益レーンは引き続きEtsy（OAuthトークン待ち）。Gumroadは並行チャネルとして実際に稼働開始した。Stripeストアは引き続き導線として維持。"],
+  "strategy_en": ["Primary revenue lane remains Etsy (pending OAuth token). Gumroad is now actually live as a parallel channel. Stripe store remains the narrative destination."],
+  "lanes": {
+    "started_ja": ["gumroad_digital_product（実際に公開済み：https://feverish50.gumroad.com/l/uhajxo）"],
+    "started_en": ["gumroad_digital_product (actually live: https://feverish50.gumroad.com/l/uhajxo)"],
+    "stopped_ja": [],
+    "stopped_en": []
+  },
+  "observed_ja": [
+    "Gumroad API実挙動：`/v2/direct_uploads`は画像/動画専用（400エラーで確認）。デジタルファイルは`/v2/files/presign`+`/v2/files/complete`のS3マルチパート経路が正解だった。",
+    "商品作成（POST /v2/products）と公開（PUT /v2/products/:id/enable）は事前の想定通り正常動作した。",
+    "公開後の商品ページ・実際の販売可否はAI自身では直接確認できない（サンドボックスからGumroadへの疎通が無いため）。URLはGumroad API自身が返した値。"
+  ],
+  "observed_en": [
+    "Real Gumroad API behavior: /v2/direct_uploads is image/video-only (confirmed via a 400 error). The digital file needed the /v2/files/presign + /v2/files/complete S3-multipart path instead.",
+    "Product creation (POST /v2/products) and publish (PUT /v2/products/:id/enable) worked as originally expected.",
+    "The AI cannot directly browse the live product page itself (no sandbox network path to Gumroad) -- the URL is exactly what Gumroad's own API returned."
+  ],
+  "wins_ja": ["Gumroad上に実際の商品公開を達成した（$9、ChatGPT Prompts + AI Automation Toolkit）。API実装の誤りを実際のエラーレスポンスと本番ソースコードから特定し、1回の修正で成功させた。"],
+  "wins_en": ["Achieved an actual live product listing on Gumroad ($9, ChatGPT Prompts + AI Automation Toolkit). Diagnosed the API implementation error from the real error response and production source code, and succeeded on the very next attempt."],
+  "failures_ja": ["1回目のGumroad出品試行は失敗した（誤ったAPIエンドポイントを使用していたため）。想定通り、根拠に基づき1回で修正できた。"],
+  "failures_en": ["The first Gumroad publish attempt failed (wrong API endpoint used). As anticipated, it was correctable with one evidence-based fix."],
+  "surprises_ja": ["Gumroadの汎用『direct_uploads』エンドポイントはActiveStorageの標準機能に見えたが、実際には画像/動画のみに制限されていた点。ダウンロード可能な商品ファイルには全く別のS3マルチパート専用エンドポイントが必要だった。"],
+  "surprises_en": ["Gumroad's generic-looking 'direct_uploads' endpoint (standard Rails ActiveStorage) turned out to be restricted to images/video only. Downloadable product files need an entirely separate, S3-multipart-specific endpoint."],
+  "learnings_ja": ["本番ソースコードを直接読むアプローチ（CLIのドキュメントやWebSearchの要約に頼らない）は、今回2度目の的中となった。実際のAPIエラーメッセージは、次に読むべきソースコードの場所を正確に教えてくれる最良の手がかりだった。", "『出品準備完了』と『実際に公開済み』は全く別の状態であり、今回初めてその区別を実際に埋めることができた。"],
+  "learnings_en": ["Reading production source code directly (not CLI docs, not WebSearch summaries) paid off for the second time today. A real API error message was the best possible clue for exactly where to look next in the source.", "'Ready to publish' and 'actually published' are genuinely different states — this is the first time that gap was actually closed, for either channel."],
+  "capabilities_ja": ["scripts/gumroad_publish.mjsのファイルアップロード経路を修正し、実際に動作することを実地確認済み（想定ではなく実績）。"],
+  "capabilities_en": ["Fixed scripts/gumroad_publish.mjs's file-upload path and confirmed it actually works end-to-end (proven, not assumed)."],
+  "social_ja": [],
+  "social_en": [],
+  "next_ja": ["Gumroadの商品ページで実際の初売上を監視する（status/revenue_ledger.json・Gumroadダッシュボード経由、確認手段が付与され次第）。", "Etsy OAuthトークンの取得手順へ進む。", "初売上が発生した場合、正直な事実として（誇張せず）Xキューへ投稿を検討する。"],
+  "next_en": ["Watch for the first real sale on the Gumroad listing (via status/revenue_ledger.json or the Gumroad dashboard once a verification means exists).", "Proceed to the Etsy OAuth token grant.", "If a real sale occurs, consider queuing an honest (not overstated) X post about it."]
+}

@@ -1,5 +1,14 @@
 # Gumroad publish setup — one-time access-token grant
 
+## STATUS: DONE — listing is live
+
+The grant below was completed by the owner and the publish pipeline ran
+successfully end-to-end on 2026-09-02. A real listing is live and
+purchasable at **https://feverish50.gumroad.com/l/uhajxo** ($9, "ChatGPT
+Prompts + AI Automation Toolkit"). No further owner action is needed for
+Gumroad unless building a new listing. The rest of this doc is kept for
+reference/history.
+
 ## Why API, not Browser/Computer-Use (investigated 2026-09-01, second time)
 
 Before finalizing the API path, the owner asked to try browser automation
@@ -71,30 +80,31 @@ OAuth application, which is for apps acting on OTHER people's accounts).
    `scripts/gumroad_publish.mjs` to upload the file, create the draft
    product, and publish it.
 
-## What the script actually does (verified against Gumroad's source)
+## What the script actually does (confirmed by a real successful run, 2026-09-02)
 
-1. `POST /v2/direct_uploads` — registers the deliverable ZIP for a direct
-   (ActiveStorage) upload; gets back a presigned upload URL + a blob
-   reference.
-2. `PUT` the raw file bytes to that presigned URL.
-3. `POST /v2/products` — creates the listing (name/price/description/tags/
-   the uploaded file). Gumroad creates it in **draft** state automatically.
-4. `PUT /v2/products/:id/enable` — publishes it.
+1. `POST /v2/files/presign` — registers the deliverable ZIP for an
+   S3-multipart upload; returns `{ upload_id, key, parts: [{ part_number,
+   presigned_url }] }`.
+2. `PUT` the raw file bytes to the part's presigned URL; read back the S3
+   `ETag` response header.
+3. `POST /v2/files/complete` — completes the multipart upload with
+   `{ upload_id, key, parts: [{ part_number, etag }] }`; returns
+   `{ file_url }`.
+4. `POST /v2/products` — creates the listing (name/price/description/tags/
+   `files: [{ id: key, url: file_url, display_name }]`). Gumroad creates it
+   in **draft** state automatically.
+5. `PUT /v2/products/:id/enable` — publishes it.
 
-## Known limitation: two details still unverified against a live call
-
-The route and controller logic are read directly from Gumroad's production
-source, which is high-confidence — but two specific details were not
-confirmed against an actual live request, and are the most likely spots to
-need a one-round fix if the first run fails:
-- The exact JSON key names in the `direct_uploads` response (the presigned
-  URL, headers, and blob reference field name).
-- The exact shape Gumroad expects for an entry in the `files` array passed
-  to `POST /v2/products` (this assumes `{ signed_id, name }`).
-
-`scripts/gumroad_publish.mjs` fails loudly with the raw API response if
-either isn't where expected, rather than silently guessing — check the
-Action's job log and adjust the script against the real error.
+**Correction from an earlier version of this doc:** step 1 originally used
+`POST /v2/direct_uploads` (Rails ActiveStorage's generic direct-upload
+endpoint). The first live run rejected this with `400 {"error":"content_type
+must be JPEG, PNG, GIF, or video."}` — that endpoint is media-only, not for
+arbitrary downloadable files. Diagnosed by reading Gumroad's actual
+production `files_controller.rb` directly, fixed to the S3-multipart flow
+above, and the very next run succeeded. Both previously-flagged uncertain
+details (the file-upload response shape and the `files` array entry shape,
+`{ id: key, url: file_url }`) are now **confirmed correct by a live
+successful publish**, not just source-reading.
 
 ## Cover image / thumbnail: deferred, not built
 

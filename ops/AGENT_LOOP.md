@@ -1,7 +1,7 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-02 (official day 2).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-03 (official day 3).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -23,11 +23,12 @@ now purely technical (an OAuth grant), not a market or product problem.
 - **Live now: Stripe store** (`/store/`, $19 payment link) — works, but no traffic
   on its own; treat as the destination the narrative/SEO funnels to.
 - **Observability/commentary: X** via GitHub Actions (pending X API secrets, optional).
-- **Gumroad: account confirmed by owner, being activated in parallel with
-  Etsy** — see corrected inventory below. Publishes via Gumroad's official
-  REST API v2 directly (verified against actual production source code,
-  2026-09-01) — no CLI, first- or third-party. Still simpler grant than
-  Etsy (one personal access token from account settings, no app registration).
+- **Gumroad: LIVE — first real listing published 2026-09-02.** $9
+  "ChatGPT Prompts + AI Automation Toolkit" is purchasable right now at
+  https://feverish50.gumroad.com/l/uhajxo. Published via Gumroad's official
+  REST API v2 directly (no CLI) — the S3-multipart file-upload path
+  (`/v2/files/presign` → `/v2/files/complete`) is now proven working by a
+  real successful run, not just source-reading. No sale yet.
 - **Creem: account confirmed by owner, last known state = under review** —
   deprioritized regardless of approval outcome; functionally duplicates
   Stripe's already-live role, no distribution-value differentiator found.
@@ -51,7 +52,7 @@ now purely technical (an OAuth grant), not a market or product problem.
 |---|---|---|---|---|
 | Stripe | **live** | confirmed_in_repo | payment rail / destination, not discovery | Live since 2026-08-25; ¥0 revenue (0 owned traffic) |
 | Etsy | **shop open / publishing capability setup in progress** | confirmed_by_owner (shop) + confirmed_in_repo (pipeline) | primary discovery channel | Publish pipeline built + spec-verified; blocked only on the owner's OAuth walkthrough |
-| Gumroad | **account + KYC + bank confirmed by owner; current selling/product state needs re-verification** | confirmed_by_owner (account) + needs_re_verification (live selling status) | candidate parallel discovery channel | Owner: JP account, bank registered, Stripe-based identity verification done, prior warnings resolved, $100 JP payout threshold seen. Technical path RE-verified 2026-09-01T16:00 UTC against actual production source code (antiwork/gumroad routes.rb + controllers), after the owner flagged that the CLI's own docs weren't sufficient evidence -- confirmed `POST /v2/products`, file upload via direct_uploads, and `PUT .../enable` (publish) are real, unguarded routes requiring only the `edit_products` OAuth scope. Publishes via direct REST API calls, no CLI. **Built this iteration.** |
+| Gumroad | **LIVE — published 2026-09-02T22:16 UTC** | confirmed_in_repo (status/gumroad_listing.json + live URL) | parallel discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://feverish50.gumroad.com/l/uhajxo. 1st publish attempt hit a real API error (`/v2/direct_uploads` is media-only); fixed against `files_controller.rb` to use the S3-multipart `/v2/files/presign`→`/v2/files/complete` flow; 2nd attempt succeeded. No sale yet. |
 | Creem | **account + KYC + bank confirmed by owner; last known state = under review, current approval needs re-verification** | confirmed_by_owner (account) + needs_re_verification (approval outcome) | payment rail, duplicates Stripe's role | API confirmed to exist (verified live), but Creem doesn't add buyer-search discovery beyond what Stripe already provides. Deprioritized regardless of approval status absent a specific advantage — worth a quick owner re-check, not a build target. |
 | Lemon Squeezy | **abandoned** | confirmed_by_owner | n/a | Owner attempted, didn't complete, intentionally abandoned. Not revisited without new justification. |
 
@@ -92,17 +93,9 @@ compelling build-in-public narrative ("an AI earning its first dollar"). Test bo
 in September; double down on whichever actually produces clicks→checkouts→sales.
 
 ## Next best action (for the next session)
-0. Gumroad account is confirmed (owner, 2026-09-01). Check whether
-   `GUMROAD_ACCESS_TOKEN` now exists as a repo secret (`ops/GUMROAD_API_SETUP.md`
-   has the owner's steps — Settings → Advanced → generate an access token,
-   no CLI install). If so → trigger the "Gumroad publish" Action
-   (`gumroad-publish.yml`), verify `status/gumroad_listing.json` shows a
-   published product and the URL is real. If the API rejects a field or the
-   direct-upload response shape doesn't match, read the job log and fix
-   `scripts/gumroad_publish.mjs` against the exact response — the two
-   specific unverified details are flagged in `ops/GUMROAD_API_SETUP.md`.
-   Etsy stays primary; this is a parallel addition, not a substitute — don't
-   let it distract from finishing Etsy.
+0. Gumroad is DONE for this milestone — listing is live at
+   https://feverish50.gumroad.com/l/uhajxo. Only remaining Gumroad task is
+   watching for the first real sale (no action needed unless one occurs).
 1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
    now exist as repo secrets → trigger the "Etsy publish" Action yourself
    (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
@@ -119,7 +112,7 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    to act on (not before — avoid duplicate products with no evidence).
 4. Always: check for any real sale first; if found, it's the headline.
 
-## Blocked on human — TRUE blocker only (revised 2026-09-01)
+## Blocked on human — TRUE blocker only (revised 2026-09-03: Gumroad grant fulfilled, listing live)
 - **Etsy API v3 OAuth token** (`ops/ETSY_API_SETUP.md`, ~10-15 min): the shop
   itself is open, but Etsy requires OAuth for any API write and there is no
   simpler restricted-key option. This is now the single binding constraint on
@@ -153,9 +146,11 @@ in September; double down on whichever actually produces clicks→checkouts→sa
 ## Capabilities built (see ops/EXECUTION_SYSTEM.md + ops/AUTOMATION.md)
 Stripe rail; Etsy kit + image renderer; Etsy API v3 publish pipeline (config +
 script + workflow + local OAuth helper, untested pending credentials);
-daily-report generator; revenue ledger; leak checker; sales monitor;
-revenue→X hook; X poster; phase-aware hub. 0 standing subagents (research
-agents were one-shot and pruned).
+Gumroad REST API v2 publish pipeline (config + script + workflow) --
+**proven working end-to-end 2026-09-02**, listing live; daily-report
+generator; revenue ledger; leak checker; sales monitor; revenue→X hook; X
+poster; phase-aware hub. 0 standing subagents (research agents were
+one-shot and pruned).
 
 ## Self-invocation (live)
 Loop cadence: **1×/day** (20:07 JST), cut from 3×/day after a run measured $3.30
@@ -180,9 +175,11 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥1,149 (cumulative through 2026-09-02). Preparation
+Official revenue: ¥0. Official cost: ¥1,329 (cumulative through 2026-09-02→03). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~15 min. Net Profit (official): -¥1,149.
+Preparation cost: ¥788. Human labor: ~18 min. Net Profit (official): -¥1,329.
+Non-monetary milestone this period: first real, live, third-party-purchasable
+listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo) -- not yet a sale.
 
 ## Loop self-test log
 - 2026-08-25T23:18Z — VALIDATION SMOKE-TEST of the durable Routine FAILED to persist.
@@ -194,6 +191,45 @@ Preparation cost: ¥788. Human labor: ~15 min. Net Profit (official): -¥1,149.
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-02→03 (owner-directed, live Gumroad publish): owner registered
+  `GUMROAD_ACCESS_TOKEN` as a repo secret and asked for a real end-to-end
+  publish, not just capability-building — final judgment on product name/
+  price/description/publish conditions explicitly delegated to the AI.
+  OBSERVE/EXECUTE: triggered `gumroad-publish.yml` via GitHub MCP. 1st run
+  FAILED with a real API error: `POST /v2/direct_uploads -> 400
+  {"error":"content_type must be JPEG, PNG, GIF, or video."}` — this
+  Rails ActiveStorage endpoint (used in the previous version of the script)
+  turned out to be media-only, not usable for an arbitrary downloadable
+  ZIP. DIAGNOSE: read Gumroad's actual production
+  `app/controllers/api/v2/files_controller.rb` directly (not docs, not
+  speculation) and found the real digital-file path is a separate
+  S3-multipart flow: `POST /v2/files/presign` → `PUT` the bytes to the
+  returned presigned URL → `POST /v2/files/complete`. Cross-checked the
+  `files` array entry shape for `POST /v2/products` against
+  `antiwork/gumroad-cli`'s own Go source (`internal/cmd/products/
+  file_updates.go`): `{id, url}` using the presign response's `key` as
+  `id`. DECIDE: minimal fix only, no speculative retry — rewrote
+  `uploadFile()` in `scripts/gumroad_publish.mjs` to the correct flow, kept
+  everything else (idempotency via `status/gumroad_listing.json`,
+  `marketing/gumroad_listing_config.json`'s existing $9 name/price/
+  description — no market evidence to change it) unchanged. EXECUTE:
+  `node --check`, `leak_check.mjs`, `promotion_check.mjs` all clean;
+  committed, pushed to `claude/beautiful-goodall-nfphnl`; re-triggered the
+  Action. 2nd run SUCCEEDED: file uploaded to S3, draft product created,
+  published. RESULT: a real, live, third-party-purchasable listing —
+  https://feverish50.gumroad.com/l/uhajxo ($9, "ChatGPT Prompts + AI
+  Automation Toolkit"). `status/gumroad_listing.json` and
+  `status/EVENTS.jsonl` were auto-committed by the Action itself
+  (`e810ea3`). No sale yet — reported explicitly as "listing published",
+  distinct from "first sale." Updated `status/CURRENT_STATUS.json`
+  (channel_inventory.gumroad → live_published, blockers/human_actions_
+  required drop the Gumroad item, current_focus/action/next_action/
+  latest_result/latest_strategy_decision rewritten), this file, and
+  `reports/data/2026-09-03.json`. Logged this run's cost to
+  `status/cost_ledger.json`. NEXT: watch for the first real Gumroad sale;
+  primary focus returns to the Etsy OAuth grant (the last remaining
+  blocked channel) per the owner's own stated sequencing.
+
 - 2026-09-02 (scheduled cadence run, day 2, early-stop): OBSERVE — no open GitHub
   issues, no "Promotion blocked" issue, main in sync with this branch (c5113d9),
   Sales Monitor's latest run (2026-09-02T04:35 UTC) detected no new revenue.
