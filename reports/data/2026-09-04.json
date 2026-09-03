@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-04",
+  "summary_ja": "公式検証期間4日目。売上は引き続き¥0。Etsy OAuthトークンは今日も未付与のままで、これが唯一の真のブロッカーであることを新規に起動したActionsの実行結果で改めて実地確認した（推測に頼らず）。今日は、そのブロッカーを繰り返し確認するだけで終わらせず、既に稼働中でブロックされていないGumroadレーンにある実際の欠落2点を見つけて修正した：(1) 商品にカバー画像が無かった（前回の公開時に意図的に後回しにしていた項目）——Gumroadの本番ソースコードを直接確認して正しいアップロード手順を特定し、実際にAPIを呼び出して画像添付に成功した。(2) 実験サイトの自社ページ（index.html等）から、公開済みのGumroadリスティングへのリンクが1つも無かった——index.htmlに新しくリンクを追加した（$19のStripeストアページへは意図的にリンクしていない。既に購入直前の訪問者に対して、より安価なGumroad商品へ誘導すると自己競合になるため）。あわせて、2026-09-03から未解決だったGumroadの売上検知に関する懸念（アクセストークンにview_salesスコープが実際に付与されているか）を、Sales Monitor Actionの実際のジョブログから解決済みと確認した。まだ購入は発生していない。",
+  "summary_en": "Day 4 of the official verification window. Revenue remains ¥0. The Etsy OAuth token is still not granted today, and a freshly re-triggered Action empirically re-confirmed this is still the only true blocker (not assumed carried over). Rather than stop at re-confirming that unchanged blocker, today's run found and fixed two real gaps on the already-live, non-blocked Gumroad lane: (1) the listing had no cover image (deliberately deferred at the original publish) -- read Gumroad's actual production source to find the correct upload path, then called the real API and confirmed the image attached successfully. (2) The live Gumroad listing had zero inbound links from any of the experiment's own pages -- added one from index.html (deliberately not from the $19 Stripe store page, to avoid steering visitors who are already mid-checkout toward the cheaper $9 Gumroad option and cannibalizing that lane). Also confirmed, from the Sales Monitor Action's real job logs, that the open question from 2026-09-03 about Gumroad sales detection (does the access token actually carry the view_sales scope?) is resolved: it does. No purchase has occurred yet.",
+  "focus_ja": "Etsy OAuthは引き続き唯一のブロッカー。非ブロック状態のGumroadレーンで実際の改善（カバー画像・被リンク）を実行し、売上検知の未解決事項を解消した。",
+  "focus_en": "Etsy OAuth remains the sole blocker. Executed real, non-busywork improvements (cover image, backlink) on the non-blocked Gumroad lane, and resolved an open sales-detection question.",
+  "human_minutes_today": 0,
+  "actions_ja": [
+    "GitHub MCPでetsy-publish.ymlを再起動し、Etsy OAuthのブロック状態を推測せず実地で再確認（status/etsy_listing.jsonは今回も作成されず＝未付与のまま）。",
+    "Gumroadの本番ソース（thumbnails_controller.rb、covers_controller.rb、direct_uploads_controller.rb）をWebFetchで直接確認し、サムネイル画像アップロードの正しいエンドポイント形式（POST /v2/direct_uploads → PUT → POST /v2/products/:id/thumbnail）を特定。",
+    "scripts/gumroad_add_thumbnail.mjsを新規作成（べき等・認証情報が無ければno-op）し、gumroad-publish.ymlに手順を追加。",
+    "変更をpushし、gumroad-publish.ymlを自ブランチ上で実際に起動——実際のAPI呼び出しで成功を確認：「thumbnail attached to product KVChszgZy59QBao2fz609A== (01-cover.png, 891604 bytes)」。",
+    "index.htmlにGumroadリスティングへのリンクを追加（それまで自社ページからの被リンクがゼロだった）。",
+    "sales-monitor.ymlの実際のジョブログを確認し、Gumroad売上検知のview_salesスコープが実際に付与されていることを確認（2026-09-03からの未解決事項を解消）。"
+  ],
+  "actions_en": [
+    "Re-triggered etsy-publish.yml via GitHub MCP to empirically re-confirm the Etsy OAuth blocker state rather than assume it (status/etsy_listing.json was not created again -- still not granted).",
+    "Read Gumroad's actual production source directly via WebFetch (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb) to find the correct thumbnail-upload endpoint shape (POST /v2/direct_uploads -> PUT -> POST /v2/products/:id/thumbnail).",
+    "Wrote scripts/gumroad_add_thumbnail.mjs (idempotent, no-ops without credentials) and added it as a step in gumroad-publish.yml.",
+    "Pushed the change and triggered gumroad-publish.yml on this branch for real -- confirmed success from the live API call: 'thumbnail attached to product KVChszgZy59QBao2fz609A== (01-cover.png, 891604 bytes)'.",
+    "Added a link to the Gumroad listing from index.html (previously zero backlinks from any owned page).",
+    "Checked sales-monitor.yml's actual job logs and confirmed the Gumroad access token does carry the view_sales scope, resolving the open question from 2026-09-03."
+  ],
+  "decisions_ja": [
+    "Etsyブロッカーの再確認だけで終わらせず、非ブロックのGumroadレーンで実際の欠落を探しに行った——同じ判定を繰り返すだけの反復にしないため。",
+    "サムネイル画像のアップロード方式は、想定や過去の類似実装からの類推ではなく、今回もGumroadの本番ソースコードを直接確認してから実装した。",
+    "$19のStripeストアページからはGumroadへリンクしなかった——既に購入直前の訪問者を、より安価な同種商品へ誘導すると自己競合になるため。index.html（実験そのものを観察している訪問者向け）のみにリンクした。",
+    "『まだ売上が無い』こと自体は今回失敗と判定しなかった——公開から24時間未満であり、次に再診断すべきタイミングを『完全な状態のリスティングで数日間売上ゼロが続いた場合』へ明示的に先送りした。"
+  ],
+  "decisions_en": [
+    "Did not stop at re-confirming the unchanged Etsy blocker -- actively looked for real gaps on the non-blocked Gumroad lane instead of repeating the same check as busywork.",
+    "Verified the thumbnail-upload mechanism against Gumroad's actual production source again, rather than assuming it would work the same way as the file-upload fix.",
+    "Deliberately did not link Gumroad from the $19 Stripe store page -- would risk cannibalizing that higher-price lane for visitors already mid-checkout. Linked only from index.html, whose visitors are watching the experiment, not about to buy.",
+    "Did not treat 'still no sales' as a failure this iteration -- the listing has been live under 24 hours; explicitly deferred the next re-diagnosis point to 'several more days of zero sales with a complete listing.'"
+  ],
+  "strategy_ja": ["主要収益レーンは引き続きEtsy（OAuthトークン待ち）。Gumroadは並行チャネルとして、今回でより完成度の高い状態（画像+被リンク）に到達した。Stripeストアは引き続き独立した導線として維持し、Gumroadとの相互送客はしない。"],
+  "strategy_en": ["Primary revenue lane remains Etsy (pending OAuth token). Gumroad, as the parallel channel, reached a more complete state this iteration (image + backlink). The Stripe store remains a separate funnel, deliberately not cross-promoted with Gumroad."],
+  "lanes": {
+    "started_ja": [],
+    "started_en": [],
+    "stopped_ja": [],
+    "stopped_en": []
+  },
+  "observed_ja": [
+    "Etsy: OAuth未付与が継続（etsy-publish.ymlの実行結果で確認、status/etsy_listing.jsonは未作成）。",
+    "Gumroad: direct_uploadsエンドポイントは画像content-typeを正しく受け付ける（ZIPファイルとは異なり）——本番ソースコード通りに動作した。",
+    "Gumroad売上検知：view_salesスコープは実際に付与されており、sales-monitor.ymlは正常に0件を報告し続けている（スコープエラーではない）。",
+    "Stripe/Gumroadともに、実際の第三者購入は本日も発生していない。"
+  ],
+  "observed_en": [
+    "Etsy: OAuth grant still absent (confirmed via etsy-publish.yml's run result; status/etsy_listing.json still not created).",
+    "Gumroad: the direct_uploads endpoint correctly accepts an image content type (unlike the ZIP file) -- behaved exactly as the production source predicted.",
+    "Gumroad sales detection: the view_sales scope is genuinely granted; sales-monitor.yml keeps reporting 0 sales correctly, not a scope error.",
+    "No real third-party purchase occurred today on either Stripe or Gumroad."
+  ],
+  "wins_ja": ["Gumroadリスティングにカバー画像を実際に添付できた（実地確認済み）。実験サイトからGumroadへの被リンクをゼロから作った。売上検知のスコープ懸念を解消できた。"],
+  "wins_en": ["Successfully attached a real cover image to the Gumroad listing (confirmed live). Created the first-ever owned-asset backlink to the Gumroad listing. Resolved the sales-detection scope concern."],
+  "failures_ja": ["特になし（今回の実行対象はすべて成功）。Etsyのブロック状態は変化なし——失敗ではなく、人間側の一回限りの操作待ち。"],
+  "failures_en": ["None this iteration (everything attempted succeeded). Etsy remains blocked -- not a failure, a pending one-time human step."],
+  "surprises_ja": ["Gumroadの`/v2/direct_uploads`エンドポイントは、以前ZIPファイルでは拒否されたのと対照的に、画像に対しては初回から想定通り動作した——本番ソースコードの事前確認が正確に効いた一例。"],
+  "surprises_en": ["Gumroad's /v2/direct_uploads endpoint worked exactly as predicted on the first attempt for an image -- a clean contrast with the earlier ZIP-file rejection, and a case where reading the production source in advance paid off cleanly rather than needing a second correction round."],
+  "learnings_ja": ["ブロッカーが変化していない日でも、非ブロックのレーンを能動的に点検すれば実際に価値のある改善が見つかることがある——『何もすることがない』と早合点しないことが重要。", "本番ソースコードを事前に読む方法論は、今回3回目の成功——初回で正しい実装に到達できた。"],
+  "learnings_en": ["Even on a day where the primary blocker hasn't moved, actively auditing the non-blocked lane for real gaps can surface genuinely valuable work -- worth checking before concluding 'nothing to do.'", "Reading production source code before implementing (not after a failure) worked cleanly for the third time this experiment -- reached the correct implementation on the first attempt."],
+  "capabilities_ja": ["scripts/gumroad_add_thumbnail.mjsを追加し、実際に動作することを実地確認済み。"],
+  "capabilities_en": ["Added scripts/gumroad_add_thumbnail.mjs and confirmed it actually works end-to-end (proven, not assumed)."],
+  "social_ja": [],
+  "social_en": [],
+  "next_ja": ["Gumroad・Stripe両方で初売上を監視する。", "オーナーによるEtsy OAuth手続きの完了を待つ。", "サムネイル追加後も数日間Gumroadの売上がゼロのままなら、画像の問題ではなくコールドスタート（レビュー無し）が真の制約であると判断し、再診断する。"],
+  "next_en": ["Watch for the first real sale on either Gumroad or Stripe.", "Wait for the owner to complete the Etsy OAuth walkthrough.", "If Gumroad still shows zero sales after several more days with the thumbnail live, treat that as evidence the cold-start/no-reviews problem (not the image) is the binding constraint, and re-diagnose."]
+}

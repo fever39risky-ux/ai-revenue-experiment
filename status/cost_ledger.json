@@ -157,11 +157,20 @@
       "currency": "usd",
       "jpy_equivalent": 143,
       "note": "Owner-directed (estimated): formalized the Gumroad publish as a canonical live_capabilities entry; found and fixed a real idempotency bug in scripts/gumroad_publish.mjs (saveState() was dropping product_id on its 2nd call, confirmed by the on-disk state file actually missing it) and restored the missing product_id. Investigated Gumroad sale-detection options in priority order by reading production source directly (api/v2/sales_controller.rb, purchase.rb, doorkeeper.rb, oauth_application.rb): confirmed GET /v2/sales is real and requires the optional view_sales scope, which the existing access token's grant is not yet confirmed to include. Built scripts/gumroad_sales_monitor.mjs and wired it into the existing sales-monitor.yml cron (no new schedule, near-zero incremental cost) rather than building new monitoring infrastructure. Documented the full priority order and fallback in ops/GUMROAD_API_SETUP.md and ops/AGENT_LOOP.md."
+    },
+    {
+      "date": "2026-09-04",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.0,
+      "currency": "usd",
+      "jpy_equivalent": 150,
+      "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 1472
+    "official_cost_jpy_equivalent": 1622
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

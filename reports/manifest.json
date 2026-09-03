@@ -46,19 +46,19 @@
       "day": 4,
       "date": "2026-09-04",
       "path": "reports/2026-09-04.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Day 4 of the official verification window. Revenue remains ¥0. The Etsy OAuth token is still not granted today, and a freshly re-triggered Action empirically re-confirmed this is still the only true blocker (not assumed carried over). Rather than stop at re-confirming that unchanged blocker, today's run found and fixed two real gaps on the already-live, non-blocked Gumroad lane: (1) the listing had no cover image (deliberately deferred at the original publish) -- read Gumroad's actual production source to find the correct upload path, then called the real API and confirmed the image attached successfully. (2) The live Gumroad listing had zero inbound links from any of the experiment's own pages -- added one from index.html (deliberately not from the $19 Stripe store page, to avoid steering visitors who are already mid-checkout toward the cheaper $9 Gumroad option and cannibalizing that lane). Also confirmed, from the Sales Monitor Action's real job logs, that the open question from 2026-09-03 about Gumroad sales detection (does the access token actually carry the view_sales scope?) is resolved: it does. No purchase has occurred yet.",
+      "summary_ja": "公式検証期間4日目。売上は引き続き¥0。Etsy OAuthトークンは今日も未付与のままで、これが唯一の真のブロッカーであることを新規に起動したActionsの実行結果で改めて実地確認した（推測に頼らず）。今日は、そのブロッカーを繰り返し確認するだけで終わらせず、既に稼働中でブロックされていないGumroadレーンにある実際の欠落2点を見つけて修正した：(1) 商品にカバー画像が無かった（前回の公開時に意図的に後回しにしていた項目）——Gumroadの本番ソースコードを直接確認して正しいアップロード手順を特定し、実際にAPIを呼び出して画像添付に成功した。(2) 実験サイトの自社ページ（index.html等）から、公開済みのGumroadリスティングへのリンクが1つも無かった——index.htmlに新しくリンクを追加した（$19のStripeストアページへは意図的にリンクしていない。既に購入直前の訪問者に対して、より安価なGumroad商品へ誘導すると自己競合になるため）。あわせて、2026-09-03から未解決だったGumroadの売上検知に関する懸念（アクセストークンにview_salesスコープが実際に付与されているか）を、Sales Monitor Actionの実際のジョブログから解決済みと確認した。まだ購入は発生していない。",
+      "summary_en": "Day 4 of the official verification window. Revenue remains ¥0. The Etsy OAuth token is still not granted today, and a freshly re-triggered Action empirically re-confirmed this is still the only true blocker (not assumed carried over). Rather than stop at re-confirming that unchanged blocker, today's run found and fixed two real gaps on the already-live, non-blocked Gumroad lane: (1) the listing had no cover image (deliberately deferred at the original publish) -- read Gumroad's actual production source to find the correct upload path, then called the real API and confirmed the image attached successfully. (2) The live Gumroad listing had zero inbound links from any of the experiment's own pages -- added one from index.html (deliberately not from the $19 Stripe store page, to avoid steering visitors who are already mid-checkout toward the cheaper $9 Gumroad option and cannibalizing that lane). Also confirmed, from the Sales Monitor Action's real job logs, that the open question from 2026-09-03 about Gumroad sales detection (does the access token actually carry the view_sales scope?) is resolved: it does. No purchase has occurred yet.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 150,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1472,
-      "cumulative_net_profit_jpy_equivalent": -1472
+      "cumulative_cost_jpy_equivalent": 1622,
+      "cumulative_net_profit_jpy_equivalent": -1622
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 1472,
-  "official_net_profit_jpy_equivalent": -1472
+  "official_cost_jpy_equivalent": 1622,
+  "official_net_profit_jpy_equivalent": -1622
 }

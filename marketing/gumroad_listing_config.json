@@ -8,7 +8,7 @@
   "type": "digital",
   "tags": ["chatgpt prompts", "ai automation", "productivity", "no code", "google sheets", "prompt pack", "small business"],
   "cover_image": "marketing/etsy-images/01-cover.png",
-  "cover_image_note": "NOT currently uploaded -- scripts/gumroad_publish.mjs defers cover/thumbnail upload (POST /v2/products/:id/covers) since its exact request format wasn't verified against Gumroad's source this round. First version publishes a working text+price+file listing without a cover; add cover upload once the core flow is confirmed live.",
+  "cover_image_note": "UPLOADED 2026-09-04T20:57 UTC via scripts/gumroad_add_thumbnail.mjs (POST /v2/products/:id/thumbnail, confirmed by a real successful API call -- see status/gumroad_listing.json's thumbnail_uploaded field and ops/GUMROAD_API_SETUP.md). The product-page gallery cover (POST /v2/products/:id/covers, a separate endpoint with the same request shape) was not built this round -- no evidence yet that it matters beyond the thumbnail already shown in Discover/search/link-preview surfaces.",
   "digital_file": "downloads/ai-automation-toolkit-8f3a2c.zip",
   "digital_file_name": "AI-Automation-Toolkit.zip",
   "refund_period_note": "Left at Gumroad's default; not set explicitly."
