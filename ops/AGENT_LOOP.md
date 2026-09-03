@@ -96,8 +96,10 @@ in September; double down on whichever actually produces clicks→checkouts→sa
 0. Gumroad is DONE for this milestone — listing is live at
    https://feverish50.gumroad.com/l/uhajxo. Only remaining Gumroad task is
    watching for the first real sale (no action needed unless one occurs).
-1. If `ETSY_API_KEYSTRING`/`ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`
-   now exist as repo secrets → trigger the "Etsy publish" Action yourself
+1. If `ETSY_API_KEYSTRING`/`ETSY_API_SHARED_SECRET`/`ETSY_ACCESS_TOKEN`/
+   `ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID` (5 secrets, `ETSY_API_SHARED_SECRET`
+   added 2026-09-03 — see iteration log) now exist as repo secrets →
+   trigger the "Etsy publish" Action yourself
    (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
    verify `status/etsy_listing.json` shows `state: "active"` and the URL is
    real. If the API rejected a field, read the job log, fix
@@ -194,9 +196,9 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥1,472 (cumulative through 2026-09-03). Preparation
+Official revenue: ¥0. Official cost: ¥1,555 (cumulative through 2026-09-03). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~18 min. Net Profit (official): -¥1,472.
+Preparation cost: ¥788. Human labor: ~21 min. Net Profit (official): -¥1,555.
 Non-monetary milestone this period: first real, live, third-party-purchasable
 listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo) -- not yet a sale.
 
@@ -210,6 +212,37 @@ listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo) -- not yet a sale
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-03 (owner-directed, Etsy OAuth walkthrough begins, real fix
+  mid-flow): guided the owner step-by-step through the Etsy Developer App
+  registration and the local `etsy_oauth_setup.mjs` OAuth (PKCE) run.
+  OAuth authorize + token exchange succeeded (Keystring/Access Token/
+  Refresh Token obtained), but the script's automatic `ETSY_SHOP_ID`
+  lookup failed with only "(could not auto-detect)" — a real bug: the
+  lookup call never checked `res.ok`, silently swallowing whatever Etsy
+  actually returned. Fixed that first (added status+body logging, handled
+  both possible response shapes) and shipped a standalone
+  `scripts/etsy_get_shop_id.mjs` recovery helper so the owner could retry
+  just the lookup with their already-obtained Keystring/Access Token —
+  no need to redo the OAuth authorize/approve step. That surfaced the
+  REAL cause: `403 {"error":"Shared secret is required in x-api-key
+  header."}`. This directly contradicted what `ops/ETSY_API_SETUP.md` and
+  `scripts/etsy_oauth_setup.mjs` had claimed (PKCE means the Shared Secret
+  is never needed) — true for the OAuth token exchange itself, false for
+  Etsy's `/v3/application/*` REST endpoints, which need
+  `x-api-key: {keystring}:{shared_secret}`. Fixed based strictly on this
+  real error, not re-verified docs (sandbox egress to `developers.etsy.com`/
+  `www.etsy.com` reconfirmed blocked this same session): added
+  `ETSY_API_SHARED_SECRET` as a 5th required secret across
+  `scripts/etsy_get_shop_id.mjs`, `scripts/etsy_oauth_setup.mjs`,
+  `scripts/etsy_publish.mjs` (env check + masked + `x-api-key` header),
+  `.github/workflows/etsy-publish.yml`, `ops/ETSY_API_SETUP.md`, and
+  `status/CURRENT_STATUS.json` — correcting the earlier wrong claim rather
+  than leaving it stand. OAuth itself was never redone. NEXT: owner runs
+  `node scripts/etsy_get_shop_id.mjs` once more with the Shared Secret
+  included; once all 5 secrets are in place, trigger `etsy-publish.yml`
+  and iterate the same way (real error → minimal fix → re-run) if the
+  listing-creation call rejects a field.
+
 - 2026-09-03 (owner-directed, formalize Gumroad + build sale detection):
   owner asked to (1) formally record the Gumroad publish success as a live
   capability and (2) determine the minimal path for the AI to detect and

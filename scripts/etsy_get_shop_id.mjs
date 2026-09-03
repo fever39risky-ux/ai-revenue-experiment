@@ -13,6 +13,13 @@
  * extracts shop_id from either response shape seen in practice: a single
  * Shop object (shop_id at the top level) or a {count, results:[...]} list.
  *
+ * CORRECTED after a live run: the OAuth token exchange itself (PKCE) never
+ * needs the Shared Secret, but Etsy's `/v3/application/*` REST endpoints
+ * (this shop lookup included) do -- the real error was
+ * `403 {"error":"Shared secret is required in x-api-key header."}`. The
+ * `x-api-key` header must be `{keystring}:{shared_secret}`, not the
+ * keystring alone.
+ *
  * Usage: node scripts/etsy_get_shop_id.mjs
  */
 import { createInterface } from 'readline/promises';
@@ -21,6 +28,7 @@ const rl = createInterface({ input: process.stdin, output: process.stdout });
 
 async function main() {
   const keystring = (await rl.question('Paste ETSY_API_KEYSTRING: ')).trim();
+  const sharedSecret = (await rl.question('Paste ETSY_API_SHARED_SECRET: ')).trim();
   const accessToken = (await rl.question('Paste ETSY_ACCESS_TOKEN: ')).trim();
   rl.close();
 
@@ -31,7 +39,7 @@ async function main() {
   }
 
   const res = await fetch(`https://api.etsy.com/v3/application/users/${userId}/shops`, {
-    headers: { Authorization: `Bearer ${accessToken}`, 'x-api-key': keystring },
+    headers: { Authorization: `Bearer ${accessToken}`, 'x-api-key': `${keystring}:${sharedSecret}` },
   });
   const body = await res.json().catch(() => ({}));
 
@@ -51,6 +59,7 @@ async function main() {
   }
 
   console.log('\nETSY_SHOP_ID =', shopId);
-  console.log('\nAdd this as a GitHub repo secret (Settings -> Secrets and variables -> Actions -> New repository secret), same as the other three.');
+  console.log('\nAdd this as a GitHub repo secret (Settings -> Secrets and variables -> Actions -> New repository secret).');
+  console.log('Also add ETSY_API_SHARED_SECRET (the value you just entered above) as its own repo secret if you have not already -- see ops/ETSY_API_SETUP.md.');
 }
 main().catch(e => { console.error(e); process.exit(1); });

@@ -3,10 +3,16 @@
  * Publishes the prepared Etsy listing via Etsy API v3, from GitHub Actions
  * (open egress) — NOT runnable from the sandboxed Claude session.
  *
- * Needs env: ETSY_API_KEYSTRING, ETSY_ACCESS_TOKEN, ETSY_REFRESH_TOKEN,
- * ETSY_SHOP_ID (all one-time secrets from scripts/etsy_oauth_setup.mjs).
- * If any are absent, this no-ops cleanly so the workflow never fails before
- * the grant exists.
+ * Needs env: ETSY_API_KEYSTRING, ETSY_API_SHARED_SECRET, ETSY_ACCESS_TOKEN,
+ * ETSY_REFRESH_TOKEN, ETSY_SHOP_ID (all one-time secrets from
+ * scripts/etsy_oauth_setup.mjs). If any are absent, this no-ops cleanly so
+ * the workflow never fails before the grant exists.
+ *
+ * CORRECTED after a live run: Etsy's `/v3/application/*` REST endpoints
+ * require `x-api-key: {keystring}:{shared_secret}`, not the keystring
+ * alone (real error: `403 {"error":"Shared secret is required in x-api-key
+ * header."}`, hit while resolving ETSY_SHOP_ID). The OAuth token
+ * exchange/refresh calls are unaffected (PKCE, no secret needed there).
  *
  * Idempotent: if status/etsy_listing.json already records a listing_id, this
  * does nothing (never creates a duplicate listing). To relist, edit that
@@ -23,8 +29,8 @@
  */
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'fs';
 
-const { ETSY_API_KEYSTRING, ETSY_ACCESS_TOKEN, ETSY_REFRESH_TOKEN, ETSY_SHOP_ID, ETSY_TAXONOMY_ID } = process.env;
-if (!ETSY_API_KEYSTRING || !ETSY_ACCESS_TOKEN || !ETSY_REFRESH_TOKEN || !ETSY_SHOP_ID) {
+const { ETSY_API_KEYSTRING, ETSY_API_SHARED_SECRET, ETSY_ACCESS_TOKEN, ETSY_REFRESH_TOKEN, ETSY_SHOP_ID, ETSY_TAXONOMY_ID } = process.env;
+if (!ETSY_API_KEYSTRING || !ETSY_API_SHARED_SECRET || !ETSY_ACCESS_TOKEN || !ETSY_REFRESH_TOKEN || !ETSY_SHOP_ID) {
   console.log('etsy_publish: Etsy credentials not fully set — skipping (no-op).');
   process.exit(0);
 }
@@ -41,7 +47,7 @@ if (state.listing_id) {
 
 const cfg = JSON.parse(readFileSync(CONFIG, 'utf8'));
 function mask(v) { if (v) console.log(`::add-mask::${v}`); return v; }
-mask(ETSY_ACCESS_TOKEN); mask(ETSY_REFRESH_TOKEN);
+mask(ETSY_ACCESS_TOKEN); mask(ETSY_REFRESH_TOKEN); mask(ETSY_API_SHARED_SECRET);
 
 // 1. Refresh the access token — Etsy rotates the refresh token on each use,
 // so a fresh one is needed every run regardless of the stored token's age.
@@ -64,7 +70,7 @@ console.log('etsy_publish: refreshed access token OK.');
 console.log('etsy_publish: NOTE — the refresh token rotated. Update the ETSY_REFRESH_TOKEN repo secret');
 console.log('to keep the NEXT run working (fingerprint of the new one: ...' + String(refreshed.refresh_token).slice(-6) + ').');
 
-function etsyHeaders() { return { Authorization: `Bearer ${accessToken}`, 'x-api-key': ETSY_API_KEYSTRING }; }
+function etsyHeaders() { return { Authorization: `Bearer ${accessToken}`, 'x-api-key': `${ETSY_API_KEYSTRING}:${ETSY_API_SHARED_SECRET}` }; }
 async function etsyGet(path) {
   const res = await fetch(`https://api.etsy.com/v3/application/${path}`, { headers: etsyHeaders() });
   const json = await res.json();

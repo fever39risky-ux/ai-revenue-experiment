@@ -49,14 +49,21 @@ explicitly unverified.
    `http://127.0.0.1`) for local testing — which is why the example is
    `http://localhost:3003/callback`, not an arbitrary HTTP URL. Corrected the
    wording in `scripts/etsy_oauth_setup.mjs`'s prompt and below.
-2. **Keystring + Shared Secret handling** — FIXED (was previously
-   undocumented, not wrong, but a real gap). Etsy's app registration issues
-   both a **Keystring** (Client ID) and a **Shared Secret** (Client Secret).
-   This integration uses **PKCE** (`code_challenge`/`code_verifier`), a
-   public-client OAuth flow that authenticates the token exchange with the
-   verifier instead of a client secret — so the **Shared Secret is never
-   used and must not be added as a repo secret**. `scripts/etsy_oauth_setup.mjs`
-   now says this explicitly so it isn't pasted in by mistake.
+2. **Keystring + Shared Secret handling** — CORRECTED 2026-09-03 after a
+   live run, superseding what this point originally said. Etsy's app
+   registration issues both a **Keystring** (Client ID) and a **Shared
+   Secret** (Client Secret). This integration uses **PKCE**
+   (`code_challenge`/`code_verifier`) for the OAuth token exchange itself,
+   which is correct and doesn't need the Shared Secret for that one call —
+   but Etsy's `/v3/application/*` REST endpoints (shop lookup, listing
+   create, image/file upload, activate — everything `scripts/etsy_publish.mjs`
+   does) DO require it. The real error hit while resolving `ETSY_SHOP_ID`
+   was `403 {"error":"Shared secret is required in x-api-key header."}`.
+   The `x-api-key` header on those calls must be
+   `{keystring}:{shared_secret}`, not the keystring alone. **So the Shared
+   Secret IS needed after all** and must be added as a repo secret
+   (`ETSY_API_SHARED_SECRET`) — the original claim that it should never be
+   stored was wrong, corrected against Etsy's actual live behavior.
 3. **Minimum OAuth scope** — FIXED, was over-scoped. Previously requested
    `listings_w listings_r shops_r shops_w transactions_r`. `shops_w` (shop
    settings writes) and `transactions_r` (order/receipt reads) are not used
@@ -114,25 +121,31 @@ with no further manual posting.
    HTTPS, except Etsy allows plain `http://localhost:PORT/...` for local
    testing — use e.g. `http://localhost:3003/callback` (it does not need to
    be a real running server; see step 3).
-2. Copy the app's **Keystring** (Client ID) once created — NOT the "Shared
-   Secret" shown alongside it. This flow uses PKCE and never needs the
-   Shared Secret; don't copy or store it anywhere.
+2. Copy both the app's **Keystring** (Client ID) and its **Shared Secret**
+   once created — both are needed (see point 2 above).
 3. On your own machine (not this AI session — it has no internet access to
    Etsy), run:
    ```
    node scripts/etsy_oauth_setup.mjs
    ```
-   It asks for the Keystring and Redirect URI, prints an authorize URL to
-   open in your browser, and after you approve access, asks you to paste
-   the `code` value from the redirect (the redirect page itself can show a
-   browser error — that's fine, the `code` is in the address bar).
-4. The script prints four values. Add each as a GitHub repo secret:
+   It asks for the Keystring, Shared Secret, and Redirect URI, prints an
+   authorize URL to open in your browser, and after you approve access,
+   asks you to paste the `code` value from the redirect (the redirect page
+   itself can show a browser error — that's fine, the `code` is in the
+   address bar).
+4. The script prints five values. Add each as a GitHub repo secret:
    **repo → Settings → Secrets and variables → Actions → New repository
    secret**:
    - `ETSY_API_KEYSTRING`
+   - `ETSY_API_SHARED_SECRET`
    - `ETSY_ACCESS_TOKEN`
    - `ETSY_REFRESH_TOKEN`
    - `ETSY_SHOP_ID`
+
+   If `ETSY_SHOP_ID` prints as "could not auto-detect", run
+   `node scripts/etsy_get_shop_id.mjs` instead — it retries just that
+   lookup with your already-obtained Keystring/Shared Secret/Access Token,
+   without redoing the OAuth authorize/approve step.
 5. That's it — no manual listing/paste step. The next Claude session (or you,
    via the Actions tab → "Etsy publish" → Run workflow) triggers
    `.github/workflows/etsy-publish.yml`, which runs `scripts/etsy_publish.mjs`

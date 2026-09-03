@@ -10,10 +10,18 @@
  * Prereq: register an app at https://www.etsy.com/developers/register
  * (needs your own Etsy login), for PERSONAL/OWN-SHOP use (not a commercial
  * multi-shop app — that needs Etsy's review, personal use doesn't). Note
- * its "Keystring" (Client ID). Ignore the "Shared Secret" Etsy also shows —
- * this script uses PKCE (a public-client flow), which authenticates with
- * the code_verifier below instead, so the Shared Secret is never needed and
- * should NOT be added as a repo secret.
+ * both its "Keystring" (Client ID) and its "Shared Secret".
+ *
+ * CORRECTED after a live run: PKCE means the token exchange itself (the
+ * authorization_code -> access_token call below) never needs the Shared
+ * Secret — that part was right. But Etsy's `/v3/application/*` REST
+ * endpoints (the shop lookup this script also does, and everything
+ * scripts/etsy_publish.mjs calls) DO require it: the real error was
+ * `403 {"error":"Shared secret is required in x-api-key header."}`. The
+ * `x-api-key` header on those calls must be `{keystring}:{shared_secret}`,
+ * not the keystring alone — so the Shared Secret IS needed after all, just
+ * not for the OAuth step itself. It must be added as a repo secret
+ * (ETSY_API_SHARED_SECRET) alongside the other four.
  *
  * Redirect URI: register one on the app. Etsy requires it to be HTTPS,
  * EXCEPT it allows plain http://localhost (or http://127.0.0.1) for local
@@ -31,7 +39,8 @@ const b64url = buf => buf.toString('base64').replace(/\+/g, '-').replace(/\//g, 
 
 async function main() {
   console.log('Etsy API v3 OAuth (PKCE) one-time setup\n');
-  const keystring = (await rl.question('Paste your Etsy app Keystring (Client ID) — NOT the Shared Secret: ')).trim();
+  const keystring = (await rl.question('Paste your Etsy app Keystring (Client ID): ')).trim();
+  const sharedSecret = (await rl.question('Paste your Etsy app Shared Secret (needed for REST calls, not the OAuth exchange itself): ')).trim();
   const redirectUri = (await rl.question('Redirect URI registered on the app (must be HTTPS, or http://localhost:PORT/... for testing): ')).trim();
 
   const verifier = b64url(randomBytes(32));
@@ -73,7 +82,7 @@ async function main() {
 
   const userId = tok.access_token.split('.')[0];
   const shopsRes = await fetch(`https://api.etsy.com/v3/application/users/${userId}/shops`, {
-    headers: { Authorization: `Bearer ${tok.access_token}`, 'x-api-key': keystring },
+    headers: { Authorization: `Bearer ${tok.access_token}`, 'x-api-key': `${keystring}:${sharedSecret}` },
   });
   const shops = await shopsRes.json().catch(() => ({}));
   // GET .../users/{user_id}/shops has returned either a single Shop object
@@ -87,7 +96,8 @@ async function main() {
 
   console.log('\nSuccess. Add these as GitHub repo secrets');
   console.log('(repo -> Settings -> Secrets and variables -> Actions -> New repository secret):\n');
-  console.log('ETSY_API_KEYSTRING =', keystring);
+  console.log('ETSY_API_KEYSTRING     =', keystring);
+  console.log('ETSY_API_SHARED_SECRET =', sharedSecret);
   console.log('ETSY_ACCESS_TOKEN  =', tok.access_token);
   console.log('ETSY_REFRESH_TOKEN =', tok.refresh_token);
   console.log('ETSY_SHOP_ID       =', shopId ?? '(could not auto-detect — check the shops endpoint manually)');
