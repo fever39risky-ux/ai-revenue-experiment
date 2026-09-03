@@ -75,7 +75,14 @@ async function main() {
   const shopsRes = await fetch(`https://api.etsy.com/v3/application/users/${userId}/shops`, {
     headers: { Authorization: `Bearer ${tok.access_token}`, 'x-api-key': keystring },
   });
-  const shops = await shopsRes.json();
+  const shops = await shopsRes.json().catch(() => ({}));
+  // GET .../users/{user_id}/shops has returned either a single Shop object
+  // (shop_id at the top level) or a {count, results:[...]} list wrapper in
+  // different observations -- handle both rather than assuming one. A
+  // non-2xx response is also logged (no secrets in Etsy's error body) so a
+  // real failure here is diagnosable instead of silently becoming "could
+  // not auto-detect".
+  if (!shopsRes.ok) console.error(`\n(shop lookup: GET .../users/${userId}/shops -> ${shopsRes.status} ${JSON.stringify(shops)})`);
   const shopId = shops.shop_id ?? (Array.isArray(shops.results) ? shops.results[0]?.shop_id : undefined);
 
   console.log('\nSuccess. Add these as GitHub repo secrets');
