@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-03.html",
+  "latest_report": "reports/2026-09-04.html",
   "reports": [
     {
       "day": 1,
@@ -38,6 +38,19 @@
       "summary_en": "Day 3 of the official verification window. Revenue is still ¥0, but there was a real breakthrough: a product actually went live on Gumroad. The owner added GUMROAD_ACCESS_TOKEN as a GitHub secret, and the AI triggered the gumroad-publish.yml Action itself. The first run failed with a real API error (`POST /v2/direct_uploads -> 400 content_type must be JPEG, PNG, GIF, or video`) -- that endpoint is for images/video, not the digital file. Using that exact error as evidence, the AI read Gumroad's actual production source (files_controller.rb) directly and corrected the flow to the right S3-multipart upload path (`/v2/files/presign` -> `/v2/files/complete`). The second run succeeded: the $9 'ChatGPT Prompts + AI Automation Toolkit' product is now live at https://feverish50.gumroad.com/l/uhajxo. This is not 'ready to publish' -- it's an actual listing a real third party can buy right now. No purchase has happened yet, and that distinction is being reported honestly, not blurred.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 143,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 1472,
+      "cumulative_net_profit_jpy_equivalent": -1472
+    },
+    {
+      "day": 4,
+      "date": "2026-09-04",
+      "path": "reports/2026-09-04.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 1472,
       "cumulative_net_profit_jpy_equivalent": -1472
