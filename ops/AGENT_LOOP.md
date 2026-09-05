@@ -11,7 +11,11 @@ LIVE and purchasable for the first time in this experiment.** Etsy went live
 today after the owner completed the OAuth grant and two real API errors
 (shared-secret 403, tag-length 400) were fixed from their exact responses.
 Creem was approved by the owner today but deliberately NOT activated (no
-distribution advantage identified over the already-live Stripe rail). Still
+distribution advantage identified over the already-live Stripe rail).
+Re-diagnosed the binding constraint immediately after: it's no longer
+"can the AI sell" but "no channel has real inflow yet" — found and fixed
+a concrete gap (index.html had zero link to the brand-new Etsy listing,
+same class of bug fixed for Gumroad on Day 4). No new channel added. Still
 ¥0 revenue everywhere — no sale has occurred on any channel yet.
 
 ## Current strategy (as of last update)
@@ -223,9 +227,9 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥1,915 (cumulative through 2026-09-05). Preparation
+Official revenue: ¥0. Official cost: ¥2,005 (cumulative through 2026-09-05). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥1,915.
+Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,005.
 Non-monetary milestone this period: **all three digital-product channels are
 now live and purchasable** -- Stripe ($19, since 2026-08-25), Gumroad ($9,
 https://feverish50.gumroad.com/l/uhajxo, since 2026-09-02, now with a cover
@@ -244,6 +248,55 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-05 (owner-directed, re-diagnosis after all 3 channels live):
+  owner asked to re-diagnose the true binding constraint now that "cannot
+  technically sell" is solved on all 3 channels, and to pick exactly ONE
+  highest-leverage action toward a first sale (not new capability), by
+  comparing inflow/search-exposure/pitch/price/mix/funnel/owned-assets
+  across Stripe/Gumroad/Etsy — explicitly: no new sales channel unless a
+  structural limit is confirmed on the existing 3. OBSERVE (real evidence,
+  not assumption): grepped `index.html`, the SEO guide
+  (`guides/automate-work-with-ai-no-code.html`), `sitemap.xml`, and
+  `/store/` for Etsy/Gumroad mentions; checked `social/queue` and
+  `social/posted`. Found: (1) `index.html` has 4 hardcoded link cards
+  (Latest Report, Archive, Store, Gumroad) and ZERO mention of Etsy — the
+  exact same class of gap already found and fixed for Gumroad on Day 4,
+  now recurring for the newest channel; (2) X posting
+  (`social-x.yml`/`post_x.mjs`) has never actually sent a single post
+  (`social/posted/` is empty, no X credentials granted) — it is a dormant,
+  human-gated channel right now, not a live asset; (3) the SEO guide and
+  `/store/` are unchanged and deliberately not touched (see below).
+  DIAGNOSE: the real binding constraint has shifted from "can the AI
+  publish" (solved) to "no channel has any real inflow yet" — Stripe has
+  zero owned traffic by design (destination only), Gumroad's Discover
+  algorithm favors listings with existing sales/reviews (a genuine
+  cold-start problem that a backlink can't fix), and Etsy is the only
+  channel with validated real organic buyer search-intent (2026-08-26
+  research) AND is in its highest-visibility window right now (a brand-new
+  listing, benefiting from Etsy's recency ranking boost) — making today
+  the single highest-value moment to send it any inbound traffic at all.
+  DECIDE: the index.html backlink is the one lever backed by concrete
+  evidence of an actual gap, not speculation — ruled out price/mix changes
+  (no evidence pricing is the blocker), a 2nd SKU (more work, no signal yet
+  to justify it), and X posting (dormant, needs a human grant first, so
+  acting on it now has zero real-world effect). EXECUTE: added an Etsy
+  linkbox to `index.html` (5th `.linkbox` card), styled identically to the
+  existing Gumroad card (external link, `$9` price line, product name).
+  Deliberately did NOT touch `/store/` or the SEO guide's CTA — both
+  funnel to the $19 Stripe product, and cross-linking the cheaper Etsy/
+  Gumroad options there would cannibalize that lane for visitors already
+  mid-checkout (same reasoning already applied to Gumroad on Day 4).
+  Deliberately did NOT add a 4th sales channel — none of the 3 live
+  channels has shown a *structural* limit (as opposed to an early-stage,
+  fixable gap) that would justify one. Updated
+  `status/CURRENT_STATUS.json` (current_focus/action/next_action/
+  latest_result/latest_strategy_decision rewritten for the re-diagnosis),
+  this file. NEXT: watch for the first real sale on any channel; if all
+  three still show zero sales after several more days with complete
+  listings + backlinks, THAT becomes real evidence to re-diagnose further
+  (e.g. a 2nd lower-priced SKU, or requesting the X credential grant to
+  activate a genuinely dormant channel) — not before.
+
 - 2026-09-05 (owner-directed, live Etsy publish — all 3 channels live):
   owner reported the Etsy OAuth walkthrough fully complete (5/5 secrets)
   and Creem's review passed, and asked for a real end-to-end Etsy publish
