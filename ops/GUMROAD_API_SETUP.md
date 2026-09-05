@@ -169,6 +169,37 @@ sales/analytics dashboard and report any sale. Not treated as urgent: at
 $9/sale the cost of a short delay in automated detection is far below the
 cost of building a second monitoring path.
 
+**Resolved 2026-09-04, empirically:** the `sales-monitor.yml` job log
+(run `33691834156`, and every scheduled run since) shows
+`gumroad_sales_monitor: 0 new sale(s). official rev=... prep rev=...` —
+that message only prints after successfully parsing a real `GET /v2/sales`
+response (the scope/permission-error branch logs a different, distinct
+message and would never reach this line). `view_sales` IS granted on the
+existing token. No owner action needed for sales detection.
+
+## Cover image / thumbnail (built 2026-09-04)
+
+Verified against Gumroad's actual production source: `config/routes.rb`
+(`POST /v2/products/:id/thumbnail` -> `thumbnails#create`, `POST
+/v2/products/:id/covers` -> `covers#create`) and
+`thumbnails_controller.rb`/`covers_controller.rb`, both gated by
+`edit_products` (already granted, no new scope needed). Both accept
+either a `signed_blob_id` (standard Rails ActiveStorage direct upload) or
+a plain `url`. Unlike the digital ZIP file (which needed the separate
+S3-multipart `/v2/files` flow because `/v2/direct_uploads` rejects
+non-media content types), a PNG image IS exactly the content type
+`/v2/direct_uploads` accepts — so the standard flow works directly:
+`POST /v2/direct_uploads` (blob metadata + MD5 checksum) -> `PUT` the
+bytes to the returned presigned URL -> `POST
+/v2/products/:id/thumbnail` with the resulting `signed_blob_id`.
+Implemented in `scripts/gumroad_add_thumbnail.mjs`, wired as a follow-up
+step in `gumroad-publish.yml` (idempotent, no-ops if already done or if
+no product exists yet). Reuses the existing `marketing/etsy-images/01-cover.png`
+— no new asset created. Only the `thumbnail` endpoint was built this
+round (the single image Discover/search results and link previews show);
+`covers` (the product-page gallery) is the same call shape and can be
+added the same way later if there's evidence it matters.
+
 ## Currency check
 
 `marketing/gumroad_listing_config.json` prices the listing at **9.00 USD**

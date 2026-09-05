@@ -4,13 +4,51 @@
   "current_time_jst": "20:07",
   "cron_utc": "7 11 * 9 *",
   "rationale": "Provisional optimum. Measured $3.30/run; 3x/day x 30d ~= $297 ~= entire ¥50k target -> not economically rational. Free Actions layer covers fast event detection + immediate reactions between daily runs.",
-  "reevaluate_from": ["per_run_ai_cost", "revenue", "market_change_rate", "strategy_change_frequency", "coverage_by_actions_layer"],
+  "reevaluate_from": [
+    "per_run_ai_cost",
+    "revenue",
+    "market_change_rate",
+    "strategy_change_frequency",
+    "coverage_by_actions_layer"
+  ],
   "off_cycle_run_gate": "expected marginal benefit > marginal AI cost",
-  "off_cycle_trigger_events": ["first_sale", "large_revenue_change", "checkout_surge", "affiliate_conversion", "sns_spike", "marketplace_reaction", "new_capability_granted", "critical_error", "strategy_premise_collapse"],
-  "recommended_change": { "action": "keep_1x_day_baseline_plus_event_triggered_offcycle", "reason": "Official period baseline of 1x/day remains rational (per-run cost small relative to the ¥50k target; the free Actions layer covers routine polling). 2026-09-01: an off-cycle run WAS justified and taken when the Etsy shop capability was granted mid-day -- this is exactly the kind of event the off_cycle_trigger_events list anticipated (new_capability_granted), and same-day thinking materially changed the outcome (built the entire publish pipeline instead of waiting for the next scheduled fire). Once the Etsy OAuth grant lands, another off-cycle run to trigger the publish Action and verify the result is also likely justified for the same reason -- a real sale or a listing going live is worth reacting to same-day, not next-day. 2026-09-02: the scheduled daily run found no material change (both publish pipelines empirically re-confirmed still blocked, near-zero-cost check via free Actions minutes). If both token grants remain outstanding for several more consecutive days with no other market signal, the next reasonable step is to drop the baseline below 1x/day (e.g. every 2-3 days) until a grant lands or new evidence appears, since repeat daily confirmation of an unchanged human-gated blocker has low marginal value once first empirically confirmed -- not yet done today because only one day of no-movement has passed.", "set": "2026-08-26", "reaffirmed": "2026-09-02T11:20Z: scheduled 1x/day run, no material change, cadence held at 1x/day -- see reason field for the condition under which it should drop further." },
+  "off_cycle_trigger_events": [
+    "first_sale",
+    "large_revenue_change",
+    "checkout_surge",
+    "affiliate_conversion",
+    "sns_spike",
+    "marketplace_reaction",
+    "new_capability_granted",
+    "critical_error",
+    "strategy_premise_collapse"
+  ],
+  "recommended_change": {
+    "action": "keep_1x_day_baseline_plus_event_triggered_offcycle",
+    "reason": "Official period baseline of 1x/day remains rational (per-run cost small relative to the ¥50k target; the free Actions layer covers routine polling). 2026-09-01: an off-cycle run WAS justified and taken when the Etsy shop capability was granted mid-day -- this is exactly the kind of event the off_cycle_trigger_events list anticipated (new_capability_granted), and same-day thinking materially changed the outcome (built the entire publish pipeline instead of waiting for the next scheduled fire). Once the Etsy OAuth grant lands, another off-cycle run to trigger the publish Action and verify the result is also likely justified for the same reason -- a real sale or a listing going live is worth reacting to same-day, not next-day. 2026-09-02: the scheduled daily run found no material change (both publish pipelines empirically re-confirmed still blocked, near-zero-cost check via free Actions minutes). If both token grants remain outstanding for several more consecutive days with no other market signal, the next reasonable step is to drop the baseline below 1x/day (e.g. every 2-3 days) until a grant lands or new evidence appears, since repeat daily confirmation of an unchanged human-gated blocker has low marginal value once first empirically confirmed -- not yet done today because only one day of no-movement has passed.",
+    "set": "2026-08-26",
+    "reaffirmed": "2026-09-04T21:10Z: scheduled 1x/day run, day 4. Etsy OAuth remains blocked (2nd consecutive empirical re-confirmation, not assumed) -- if it stays blocked several more days with no other signal, the next step really is a cadence cut, per the 2026-09-02 condition. Not cut today: this run still found real, non-busywork, revenue-relevant fixes on the non-blocked Gumroad lane (a missing cover image and zero owned-asset backlinks), showing 1x/day still has positive expected value even while the primary lane is human-gated. Cadence held at 1x/day."
+  },
   "history": [
-    { "date": "2026-08-26", "change": "3x/day -> 1x/day", "reason": "economic rationality from measured $3.30/run" },
-    { "date": "2026-09-01", "change": "off-cycle run (not a baseline change)", "reason": "Etsy shop capability granted mid-day; re-diagnosed the bottleneck and built the publish pipeline same-day rather than waiting for the next scheduled 20:07 JST fire" },
-    { "date": "2026-09-02", "change": "no change (held at 1x/day)", "reason": "no material change; both publish blockers empirically re-confirmed at near-zero cost rather than assumed" }
+    {
+      "date": "2026-08-26",
+      "change": "3x/day -> 1x/day",
+      "reason": "economic rationality from measured $3.30/run"
+    },
+    {
+      "date": "2026-09-01",
+      "change": "off-cycle run (not a baseline change)",
+      "reason": "Etsy shop capability granted mid-day; re-diagnosed the bottleneck and built the publish pipeline same-day rather than waiting for the next scheduled 20:07 JST fire"
+    },
+    {
+      "date": "2026-09-02",
+      "change": "no change (held at 1x/day)",
+      "reason": "no material change; both publish blockers empirically re-confirmed at near-zero cost rather than assumed"
+    },
+    {
+      "date": "2026-09-04",
+      "change": "no change (held at 1x/day)",
+      "reason": "Etsy still blocked (re-confirmed empirically), but this run found and fixed two real gaps on the live Gumroad lane (missing thumbnail, zero backlinks) -- evidence the daily cadence still has positive EV, not evidence to raise or cut it."
+    }
   ]
 }

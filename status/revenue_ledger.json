@@ -1,7 +1,10 @@
 {
   "_doc": "Canonical machine-readable revenue ledger. Automation (sales monitor) appends here; the report generator reads here. Official KPI counts ONLY entries with period='official' (date >= 2026-09-01 Asia/Tokyo). Preparation revenue is logged but never mixed into the official 30-day total.",
   "currency_base": "JPY",
-  "official_period": { "start": "2026-09-01", "end": "2026-09-30" },
+  "official_period": {
+    "start": "2026-09-01",
+    "end": "2026-09-30"
+  },
   "preparation_entries": [],
   "official_entries": [],
   "totals": {
