@@ -1,0 +1,17 @@
+name: Gumroad fix category (one-off)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fix-category:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Set product category away from "Other"
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: node scripts/gumroad_fix_category.mjs
