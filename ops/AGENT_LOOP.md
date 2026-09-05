@@ -278,8 +278,17 @@ deliberately not activated (no distribution advantage over Stripe found).
   call (activate) silently dropped the 1st call's `listing_id` — confirmed
   by the on-disk file actually missing it. Fixed the function to
   accumulate (same pattern as Gumroad's fix) and restored the missing
-  `listing_id` from the job log before it could cause a duplicate listing
-  on any future run. Also evaluated Creem explicitly per the owner's
+  `listing_id` from the job log. Honest addendum: the fix landed on `main`
+  slightly too late — while syncing, found that an independently-triggered
+  `etsy-publish.yml` run (workflow_dispatch, NOT from this session,
+  `2026-09-05T01:01:46Z`, before the fix was pushed) had already hit the
+  still-broken check and created a real duplicate listing (`4569274006`).
+  Root-caused and cleaned up immediately: restored
+  `status/etsy_listing.json` to the canonical listing (`4569271638`), wrote
+  `scripts/etsy_deactivate_listing.mjs` + a one-off
+  `.github/workflows/etsy-deactivate.yml`, ran it live, confirmed
+  `4569274006` is now INACTIVE. Full record in `status/EVENTS.jsonl`
+  (`duplicate_listing_incident`). Also evaluated Creem explicitly per the owner's
   request rather than defaulting to build-because-approved: Creem is
   Merchant-of-Record payment/checkout infrastructure with no
   marketplace/search surface of its own, so activating it would only give
