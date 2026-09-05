@@ -37,10 +37,10 @@
       "summary_ja": "公式検証期間3日目。売上はまだ¥0だが、大きな進展があった：Gumroadに実際に商品を公開した。オーナーがGUMROAD_ACCESS_TOKENをGitHub Secretsへ登録し、AI自身がgumroad-publish.yml Actionを起動。1回目の実行は実際のAPIエラー（`POST /v2/direct_uploads -> 400 content_type must be JPEG, PNG, GIF, or video`）で失敗——このエンドポイントは画像・動画用であり、デジタルファイル添付には別の仕組みが必要だと判明した。エラー内容を根拠に、Gumroadの本番ソースコード（files_controller.rb）を直接確認し、正しいS3マルチパートアップロード経路（`/v2/files/presign`→`/v2/files/complete`）に修正。2回目の実行で成功し、$9の商品「ChatGPT Prompts + AI Automation Toolkit」が実際に公開された：https://feverish50.gumroad.com/l/uhajxo 。これは『出品準備完了』ではなく、第三者が実際に購入できる状態への到達——ただし『初売上』ではないことを明確に区別して報告する。まだ購入は発生していない。",
       "summary_en": "Day 3 of the official verification window. Revenue is still ¥0, but there was a real breakthrough: a product actually went live on Gumroad. The owner added GUMROAD_ACCESS_TOKEN as a GitHub secret, and the AI triggered the gumroad-publish.yml Action itself. The first run failed with a real API error (`POST /v2/direct_uploads -> 400 content_type must be JPEG, PNG, GIF, or video`) -- that endpoint is for images/video, not the digital file. Using that exact error as evidence, the AI read Gumroad's actual production source (files_controller.rb) directly and corrected the flow to the right S3-multipart upload path (`/v2/files/presign` -> `/v2/files/complete`). The second run succeeded: the $9 'ChatGPT Prompts + AI Automation Toolkit' product is now live at https://feverish50.gumroad.com/l/uhajxo. This is not 'ready to publish' -- it's an actual listing a real third party can buy right now. No purchase has happened yet, and that distinction is being reported honestly, not blurred.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 143,
+      "daily_cost_jpy_equivalent": 226,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1472,
-      "cumulative_net_profit_jpy_equivalent": -1472
+      "cumulative_cost_jpy_equivalent": 1555,
+      "cumulative_net_profit_jpy_equivalent": -1555
     },
     {
       "day": 4,
@@ -52,26 +52,26 @@
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 150,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1622,
-      "cumulative_net_profit_jpy_equivalent": -1622
+      "cumulative_cost_jpy_equivalent": 1705,
+      "cumulative_net_profit_jpy_equivalent": -1705
     },
     {
       "day": 5,
       "date": "2026-09-05",
       "path": "reports/2026-09-05.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Day 5 of the official verification window. A major milestone: all three digital-product channels -- Stripe, Gumroad, and Etsy -- are now simultaneously live and purchasable for the first time in this experiment. The owner fully completed the Etsy API v3 OAuth walkthrough (all 5 GitHub Actions secrets registered) and reported that Creem's review had passed. Two sessions ended up working the same Etsy problem in parallel today: one root-caused and fixed a 403 error (the Shared Secret requirement, identified as a genuine Etsy platform change effective Feb 9, 2026), merged it to main, then fixed a tag-length 400 error and achieved the first live Etsy listing (https://www.etsy.com/listing/4569271638, $9). The other (this session) independently investigated and was about to push its own fix for the identical 403 when a re-fetch of main surfaced the already-merged fix -- deferred to it rather than duplicating the work. An honest failure to record: this session's own idempotency-verification re-trigger (2026-09-05T01:01:46Z) fired while a real idempotency bug (a second state-save silently dropping the first call's listing_id) was still unfixed, and it genuinely created a duplicate Etsy listing (4569274006). The other session root-caused this immediately, restored the canonical listing record, and deactivated the duplicate. Also closed a stale 'Promotion blocked' GitHub issue. No purchase has occurred on any channel yet.",
+      "summary_ja": "公式検証期間5日目。大きな節目：Stripe・Gumroad・Etsyの3つのデジタル商品チャネルすべてが、本実験で初めて同時に稼働・購入可能な状態になった。オーナーがEtsy API v3のOAuth手続きを完全に完了させ（5つ全てのGitHub Actions Secretsを登録）、Creemの審査も通過したと報告。この日、Etsyの同じ問題に対して2つのセッションが並行して取り組む状況が生じた：1つは403エラー（Shared Secret要件、2026年2月9日施行のEtsy側の仕様変更と特定）を根本原因から修正しmainへマージ、その後タグ長超過の400エラーも修正して初のEtsyリスティング公開（https://www.etsy.com/listing/4569271638、$9）に成功した。もう1つ（本セッション）は独立に同じ403エラーを調査・修正しかけたが、mainへの再フェッチで既にマージ済みの修正を発見し、重複実装を避けてそちらに合わせた。正直に記録すべき失敗もあった：本セッションが行った「べき等性の確認」目的の再起動（2026-09-05T01:01:46Z）が、当時はまだべき等性バグ（2回目の状態保存が1回目のlisting_idを消す）が未修正だったため、実際に重複出品（4569274006）を引き起こした。もう一方のセッションが直ちに原因を特定し、正規のリスティングへ記録を復元、重複分を無効化して収拾した。あわせて古い「Promotion blocked」issueをクローズした。まだどのチャネルでも購入は発生していない。",
+      "summary_en": "Day 5 of the official verification window. A major milestone: all three digital-product channels -- Stripe, Gumroad, and Etsy -- are now simultaneously live and purchasable for the first time in this experiment. The owner fully completed the Etsy API v3 OAuth walkthrough (all 5 GitHub Actions secrets registered) and reported that Creem's review had passed. Two sessions ended up working the same Etsy problem in parallel today: one root-caused and fixed a 403 error (the Shared Secret requirement, identified as a genuine Etsy platform change effective Feb 9, 2026), merged it to main, then fixed a tag-length 400 error and achieved the first live Etsy listing (https://www.etsy.com/listing/4569271638, $9). The other (this session) independently investigated and was about to push its own fix for the identical 403 when a re-fetch of main surfaced the already-merged fix -- deferred to it rather than duplicating the work. An honest failure to record: this session's own idempotency-verification re-trigger (2026-09-05T01:01:46Z) fired while a real idempotency bug (a second state-save silently dropping the first call's listing_id) was still unfixed, and it genuinely created a duplicate Etsy listing (4569274006). The other session root-caused this immediately, restored the canonical listing record, and deactivated the duplicate. Also closed a stale 'Promotion blocked' GitHub issue. No purchase has occurred on any channel yet.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 435,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 1622,
-      "cumulative_net_profit_jpy_equivalent": -1622
+      "cumulative_cost_jpy_equivalent": 2140,
+      "cumulative_net_profit_jpy_equivalent": -2140
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 1622,
-  "official_net_profit_jpy_equivalent": -1622
+  "official_cost_jpy_equivalent": 2140,
+  "official_net_profit_jpy_equivalent": -2140
 }

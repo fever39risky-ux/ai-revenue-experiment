@@ -6,21 +6,25 @@ Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-05 (official
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
 official cost small (see cost_ledger.json). Target ¥50,000 equivalent in 30 days.
-Day 4: Etsy OAuth remains the sole true blocker (re-confirmed empirically today).
-Gumroad is live, now with a real thumbnail image and a first owned-asset
-backlink (both added today) — still ¥0 revenue on both channels, under 24h
-since the thumbnail went live so this is not yet meaningful evidence either
-way on whether the listing converts.
+Day 5: **all three digital-product channels (Stripe, Gumroad, Etsy) are now
+LIVE and purchasable for the first time in this experiment.** Etsy went live
+today after the owner completed the OAuth grant and two real API errors
+(shared-secret 403, tag-length 400) were fixed from their exact responses.
+Creem was approved by the owner today but deliberately NOT activated (no
+distribution advantage identified over the already-live Stripe rail). Still
+¥0 revenue everywhere — no sale has occurred on any channel yet.
 
 ## Current strategy (as of last update)
-- **Primary revenue lane: Etsy** — the only channel with real cold-buyer search
-  traffic. Listing content finalized (`marketing/etsy_listing_config.json`,
-  reused from `marketing/ETSY_LISTING_KIT.md` unchanged — no market evidence
-  yet to justify changing it) + 4 images + product zip. Shop is open. Publish
-  mechanism (`scripts/etsy_publish.mjs` + `.github/workflows/etsy-publish.yml`)
-  is built. **Blocked ONLY on a one-time Etsy API OAuth token grant** —
-  `ops/ETSY_API_SETUP.md` — after which a Claude session triggers the publish
-  Action itself (GitHub MCP `actions_run_trigger`), no manual paste needed.
+- **Primary revenue lane: Etsy — LIVE 2026-09-05.** The only channel with real
+  cold-buyer search traffic. $9 "ChatGPT Prompts + AI Automation Toolkit" is
+  purchasable right now at https://www.etsy.com/listing/4569271638. Published
+  via Etsy API v3 (OAuth+PKCE, 5 secrets) directly. Two real API errors were
+  fixed from their exact responses: a 403 (`x-api-key` needs
+  `keystring:shared_secret`, found 2026-09-03) and a 400 (a tag exceeded
+  Etsy's 20-char limit, found 2026-09-05). No sale yet. **No Etsy sale-detection
+  automation exists yet** — deferred, lowest-priority next build (same
+  priority-order approach as Gumroad's: official API → low-cost Actions →
+  Routine-launch check → human dashboard).
 - **Live now: Stripe store** (`/store/`, $19 payment link) — works, but no traffic
   on its own; treat as the destination the narrative/SEO funnels to. Deliberately
   NOT cross-linked with Gumroad (would let store visitors already mid-checkout
@@ -65,7 +69,7 @@ way on whether the listing converts.
 | Channel | State | Verification | Role | Notes |
 |---|---|---|---|---|
 | Stripe | **live** | confirmed_in_repo | payment rail / destination, not discovery | Live since 2026-08-25; ¥0 revenue (0 owned traffic) |
-| Etsy | **OAuth secrets fully registered 2026-09-05, ready to publish** | confirmed_by_owner (shop + OAuth) + confirmed_in_repo (pipeline) | primary discovery channel | Publish pipeline built + spec-verified; all 5 secrets registered, next step is triggering etsy-publish.yml |
+| Etsy | **LIVE — published 2026-09-05T00:55 UTC** | confirmed_in_repo (status/etsy_listing.json + live URL) | primary discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://www.etsy.com/listing/4569271638. Fixed 2 real API errors (shared-secret 403, tag-length 400) from their exact responses. No sale yet. |
 | Gumroad | **LIVE — published 2026-09-02T22:16 UTC** | confirmed_in_repo (status/gumroad_listing.json + live URL) | parallel discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://feverish50.gumroad.com/l/uhajxo. 1st publish attempt hit a real API error (`/v2/direct_uploads` is media-only); fixed against `files_controller.rb` to use the S3-multipart `/v2/files/presign`→`/v2/files/complete` flow; 2nd attempt succeeded. No sale yet. |
 | Creem | **account + KYC + bank + approval confirmed by owner (2026-09-05)** | confirmed_by_owner (account + approval) | payment rail, duplicates Stripe's role | Fully usable now, but NOT activated: no marketplace/search surface of its own, so it adds no incremental buyer reach over Stripe -- pure payment-rail substitution. Deprioritized absent a specific identified advantage. |
 | Lemon Squeezy | **abandoned** | confirmed_by_owner | n/a | Owner attempted, didn't complete, intentionally abandoned. Not revisited without new justification. |
@@ -113,35 +117,39 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    Gumroad task is watching for the first real sale (no action needed unless
    one occurs) — do NOT re-poll or re-verify this lane again without a
    specific new reason; it is genuinely finished for now.
-1. All 5 Etsy secrets (`ETSY_API_KEYSTRING`/`ETSY_API_SHARED_SECRET`/
-   `ETSY_ACCESS_TOKEN`/`ETSY_REFRESH_TOKEN`/`ETSY_SHOP_ID`,
-   `ETSY_API_SHARED_SECRET` added 2026-09-03 — see iteration log) are
-   registered as of 2026-09-05 → trigger the "Etsy publish" Action yourself
-   (`mcp__github__actions_run_trigger`, workflow `etsy-publish.yml`), then
-   verify `status/etsy_listing.json` shows `state: "active"` and the URL is
-   real. If the API rejected a field, read the job log, fix
-   `scripts/etsy_publish.mjs` against the exact error, re-run — expected
-   first-run friction, not a design failure.
-2. Once live: queue an honest "listing is live" X post (not "first sale" —
-   don't conflate a listing going live with a sale) and watch
-   `status/etsy_listing.json` / Etsy's own order notifications for the first
-   real purchase.
-3. Else (still no OAuth grant) → advance a non-blocked lane, but audit for a
-   REAL gap first (as this iteration did for Gumroad) rather than manufacture
-   work: check whether Gumroad has shown any sales/traffic signal yet (if
-   several more days pass at zero, that's real evidence for re-diagnosis, not
-   more listing polish), and only then consider SEO/conversion tweaks or a
-   2nd SKU — and only with actual evidence to act on, not speculatively.
-4. Always: check for any real sale first; if found, it's the headline.
+1. Etsy is DONE for this milestone too — listing is live at
+   https://www.etsy.com/listing/4569271638 (2026-09-05). Only remaining Etsy
+   task is watching for the first real sale. **Note:** Etsy has no
+   sale-detection automation yet (unlike Gumroad/Stripe) — building
+   `scripts/etsy_sales_monitor.mjs` (same priority-order approach: official
+   API → wire into the existing `sales-monitor.yml` cron, no new schedule)
+   is the natural next build, but is not urgent (no revenue-moving action is
+   gated on it — it only affects how fast a real sale gets recorded).
+   **Also note:** Etsy's refresh token rotates on every use, so
+   `ETSY_REFRESH_TOKEN` in repo secrets is stale again after the 2026-09-05
+   publish run — re-run `scripts/etsy_oauth_setup.mjs` before any future
+   `etsy_publish.mjs` execution that needs to write new listing data (not
+   needed for the current listing, which is idempotently skipped on rerun).
+2. All three digital-product channels (Stripe, Gumroad, Etsy) are now live —
+   the experiment's bottleneck has shifted entirely from "can the AI publish"
+   to "will a real buyer purchase." Watch `status/revenue_ledger.json` for
+   the first sale on any channel; if/when one lands, that's the headline —
+   queue an honest post about it (not before).
+3. Creem: approved by the owner 2026-09-05 but deliberately not activated
+   (see `status/CURRENT_STATUS.json.channel_inventory.creem`). Do not build
+   a Creem integration without a newly identified, specific advantage over
+   Stripe (fees, an unreachable market/currency, a unique distribution
+   channel) — approval alone is not sufficient justification.
+4. If several more days pass with zero sales on Gumroad and/or Etsy despite
+   both being fully live and complete, treat that as real evidence for
+   re-diagnosis (cold-start/no-reviews/distribution reach), not more
+   listing polish on either.
 
-## Blocked on human — TRUE blocker only (revised 2026-09-03: Gumroad grant fulfilled, listing live)
-- **Etsy API v3 OAuth token** (`ops/ETSY_API_SETUP.md`, ~10-15 min): the shop
-  itself is open, but Etsy requires OAuth for any API write and there is no
-  simpler restricted-key option. This is now the single binding constraint on
-  the next revenue milestone — everything else (content, images, ZIP, publish
-  script, workflow) is ready.
-- (Stripe payouts/bank/KYC settlement is also human-only, but is about money
-  reaching the owner, not about whether the AI can operate — not a lane blocker.)
+## Blocked on human — none currently (revised 2026-09-05: Etsy grant fulfilled, listing live)
+- All three digital-product channels' publish mechanisms are now live and
+  unblocked. The only remaining human-only item is unrelated to whether the
+  AI can operate: Stripe payouts/bank/KYC settlement (money reaching the
+  owner, not a lane blocker).
 
 ## Optional capabilities (NOT blockers — do not treat as gating the experiment)
 - `STRIPE_RESTRICTED_KEY` repo secret: NOT required for Stripe checkout to
@@ -173,23 +181,24 @@ appeared). No owner action needed for Gumroad sale detection — this item is
 closed, don't re-check it without a specific new reason.
 
 ## Open tasks / lanes
-- [ ] Trigger Etsy publish Action once OAuth secrets exist (AI-executable, no owner step)
-- [ ] Verify the live Etsy listing matches the config; fix/re-run if the API rejected a field
+- [x] Trigger Etsy publish Action once OAuth secrets exist — DONE 2026-09-05, listing live
+- [x] Verify the live Etsy listing matches the config; fix/re-run if the API rejected a field — DONE (fixed a tag-length rejection, re-ran, succeeded)
+- [ ] Build `scripts/etsy_sales_monitor.mjs` (wire into existing sales-monitor.yml cron, same pattern as Gumroad's) — not urgent, no revenue-moving action gated on it
 - [ ] Wire Stripe restricted key → sales monitor live (optional)
 - [ ] Wire X credentials → live commentary (optional)
-- [ ] Evaluate a 2nd product/variant only once there's real Etsy signal to act on
+- [ ] Evaluate a 2nd product/variant only once there's real signal (a sale, real traffic) to act on
 - [ ] Continuously: observe → decide → act → log → adjust
 
 ## Capabilities built (see ops/EXECUTION_SYSTEM.md + ops/AUTOMATION.md)
 Stripe rail; Etsy kit + image renderer; Etsy API v3 publish pipeline (config +
-script + workflow + local OAuth helper, untested pending credentials);
-Gumroad REST API v2 publish pipeline (config + script + workflow) --
-**proven working end-to-end 2026-09-02**, listing live; Gumroad sales
-monitor (`scripts/gumroad_sales_monitor.mjs`, wired into the existing
-Stripe cron, scope not yet empirically confirmed); daily-report generator;
-revenue ledger; leak checker; sales monitor; revenue→X hook; X poster;
-phase-aware hub. 0 standing subagents (research agents were one-shot and
-pruned).
+script + workflow + local OAuth helper) -- **proven working end-to-end
+2026-09-05**, listing live; Gumroad REST API v2 publish pipeline (config +
+script + workflow) -- **proven working end-to-end 2026-09-02**, listing live;
+Gumroad sales monitor (`scripts/gumroad_sales_monitor.mjs`, wired into the
+existing Stripe cron, `view_sales` scope confirmed granted 2026-09-04); daily-
+report generator; revenue ledger; leak checker; sales monitor; revenue→X
+hook; X poster; phase-aware hub. Etsy sales monitor NOT yet built (see Open
+tasks). 0 standing subagents (research agents were one-shot and pruned).
 
 ## Self-invocation (live)
 Loop cadence: **1×/day** (20:07 JST), cut from 3×/day after a run measured $3.30
@@ -214,15 +223,16 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥1,705 (cumulative through 2026-09-05). Preparation
+Official revenue: ¥0. Official cost: ¥2,140 (cumulative through 2026-09-05). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥1,705.
-Non-monetary milestones this period: first real, live, third-party-purchasable
-listing (Gumroad, $9, https://feverish50.gumroad.com/l/uhajxo, 2026-09-02) --
-not yet a sale; the listing now also has a real cover image and its first
-owned-asset backlink (both 2026-09-04); Etsy OAuth grant completed in full
-2026-09-05 (5/5 secrets registered), unblocking the primary discovery channel;
-Creem approved by the platform 2026-09-05 (activation decision: not yet).
+Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,140.
+Non-monetary milestone this period: **all three digital-product channels are
+now live and purchasable** -- Stripe ($19, since 2026-08-25), Gumroad ($9,
+https://feverish50.gumroad.com/l/uhajxo, since 2026-09-02, now with a cover
+image and an owned-asset backlink), and Etsy ($9,
+https://www.etsy.com/listing/4569271638, since 2026-09-05). No sale has
+occurred on any channel yet. Creem approved by the platform 2026-09-05 but
+deliberately not activated (no distribution advantage over Stripe found).
 
 ## Loop self-test log
 - 2026-08-25T23:18Z — VALIDATION SMOKE-TEST of the durable Routine FAILED to persist.
@@ -234,6 +244,96 @@ Creem approved by the platform 2026-09-05 (activation decision: not yet).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-05 (scheduled cadence run, day 5 — concurrent with the session
+  below): OBSERVE — found and closed the stale "Promotion blocked" issue
+  (#4) after confirming via git history that its then-known branch content
+  (2f827cb) was already an ancestor of `main`. Confirmed 0 Stripe charges
+  live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log.
+  EXECUTE — independently triggered `etsy-publish.yml` and hit the same 403
+  `Shared secret is required in x-api-key header` documented below.
+  Investigated via WebSearch/WebFetch against two independent primary
+  sources (Etsy's own `etsy/open-api` GitHub discussion #1531 + a
+  corroborating `PipedreamHQ/pipedream#20010` issue) and confirmed this was
+  a genuine Etsy platform change effective Feb 9 2026. On writing a fix and
+  re-fetching `main`, found the session below had already root-caused and
+  merged the identical fix (`ETSY_API_SHARED_SECRET`, commit `bd3552f`,
+  three days earlier) — discarded this session's own differently-named fix
+  and deferred to the merged version rather than duplicating it. Re-triggered
+  `etsy-publish.yml` once more as an idempotency check. HONEST FAILURE: that
+  re-trigger (`2026-09-05T01:01:46Z`) is, on cross-referencing this
+  session's own `actions_run_trigger` result against the
+  `duplicate_listing_incident` event's timestamp (exact match), the run that
+  actually caused the real duplicate Etsy listing (`4569274006`) recorded
+  below — the idempotency bug wasn't fixed yet at that moment. The session
+  below root-caused and cleaned it up before this one could. Recorded an
+  `attribution_correction` event in `status/EVENTS.jsonl` since the original
+  incident record only said "not this session" without identifying which
+  one — this is that identification, made honestly against this session's
+  own actions rather than left as an anonymous incident. NEXT: same as
+  below — watch all three live channels for a first sale.
+
+- 2026-09-05 (owner-directed, live Etsy publish — all 3 channels live):
+  owner reported the Etsy OAuth walkthrough fully complete (5/5 secrets)
+  and Creem's review passed, and asked for a real end-to-end Etsy publish
+  plus a judgment call on Creem. OBSERVE: fetched origin — main had moved
+  ahead with Day 4's Gumroad work (thumbnail, backlink, sales-scope
+  resolution) done by another session while this one was idle since Day 3;
+  this branch and main had diverged (3-way conflicts in
+  `status/CURRENT_STATUS.json`, `status/cost_ledger.json`, this file).
+  EXECUTE (merge): resolved all conflicts by combining both timelines
+  (never discarding either side's real content), recomputed the official
+  cost total, re-pushed, and confirmed `promote-branch.yml` fast-forwarded
+  `main` cleanly. EXECUTE (publish): triggered `etsy-publish.yml` on
+  `main` (not this feature branch — learned from an earlier session's
+  mistake where dispatching on a feature branch caused the workflow's own
+  `git pull --rebase origin main` step to fail). 1st run got past auth and
+  taxonomy resolution — proving the 2026-09-03 `ETSY_API_SHARED_SECRET`
+  fix actually works live — but failed on a new real error: `POST
+  .../listings -> 400 [{"path":"/tags","type":"too_long","message":"cannot
+  be more than 20 characters"}]`. DIAGNOSE: checked every tag's length
+  directly; exactly one, "productivity template" (21 chars), exceeded
+  Etsy's limit. DECIDE: minimal fix only — renamed that one tag to
+  "productivity tools" (18 chars, same meaning), left everything else
+  untouched. EXECUTE: committed, re-triggered on `main` — 2nd run
+  succeeded completely: draft created (listing_id 4569271638) → 4 images
+  uploaded → digital file uploaded → activated. RESULT: a real, live,
+  third-party-purchasable Etsy listing —
+  https://www.etsy.com/listing/4569271638 ($9, "ChatGPT Prompts + AI
+  Automation Toolkit"). While verifying the auto-committed
+  `status/etsy_listing.json`, found the SAME idempotency bug this session
+  had already found and fixed in `gumroad_publish.mjs`: `saveState()`'s
+  two calls each started from the original in-memory `state`, so the 2nd
+  call (activate) silently dropped the 1st call's `listing_id` — confirmed
+  by the on-disk file actually missing it. Fixed the function to
+  accumulate (same pattern as Gumroad's fix) and restored the missing
+  `listing_id` from the job log. Honest addendum: the fix landed on `main`
+  slightly too late — while syncing, found that an independently-triggered
+  `etsy-publish.yml` run (workflow_dispatch, NOT from this session,
+  `2026-09-05T01:01:46Z`, before the fix was pushed) had already hit the
+  still-broken check and created a real duplicate listing (`4569274006`).
+  Root-caused and cleaned up immediately: restored
+  `status/etsy_listing.json` to the canonical listing (`4569271638`), wrote
+  `scripts/etsy_deactivate_listing.mjs` + a one-off
+  `.github/workflows/etsy-deactivate.yml`, ran it live, confirmed
+  `4569274006` is now INACTIVE. Full record in `status/EVENTS.jsonl`
+  (`duplicate_listing_incident`). Also evaluated Creem explicitly per the owner's
+  request rather than defaulting to build-because-approved: Creem is
+  Merchant-of-Record payment/checkout infrastructure with no
+  marketplace/search surface of its own, so activating it would only give
+  existing buyers a second checkout for the same product (substitution,
+  not incremental reach) while duplicating Stripe's already-live role —
+  DECIDED not to activate, recorded the reasoning explicitly in
+  `status/CURRENT_STATUS.json.channel_inventory.creem`. Updated
+  `status/CURRENT_STATUS.json` (live_capabilities, active_lanes,
+  channel_inventory, blockers now empty, human_actions_required trimmed to
+  just the Stripe-payout item), this file, `status/cost_ledger.json`
+  (+¥210), and `status/EVENTS.jsonl`. NEXT: all three digital-product
+  channels (Stripe, Gumroad, Etsy) are live for the first time — watch for
+  the first real sale on any of them; build Etsy sale-detection automation
+  as a non-urgent follow-up (same priority-order approach as Gumroad's);
+  remember `ETSY_REFRESH_TOKEN` is stale again post-publish (Etsy rotates
+  it every use) if another Etsy write is ever needed.
+
 - 2026-09-04 (scheduled cadence run, day 4): OBSERVE — no open GitHub issues,
   no "Promotion blocked" issue, main in sync. Re-triggered `etsy-publish.yml`
   via GitHub MCP to empirically re-confirm rather than assume: still no-ops,

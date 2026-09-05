@@ -1,0 +1,10 @@
+{
+  "listing_id": 4569271638,
+  "created_at": "2026-09-05T00:55:37.238Z",
+  "activated_at": "2026-09-05T00:55:41.921Z",
+  "state": "active",
+  "url": "https://www.etsy.com/listing/4569271638",
+  "price": 9,
+  "title": "ChatGPT Prompts + AI Automation Toolkit — 20 Business Prompts, No-Code Guide & Google Sheets Scripts (Instant Download)",
+  "duplicate_incident_note": "A second etsy-publish.yml run (triggered independently, not by the AI session, before the saveState() idempotency fix landed on main) created a duplicate listing, 4569274006, at 2026-09-05T01:02:40.389Z. This file was restored to point at 4569271638 (the first, fully-documented listing) as canonical; 4569274006 was deactivated via scripts/etsy_deactivate_listing.mjs. See status/EVENTS.jsonl for the full incident record."
+}

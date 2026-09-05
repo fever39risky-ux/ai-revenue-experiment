@@ -39,7 +39,7 @@ const STATE = 'status/etsy_listing.json';
 const EVENTS = 'status/EVENTS.jsonl';
 const CONFIG = 'marketing/etsy_listing_config.json';
 
-const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
+let state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
 if (state.listing_id) {
   console.log(`etsy_publish: listing ${state.listing_id} already recorded — skipping (idempotent no-op).`);
   process.exit(0);
@@ -105,10 +105,14 @@ async function resolveTaxonomyId() {
   return match.id;
 }
 
+// Mutates the outer `state` so the 2nd call (activate) doesn't clobber
+// fields the 1st call (create) already persisted, e.g. listing_id -- losing
+// that would break the idempotency check at the top of this file (same bug
+// class found and fixed in scripts/gumroad_publish.mjs).
 function saveState(patch) {
-  const next = { ...state, ...patch };
-  writeFileSync(STATE, JSON.stringify(next, null, 2) + '\n');
-  return next;
+  state = { ...state, ...patch };
+  writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n');
+  return state;
 }
 
 try {
