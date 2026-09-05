@@ -15,12 +15,26 @@ distribution advantage identified over the already-live Stripe rail).
 Re-diagnosed the binding constraint immediately after: it's no longer
 "can the AI sell" but "no channel has real inflow yet" — found and fixed
 a concrete gap (index.html had zero link to the brand-new Etsy listing,
-same class of bug fixed for Gumroad on Day 4). No new channel added. Still
-¥0 revenue everywhere — no sale has occurred on any channel yet.
+same class of bug fixed for Gumroad on Day 4). No new channel added.
+**CORRECTED same day:** the index.html backlink was wrongly asserted as
+"the" binding constraint — a Pages→Etsy funnel fix means nothing if Pages
+itself has no visitors, and the "recency boost" claim was unverified.
+Built real diagnostic tooling and pulled actual API/MCP data instead:
+Etsy confirms real `views: 0`/`num_favorers: 0`; Gumroad's API exposes no
+views field at all (found instead a real "Other"-category defect); Stripe
+confirms 0 checkout sessions ever over 11 days. No channel shows a
+differentiating real-inflow signal yet — see Iteration log for the full
+correction. Still ¥0 revenue everywhere — no sale has occurred on any
+channel yet.
 
 ## Current strategy (as of last update)
-- **Primary revenue lane: Etsy — LIVE 2026-09-05.** The only channel with real
-  cold-buyer search traffic. $9 "ChatGPT Prompts + AI Automation Toolkit" is
+- **No channel is confirmed "primary" right now — corrected 2026-09-05.**
+  An earlier same-day entry called Etsy the primary lane based on an
+  unverified "recency boost" assumption; real diagnostic data (Etsy API
+  `views: 0`/`num_favorers: 0`; Gumroad's missing views field; Stripe's 0
+  checkout sessions over 11 days) shows no channel with a differentiating
+  real-inflow signal yet. Treat all 3 as equally unproven until real
+  numbers move. Etsy: $9 "ChatGPT Prompts + AI Automation Toolkit" is
   purchasable right now at https://www.etsy.com/listing/4569271638. Published
   via Etsy API v3 (OAuth+PKCE, 5 secrets) directly. Two real API errors were
   fixed from their exact responses: a 403 (`x-api-key` needs
@@ -139,6 +153,18 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    to "will a real buyer purchase." Watch `status/revenue_ledger.json` for
    the first sale on any channel; if/when one lands, that's the headline —
    queue an honest post about it (not before).
+2b. **CORRECTED 2026-09-05:** do not assume Etsy is "where the buyers are" --
+   real diagnostic data shows no channel with a differentiating real-inflow
+   signal yet (see Iteration log's correction entry). Next real moves,
+   in priority order, awaiting owner confirmation on which to pursue first:
+   (a) fix Gumroad's confirmed "Other"-category miscategorization
+   (`taxonomy_id: 266`) -- the one non-speculative defect found; (b) re-run
+   `scripts/etsy_listing_diagnostics.mjs` after ~24-48h to see whether
+   views/num_favorers move, which is the only way to make the recency-boost
+   hypothesis testable; (c) ask the owner, low-priority, to glance at
+   Gumroad's seller dashboard once for view/traffic stats not exposed via
+   API. Do not reallocate resources toward any one channel until real data
+   differentiates them.
 3. Creem: approved by the owner 2026-09-05 but deliberately not activated
    (see `status/CURRENT_STATUS.json.channel_inventory.creem`). Do not build
    a Creem integration without a newly identified, specific advantage over
@@ -248,6 +274,60 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-05 (owner-directed CORRECTION of the entry immediately below):
+  owner pushed back on the prior iteration's conclusion: adding an Etsy
+  linkbox to `index.html` is accepted as a reasonable hygiene fix, but must
+  NOT be asserted as "the" highest-leverage lever toward a first sale --
+  if `index.html`/Pages itself has no visitors, fixing the Pages->Etsy
+  funnel step moves nothing. The real open question was reframed from
+  "where can we sell" to "where are buyers actually present," and the
+  "new listings get a temporary recency ranking boost" claim (asserted in
+  the prior entry) was flagged as unconfirmed by Etsy-official docs or
+  real measurement -- an assumption presented as a diagnosis. Owner's
+  explicit new priority: observe each channel's OWN real internal data
+  (impressions/views, search traffic, favorites, visits, conversion,
+  listing-quality/search-visibility warnings, search terms/categories,
+  price band, CTR/CVR) before doing more Pages funnel work, whenever such
+  data is obtainable. EXECUTE: since this sandbox has zero egress to Etsy
+  or Gumroad, built two one-off diagnostic scripts + `workflow_dispatch`
+  Actions (`scripts/etsy_listing_diagnostics.mjs` +
+  `.github/workflows/etsy-diagnostics.yml`;
+  `scripts/gumroad_listing_diagnostics.mjs` +
+  `.github/workflows/gumroad-diagnostics.yml`) that GET the real listing/
+  product/shop resources and print the full raw JSON -- no assumptions
+  about which fields exist, only what the live response actually returns.
+  Ran both live and read the job logs; also queried live Stripe checkout-
+  session data via the Stripe MCP connector (filtered by the live payment
+  link). REAL RESULTS: Etsy listing (`GET /v3/application/listings/{id}`)
+  confirms real `views: 0` and `num_favorers: 0` fields (both currently
+  zero, listing ~7h old) -- and confirms NO search-term, traffic-source,
+  CVR, or listing-quality-warning field exists anywhere in the listing,
+  shop, or shop-active-listings responses; that data is Etsy Shop-Manager-
+  dashboard-only, not an API gap on this project's side (empirically
+  verified, not assumed). Gumroad's product resource (`GET /v2/products/
+  {id}`) has NO views/traffic/favorites field at all -- a genuine data
+  blind spot, not a confirmed zero -- but did reveal a real, non-
+  speculative defect: the product is categorized `taxonomy_id: 266` /
+  `category: "other"`, hurting Gumroad Discover/category-browse
+  discoverability. Stripe: `GetCheckoutSessions` filtered by the live
+  payment link returned zero sessions ever, over 11 days -- a confirmed
+  real zero, the longest-standing and clearest real-inflow signal of the
+  three. CONCLUSION: no channel currently shows a differentiating,
+  evidence-backed signal of real buyer presence -- the prior entry's
+  "Etsy is where the buyers are, act on it today" framing is retracted as
+  premature. The recency-boost claim remains an open, untested hypothesis.
+  Rewrote `status/CURRENT_STATUS.json` (current_focus/current_action/
+  next_action/latest_result/latest_strategy_decision) to carry this
+  correction and the real data, not silently overwrite the prior (wrong)
+  entry. NEXT (proposed, not yet executed -- awaiting owner confirmation
+  on which to pursue): (1) fix Gumroad's "Other" category -- the one
+  confirmed real defect found; (2) re-run the Etsy diagnostic after
+  ~24-48h to see if views/favorers move, which is the only way to make
+  the recency-boost hypothesis testable; (3) ask the owner, low-priority,
+  to glance at Gumroad's dashboard once for view/traffic stats not exposed
+  via API. Explicitly did NOT reallocate resources toward any one channel
+  this turn -- the evidence doesn't yet support it.
+
 - 2026-09-05 (owner-directed, re-diagnosis after all 3 channels live):
   owner asked to re-diagnose the true binding constraint now that "cannot
   technically sell" is solved on all 3 channels, and to pick exactly ONE
