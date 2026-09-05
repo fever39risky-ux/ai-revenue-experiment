@@ -1,7 +1,11 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-05 (official day 5).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-05T11:15Z (official day 5,
+the actual 20:07 JST scheduled cadence run -- re-confirmed ¥0 revenue via live
+Stripe MCP + the sales-monitor job log, no open GitHub issues, Etsy diagnostic
+gate not yet due; no material change since the owner-directed session earlier
+today, so this run recorded and stopped early -- see Iteration log's top entry).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -266,9 +270,11 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥2,230 (cumulative through 2026-09-05). Preparation
+Official revenue: ¥0 (re-verified 2026-09-05T11:10Z via live Stripe MCP: 0 charges,
+0 checkout sessions ever; 0 new Gumroad sales per the latest sales-monitor run).
+Official cost: ¥2,590 (cumulative through 2026-09-05, actual 20:07 JST run). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,230.
+Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,590.
 Non-monetary milestone this period: **all three digital-product channels are
 now live and purchasable** -- Stripe ($19, since 2026-08-25), Gumroad ($9,
 https://feverish50.gumroad.com/l/uhajxo, since 2026-09-02, now with a cover
@@ -287,6 +293,42 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-05 (actual 20:07 JST scheduled cadence run, day 5, fired 20:10 JST /
+  11:10 UTC -- arrives after an unusually active day of owner-directed
+  sessions, all already recorded above/below): OBSERVE with fresh evidence
+  rather than assuming carry-over, per protocol: (1) `git fetch origin` --
+  no open GitHub issues at all (confirmed via `list_issues`, state=OPEN,
+  0 results), so no "Promotion blocked" issue exists; this branch, origin/main,
+  and origin/claude/beautiful-goodall-hazdrd were all already at the same
+  commit (664f0b7) -- prior work had already durably reached `main`. (2)
+  Queried live Stripe data directly via the Stripe MCP connector (available
+  this session): `GetCharges` and `GetCheckoutSessions` both returned empty
+  -- 0 charges, 0 checkout sessions, confirming official revenue is still
+  genuinely ¥0. (3) Checked the Sales Monitor Action's own run history: the
+  latest run (id 33944729325) completed successfully at 2026-09-05T04:30:36Z
+  (~6.7h before this check), all 8 steps green including the Gumroad poll --
+  consistent with 0 new Gumroad sales, no need to re-trigger. (4) Re-read
+  `status/CURRENT_STATUS.json`/`EVENTS.jsonl`: the owner's 24-48h Etsy
+  re-diagnostic timing gate (set earlier today, due ~2026-09-06T00:55Z) has
+  not yet been reached -- re-running `etsy_listing_diagnostics.mjs` now
+  would just repeat the same "too early" result the owner already asked not
+  to force. DIAGNOSE: no new capability was granted, no GitHub issue was
+  open, no market signal had changed, and the one open next-step (the Etsy
+  re-diagnostic) is genuinely time-gated, not actionable yet. Per
+  `ops/LOOP_PROTOCOL.md` step 9 / this file's section-13-equivalent
+  (early stop / cost control): a day that already saw 7 real, substantive
+  iteration-log entries does not need an 8th manufactured one just because
+  the daily Routine fired on schedule. DECIDE/EXECUTE: recorded this
+  observation honestly (no material change) rather than re-doing work
+  already done today or inventing busywork, appended a light cost-ledger
+  entry (~$0.40, this run only read/queried, no code changes), and stopped
+  early. Cadence held at 1x/day -- tomorrow's scheduled fire
+  (2026-09-06 20:07 JST = 2026-09-06T11:07Z) naturally lands after the Etsy
+  diagnostic gate (~2026-09-06T00:55Z), so no off-cycle run is needed to
+  hit that gate on time. NEXT: tomorrow's scheduled run should re-run
+  `scripts/etsy_listing_diagnostics.mjs` (the gate will have passed by
+  then) and continue watching all three channels for a first real sale.
+
 - 2026-09-05 (owner-directed, priority-ordered execution of the correction below):
   owner approved the correction (retracting the index.html-backlink
   overclaim) and gave 3 prioritized actions: (1) fix Gumroad's confirmed
