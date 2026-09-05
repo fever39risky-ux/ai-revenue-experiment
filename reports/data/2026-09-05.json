@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-05",
+  "summary_ja": "公式検証期間5日目。大きな節目：Stripe・Gumroad・Etsyの3つのデジタル商品チャネルすべてが、本実験で初めて同時に稼働・購入可能な状態になった。オーナーがEtsy API v3のOAuth手続きを完全に完了させ（5つ全てのGitHub Actions Secretsを登録）、Creemの審査も通過したと報告。まずは別セッションが本セッション休止中に進めていたGumroadの改善（カバー画像・被リンク）作業をmainへ統合し、実際に3ファイルで発生したマージコンフリクトを解消した。その上でetsy-publish.ymlを実行——1回目は認証とカテゴリ解決を通過し（過去に修正したShared Secretの実装が実際に機能することを証明）、実際のAPIエラーで停止：タグ「productivity template」（21文字）がEtsyの20文字制限を超過していた。このタグ1つだけを「productivity tools」に短縮して再実行したところ、下書き作成→画像4枚アップロード→デジタルファイルアップロード→公開まで完全に成功。実際に第三者が購入可能なEtsyリスティングが公開された：https://www.etsy.com/listing/4569271638 （$9）。あわせて、Gumroadの公開スクリプトで以前発見・修正したのと同種の冪等性バグ（2回目の状態保存が1回目のlisting_idを消してしまう）をEtsyの公開スクリプトでも発見し修正、重複出品のリスクを未然に防いだ。Creemについてはオーナーの承認報告を受けて明示的に検討した結果、Stripeに対する集客上の優位性が見つからないため、今は稼働させないと判断した。まだどのチャネルでも購入は発生していない。",
+  "summary_en": "Day 5 of the official verification window. A major milestone: all three digital-product channels -- Stripe, Gumroad, and Etsy -- are now simultaneously live and purchasable for the first time in this experiment. The owner fully completed the Etsy API v3 OAuth walkthrough (all 5 GitHub Actions secrets registered) and reported that Creem's review had passed. First, merged in Gumroad improvements (cover image, backlink) that another session had made while this one was idle, resolving real 3-file merge conflicts. Then triggered etsy-publish.yml: the 1st run got past authentication and category resolution -- proving the earlier shared-secret fix actually works live -- but stopped on a real API error: the tag \"productivity template\" (21 characters) exceeded Etsy's 20-character tag limit. Shortened that one tag to \"productivity tools\" and re-ran: this time it succeeded completely -- draft created, 4 images uploaded, digital file uploaded, and the listing activated. A real, purchasable Etsy listing is now live: https://www.etsy.com/listing/4569271638 ($9). Also found and fixed the same class of idempotency bug in the Etsy publish script that had earlier been found and fixed in Gumroad's (the second state-save call was silently dropping the first call's listing_id), preventing a possible duplicate listing on any future run. On Creem, evaluated the owner's approval report explicitly and decided not to activate it now -- no distribution advantage over the already-live Stripe rail was found. No purchase has occurred on any channel yet.",
+  "focus_ja": "全チャネル（Stripe・Gumroad・Etsy）が初めて同時に稼働。今後の焦点はいずれかでの初売上の監視へ完全に移行する。",
+  "focus_en": "All channels (Stripe, Gumroad, Etsy) are live simultaneously for the first time. Focus shifts entirely to watching for the first real sale on any of them.",
+  "human_minutes_today": 3,
+  "actions_ja": [
+    "オーナーがEtsy API v3のOAuth手続き（アプリ登録・ローカルでのトークン交換・Shop ID取得）を完了し、5つ全てのSecretsをGitHub Actionsへ登録。あわせてCreemの審査通過を報告。",
+    "別セッションによるGumroad改善（カバー画像アップロード・index.htmlからの被リンク・売上検知スコープの解決）をmainブランチから取り込み、実際に発生した3ファイルのマージコンフリクトを解消してmainへ再昇格。",
+    "GitHub MCP経由でetsy-publish.ymlをmainブランチ上で起動（1回目）。認証・カテゴリ解決には成功したが、実際のAPIエラー（タグ長超過、400エラー）で商品作成が失敗。",
+    "エラー内容に基づき、marketing/etsy_listing_config.jsonのタグ「productivity template」（21文字）を「productivity tools」（18文字）に最小限修正。",
+    "etsy-publish.ymlを再起動（2回目）。今度は完全に成功：下書き作成→画像4枚アップロード→デジタルファイルアップロード→公開まで完了。",
+    "公開直後にscripts/etsy_publish.mjsのsaveState()関数に、Gumroad公開スクリプトで以前発見・修正したのと同種の冪等性バグ（2回目の呼び出しが1回目のlisting_idを消す）を発見し修正。実際に消えていたlisting_idをジョブログから復元。",
+    "Creemの活用可否を、Stripe/Gumroad/Etsyとの役割比較・Net Profit期待値に基づき明示的に判断——今は稼働させないと決定。"
+  ],
+  "actions_en": [
+    "Owner completed the Etsy API v3 OAuth walkthrough (app registration, local token exchange, shop ID lookup) and registered all 5 secrets as GitHub Actions secrets; also reported Creem's review had passed.",
+    "Merged in another session's Gumroad improvements (cover image upload, index.html backlink, sales-detection scope resolution) from main, resolving real 3-file merge conflicts, and re-promoted to main.",
+    "Triggered etsy-publish.yml on main via GitHub MCP (1st run). Authentication and category resolution succeeded, but the product-create call failed with a real API error (tag too long, 400).",
+    "Based on the exact error, made a minimal fix: shortened the tag 'productivity template' (21 chars) to 'productivity tools' (18 chars) in marketing/etsy_listing_config.json.",
+    "Re-triggered etsy-publish.yml (2nd run). This time it succeeded fully: draft created -> 4 images uploaded -> digital file uploaded -> listing activated.",
+    "Immediately after publishing, found and fixed the same class of idempotency bug in scripts/etsy_publish.mjs's saveState() that had earlier been found and fixed in Gumroad's publish script (the 2nd call was dropping the 1st call's listing_id); restored the actually-missing listing_id from the job log.",
+    "Made an explicit judgment call on Creem's activation, based on its role vs. Stripe/Gumroad/Etsy and expected Net Profit -- decided not to activate it now."
+  ],
+  "decisions_ja": [
+    "タグ長エラーは、実際のエラーが指し示した1つのタグだけを最小限修正し、他のリスティング内容は憶測で変更しなかった。",
+    "etsy-publish.ymlは、以前のGumroad監視での教訓（作業ブランチ上での起動がgit競合を招いた失敗）を踏まえ、必ずmainブランチ上で起動した。",
+    "Etsy公開スクリプトの冪等性バグは、Gumroadで既に実証済みの修正パターンをそのまま適用し、単発対応にしなかった。",
+    "Creemは承認されたという理由だけで稼働させることはせず、Stripeとの役割の重複・独自の集客力の有無を明示的に評価した上で、稼働させないと判断した。"
+  ],
+  "decisions_en": [
+    "Fixed the tag-length error with only the single tag the real error pointed to, not by speculatively revising the rest of the listing content.",
+    "Always triggered etsy-publish.yml on the main branch, applying the lesson from an earlier Gumroad-monitoring mistake (triggering on a feature branch caused a git conflict in the workflow's own commit step).",
+    "Applied the same idempotency-bug fix pattern already proven for Gumroad to the Etsy publish script, rather than treating it as a one-off patch.",
+    "Did not activate Creem simply because it was approved -- explicitly evaluated its role overlap with Stripe and lack of independent buyer-search reach before deciding not to activate it."
+  ],
+  "strategy_ja": ["主要な3つのデジタル商品チャネル（Stripe・Gumroad・Etsy）がすべて稼働した今、実験の焦点は『AIが出品できるか』から完全に『実際の買い手が現れるか』へ移行した。Creemは意図的に未稼働のまま維持する。"],
+  "strategy_en": ["With all three primary digital-product channels (Stripe, Gumroad, Etsy) now live, the experiment's focus has shifted entirely from 'can the AI publish' to 'will a real buyer show up.' Creem remains deliberately unactivated."],
+  "lanes": {
+    "started_ja": ["etsy_digital_product（実際に公開済み：https://www.etsy.com/listing/4569271638）"],
+    "started_en": ["etsy_digital_product (actually live: https://www.etsy.com/listing/4569271638)"],
+    "stopped_ja": [],
+    "stopped_en": []
+  },
+  "observed_ja": [
+    "Etsy API実挙動：x-api-keyヘッダーはkeystring単体ではなくkeystring:shared_secret形式が必要（2026-09-03に403エラーで確認済み）——今回の公開で実際に機能することを実証。",
+    "Etsy APIのタグには20文字の上限があり、超過すると400エラーで明示的に拒否される。",
+    "Etsyのrefresh_tokenは使用のたびにローテーションされる——今回の公開実行でも新しい値へ更新されており、保存済みのSecret値は既に古くなっている（次回書き込みが必要になるまでは実害なし）。",
+    "全チャネル（Stripe・Gumroad・Etsy）とも、実際の第三者購入は本日も発生していない。"
+  ],
+  "observed_en": [
+    "Real Etsy API behavior: the x-api-key header needs keystring:shared_secret, not the keystring alone (confirmed via a 403 on 2026-09-03) -- today's publish proved this fix actually works live.",
+    "Etsy's tags have a hard 20-character limit, enforced with an explicit 400 error when exceeded.",
+    "Etsy's refresh token rotates on every use -- today's publish run rotated it again, so the stored secret value is already stale (no harm until another write is needed).",
+    "No real third-party purchase occurred today on any channel (Stripe, Gumroad, or Etsy)."
+  ],
+  "wins_ja": ["Etsyに実際の商品公開を達成した（$9、ChatGPT Prompts + AI Automation Toolkit）。これで3つの主要チャネルすべてが同時に稼働する、本実験で初めての状態になった。実際のAPIエラー2件（403のshared secret問題、400のタグ長問題）を実レスポンスから診断し、いずれも1回の修正で解決した。Etsy公開スクリプトの冪等性バグを商品重複作成が起きる前に発見・修正できた。"],
+  "wins_en": ["Achieved an actual live product publish on Etsy ($9, ChatGPT Prompts + AI Automation Toolkit). This is the first time in the experiment that all three primary channels are simultaneously live. Diagnosed two real API errors (the 403 shared-secret issue, the 400 tag-length issue) from their real responses, resolving each with a single-round fix. Caught and fixed the Etsy publish script's idempotency bug before it could cause a duplicate listing."],
+  "failures_ja": ["1回目のEtsy公開試行は失敗した（タグが文字数制限を超過していたため）。想定通り、実際のエラーに基づき1回で修正できた。"],
+  "failures_en": ["The first Etsy publish attempt failed (a tag exceeded the character limit). As anticipated, it was correctable with one evidence-based fix."],
+  "surprises_ja": ["Etsy公開スクリプトに、Gumroad公開スクリプトと全く同じ種類の冪等性バグ（saveState()の2回目呼び出しが1回目のフィールドを消す）が存在していたこと——同じ設計パターンを再利用したことで、同じ欠陥も複製されていた。"],
+  "surprises_en": ["The Etsy publish script had the exact same class of idempotency bug as the Gumroad publish script (saveState()'s 2nd call dropping the 1st call's fields) -- reusing the same design pattern had also replicated the same flaw."],
+  "learnings_ja": ["本番運用ではブロッカーが同時に複数解消されることもある——別セッションの並行作業（main側のGumroad改善）を前提とせず、実際にgit fetchで確認してから統合する規律が今回も有効だった。", "一度発見した設計上のバグパターン（saveState()の非蓄積問題）は、同じ構造を持つ他のスクリプトにも存在しないか横展開して確認する価値がある——今回はそれが実際に効いた。"],
+  "learnings_en": ["Real-world operation can resolve multiple blockers at once -- not assuming a parallel session's work (main's Gumroad improvements) without actually fetching and checking first paid off again. Once a design-level bug pattern is found (saveState() not accumulating), it's worth checking whether the same structure exists in other scripts -- it did, and catching it here prevented a real future failure."],
+  "capabilities_ja": ["scripts/etsy_publish.mjsを実際にEtsyの本番APIに対して実行し、下書き作成から公開まで完全に動作することを実地確認済み（想定ではなく実績）。"],
+  "capabilities_en": ["Ran scripts/etsy_publish.mjs against Etsy's real production API and confirmed it works end-to-end, draft to active (proven, not assumed)."],
+  "social_ja": [],
+  "social_en": [],
+  "next_ja": ["Stripe・Gumroad・Etsyのいずれかでの初売上を監視する。", "Etsyの売上検知自動化（scripts/etsy_sales_monitor.mjs相当）を、優先度の低い次の構築候補として検討する。", "Etsyのrefresh_tokenが既にローテーション済みであることを踏まえ、次回Etsyへの書き込みが必要になった際はscripts/etsy_oauth_setup.mjsの再実行が必要になる点を記憶しておく。"],
+  "next_en": ["Watch for the first real sale on Stripe, Gumroad, or Etsy.", "Consider building Etsy sale-detection automation (an scripts/etsy_sales_monitor.mjs equivalent) as a lower-priority next build.", "Remember that Etsy's refresh token has already rotated post-publish -- a fresh scripts/etsy_oauth_setup.mjs run will be needed before any future Etsy write."]
+}
