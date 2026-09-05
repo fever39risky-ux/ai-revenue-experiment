@@ -50,26 +50,186 @@
     }
   ],
   "official_entries": [
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.50, "currency": "usd", "jpy_equivalent": 75, "note": "Owner correction, live conversation (estimated): reclassified human_actions_required vs additional_permissions_requested (STRIPE_RESTRICTED_KEY/X credentials are optional, not blockers), documented per-run MCP observation fallback in ops/LOOP_PROTOCOL.md + ops/AGENT_LOOP.md. State-accuracy fix, not a strategy change." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 1.50, "currency": "usd", "jpy_equivalent": 225, "note": "Off-cycle judgment run (estimated), owner-directed: Etsy shop access granted. Re-diagnosed the bottleneck and built the full Etsy API v3 publish pipeline (marketing/etsy_listing_config.json, scripts/etsy_publish.mjs, scripts/etsy_oauth_setup.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md) reusing existing prepared content. This is capability-building infrastructure, not revenue itself -- no listing is live yet, blocked on the owner's one-time OAuth grant. Justified as an off-cycle run per cadence.json's new_capability_granted trigger: expected benefit (unblocking the entire revenue mechanism) clearly exceeds this run's cost." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.60, "currency": "usd", "jpy_equivalent": 90, "note": "Owner-directed investigation (estimated): checked whether a Browser/Computer-Use capability could publish to Etsy directly instead of the API/OAuth path. Confirmed not viable (no browser-driving tool in this session, sandbox egress to etsy.com blocked, no Etsy credentials accessible) and documented why in ops/ETSY_API_SETUP.md. No code changes -- investigation and honest recording only." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.45, "currency": "usd", "jpy_equivalent": 68, "note": "Owner-directed spec verification (estimated): checked the Etsy API v3 implementation against 6 spec points (redirect_uri HTTPS rule, keystring vs shared secret, minimum OAuth scope, Seller App access level, refresh-token rotation spec, digital-listing required fields) before the OAuth grant. Fixed redirect_uri wording, clarified shared-secret handling, trimmed scope to least-privilege, added access-level guidance, tightened refresh-token lifetime figure. One point (exact required-field schema) remains honestly unverified pending a live run." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.55, "currency": "usd", "jpy_equivalent": 83, "note": "Owner-directed full channel inventory (estimated): re-checked Stripe/Etsy/Gumroad/Creem/Lemon Squeezy against real repo evidence (git history, EVENTS.jsonl, GitHub issues, connectors) before further Etsy work. Found no evidence Gumroad or Creem were ever opened (both remain 2026-08-25 research skips); corrected an inaccurate prior claim that Gumroad has no create-product API. Did not build any new integration code -- recorded findings + asked one factual owner status question instead." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 1.60, "currency": "usd", "jpy_equivalent": 240, "note": "Owner correction + Gumroad activation (estimated): corrected the prior inventory's error (repo silence misread as non-existence) across 3 files with an explicit verification-level taxonomy. Used live WebSearch/WebFetch (not training memory) to verify Gumroad's actual current API/CLI capability -- found and confirmed the official antiwork/gumroad-cli, purpose-built for CI/agent publishing. Built the full Gumroad publish capability (marketing/gumroad_listing_config.json, scripts/gumroad_publish.mjs, .github/workflows/gumroad-publish.yml, ops/GUMROAD_CLI_SETUP.md) as a parallel low-cost addition to Etsy. Confirmed Creem's create-product API also exists but reaffirmed it stays deprioritized (duplicates Stripe's role, no distribution advantage)." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 1.30, "currency": "usd", "jpy_equivalent": 195, "note": "Owner correction #2, same day (estimated): the just-built Gumroad pipeline had trusted antiwork/gumroad-cli's own docs instead of Gumroad's official help center or actual API behavior. Re-verified by reading Gumroad's actual production Rails source (routes.rb + api/v2 controllers) directly via multiple WebFetch calls -- confirmed POST /v2/products, the ActiveStorage direct-upload flow, and PUT .../enable (publish) are real working routes, resolving a contradictory WebSearch claim that the endpoint 404s. Rebuilt scripts/gumroad_publish.mjs to call the REST API directly (dropped the CLI dependency entirely), simplified the workflow, replaced the setup doc with the simpler personal-access-token grant path." },
-    { "date": "2026-09-01", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Owner-directed re-check (estimated): investigated Browser/Computer-Use publishing for Gumroad specifically, fresh (not reused from the Etsy check). Live curl test confirmed gumroad.com/app.gumroad.com/gumroad.com/login are fully blocked at the sandbox egress proxy; re-searched for a browser-driving tool, found none. Confirmed the already-built REST API pipeline as necessary. No code changes -- investigation and recording only." },
-    { "date": "2026-09-02", "period": "official", "category": "ai_compute", "amount": 0.35, "currency": "usd", "jpy_equivalent": 53, "note": "Scheduled cadence run (light, estimated): confirmed no new GitHub issues, no Promotion-blocked issue, main in sync with this branch, Sales Monitor detected no new revenue. Empirically re-verified (rather than assumed) that both the Etsy and Gumroad publish blockers are unchanged by triggering etsy-publish.yml and gumroad-publish.yml via GitHub MCP (free Actions minutes) -- both confirmed 'no-ops without credentials'. No new product/content; wrote reports/data/2026-09-02.json." },
-    { "date": "2026-09-02", "period": "official", "category": "ai_compute", "amount": 1.20, "currency": "usd", "jpy_equivalent": 180, "note": "Owner-directed live Gumroad publish (estimated): triggered gumroad-publish.yml via GitHub MCP. 1st run failed with a real API error (POST /v2/direct_uploads -> 400, media-only endpoint). Diagnosed by reading Gumroad's production files_controller.rb directly, cross-checked the files-array shape against antiwork/gumroad-cli's Go source, applied a minimal fix to scripts/gumroad_publish.mjs (S3-multipart presign/complete flow), committed, re-triggered -- 2nd run succeeded. Achieved a real, live, purchasable Gumroad listing ($9, https://feverish50.gumroad.com/l/uhajxo). Updated status/CURRENT_STATUS.json, ops/AGENT_LOOP.md, reports/data/2026-09-03.json to reflect the milestone." },
-    { "date": "2026-09-03", "period": "official", "category": "ai_compute", "amount": 0.95, "currency": "usd", "jpy_equivalent": 143, "note": "Owner-directed (estimated): formalized the Gumroad publish as a canonical live_capabilities entry; found and fixed a real idempotency bug in scripts/gumroad_publish.mjs (saveState() was dropping product_id on its 2nd call, confirmed by the on-disk state file actually missing it) and restored the missing product_id. Investigated Gumroad sale-detection options in priority order by reading production source directly (api/v2/sales_controller.rb, purchase.rb, doorkeeper.rb, oauth_application.rb): confirmed GET /v2/sales is real and requires the optional view_sales scope, which the existing access token's grant is not yet confirmed to include. Built scripts/gumroad_sales_monitor.mjs and wired it into the existing sales-monitor.yml cron (no new schedule, near-zero incremental cost) rather than building new monitoring infrastructure. Documented the full priority order and fallback in ops/GUMROAD_API_SETUP.md and ops/AGENT_LOOP.md." },
-    { "date": "2026-09-03", "period": "official", "category": "ai_compute", "amount": 0.55, "currency": "usd", "jpy_equivalent": 83, "note": "Owner-directed Etsy OAuth walkthrough (estimated): guided app registration + local OAuth run; fixed a real bug in the ETSY_SHOP_ID auto-lookup (missing res.ok check swallowed the real error) and shipped scripts/etsy_get_shop_id.mjs as a no-redo-OAuth recovery path. That surfaced a real 403 (x-api-key needs keystring:shared_secret, not keystring alone), contradicting the earlier documented claim that the Shared Secret is never needed. Corrected scripts/etsy_oauth_setup.mjs, scripts/etsy_publish.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md, and status/CURRENT_STATUS.json to add ETSY_API_SHARED_SECRET as a 5th required secret, based on the real API response, not re-verified documentation (egress to Etsy's docs reconfirmed blocked)." },
-    { "date": "2026-09-04", "period": "official", "category": "ai_compute", "amount": 1.00, "currency": "usd", "jpy_equivalent": 150, "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 1.40, "currency": "usd", "jpy_equivalent": 210, "note": "Owner-directed live Etsy publish (estimated): owner completed the Etsy OAuth grant (5/5 secrets) and reported Creem approved. Merged in Day 4's Gumroad work (done by another session), resolved 3-file merge conflicts, re-promoted to main. Triggered etsy-publish.yml: 1st run got past auth/taxonomy (proving the shared-secret fix) but hit a real 400 (a tag exceeding Etsy's 20-char limit); fixed the one tag, re-ran, succeeded fully -- draft -> images -> file -> active. Etsy listing is now live ($9, https://www.etsy.com/listing/4569271638). Found and fixed the same saveState() idempotency bug in scripts/etsy_publish.mjs that gumroad_publish.mjs had -- but not before a concurrent session's independent re-trigger hit the still-broken check and created a real duplicate listing (4569274006, since deactivated); corrected the record accordingly rather than overstate this as prevented. Evaluated and declined to activate Creem despite approval (no distribution advantage over Stripe identified). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl to reflect all three digital-product channels now being live." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 1.50, "currency": "usd", "jpy_equivalent": 225, "note": "Scheduled cadence run, day 5 (estimated, concurrent with the entry above): closed a stale 'Promotion blocked' GitHub issue (#4) after verifying via git history it was no longer accurate. Confirmed 0 Stripe charges live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log. Independently triggered etsy-publish.yml, hit the same Shared-Secret 403, and investigated it via WebSearch/WebFetch against two independent primary sources before discovering a concurrent session's already-merged fix and deferring to it rather than duplicating the work. Re-triggered etsy-publish.yml as an idempotency check -- this run is, on cross-referencing timestamps, the one that actually caused the real duplicate listing (4569274006) recorded in the entry above; added an attribution_correction event to status/EVENTS.jsonl identifying this honestly as this session's own action rather than an anonymous trigger. Corrected the same overstated 'prevented' framing in reports/data/2026-09-05.json's summary/wins/failures sections." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 0.60, "currency": "usd", "jpy_equivalent": 90, "note": "Owner-directed re-diagnosis (estimated): with all 3 channels technically live, re-diagnosed the true binding constraint by comparing inflow/search-exposure/pitch/price/mix/funnel/owned-assets across Stripe/Gumroad/Etsy using real evidence (grepped index.html, the SEO guide, sitemap.xml, /store/, social/queue, social/posted -- not assumption). Found index.html had zero link to the brand-new Etsy listing (same class of gap fixed for Gumroad on Day 4) and that X posting is dormant (no credentials, zero posts ever sent). Fixed the one concrete, zero-cost gap: added an Etsy linkbox to index.html. Explicitly declined a new sales channel, a price/mix change, and X posting -- none had supporting evidence, only the backlink gap did. No new capability built." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 1.10, "currency": "usd", "jpy_equivalent": 165, "note": "Owner correction, same day (estimated): owner flagged that the prior entry's index.html backlink fix had been overclaimed as 'the' binding constraint, and that the 'new listings get a temporary recency boost' claim was unverified. Rather than defend the claim, built real diagnostic tooling: scripts/etsy_listing_diagnostics.mjs + .github/workflows/etsy-diagnostics.yml and scripts/gumroad_listing_diagnostics.mjs + .github/workflows/gumroad-diagnostics.yml (this sandbox has zero egress to Etsy/Gumroad, so ran via GitHub Actions and read the job logs), plus a live Stripe MCP query (GetCheckoutSessions filtered by the payment link). Real results: Etsy confirms views:0/num_favorers:0 and confirms no search-term/traffic/CVR/quality-warning fields exist in the API (dashboard-only); Gumroad's API has no views field at all but revealed a real 'Other'-category defect; Stripe confirms 0 checkout sessions ever over 11 days. Rewrote CURRENT_STATUS.json, AGENT_LOOP.md, and EVENTS.jsonl to retract the prior overclaim and record the honest conclusion that no channel shows a differentiating real-inflow signal yet." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 0.90, "currency": "usd", "jpy_equivalent": 135, "note": "Owner-approved, priority-ordered execution (estimated): (1) fixed Gumroad's confirmed 'Other' category -- read Gumroad's production source (api/v2/links_controller.rb, api/v2/categories_controller.rb) to confirm the real update mechanism, fetched the live category tree (GET /v2/categories, no new grant needed), chose 'self-improvement/productivity' (taxonomy_id 85) over a mismatched PHP-scoped 'ai-tools' leaf, built scripts/gumroad_fix_category.mjs + a workflow, ran it live, and confirmed the change via an independent re-fetch. (2) Deliberately did NOT re-run the Etsy diagnostic -- listing is only ~8.5h old, short of the owner's 24-48h window; deferred to the next scheduled run rather than forced early. (3) Investigated Gumroad's view-count data down to the production-source auth model (AnalyticsController requires a seller session/cookie, no matching OAuth scope exists) before concluding it's genuinely AI-unreachable, then queued exactly one low-priority human ask rather than skip straight to asking. No new channel, no new SKU, no resource-reallocation decision made." },
-    { "date": "2026-09-05", "period": "official", "category": "ai_compute", "amount": 0.40, "currency": "usd", "jpy_equivalent": 60, "note": "Actual 20:07 JST scheduled daily cadence run, day 5 (estimated, light -- this run only re-observed and recorded, no code changes): queried live Stripe data directly via the Stripe MCP connector (0 charges, 0 checkout sessions ever); checked for open GitHub issues (none); confirmed the latest sales-monitor.yml run (04:30 UTC, ~6.7h earlier) succeeded with 0 new Gumroad sales; confirmed the Etsy re-diagnostic timing gate (~2026-09-06T00:55Z) had not yet been reached. No new capability, no market signal change, no economically rational action available beyond what the owner-directed sessions already did earlier today -- stopped early per the loop's own cost-control rule rather than manufacture busywork. Cadence held at 1x/day." }
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.5,
+      "currency": "usd",
+      "jpy_equivalent": 75,
+      "note": "Owner correction, live conversation (estimated): reclassified human_actions_required vs additional_permissions_requested (STRIPE_RESTRICTED_KEY/X credentials are optional, not blockers), documented per-run MCP observation fallback in ops/LOOP_PROTOCOL.md + ops/AGENT_LOOP.md. State-accuracy fix, not a strategy change."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.5,
+      "currency": "usd",
+      "jpy_equivalent": 225,
+      "note": "Off-cycle judgment run (estimated), owner-directed: Etsy shop access granted. Re-diagnosed the bottleneck and built the full Etsy API v3 publish pipeline (marketing/etsy_listing_config.json, scripts/etsy_publish.mjs, scripts/etsy_oauth_setup.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md) reusing existing prepared content. This is capability-building infrastructure, not revenue itself -- no listing is live yet, blocked on the owner's one-time OAuth grant. Justified as an off-cycle run per cadence.json's new_capability_granted trigger: expected benefit (unblocking the entire revenue mechanism) clearly exceeds this run's cost."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "note": "Owner-directed investigation (estimated): checked whether a Browser/Computer-Use capability could publish to Etsy directly instead of the API/OAuth path. Confirmed not viable (no browser-driving tool in this session, sandbox egress to etsy.com blocked, no Etsy credentials accessible) and documented why in ops/ETSY_API_SETUP.md. No code changes -- investigation and honest recording only."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "note": "Owner-directed spec verification (estimated): checked the Etsy API v3 implementation against 6 spec points (redirect_uri HTTPS rule, keystring vs shared secret, minimum OAuth scope, Seller App access level, refresh-token rotation spec, digital-listing required fields) before the OAuth grant. Fixed redirect_uri wording, clarified shared-secret handling, trimmed scope to least-privilege, added access-level guidance, tightened refresh-token lifetime figure. One point (exact required-field schema) remains honestly unverified pending a live run."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed full channel inventory (estimated): re-checked Stripe/Etsy/Gumroad/Creem/Lemon Squeezy against real repo evidence (git history, EVENTS.jsonl, GitHub issues, connectors) before further Etsy work. Found no evidence Gumroad or Creem were ever opened (both remain 2026-08-25 research skips); corrected an inaccurate prior claim that Gumroad has no create-product API. Did not build any new integration code -- recorded findings + asked one factual owner status question instead."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.6,
+      "currency": "usd",
+      "jpy_equivalent": 240,
+      "note": "Owner correction + Gumroad activation (estimated): corrected the prior inventory's error (repo silence misread as non-existence) across 3 files with an explicit verification-level taxonomy. Used live WebSearch/WebFetch (not training memory) to verify Gumroad's actual current API/CLI capability -- found and confirmed the official antiwork/gumroad-cli, purpose-built for CI/agent publishing. Built the full Gumroad publish capability (marketing/gumroad_listing_config.json, scripts/gumroad_publish.mjs, .github/workflows/gumroad-publish.yml, ops/GUMROAD_CLI_SETUP.md) as a parallel low-cost addition to Etsy. Confirmed Creem's create-product API also exists but reaffirmed it stays deprioritized (duplicates Stripe's role, no distribution advantage)."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.3,
+      "currency": "usd",
+      "jpy_equivalent": 195,
+      "note": "Owner correction #2, same day (estimated): the just-built Gumroad pipeline had trusted antiwork/gumroad-cli's own docs instead of Gumroad's official help center or actual API behavior. Re-verified by reading Gumroad's actual production Rails source (routes.rb + api/v2 controllers) directly via multiple WebFetch calls -- confirmed POST /v2/products, the ActiveStorage direct-upload flow, and PUT .../enable (publish) are real working routes, resolving a contradictory WebSearch claim that the endpoint 404s. Rebuilt scripts/gumroad_publish.mjs to call the REST API directly (dropped the CLI dependency entirely), simplified the workflow, replaced the setup doc with the simpler personal-access-token grant path."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Owner-directed re-check (estimated): investigated Browser/Computer-Use publishing for Gumroad specifically, fresh (not reused from the Etsy check). Live curl test confirmed gumroad.com/app.gumroad.com/gumroad.com/login are fully blocked at the sandbox egress proxy; re-searched for a browser-driving tool, found none. Confirmed the already-built REST API pipeline as necessary. No code changes -- investigation and recording only."
+    },
+    {
+      "date": "2026-09-02",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "note": "Scheduled cadence run (light, estimated): confirmed no new GitHub issues, no Promotion-blocked issue, main in sync with this branch, Sales Monitor detected no new revenue. Empirically re-verified (rather than assumed) that both the Etsy and Gumroad publish blockers are unchanged by triggering etsy-publish.yml and gumroad-publish.yml via GitHub MCP (free Actions minutes) -- both confirmed 'no-ops without credentials'. No new product/content; wrote reports/data/2026-09-02.json."
+    },
+    {
+      "date": "2026-09-02",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.2,
+      "currency": "usd",
+      "jpy_equivalent": 180,
+      "note": "Owner-directed live Gumroad publish (estimated): triggered gumroad-publish.yml via GitHub MCP. 1st run failed with a real API error (POST /v2/direct_uploads -> 400, media-only endpoint). Diagnosed by reading Gumroad's production files_controller.rb directly, cross-checked the files-array shape against antiwork/gumroad-cli's Go source, applied a minimal fix to scripts/gumroad_publish.mjs (S3-multipart presign/complete flow), committed, re-triggered -- 2nd run succeeded. Achieved a real, live, purchasable Gumroad listing ($9, https://feverish50.gumroad.com/l/uhajxo). Updated status/CURRENT_STATUS.json, ops/AGENT_LOOP.md, reports/data/2026-09-03.json to reflect the milestone."
+    },
+    {
+      "date": "2026-09-03",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.95,
+      "currency": "usd",
+      "jpy_equivalent": 143,
+      "note": "Owner-directed (estimated): formalized the Gumroad publish as a canonical live_capabilities entry; found and fixed a real idempotency bug in scripts/gumroad_publish.mjs (saveState() was dropping product_id on its 2nd call, confirmed by the on-disk state file actually missing it) and restored the missing product_id. Investigated Gumroad sale-detection options in priority order by reading production source directly (api/v2/sales_controller.rb, purchase.rb, doorkeeper.rb, oauth_application.rb): confirmed GET /v2/sales is real and requires the optional view_sales scope, which the existing access token's grant is not yet confirmed to include. Built scripts/gumroad_sales_monitor.mjs and wired it into the existing sales-monitor.yml cron (no new schedule, near-zero incremental cost) rather than building new monitoring infrastructure. Documented the full priority order and fallback in ops/GUMROAD_API_SETUP.md and ops/AGENT_LOOP.md."
+    },
+    {
+      "date": "2026-09-03",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed Etsy OAuth walkthrough (estimated): guided app registration + local OAuth run; fixed a real bug in the ETSY_SHOP_ID auto-lookup (missing res.ok check swallowed the real error) and shipped scripts/etsy_get_shop_id.mjs as a no-redo-OAuth recovery path. That surfaced a real 403 (x-api-key needs keystring:shared_secret, not keystring alone), contradicting the earlier documented claim that the Shared Secret is never needed. Corrected scripts/etsy_oauth_setup.mjs, scripts/etsy_publish.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md, and status/CURRENT_STATUS.json to add ETSY_API_SHARED_SECRET as a 5th required secret, based on the real API response, not re-verified documentation (egress to Etsy's docs reconfirmed blocked)."
+    },
+    {
+      "date": "2026-09-04",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1,
+      "currency": "usd",
+      "jpy_equivalent": 150,
+      "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.4,
+      "currency": "usd",
+      "jpy_equivalent": 210,
+      "note": "Owner-directed live Etsy publish (estimated): owner completed the Etsy OAuth grant (5/5 secrets) and reported Creem approved. Merged in Day 4's Gumroad work (done by another session), resolved 3-file merge conflicts, re-promoted to main. Triggered etsy-publish.yml: 1st run got past auth/taxonomy (proving the shared-secret fix) but hit a real 400 (a tag exceeding Etsy's 20-char limit); fixed the one tag, re-ran, succeeded fully -- draft -> images -> file -> active. Etsy listing is now live ($9, https://www.etsy.com/listing/4569271638). Found and fixed the same saveState() idempotency bug in scripts/etsy_publish.mjs that gumroad_publish.mjs had -- but not before a concurrent session's independent re-trigger hit the still-broken check and created a real duplicate listing (4569274006, since deactivated); corrected the record accordingly rather than overstate this as prevented. Evaluated and declined to activate Creem despite approval (no distribution advantage over Stripe identified). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl to reflect all three digital-product channels now being live."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.5,
+      "currency": "usd",
+      "jpy_equivalent": 225,
+      "note": "Scheduled cadence run, day 5 (estimated, concurrent with the entry above): closed a stale 'Promotion blocked' GitHub issue (#4) after verifying via git history it was no longer accurate. Confirmed 0 Stripe charges live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log. Independently triggered etsy-publish.yml, hit the same Shared-Secret 403, and investigated it via WebSearch/WebFetch against two independent primary sources before discovering a concurrent session's already-merged fix and deferring to it rather than duplicating the work. Re-triggered etsy-publish.yml as an idempotency check -- this run is, on cross-referencing timestamps, the one that actually caused the real duplicate listing (4569274006) recorded in the entry above; added an attribution_correction event to status/EVENTS.jsonl identifying this honestly as this session's own action rather than an anonymous trigger. Corrected the same overstated 'prevented' framing in reports/data/2026-09-05.json's summary/wins/failures sections."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "note": "Owner-directed re-diagnosis (estimated): with all 3 channels technically live, re-diagnosed the true binding constraint by comparing inflow/search-exposure/pitch/price/mix/funnel/owned-assets across Stripe/Gumroad/Etsy using real evidence (grepped index.html, the SEO guide, sitemap.xml, /store/, social/queue, social/posted -- not assumption). Found index.html had zero link to the brand-new Etsy listing (same class of gap fixed for Gumroad on Day 4) and that X posting is dormant (no credentials, zero posts ever sent). Fixed the one concrete, zero-cost gap: added an Etsy linkbox to index.html. Explicitly declined a new sales channel, a price/mix change, and X posting -- none had supporting evidence, only the backlink gap did. No new capability built."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Owner correction, same day (estimated): owner flagged that the prior entry's index.html backlink fix had been overclaimed as 'the' binding constraint, and that the 'new listings get a temporary recency boost' claim was unverified. Rather than defend the claim, built real diagnostic tooling: scripts/etsy_listing_diagnostics.mjs + .github/workflows/etsy-diagnostics.yml and scripts/gumroad_listing_diagnostics.mjs + .github/workflows/gumroad-diagnostics.yml (this sandbox has zero egress to Etsy/Gumroad, so ran via GitHub Actions and read the job logs), plus a live Stripe MCP query (GetCheckoutSessions filtered by the payment link). Real results: Etsy confirms views:0/num_favorers:0 and confirms no search-term/traffic/CVR/quality-warning fields exist in the API (dashboard-only); Gumroad's API has no views field at all but revealed a real 'Other'-category defect; Stripe confirms 0 checkout sessions ever over 11 days. Rewrote CURRENT_STATUS.json, AGENT_LOOP.md, and EVENTS.jsonl to retract the prior overclaim and record the honest conclusion that no channel shows a differentiating real-inflow signal yet."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Owner-approved, priority-ordered execution (estimated): (1) fixed Gumroad's confirmed 'Other' category -- read Gumroad's production source (api/v2/links_controller.rb, api/v2/categories_controller.rb) to confirm the real update mechanism, fetched the live category tree (GET /v2/categories, no new grant needed), chose 'self-improvement/productivity' (taxonomy_id 85) over a mismatched PHP-scoped 'ai-tools' leaf, built scripts/gumroad_fix_category.mjs + a workflow, ran it live, and confirmed the change via an independent re-fetch. (2) Deliberately did NOT re-run the Etsy diagnostic -- listing is only ~8.5h old, short of the owner's 24-48h window; deferred to the next scheduled run rather than forced early. (3) Investigated Gumroad's view-count data down to the production-source auth model (AnalyticsController requires a seller session/cookie, no matching OAuth scope exists) before concluding it's genuinely AI-unreachable, then queued exactly one low-priority human ask rather than skip straight to asking. No new channel, no new SKU, no resource-reallocation decision made."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Actual 20:07 JST scheduled daily cadence run, day 5 (estimated, light -- this run only re-observed and recorded, no code changes): queried live Stripe data directly via the Stripe MCP connector (0 charges, 0 checkout sessions ever); checked for open GitHub issues (none); confirmed the latest sales-monitor.yml run (04:30 UTC, ~6.7h earlier) succeeded with 0 new Gumroad sales; confirmed the Etsy re-diagnostic timing gate (~2026-09-06T00:55Z) had not yet been reached. No new capability, no market signal change, no economically rational action available beyond what the owner-directed sessions already did earlier today -- stopped early per the loop's own cost-control rule rather than manufacture busywork. Cadence held at 1x/day."
+    }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
