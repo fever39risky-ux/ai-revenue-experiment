@@ -227,9 +227,9 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 assuming prior work already reached `main`.**
 
 ## Ledger snapshot
-Official revenue: ¥0. Official cost: ¥2,005 (cumulative through 2026-09-05). Preparation
+Official revenue: ¥0. Official cost: ¥2,230 (cumulative through 2026-09-05). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,005.
+Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,230.
 Non-monetary milestone this period: **all three digital-product channels are
 now live and purchasable** -- Stripe ($19, since 2026-08-25), Gumroad ($9,
 https://feverish50.gumroad.com/l/uhajxo, since 2026-09-02, now with a cover
@@ -296,6 +296,34 @@ deliberately not activated (no distribution advantage over Stripe found).
   listings + backlinks, THAT becomes real evidence to re-diagnose further
   (e.g. a 2nd lower-priced SKU, or requesting the X credential grant to
   activate a genuinely dormant channel) — not before.
+
+- 2026-09-05 (scheduled cadence run, day 5 — concurrent with the session
+  below): OBSERVE — found and closed the stale "Promotion blocked" issue
+  (#4) after confirming via git history that its then-known branch content
+  (2f827cb) was already an ancestor of `main`. Confirmed 0 Stripe charges
+  live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log.
+  EXECUTE — independently triggered `etsy-publish.yml` and hit the same 403
+  `Shared secret is required in x-api-key header` documented below.
+  Investigated via WebSearch/WebFetch against two independent primary
+  sources (Etsy's own `etsy/open-api` GitHub discussion #1531 + a
+  corroborating `PipedreamHQ/pipedream#20010` issue) and confirmed this was
+  a genuine Etsy platform change effective Feb 9 2026. On writing a fix and
+  re-fetching `main`, found the session below had already root-caused and
+  merged the identical fix (`ETSY_API_SHARED_SECRET`, commit `bd3552f`,
+  three days earlier) — discarded this session's own differently-named fix
+  and deferred to the merged version rather than duplicating it. Re-triggered
+  `etsy-publish.yml` once more as an idempotency check. HONEST FAILURE: that
+  re-trigger (`2026-09-05T01:01:46Z`) is, on cross-referencing this
+  session's own `actions_run_trigger` result against the
+  `duplicate_listing_incident` event's timestamp (exact match), the run that
+  actually caused the real duplicate Etsy listing (`4569274006`) recorded
+  below — the idempotency bug wasn't fixed yet at that moment. The session
+  below root-caused and cleaned it up before this one could. Recorded an
+  `attribution_correction` event in `status/EVENTS.jsonl` since the original
+  incident record only said "not this session" without identifying which
+  one — this is that identification, made honestly against this session's
+  own actions rather than left as an anonymous incident. NEXT: same as
+  below — watch all three live channels for a first sale.
 
 - 2026-09-05 (owner-directed, live Etsy publish — all 3 channels live):
   owner reported the Etsy OAuth walkthrough fully complete (5/5 secrets)
