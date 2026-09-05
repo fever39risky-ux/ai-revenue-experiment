@@ -24,8 +24,15 @@ Etsy confirms real `views: 0`/`num_favorers: 0`; Gumroad's API exposes no
 views field at all (found instead a real "Other"-category defect); Stripe
 confirms 0 checkout sessions ever over 11 days. No channel shows a
 differentiating real-inflow signal yet — see Iteration log for the full
-correction. Still ¥0 revenue everywhere — no sale has occurred on any
-channel yet.
+correction. **Owner approved this and directed 3 prioritized actions, same
+day:** Gumroad's "Other" category is now fixed (`self-improvement/
+productivity`, taxonomy_id 85, live-verified); the Etsy re-diagnostic is
+deliberately deferred until the listing is genuinely 24–48h old (not yet);
+Gumroad's view-count blind spot was investigated down to Gumroad's own
+source code and confirmed genuinely unreachable by the AI (session-cookie-
+gated dashboard, no matching OAuth scope), so exactly one low-priority
+human ask was queued. Still ¥0 revenue everywhere — no sale has occurred on
+any channel yet.
 
 ## Current strategy (as of last update)
 - **No channel is confirmed "primary" right now — corrected 2026-09-05.**
@@ -88,7 +95,7 @@ channel yet.
 |---|---|---|---|---|
 | Stripe | **live** | confirmed_in_repo | payment rail / destination, not discovery | Live since 2026-08-25; ¥0 revenue (0 owned traffic) |
 | Etsy | **LIVE — published 2026-09-05T00:55 UTC** | confirmed_in_repo (status/etsy_listing.json + live URL) | primary discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://www.etsy.com/listing/4569271638. Fixed 2 real API errors (shared-secret 403, tag-length 400) from their exact responses. No sale yet. |
-| Gumroad | **LIVE — published 2026-09-02T22:16 UTC** | confirmed_in_repo (status/gumroad_listing.json + live URL) | parallel discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://feverish50.gumroad.com/l/uhajxo. 1st publish attempt hit a real API error (`/v2/direct_uploads` is media-only); fixed against `files_controller.rb` to use the S3-multipart `/v2/files/presign`→`/v2/files/complete` flow; 2nd attempt succeeded. No sale yet. |
+| Gumroad | **LIVE — published 2026-09-02T22:16 UTC** | confirmed_in_repo (status/gumroad_listing.json + live URL) | parallel discovery channel | $9 "ChatGPT Prompts + AI Automation Toolkit" purchasable at https://feverish50.gumroad.com/l/uhajxo. 1st publish attempt hit a real API error (`/v2/direct_uploads` is media-only); fixed against `files_controller.rb` to use the S3-multipart `/v2/files/presign`→`/v2/files/complete` flow; 2nd attempt succeeded. Category fixed 2026-09-05 (was `other`/266, now `self-improvement/productivity`/85, live-verified). No sale yet. |
 | Creem | **account + KYC + bank + approval confirmed by owner (2026-09-05)** | confirmed_by_owner (account + approval) | payment rail, duplicates Stripe's role | Fully usable now, but NOT activated: no marketplace/search surface of its own, so it adds no incremental buyer reach over Stripe -- pure payment-rail substitution. Deprioritized absent a specific identified advantage. |
 | Lemon Squeezy | **abandoned** | confirmed_by_owner | n/a | Owner attempted, didn't complete, intentionally abandoned. Not revisited without new justification. |
 
@@ -153,18 +160,24 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    to "will a real buyer purchase." Watch `status/revenue_ledger.json` for
    the first sale on any channel; if/when one lands, that's the headline —
    queue an honest post about it (not before).
-2b. **CORRECTED 2026-09-05:** do not assume Etsy is "where the buyers are" --
-   real diagnostic data shows no channel with a differentiating real-inflow
-   signal yet (see Iteration log's correction entry). Next real moves,
-   in priority order, awaiting owner confirmation on which to pursue first:
-   (a) fix Gumroad's confirmed "Other"-category miscategorization
-   (`taxonomy_id: 266`) -- the one non-speculative defect found; (b) re-run
-   `scripts/etsy_listing_diagnostics.mjs` after ~24-48h to see whether
-   views/num_favorers move, which is the only way to make the recency-boost
-   hypothesis testable; (c) ask the owner, low-priority, to glance at
-   Gumroad's seller dashboard once for view/traffic stats not exposed via
-   API. Do not reallocate resources toward any one channel until real data
-   differentiates them.
+2b. **UPDATED 2026-09-05 (owner-approved 3-item priority list, executed):**
+   do not assume Etsy is "where the buyers are" -- real diagnostic data
+   shows no channel with a differentiating real-inflow signal yet (see
+   Iteration log's correction entry). Status of the 3 approved moves:
+   (a) DONE -- Gumroad's "Other" category fixed to `self-improvement/
+   productivity` (taxonomy_id 85), live-verified via `scripts/
+   gumroad_fix_category.mjs`; (b) NOT YET DUE -- re-run `scripts/
+   etsy_listing_diagnostics.mjs` only once the listing is genuinely 24-48h
+   old (published 2026-09-05T00:55Z; earliest useful re-check is
+   ~2026-09-06T00:55Z) -- this is a timing gate, don't pull it forward;
+   (c) DONE -- investigated Gumroad's view-count question at the
+   production-source level, confirmed genuinely unreachable by the AI
+   (session-cookie-gated `AnalyticsController`, no matching OAuth scope),
+   queued the one authorized low-priority human ask in
+   `status/CURRENT_STATUS.json.human_actions_required`. Still do not
+   reallocate resources toward any one channel until real data
+   differentiates them -- only confirmed defects get fixed in the
+   meantime, not speculative reallocation.
 3. Creem: approved by the owner 2026-09-05 but deliberately not activated
    (see `status/CURRENT_STATUS.json.channel_inventory.creem`). Do not build
    a Creem integration without a newly identified, specific advantage over
@@ -274,6 +287,58 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-05 (owner-directed, priority-ordered execution of the correction below):
+  owner approved the correction (retracting the index.html-backlink
+  overclaim) and gave 3 prioritized actions: (1) fix Gumroad's confirmed
+  "Other" category with the most appropriate real category; (2) don't judge
+  Etsy on views=0 from a listing published hours ago -- re-run the
+  diagnostic after 24-48h instead; (3) before any human ask about Gumroad's
+  view count, investigate whether the AI itself can reach that data via any
+  official route (public page, response field, admin API) and only fall
+  back to a single human ask if genuinely impossible. EXECUTE (1): read
+  Gumroad's own production source (`api/v2/links_controller.rb`,
+  `api/v2/categories_controller.rb`) to confirm `PUT /v2/products/:id`
+  accepts `taxonomy_id` directly and that `GET /v2/categories` needs no new
+  OAuth scope; fetched the real category tree live (job 33957235327,
+  17 top-level categories, hundreds of leaves) rather than guessing a
+  taxonomy_id from search-engine snippets; chose `self-improvement/
+  productivity` (taxonomy_id 85) as the closest real match to the product's
+  actual pitch ("cut 20+ hours/month", solopreneurs/freelancers/small
+  teams) and its own `productivity` tag -- explicitly ruled out the one
+  AI-labeled leaf that exists (`software-development/php-scripts/ai-tools`)
+  because it's scoped to PHP source code, the wrong audience for a
+  no-code toolkit. Built `scripts/gumroad_fix_category.mjs` +
+  `.github/workflows/gumroad-fix-category.yml`, ran it live (job
+  33957380003): confirmed via an independent re-fetch (not just the PUT's
+  own response) that `taxonomy_id` moved 266->85 and `category_label`
+  moved "Other"->"Productivity". Recorded the fix in
+  `status/gumroad_listing.json` and added `taxonomy_id: 85` to
+  `marketing/gumroad_listing_config.json` so a future republish doesn't
+  regress to the default. EXECUTE (2): deliberately did NOT re-run
+  `scripts/etsy_listing_diagnostics.mjs` this turn -- the listing is only
+  ~8.5h old (published 2026-09-05T00:55Z), well short of the owner's
+  24-48h window; re-checking now would just repeat the same "too early to
+  tell" result. Deferred to the next scheduled session/day (from
+  ~2026-09-06T00:55Z onward). EXECUTE (3): read Gumroad's production
+  source for `AnalyticsController` (the only views/traffic surface found)
+  and confirmed it inherits from `Sellers::BaseController`, gated by a
+  logged-in seller's web session/cookie -- not reachable via the OAuth v2
+  API this project's access token uses, and no analytics/views scope
+  exists among the API's documented scopes (`edit_products`, `view_sales`,
+  `view_profile`, `mark_sales_as_shipped`, `refund_sales`). Combined with
+  the already-confirmed absence of a views field on the product resource
+  itself (from the prior correction entry) and this sandbox's zero egress
+  to gumroad.com, concluded this is a genuine technical dead end, not an
+  assumption -- queued exactly one low-priority, one-time human ask in
+  `status/CURRENT_STATUS.json.human_actions_required` rather than leaving
+  it as a recurring open question or skipping straight to asking. No new
+  sales channel, no new SKU, and no resource-reallocation decision was
+  made this turn -- only the one confirmed defect was fixed, per explicit
+  instruction. NEXT: re-run the Etsy diagnostic once ~24-48h have genuinely
+  passed; watch whether Gumroad's category fix moves anything in
+  Discover/category-browse traffic (no sales-lag assumption made either
+  way).
+
 - 2026-09-05 (owner-directed CORRECTION of the entry immediately below):
   owner pushed back on the prior iteration's conclusion: adding an Etsy
   linkbox to `index.html` is accepted as a reasonable hygiene fix, but must

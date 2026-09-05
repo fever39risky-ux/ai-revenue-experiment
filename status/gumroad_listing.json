@@ -5,5 +5,10 @@
   "state": "published",
   "url": "https://feverish50.gumroad.com/l/uhajxo",
   "thumbnail_uploaded": true,
-  "thumbnail_uploaded_at": "2026-09-03T20:57:05.764Z"
+  "thumbnail_uploaded_at": "2026-09-03T20:57:05.764Z",
+  "category_fixed_at": "2026-09-05T09:13:23.040Z",
+  "taxonomy_id": 85,
+  "category": "self-improvement/productivity",
+  "category_label": "Productivity",
+  "category_fix_note": "Was taxonomy_id 266 / category 'other' -- scripts/gumroad_publish.mjs never set a taxonomy_id at creation, so Gumroad defaulted it there. Confirmed as a real defect via scripts/gumroad_listing_diagnostics.mjs, then fixed via scripts/gumroad_fix_category.mjs (PUT /v2/products/:id, taxonomy_id=85) after fetching Gumroad's real category tree live (GET /v2/categories) and confirming the update mechanism against Gumroad's own production source. Verified changed via an independent re-fetch, not just the PUT response."
 }

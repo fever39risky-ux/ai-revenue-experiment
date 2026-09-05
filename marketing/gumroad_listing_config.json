@@ -6,6 +6,8 @@
   "currency": "usd",
   "currency_note": "Same first-sale-band pricing rationale as the Etsy listing ($9, impulse band for a zero-review new seller). The API takes price_currency_type; verify against the account's actual settlement currency before the first real run if the account is JPY-denominated.",
   "type": "digital",
+  "taxonomy_id": 85,
+  "taxonomy_note": "self-improvement/productivity, confirmed via live GET /v2/categories 2026-09-05 -- scripts/gumroad_publish.mjs does not currently read this field (the live product was created without it and defaulted to 'other'; fixed post-hoc via scripts/gumroad_fix_category.mjs). Recorded here so a future republish doesn't regress to the default.",
   "tags": ["chatgpt prompts", "ai automation", "productivity", "no code", "google sheets", "prompt pack", "small business"],
   "cover_image": "marketing/etsy-images/01-cover.png",
   "cover_image_note": "UPLOADED 2026-09-04T20:57 UTC via scripts/gumroad_add_thumbnail.mjs (POST /v2/products/:id/thumbnail, confirmed by a real successful API call -- see status/gumroad_listing.json's thumbnail_uploaded field and ops/GUMROAD_API_SETUP.md). The product-page gallery cover (POST /v2/products/:id/covers, a separate endpoint with the same request shape) was not built this round -- no evidence yet that it matters beyond the thumbnail already shown in Discover/search/link-preview surfaces.",
