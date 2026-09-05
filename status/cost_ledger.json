@@ -171,7 +171,7 @@
       "date": "2026-09-04",
       "period": "official",
       "category": "ai_compute",
-      "amount": 1.0,
+      "amount": 1,
       "currency": "usd",
       "jpy_equivalent": 150,
       "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html."
