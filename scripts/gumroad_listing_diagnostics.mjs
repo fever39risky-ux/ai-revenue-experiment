@@ -28,5 +28,6 @@ async function get(path) {
 
 await get(`/products/${PRODUCT_ID}`);
 await get(`/sales`);
+await get(`/categories`);
 
-console.log('\ngumroad_listing_diagnostics: done. Read the raw JSON above to determine which real fields are available (any views/favorites/traffic fields, sales_count, etc.) -- do not assume any field exists beyond what is actually printed.');
+console.log('\ngumroad_listing_diagnostics: done. Read the raw JSON above to determine which real fields are available (any views/favorites/traffic fields, sales_count, etc.) and the real category/taxonomy tree -- do not assume any field or category value beyond what is actually printed.');
