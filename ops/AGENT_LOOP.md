@@ -1,11 +1,13 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-05T11:15Z (official day 5,
-the actual 20:07 JST scheduled cadence run -- re-confirmed ¥0 revenue via live
-Stripe MCP + the sales-monitor job log, no open GitHub issues, Etsy diagnostic
-gate not yet due; no material change since the owner-directed session earlier
-today, so this run recorded and stopped early -- see Iteration log's top entry).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-06T11:15Z (official day 6,
+the actual 20:07 JST scheduled cadence run -- still ¥0 official revenue, but for
+the first time the experiment observed real non-zero inflow on 2 of 3 channels:
+Stripe went from 0 checkout sessions ever (13 days) to 2 real, still-open/unpaid
+sessions created today; Etsy's re-diagnostic (gate reached) showed views moving
+0 -> 2. Both are n=2 -- real, but not enough to differentiate channels or justify
+a strategy change. No completed sale anywhere. See Iteration log's top entry.).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -170,18 +172,42 @@ in September; double down on whichever actually produces clicks→checkouts→sa
    Iteration log's correction entry). Status of the 3 approved moves:
    (a) DONE -- Gumroad's "Other" category fixed to `self-improvement/
    productivity` (taxonomy_id 85), live-verified via `scripts/
-   gumroad_fix_category.mjs`; (b) NOT YET DUE -- re-run `scripts/
-   etsy_listing_diagnostics.mjs` only once the listing is genuinely 24-48h
-   old (published 2026-09-05T00:55Z; earliest useful re-check is
-   ~2026-09-06T00:55Z) -- this is a timing gate, don't pull it forward;
-   (c) DONE -- investigated Gumroad's view-count question at the
-   production-source level, confirmed genuinely unreachable by the AI
-   (session-cookie-gated `AnalyticsController`, no matching OAuth scope),
-   queued the one authorized low-priority human ask in
-   `status/CURRENT_STATUS.json.human_actions_required`. Still do not
+   gumroad_fix_category.mjs`; (b) **DONE 2026-09-06** -- re-ran `scripts/
+   etsy_listing_diagnostics.mjs` once the listing passed 24-48h old (see
+   item 2c below for the result); (c) DONE -- investigated Gumroad's
+   view-count question at the production-source level, confirmed genuinely
+   unreachable by the AI (session-cookie-gated `AnalyticsController`, no
+   matching OAuth scope), queued the one authorized low-priority human ask
+   in `status/CURRENT_STATUS.json.human_actions_required`. Still do not
    reallocate resources toward any one channel until real data
    differentiates them -- only confirmed defects get fixed in the
    meantime, not speculative reallocation.
+2c. **NEW 2026-09-06 (Day 6 scheduled run) — first real, non-zero inflow
+   signals of the experiment, on 2 channels at once:**
+   - **Stripe**: `GetCheckoutSessions` via the Stripe MCP had returned 0
+     results every single check for 13 days. Today it returned 2 real
+     sessions, both created 2026-09-06 (00:22:32Z, 02:15:45Z), status
+     `open`/`unpaid`, $19 each, matching the live payment link. Neither
+     completed — they're not expired either (24h window). No customer info
+     was collected (payment never completed), so nothing more is
+     actionable on these two specifically; just watch for the next ones.
+   - **Etsy**: the 24-48h re-diagnostic gate from 2026-09-05 had passed
+     (listing ~34.3h old) — `views` moved 0 -> 2, `num_favorers` still 0.
+   - Audited `store/index.html`'s buy-button/`BUY_URL` wiring for a defect
+     that might explain the Stripe abandonment — found none; the button
+     correctly resolves to the live payment link.
+   - **Explicitly not acted on:** n=2 on two channels is real evidence but
+     statistically far too small to call either channel "the" winner, to
+     change price/product, or to reallocate resources — doing so now would
+     repeat the exact overclaim pattern the owner corrected on Day 5. Hold
+     steady and keep watching.
+   - **Real gap identified, not built:** there is no web analytics on
+     `index.html` or `/store/`, so the 2 Stripe visitors' traffic source is
+     unknown and unrecoverable. Worth a lightweight, no-signup-required
+     analytics addition (e.g. a simple beacon) if/when repeat real traffic
+     confirms this isn't a one-off — not built this turn since it doesn't
+     move the current bottleneck (sale detection, already covered free by
+     the Actions cron) and speculative infra isn't the standing discipline.
 3. Creem: approved by the owner 2026-09-05 but deliberately not activated
    (see `status/CURRENT_STATUS.json.channel_inventory.creem`). Do not build
    a Creem integration without a newly identified, specific advantage over
@@ -190,7 +216,8 @@ in September; double down on whichever actually produces clicks→checkouts→sa
 4. If several more days pass with zero sales on Gumroad and/or Etsy despite
    both being fully live and complete, treat that as real evidence for
    re-diagnosis (cold-start/no-reviews/distribution reach), not more
-   listing polish on either.
+   listing polish on either. The 2026-09-06 Stripe/Etsy movement is a
+   reason for cautious attention, not yet a reason to change course.
 
 ## Blocked on human — none currently (revised 2026-09-05: Etsy grant fulfilled, listing live)
 - All three digital-product channels' publish mechanisms are now live and
@@ -293,6 +320,50 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-06 (actual 20:07 JST scheduled cadence run, day 6, fired ~20:09 JST /
+  11:09 UTC): BOOTSTRAP -- `git fetch origin`: `origin/main` had already
+  advanced to the branch's own tip (591d17c, an automated `chore(sales):
+  stripe sync` commit) -- the prior day's branch was fully promoted, no
+  "Promotion blocked" issue existed (`list_issues` state=OPEN returned 0).
+  OBSERVE with fresh evidence: sales-monitor.yml's latest scheduled run
+  (04:39 UTC) completed successfully with 0 new sales. Triggered
+  `etsy-diagnostics.yml` (the 24-48h re-diagnostic gate set 2026-09-05 had
+  passed -- listing was ~34.3h old): live job log showed `views: 2` (was 0),
+  `num_favorers: 0`. Queried live Stripe data directly via the Stripe MCP
+  connector (`GetCharges`, `GetCheckoutSessions`): 0 charges, but **2
+  checkout sessions** -- the first non-zero result in 13 days of checking.
+  Both created today (2026-09-06T00:22:32Z, 02:15:45Z), `status: open`,
+  `payment_status: unpaid`, $19 each, `payment_link` matching the live
+  Stripe payment link exactly -- real, not synthetic. Neither has expired
+  (24h window) or completed. DIAGNOSE: could this reflect a checkout-flow
+  bug rather than ordinary abandonment? Read `store/index.html` in full --
+  `BUY_URL` is correctly set to the live payment link and the buy button's
+  inline script wires it correctly; no defect found. `cancel_url` on the
+  sessions is Stripe's own default for Payment Links (`https://stripe.com`),
+  not a configurable/fixable field on this integration path -- not a bug.
+  Also triggered `gumroad-diagnostics.yml` for completeness: category fix
+  still holds, `sales_count: 0`, consistent with the cron. DECIDE: the
+  single highest-EV action available was to verify there was no real defect
+  behind the Stripe abandonment (higher priority, more certain than any
+  pricing/product guess) and to record the new evidence accurately --
+  **not** to reallocate resources or change price/product on an n=2/n=2
+  sample, which would repeat the exact overclaim pattern the owner corrected
+  on Day 5. EXECUTE: no code/price/lane changes were the right call given
+  what was found (no defect, no differentiating signal yet). RECORD: updated
+  `status/CURRENT_STATUS.json` (channel_inventory.stripe/etsy, current_*/
+  next_*/latest_* narrative fields, fixed a pre-existing duplicate-key bug
+  in `latest_strategy_decision_en` along the way), appended
+  `status/EVENTS.jsonl` (`first_real_inflow_signal_observed`), this file.
+  Identified but did not build a real observability gap: no web analytics
+  exist on `index.html`/`store/`, so the 2 Stripe visitors' traffic source
+  is permanently unknown -- flagged as a candidate future build, not acted
+  on (doesn't move the current bottleneck; speculative infra isn't the
+  standing discipline). Cadence: held at 1x/day (see `status/cadence.json`
+  for the explicit re-evaluation) -- the free Actions layer plus this one
+  daily judgment run are still sufficient; no event met the off-cycle-run
+  bar (n=2 unconverted checkout sessions is real but not clearly a
+  "checkout surge" in the sense the trigger list means). Logged this run's
+  own AI cost to `status/cost_ledger.json`.
 - 2026-09-05 (actual 20:07 JST scheduled cadence run, day 5, fired 20:10 JST /
   11:10 UTC -- arrives after an unusually active day of owner-directed
   sessions, all already recorded above/below): OBSERVE with fresh evidence

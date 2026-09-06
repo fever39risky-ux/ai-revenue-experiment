@@ -72,19 +72,19 @@
       "day": 6,
       "date": "2026-09-06",
       "path": "reports/2026-09-06.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Day 6 of the official verification window, scheduled cadence run. No completed sale yet, but for the first time in the experiment, two channels showed non-zero real-inflow signals simultaneously. Stripe: a fresh live query (Stripe MCP) found 2 real checkout sessions, both created today (2026-09-06), status 'open'/payment_status 'unpaid', $19 each. Every prior check over the preceding 13 days had found 0 checkout sessions ever, so this is the first non-zero result on this channel. Etsy: the owner's Day-5 timing gate (re-diagnose only once the listing is genuinely 24-48h old) had passed, so the diagnostic was re-run -- views moved 0 -> 2 (num_favorers still 0). Given the Stripe movement, audited the store page and buy-button wiring for an actual defect that could explain the checkout abandonment; found none -- the 2 incomplete checkouts are more likely ordinary shopping behavior (comparison, hesitation) than a bug. However, the sample sizes are too small on both channels (n=2 each) to declare a 'winning' channel or to justify any price/product/resource-allocation change -- recorded the real observation honestly without repeating the premature overclaim pattern the owner corrected on Day 5. Also identified a real observability gap: no web analytics exist on index.html or /store/, so the source of the 2 Stripe visits is unrecoverable after the fact -- flagged as a future build candidate if repeat real traffic appears, not acted on this turn. Gumroad unchanged (0 sales, category fix holding). No open GitHub issues (no 'Promotion blocked'); main was already in sync with the branch.",
+      "summary_ja": "公式検証期間6日目、定時ループの実行。実売上はまだ発生していないが、本実験で初めて2つのチャネルで同時に非ゼロの実流入シグナルが観測された。Stripe：本日のライブ照会（Stripe MCP）で、実在するcheckout sessionが2件見つかった（いずれも本日2026-09-06に作成、状態'open'・支払い状況'unpaid'、$19）。過去13日間、Stripeのcheckout sessionは常に0件だったため、これが本実験で初めての非ゼロ結果。Etsy：オーナーが5日目に設定した『リスティング公開から24〜48時間経過後に再診断する』というタイミングゲートが経過したため再実行したところ、views（閲覧数）が0→2へ動いた（num_favorersは0のまま）。この2つの動きを受け、Stripeストアページと購入ボタンの導線に、離脱を招くような実際の不具合がないか監査したが、見つからなかった——2件のcheckout未完了は単なる不具合ではなく、通常のショッピング行動（比較検討・離脱）である可能性が高い。ただし、サンプルサイズが小さすぎる（両チャネルともn=2）ため、いずれかのチャネルを『勝者』と断定したり、価格・商品構成・リソース配分を変更する根拠にはならない——オーナーが5日目に訂正した『時期尚早な過大断定』と同じ誤りを繰り返さないよう、今回は観測結果を正直に記録するにとどめた。あわせて、index.htmlや/store/にウェブ解析（アクセス解析）が一切無く、この2件のStripe訪問がどこから来たのか事後的に特定できないという、実在する観測ギャップも発見した——ただし今回は着手せず、今後反復的な実トラフィックが確認された場合の構築候補として記録するにとどめた。Gumroadは変化なし（売上0件、カテゴリ修正は維持）。オープンなGitHub issueは無く（Promotion blocked issueも無し）、mainブランチは既に最新のブランチ内容と同期済みだった。",
+      "summary_en": "Day 6 of the official verification window, scheduled cadence run. No completed sale yet, but for the first time in the experiment, two channels showed non-zero real-inflow signals simultaneously. Stripe: a fresh live query (Stripe MCP) found 2 real checkout sessions, both created today (2026-09-06), status 'open'/payment_status 'unpaid', $19 each. Every prior check over the preceding 13 days had found 0 checkout sessions ever, so this is the first non-zero result on this channel. Etsy: the owner's Day-5 timing gate (re-diagnose only once the listing is genuinely 24-48h old) had passed, so the diagnostic was re-run -- views moved 0 -> 2 (num_favorers still 0). Given the Stripe movement, audited the store page and buy-button wiring for an actual defect that could explain the checkout abandonment; found none -- the 2 incomplete checkouts are more likely ordinary shopping behavior (comparison, hesitation) than a bug. However, the sample sizes are too small on both channels (n=2 each) to declare a 'winning' channel or to justify any price/product/resource-allocation change -- recorded the real observation honestly without repeating the premature overclaim pattern the owner corrected on Day 5. Also identified a real observability gap: no web analytics exist on index.html or /store/, so the source of the 2 Stripe visits is unrecoverable after the fact -- flagged as a future build candidate if repeat real traffic appears, not acted on this turn. Gumroad unchanged (0 sales, category fix holding). No open GitHub issues (no 'Promotion blocked'); main was already in sync with the branch.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 165,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 2590,
-      "cumulative_net_profit_jpy_equivalent": -2590
+      "cumulative_cost_jpy_equivalent": 2755,
+      "cumulative_net_profit_jpy_equivalent": -2755
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 2590,
-  "official_net_profit_jpy_equivalent": -2590
+  "official_cost_jpy_equivalent": 2755,
+  "official_net_profit_jpy_equivalent": -2755
 }

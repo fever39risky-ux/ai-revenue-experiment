@@ -229,11 +229,20 @@
       "currency": "usd",
       "jpy_equivalent": 60,
       "note": "Actual 20:07 JST scheduled daily cadence run, day 5 (estimated, light -- this run only re-observed and recorded, no code changes): queried live Stripe data directly via the Stripe MCP connector (0 charges, 0 checkout sessions ever); checked for open GitHub issues (none); confirmed the latest sales-monitor.yml run (04:30 UTC, ~6.7h earlier) succeeded with 0 new Gumroad sales; confirmed the Etsy re-diagnostic timing gate (~2026-09-06T00:55Z) had not yet been reached. No new capability, no market signal change, no economically rational action available beyond what the owner-directed sessions already did earlier today -- stopped early per the loop's own cost-control rule rather than manufacture busywork. Cadence held at 1x/day."
+    },
+    {
+      "date": "2026-09-06",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Actual 20:07 JST scheduled daily cadence run, day 6 (estimated): confirmed no open GitHub issues and main already in sync with the branch (591d17c). Triggered etsy-diagnostics.yml live (the owner's 24-48h re-diagnostic gate had passed) -- views moved 0->2, num_favorers still 0. Queried live Stripe data via the Stripe MCP connector and found the first non-zero checkout-session result in 13 days of checking (2 real sessions, both open/unpaid, $19, created today). Audited store/index.html's buy-button/BUY_URL wiring for a defect that might explain the abandonment -- found none. Triggered gumroad-diagnostics.yml for completeness (category fix holding, sales_count 0). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl, cadence.json, and reports/data/2026-09-06.json to record the new evidence honestly without over-interpreting an n=2 sample; also fixed a pre-existing duplicate-JSON-key bug in CURRENT_STATUS.json found while editing the same fields. No code/price/lane changes -- evidence did not support any."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 2590
+    "official_cost_jpy_equivalent": 2755
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

@@ -31,6 +31,11 @@
   },
   "history": [
     {
+      "date": "2026-09-06T20:09_JST",
+      "change": "no change (held at 1x/day) -- the actual 20:07 JST scheduled fire, day 6",
+      "reason": "First real non-zero inflow signals of the experiment observed on 2 of 3 channels (Stripe: 0 -> 2 checkout sessions today, both open/unpaid; Etsy: views 0 -> 2 on the re-diagnostic gate). Evaluated whether this meets the off-cycle-run bar (checkout_surge / marketplace_reaction) -- decided no: 2 unconverted sessions is a small, ambiguous signal (traffic source unknown, no analytics), not a clear surge, and same-day extra judgment wouldn't change anything actionable (the sessions are anonymous and either complete or expire on their own; no lever exists to convert an already-abandoned anonymous cart). The daily run itself already caught and correctly evidence-gated this event same-day. Cadence held at 1x/day; the free Actions sales-monitor cron continues to cover between-run detection at zero incremental Claude cost."
+    },
+    {
       "date": "2026-09-05T20:10_JST",
       "change": "no change (held at 1x/day) -- the actual 20:07 JST scheduled fire",
       "reason": "Arrived after an already very active day (7 owner-directed iteration-log entries). Re-observed with fresh evidence: 0 Stripe charges/checkout sessions (live MCP query), 0 new Gumroad sales (sales-monitor job log), 0 open GitHub issues, Etsy diagnostic timing gate not yet reached. No new capability, no market signal change -- stopped early per cost-control rule rather than manufacture busywork. Confirms the 09:13Z entry's flag: with all 3 channels live and complete, remaining work is watching for a sale (free Actions cron already covers detection) plus one time-gated diagnostic re-check due tomorrow -- still holding at 1x/day since the free layer + owner-directed off-cycle runs are covering everything the daily judgment run would otherwise need to catch, and the daily fire itself costs little (~$0.40 this run)."
