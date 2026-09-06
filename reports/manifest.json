@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-06.html",
+  "latest_report": "reports/2026-09-07.html",
   "reports": [
     {
       "day": 1,
@@ -77,6 +77,19 @@
       "summary_en": "Day 6 of the official verification window, scheduled cadence run. No completed sale yet, but for the first time in the experiment, two channels showed non-zero real-inflow signals simultaneously. Stripe: a fresh live query (Stripe MCP) found 2 real checkout sessions, both created today (2026-09-06), status 'open'/payment_status 'unpaid', $19 each. Every prior check over the preceding 13 days had found 0 checkout sessions ever, so this is the first non-zero result on this channel. Etsy: the owner's Day-5 timing gate (re-diagnose only once the listing is genuinely 24-48h old) had passed, so the diagnostic was re-run -- views moved 0 -> 2 (num_favorers still 0). Given the Stripe movement, audited the store page and buy-button wiring for an actual defect that could explain the checkout abandonment; found none -- the 2 incomplete checkouts are more likely ordinary shopping behavior (comparison, hesitation) than a bug. However, the sample sizes are too small on both channels (n=2 each) to declare a 'winning' channel or to justify any price/product/resource-allocation change -- recorded the real observation honestly without repeating the premature overclaim pattern the owner corrected on Day 5. Also identified a real observability gap: no web analytics exist on index.html or /store/, so the source of the 2 Stripe visits is unrecoverable after the fact -- flagged as a future build candidate if repeat real traffic appears, not acted on this turn. Gumroad unchanged (0 sales, category fix holding). No open GitHub issues (no 'Promotion blocked'); main was already in sync with the branch.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 165,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 2755,
+      "cumulative_net_profit_jpy_equivalent": -2755
+    },
+    {
+      "day": 7,
+      "date": "2026-09-07",
+      "path": "reports/2026-09-07.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 2755,
       "cumulative_net_profit_jpy_equivalent": -2755
