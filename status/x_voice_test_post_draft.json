@@ -6,9 +6,18 @@
   "register_targeted": "C -- experiment live-commentary (marketing/X_VOICE_GUIDE.md's register-C definition), since this post is itself an AI Revenue Experiment progress event",
   "topic_chosen": "The X voice-corpus build completing and this being its first real-world test -- selected over yesterday's Etsy/Stripe n=2 inflow thread (already reported in reports/data/2026-09-06.json) because it is today's actual new, real event, reflected in status/CURRENT_STATUS.json, status/EVENTS.jsonl, ops/AGENT_LOOP.md, and status/cost_ledger.json, and is the single clearest thing the owner would want to hear about today per the instruction to pick one change, not blend several.",
   "referenced_corpus_examples": [
-    { "id": "2092393204234719535", "why": "the experiment's own announcement post -- overall register-C tone: short factual lines, no hard sell, ends on an open question about the outcome." },
-    { "id": "2096238383618257361", "why": "Day5 post -- numbers-first structure (cost figures before the takeaway) and unembarrassed disclosure of a real problem, closing on personal reflection ('さすがに止めました笑')." },
-    { "id": "2096387685124604103", "why": "Day6 post -- the exact pattern of stating the real revenue number (still 0) plainly mid-post, without dressing it up, then continuing to the actual point." }
+    {
+      "id": "2092393204234719535",
+      "why": "the experiment's own announcement post -- overall register-C tone: short factual lines, no hard sell, ends on an open question about the outcome."
+    },
+    {
+      "id": "2096238383618257361",
+      "why": "Day5 post -- numbers-first structure (cost figures before the takeaway) and unembarrassed disclosure of a real problem, closing on personal reflection ('さすがに止めました笑')."
+    },
+    {
+      "id": "2096387685124604103",
+      "why": "Day6 post -- the exact pattern of stating the real revenue number (still 0) plainly mid-post, without dressing it up, then continuing to the actual point."
+    }
   ],
   "voice_fingerprint_self_check": {
     "1_first_person_boku": "pass -- 僕の過去投稿195件を",
@@ -25,5 +34,9 @@
     "12_day_n_framing_if_experiment_post": "deliberately omitted -- this post reveals a new capability (voice learning) rather than narrating a daily revenue checkpoint like the Day1/2/5/6 examples; forcing a 'Day N' prefix onto a different kind of update would be checkbox-driven, not natural, and would fight the 'don't repeat the same structure every time' instruction",
     "13_no_ai_cliche_closers": "pass -- no いかがでしたか / 参考になれば幸いです etc.",
     "14_boku_not_watashi_or_ore": "pass"
-  }
+  },
+  "posted_at": "2026-09-07T03:25:28.477Z",
+  "tweet_id": "2096802000679657477",
+  "tweet_url": "https://x.com/KinoshitaTsks/status/2096802000679657477",
+  "in_reply_to_tweet_id": "2092393204234719535"
 }
