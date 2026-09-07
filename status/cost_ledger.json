@@ -283,11 +283,20 @@
       "currency": "usd",
       "jpy_equivalent": 135,
       "note": "Owner-directed, single real-voice test post (estimated): re-checked Day 6's Stripe checkout-session thread live via the Stripe MCP connector first (confirmed both now status='expired', unpaid -- ruled it out as today's topic since it was already reported yesterday and has no new news), then chose the voice-corpus completion as today's one real topic per the owner's data sources (status/cost_ledger/AGENT_LOOP/reports). Drafted post text grounded in 3 cited real corpus examples, completed a documented 14-item Voice fingerprint self-check (status/x_voice_test_post_draft.json), then built scripts/x_post_voice_test.mjs + .github/workflows/x-post-voice-test.yml (isolated from scripts/post_x.mjs/social/queue) and posted one real reply to X_ROOT_POST_ID (tweet 2096802000679657477). Built and ran a 2nd, independent verification (scripts/x_verify_reply.mjs + x-verify-reply.yml) rather than trust the posting script's own success message -- confirmed via a fresh GET call that the reply is genuinely threaded under X_ROOT_POST_ID. social-x.yml's cron remains paused, not re-enabled -- that decision was left explicitly to the owner."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.10,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Owner-directed, resume automatic X posting as a judgment-gated system (estimated): owner approved the test post and asked to resume social-x.yml, but explicitly not as a daily-streak poster -- only on genuinely new-fact days, max 1/day, register C prioritized, corpus re-read every time, Voice-fingerprint self-check every time, no auto-replies/DMs, results recorded, same-day idempotency. Archived 2 stale pre-corpus social/queue/ items to social/queue_archive_pre_corpus/ (would otherwise have been silently posted by the resumed cron's first tick -- ungrounded, unchecked content, exactly the outcome the corpus work exists to prevent). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log, backfilled with the real test post) and social/x_experiment_next_post.json (queue-of-one contract). Built scripts/x_post_experiment_commentary.mjs: deliberately no content-judgment logic (that stays with the daily agentic session, encoded as a checklist), only same-day idempotency, a weighted-length safety guard, and independent 2nd-GET verification before recording success. Repointed and re-enabled social-x.yml's schedule/push triggers to run this new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md and updated ops/LOOP_PROMPT.txt's step 5 to reference it, so every future daily session applies the same judgment checklist."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 3963
+    "official_cost_jpy_equivalent": 4128
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

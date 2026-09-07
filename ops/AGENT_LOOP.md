@@ -2,15 +2,18 @@
 
 Each autonomous session updates this file so the next one continues, not restarts.
 Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-07 (official day 7,
-owner-directed single real-voice test post -- CONFIRMED. See Iteration
-log's top entry: posted https://x.com/KinoshitaTsks/status/2096802000679657477
-as a reply to the pinned post, independently verified as correctly
-threaded via a 2nd GET call. The X auto-post cron (social-x.yml) is still
-PAUSED -- NOT re-enabled; wait for the owner's explicit go-ahead before
-touching its schedule/push triggers. Separately, still ¥0 official
-revenue; Day 6's Stripe checkout sessions are now confirmed expired/unpaid
-(re-checked live) -- see the 3rd Iteration log entry from the top for
-that thread, unchanged by this session.).
+owner approved the real-voice test post and RESUMED automatic X posting --
+judgment-gated, not a daily streak. **READ THE NEW "X posting policy"
+SECTION (above Ledger snapshot) BEFORE any X-related action.** Mechanism:
+`scripts/x_post_experiment_commentary.mjs` via `social-x.yml`'s cron,
+posting only `social/x_experiment_next_post.json` when a daily session has
+judged today genuinely worth reporting and written it there (grounded in
+the 3 voice-corpus files, register C prioritized, Voice-fingerprint
+self-checked) -- most days should produce no queue entry, and that's
+correct. See Iteration log's top entry for the full mechanism build.
+Separately, still ¥0 official revenue; Day 6's Stripe checkout sessions
+are now confirmed expired/unpaid -- see the 4th Iteration log entry from
+the top for that thread, unchanged by this session.).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -299,6 +302,68 @@ promotion_check all pass, never force) or opens a single "Promotion blocked:
 **Next iteration should check for an open "Promotion blocked" issue before
 assuming prior work already reached `main`.**
 
+## X posting policy (AI Revenue Experiment commentary) — added 2026-09-07
+Automatic X posting was resumed 2026-09-07 after the owner reviewed one
+real-voice test post (https://x.com/KinoshitaTsks/status/2096802000679657477)
+built from `marketing/X_VOICE_CORPUS.md`/`X_VOICE_GUIDE.md`/
+`x_voice_examples.json` (see the Iteration log entries above). The owner's
+resumption condition was explicit: **"投稿する価値がある日だけ投稿する"** --
+value-gated, not a daily-streak cadence. This section is the durable
+instruction every future daily session must follow; read it before
+touching anything X-related.
+
+**Mechanism (mechanical, no judgment):** `scripts/x_post_experiment_commentary.mjs`,
+run by `social-x.yml`'s cron (checks every 30 min, and on a push touching
+`social/x_experiment_next_post.json`). It ONLY posts if that queue file
+exists AND today (Asia/Tokyo) hasn't already posted per
+`social/x_experiment_history.json`. No queue file = no post = a normal,
+expected, silent outcome. It enforces, in code, independent of policy:
+max 1 post per Asia/Tokyo calendar day; always a direct reply to
+`X_ROOT_POST_ID` (GitHub Actions Variable) -- never a standalone tweet,
+never a reply to any other user or tweet, never a DM; a real 2nd GET call
+verifies the reply actually threaded before recording success (a POST's
+201 alone is not treated as proof).
+
+**Judgment (this is the daily session's job, every time, not the
+script's):** before writing anything to the queue file, ask honestly:
+1. Is there a genuinely NEW fact, change, failure, decision, or insight
+   today -- not just a continuation of an already-known state? Check
+   `status/CURRENT_STATUS.json`, `status/revenue_ledger.json`,
+   `status/cost_ledger.json`, `status/EVENTS.jsonl`, this file's own
+   Iteration log, and `reports/data/`.
+2. Read `social/x_experiment_history.json`'s recent entries first. If
+   today's candidate topic is the same fact already posted (e.g. "revenue
+   is still ¥0") reworded, that is NOT new -- do not post. Silence on a
+   flat day is correct, not a failure to perform.
+3. Never write filler to "keep a streak" or "fill a quota" -- there is no
+   quota. A quiet week with nothing genuinely new is a valid outcome.
+4. If, and only if, today clears that bar: re-read (every time, fresh --
+   not from a prior session's memory) `marketing/X_VOICE_CORPUS.md`,
+   `marketing/X_VOICE_GUIDE.md`, and `marketing/x_voice_examples.json`.
+   Draft the text grounded in real examples from the corpus. For
+   experiment-progress content specifically, prioritize **register C**
+   (experiment live-commentary) as defined in `X_VOICE_GUIDE.md`.
+5. Complete a documented Voice-fingerprint self-check against all 14
+   items in `X_VOICE_GUIDE.md` before finalizing -- see
+   `status/x_voice_test_post_draft.json` for the exact format to follow.
+6. Write `social/x_experiment_next_post.json` with: `date` (today,
+   Asia/Tokyo, `YYYY-MM-DD`), `text`, `register_targeted`,
+   `topic_chosen` (state explicitly why this is today's one topic and why
+   it is not a rehash of a recent post), `referenced_corpus_examples`
+   (real post ids + why each was used as a model), and
+   `voice_fingerprint_self_check` (all 14 items, each with a pass/fail
+   and a one-line reason). Commit and push it normally -- the cron (or the
+   push trigger) drains it within ~30 minutes.
+7. Never write a second queue entry the same day. Never touch
+   `social/queue/` or `scripts/post_x.mjs` for this purpose -- that is a
+   separate, currently-unused generic mechanism (its 2 pre-corpus items
+   were archived to `social/queue_archive_pre_corpus/`, not posted); do
+   not conflate the two systems.
+8. This policy covers only the AI Revenue Experiment commentary reply
+   thread. It does not authorize automated replies to other users, DMs,
+   or any other X activity -- none of that exists in this codebase and
+   none should be added without a separate, explicit owner request.
+
 ## Ledger snapshot
 Official revenue: ¥0 (re-verified 2026-09-05T11:10Z via live Stripe MCP: 0 charges,
 0 checkout sessions ever; 0 new Gumroad sales per the latest sales-monitor run).
@@ -323,6 +388,44 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-07 (owner-directed, automatic X posting RESUMED -- judgment-gated):
+  owner reviewed the confirmed test post and approved it ("かなり本人らしく、
+  この品質なら一発OK") and asked to resume `social-x.yml`, but explicitly
+  NOT as a daily-streak poster -- only on days with a real new fact worth
+  reporting, never filler, never a same-topic rehash, max 1/day, always a
+  direct reply to `X_ROOT_POST_ID`, no auto-replies to other users or DMs,
+  every post grounded in the 3 voice-corpus files with register C
+  prioritized for experiment commentary, a Voice-fingerprint self-check
+  every time, and results recorded to GitHub after success. EXECUTE:
+  archived the 2 stale pre-corpus `social/queue/` items to
+  `social/queue_archive_pre_corpus/` (never posted, not deleted, but
+  posting them now -- ungrounded, unchecked, pre-dating the corpus --
+  would have been exactly the "AI-sounding" outcome the corpus work
+  exists to prevent). Built `social/x_experiment_history.json`
+  (append-only log of confirmed posts, backfilled with today's real test
+  post) and the queue-of-one contract `social/x_experiment_next_post.json`
+  (written only by a session that judges today post-worthy). Built
+  `scripts/x_post_experiment_commentary.mjs`: deliberately dumb/mechanical
+  -- no-ops if nothing queued, no-ops if today already posted
+  (same-Asia/Tokyo-day idempotency against the history log), refuses to
+  post/truncate an over-length draft (weighted-length guard, since CJK
+  text is double-weighted toward X's 280 limit), and independently
+  verifies the reply threaded correctly via a real 2nd GET call before
+  recording success -- matching the discipline used for the manual test.
+  Repointed `social-x.yml` to run this script instead of the old generic
+  `post_x.mjs`/`social/queue` mechanism (left in place but unused for
+  this purpose, to avoid conflating two live posting paths); re-enabled
+  its `schedule` (every 30 min, near-zero cost when nothing's queued) and
+  `push` (on changes to the new queue file) triggers. Added a durable **"X
+  posting policy"** section to this file (above the Ledger snapshot) so
+  every future daily session knows the exact judgment checklist and where
+  to write a queued post -- and updated `ops/LOOP_PROMPT.txt` step 5 to
+  point at it instead of the retired `social/queue/` instruction.
+  `leak_check`/`promotion_check` both pass. NEXT: the daily autonomous
+  session, from today onward, is responsible for the judgment call each
+  run -- most days should produce no queue entry at all, and that is the
+  correct, intended outcome, not a gap.
+
 - 2026-09-07 (owner-directed, single real-voice test post -- CONFIRMED):
   owner approved the corpus/guide and asked for exactly ONE real test post
   before re-enabling `social-x.yml`'s cron: a direct reply to the pinned

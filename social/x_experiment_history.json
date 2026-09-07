@@ -1,0 +1,16 @@
+{
+  "_doc": "Append-only log of confirmed AI Revenue Experiment X posts (replies to X_ROOT_POST_ID). Used by scripts/x_post_experiment_commentary.mjs for same-day idempotency (never post twice in one Asia/Tokyo calendar day) and by whoever drafts the next post to see recent real topics/wording and avoid rehashing them. Every entry here is a real, confirmed-posted tweet -- not a draft or a skipped day.",
+  "posts": [
+    {
+      "date": "2026-09-07",
+      "tweet_id": "2096802000679657477",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2096802000679657477",
+      "in_reply_to_tweet_id": "2092393204234719535",
+      "text": "僕の過去投稿195件を\nAIが実際に読んで\n文体を学習した\n\n今回はその初めてのテスト投稿\n\n売上はまだ0円やけど\n\nAIが「誰の言葉で話すか」まで\n考え出したのは地味におもろい\n\nただし、僕っぽく書けてるかどうかは\n正直、僕には判断できひん笑",
+      "topic": "X voice-corpus build completed; this was its first live test post",
+      "register": "C",
+      "posted_at": "2026-09-07T03:25:28.477Z",
+      "posted_via": "scripts/x_post_voice_test.mjs (the one-off manual test run, owner-reviewed before the automated system below existed)"
+    }
+  ]
+}

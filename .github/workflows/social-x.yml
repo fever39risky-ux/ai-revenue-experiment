@@ -1,21 +1,20 @@
 name: X poster
 on:
-  # schedule trigger PAUSED 2026-09-07: owner asked to build a real-voice
-  # corpus (marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md) from @KinoshitaTsks's
-  # own past posts BEFORE any full autonomous posting begins, now that X
-  # credentials are live. The 2 items already in social/queue/ were written
-  # in the AI's own voice, pre-dating this corpus -- auto-draining them now
-  # would be exactly the "AI voice, not the owner's voice" outcome the
-  # owner is trying to prevent. Re-enable the schedule (and push trigger)
-  # once the voice corpus is delivered and existing queue items have been
-  # reviewed against it. See ops/AGENT_LOOP.md iteration log, 2026-09-07.
-  # schedule:
-  #   - cron: '*/30 * * * *'   # drain the post queue every 30 min
+  # RESUMED 2026-09-07 (owner-approved after reviewing the real-voice test
+  # post): now drives scripts/x_post_experiment_commentary.mjs, not the old
+  # generic post_x.mjs queue. That script is a dumb, mechanical drain --
+  # it only posts if social/x_experiment_next_post.json exists (written by
+  # the daily autonomous session ONLY on a day it judges genuinely worth
+  # reporting, per ops/AGENT_LOOP.md's "X posting policy" section) and
+  # today hasn't already posted (social/x_experiment_history.json). A
+  # quiet day with nothing queued is expected and normal, not an error.
+  schedule:
+    - cron: '*/30 * * * *'   # check for a queued post every 30 min; no-ops instantly if none
   workflow_dispatch:
-  # push:
-  #   branches: [main]
-  #   paths:
-  #     - 'social/queue/**'
+  push:
+    branches: [main]
+    paths:
+      - 'social/x_experiment_next_post.json'
 permissions:
   contents: write
 concurrency:
@@ -29,20 +28,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Post queued X updates
+      - name: Post today's queued experiment-commentary reply, if any
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-        run: node scripts/post_x.mjs
-      - name: Commit queue changes
+          X_ROOT_POST_ID: ${{ vars.X_ROOT_POST_ID }}
+        run: node scripts/x_post_experiment_commentary.mjs
+      - name: Leak check before commit
+        run: node scripts/leak_check.mjs
+      - name: Commit history/queue changes
         run: |
           git config user.name "ai-revenue-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add social/ || true
+          git add social/x_experiment_history.json social/x_experiment_next_post.json || true
           if ! git diff --cached --quiet; then
-            git commit -m "chore(social): drain X post queue $(date -u +%FT%TZ)"
+            git commit -m "chore(x): experiment-commentary post result $(date -u +%FT%TZ)"
             git pull --rebase origin main || true
             git push
           else
