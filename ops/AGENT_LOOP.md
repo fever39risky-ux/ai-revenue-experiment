@@ -1,13 +1,15 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-06T11:15Z (official day 6,
-the actual 20:07 JST scheduled cadence run -- still ¥0 official revenue, but for
-the first time the experiment observed real non-zero inflow on 2 of 3 channels:
-Stripe went from 0 checkout sessions ever (13 days) to 2 real, still-open/unpaid
-sessions created today; Etsy's re-diagnostic (gate reached) showed views moving
-0 -> 2. Both are n=2 -- real, but not enough to differentiate channels or justify
-a strategy change. No completed sale anywhere. See Iteration log's top entry.).
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-07 (official day 7,
+owner-directed X voice-corpus build -- COMPLETED. See Iteration log's top entry:
+marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md, x_voice_examples.json now exist,
+built from 195 real @KinoshitaTsks posts fetched live via the X API. The X
+auto-post cron (social-x.yml) is PAUSED pending the owner's review -- do not
+re-enable it without an explicit go-ahead. Separately, still ¥0 official
+revenue; Day 6's real-but-inconclusive inflow signals (Etsy views 0->2,
+Stripe's first-ever n=2 checkout sessions) remain open -- see the 2nd
+Iteration log entry from the top for that thread, unchanged by this session.).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -320,6 +322,38 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-07 (owner-directed, X voice-corpus build -- COMPLETED): owner
+  resolved both blockers from the two entries below (renamed the code's
+  env vars to match the owner's real secret names; topped up $5 of X API
+  read credits after the 402 'credits depleted' error). Re-ran
+  `x-fetch-own-posts.yml` on `main` (job 34077767254): succeeded, 195 real
+  posts fetched (2025-11-15 to 2026-09-05, retweets excluded via the API's
+  own `exclude=retweets`), 172 of them (88%) predating the experiment
+  entirely -- genuine teacher data, no AI-authored posts mixed in (X
+  posting had never actually fired before this). Read the full 195-post
+  corpus verbatim (not skimmed) and built `marketing/X_VOICE_CORPUS.md`
+  (real excerpts by category, unedited -- typos/colloquialisms preserved),
+  `marketing/X_VOICE_GUIDE.md` (style analysis with every claim traced to
+  a real example: first-person 僕, sentence-per-line formatting with
+  blank-line paragraph breaks, Kansai-dialect sentence endings whose
+  density varies by register, near-zero hashtag use, soft non-hard-sell
+  CTAs, a DO/DON'T list, and a "Voice fingerprint" pre-post checklist),
+  and `marketing/x_voice_examples.json` (all 195 posts, machine-readable).
+  Notable finding: 3 distinct real voice registers coexist in the data --
+  an early (Nov-Dec 2025) "AI副業 lead-magnet" register, a later
+  (Jun-Aug 2026) "AI industry news analysis" register, and an
+  "experiment live-commentary" register the owner has already used 6
+  times for this exact AI Revenue Experiment (Day1/Day2/Day5/Day6 posts)
+  -- flagged the third as the closest real anchor for future experiment-
+  progress posts, rather than blending all three into one generic voice.
+  `leak_check`/`promotion_check` both pass. The X auto-post cron
+  (`social-x.yml`) stays paused (see the entry below for why) pending the
+  owner's review of these 3 deliverables -- re-enabling it is explicitly
+  not this session's call to make unilaterally. NEXT: once the owner
+  reviews and approves, re-enable `social-x.yml`'s schedule/push triggers,
+  and review the 2 pre-existing `social/queue/` items against the new
+  voice guide before letting them post (they predate this corpus).
+
 - 2026-09-07 (owner-directed, X voice-corpus build -- blocked on incomplete secrets):
   owner reported X API auth complete and asked for a real-voice corpus
   (marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md, x_voice_examples.json)

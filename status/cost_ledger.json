@@ -256,11 +256,29 @@
       "currency": "usd",
       "jpy_equivalent": 45,
       "note": "Owner correction, same task (estimated): owner identified the real root cause was a secret-naming mismatch (code used X_API_SECRET/X_ACCESS_SECRET; the owner's actual secrets are X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET), not missing credentials, and asked to align the code rather than add new secrets. Renamed the env vars in all 4 referencing files, re-ran the fetch live. This time a real X API call fired -- GET /2/users/by/username/KinoshitaTsks returned a real 402 Payment Required, 'credits depleted' (X's own read-credits billing system, distinct from the per-window rate limit which showed 899/900 remaining). No X API monetary cost was incurred on this project's side beyond whatever the account's existing plan already reflects -- the request itself was rejected before returning data, so category=x_api, amount=$0 for this call. Queued a new human-only ask (check X Developer Portal credit/plan status); corpus files still not written, per instruction not to fabricate from no data."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "x_api",
+      "amount": 5.00,
+      "currency": "usd",
+      "jpy_equivalent": 750,
+      "note": "Owner's real, actual purchase (not estimated): owner topped up X API read credits by $5 and set the account's spending limit to $5 to unblock this project's voice-corpus fetch, after the prior 402 'credits depleted' blocker. This is the owner's direct out-of-pocket X Developer Portal transaction -- the API itself does not expose a per-call dollar cost in its responses, so this project cannot itemize exactly how much of the $5 this one fetch consumed; recording the full real purchase amount here is more honest than guessing a per-call fraction. Any remaining credit balance carries forward for future X API use (posting, further diagnostics)."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.30,
+      "currency": "usd",
+      "jpy_equivalent": 195,
+      "note": "Owner-directed, X voice-corpus build (estimated): after the owner topped up X API credits, re-ran x-fetch-own-posts.yml on main -- succeeded, fetched 195 real posts (2025-11-15 to 2026-09-05, retweets excluded via the API's own exclude=retweets param) into status/x_own_posts_raw.json. Read the full 195-post corpus verbatim (not summarized/skimmed) to classify each post (normal/thread/reply/promo, by real API-confirmed reply fields plus content judgment for thread/promo) and to write marketing/X_VOICE_CORPUS.md (categorized real excerpts, unedited), marketing/X_VOICE_GUIDE.md (style analysis grounded only in the corpus, DO/DON'T, a voice-fingerprint checklist), and marketing/x_voice_examples.json (all 195 posts, machine-readable). No style guessing -- every claim in X_VOICE_GUIDE.md traces to a real example in the corpus. The X auto-post cron (social-x.yml) stays paused pending the owner's review of these deliverables."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 2883
+    "official_cost_jpy_equivalent": 3828
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
