@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-07.html",
+  "latest_report": "reports/2026-09-08.html",
   "reports": [
     {
       "day": 1,
@@ -90,6 +90,19 @@
       "summary_en": "Official Day 7. Revenue still ¥0 (live-verified 0 Stripe charges; ledgers empty). Earlier today, owner-directed sessions built the X voice corpus, posted one real-voice test reply, and resumed judgment-gated auto-posting (recorded separately). The evening scheduled autonomous run found no material change and took a disciplined hold (early stop). No manufactured work, product, report, or X post.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 1433,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 4188,
+      "cumulative_net_profit_jpy_equivalent": -4188
+    },
+    {
+      "day": 8,
+      "date": "2026-09-08",
+      "path": "reports/2026-09-08.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 4188,
       "cumulative_net_profit_jpy_equivalent": -4188
