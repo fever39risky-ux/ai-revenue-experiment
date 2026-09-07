@@ -2,14 +2,15 @@
 
 Each autonomous session updates this file so the next one continues, not restarts.
 Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-07 (official day 7,
-owner-directed X voice-corpus build -- COMPLETED. See Iteration log's top entry:
-marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md, x_voice_examples.json now exist,
-built from 195 real @KinoshitaTsks posts fetched live via the X API. The X
-auto-post cron (social-x.yml) is PAUSED pending the owner's review -- do not
-re-enable it without an explicit go-ahead. Separately, still ¥0 official
-revenue; Day 6's real-but-inconclusive inflow signals (Etsy views 0->2,
-Stripe's first-ever n=2 checkout sessions) remain open -- see the 2nd
-Iteration log entry from the top for that thread, unchanged by this session.).
+owner-directed single real-voice test post -- CONFIRMED. See Iteration
+log's top entry: posted https://x.com/KinoshitaTsks/status/2096802000679657477
+as a reply to the pinned post, independently verified as correctly
+threaded via a 2nd GET call. The X auto-post cron (social-x.yml) is still
+PAUSED -- NOT re-enabled; wait for the owner's explicit go-ahead before
+touching its schedule/push triggers. Separately, still ¥0 official
+revenue; Day 6's Stripe checkout sessions are now confirmed expired/unpaid
+(re-checked live) -- see the 3rd Iteration log entry from the top for
+that thread, unchanged by this session.).
 
 ## Current phase
 **OFFICIAL (Sep 1–30, Asia/Tokyo) — started 2026-09-01.** Official revenue ¥0,
@@ -322,6 +323,40 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-07 (owner-directed, single real-voice test post -- CONFIRMED):
+  owner approved the corpus/guide and asked for exactly ONE real test post
+  before re-enabling `social-x.yml`'s cron: a direct reply to the pinned
+  post (`X_ROOT_POST_ID`), in register C, chosen from today's real data,
+  self-checked against the Voice fingerprint, then confirmed (not
+  assumed) via an independent check. EXECUTE: deliberately kept this
+  fully separate from `scripts/post_x.mjs` / `social/queue` (the paused
+  cron's own path) -- built dedicated one-off tooling instead. Picked
+  today's one topic by first ruling out the obvious alternative: re-
+  queried Day 6's Etsy/Stripe n=2 thread live via Stripe MCP and confirmed
+  both checkout sessions are now `status: 'expired'`, still unpaid --
+  genuinely no new news there, and it was already reported in
+  `reports/data/2026-09-06.json` anyway. Chose the X voice-corpus build
+  completing instead, since it's today's real, new, unreported event.
+  Drafted the text in `status/x_voice_test_post_draft.json`, citing 3 real
+  corpus post ids as models and completing a documented 14-item
+  Voice-fingerprint self-check before posting (deliberately omitted the
+  "Day N" framing pattern from the daily-revenue examples, since this
+  post reveals a capability, not a revenue checkpoint -- reasoned, not
+  checkbox-applied). Built `scripts/x_post_voice_test.mjs` +
+  `.github/workflows/x-post-voice-test.yml` (`workflow_dispatch` only),
+  ran it: real success, tweet `2096802000679657477`. Then, rather than
+  trust the POST's own 201 as proof the reply threaded correctly, built a
+  second, independent read-only check (`scripts/x_verify_reply.mjs` +
+  `x-verify-reply.yml`) and ran it: confirmed via a fresh `GET
+  /2/tweets/:id` that `referenced_tweets` contains `{id:
+  2092393204234719535, type: 'replied_to'}` -- an exact match to
+  `X_ROOT_POST_ID`, which itself resolved to the experiment's own
+  announcement post. `leak_check`/`promotion_check` both pass.
+  `social-x.yml`'s schedule/push triggers remain untouched and paused --
+  explicitly not re-enabled this turn; that call belongs to the owner
+  after reviewing this one confirmed post. NEXT: wait for the owner's
+  go-ahead before touching `social-x.yml`'s triggers at all.
+
 - 2026-09-07 (owner-directed, X voice-corpus build -- COMPLETED): owner
   resolved both blockers from the two entries below (renamed the code's
   env vars to match the owner's real secret names; topped up $5 of X API
