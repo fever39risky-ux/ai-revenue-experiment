@@ -252,7 +252,7 @@
       "date": "2026-09-07",
       "period": "official",
       "category": "ai_compute",
-      "amount": 0.30,
+      "amount": 0.3,
       "currency": "usd",
       "jpy_equivalent": 45,
       "note": "Owner correction, same task (estimated): owner identified the real root cause was a secret-naming mismatch (code used X_API_SECRET/X_ACCESS_SECRET; the owner's actual secrets are X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET), not missing credentials, and asked to align the code rather than add new secrets. Renamed the env vars in all 4 referencing files, re-ran the fetch live. This time a real X API call fired -- GET /2/users/by/username/KinoshitaTsks returned a real 402 Payment Required, 'credits depleted' (X's own read-credits billing system, distinct from the per-window rate limit which showed 899/900 remaining). No X API monetary cost was incurred on this project's side beyond whatever the account's existing plan already reflects -- the request itself was rejected before returning data, so category=x_api, amount=$0 for this call. Queued a new human-only ask (check X Developer Portal credit/plan status); corpus files still not written, per instruction not to fabricate from no data."
@@ -261,7 +261,7 @@
       "date": "2026-09-07",
       "period": "official",
       "category": "x_api",
-      "amount": 5.00,
+      "amount": 5,
       "currency": "usd",
       "jpy_equivalent": 750,
       "note": "Owner's real, actual purchase (not estimated): owner topped up X API read credits by $5 and set the account's spending limit to $5 to unblock this project's voice-corpus fetch, after the prior 402 'credits depleted' blocker. This is the owner's direct out-of-pocket X Developer Portal transaction -- the API itself does not expose a per-call dollar cost in its responses, so this project cannot itemize exactly how much of the $5 this one fetch consumed; recording the full real purchase amount here is more honest than guessing a per-call fraction. Any remaining credit balance carries forward for future X API use (posting, further diagnostics)."
@@ -270,7 +270,7 @@
       "date": "2026-09-07",
       "period": "official",
       "category": "ai_compute",
-      "amount": 1.30,
+      "amount": 1.3,
       "currency": "usd",
       "jpy_equivalent": 195,
       "note": "Owner-directed, X voice-corpus build (estimated): after the owner topped up X API credits, re-ran x-fetch-own-posts.yml on main -- succeeded, fetched 195 real posts (2025-11-15 to 2026-09-05, retweets excluded via the API's own exclude=retweets param) into status/x_own_posts_raw.json. Read the full 195-post corpus verbatim (not summarized/skimmed) to classify each post (normal/thread/reply/promo, by real API-confirmed reply fields plus content judgment for thread/promo) and to write marketing/X_VOICE_CORPUS.md (categorized real excerpts, unedited), marketing/X_VOICE_GUIDE.md (style analysis grounded only in the corpus, DO/DON'T, a voice-fingerprint checklist), and marketing/x_voice_examples.json (all 195 posts, machine-readable). No style guessing -- every claim in X_VOICE_GUIDE.md traces to a real example in the corpus. The X auto-post cron (social-x.yml) stays paused pending the owner's review of these deliverables."
@@ -279,7 +279,7 @@
       "date": "2026-09-07",
       "period": "official",
       "category": "ai_compute",
-      "amount": 0.90,
+      "amount": 0.9,
       "currency": "usd",
       "jpy_equivalent": 135,
       "note": "Owner-directed, single real-voice test post (estimated): re-checked Day 6's Stripe checkout-session thread live via the Stripe MCP connector first (confirmed both now status='expired', unpaid -- ruled it out as today's topic since it was already reported yesterday and has no new news), then chose the voice-corpus completion as today's one real topic per the owner's data sources (status/cost_ledger/AGENT_LOOP/reports). Drafted post text grounded in 3 cited real corpus examples, completed a documented 14-item Voice fingerprint self-check (status/x_voice_test_post_draft.json), then built scripts/x_post_voice_test.mjs + .github/workflows/x-post-voice-test.yml (isolated from scripts/post_x.mjs/social/queue) and posted one real reply to X_ROOT_POST_ID (tweet 2096802000679657477). Built and ran a 2nd, independent verification (scripts/x_verify_reply.mjs + x-verify-reply.yml) rather than trust the posting script's own success message -- confirmed via a fresh GET call that the reply is genuinely threaded under X_ROOT_POST_ID. social-x.yml's cron remains paused, not re-enabled -- that decision was left explicitly to the owner."
@@ -288,7 +288,7 @@
       "date": "2026-09-07",
       "period": "official",
       "category": "ai_compute",
-      "amount": 1.10,
+      "amount": 1.1,
       "currency": "usd",
       "jpy_equivalent": 165,
       "note": "Owner-directed, resume automatic X posting as a judgment-gated system (estimated): owner approved the test post and asked to resume social-x.yml, but explicitly not as a daily-streak poster -- only on genuinely new-fact days, max 1/day, register C prioritized, corpus re-read every time, Voice-fingerprint self-check every time, no auto-replies/DMs, results recorded, same-day idempotency. Archived 2 stale pre-corpus social/queue/ items to social/queue_archive_pre_corpus/ (would otherwise have been silently posted by the resumed cron's first tick -- ungrounded, unchecked content, exactly the outcome the corpus work exists to prevent). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log, backfilled with the real test post) and social/x_experiment_next_post.json (queue-of-one contract). Built scripts/x_post_experiment_commentary.mjs: deliberately no content-judgment logic (that stays with the daily agentic session, encoded as a checklist), only same-day idempotency, a weighted-length safety guard, and independent 2nd-GET verification before recording success. Repointed and re-enabled social-x.yml's schedule/push triggers to run this new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md and updated ops/LOOP_PROMPT.txt's step 5 to reference it, so every future daily session applies the same judgment checklist."
