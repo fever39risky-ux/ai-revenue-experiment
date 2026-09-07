@@ -247,11 +247,20 @@
       "currency": "usd",
       "jpy_equivalent": 83,
       "note": "Owner-directed, X voice-corpus build (estimated): owner asked for a real-voice corpus from @KinoshitaTsks's own past X posts, sourced only from the official X API, before any autonomous posting begins. Paused social-x.yml's 30-min cron (it drains social/queue/'s 2 AI-authored items and now has live-ish credentials) so no premature auto-post could occur mid-task. Built scripts/x_fetch_own_posts.mjs + .github/workflows/x-fetch-own-posts.yml and ran it live via GitHub Actions (no sandbox egress to api.twitter.com). No X API cost incurred -- the script correctly no-op'd before making any API call: the job log shows only 2 of 4 required secrets (X_API_KEY, X_ACCESS_TOKEN) are actually registered, X_API_SECRET and X_ACCESS_SECRET are blank. Queued one human-only ask to verify all 4 secrets; wrote no corpus files since no real post data was fetched. category=x_api, amount=$0 (no request was made)."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.30,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "note": "Owner correction, same task (estimated): owner identified the real root cause was a secret-naming mismatch (code used X_API_SECRET/X_ACCESS_SECRET; the owner's actual secrets are X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET), not missing credentials, and asked to align the code rather than add new secrets. Renamed the env vars in all 4 referencing files, re-ran the fetch live. This time a real X API call fired -- GET /2/users/by/username/KinoshitaTsks returned a real 402 Payment Required, 'credits depleted' (X's own read-credits billing system, distinct from the per-window rate limit which showed 899/900 remaining). No X API monetary cost was incurred on this project's side beyond whatever the account's existing plan already reflects -- the request itself was rejected before returning data, so category=x_api, amount=$0 for this call. Queued a new human-only ask (check X Developer Portal credit/plan status); corpus files still not written, per instruction not to fabricate from no data."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 2838
+    "official_cost_jpy_equivalent": 2883
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

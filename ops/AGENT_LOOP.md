@@ -347,6 +347,31 @@ deliberately not activated (no distribution advantage over Stripe found).
   from the real fetched text. The X cron stays paused until both the fetch
   succeeds and the corpus work is delivered.
 
+- 2026-09-07 (owner correction + 2nd real blocker, same task): owner
+  identified the actual root cause of the prior blocker -- not missing
+  credentials, but a naming mismatch: this project's code referenced
+  `X_API_SECRET`/`X_ACCESS_SECRET`, while the owner's real registered
+  secrets are `X_API_KEY_SECRET`/`X_ACCESS_TOKEN_SECRET`. Explicitly asked
+  to align the code to the existing 4 secrets, not create new ones.
+  Renamed the env vars in all 4 places that referenced them
+  (`scripts/post_x.mjs`, `scripts/x_fetch_own_posts.mjs`,
+  `.github/workflows/x-fetch-own-posts.yml`, `.github/workflows/
+  social-x.yml`), re-ran `x-fetch-own-posts.yml` on `main`. REAL RESULT:
+  all 4 secrets now correctly wired (job 101605866315's env summary shows
+  all 4 masked `***`) and a real API call fired -- but
+  `GET /2/users/by/username/KinoshitaTsks` returned a real
+  `402 Payment Required`, body `{"detail":"credits depleted",
+  "type":"https://api.x.com/2/problems/credits-depleted"}`. This is X's
+  own read-credits billing system, distinct from the per-window rate limit
+  (899/900 remaining on the same response) -- not fixable by retrying or
+  by any further code change. Zero posts fetched, zero corpus files
+  written. Queued a new human-only ask (check the X Developer Portal's
+  plan/credit status) and left the prior secret-naming ask marked resolved
+  rather than deleted, per this file's no-silent-overwrite convention. The
+  X auto-post cron stays paused. NEXT: once the owner confirms read
+  credits are available, re-run `x-fetch-own-posts.yml` immediately --
+  no further code changes are expected to be needed.
+
 - 2026-09-06 (actual 20:07 JST scheduled cadence run, day 6, fired ~20:09 JST /
   11:09 UTC): BOOTSTRAP -- `git fetch origin`: `origin/main` had already
   advanced to the branch's own tip (591d17c, an automated `chore(sales):
