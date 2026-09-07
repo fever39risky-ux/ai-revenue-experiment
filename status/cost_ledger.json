@@ -238,11 +238,20 @@
       "currency": "usd",
       "jpy_equivalent": 165,
       "note": "Actual 20:07 JST scheduled daily cadence run, day 6 (estimated): confirmed no open GitHub issues and main already in sync with the branch (591d17c). Triggered etsy-diagnostics.yml live (the owner's 24-48h re-diagnostic gate had passed) -- views moved 0->2, num_favorers still 0. Queried live Stripe data via the Stripe MCP connector and found the first non-zero checkout-session result in 13 days of checking (2 real sessions, both open/unpaid, $19, created today). Audited store/index.html's buy-button/BUY_URL wiring for a defect that might explain the abandonment -- found none. Triggered gumroad-diagnostics.yml for completeness (category fix holding, sales_count 0). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl, cadence.json, and reports/data/2026-09-06.json to record the new evidence honestly without over-interpreting an n=2 sample; also fixed a pre-existing duplicate-JSON-key bug in CURRENT_STATUS.json found while editing the same fields. No code/price/lane changes -- evidence did not support any."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed, X voice-corpus build (estimated): owner asked for a real-voice corpus from @KinoshitaTsks's own past X posts, sourced only from the official X API, before any autonomous posting begins. Paused social-x.yml's 30-min cron (it drains social/queue/'s 2 AI-authored items and now has live-ish credentials) so no premature auto-post could occur mid-task. Built scripts/x_fetch_own_posts.mjs + .github/workflows/x-fetch-own-posts.yml and ran it live via GitHub Actions (no sandbox egress to api.twitter.com). No X API cost incurred -- the script correctly no-op'd before making any API call: the job log shows only 2 of 4 required secrets (X_API_KEY, X_ACCESS_TOKEN) are actually registered, X_API_SECRET and X_ACCESS_SECRET are blank. Queued one human-only ask to verify all 4 secrets; wrote no corpus files since no real post data was fetched. category=x_api, amount=$0 (no request was made)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 2755
+    "official_cost_jpy_equivalent": 2838
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

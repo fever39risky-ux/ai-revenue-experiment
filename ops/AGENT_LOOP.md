@@ -320,6 +320,33 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-07 (owner-directed, X voice-corpus build -- blocked on incomplete secrets):
+  owner reported X API auth complete and asked for a real-voice corpus
+  (marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md, x_voice_examples.json)
+  built from @KinoshitaTsks's actual past posts, fetched via the official
+  X API as the sole source (no guessing), BEFORE any full autonomous X
+  posting begins. FIRST: paused `social-x.yml`'s 30-min cron (commented
+  out the `schedule`/`push` triggers, kept `workflow_dispatch`) -- it
+  drains `social/queue/` (2 AI-authored items, pre-dating this corpus) and
+  would otherwise have auto-posted them for real the moment credentials
+  went live, which is exactly the "sounds like AI, not the owner" outcome
+  being guarded against. THEN: built `scripts/x_fetch_own_posts.mjs` +
+  `.github/workflows/x-fetch-own-posts.yml` (same GitHub-Actions-fetch
+  pattern as Etsy/Gumroad diagnostics, since this sandbox has no egress to
+  api.twitter.com) and ran it live. REAL RESULT: the script correctly
+  no-op'd -- GitHub's own auto-generated job-log env summary (job
+  101602657918) shows `X_API_KEY` and `X_ACCESS_TOKEN` present (masked
+  `***`) but `X_API_SECRET` and `X_ACCESS_SECRET` both blank, meaning only
+  2 of the 4 required OAuth 1.0a secrets are actually registered. Zero
+  posts fetched, zero corpus files written -- writing anything from no
+  data would be exactly the "guessed style" outcome the owner explicitly
+  ruled out. Queued one human-only ask in
+  `status/CURRENT_STATUS.json.human_actions_required` to verify all 4 X
+  secrets. NEXT: once the owner confirms/fixes the secrets, re-run
+  `x-fetch-own-posts.yml` on `main`, then build the 3 corpus deliverables
+  from the real fetched text. The X cron stays paused until both the fetch
+  succeeds and the corpus work is delivered.
+
 - 2026-09-06 (actual 20:07 JST scheduled cadence run, day 6, fired ~20:09 JST /
   11:09 UTC): BOOTSTRAP -- `git fetch origin`: `origin/main` had already
   advanced to the branch's own tip (591d17c, an automated `chore(sales):
