@@ -17,9 +17,9 @@ jobs:
       - name: Fetch @KinoshitaTsks's real past posts via the official X API
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         run: node scripts/x_fetch_own_posts.mjs
       - name: Leak check before commit
         run: node scripts/leak_check.mjs

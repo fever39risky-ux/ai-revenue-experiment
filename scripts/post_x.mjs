@@ -7,7 +7,7 @@
  * never a copy-paste operator (per the Social Live Protocol).
  *
  * Needs OAuth 1.0a user-context secrets (one-time grant, added as repo secrets):
- *   X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET
+ *   X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET
  * If any are absent, it no-ops cleanly.
  *
  * Queue item schema (social/queue/<id>.json): { "text": "...", "ref": "optional" }
@@ -16,8 +16,8 @@
 import { readdirSync, readFileSync, writeFileSync, unlinkSync, mkdirSync, existsSync } from 'fs';
 import { createHmac, randomBytes } from 'crypto';
 
-const { X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET } = process.env;
-if (!X_API_KEY || !X_API_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_SECRET) {
+const { X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET } = process.env;
+if (!X_API_KEY || !X_API_KEY_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_TOKEN_SECRET) {
   console.log('post_x: X credentials not set — skipping (no-op).'); process.exit(0);
 }
 
@@ -37,7 +37,7 @@ function authHeader(method, url) {
   };
   const base = [method.toUpperCase(), enc(url),
     enc(Object.keys(oauth).sort().map(k => `${enc(k)}=${enc(oauth[k])}`).join('&'))].join('&');
-  const key = `${enc(X_API_SECRET)}&${enc(X_ACCESS_SECRET)}`;
+  const key = `${enc(X_API_KEY_SECRET)}&${enc(X_ACCESS_TOKEN_SECRET)}`;
   oauth.oauth_signature = createHmac('sha1', key).update(base).digest('base64');
   return 'OAuth ' + Object.keys(oauth).sort().map(k => `${enc(k)}="${enc(oauth[k])}"`).join(', ');
 }

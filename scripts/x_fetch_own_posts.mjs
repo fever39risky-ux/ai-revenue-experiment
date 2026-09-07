@@ -9,7 +9,7 @@
  * post content.
  *
  * Auth: same OAuth 1.0a user-context secrets as scripts/post_x.mjs
- * (X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET). No-ops
+ * (X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET). No-ops
  * cleanly if any are missing.
  *
  * Retweets are excluded via the API's own exclude=retweets param (not a
@@ -24,8 +24,8 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import { createHmac, randomBytes } from 'crypto';
 
-const { X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET } = process.env;
-if (!X_API_KEY || !X_API_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_SECRET) {
+const { X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET } = process.env;
+if (!X_API_KEY || !X_API_KEY_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_TOKEN_SECRET) {
   console.log('x_fetch_own_posts: X credentials not set -- skipping (no-op).');
   process.exit(0);
 }
@@ -49,7 +49,7 @@ function authHeader(method, url, params = {}) {
   const allParams = { ...oauth, ...params };
   const base = [method.toUpperCase(), enc(url),
     enc(Object.keys(allParams).sort().map(k => `${enc(k)}=${enc(allParams[k])}`).join('&'))].join('&');
-  const key = `${enc(X_API_SECRET)}&${enc(X_ACCESS_SECRET)}`;
+  const key = `${enc(X_API_KEY_SECRET)}&${enc(X_ACCESS_TOKEN_SECRET)}`;
   oauth.oauth_signature = createHmac('sha1', key).update(base).digest('base64');
   return 'OAuth ' + Object.keys(oauth).sort().map(k => `${enc(k)}="${enc(oauth[k])}"`).join(', ');
 }
