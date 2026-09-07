@@ -1,0 +1,29 @@
+{
+  "_doc": "One-off draft + result record for the single real-voice test post the owner asked for, before re-enabling social-x.yml's cron. Written by a Claude session, posted via scripts/x_post_voice_test.mjs / .github/workflows/x-post-voice-test.yml (workflow_dispatch only). Text is grounded in marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md, and x_voice_examples.json -- not guessed.",
+  "created_at": "2026-09-07T03:30:00.000Z",
+  "text": "僕の過去投稿195件を\nAIが実際に読んで\n文体を学習した\n\n今回はその初めてのテスト投稿\n\n売上はまだ0円やけど\n\nAIが「誰の言葉で話すか」まで\n考え出したのは地味におもろい\n\nただし、僕っぽく書けてるかどうかは\n正直、僕には判断できひん笑",
+  "target": "reply to the pinned post at GitHub Actions Variable X_ROOT_POST_ID",
+  "register_targeted": "C -- experiment live-commentary (marketing/X_VOICE_GUIDE.md's register-C definition), since this post is itself an AI Revenue Experiment progress event",
+  "topic_chosen": "The X voice-corpus build completing and this being its first real-world test -- selected over yesterday's Etsy/Stripe n=2 inflow thread (already reported in reports/data/2026-09-06.json) because it is today's actual new, real event, reflected in status/CURRENT_STATUS.json, status/EVENTS.jsonl, ops/AGENT_LOOP.md, and status/cost_ledger.json, and is the single clearest thing the owner would want to hear about today per the instruction to pick one change, not blend several.",
+  "referenced_corpus_examples": [
+    { "id": "2092393204234719535", "why": "the experiment's own announcement post -- overall register-C tone: short factual lines, no hard sell, ends on an open question about the outcome." },
+    { "id": "2096238383618257361", "why": "Day5 post -- numbers-first structure (cost figures before the takeaway) and unembarrassed disclosure of a real problem, closing on personal reflection ('さすがに止めました笑')." },
+    { "id": "2096387685124604103", "why": "Day6 post -- the exact pattern of stating the real revenue number (still 0) plainly mid-post, without dressing it up, then continuing to the actual point." }
+  ],
+  "voice_fingerprint_self_check": {
+    "1_first_person_boku": "pass -- 僕の過去投稿195件を",
+    "2_one_sentence_per_line_blank_between_chunks": "pass",
+    "3_natural_kansai_ending_present": "pass -- やけど / おもろい / できひん",
+    "4_kansai_not_overloaded": "pass -- 3 markers across ~120 real characters, not on every line",
+    "5_tadashi_hedge_if_real_claim": "pass -- literal ただし before the one subjective/unverifiable claim (whether the post reads as authentically him)",
+    "6_ends_on_personal_reflection": "pass -- closes on genuine uncertainty about whether the test succeeded, not a bare fact dump",
+    "7_no_hashtags": "pass -- none",
+    "8_emoji_0_to_3_not_decorative": "pass -- 0 emoji, matches the Day1/2/5/6 experiment-commentary examples which also run emoji-free",
+    "9_soft_cta_one_line_if_any": "pass -- no CTA/link at all; this is a mid-thread reply under a pinned post that already carries the experiment link, so adding one would be redundant, not soft",
+    "10_no_hype_words": "pass -- no 今すぐ/絶対に/必見 etc.",
+    "11_concrete_numbers_used": "pass -- 195件, 0円",
+    "12_day_n_framing_if_experiment_post": "deliberately omitted -- this post reveals a new capability (voice learning) rather than narrating a daily revenue checkpoint like the Day1/2/5/6 examples; forcing a 'Day N' prefix onto a different kind of update would be checkbox-driven, not natural, and would fight the 'don't repeat the same structure every time' instruction",
+    "13_no_ai_cliche_closers": "pass -- no いかがでしたか / 参考になれば幸いです etc.",
+    "14_boku_not_watashi_or_ore": "pass"
+  }
+}
