@@ -365,11 +365,13 @@ script's):** before writing anything to the queue file, ask honestly:
    none should be added without a separate, explicit owner request.
 
 ## Ledger snapshot
-Official revenue: ¥0 (re-verified 2026-09-05T11:10Z via live Stripe MCP: 0 charges,
-0 checkout sessions ever; 0 new Gumroad sales per the latest sales-monitor run).
-Official cost: ¥2,590 (cumulative through 2026-09-05, actual 20:07 JST run). Preparation
+Official revenue: ¥0 (re-verified 2026-09-07T11:12Z via live Stripe MCP: 0 charges;
+revenue_ledger official+prep empty; 0 new Gumroad sales per sales-monitor run 34084105212;
+Day 6's 2 Stripe checkout sessions confirmed expired/unpaid).
+Official cost: ¥4,188 (cumulative through 2026-09-07 -- includes the $5/¥750 real X read-credit
+purchase on Day 7 plus AI compute; see cost_ledger.json). Preparation
 revenue: ¥0 (verified directly against live Stripe on 2026-08-28: 0 charges).
-Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥2,590.
+Preparation cost: ¥788. Human labor: ~24 min. Net Profit (official): -¥4,188.
 Non-monetary milestone this period: **all three digital-product channels are
 now live and purchasable** -- Stripe ($19, since 2026-08-25), Gumroad ($9,
 https://feverish50.gumroad.com/l/uhajxo, since 2026-09-02, now with a cover
@@ -388,6 +390,28 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-07 (Day 7, scheduled 20:07 JST autonomous run -- DISCIPLINED HOLD):
+  distinct from today's three earlier owner-directed X sessions (all recorded
+  above). Synced with origin/main (branch 0 ahead / 0 behind; no open
+  'Promotion blocked' issue). Re-observed reality live rather than trusting
+  carry-over: Stripe GetCharges (livemode) = 0 charges; revenue_ledger
+  official+prep both empty; sales-monitor run 34084105212 succeeded (0 new
+  sales); Day 6's 2 Stripe checkout sessions still expired/unpaid (no new
+  news). Diagnosed the single binding constraint: unchanged -- cold-start
+  distribution (no autonomous lever reliably drives qualified traffic to a
+  cold commodity $9/$19 digital product in saturated channels), NOT a
+  build/config gap. Checked for an evidence-backed revenue-moving action and
+  found none warranted: Etsy's live listing already has 13 well-targeted
+  buyer-search tags (re-editing = speculative churn the owner corrected
+  against on Day 5), Gumroad category already fixed, cover images + backlinks
+  present; X already posted once today (same-day idempotency) with no
+  genuinely-new fact, so correctly no queue entry; no new capability/market
+  signal/sale/human-only blocker. Per LOOP_PROTOCOL step 14, took the
+  disciplined early-stop: honest durable record, logged this run's AI cost
+  (~$0.40/¥60 -> official cumulative ¥4,188), held cadence at 1x/day while
+  flagging the strengthening case to lower it (3rd consecutive action-less
+  daily run; the actual fire schedule is the owner's Routine, not a
+  repo-editable file). No product/tool/report/X post manufactured.
 - 2026-09-07 (owner-directed, automatic X posting RESUMED -- judgment-gated):
   owner reviewed the confirmed test post and approved it ("かなり本人らしく、
   この品質なら一発OK") and asked to resume `social-x.yml`, but explicitly

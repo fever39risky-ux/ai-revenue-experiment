@@ -85,19 +85,19 @@
       "day": 7,
       "date": "2026-09-07",
       "path": "reports/2026-09-07.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 7. Revenue still ¥0 (live-verified 0 Stripe charges; ledgers empty). Earlier today, owner-directed sessions built the X voice corpus, posted one real-voice test reply, and resumed judgment-gated auto-posting (recorded separately). The evening scheduled autonomous run found no material change and took a disciplined hold (early stop). No manufactured work, product, report, or X post.",
+      "summary_ja": "公式7日目。売上は依然0円（Stripe実チャージ0件をライブ確認、台帳も空）。本日午前にオーナー主導でXの文体コーパス構築・実声テスト投稿・判断ゲート付き自動投稿の再開を実施済み（別途記録）。夜の定例自律ランは実質変化なしと判断し、規律的にホールド（早期終了）。捏造した作業・製品・レポート・X投稿は一切なし。",
+      "summary_en": "Official Day 7. Revenue still ¥0 (live-verified 0 Stripe charges; ledgers empty). Earlier today, owner-directed sessions built the X voice corpus, posted one real-voice test reply, and resumed judgment-gated auto-posting (recorded separately). The evening scheduled autonomous run found no material change and took a disciplined hold (early stop). No manufactured work, product, report, or X post.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 1373,
+      "daily_cost_jpy_equivalent": 1433,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 4128,
-      "cumulative_net_profit_jpy_equivalent": -4128
+      "cumulative_cost_jpy_equivalent": 4188,
+      "cumulative_net_profit_jpy_equivalent": -4188
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 4128,
-  "official_net_profit_jpy_equivalent": -4128
+  "official_cost_jpy_equivalent": 4188,
+  "official_net_profit_jpy_equivalent": -4188
 }

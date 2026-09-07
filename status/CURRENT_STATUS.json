@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-06T11:15:00Z",
+  "updated_at": "2026-09-07T11:12:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "status/revenue_ledger.json (empty, official_entries: []) + Sales Monitor Action's gumroad_sales_monitor step (every 4h) shows 0 new sales on Stripe and Gumroad. Etsy has no automated sale-detection built yet (deferred, see next_action) -- status/etsy_listing.json / the Etsy seller dashboard would need a manual check for now."
+    "verified_how": "Live re-verified 2026-09-07T11:12Z (Day 7 scheduled run): Stripe GetCharges (livemode, acct_1U8AHVEe2GZbKrsU) = 0 charges; status/revenue_ledger.json official_entries=[] and preparation_entries=[]; latest sales-monitor.yml run 34084105212 succeeded with 0 new Stripe/Gumroad sales. Day 6's 2 Stripe checkout sessions previously confirmed expired/unpaid. Etsy has no automated sale-detection yet (deferred, not revenue-gating). No completed sale on any channel in 7 official days."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
@@ -136,7 +136,7 @@
       "technical_path_correction_note": "Superseded by the live run above: the files-array shape ({id: key, url: file_url}) that was previously flagged as an unverified best guess is now confirmed correct by the successful publish.",
       "sales_detection": "CONFIRMED WORKING 2026-09-04: scripts/gumroad_sales_monitor.mjs's GET /v2/sales calls succeed (view_sales scope present), wired into the existing 4-hourly sales-monitor.yml cron -- no owner action needed.",
       "assessment": "Delivered: a real third party can buy this listing right now, with a real thumbnail image (added 2026-09-03T20:57 UTC, reusing an existing asset) rather than a text-only card. The site's own owned pages (index.html) also now link to it -- previously it had zero inbound links from any owned asset. Watch status/revenue_ledger.json / Gumroad dashboard for the first sale.",
-  "category_fix_2026-09-05": "Confirmed defect fixed: was taxonomy_id 266 / category 'other' (never set at creation), now taxonomy_id 85 / 'self-improvement/productivity' -- verified via a live independent re-fetch after the PUT, not assumed from the write response. See status/gumroad_listing.json.category_fix_note for the full mechanism."
+      "category_fix_2026-09-05": "Confirmed defect fixed: was taxonomy_id 266 / category 'other' (never set at creation), now taxonomy_id 85 / 'self-improvement/productivity' -- verified via a live independent re-fetch after the PUT, not assumed from the write response. See status/gumroad_listing.json.category_fix_note for the full mechanism."
     },
     "creem": {
       "state": "account_kyc_bank_confirmed_by_owner_approved_usable_not_activated",
@@ -164,7 +164,10 @@
   "next_action": "(1) Every future daily session must read ops/AGENT_LOOP.md's 'X posting policy' section and apply its judgment checklist before writing anything to social/x_experiment_next_post.json -- most days should produce no queue entry at all; that is correct, not a shortfall. (2) Do not touch social/queue/ or scripts/post_x.mjs for experiment commentary -- retired for this purpose, its 2 stale items archived to social/queue_archive_pre_corpus/. (3) Watch the first automatic post_x_post_experiment_commentary.mjs-driven post (whenever a session next judges a day worth reporting) and confirm it behaves as designed (idempotent, verified, recorded) the same way this session's manual test was confirmed. (4) Separately and unrelated: the Day-6 revenue-channel thread (Etsy views 0->2, Stripe's n=2 checkout sessions, both now confirmed expired/unpaid) is still open -- continue watching for a completed sale, still no resource reallocation justified. (5) Creem stays unbuilt; no new sales channel.",
   "next_action_ja": "(1) いずれかのチャネルでの初の実売上完了を監視する——Stripeには現在2件の実在するopen状態のcheckout sessionがある（有効期限は約2026-09-07T00:22Z/02:15Z）。匿名で決済前情報が無いため、これらに対してできることは無く、status/revenue_ledger.jsonとsales-monitorクーロンの監視のみ。(2) 次回定時チェックでEtsyのviewsがさらに動けば、露出ブースト仮説を実データで検証できるようになる——n=2ではまだ不十分。(3) index.htmlや/store/への軽量・登録不要のトラフィック/リファラー可視化の追加を検討する余地はある（未着手）——本日のStripe checkout session signalは実流入の存在を証明したが、その出所は事後に復元不可能だった。実際の観測ギャップとして記録するが、現在の売上検知のボトルネックを直接動かすものではないため今回は着手しない。(4) 追加の証拠が無い限り、新チャネル・新SKU・価格変更は引き続き見送る——2チャネルでのn=2はその根拠にならない。(5) Creemは新たな差別化証拠が無いため引き続き未構築。",
   "next_action_en": "(1) Watch for the first completed sale on any channel -- Stripe now has 2 real, still-open checkout sessions (expire ~2026-09-07T00:22Z / 02:15Z); no action possible on them (anonymous, no customer info collected pre-payment), just watch status/revenue_ledger.json / the sales-monitor cron. (2) If Etsy views keep moving on the next scheduled check, that starts to make the recency-boost hypothesis testable with real data -- not yet, at n=2. (3) Consider (not yet justified) whether adding lightweight, no-signup-required traffic/referrer visibility to index.html and /store/ would be worth building -- today's Stripe checkout-session signal proved real inflow exists but its source is unrecoverable after the fact; flagged as a real observability gap, not acted on this turn since it doesn't move the current sale-detection bottleneck. (4) Continue declining new channels/SKUs/price changes absent stronger evidence -- n=2 on two channels is not that evidence. (5) Creem stays unbuilt (no new distribution-advantage evidence).",
-  "capability_requested": { "capability": "none pending", "note": "Etsy API v3 OAuth (5 secrets) completed 2026-09-05 -- see live_capabilities.entries for etsy_publish. No new capability grant is currently blocking a revenue-moving action." },
+  "capability_requested": {
+    "capability": "none pending",
+    "note": "Etsy API v3 OAuth (5 secrets) completed 2026-09-05 -- see live_capabilities.entries for etsy_publish. No new capability grant is currently blocking a revenue-moving action."
+  },
   "latest_result": "Resumed automatic X posting as a judgment-gated system per the owner's explicit conditions (not a daily streak). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log), social/x_experiment_next_post.json (queue-of-one, written only on a post-worthy day), and scripts/x_post_experiment_commentary.mjs (mechanical drain: same-day idempotent, weighted-length safety-checked, independently 2nd-GET-verified before recording success -- no judgment, no content authoring). Archived the 2 stale pre-corpus social/queue/ items rather than let the resumed cron silently drain them. Repointed and re-enabled social-x.yml (schedule + push triggers) to run the new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md encoding the full judgment checklist (real-new-fact test, no rehash, register C priority, corpus re-read every time, Voice-fingerprint self-check, 1/day cap, no auto-replies/DMs) for every future daily session to follow.",
   "latest_result_ja": "本実験で初めて、3チャネル中2チャネルで同時に非ゼロの実流入が観測された：Stripeは13日間checkout sessionが0件だったが、本日（2026-09-06）実在する（open・未払いの）checkout sessionが2件確認された。Etsyはオーナー設定の24〜48時間ゲート後の初回再診断でviewsが0→2へ動いた。Gumroadは変化なし（売上0件、カテゴリ修正は維持）。実売上完了はまだどこにも無い。Stripeストアの購入ボタン導線に離脱を招く不具合がないか監査したが、問題は見つからなかった。サンプルサイズが小さすぎ（n=2/n=2）、勝ちチャネルを断定したり戦略を変更するには不十分——早期・実データではあるが統計的には未確定であると正直に記録する。",
   "latest_result_en": "For the first time in the experiment, real non-zero inflow was observed on 2 of 3 channels simultaneously: Stripe had 0 checkout sessions ever for 13 days, and today (2026-09-06) shows 2 real (still-open, unpaid) checkout sessions; Etsy's views moved 0 -> 2 on the first re-diagnostic after the owner's 24-48h gate. Gumroad remains flat (0 sales, category fix holding). No completed sale anywhere. Audited the Stripe store's buy-button wiring for a defect that could explain checkout abandonment and found none. Sample sizes are too small (n=2/n=2) to declare a winning channel or change strategy -- recorded honestly as early, real, but statistically inconclusive evidence.",
@@ -172,10 +175,26 @@
   "latest_strategy_decision_ja": "オーナーが5日目に確立した証拠規律を踏襲した：実際の動き（Etsyのviews、Stripeのcheckout session）は正確かつ速やかに記録する価値があるが、2チャネルでのn=2は資源再配分・価格変更・『勝ちチャネル』の選定の根拠にはならない——そうしてしまえば、オーナーが5日目に訂正したのと全く同じ過大断定パターンを繰り返すことになる。Stripeのcheckout離脱が純粋な市場的無関心を反映しているとすぐに決めつける前に、実際のコード不具合（ストアページ・購入ボタンの導線）がないか確認した——本物のバグであれば、価格の推測より優先度が高く確実な修正対象になるはずだったが、見つからなかったため架空の修正は行わなかった。本当の観測ギャップ（Stripeへの2件の訪問がどこから来たか分からない）を特定したものの、今回は新しいトラフィック解析基盤の構築は見送った——現在の実際のボトルネック（売上検知、既に無料のActionsクーロンでカバー済み）を動かさず、反復訪問が実際に発生して初めて効果が積み上がる投資だからである。今回は記録に留め、投機的な構築はしなかった。",
   "blockers": [],
   "human_actions_required": [
-    { "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.", "why_ai_cannot": "Legal identity / banking / KYC.", "one_time": true },
-    { "action": "Low-priority, one-time only: glance at the Gumroad seller dashboard's Analytics page once and note the view/traffic count for the live product (https://feverish50.gumroad.com/l/uhajxo).", "why_ai_cannot": "Investigated first, per instruction, before asking: confirmed via Gumroad's own production source that view/traffic data is served only by a session-cookie-authenticated web controller (AnalyticsController < Sellers::BaseController), not the OAuth v2 API this project's access token uses -- the documented API scopes (edit_products, view_sales, view_profile, mark_sales_as_shipped, refund_sales) contain no analytics/views scope, and the live GET /v2/products/:id response (scripts/gumroad_listing_diagnostics.mjs) confirms no views field exists on that resource either. This sandbox also has zero egress to gumroad.com regardless. Genuinely not AI-reachable, not merely unconfirmed -- hence exactly one human-only ask, not a recurring one.", "one_time": true },
-    { "action": "RESOLVED 2026-09-07: the secret-naming mismatch (X_API_SECRET/X_ACCESS_SECRET vs the owner's actual X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET) is fixed in code -- confirmed by the next run log (job 101605866315) showing all 4 secrets masked *** (present) and a real API call actually firing.", "why_ai_cannot": "n/a -- resolved, kept for the record.", "one_time": true },
-    { "action": "RESOLVED 2026-09-07: owner topped up X API read credits by $5 (spending limit set to $5). Re-ran x-fetch-own-posts.yml on main (job run 34077767254) and it succeeded -- 195 real posts fetched, no further 402. Kept for the record.", "why_ai_cannot": "n/a -- resolved.", "one_time": true }
+    {
+      "action": "Confirm Stripe payouts/bank/KYC are complete so received funds settle to your bank.",
+      "why_ai_cannot": "Legal identity / banking / KYC.",
+      "one_time": true
+    },
+    {
+      "action": "Low-priority, one-time only: glance at the Gumroad seller dashboard's Analytics page once and note the view/traffic count for the live product (https://feverish50.gumroad.com/l/uhajxo).",
+      "why_ai_cannot": "Investigated first, per instruction, before asking: confirmed via Gumroad's own production source that view/traffic data is served only by a session-cookie-authenticated web controller (AnalyticsController < Sellers::BaseController), not the OAuth v2 API this project's access token uses -- the documented API scopes (edit_products, view_sales, view_profile, mark_sales_as_shipped, refund_sales) contain no analytics/views scope, and the live GET /v2/products/:id response (scripts/gumroad_listing_diagnostics.mjs) confirms no views field exists on that resource either. This sandbox also has zero egress to gumroad.com regardless. Genuinely not AI-reachable, not merely unconfirmed -- hence exactly one human-only ask, not a recurring one.",
+      "one_time": true
+    },
+    {
+      "action": "RESOLVED 2026-09-07: the secret-naming mismatch (X_API_SECRET/X_ACCESS_SECRET vs the owner's actual X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET) is fixed in code -- confirmed by the next run log (job 101605866315) showing all 4 secrets masked *** (present) and a real API call actually firing.",
+      "why_ai_cannot": "n/a -- resolved, kept for the record.",
+      "one_time": true
+    },
+    {
+      "action": "RESOLVED 2026-09-07: owner topped up X API read credits by $5 (spending limit set to $5). Re-ran x-fetch-own-posts.yml on main (job run 34077767254) and it succeeded -- 195 real posts fetched, no further 402. Kept for the record.",
+      "why_ai_cannot": "n/a -- resolved.",
+      "one_time": true
+    }
   ],
   "additional_permissions_requested": [
     {

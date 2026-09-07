@@ -292,11 +292,20 @@
       "currency": "usd",
       "jpy_equivalent": 165,
       "note": "Owner-directed, resume automatic X posting as a judgment-gated system (estimated): owner approved the test post and asked to resume social-x.yml, but explicitly not as a daily-streak poster -- only on genuinely new-fact days, max 1/day, register C prioritized, corpus re-read every time, Voice-fingerprint self-check every time, no auto-replies/DMs, results recorded, same-day idempotency. Archived 2 stale pre-corpus social/queue/ items to social/queue_archive_pre_corpus/ (would otherwise have been silently posted by the resumed cron's first tick -- ungrounded, unchecked content, exactly the outcome the corpus work exists to prevent). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log, backfilled with the real test post) and social/x_experiment_next_post.json (queue-of-one contract). Built scripts/x_post_experiment_commentary.mjs: deliberately no content-judgment logic (that stays with the daily agentic session, encoded as a checklist), only same-day idempotency, a weighted-length safety guard, and independent 2nd-GET verification before recording success. Repointed and re-enabled social-x.yml's schedule/push triggers to run this new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md and updated ops/LOOP_PROMPT.txt's step 5 to reference it, so every future daily session applies the same judgment checklist."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Scheduled daily autonomous judgment run (Day 7, 20:07 JST fire), distinct from today's three earlier owner-directed X sessions. Lean run: synced with origin/main (branch 0/0 vs main, no open 'Promotion blocked' issue), live-verified reality rather than assuming carry-over -- Stripe GetCharges (livemode) returned 0 charges, revenue_ledger official/prep both empty, sales-monitor.yml run 34084105212 succeeded (0 new sales). Confirmed Day 6's 2 Stripe checkout sessions already recorded as expired/unpaid (no new news). Reviewed the primary discovery channel's search surface: the live Etsy listing already carries 13 well-targeted buyer-search tags and Gumroad's category is already fixed -- no defect to correct, so no listing churn. X: already posted once today (same-day idempotency) and no genuinely-new fact, so no queue entry. Diagnosis unchanged (bottleneck = cold-start distribution / no qualified traffic; not a build or config gap). No economically-rational new intervention available -> disciplined hold + honest record, per LOOP_PROTOCOL step 14."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4128
+    "official_cost_jpy_equivalent": 4188
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
