@@ -1,160 +1,237 @@
-# Autonomous Loop Protocol (Sep 1–30 official period)
+# Autonomous Loop Protocol — CANONICAL
 
-This is the spec each **autonomous Claude session** follows when a Routine fires
-it. The goal is NOT "a script ran" — it is that the AI itself observes the
-market, judges, acts, sees results, and re-allocates, every day, to earn real
-third-party revenue. Fresh session each fire; **GitHub is the long-term memory**,
-so resume from state — never restart from zero.
+Official window: **2026-09-01 through 2026-09-30, Asia/Tokyo**.
 
-## Single KPI
-Real verified third-party revenue in the official window (Sep 1–30, Asia/Tokyo).
-Milestones: first ¥1/$1 → ¥1,000 → ¥10,000 → ¥50,000. Preparation-period revenue
-is logged separately and never counted in the official total.
+This file is the **canonical operating protocol** for every autonomous Routine session in the AI Revenue Experiment.
+The Routine prompt should stay intentionally short and defer to this file for detailed rules.
+If a Routine prompt conflicts with a newer version of this protocol, follow this protocol unless doing so would violate safety, law, or the experiment's immutable core rules.
 
-## Each iteration (do this, in order)
+GitHub `main` is the long-term memory and source of truth. Each Routine fire is a fresh session: resume from repository state; never restart the experiment from zero.
 
-1. **Bootstrap.** Ensure the `ai-revenue-experiment` repo is present and current
-   (`git pull`). If not cloned in this session, add/clone it first.
-2. **Load memory.** Read: `ops/AGENT_LOOP.md` (operating brief / where I left off),
-   `status/CURRENT_STATUS.json`, the tail of `status/EVENTS.jsonl`,
-   `status/revenue_ledger.json`, `reports/manifest.json`, `ops/EXECUTION_SYSTEM.md`.
+## 1. Objective and accounting
 
-   **Branch note:** the Routine harness may only grant push access to a
-   `claude/**` branch, not `main`, for a given fired session (confirmed
-   2026-08-28). That's fine -- commit and push to whatever branch the
-   session is scoped to, per its own git instructions. Persisting that work
-   onto `main` (the actual long-term memory + Pages source) is handled
-   automatically by `.github/workflows/promote-branch.yml`: it fast-forwards
-   `main` to the branch's HEAD once it verifies the branch is strictly ahead
-   of `main` (0 behind), `leak_check.mjs` passes, and `promotion_check.mjs`
-   (structural sanity on the ledgers/reports) passes. No merge commits, no
-   force pushes -- if it can't cleanly fast-forward, it opens/updates a
-   single "Promotion blocked: <branch>" GitHub issue instead of touching
-   `main`, and the next iteration should check for one before assuming its
-   prior work reached `main`.
-3. **Observe reality.** Check what actually changed since last run:
-   - Stripe revenue — **observe this run's actual capability, never assume a
-     fixed state:** (1) if this session has a live Stripe MCP connector, query
-     it directly; (2) if not, read `status/revenue_ledger.json` + the
-     sales-monitor Action's latest run log. MCP availability has varied
-     between fires (present 2026-08-28, absent 2026-09-01) — it is neither
-     "always available" nor "never available" on a Routine session; check
-     each time. `STRIPE_RESTRICTED_KEY` (if set) additionally keeps the
-     Actions-level 4-hourly headless monitor feeding that ledger between
-     sessions — it is an optional monitoring enhancement, not required for
-     Stripe checkout itself to work.
-   - Etsy/marketplace results, if that lane is live (API/analytics).
-   - SNS metrics if reachable (impressions/clicks) — evaluate which commentary
-     actually drove traffic/checkouts, per the social protocol.
-   - Any human capability just granted (new repo secret, Etsy shop, OAuth).
-4. **Diagnose the bottleneck.** One sentence: what is the single biggest thing
-   between us and the next revenue milestone right now?
-5. **Decide the highest-EV action** for THIS iteration (not a plan — one move).
-   Consider all lanes: Etsy, Stripe/store, pricing, new product/variant, SEO,
-   SNS, affiliate, new marketplace, a new subagent/skill/script if it raises
-   revenue speed. Prune anything not paying off.
-6. **Execute it.** Really do it (create/adjust listing, change price, publish
-   content, queue X posts, build a capability, start/stop a lane). External
-   writes that the sandbox can't reach go through GitHub Actions + secrets.
-7. **Record — the "why", not just the "what".** Update:
-   - `reports/data/<today>.json` narrative (decision + reason, observed data,
-     result, how the plan changed, wins/failures/surprises, capability changes).
-   - `status/CURRENT_STATUS.json`, append `status/EVENTS.jsonl`.
-   - `ops/AGENT_LOOP.md`: current strategy, active hypothesis, next best action,
-     open tasks, what's blocked on a human.
-   - Queue an X post (`social/queue/`) only when it's genuinely worth reporting.
-8. **Publish safely.** Run `node scripts/leak_check.mjs` before committing. Then
-   `node scripts/gen_report.mjs`. Commit + push (rebase on origin/main first).
-9. **Cost control.** If nothing meaningful changed and no action is due, do a
-   light check, note "no material change" in the brief, and stop early. Do not
-   manufacture busywork or spend a full analysis when idle.
+Primary objective: **maximize real third-party Net Profit**, not activity.
 
-## Human-only requests (do NOT block the loop)
-The loop cannot summon a human mid-run. If something needs KYC/OAuth/bank/API
-credential/consent, record it — then continue with whatever lane is NOT
-blocked. Never turn the owner into a manual operator; ask only for a
-one-time capability grant.
+Net Profit = real third-party revenue − AI compute − API costs − payment/marketplace fees − other experiment costs.
 
-**Classify by whether it actually gates revenue, not by whether it's human-only:**
-- `status/CURRENT_STATUS.json.human_actions_required` — ONLY items that are a
-  true binding constraint on the next revenue milestone (e.g. Etsy shop
-  KYC/bank/card; Stripe payout/bank/KYC so real revenue can settle). This
-  list should stay short and should change only when the actual bottleneck
-  changes.
-- `status/CURRENT_STATUS.json.additional_permissions_requested` — human-only
-  items that only enhance monitoring, commentary, or convenience and do NOT
-  block revenue (e.g. `STRIPE_RESTRICTED_KEY` for headless Actions-level
-  sales detection, X API credentials for autonomous commentary). Include
-  the fallback the loop already uses without the grant, so it's clear these
-  are optional, not stalling anything.
+Revenue milestones:
+1. first real ¥1 / $1
+2. ¥1,000 equivalent
+3. ¥10,000 equivalent
+4. ¥50,000 equivalent
 
-Don't conflate the two lists — an item belongs in `human_actions_required`
-only if its absence is the reason revenue isn't moving.
+Only real third-party monetary consideration counts. Do not count self-purchases, tests, page views, clicks, followers, inquiries, unpaid invoices, internal transfers, or theoretical revenue.
+Preparation-period revenue/costs remain separate from official September results.
 
-## Honesty
-Report what actually happened, including failures and dead ends. Distinguish
-facts from hypotheses. Never inflate revenue or imply guarantees. Never publish
-secrets/PII (the leak checker gates this).
+Be explicit about failures, wrong hypotheses, abandoned lanes, sunk costs, blockers, and negative Net Profit. Never rewrite history to make the experiment look better.
 
-## Report narrative is bilingual
-`reports/data/<date>.json` fields may be given as `key_ja` + `key_en` (or a
-single `key` used for both). Author BOTH languages for the public reports:
-`actions`, `decisions`, `strategy`, `lanes`, `observed`, `wins`/`failures`/`surprises`,
-`learnings`, `capabilities`, `social`, `next`, `focus`, plus `summary` and
-`human_minutes_today`. `gen_report.mjs` fills the bilingual TEMPLATE.html.
+## 2. Human role
 
-## Self-invocation (how "you" get here) + COST DISCIPLINE
-A durable Claude Code Remote Routine fires a FRESH session **1×/day** (20:07 JST)
-in September and runs this protocol. (An MCP-created trigger could not push, so the
-Routine is (re)created by the owner from the claude.ai Routines UI bound to this
-repo — see `ops/ROUTINE_SETUP.md`.) Cadence was cut from 3×/day to 1×/day because
-a run measured **$3.30**; 3×/day×30d ≈ $297 ≈ the whole ¥50k target. **Each run
-costs money — spend the minimum:** read only `ops/AGENT_LOOP.md` + the tail of
-EVENTS + the ledgers; don't read the whole repo; don't spawn subagents unless
-clearly revenue-positive; STOP EARLY when nothing material changed; and append an
-estimated run cost to `status/cost_ledger.json` (category `ai_compute`).
-Fired sessions may run **without MCP connectors**, or with them but scoped to a
-`claude/**` branch rather than `main` (see the branch note in step 2 above) —
-either way, use `git` over Bash for GitHub;
-read revenue from `status/revenue_ledger.json` (the sales-monitor Action maintains
-it from Stripe); do external posting/API via the GitHub Actions pipeline (commit →
-workflows fire on push + schedule). WebSearch/WebFetch ARE available.
+The AI owns product, offer, price, market, channel, timing, resource allocation, pivots, lane creation/shutdown, and experimentation.
 
-## Adaptive cadence & event-triggered runs (NOT a fixed rule)
-1×/day is a provisional optimum from current cost data, not a constant. Every run,
-re-evaluate the firing frequency from: per-run AI cost, revenue, market change rate,
-how often strategy actually changes, and how much the free Actions layer already
-covers. Record the current cadence + rationale + any recommended change in
-`status/cadence.json`. If the evidence says raise or lower it, say so explicitly
-(the Routine's schedule is then adjusted — an owner/connected-session action).
+Do not ask the owner for strategic choices or manual work that can be done with tools, APIs, MCP/connectors, scripts, GitHub Actions, browser capability, or other available infrastructure.
 
-**Off-cycle (extra) judgment runs** — consider one only for a high-value event:
-first sale, large revenue change, checkout surge, affiliate conversion, SNS spike,
-marketplace reaction, new capability granted, critical error, or a collapse of the
-current strategy's premise. **Gate: expected marginal benefit > marginal AI cost.**
-Do NOT wake Claude for every event. Cheap detection + free reactions live in the
-Actions layer (the sales monitor records events and auto-queues an X post on a real
-sale with zero Claude cost); a strategic off-cycle run is justified only when
-same-day *thinking* would change the outcome by more than it costs. When an event
-occurs but an off-cycle run isn't worth it, the daily run handles it. (Fully
-autonomous off-cycle triggering needs the Actions-based loop, Path B in
-`ops/ROUTINE_SETUP.md`; until then, flag the recommendation in `status/cadence.json`.)
+Human-only requests are limited to genuinely identity/account-bound actions such as KYC, identity verification, bank/payout setup, OAuth/permission grants, terms acceptance, account-owner consent, or legally required confirmation.
 
-## Cost / Net Profit tracking
-Log every measurable cost to `status/cost_ledger.json` (categories: ai_compute,
-api, x_api, etsy_fees, stripe_fees, other), split preparation vs official. Stripe
-fees are captured automatically by the sales monitor. **Net Profit = Gross official
-revenue − official costs.** The economic question is not "did the AI run" but "did
-the AI earn more than it cost." Prefer free/cheap lanes; a lane whose cost exceeds
-its revenue gets cut.
+Classify them correctly:
+- `status/CURRENT_STATUS.json.human_actions_required`: only true binding constraints on the next revenue milestone.
+- `status/CURRENT_STATUS.json.additional_permissions_requested`: useful but non-binding capability upgrades.
 
-## Final day (Sep 30)
-Generate the final report: `node scripts/gen_final_report.mjs`, then commit. It
-summarizes official vs preparation revenue, human minutes, per-lane results,
-strategies that worked/failed, agent/skill/capability evolution, net profit, and
-the 30-day learnings.
+A blocked human-only lane must not freeze non-blocked lanes.
 
-## Guardrails (unchanged)
-No main-merge of the OTHER repo, no deploy/IAM/Secrets changes on OPPAI, no
-destructive changes, no spending beyond what the owner funded. Stay within the
-`ai-revenue-experiment` repo + granted connectors.
+Never publish secrets, credentials, PII, customer personal data, KYC details, banking data, or private tokens.
+
+## 3. One iteration only
+
+Each Routine fire performs exactly **one** autonomous judgment iteration:
+
+observe → diagnose → decide → execute → record → publish durable state → stop.
+
+Do not start a second iteration in the same run.
+
+## 4. Bootstrap and persistence
+
+Work only in `fever39risky-ux/ai-revenue-experiment` unless a concrete dependency absolutely requires otherwise.
+
+Sync from `origin/main` before work.
+
+Routine sessions may be harness-scoped to push only to a `claude/**` branch. That is expected. Do not fight the harness and never force-push.
+
+`.github/workflows/promote-branch.yml` is the unattended promotion layer. It may fast-forward `main` only when the branch is ahead, 0 behind, and safety checks pass. If promotion cannot happen safely, `main` stays untouched and a `Promotion blocked: <branch>` issue is opened/updated.
+
+Before assuming earlier work reached long-term memory, check for an open promotion-blocked issue and verify the relevant state is on `main`.
+
+## 5. Minimum memory load
+
+Read the minimum needed first:
+- `ops/AGENT_LOOP.md`
+- `status/CURRENT_STATUS.json`
+- tail/recent relevant entries of `status/EVENTS.jsonl`
+- `status/revenue_ledger.json`
+- `status/cost_ledger.json`
+- `status/cadence.json`
+- today's `reports/data/<date>.json` if it exists
+
+Read this protocol as needed for rules. Do not reread the entire repository by default.
+
+`ops/AGENT_LOOP.md` is the current operating brief: current strategy, hypothesis, next best action, active/stopped lanes, blockers, and recent evidence.
+
+## 6. Observe reality
+
+Use real evidence, not carry-over assumptions.
+
+Observe as relevant:
+- official/preparation revenue, sales, refunds, recent transactions
+- checkout activity
+- marketplace views/favorites/search response where actually observable
+- traffic and social response when decision-relevant
+- current cumulative costs and Net Profit
+- active products/channels/traffic sources
+- newly granted capabilities/secrets/connectors
+- operational failures and blocked promotions
+
+Stripe capability varies by session. If live Stripe MCP is available, query it. Otherwise use the revenue ledger and latest relevant Actions evidence. Do not assume MCP is always available or always unavailable.
+
+Use external/API reads only when their expected decision value justifies their cost. Do not infer demand from vanity metrics alone.
+
+## 7. Diagnose one bottleneck
+
+Identify the **single biggest current constraint** to the next revenue milestone.
+
+Ask: **What one constraint, if improved now, most increases expected Net Profit?**
+
+Separate observed facts, hypotheses, and assumptions. Do not manufacture a problem to create work.
+
+## 8. Decide and execute one highest-EV action
+
+Choose one action based on expected revenue impact, probability of success, time to result, execution cost, reversibility, available capability, evidence, and opportunity cost.
+
+Prefer actions that create real distribution/transactions, improve conversion, reduce recurring cost, create compounding assets, reuse existing assets, or generate useful external feedback.
+
+Avoid internal polish without revenue relevance, duplicate products without evidence, tooling for its own sake, filler content, unnecessary reports, and arbitrary strategy churn.
+
+Then **execute for real**. Do not stop at planning.
+
+Use the cheapest effective capability available. Before returning a task to the owner, consider whether it can be solved through existing tools/connectors/APIs/scripts/Actions/browser capability. Do not create standing subagents unless ROI clearly justifies them.
+
+## 9. X experiment commentary — judgment-gated pipeline
+
+X is secondary to revenue execution.
+
+Architecture:
+- the Routine decides **whether a post deserves to exist and what it says**;
+- the GitHub Actions/cron layer only performs mechanical delivery, idempotency, daily-limit checks, reply verification, and result recording.
+
+Most days should **not** post. That is correct behavior.
+
+Only queue commentary when there is a genuinely new, reader-worthy item such as a meaningful result, failure, hypothesis retraction, strategy/economic decision, marketplace signal, material autonomy capability change, surprising contradiction, or milestone. Do not post merely because another day passed, revenue remains ¥0, a monitor ran, or quota is available. Do not rehash yesterday without materially new information.
+
+Maximum: **1 experiment commentary post per JST day**.
+
+### Current queue and thread rules
+
+The legacy `social/queue/` mechanism is retired for AI Revenue Experiment commentary. Do not write new posts there.
+
+The only valid commentary queue is:
+- `social/x_experiment_next_post.json`
+
+History/idempotency lives in:
+- `social/x_experiment_history.json`
+
+All experiment commentary posts are direct replies to the root fixed post identified by GitHub Actions Variable `X_ROOT_POST_ID`. Do not chain each day under the previous day's reply.
+
+### Owner voice
+
+If and only if the posting judgment gate is cleared, read:
+- `marketing/X_VOICE_GUIDE.md`
+
+Use only as needed for concrete grounding:
+- `marketing/X_VOICE_CORPUS.md`
+- `marketing/x_voice_examples.json`
+
+Do not load the full corpus by default.
+
+For AI Revenue Experiment commentary, prioritize **Register C / レジスタC** from the Voice Guide.
+
+Core constraints: first person `僕`; natural conversational Japanese; natural Kansai phrasing without forcing it; short lines/appropriate blank lines; facts and real numbers before commentary when useful; distinguish fact from interpretation; soft/no CTA; no default hashtags; no engagement bait; no generic AI-copy endings; no exaggerated AI hype; no hard sell by default.
+
+Follow the Voice Guide over generic copywriting instincts. Do not blindly copy a past post.
+
+Pages URL is not automatic. Add it only when deeper context genuinely helps and the expected value justifies the X API cost.
+
+Never expose secrets, tokens, private IDs, PII, customer identity/data, banking/KYC details, or private operational information.
+
+The Routine writes the queue file; the workflow posts. The cron must not generate/rewrite content, decide newsworthiness, reply to other users, send DMs, quote-post, or engagement-farm.
+
+## 10. Economic cadence
+
+`status/cadence.json` owns the current cadence policy. The baseline 1×/day is provisional, not sacred.
+
+Additional/off-cycle AI judgment is justified only when:
+
+**EXPECTED MARGINAL BENEFIT > MARGINAL AI COST**
+
+Potential triggers include first sale, material revenue/checkout change, significant marketplace/SNS reaction, new capability, critical error, or strategy-premise collapse — but deterministic Actions should handle cheap detection/logging whenever judgment is unnecessary.
+
+Do not optimize for autonomy theater. Minimum necessary AI thinking for maximum economically rational Net Profit.
+
+## 11. Cost accounting
+
+Record measurable costs in `status/cost_ledger.json`, split preparation vs official, with categories such as `ai_compute`, `api`, `x_api`, `etsy_fees`, `stripe_fees`, `other`.
+
+Use exact billed cost when available; otherwise mark estimates and basis honestly.
+
+For prepaid API credits (e.g. X), distinguish the credit purchase from exact consumption when exact consumption is observable. Never invent per-request spend the provider does not expose.
+
+## 12. Durable record
+
+Update relevant durable state:
+- `reports/data/<YYYY-MM-DD>.json` (bilingual fields where schema supports it)
+- `status/CURRENT_STATUS.json`
+- append material events to `status/EVENTS.jsonl`
+- `status/cost_ledger.json`
+- `status/cadence.json` if changed
+- `ops/AGENT_LOOP.md`
+
+Record observed data, decision, reason/evidence summary, action, result, failures, surprises, strategy changes, next best action, capability changes, human-only blockers, and X posting judgment/result if relevant.
+
+Do not reveal private chain-of-thought; record concise reasons/evidence instead.
+
+## 13. Publish safely
+
+Before publishing repository changes:
+
+`node scripts/leak_check.mjs`
+
+Then:
+
+`node scripts/gen_report.mjs`
+
+On 2026-09-30 also run:
+
+`node scripts/gen_final_report.mjs`
+
+Sync/rebase with `origin/main` before commit, inspect the intended diff, commit only relevant changes, and push using the branch allowed by the session.
+
+If promotion is blocked, do not force anything. Preserve branch state, ensure the promotion-block issue exists, and record the blocker where practical.
+
+## 14. Early stop
+
+If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention:
+- do not manufacture work;
+- do not manufacture a product/tool/report/X post;
+- write only the durable note actually needed;
+- record cost/cadence if relevant;
+- stop early.
+
+A short, cheap, correct iteration is better than an expensive fake-productive iteration.
+
+## 15. Final day
+
+On Sep 30, generate the final report and evaluate Gross Revenue, Net Profit, all costs/fees, human labor, first-sale timing, best/failed lanes, strategy/cadence evolution, capabilities created/retired, what actually generated revenue, what did not, and whether "AI itself earns" was demonstrated.
+
+Do not inflate the conclusion. If revenue is ¥0 or Net Profit is negative, say so clearly.
+
+## Guardrails
+
+Stay within this repository plus explicitly granted connectors/capabilities. No destructive or unrelated-system changes, no secret leakage, and no spending beyond owner-funded limits.
