@@ -1,12 +1,21 @@
 name: X poster
 on:
-  schedule:
-    - cron: '*/30 * * * *'   # drain the post queue every 30 min
+  # schedule trigger PAUSED 2026-09-07: owner asked to build a real-voice
+  # corpus (marketing/X_VOICE_CORPUS.md, X_VOICE_GUIDE.md) from @KinoshitaTsks's
+  # own past posts BEFORE any full autonomous posting begins, now that X
+  # credentials are live. The 2 items already in social/queue/ were written
+  # in the AI's own voice, pre-dating this corpus -- auto-draining them now
+  # would be exactly the "AI voice, not the owner's voice" outcome the
+  # owner is trying to prevent. Re-enable the schedule (and push trigger)
+  # once the voice corpus is delivered and existing queue items have been
+  # reviewed against it. See ops/AGENT_LOOP.md iteration log, 2026-09-07.
+  # schedule:
+  #   - cron: '*/30 * * * *'   # drain the post queue every 30 min
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'social/queue/**'
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'social/queue/**'
 permissions:
   contents: write
 concurrency:
