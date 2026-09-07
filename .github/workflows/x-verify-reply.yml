@@ -1,0 +1,26 @@
+name: X verify reply (one-off, read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      tweet_id:
+        description: 'Tweet id to check'
+        required: true
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify the tweet is threaded under X_ROOT_POST_ID
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          X_ROOT_POST_ID: ${{ vars.X_ROOT_POST_ID }}
+          X_TWEET_ID: ${{ inputs.tweet_id }}
+        run: node scripts/x_verify_reply.mjs
