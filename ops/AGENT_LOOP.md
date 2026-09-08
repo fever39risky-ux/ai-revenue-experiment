@@ -1,7 +1,16 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-07 (official day 7,
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-08 (official
+day 8 scheduled run — disciplined hold, no material change. Live-verified: 0 Stripe
+charges, Day 6's 2 checkout sessions both expired/unpaid, ZERO new checkout activity
+since Day 6, no new sale/capability/signal/blocker, branch synced, no open issues.
+Binding constraint unchanged: cold-start distribution, no cheap autonomous lever
+inside the rules. No X post (only candidate fact — 2 abandoned sessions — is now 2
+days stale → would be filler). 4th consecutive no-action daily run → strengthened the
+recommendation for the owner to lower the Routine baseline to ~every-2-3-days (cost
+reduction = direct Net-Profit gain); free 4-hourly sales-monitor cron + off-cycle
+triggers still cover anything urgent. Prior context below still applies. Day 7:
 owner approved the real-voice test post and RESUMED automatic X posting --
 judgment-gated, not a daily streak. **READ THE NEW "X posting policy"
 SECTION (above Ledger snapshot) BEFORE any X-related action.** Mechanism:

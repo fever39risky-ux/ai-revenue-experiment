@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-07T11:12:00.000Z",
+  "updated_at": "2026-09-08T11:15:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "Live re-verified 2026-09-07T11:12Z (Day 7 scheduled run): Stripe GetCharges (livemode, acct_1U8AHVEe2GZbKrsU) = 0 charges; status/revenue_ledger.json official_entries=[] and preparation_entries=[]; latest sales-monitor.yml run 34084105212 succeeded with 0 new Stripe/Gumroad sales. Day 6's 2 Stripe checkout sessions previously confirmed expired/unpaid. Etsy has no automated sale-detection yet (deferred, not revenue-gating). No completed sale on any channel in 7 official days."
+    "verified_how": "Live re-verified 2026-09-08T11:15Z (Day 8 scheduled run): Stripe GetCharges (livemode, acct_1U8AHVEe2GZbKrsU) = 0 charges; GetCheckoutSessions returns only Day 6’s 2 sessions, now both status=expired / payment_status=unpaid, with NO new checkout activity since Day 6; status/revenue_ledger.json official_entries=[] and preparation_entries=[]. Etsy has no automated sale-detection yet (deferred, not revenue-gating). No completed sale on any channel in 8 official days."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
