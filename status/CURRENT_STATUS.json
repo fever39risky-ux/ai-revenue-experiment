@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-08T11:15:00.000Z",
+  "updated_at": "2026-09-09T01:35:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "Live re-verified 2026-09-08T11:15Z (Day 8 scheduled run): Stripe GetCharges (livemode, acct_1U8AHVEe2GZbKrsU) = 0 charges; GetCheckoutSessions returns only Day 6’s 2 sessions, now both status=expired / payment_status=unpaid, with NO new checkout activity since Day 6; status/revenue_ledger.json official_entries=[] and preparation_entries=[]. Etsy has no automated sale-detection yet (deferred, not revenue-gating). No completed sale on any channel in 8 official days."
+    "verified_how": "Day 9 (2026-09-09) scheduled run. Stripe MCP unavailable this session (requires re-auth), so per LOOP_PROTOCOL §6 fell back to ledger + Actions evidence: status/revenue_ledger.json official+prep entries both empty; latest automated stripe-sync commit 4c813d7 (2026-09-08T12:52Z) recorded 0 revenue (touched only cost_ledger). No completed sale on any channel in 9 official days. Owner amended LOOP_PROTOCOL this morning (commit dac1bb7) to prioritize EARNING over clean-experiment discipline and to forbid repeated passive holds."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",

@@ -1,16 +1,25 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-08 (official
-day 8 scheduled run — disciplined hold, no material change. Live-verified: 0 Stripe
-charges, Day 6's 2 checkout sessions both expired/unpaid, ZERO new checkout activity
-since Day 6, no new sale/capability/signal/blocker, branch synced, no open issues.
-Binding constraint unchanged: cold-start distribution, no cheap autonomous lever
-inside the rules. No X post (only candidate fact — 2 abandoned sessions — is now 2
-days stale → would be filler). 4th consecutive no-action daily run → strengthened the
-recommendation for the owner to lower the Routine baseline to ~every-2-3-days (cost
-reduction = direct Net-Profit gain); free 4-hourly sales-monitor cron + off-cycle
-triggers still cover anything urgent. Prior context below still applies. Day 7:
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-09 (official
+day 9 — STRATEGY PIVOT. **The owner amended LOOP_PROTOCOL this morning (commit
+dac1bb7): mission priority is now EARN REAL MONEY over clean-experiment discipline;
+repeated zero-revenue passive holds are forbidden; every hold must be justified vs
+>=1 concrete alternative; actively adapt offer/audience/channel/price/distribution;
+and CADENCE DECISIONS BELONG TO THE AI OPERATOR, not the owner.** Acted on it: ended
+the 4-day hold streak. Re-diagnosed beyond the stale "cold-start distribution" label
+→ the real constraint is an offer/audience/traffic MISMATCH: a commodity $9/$19 AI
+prompt toolkit, zero reviews, and the one owned qualified-traffic lever (the
+@KinoshitaTsks X audience) had never been used to drive traffic to it. Executed the
+first deliberate DISTRIBUTION TEST: queued a register-C X post
+(social/x_experiment_next_post.json, weighted 266) that honestly reports the
+2-abandoned-checkout insight and points the owned audience to the live store for the
+first time. Did NOT edit the store same-run (avoid confounding the traffic-vs-offer
+signal). NEXT session: observe the test result (any store traffic / checkout starts),
+then adapt the offer/price/audience-fit — that is the prescribed small-test→observe→
+adapt loop; do NOT revert to passive holds. Cadence held at 1x/day BY OPERATOR
+DECISION (retracting the prior "ask owner to lower it" framing) because daily judgment
+now has real EV again (observe→adapt). Prior context below still applies. Day 7:
 owner approved the real-voice test post and RESUMED automatic X posting --
 judgment-gated, not a daily streak. **READ THE NEW "X posting policy"
 SECTION (above Ledger snapshot) BEFORE any X-related action.** Mechanism:
@@ -399,6 +408,39 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-09 (Day 9, scheduled run -- STRATEGY PIVOT, first distribution test):
+  Synced origin/main; my Day-8 commit had promoted. Found the owner amended
+  ops/LOOP_PROTOCOL.md (commit dac1bb7, 10:27 JST) with a mission-priority
+  section: EARN REAL MONEY is primary over clean-experiment discipline; zero
+  revenue is a strategic signal to actively pivot, not hold; every hold must be
+  compared against >=1 concrete alternative and lose on expected Net Profit;
+  actively change offer/audience/channel/price/distribution; open/prepare other
+  lanes in parallel; early-stop is a cost tool, NOT the default; and cadence
+  decisions belong to the AI operator, not the owner. This is a direct correction
+  of the Day 5-8 repeated-hold pattern. Acted on it. Observed reality (Stripe MCP
+  needed re-auth this session -> used ledger + Actions fallback per §6): revenue
+  ledger empty, latest auto stripe-sync (4c813d7) recorded 0, no open issues,
+  branch synced. Re-diagnosed WITHOUT the static "cold-start distribution" label:
+  the binding constraint is an offer/audience/traffic MISMATCH -- a commodity
+  $9/$19 AI-prompt toolkit with zero reviews/reputation, and the single owned
+  qualified-traffic lever (the @KinoshitaTsks X audience) had never once been used
+  to drive traffic to the store (the only prior post, 2026-09-07, was meta/about
+  voice). Decided vs hold explicitly: hold = 0 revenue-probability change at ~¥105
+  cost; a deliberate distribution test = non-zero first-sale upside + disambiguates
+  traffic-vs-offer, at trivial marginal cost (X API already funded) -> test wins.
+  Executed: queued the experiment's first deliberate distribution test to
+  social/x_experiment_next_post.json -- a register-C, 14-item voice-fingerprint
+  self-checked post (weighted 266<=270) that honestly reports a previously-unposted
+  insight (2 people reached Stripe checkout on Day 6, both left unpaid -> maybe
+  presentation, not just traffic) and points the owned audience to the live store
+  for the first time. This enacts exactly the pivot the owner's own Day-6 corpus
+  post predicted ("XやSEOで外から流入を作るのか"). Deliberately did NOT edit the
+  store the same run, to keep the traffic-vs-offer signal unconfounded. NEXT
+  session's job (do NOT revert to passive hold): observe whether the post produced
+  any store traffic / checkout starts, then adapt the next lever -- offer/store
+  presentation, the $9-Etsy vs $19-Stripe price inconsistency, or audience-language
+  fit (Japanese X audience vs English global store). Cadence held 1x/day by operator
+  decision (daily observe->adapt now has real EV); logged ~$0.70/¥105.
 - 2026-09-07 (Day 7, scheduled 20:07 JST autonomous run -- DISCIPLINED HOLD):
   distinct from today's three earlier owner-directed X sessions (all recorded
   above). Synced with origin/main (branch 0 ahead / 0 behind; no open

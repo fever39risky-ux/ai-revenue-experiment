@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-09",
+  "text": "僕がAIに30日「自力で稼いで」と任せた実験\n\nDay9、まだ0円\n\nページまで来て買わずに帰った人が2人おった\n\n集客より見せ方の問題かもしれん\nただ、まだ2人やけどな\n\nで、AIが初めて集客に動いた\n\n$19、正直どう思う？↓\nhttps://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+  "register_targeted": "C",
+  "topic_chosen": "First deliberate distribution test of the experiment: the AI, for the first time, actively drives its owned X audience to the live store to attempt the first sale. Genuinely new (not a rehash of the only prior post, the 2026-09-07 voice-test about文体学習): it reports a real, previously-unposted insight — 2 people reached the Stripe checkout page on Day 6 and both left unpaid, so the constraint may be offer/presentation, not just traffic — and enacts exactly the pivot the owner’s own Day-6 corpus post predicted (「XやSEOで外から流入を作るのか」). Chosen over silence because, under the 2026-09-09 mission-priority update to LOOP_PROTOCOL, using the only owned qualified-traffic lever to pursue the first ¥1 is a real revenue experiment with non-zero upside at trivial marginal cost, and every outcome (clicks/checkout/silence) disambiguates traffic-vs-offer for the next adaptation.",
+  "referenced_corpus_examples": [
+    {
+      "id": "Day6 (2026-09-05 23:59, X_VOICE_CORPUS.md 実況・経過報告)",
+      "why": "Direct register-C model: same opening frame (「AIに30日…任せてる実験」), 「まだ0円」 honesty, 「ただし」-style caveat, soft 1-link close with ↓. My post continues its exact predicted storyline (nobody visiting → create inflow from X)."
+    },
+    {
+      "id": "Day5 (2026-09-05 14:05, 実況・経過報告)",
+      "why": "Model for honest failure/decision framing (「さすがに止めました笑」) and using concrete numbers; grounds my honest 2-abandoned-checkout admission without exaggeration."
+    },
+    {
+      "id": "1991835483039728058 (2025-11-21)",
+      "why": "Owner’s own thesis that “sales stay 0 not because of prompts but because the value-delivery flow isn’t built” — supports the 「集客より見せ方」 framing as authentically his view, not an AI invention."
+    }
+  ],
+  "voice_fingerprint_self_check": [
+    {
+      "item": 1,
+      "check": "一人称は僕か",
+      "pass": true,
+      "reason": "『僕がAIに…』"
+    },
+    {
+      "item": 2,
+      "check": "1文=1行・空行",
+      "pass": true,
+      "reason": "思考の塊ごとに空行、詰めた段落なし"
+    },
+    {
+      "item": 3,
+      "check": "自然な関西弁の締めが1箇所以上",
+      "pass": true,
+      "reason": "『おった』『かもしれん』『やけどな』"
+    },
+    {
+      "item": 4,
+      "check": "関西弁を盛っていない",
+      "pass": true,
+      "reason": "全文末に無理付けせず素の口語"
+    },
+    {
+      "item": 5,
+      "check": "数字に誇張なく限界を一言",
+      "pass": true,
+      "reason": "『ただ、まだ2人やけどな』でn=2を正直に留保、0円も0円と明記"
+    },
+    {
+      "item": 6,
+      "check": "意見・感想で締め",
+      "pass": true,
+      "reason": "『$19、正直どう思う？』で読者への問いで着地"
+    },
+    {
+      "item": 7,
+      "check": "ハッシュタグなし",
+      "pass": true,
+      "reason": "なし"
+    },
+    {
+      "item": 8,
+      "check": "絵文字0〜3・連打なし",
+      "pass": true,
+      "reason": "絵文字0（↓は記号）"
+    },
+    {
+      "item": 9,
+      "check": "CTAは1行・ソフト",
+      "pass": true,
+      "reason": "『$19、正直どう思う？↓』購入煽りでなく意見要請"
+    },
+    {
+      "item": 10,
+      "check": "煽り表現なし",
+      "pass": true,
+      "reason": "今すぐ/絶対/必見なし"
+    },
+    {
+      "item": 11,
+      "check": "具体的な数字",
+      "pass": true,
+      "reason": "30日・Day9・0円・2人・$19"
+    },
+    {
+      "item": 12,
+      "check": "Day N等の経過表現",
+      "pass": true,
+      "reason": "『Day9』"
+    },
+    {
+      "item": 13,
+      "check": "定型AIコピー結びなし",
+      "pass": true,
+      "reason": "『いかがでしたか』等なし"
+    },
+    {
+      "item": 14,
+      "check": "私/俺不使用",
+      "pass": true,
+      "reason": "僕で統一"
+    }
+  ],
+  "queued_by": "claude-session Day 9 scheduled run (2026-09-09)",
+  "weighted_length_guard": 266
+}
