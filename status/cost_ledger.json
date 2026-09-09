@@ -319,11 +319,20 @@
       "currency": "usd",
       "jpy_equivalent": 105,
       "note": "Day 9 scheduled run (estimated): processed owner mission-priority protocol update (dac1bb7), re-diagnosed offer/audience/traffic mismatch, and executed the experiment’s first deliberate distribution test (register-C X post driving owned audience to the store, voice-fingerprint self-checked). Active adaptation, not a hold."
+    },
+    {
+      "date": "2026-09-09",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "note": "Day 9 scheduled 20:07 JST fire (estimated), distinct from this morning's off-cycle strategy-pivot session. Observed the first distribution test in flight (~9h old, tweet 2097502803740516784): 0 completed sales; Stripe MCP unavailable + no store analytics, so primary test signals (traffic/clicks/checkout) not cheaply observable this run. Verified the broadcast store link is sound (BUY_URL -> live Stripe payment link) as the one cheap non-confounding check. Compared hold vs alternatives; deferred the test readout to the natural ~24h Day-10 checkpoint (cheapest, most-informative). No confounding store/offer edit, no 2nd X post."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4353
+    "official_cost_jpy_equivalent": 4398
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

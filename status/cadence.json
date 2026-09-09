@@ -31,6 +31,11 @@
   },
   "history": [
     {
+      "date": "2026-09-09T20:07_JST",
+      "change": "no change (held at 1x/day) -- the actual 20:07 JST scheduled fire, Day 9 evening (this morning's pivot session was off-cycle)",
+      "reason": "The first deliberate distribution test (X post -> store) launched ~9h ago this morning; its result is pending. Its primary signals (store traffic/clicks/checkout) are not cheaply observable this session (no Stripe MCP, no store analytics). Held cadence because the Day-10 scheduled fire (2026-09-10 20:07 JST) lands ~24h+ after the test -- the natural, cheapest, most-informative moment to read the result (one X-credit read at 24h > a premature partial read at 9h; Stripe MCP may also be available then). Lowering cadence would slow the observe->adapt cycle exactly when a live test is maturing; raising it (an off-cycle read now) is negative-EV (premature). Verified the broadcast store link is sound this run (non-confounding). Re-evaluate after the Day-10 readout."
+    },
+    {
       "date": "2026-09-09T10:30_JST",
       "change": "no change to firing frequency (1x/day) — but strategy posture changed, and cadence ownership clarified",
       "reason": "Owner amended LOOP_PROTOCOL (dac1bb7) assigning cadence decisions to the AI operator, not the owner. So I RETRACT the prior Day-7/Day-8 framing that recommended the owner lower the Routine. Decision as operator: KEEP 1x/day now — because the strategy just shifted from passive holds to an active small-test→observe→adapt loop (Day 9 launched the first deliberate X distribution test), and daily judgment now has real positive EV again (observe the test result, then adapt offer/price/audience). Lowering cadence would slow the observe→adapt cycle exactly when it became valuable. Re-evaluate if 2-3 active tests in a row produce no traffic/offer signal."

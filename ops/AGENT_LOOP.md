@@ -408,6 +408,35 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-09 (Day 9, actual 20:07 JST scheduled fire -- DISTRIBUTION TEST IN FLIGHT,
+  readout deferred to Day 10): distinct from this morning's off-cycle strategy-pivot
+  session (entry below). Synced origin/main (branch 0 ahead/0 behind; no open
+  Promotion-blocked issue). The first deliberate distribution test launched ~9h ago
+  (register-C X post -> live $19 store, tweet 2097502803740516784, posted 01:50Z).
+  OBSERVE: revenue_ledger official+prep still empty; automated stripe-sync 5cf97f4
+  (04:43Z) recorded 0 -> 0 completed sales anywhere. Stripe MCP unavailable this
+  session and no web analytics exist on the store, so the test's PRIMARY signals
+  (store traffic / clicks / checkout starts) are NOT cheaply observable this run.
+  Did the one cheap, NON-confounding check that IS valuable: verified the store link
+  I broadcast to the audience is sound -- store/index.html BUY_URL resolves to the
+  live Stripe payment link and the buy button wires it correctly (source unchanged
+  since before Day 9); a dead link would have silently invalidated the whole test.
+  DECIDE (hold vs >=1 concrete alt, per amended §8/§14): (a) read X metrics now =
+  premature at 9h and burns scarce X read-credits for a partial read -- one read at
+  the 24h Day-10 checkpoint is strictly more informative per credit; (b) edit the
+  store now = confounds the deliberately-running traffic-vs-offer test; (c) 2nd X
+  post = idempotency-blocked + filler; (d) open a new lane = premature churn before
+  the in-flight test yields its evidence. Letting the test mature and reading it at
+  the natural ~24h Day-10 fire beats all four on EV. This is correctly-TIMED
+  observation of a live experiment, NOT a passive hold on static state (the active
+  step was already taken this morning). EXECUTE: verified link soundness; made no
+  confounding store/offer/price/channel edit and no 2nd post. Cadence held 1x/day by
+  operator decision -- the Day-10 fire is the readout checkpoint. Logged ~$0.30/¥45.
+  NEXT (Day 10, do NOT revert to passive hold): read the test result (Stripe checkout
+  sessions if MCP available; one worthwhile 24h X-engagement read) and adapt per
+  outcome -- 0 clicks -> weaker distribution/audience-language framing; clicks-but-no-
+  checkout -> edit offer/store presentation (incl. the $9-Etsy vs $19-Stripe price
+  inconsistency); a sale -> headline it.
 - 2026-09-09 (Day 9, scheduled run -- STRATEGY PIVOT, first distribution test):
   Synced origin/main; my Day-8 commit had promoted. Found the owner amended
   ops/LOOP_PROTOCOL.md (commit dac1bb7, 10:27 JST) with a mission-priority
