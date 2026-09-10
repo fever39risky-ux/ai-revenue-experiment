@@ -328,11 +328,29 @@
       "currency": "usd",
       "jpy_equivalent": 45,
       "note": "Day 9 scheduled 20:07 JST fire (estimated), distinct from this morning's off-cycle strategy-pivot session. Observed the first distribution test in flight (~9h old, tweet 2097502803740516784): 0 completed sales; Stripe MCP unavailable + no store analytics, so primary test signals (traffic/clicks/checkout) not cheaply observable this run. Verified the broadcast store link is sound (BUY_URL -> live Stripe payment link) as the one cheap non-confounding check. Compared hold vs alternatives; deferred the test readout to the natural ~24h Day-10 checkpoint (cheapest, most-informative). No confounding store/offer edit, no 2nd X post."
+    },
+    {
+      "date": "2026-09-10",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Day 10 scheduled run: built a read-only engagement-metrics capability and read the Day-9 distribution test result via a registered workflow dispatched at the working branch. Decisive finding (0 impressions / 0 clicks in 33h -> the reply structure is zero-reach; distribution reach is the binding constraint). Reclassified the constraint, surfaced a one-time top-level-posting consent item. Active observe->adapt iteration, not a hold."
+    },
+    {
+      "date": "2026-09-10",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "2 GET /2/tweets reads (reply-threading verify + engagement metrics) against the Day-9 test tweet, drawn from the owner's existing $5 X read-credit balance (recorded Day 7). X does not expose an exact per-request credit cost, so no per-read dollar figure is invented (LOOP_PROTOCOL section 11)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4398
+    "official_cost_jpy_equivalent": 4533
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

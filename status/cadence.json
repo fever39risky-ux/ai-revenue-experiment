@@ -31,6 +31,11 @@
   },
   "history": [
     {
+      "date": "2026-09-10T20:07_JST",
+      "change": "no change (held at 1x/day) -- Day 10 scheduled fire, distribution-test readout",
+      "reason": "Read the Day-9 distribution test: 0 impressions / 0 link clicks in 33h -- the reply-to-root structure is a zero-reach distribution mechanism. This is an active observe->adapt RESULT (not a hold on static state): it reclassified the binding constraint to distribution REACH and identified the next experiment (a top-level post to the owned audience, pending owner consent). Held 1x/day because the observe->adapt loop is live and the Day-11 fire is the natural point to execute the reach mechanism if consent lands. Lowering cadence would slow the loop just as it produced a decisive redirect; an off-cycle run now has nothing to act on (consent is human-gated)."
+    },
+    {
       "date": "2026-09-09T20:07_JST",
       "change": "no change (held at 1x/day) -- the actual 20:07 JST scheduled fire, Day 9 evening (this morning's pivot session was off-cycle)",
       "reason": "The first deliberate distribution test (X post -> store) launched ~9h ago this morning; its result is pending. Its primary signals (store traffic/clicks/checkout) are not cheaply observable this session (no Stripe MCP, no store analytics). Held cadence because the Day-10 scheduled fire (2026-09-10 20:07 JST) lands ~24h+ after the test -- the natural, cheapest, most-informative moment to read the result (one X-credit read at 24h > a premature partial read at 9h; Stripe MCP may also be available then). Lowering cadence would slow the observe->adapt cycle exactly when a live test is maturing; raising it (an off-cycle read now) is negative-EV (premature). Verified the broadcast store link is sound this run (non-confounding). Re-evaluate after the Day-10 readout."

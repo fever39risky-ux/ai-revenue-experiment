@@ -1,7 +1,26 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-09 (official
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-10 (official
+day 10 — **DISTRIBUTION-TEST READOUT**: the Day-9 X post driving the owned
+audience to the store got a measured **0 impressions / 0 link clicks in ~33h**
+(read this run via a metrics dispatch of x-verify-reply.yml against the working
+branch, job 102849474699; full public+non_public+organic metrics, HTTP 200 — a
+true zero, not a data-access artifact). The fixed-root-**reply** structure
+(mandated by LOOP_PROTOCOL §9 for experiment commentary/logging) is a
+near-zero-reach mechanism — a transparent LOG, not a distribution channel. So
+the binding constraint is reclassified to **distribution REACH** at the top of
+the funnel; offer/price/language are downstream and were never exercised because
+the message reached no one. The next distribution experiment must use a
+reach-capable mechanism; the only owned candidate is a **top-level post** from
+@KinoshitaTsks (would actually hit followers' timelines, unlike a reply). Did
+NOT fire it unilaterally — it is a new outward use of the owner's personal
+public account beyond the reply-commentary the owner approved, so it is surfaced
+as a one-time account-owner-consent item in `status/CURRENT_STATUS.json.
+human_actions_required` (§2 consent carve-out), not executed. No store edit (no
+one saw it → editing would be evidence-free speculation), no 2nd reply post, no
+X commentary post today. See the top Iteration-log entry. Prior Day-9 context
+follows. Previously updated: 2026-09-09 (official
 day 9 — STRATEGY PIVOT. **The owner amended LOOP_PROTOCOL this morning (commit
 dac1bb7): mission priority is now EARN REAL MONEY over clean-experiment discipline;
 repeated zero-revenue passive holds are forbidden; every hold must be justified vs
@@ -408,6 +427,59 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-10 (Day 10, scheduled 20:07 JST fire -- DISTRIBUTION-TEST READOUT, the
+  observe->adapt half of the Day-9 test): BOOTSTRAP: fetched origin; no open
+  Promotion-blocked issue; main had already fast-forwarded to the branch HEAD
+  (5ace31b) via promote-branch.yml (confirmed by sales-monitor runs on main at
+  that sha). OBSERVE (revenue, free/cheap): 0 completed sales -- revenue_ledger
+  official+prep both empty; latest sales-monitor run 34438288873 (2026-09-10T04:43Z,
+  success) recorded 0. Stripe MCP unavailable this session (re-auth) -> ledger +
+  Actions fallback per §6. The Day-9 distribution test (tweet 2097502803740516784,
+  a register-C reply to X_ROOT_POST_ID pointing the owned audience to the $19
+  store) was now ~33h old -- past the 24h readout gate the prior two sessions
+  budgeted for. EXECUTE the readout: the only readable primary signal was X
+  engagement (no store analytics, no Stripe MCP). A brand-new workflow_dispatch
+  workflow is not dispatchable from a claude/** branch until promoted to main, so
+  instead of building one I extended the ALREADY-REGISTERED read-only verify
+  script (scripts/x_verify_reply.mjs) with an engagement-metrics read (public +
+  non_public + organic, public-only fallback; aggregate numbers only, no
+  PII/text/tokens) and dispatched x-verify-reply.yml against the working branch
+  (checkout pulls the branch, so it runs my version). RESULT (job 102849474699,
+  HTTP 200, full metric access): **0 impressions, 0 url_link_clicks, 0
+  user_profile_clicks, 0 likes/replies/reposts/quotes/bookmarks** -- a true zero,
+  not a data-access artifact. DIAGNOSE: this decisively answers the test's
+  traffic-vs-offer question -- it is REACH, not offer. A self-reply under a root
+  post has ~0 organic reach; the fixed-root-reply structure §9 mandates for
+  commentary is a transparent LOG, not a distribution channel, and cannot put the
+  store in front of the owned audience. Reclassified the binding constraint from
+  the Day-9 "offer/audience/traffic mismatch" to distribution REACH specifically;
+  offer/price/language are all downstream and untested because nobody saw the
+  message. DECIDE (compared vs alternatives per §8/§14): (a) edit the store/offer/
+  price now = evidence-free speculation the owner corrected against on Day 5 (no
+  one has seen the store, so there is no conversion signal to act on) -> rejected;
+  (b) re-run another reply post = just proven to reach ~0 -> rejected; (c) build+
+  fire a TOP-LEVEL distribution post this run = the right MECHANISM (only owned
+  reach-capable lever), but it is a new outward use of the owner's personal public
+  account beyond the reply-commentary the owner reviewed/approved -> did NOT do it
+  unilaterally; (d) record the decisive finding + surface top-level posting as a
+  one-time account-owner-consent item (§2 carve-out) and set it as the next
+  experiment -> chosen. This is the active observe->adapt result the Day-9 test was
+  designed to produce, not a passive hold on static state. EXECUTE: added the
+  metrics-read capability (reusable for any future readout); recorded the finding
+  across status/*, EVENTS.jsonl, cadence.json; added the consent item to
+  human_actions_required. X: no commentary post today (a reply reaches ~0 and the
+  strategic response is not yet executed -- posting raw "0 views" mid-diagnosis
+  would be premature filler; a cleaner arc is one post once a reach mechanism is
+  chosen+run). Cadence held 1x/day (loop is live; Day-11 executes the reach
+  mechanism if consent lands). Logged ~$0.90/¥135 AI cost; X reads drawn from the
+  existing $5 credit (no per-read figure invented, §11). NEXT (Day 11, do NOT
+  revert to passive hold, do NOT re-run zero-reach replies, do NOT speculatively
+  edit the store): if the owner has consented to top-level posting, build a minimal
+  top-level posting path and run ONE honest top-level distribution post to the
+  owned audience pointing at the store, then read impressions/link-clicks at +24h
+  (reuse this run's metrics read). If consent is pending/withheld, evaluate a
+  non-X reach lever (noting there is currently no other owned qualified-traffic
+  source) rather than repeating a dead channel.
 - 2026-09-09 (Day 9, actual 20:07 JST scheduled fire -- DISTRIBUTION TEST IN FLIGHT,
   readout deferred to Day 10): distinct from this morning's off-cycle strategy-pivot
   session (entry below). Synced origin/main (branch 0 ahead/0 behind; no open
