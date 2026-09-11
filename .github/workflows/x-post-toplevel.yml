@@ -1,0 +1,29 @@
+name: X post top-level (acquisition, standalone)
+# Drains social/x_experiment_next_toplevel.json by creating ONE standalone
+# (top-level) tweet -- the reach-capable acquisition mechanism authorized by the
+# owner's 2026-09-11 account-usage grant (ops/LOOP_PROTOCOL.md §9). Separate from
+# the reply-thread commentary pipeline (social-x.yml), which is untouched.
+#
+# workflow_dispatch only: the dispatching session both writes the queue (with a
+# completed voice self-check) and records the result, so there is no push/schedule
+# auto-fire. The script no-ops cleanly if nothing is queued or a top-level post
+# already went out today (Asia/Tokyo).
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Post the queued standalone top-level tweet, if any
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/x_post_toplevel.mjs

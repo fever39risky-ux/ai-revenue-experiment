@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-11",
+  "post_type": "top_level",
+  "text": "僕がAIに30日「自力で稼いで」と任せた実験\n\nDay11、まだ0円\n\nDay9にAIが初めて集客した投稿、\nインプレッションが0やった笑\n\n固定ポストへの返信やったから、\n誰にも届いてなかったんよね\n\nこれがAIの初の表向きの投稿\n\n$19、どう思う？↓\nhttps://fever39risky-ux.github.io/ai-revenue-experiment/store/\n\nただ、これも届かんかも",
+  "register_targeted": "C",
+  "topic_chosen": "Day-11 top-level ACQUISITION test (first standalone post, owner-granted 2026-09-11). One honest Register-C story: the AI's first outreach (Day-9) reached a measured 0 impressions because it was a reply, so this is the AI's first real top-level attempt to actually reach people, with a soft pointer to the live $19 store. Chosen over silence because reach is the proven binding constraint and this post IS the reach test the grant exists to run; genuinely new vs the Day-9 reply (which reported the abandoned-checkout insight and was itself a zero-reach reply -- this reports the newly-measured 0-impression RESULT and moves to top-level). Not a rehash and not a pure product ad: the store link is a soft endpoint to an honest failure/experiment story.",
+  "referenced_corpus_examples": [
+    {
+      "ref": "announcement 2026-08-25 (experiment framing + label + URL)",
+      "why": "model for the experiment-framing opening and the soft label+URL endpoint the owner uses for experiment posts"
+    },
+    {
+      "ref": "Day6 2026-09-05 (AIに30日『自力で稼いでみて』と任せてる実験 / でも売上はまだ0円 / 実験の進捗はこちら👇 URL)",
+      "why": "closest register-C structural model: experiment framing -> honest まだ0円 -> single soft link, zero hard sell"
+    },
+    {
+      "ref": "Day5 2026-09-05 (開始5日目にして大きめの問題が発覚しました笑 ... さすがに止めました笑)",
+      "why": "model for honest, self-deprecating failure reporting with 笑 -- matches this post's 0-impression admission"
+    },
+    {
+      "ref": "own Day-9 reply tweet 2097502803740516784 (僕がAIに30日『自力で稼いで』と任せた実験 / Day9、まだ0円 / $19、正直どう思う？↓ URL)",
+      "why": "direct precedent this post evolves from: reuses the exact 僕がAIに30日『自力で稼いで』と任せた実験 opening and the soft $19 question, but moved from a zero-reach reply to a top-level post"
+    }
+  ],
+  "voice_fingerprint_self_check": [
+    {
+      "item": 1,
+      "check": "一人称は僕か",
+      "pass": true,
+      "reason": "冒頭『僕がAIに30日…』で僕を使用。私/俺はなし"
+    },
+    {
+      "item": 2,
+      "check": "1文=1行、思考の塊ごとに空行",
+      "pass": true,
+      "reason": "全行1文・思考の塊ごとに空行。詰めた段落なし"
+    },
+    {
+      "item": 3,
+      "check": "自然な関西弁の締めが最低1箇所",
+      "pass": true,
+      "reason": "『届いてなかったんよね』『やった』『やったから』『届かんかも』など複数"
+    },
+    {
+      "item": 4,
+      "check": "関西弁を盛っていないか",
+      "pass": true,
+      "reason": "全文末への無理な付与なし。素の話し言葉の範囲"
+    },
+    {
+      "item": 5,
+      "check": "誇張せず限界・不確実性を一言添える",
+      "pass": true,
+      "reason": "末尾『ただ、これも届かんかも』で本投稿自体の不確実性を正直に。売上は『まだ0円』と正直"
+    },
+    {
+      "item": 6,
+      "check": "意見・感想で締めているか",
+      "pass": true,
+      "reason": "事実の垂れ流しでなく、『届ける』でつまずいたという解釈と末尾の自問的な締め"
+    },
+    {
+      "item": 7,
+      "check": "ハッシュタグなしか",
+      "pass": true,
+      "reason": "ハッシュタグは一切なし"
+    },
+    {
+      "item": 8,
+      "check": "絵文字は0〜3個、装飾連打なし",
+      "pass": true,
+      "reason": "絵文字は使用せず0個。『笑』と『↓』のみ"
+    },
+    {
+      "item": 9,
+      "check": "CTAは1行・ソフトか",
+      "pass": true,
+      "reason": "『$19、どう思う？↓』+URLのソフトな意見求め。購入を煽らない"
+    },
+    {
+      "item": 10,
+      "check": "今すぐ・絶対に等の煽りなし",
+      "pass": true,
+      "reason": "煽り営業文句は一切なし"
+    },
+    {
+      "item": 11,
+      "check": "具体的な数字を使用",
+      "pass": true,
+      "reason": "30日、Day11、0円、Day9、インプレッション0、$19 — すべて実データ"
+    },
+    {
+      "item": 12,
+      "check": "実験投稿ならDay N など経過表現",
+      "pass": true,
+      "reason": "Day11・Day9 を使用"
+    },
+    {
+      "item": 13,
+      "check": "定型AIコピー結びなし",
+      "pass": true,
+      "reason": "『いかがでしたか』等の定型結びなし。自問的な締め"
+    },
+    {
+      "item": 14,
+      "check": "私・俺になっていないか",
+      "pass": true,
+      "reason": "僕で統一。私/俺はなし"
+    }
+  ],
+  "factual_grounding": {
+    "official_day": 11,
+    "revenue_jpy": 0,
+    "day9_reply_tweet": "2097502803740516784",
+    "day9_measured_impressions": 0,
+    "store_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+    "store_price_usd": 19,
+    "note": "All numbers real: Day 11 official, revenue Y0 (empty ledger + sales-monitor run 34438288873), Day-9 reply measured 0 impressions (job 102849474699 on Day 10), store price $19 (live Stripe payment link)."
+  }
+}
