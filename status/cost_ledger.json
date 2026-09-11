@@ -373,11 +373,20 @@
       "currency": "usd",
       "jpy_equivalent": 120,
       "note": "10-day mid-point business review (owner-requested, separate from daily Routine): read canon + state from main, pulled fresh sales evidence, produced reports/MIDPOINT_REVIEW_2026-09-11.md (10-section diagnosis + strategy redesign), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; no new strategy executed."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Owner-requested product review: extracted the delivered ZIP, decoded the PDF (Type0/ToUnicode) and read all 6 files + listing configs + cover image, produced reports/PRODUCT_REVIEW_2026-09-11.md (10-section audit), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; product not changed."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4833
+    "official_cost_jpy_equivalent": 4968
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

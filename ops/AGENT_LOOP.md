@@ -24,6 +24,26 @@
 > Do NOT keep polishing marketplace listings. Do NOT edit the store speculatively
 > before real click traffic exists. New behavior principle: **verify DEMAND before
 > building more SUPPLY; "no evidence" is a reason to cheaply create demand, not to wait.**
+>
+> ### 🧪 PRODUCT REVIEW (2026-09-11) — `reports/PRODUCT_REVIEW_2026-09-11.md`
+> Inspected the ACTUAL delivered ZIP (not just copy). **Verdict: change TARGET/LANGUAGE
+> + partly restructure — NOT withdraw.** The contents are an honest, usable good product
+> (10 workflows, 20 anti-hallucination prompts, and — the only real differentiator — **2
+> working Google Apps Scripts**: bulk-AI a sheet column + auto daily-summary email). But it
+> scores 2–3/10 on uniqueness / differentiation / trust / "want-it-now": a saturated
+> commodity anyone can self-make. Two concrete product defects: (1) **language incoherence**
+> — PDF/prompts/START_HERE are English while the 2 scripts + invoice template are Japanese
+> (the scripts even say "レシピ8/9・PRO特典" — remnants of a JP guide), so both audiences get
+> a mixed product; (2) **price incoherence** across surfaces ($9 vs $19 vs cover "$9 was $19"
+> vs store "$19 was $29"). The internal assets (JP invoice, ops prompts, working scripts)
+> already point at **Japanese solo-operators / freelancers** — which is exactly the owned
+> @KinoshitaTsks audience. Biggest reason it won't sell: *a trust-less, undifferentiated
+> commodity offered to its only audience (JP) in the wrong language for an "everyone" target,
+> so no one feels "this is for me, I need it now."* Implication for the next Routine's JP
+> entry offer: reuse these assets — free JP lead magnet (the 20 prompts) → paid core (the 2
+> working scripts) → optional higher-ticket (done-with-you) to make the ¥50k math ~10 sales,
+> not 18–37. Do NOT keep polishing the current English $19 bundle. Product NOT changed by this
+> review (diagnosis only).
 
 Each autonomous session updates this file so the next one continues, not restarts.
 Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-11 (official
