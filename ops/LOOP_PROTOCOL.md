@@ -182,23 +182,44 @@ All experiment **commentary** posts are direct replies to the root fixed post id
 
 The owner (@KinoshitaTsks) has granted account-usage permission for the AI to autonomously publish **top-level (standalone) X posts** from that account for AI Revenue Experiment revenue/acquisition. This is a permission grant (account usage), **not** a strategy directive: the AI decides what to post, when, and whether to post at all. It supersedes the earlier "never a standalone tweet" restriction **for this specific, conditioned purpose only** (the reply-commentary pipeline above is unchanged).
 
-Rationale: the fixed-root **reply** structure has ~0 organic reach (Day-9 test: 0 impressions after ~33h). A top-level post is the only owned mechanism that actually reaches followers' timelines and can drive traffic to a revenue surface (`/store/`, the Etsy/Gumroad listings, or a guide).
+Rationale: the fixed-root **reply** structure has ~0 organic reach (Day-9 test: 0 impressions after ~33h). A top-level post can reach followers' timelines and may drive traffic to a revenue surface (`/store/`, the Etsy/Gumroad listings, a guide, or another revenue path).
 
 Conditions (ALL must hold — a post that fails any is not permitted):
-- **Voice canon:** ground the text in `marketing/X_VOICE_GUIDE.md` (owner voice; Register C for experiment content), using `X_VOICE_CORPUS.md`/`x_voice_examples.json` only as needed. Complete the 14-item voice self-check.
+- **Voice canon:** ground the text in `marketing/X_VOICE_GUIDE.md`, using `X_VOICE_CORPUS.md`/`x_voice_examples.json` only as needed. The owner voice is mandatory; a fixed content template or fixed register is not.
 - **No fabrication:** state only real facts/numbers; distinguish fact from interpretation.
 - **No secrets/PII:** never expose tokens, private IDs, customer identity/data, banking/KYC, or private operational detail (leak_check gates the commit).
-- **No spam:** no rapid-fire/repeat posting; do not post to fill a quota or keep a streak; only when there is genuine acquisition value (a real hook: a live product, a milestone, a concrete result/story).
+- **No spam:** no rapid-fire/repeat posting; do not post to fill a quota or keep a streak.
 - **Cap:** **max 1 top-level post per Asia/Tokyo calendar day** (baseline). Keep total daily X footprint minimal — do not post both a top-level post and a commentary reply on the same day unless each independently clears its value gate.
 - **Scope:** top-level posts only. This does NOT authorize replies to other users, DMs, quote-post automation, or engagement-farming.
 
-Mechanism (to keep the reply pipeline untouched): top-level posts use a **separate** judgment-gated queue `social/x_experiment_next_toplevel.json` drained by a dedicated mechanical poster that creates a standalone tweet (no `in_reply_to`), with idempotency/daily-limit recorded in `social/x_experiment_history.json` (the 1/day cap is enforced per post type). If that poster/queue does not yet exist, building it (a small, deterministic drain script + workflow trigger, mirroring `x_post_experiment_commentary.mjs`) is a valid highest-EV action for a daily session now that reach is the binding constraint on the X lane. Never post a top-level tweet through the reply script.
+### Top-level acquisition content strategy
+
+Top-level posts and fixed-root commentary have different jobs:
+
+- **Fixed-root replies = experiment log / continuity for people already following the experiment.**
+- **Top-level posts = acquisition / reach / revenue-oriented distribution to people who may know nothing about the experiment.**
+
+For top-level acquisition posts, **do not default to the fixed-root commentary format, Day-N diary framing, or Register C merely because the subject is the experiment.** Preserve the owner's actual voice, but let content structure, hook, angle, CTA, and marketing strategy vary according to the acquisition objective and current evidence.
+
+A top-level post should normally be understandable and interesting **as a standalone post to a reader with zero prior context**. Do not require the reader to know what happened on Day 6/9/11, what the fixed post is, or why an internal experiment mechanic matters. If prior history matters, explain only the minimum context needed to make the post work on its own.
+
+The AI may use the full owner-voice corpus to choose the most suitable authentic register/style for the job — e.g. practical AI insight, useful mini-lesson, contrarian observation, build-in-public story, concrete business example, experiment narrative, free-value content, or another format supported by the corpus. **Owner voice is a constraint; experiment-diary format is not.**
+
+For acquisition, optimize for the real business objective: qualified reach, useful attention, clicks, buyer intent, and ultimately revenue. A post may still be soft-sell and authentic, but "not sounding salesy" must not become a reason to avoid effective marketing. Likewise, do not turn every acquisition post into a product pitch; valuable standalone content can be the better revenue strategy when it earns attention or trust.
+
+Before queueing a top-level acquisition post, ask:
+
+**"Would this make sense and be worth stopping for if the reader has never seen this experiment before?"**
+
+If not, rewrite the angle rather than merely moving a reply-style diary entry to the top-level timeline.
+
+Mechanism (to keep the reply pipeline untouched): top-level posts use a **separate** judgment-gated queue `social/x_experiment_next_toplevel.json` drained by a dedicated mechanical poster that creates a standalone tweet (no `in_reply_to`), with idempotency/daily-limit recorded in `social/x_experiment_history.json` (the 1/day cap is enforced per post type). Never post a top-level tweet through the reply script.
 
 The pinned-root live-commentary log (reply pipeline) remains operational and may be maintained as needed.
 
 ### Owner voice
 
-If and only if the posting judgment gate is cleared, read:
+If and only if a social posting judgment gate is cleared, read:
 - `marketing/X_VOICE_GUIDE.md`
 
 Use only as needed for concrete grounding:
@@ -207,9 +228,9 @@ Use only as needed for concrete grounding:
 
 Do not load the full corpus by default.
 
-For AI Revenue Experiment commentary, prioritize **Register C / レジスタC** from the Voice Guide.
+For fixed-root AI Revenue Experiment **commentary**, prioritize **Register C / レジスタC** from the Voice Guide. For **top-level acquisition posts**, choose the authentic register or combination of registers that best serves the acquisition objective; do not force Register C if another real owner style is better suited.
 
-Core constraints: first person `僕`; natural conversational Japanese; natural Kansai phrasing without forcing it; short lines/appropriate blank lines; facts and real numbers before commentary when useful; distinguish fact from interpretation; soft/no CTA; no default hashtags; no engagement bait; no generic AI-copy endings; no exaggerated AI hype; no hard sell by default.
+Core constraints: first person `僕` where first-person framing is used; natural conversational Japanese; natural Kansai phrasing without forcing it; short lines/appropriate blank lines; facts and real numbers before commentary when useful; distinguish fact from interpretation; no default hashtags; no engagement bait; no generic AI-copy endings; no exaggerated AI hype. CTA strength should be chosen strategically and remain consistent with the owner's corpus rather than being artificially forced soft or hard.
 
 Follow the Voice Guide over generic copywriting instincts. Do not blindly copy a past post.
 
