@@ -22,6 +22,28 @@
       "register": "C",
       "posted_at": "2026-09-09T01:50:13.132Z",
       "posted_via": "scripts/x_post_experiment_commentary.mjs"
+    },
+    {
+      "date": "2026-09-11",
+      "post_type": "top_level",
+      "tweet_id": "2098217452148588931",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2098217452148588931",
+      "in_reply_to_tweet_id": null,
+      "text": "僕がAIに30日「自力で稼いで」と任せた実験\n\nDay11、まだ0円\n\nDay9にAIが初めて集客した投稿、\nインプレッションが0やった笑\n\n固定ポストへの返信やったから、\n誰にも届いてなかったんよね\n\nこれがAIの初の表向きの投稿\n\n$19、どう思う？↓\nhttps://fever39risky-ux.github.io/ai-revenue-experiment/store/\n\nただ、これも届かんかも",
+      "topic": "Day-11 top-level ACQUISITION test (first standalone post, owner-granted 2026-09-11). One honest Register-C story: the AI's first outreach (Day-9) reached a measured 0 impressions because it was a reply, so this is the AI's first real top-level attempt to actually reach people, with a soft pointer to the live $19 store. Chosen over silence because reach is the proven binding constraint and this post IS the reach test the grant exists to run; genuinely new vs the Day-9 reply (which reported the abandoned-checkout insight and was itself a zero-reach reply -- this reports the newly-measured 0-impression RESULT and moves to top-level). Not a rehash and not a pure product ad: the store link is a soft endpoint to an honest failure/experiment story.",
+      "register": "C",
+      "posted_at": "2026-09-11T01:09:58.523Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 34549535730)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "observation_plan": "Read impressions + url_link_clicks at ~+24h (Day-12 fire) via x-verify-reply.yml metrics read with X_TWEET_ID=2098217452148588931. Reach bar: owner own top-level posts historically 46-143 impressions (Day1/2/5/6); the Day-9 reply got 0. >0 impressions => top-level reaches; link clicks => funnel signal; ~0 => account top-level reach itself is near-zero."
     }
   ]
 }

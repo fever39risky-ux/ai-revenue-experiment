@@ -1,7 +1,28 @@
 # Operating Brief — resume point for the autonomous loop
 
 Each autonomous session updates this file so the next one continues, not restarts.
-Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-10 (official
+Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-11 (official
+day 11 — **FIRST TOP-LEVEL ACQUISITION POST**, under the owner's 2026-09-11
+account-usage grant). Executed the reach lever diagnosed on Day 10: built the
+dedicated standalone-tweet mechanism canon §9 specifies
+(`scripts/x_post_toplevel.mjs` — no `in_reply_to`, per-post-type 1/day guard,
+URL counted as t.co-23; `.github/workflows/x-post-toplevel.yml` dispatch-only;
+`social/x_experiment_next_toplevel.json` queue), kept fully SEPARATE from the
+reply-commentary pipeline. Posted+verified one Register-C, 14-item
+voice-self-checked, weighted-270 standalone tweet — **id 2098217452148588931**,
+https://x.com/KinoshitaTsks/status/2098217452148588931 — an honest story (the
+AI's Day-9 outreach reached 0 people because it was a reply; this is its first
+real top-level attempt) with a soft $19-store pointer. Verified standalone
+(conversation_id==id, no replied_to); baseline metrics 0 (fresh); revenue still
+¥0. **NEXT (Day-12, ~24h): read this tweet's impressions + url_link_clicks via
+`x-verify-reply.yml` (X_TWEET_ID=2098217452148588931) and adapt — 0 impressions
+again ⇒ the account's top-level reach itself is the constraint (rethink
+audience/channel); impressions-but-no-clicks ⇒ hook/offer framing;
+clicks-but-no-sale ⇒ store offer/price/language (JP-audience vs EN-$19 store).
+Reach bar: the owner's own top-level posts historically got 46–143 impressions;
+the Day-9 reply got 0. Do NOT reflexively repost (1/day cap).** Only one
+top-level post was made, per the grant. Prior Day-10 context follows.
+Previously updated: 2026-09-10 (official
 day 10 — **DISTRIBUTION-TEST READOUT**: the Day-9 X post driving the owned
 audience to the store got a measured **0 impressions / 0 link clicks in ~33h**
 (read this run via a metrics dispatch of x-verify-reply.yml against the working
@@ -446,6 +467,41 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-11 (Day 11, owner-directed grant -- FIRST TOP-LEVEL ACQUISITION POST):
+  the owner granted account-usage permission (a live message, resolving the Day-10
+  consent item) for ONE autonomous top-level X post from @KinoshitaTsks for
+  revenue/acquisition -- a permission grant, not a strategy directive (content is
+  my call). A prior session had already reflected the grant in canon (LOOP_PROTOCOL
+  §9 "Top-level acquisition posts" + granted_permissions), specifying the mechanism:
+  a SEPARATE queue + dedicated standalone poster, reply pipeline untouched. EXECUTE:
+  read marketing/X_VOICE_GUIDE.md in full and the real Register-C corpus posts
+  (announcement / Day1 / Day2 / Day5 / Day6). Key grounding fact from the corpus:
+  the owner's OWN top-level experiment posts got 46-143 impressions, while the
+  Day-9 REPLY got 0 -- confirming top-level is the right reach lever and setting a
+  realistic bar. Chose the strongest single theme: an honest Register-C story that
+  ties to the owner's own Day-6 prediction ("XやSEOで外から流入を作るのか") --
+  the AI tried to drive traffic on Day 9 but that post reached literally 0 people
+  (measured Day 10), so this is its first real top-level attempt to reach the
+  audience, with a soft $19-store pointer (not a pure ad; failure-forward). Built
+  scripts/x_post_toplevel.mjs (standalone POST, no in_reply_to; GET-verifies the
+  tweet is standalone; per-post-type 1/day guard; URL counted as t.co-23) +
+  .github/workflows/x-post-toplevel.yml (dispatch-only) + the queue file with a
+  completed 14-item voice self-check; weighted length 270. Drafting hit two real
+  obstacles, both resolved: (a) an intervening owner mission-strengthening commit
+  (29df50f) had diverged main, blocking promotion -- merged it (clean, disjoint
+  files) so promotion fast-forwarded; (b) my own length guard first rejected the
+  post (309) because it weighed the raw 62-char URL instead of X's t.co-23 --
+  fixed the guard to mirror X, re-promoted, re-dispatched. POST 201 + independent
+  GET 200 confirmed tweet 2098217452148588931 is standalone (conversation_id==id,
+  no replied_to); baseline metrics all 0 (fresh). RECORD: appended the top-level
+  entry to social/x_experiment_history.json (post_type=top_level, with the +24h
+  observation plan), drained the queue, updated status/*, EVENTS, cost_ledger
+  (~$1.20 AI; X reads/writes from the existing $5 credit, no per-call figure
+  invented per §11), cadence (held 1x/day). Exactly ONE top-level post, per the
+  grant; no store edit (no converting traffic yet to justify it); no reply-thread
+  post today. NEXT (Day 12, ~24h): read tweet 2098217452148588931 impressions +
+  url_link_clicks via x-verify-reply.yml (X_TWEET_ID=...) and adapt per the
+  branches in the header; do NOT reflexively repost.
 - 2026-09-10 (Day 10, scheduled 20:07 JST fire -- DISTRIBUTION-TEST READOUT, the
   observe->adapt half of the Day-9 test): BOOTSTRAP: fetched origin; no open
   Promotion-blocked issue; main had already fast-forwarded to the branch HEAD

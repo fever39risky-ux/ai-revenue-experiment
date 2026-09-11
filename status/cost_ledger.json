@@ -346,11 +346,29 @@
       "currency": "usd",
       "jpy_equivalent": 0,
       "note": "2 GET /2/tweets reads (reply-threading verify + engagement metrics) against the Day-9 test tweet, drawn from the owner's existing $5 X read-credit balance (recorded Day 7). X does not expose an exact per-request credit cost, so no per-read dollar figure is invented (LOOP_PROTOCOL section 11)."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.2,
+      "currency": "usd",
+      "jpy_equivalent": 180,
+      "note": "Day 11 (owner-granted top-level post): read voice guide + corpus, built the standalone top-level poster + workflow + queue (canon §9), drafted a Register-C 14-item-checked post, merged an intervening owner mission commit, fixed a URL length-guard bug, and posted+verified the first top-level acquisition tweet (id 2098217452148588931). Multiple promote/dispatch cycles."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "1 POST /2/tweets (the top-level post) + 1 GET /2/tweets verify, from the owner's existing $5 X credit. X exposes no exact per-request credit cost, so no per-call dollar figure invented (LOOP_PROTOCOL §11)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4533
+    "official_cost_jpy_equivalent": 4713
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
