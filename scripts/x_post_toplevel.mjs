@@ -72,8 +72,12 @@ for (const field of ['text', 'register_targeted', 'topic_chosen', 'referenced_co
 }
 
 function weightedLength(s) {
+  // X wraps every URL to a fixed t.co length (23) for counting, regardless of
+  // the URL's real length -- mirror that before weighting so the guard matches
+  // X's actual 280-weighted limit rather than over-counting long links.
+  const forCount = s.replace(/https?:\/\/\S+/g, 'x'.repeat(23));
   let w = 0;
-  for (const ch of s) {
+  for (const ch of forCount) {
     const cp = ch.codePointAt(0);
     w += (cp > 0x10FF && !(cp >= 0x2000 && cp <= 0x206F)) ? 2 : 1;
   }
