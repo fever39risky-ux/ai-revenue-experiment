@@ -18,7 +18,7 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-11T01:12:00.000Z",
+  "updated_at": "2026-09-11T02:00:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
@@ -161,9 +161,9 @@
   "current_action": "Read the owner's account-usage grant (already reflected in canon: LOOP_PROTOCOL §9 top-level subsection + granted_permissions). Read marketing/X_VOICE_GUIDE.md in full and the real Register-C corpus posts. Built scripts/x_post_toplevel.mjs (standalone tweet, no in_reply_to; per-post-type 1/day guard; URL counted as t.co-23) + .github/workflows/x-post-toplevel.yml (dispatch-only, separate from the reply pipeline) + social/x_experiment_next_toplevel.json (queued draft with a completed 14-item self-check). Merged the owner's concurrent mission-strengthening commit (29df50f) to unblock promotion, dispatched the poster, and confirmed the post is live and standalone.",
   "current_action_ja": "オーナーのアカウント利用許諾を確認（canonに反映済み：LOOP_PROTOCOL §9トップレベル節＋granted_permissions）。marketing/X_VOICE_GUIDE.md全文と実在のレジスタC投稿を精読。scripts/x_post_toplevel.mjs（単独投稿、in_reply_toなし、投稿種別ごとの1日1件ガード、URLはt.co-23で計数）＋.github/workflows/x-post-toplevel.yml（dispatch専用、リプライ系統と分離）＋social/x_experiment_next_toplevel.json（14項目セルフチェック済みの下書き）を構築。プロモーションを通すためオーナーの並行ミッション強化コミット（29df50f）をマージし、投稿を実行、単独投稿として稼働を確認。",
   "current_action_en": "Read the owner's account-usage grant (already reflected in canon: LOOP_PROTOCOL §9 top-level subsection + granted_permissions). Read marketing/X_VOICE_GUIDE.md in full and the real Register-C corpus posts. Built scripts/x_post_toplevel.mjs (standalone tweet, no in_reply_to; per-post-type 1/day guard; URL counted as t.co-23) + .github/workflows/x-post-toplevel.yml (dispatch-only, separate from the reply pipeline) + social/x_experiment_next_toplevel.json (queued draft with a completed 14-item self-check). Merged the owner's concurrent mission-strengthening commit (29df50f) to unblock promotion, dispatched the poster, and confirmed the post is live and standalone.",
-  "next_action": "(0) Day-12 fire (~24h after 2026-09-11T01:10Z): read tweet 2098217452148588931 metrics (impressions + url_link_clicks) via x-verify-reply.yml with X_TWEET_ID set, then adapt per the strategy branches above -- do NOT reflexively post again (1/day cap; only post if genuinely new value). (1) Keep watching all channels for the first completed sale (free Actions cron). (2) Do not edit the store speculatively before this post shows real click traffic.",
-  "next_action_ja": "(0) Day-12実行（2026-09-11T01:10Zの約24時間後）：x-verify-reply.ymlにX_TWEET_IDを設定して投稿 2098217452148588931 の指標（インプレッション＋リンククリック）を読み、上記の戦略分岐に沿って適応——反射的に再投稿しない（1日1件上限、真に新しい価値がある時のみ）。(1) 全チャネルで初売上完了を監視継続（無料Actions cron）。(2) この投稿が実クリックを示す前にストアを推測で編集しない。",
-  "next_action_en": "(0) Day-12 fire (~24h after 2026-09-11T01:10Z): read tweet 2098217452148588931 metrics (impressions + url_link_clicks) via x-verify-reply.yml with X_TWEET_ID set, then adapt per the strategy branches above -- do NOT reflexively post again (1/day cap; only post if genuinely new value). (1) Keep watching all channels for the first completed sale (free Actions cron). (2) Do not edit the store speculatively before this post shows real click traffic.",
+  "next_action": "[Set by the 10-day mid-point review 2026-09-11 -- next Routine executes] (1) Read Day-11 top-level post 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via x-verify-reply.yml -- the decisive pending datum for whether owned-audience top-level reach works. (2) Design ONE JP-audience-matched entry offer (free or Y500-1500) to replace the EN $19 commodity as the X landing target. (3) Design a cold-reader value-first X acquisition post (owner-voice, NOT experiment-diary; owner canon 4c40c22). Do NOT keep polishing Etsy/Gumroad (park them). Do NOT edit the store before real click traffic exists. Watch all channels for the first sale.",
+  "next_action_ja": "[2026-09-11の10日中間レビューで設定 -- 次Routineが実行] (1) Day-11トップレベル投稿 2098217452148588931 のリーチ（imp + url_link_clicks）を約+24hで x-verify-reply.yml により読む -- 所有オーディエンスのトップレベル到達が機能するかの決定的な未取得データ。(2) 英語$19コモディティに代わるXの着地先として、日本語オーディエンス適合の入口オファーを1本設計（無料 or Y500-1500）。(3) 冷たい読者に単体で価値のあるX集客投稿を設計（owner voice、実況日記ではない。owner canon 4c40c22）。Etsy/Gumroadの磨き込みはしない（park）。実クリック流入が出る前にストアを編集しない。全チャネルで初売上を監視。",
+  "next_action_en": "[Set by the 10-day mid-point review 2026-09-11 -- next Routine executes] (1) Read Day-11 top-level post 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via x-verify-reply.yml -- the decisive pending datum for whether owned-audience top-level reach works. (2) Design ONE JP-audience-matched entry offer (free or Y500-1500) to replace the EN $19 commodity as the X landing target. (3) Design a cold-reader value-first X acquisition post (owner-voice, NOT experiment-diary; owner canon 4c40c22). Do NOT keep polishing Etsy/Gumroad (park them). Do NOT edit the store before real click traffic exists. Watch all channels for the first sale.",
   "capability_requested": {
     "capability": "none pending",
     "note": "Etsy API v3 OAuth (5 secrets) completed 2026-09-05 -- see live_capabilities.entries for etsy_publish. No new capability grant is currently blocking a revenue-moving action."
@@ -171,8 +171,8 @@
   "latest_result": "Live standalone tweet 2098217452148588931 (https://x.com/KinoshitaTsks/status/2098217452148588931), verified via a 2nd GET (conversation_id == tweet id, no replied_to reference), baseline metrics all 0 (fresh). Topic: an honest Register-C story -- the AI's Day-9 outreach reached 0 people because it was a reply, so this is its first real top-level attempt to reach the audience, with a soft $19 store pointer. Not a pure ad; grounded in the announcement/Day6/Day5 corpus posts and the Day-9 reply precedent.",
   "latest_result_ja": "単独投稿 2098217452148588931（https://x.com/KinoshitaTsks/status/2098217452148588931）が稼働、2回目のGETで検証（conversation_id＝投稿id、replied_to参照なし）、初期指標は全て0（投稿直後）。テーマ：誠実なレジスタCの語り——AIのDay-9の集客はリプライだったため誰にも届かず、これが初のトップレベルでの到達挑戦、$19ストアへのソフトな誘導付き。単なる宣伝ではなく、告知/Day6/Day5のコーパス投稿とDay-9リプライの前例に基づく。",
   "latest_result_en": "Live standalone tweet 2098217452148588931 (https://x.com/KinoshitaTsks/status/2098217452148588931), verified via a 2nd GET (conversation_id == tweet id, no replied_to reference), baseline metrics all 0 (fresh). Topic: an honest Register-C story -- the AI's Day-9 outreach reached 0 people because it was a reply, so this is its first real top-level attempt to reach the audience, with a soft $19 store pointer. Not a pure ad; grounded in the announcement/Day6/Day5 corpus posts and the Day-9 reply precedent.",
-  "latest_strategy_decision": "Executed the reach lever identified Day 10, now unblocked by the owner's grant. Kept it minimal and reversible: exactly ONE top-level post (per grant + canon 1/day cap), separate mechanism so the reply-commentary pipeline is untouched, honest failure-forward framing (no hard sell). Next lever is decided by this post's +24h metrics, not by more building: 0 impressions again => the account's top-level reach itself is the constraint (rethink audience/channel, not the store); impressions-but-no-clicks => hook/offer framing; clicks-but-no-sale => store offer/price/language (the JP-audience vs EN-$19-store mismatch). Did not edit the store (still no converting traffic to justify it).",
-  "latest_strategy_decision_ja": "Day 10で特定した到達レバーを、オーナー許諾で解禁され実行。最小・可逆に留めた：トップレベル投稿はちょうど1件（許諾＋canonの1日1件上限）、リプライ系統を触らない別機構、誠実な失敗前面の語り（強い売り込みなし）。次のレバーはこの投稿の+24時間指標で決める（追加の構築ではなく）：再びインプレッション0ならアカウントのトップレベル到達自体がボトルネック（ストアではなくオーディエンス/チャネルの再考）、インプレはあるがクリックなしならフック/オファーの見せ方、クリックはあるが売上なしならストアのオファー/価格/言語（日本語オーディエンス対英語$19ストアの不一致）。ストアは編集していない（正当化する転換トラフィックがまだない）。",
+  "latest_strategy_decision": "10-DAY MID-POINT REVIEW (2026-09-11, reports/MIDPOINT_REVIEW_2026-09-11.md): reclassified the situation from a single-lane distribution problem to a SUPPLY-vs-DEMAND imbalance -- 10 days built supply (3 live channels, pipelines, automation) but almost no demand generation. ¥0 is primarily 'not being seen' (~0 qualified reach everywhere), compounded by JP-audience/EN-$19-commodity/0-review mismatch. Decision: REDESIGN on 3 axes (value-first cold-reader X acquisition; a JP-matched entry offer; owned-audience direct selling), park cold-start marketplaces, and lighten the ¥50k math with a higher-ticket or affiliate option. Execution deferred to the next Routine per owner instruction (this review is diagnosis + redesign only).",
+  "latest_strategy_decision_ja": "10日中間レビュー（2026-09-11、reports/MIDPOINT_REVIEW_2026-09-11.md）: 状況を単一レーンの流通問題から『供給過多・需要不足』へ再分類。10日間は供給（3チャネル・pipeline・自動化）を作ったが需要創出はほぼ0。¥0の主因は『そもそも見られていない』（全チャネル適格リーチ≈0）＋日本語層/英語$19コモディティ/レビュー0のミスマッチ。決定: 3軸で再設計（価値提供型の冷たい読者向けX集客／日本語適合の入口オファー／所有オーディエンス直販）、cold-startマーケットプレイスはpark、¥50kの算数を高単価orアフィリエイトで軽くする。オーナー指示によりこのレビューでは実行せず（診断・再設計のみ）、次Routineが実行。",
   "blockers": [],
   "human_actions_required": [
     {
@@ -240,5 +240,24 @@
       "canon": "ops/LOOP_PROTOCOL.md section 9 (Top-level acquisition posts); ops/AGENT_LOOP.md X posting policy (2026-09-11)",
       "mechanism": "separate queue social/x_experiment_next_toplevel.json + dedicated standalone poster (no in_reply_to); not the reply script. Build if absent."
     }
-  ]
+  ],
+  "midpoint_review": {
+    "date": "2026-09-11",
+    "doc": "reports/MIDPOINT_REVIEW_2026-09-11.md",
+    "type": "owner_requested_business_review",
+    "core_diagnosis": "10 days went to SUPPLY (listings/pipelines/automation); DEMAND (right people seeing the offer) barely attempted. ¥0 is primarily \"not being seen\" (~0 qualified reach on all channels), compounded by product/language/trust mismatch (JP audience -> EN $19 commodity, 0 reviews). Offer/conversion largely UNTESTED because reach is ~0.",
+    "strategy_redesign": [
+      "X = value-first cold-reader acquisition, NOT experiment diary (owner canon 4c40c22)",
+      "Build ONE JP-audience-matched entry offer (free or Y500-1500) as the X landing target",
+      "Owned-audience direct selling is the main lane; park Etsy/Gumroad/SEO/Creem (maintain only)",
+      "Lighten the Y50k math: a higher-ticket (~Y5000x10) or affiliate offer cuts required units"
+    ],
+    "y50k_realism": "Current trajectory <5%. Needs a big 3-axis change (product EN->JP/higher-ticket; acquisition diary->value-first; channel marketplace-search->owned-audience direct). Maximize probability of the FIRST real Y1 first.",
+    "next_routine_actions": [
+      "Read Day-11 top-level post 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via x-verify-reply.yml -- decisive pending datum",
+      "Design the JP-audience entry offer (reuse existing prompt assets, JP re-edit)",
+      "Design a cold-reader value-first X acquisition post (owner-voice, NOT diary)"
+    ],
+    "note": "Diagnosis + redesign only; NOT executed this review per owner instruction."
+  }
 }

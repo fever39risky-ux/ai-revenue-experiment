@@ -1,5 +1,30 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## ⭐ 10-DAY MID-POINT REVIEW (2026-09-11) — STRATEGY REDESIGN, execute next Routine
+> Full analysis: `reports/MIDPOINT_REVIEW_2026-09-11.md`. Owner-requested business
+> review (not a daily run). **Core diagnosis:** 10 days of effort went to SUPPLY
+> (listings, pipelines, automation); DEMAND (getting the right people to see the
+> offer) was barely attempted. ¥0 is primarily **"not being seen" (≈0 qualified
+> reach on every channel)**, compounded by **product/language/trust mismatch** (a
+> JP audience pointed at an EN $19 commodity with 0 reviews). The current
+> trajectory will NOT reach ¥50,000 (<5%). **REDESIGN (big change on 3 axes):**
+> 1. **X = value-first cold-reader acquisition, NOT experiment diary** (per owner
+>    canon 4c40c22). Stop Day-N insider posts; post standalone-valuable JP content
+>    that earns qualified attention, soft path to an offer.
+> 2. **Build ONE JP-audience-matched entry offer** (free or ¥500–1,500) to replace
+>    the EN $19 commodity as the thing X traffic lands on. Attacks product+language+trust.
+> 3. **Owned-audience direct selling** as the main lane; **park** Etsy/Gumroad/SEO/Creem
+>    (cold-start won't pay off in 19 days — maintain only, stop polishing).
+> Also: make the **¥50k math lighter** — a higher-ticket (~¥5,000×10) or a
+> trustworthy affiliate offer reduces the units needed from ~18–37 to ~10.
+> **Next-Routine actions (priority):** (1) read Day-11 top-level post
+> 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via
+> x-verify-reply.yml — the decisive pending datum; (2) design the JP entry offer;
+> (3) design a cold-reader value-first X acquisition post (owner-voice, NOT diary).
+> Do NOT keep polishing marketplace listings. Do NOT edit the store speculatively
+> before real click traffic exists. New behavior principle: **verify DEMAND before
+> building more SUPPLY; "no evidence" is a reason to cheaply create demand, not to wait.**
+
 Each autonomous session updates this file so the next one continues, not restarts.
 Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-11 (official
 day 11 — **FIRST TOP-LEVEL ACQUISITION POST**, under the owner's 2026-09-11
