@@ -17,10 +17,16 @@
 >    (cold-start won't pay off in 19 days — maintain only, stop polishing).
 > Also: make the **¥50k math lighter** — a higher-ticket (~¥5,000×10) or a
 > trustworthy affiliate offer reduces the units needed from ~18–37 to ~10.
-> **Next-Routine actions (priority):** (1) read Day-11 top-level post
+> **Next-Routine actions (priority):** (1) [Day-12] read Day-11 top-level post
 > 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via
-> x-verify-reply.yml — the decisive pending datum; (2) design the JP entry offer;
-> (3) design a cold-reader value-first X acquisition post (owner-voice, NOT diary).
+> x-verify-reply.yml — the decisive pending datum; (2) ✅ DONE 2026-09-11 (Day-11
+> evening) — SHIPPED the JP-matched FREE entry offer:
+> guides/chatgpt-jimu-jitan-prompt.html (7 JP office-busywork prompts re-edited
+> from the product's 20-prompt library, anti-hallucination differentiator led, soft
+> Gumroad pointer, wired into sitemap/index/EN↔JP hreflang). This is now the
+> JP landing target replacing the EN $19 store; (3) design a cold-reader value-first
+> X acquisition post (owner-voice, NOT diary) that lands on the new JP guide — do
+> this AFTER reading the Day-12 reach datum.
 > Do NOT keep polishing marketplace listings. Do NOT edit the store speculatively
 > before real click traffic exists. New behavior principle: **verify DEMAND before
 > building more SUPPLY; "no evidence" is a reason to cheaply create demand, not to wait.**
@@ -512,6 +518,46 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-11 (Day 11, EVENING scheduled 20:07 JST fire -- DIAGNOSIS -> EXECUTION, JP ENTRY
+  OFFER SHIPPED): distinct from today's three earlier sessions (the owner-granted top-level
+  post, the 10-day midpoint review, the product review -- the latter two diagnosis-only per
+  owner). BOOTSTRAP: synced origin/main (0 ahead/0 behind; no open Promotion-blocked issue;
+  branch == main HEAD b720a6c). OBSERVE (cheap): revenue Y0, ledgers (official+prep) empty;
+  the Day-11 top-level post 2098217452148588931 is only hours old (baseline metrics 0) so its
+  +24h reach read is NOT due (that is the Day-12 job). Read the delivered product ZIP's real
+  20-prompt library to ground content. DIAGNOSE: the binding constraint per today's midpoint +
+  product reviews is DEMAND/reach + a JP-audience-vs-EN-$19-commodity language/trust mismatch.
+  Reach is being tested (result tomorrow); the offer/language mismatch can be attacked NOW,
+  independent of the reach result, at low cost using owned assets. DECIDE (vs alternatives per
+  §8/§14): (a) read the top-level reach now = premature at a few hours, baseline 0, and burns
+  scarce X credits -> rejected; (b) passive hold = forbidden zero-revenue passivity, and a cheap
+  channel-independent demand asset beats it on EV -> rejected; (c) speculatively edit the store =
+  no click traffic yet, the explicit "do not edit the store before real click traffic" rule ->
+  rejected; (d) build the JP-matched FREE entry offer the redesign prescribed, reusing owned
+  assets -> CHOSEN as highest-EV and, crucially, LOW-REGRET: it is useful whether or not
+  tomorrow's reach datum is positive (reach works -> the right JP landing target is ready; reach
+  fails -> it still improves owned-audience/SEO conversion and is independently search-indexable).
+  EXECUTE (for real, not planning): built guides/chatgpt-jimu-jitan-prompt.html -- a Japanese
+  lead-magnet page with 7 copy-paste office-busywork prompts (email first-reply, complaint reply,
+  minutes+tasks, data cleanup, invoice line items, ad-copy compliance check, 30-sec summary),
+  re-edited into natural Japanese from the product's 20-prompt library, LED with the product's
+  only real differentiator (the anti-hallucination "don't invent facts / write 'I'll confirm and
+  follow up'" constraint), and closed with an honest soft pointer to the fuller toolkit's real
+  upgrade (the 2 working Google Apps Scripts: bulk-AI a sheet column + auto daily-summary email)
+  on Gumroad. Matched the site's existing design; added SEO meta/canonical/og/hreflang. Wired for
+  discovery: sitemap.xml (priority 0.8), a bilingual "Free guide" backlink on index.html, and
+  EN<->JP visible + hreflang cross-links between the two guides. Did NOT edit the store, did NOT
+  read the top-level reach (not due), and posted NO extra X (top-level already used today under
+  the 1/day cap; the reply pipeline reaches ~0 and would be filler) -- the new guide is held as
+  the landing target for a Day-12+ value-first top-level post. RECORD: reports/data/2026-09-11.json,
+  status/CURRENT_STATUS.json (focus/action/next_action + a new jp_free_entry_offer active lane),
+  EVENTS.jsonl (jp_entry_offer_published), cost_ledger (~$0.90/Y135 ai_compute; no X cost), cadence
+  (held 1x/day). leak_check 0 fail/0 warn; gen_report re-run. NEXT (Day 12, ~+24h): read
+  2098217452148588931 impressions+url_link_clicks via x-verify-reply.yml and branch (0 imp ->
+  top-level reach itself is the constraint; imp-no-clicks -> hook/offer; clicks-no-sale -> landing
+  target); if reach works, design ONE value-first top-level post landing on the new free JP guide
+  (owner voice, NOT diary), not the EN $19 store. Do NOT reflexively repost; do NOT re-polish
+  parked marketplaces.
 - 2026-09-11 (Day 11, owner-directed grant -- FIRST TOP-LEVEL ACQUISITION POST):
   the owner granted account-usage permission (a live message, resolving the Day-10
   consent item) for ONE autonomous top-level X post from @KinoshitaTsks for

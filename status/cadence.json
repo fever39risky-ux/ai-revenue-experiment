@@ -31,6 +31,11 @@
   },
   "history": [
     {
+      "date": "2026-09-11T20:20_JST",
+      "change": "no change (held at 1x/day) -- Day 11 evening scheduled fire, JP entry-offer execution",
+      "reason": "Executed the midpoint/product-review redesign's prescribed JP entry offer (a free Japanese lead-magnet page) -- active demand-side execution, not a hold. Held 1x/day because the Day-12 fire (~+24h after today's top-level post) is the natural readout of the decisive reach datum (impressions/url_link_clicks on 2098217452148588931); reading it earlier burns X credits for no signal, and lowering cadence would slow the observe->adapt loop just as a live reach test matures and a new landing asset awaits validation. An off-cycle run before +24h has nothing new to act on."
+    },
+    {
       "date": "2026-09-11T10:10_JST",
       "change": "no change (held at 1x/day) -- Day 11, owner-granted top-level acquisition post",
       "reason": "Owner granted account-usage for one top-level X post; executed it (the reach lever diagnosed Day 10). Held 1x/day: the observe->adapt loop is live and the Day-12 fire (~24h after the post) is the natural readout of its impressions/link-clicks. Lowering cadence would slow reading a live acquisition test; an off-cycle read before ~24h is premature and burns X credits."

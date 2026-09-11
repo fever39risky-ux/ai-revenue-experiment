@@ -137,19 +137,19 @@
       "day": 11,
       "date": "2026-09-11",
       "path": "reports/2026-09-11.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 11, evening scheduled autonomous run. Earlier today already ran the top-level X acquisition post (id 2098217452148588931; reach read is ~+24h, on the 12th), the 10-day midpoint review, and the product review (the latter two diagnosis-only). This run turned diagnosis into execution: built and published the JP-audience-matched FREE entry offer the midpoint + product reviews prescribed, by re-editing an owned asset (the product's practical prompts) into natural Japanese -- a JP lead-magnet page guides/chatgpt-jimu-jitan-prompt.html (7 office-busywork prompts, no signup, leading with the real differentiator: anti-hallucination constraints). Wired into sitemap, an index backlink, and EN<->JP cross-links. No extra X post (top-level already used today under the 1/day cap; the reply pipeline has ~0 reach). Revenue still ¥0.",
+      "summary_ja": "公式11日目、夜の定例自律ラン。本日は午前にトップレベルX集客投稿（id 2098217452148588931、リーチ読取は約+24hの12日）、10日中間レビュー、商品レビュー（後二者は診断のみ）を実施済み。本ランは診断を実行に移す番。中間レビュー＋商品レビューが処方した『日本語オーディエンス適合の無料入口オファー』を、既存資産（商品同梱の実務プロンプト）を再編集して実際に構築・公開した：日本語のリード獲得ページ guides/chatgpt-jimu-jitan-prompt.html（事務時短プロンプト7選、登録不要、AIに事実を捏造させない制約を前面に）。sitemap・index被リンク・英語ガイドとの相互リンクも配線。Xは本日トップレベル投稿済み（1日1件上限）＋リプライ系統は到達ほぼ0のため追加投稿なし。売上は依然¥0。",
+      "summary_en": "Official Day 11, evening scheduled autonomous run. Earlier today already ran the top-level X acquisition post (id 2098217452148588931; reach read is ~+24h, on the 12th), the 10-day midpoint review, and the product review (the latter two diagnosis-only). This run turned diagnosis into execution: built and published the JP-audience-matched FREE entry offer the midpoint + product reviews prescribed, by re-editing an owned asset (the product's practical prompts) into natural Japanese -- a JP lead-magnet page guides/chatgpt-jimu-jitan-prompt.html (7 office-busywork prompts, no signup, leading with the real differentiator: anti-hallucination constraints). Wired into sitemap, an index backlink, and EN<->JP cross-links. No extra X post (top-level already used today under the 1/day cap; the reply pipeline has ~0 reach). Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 435,
+      "daily_cost_jpy_equivalent": 570,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 4968,
-      "cumulative_net_profit_jpy_equivalent": -4968
+      "cumulative_cost_jpy_equivalent": 5103,
+      "cumulative_net_profit_jpy_equivalent": -5103
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 4968,
-  "official_net_profit_jpy_equivalent": -4968
+  "official_cost_jpy_equivalent": 5103,
+  "official_net_profit_jpy_equivalent": -5103
 }

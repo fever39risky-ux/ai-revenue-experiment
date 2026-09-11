@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>コピペで使えるChatGPT事務時短プロンプト7選｜AIに嘘をつかせない実務テンプレ（無料）</title>
+<meta name="description" content="メール・議事録・データ整理・請求書・要約など、ひとり社長や個人事業主の事務作業をChatGPT／Claudeで時短する実用プロンプト7つ。『AIに事実をでっち上げさせない』制約つきで、そのまま仕事に使えます。登録不要・無料。">
+<meta property="og:title" content="コピペで使えるChatGPT事務時短プロンプト7選（無料）">
+<meta property="og:description" content="メール・議事録・データ整理・請求書・要約を時短する、AIに嘘をつかせない実務プロンプト集。ひとり社長・個人事業主向け。登録不要。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html">
+<link rel="alternate" hreflang="en" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/automate-work-with-ai-no-code.html">
+<link rel="alternate" hreflang="ja" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html">
+<style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140}
+@media(prefers-color-scheme:light){:root{--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:740px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:38px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+.lead{font-size:17px;color:var(--sub)}
+.top{font-size:13px}
+.meta{font-size:13px;color:var(--sub);margin:2px 0 22px}
+.note{background:rgba(62,166,160,.09);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:var(--sub)}
+.note b{color:var(--ink)}
+.prompt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.prompt .use{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:.02em}
+.prompt pre{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.65;background:rgba(127,127,127,.10);border-radius:9px;padding:12px 14px;margin:0;color:var(--ink)}
+.prompt .why{font-size:13px;color:var(--sub);margin:10px 0 0}
+.cta{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 24px;margin:40px 0 10px}
+.cta h3{margin:0 0 8px;font-size:18px}
+.cta p{color:var(--sub);font-size:14.5px;margin:6px 0}
+.buy{display:inline-flex;align-items:center;gap:8px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:12px 22px;border-radius:12px;margin-top:12px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{color:var(--sub);font-size:14.5px;padding-left:20px}
+</style>
+</head>
+<body><div class="wrap">
+<p class="top"><a href="../">← AI Revenue Experiment</a> ・ <a href="./automate-work-with-ai-no-code.html">English version</a></p>
+
+<h1>コピペで使えるChatGPT事務時短プロンプト7選<br>――AIに“嘘”をつかせない実務テンプレ</h1>
+<p class="meta">ひとり社長・個人事業主・少人数チーム向け／登録不要・無料／ChatGPT・Claudeどちらでも</p>
+
+<p class="lead">ChatGPTを「なんとなく」使っている人は多いですが、事務仕事で本当に効くのは、<b>毎回同じ形で貼って使える短いプロンプト</b>です。ここでは、メール・議事録・データ整理・請求書・要約など、毎週じわじわ時間を奪う作業を短縮する7つを、そのままコピペで使える形で置いておきます。</p>
+
+<div class="note"><b>この7つの共通点：</b>「わからないことは勝手に作らない」制約を最初から入れてあること。AIの一番こわいところは、それっぽい嘘（事実の捏造）を自信満々に返すことです。実務で使うなら、<b>不明点は『確認して折り返します』と書かせる</b>、<b>数字は勝手に盛らせない</b>――この一文があるだけで、そのまま客先に出せる精度に近づきます。</p></div>
+
+<h2>1. メールの一次返信ドラフト</h2>
+<div class="prompt">
+<div class="use">使う場面：問い合わせメールに、まず下書きを作らせたいとき</div>
+<pre>あなたは[会社名]の担当者です。下のメールへの返信を書いてください。
+ルール：丁寧に、120字程度、事実を勝手に作らない（不明点は「確認のうえ折り返します」と書く）、署名は不要。
+メール："""（ここに貼る）"""</pre>
+<p class="why">白紙から書き出す待ち時間が消えます。あなたは選んで送るだけ。</p>
+</div>
+
+<h2>2. クレーム・お詫びメールの返信</h2>
+<div class="prompt">
+<div class="use">使う場面：感情的な内容に、冷静で角の立たない返信が要るとき</div>
+<pre>下のクレームに返信してください。
+手順：まず受け止めて共感する→事実は確認する姿勢を示す→責任の押し付けはしない→次の対応と回答期限を明記。
+180字以内。メール："""（ここに貼る）"""</pre>
+<p class="why">謝りすぎず、突き放さず。一番消耗する文面ほどAIの下書きが効きます。</p>
+</div>
+
+<h2>3. 議事録＋タスク化</h2>
+<div class="prompt">
+<div class="use">使う場面：打ち合わせの文字起こしを、議事録と宿題に落としたいとき</div>
+<pre>下の文字起こしから、次の3つを作ってください。
+1) 議事録（箇条書き・150字以内）
+2) アクション項目の表（担当者／期限が言及されていれば記入）
+3) 未確定の論点
+はっきりしない項目は「TBD」と明記。文字起こし："""（ここに貼る）"""</pre>
+<p class="why">30分かけて書いていた議事録が、30秒の確認作業になります。</p>
+</div>
+
+<h2>4. ぐちゃぐちゃな表の整理・要約</h2>
+<div class="prompt">
+<div class="use">使う場面：表記ゆれ・重複・空欄が混ざったデータをそろえたいとき</div>
+<pre>下のデータを整理してください。
+・表記ゆれ（大文字小文字・略称など）を統一
+・重複と空欄をフラグ
+・[集計したい軸]ごとの要約
+最後に「確認すべきこと」を3つ挙げてください。データ："""（ここに貼る）"""</pre>
+<p class="why">件数が多い列は、同じ指示をスプレッドシート全行に自動で流す手もあります（後述）。</p>
+</div>
+
+<h2>5. 請求書の明細づくり</h2>
+<div class="prompt">
+<div class="use">使う場面：条件メモから請求明細をスプレッドシート用に整えたいとき</div>
+<pre>請求書の明細（品目・数量・単価・金額・小計・消費税10%・合計）を、
+スプレッドシートに貼れるTSV形式で出力してください。端数は切り捨て。支払条件：月末締め翌月末払い。
+条件：（ここに貼る）</pre>
+<p class="why">毎回の手計算と転記ミスがなくなります。そのままシートに貼るだけ。</p>
+</div>
+
+<h2>6. 広告・告知コピーのチェック</h2>
+<div class="prompt">
+<div class="use">使う場面：出す前に、言い過ぎ・根拠なしの表現を潰したいとき</div>
+<pre>あなたは広告コピーの校正担当です。下の文章について、次を表で指摘してください。
+1) 根拠の弱い・断定しすぎの表現
+2) 出典が要る記述
+3) 強すぎる言い回し＋やわらかい言い換え案
+文章："""（ここに貼る）"""</pre>
+<p class="why">景表法まわりの「うっかり言い過ぎ」を、公開前に自分で一度ふるいにかけられます。</p>
+</div>
+
+<h2>7. 長文を30秒で要約</h2>
+<div class="prompt">
+<div class="use">使う場面：長いメール・資料を、忙しい人がつかめる形にしたいとき</div>
+<pre>下の内容を、忙しい人が30秒で把握できる重要ポイント3点に要約してください。
+誇張はしない。"""（ここに貼る）"""</pre>
+<p class="why">読む前に「で、結局なに？」が分かる。転送前の一手間が効きます。</p>
+</div>
+
+<hr>
+
+<div class="cta">
+<h3>もう一歩：プロンプトを「自動化」に変えると、作業そのものが消えます</h3>
+<p>上の7つは手で貼って使うものですが、ここから先は「毎回貼る」すら無くせます。この実験で販売しているツールキットには、<b>そのまま動く Google Apps Script が2本</b>入っています：</p>
+<ul>
+<li><b>シートの1列をAIで一括処理</b>：整理・要約・分類を、行ごとに貼らず全行に自動実行</li>
+<li><b>毎朝のサマリーを自動でメール送信</b>：決まった集計を、手を動かさず毎日受け取る</li>
+</ul>
+<p>この2本が、ただのプロンプト集との違いです。中身は、上のような実務プロンプト約20個＋ワークフロー集＋請求テンプレ。価格や最新の内容は販売ページで確認してください。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/uhajxo" target="_blank" rel="noopener">ツールキットを見る（Gumroad） →</a>
+<p class="muted" style="margin-top:14px">※ これは「AI自身が30日間で実際に稼げるか」を公開検証している実験の一部です。売上も失敗も、<a href="../">そのまま公開</a>しています。気に入ったプロンプトがあれば、それだけ使ってもらえれば十分です。</p>
+</div>
+
+<p class="top" style="margin-top:30px"><a href="../">← AI Revenue Experiment トップへ</a></p>
+
+</div></body>
+</html>

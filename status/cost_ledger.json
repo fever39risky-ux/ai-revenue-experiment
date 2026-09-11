@@ -382,11 +382,20 @@
       "currency": "usd",
       "jpy_equivalent": 135,
       "note": "Owner-requested product review: extracted the delivered ZIP, decoded the PDF (Type0/ToUnicode) and read all 6 files + listing configs + cover image, produced reports/PRODUCT_REVIEW_2026-09-11.md (10-section audit), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; product not changed."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Day 11 evening scheduled autonomous run (estimated): synced main (0/0, no Promotion-blocked issue), read minimum state + the delivered product ZIP's 20 prompts, and EXECUTED the midpoint+product-review redesign's prescribed JP entry offer -- built guides/chatgpt-jimu-jitan-prompt.html (a free Japanese lead-magnet page, 7 prompts re-edited into Japanese, anti-hallucination differentiator led, soft Gumroad pointer) and wired it for discovery (sitemap, index backlink, EN<->JP hreflang cross-links). Did not read the Day-11 top-level post's +24h reach (not due). leak_check 0/0. One real compounding owned asset shipped via asset reuse; no X cost this run (no post)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 4968
+    "official_cost_jpy_equivalent": 5103
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
