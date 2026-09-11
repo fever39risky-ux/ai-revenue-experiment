@@ -170,7 +170,25 @@ The only valid commentary queue is:
 History/idempotency lives in:
 - `social/x_experiment_history.json`
 
-All experiment commentary posts are direct replies to the root fixed post identified by GitHub Actions Variable `X_ROOT_POST_ID`. Do not chain each day under the previous day's reply.
+All experiment **commentary** posts are direct replies to the root fixed post identified by GitHub Actions Variable `X_ROOT_POST_ID`. Do not chain each day under the previous day's reply.
+
+### Top-level acquisition posts — owner account-usage grant (2026-09-11)
+
+The owner (@KinoshitaTsks) has granted account-usage permission for the AI to autonomously publish **top-level (standalone) X posts** from that account for AI Revenue Experiment revenue/acquisition. This is a permission grant (account usage), **not** a strategy directive: the AI decides what to post, when, and whether to post at all. It supersedes the earlier "never a standalone tweet" restriction **for this specific, conditioned purpose only** (the reply-commentary pipeline above is unchanged).
+
+Rationale: the fixed-root **reply** structure has ~0 organic reach (Day-9 test: 0 impressions after ~33h). A top-level post is the only owned mechanism that actually reaches followers' timelines and can drive traffic to a revenue surface (`/store/`, the Etsy/Gumroad listings, or a guide).
+
+Conditions (ALL must hold — a post that fails any is not permitted):
+- **Voice canon:** ground the text in `marketing/X_VOICE_GUIDE.md` (owner voice; Register C for experiment content), using `X_VOICE_CORPUS.md`/`x_voice_examples.json` only as needed. Complete the 14-item voice self-check.
+- **No fabrication:** state only real facts/numbers; distinguish fact from interpretation.
+- **No secrets/PII:** never expose tokens, private IDs, customer identity/data, banking/KYC, or private operational detail (leak_check gates the commit).
+- **No spam:** no rapid-fire/repeat posting; do not post to fill a quota or keep a streak; only when there is genuine acquisition value (a real hook: a live product, a milestone, a concrete result/story).
+- **Cap:** **max 1 top-level post per Asia/Tokyo calendar day** (baseline). Keep total daily X footprint minimal — do not post both a top-level post and a commentary reply on the same day unless each independently clears its value gate.
+- **Scope:** top-level posts only. This does NOT authorize replies to other users, DMs, quote-post automation, or engagement-farming.
+
+Mechanism (to keep the reply pipeline untouched): top-level posts use a **separate** judgment-gated queue `social/x_experiment_next_toplevel.json` drained by a dedicated mechanical poster that creates a standalone tweet (no `in_reply_to`), with idempotency/daily-limit recorded in `social/x_experiment_history.json` (the 1/day cap is enforced per post type). If that poster/queue does not yet exist, building it (a small, deterministic drain script + workflow trigger, mirroring `x_post_experiment_commentary.mjs`) is a valid highest-EV action for a daily session now that reach is the binding constraint on the X lane. Never post a top-level tweet through the reply script.
+
+The pinned-root live-commentary log (reply pipeline) remains operational and may be maintained as needed.
 
 ### Owner voice
 

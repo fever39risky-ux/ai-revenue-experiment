@@ -396,10 +396,29 @@ script's):** before writing anything to the queue file, ask honestly:
    separate, currently-unused generic mechanism (its 2 pre-corpus items
    were archived to `social/queue_archive_pre_corpus/`, not posted); do
    not conflate the two systems.
-8. This policy covers only the AI Revenue Experiment commentary reply
-   thread. It does not authorize automated replies to other users, DMs,
-   or any other X activity -- none of that exists in this codebase and
-   none should be added without a separate, explicit owner request.
+8. The reply-thread mechanism above (steps 1-7, `x_post_experiment_commentary.mjs`)
+   still covers only the commentary reply thread and still must never post a
+   standalone tweet or reply to other users/DMs.
+
+## X posting policy — TOP-LEVEL grant (added 2026-09-11)
+The owner (@KinoshitaTsks) has now granted account-usage permission for the AI
+to autonomously publish **top-level (standalone) X posts** from that account for
+AI Revenue Experiment revenue/acquisition. This directly unblocks the reach gap
+this brief already diagnosed (a fixed-root reply has ~0 organic reach; a top-level
+post is the only owned reach-capable mechanism). It is a permission grant, not a
+directive: the AI decides what/when/whether. Canonical rules live in
+`ops/LOOP_PROTOCOL.md` §9 "Top-level acquisition posts"; in short:
+- Ground in `marketing/X_VOICE_GUIDE.md` (Register C) + 14-item self-check; no
+  fabrication; no secrets/PII; no spam/streak/quota posting; only on genuine
+  acquisition value.
+- **Max 1 top-level post per JST day**; keep total daily X footprint minimal
+  (avoid same-day top-level + reply unless each clears its own value gate).
+- Top-level only — no replies to other users, DMs, quote-post automation, or
+  engagement bait.
+- Mechanism: a SEPARATE queue `social/x_experiment_next_toplevel.json` + a
+  dedicated standalone-tweet poster (no `in_reply_to`), NOT the reply script.
+  Building that small deterministic poster+workflow is a valid highest-EV action
+  now that reach is the binding constraint on the X lane.
 
 ## Ledger snapshot
 Official revenue: ¥0 (re-verified 2026-09-07T11:12Z via live Stripe MCP: 0 charges;
