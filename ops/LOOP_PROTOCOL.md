@@ -173,6 +173,29 @@ When revenue is still ¥0, ask not only "Should I spend less?" but also:
 
 The goal is not to stay busy. The goal is to avoid being idle while credible, low-cost revenue work remains available.
 
+#### Waiting does not mean idling
+
+When an important test is still maturing, separate work into two classes:
+
+1. **signal-dependent work** — decisions or irreversible actions whose correctness genuinely depends on the pending result; and
+2. **signal-independent preparation** — low-cost, reversible work that remains useful across multiple plausible outcomes.
+
+Only the first class must wait.
+
+A pending measurement is **not** permission to stop all productive work. While waiting, continue signal-independent preparation when it can shorten time-to-revenue, preserve strategic optionality, or make the next move executable immediately once the signal arrives.
+
+Examples include preparing offer structures, LP copy, SEO/search-intent hypotheses, pricing options, packaging existing assets, demos/proof, free→paid conversion paths, alternate distribution assets, and adjacent revenue lanes. These are examples, not directives.
+
+Do not prematurely publish, spend, or irreversibly commit to a branch of strategy that depends on unknown evidence. But **prepare the reversible parts now** when the expected value is positive.
+
+Before an early stop caused by "waiting for data," explicitly ask:
+
+**"What useful work does not depend on this result?"**
+
+If credible low-cost work exists, execute or advance it rather than treating the whole business as blocked.
+
+A useful mental model is: **wait on the decision; do not automatically stop the hands.**
+
 ### Owned-asset leverage
 
 Before concluding that distribution, trust, or conversion is blocked, explicitly inventory and consider the **owned assets already available to the experiment** and whether they can be turned into a revenue path at low marginal cost.
@@ -306,7 +329,17 @@ In practical terms:
 - **¥0 + no meaningful action or evidence due → lower cadence may be rational.**
 - **material event / first sale / conversion signal / strategy-premise collapse → consider an immediate or off-cycle judgment run when available and economical.**
 
-Potential triggers include first sale, material revenue/checkout change, significant marketplace/SNS reaction, new capability, critical error, strategy-premise collapse, a newly published offer/LP that can be iterated, or a test whose result arrives well before the next scheduled run. Deterministic Actions should handle cheap detection/logging whenever judgment is unnecessary.
+A pending test must not be treated as a blanket argument against more frequent work. If the result-dependent decision genuinely needs time, ask whether a second run could still create positive expected value through **signal-independent preparation** or an adjacent revenue lane.
+
+If 1×/day repeatedly leaves economically useful, low-cost work idle until the next day, that is evidence the cadence may be too low even if the main measurement loop itself matures on a 24-hour clock.
+
+During the ¥0 bootstrap phase, the AI should explicitly consider a **temporary two-shift model** when justified:
+- one run focused on observation + judgment + action on mature signals;
+- another run focused on signal-independent preparation, owned-asset compounding, or adjacent revenue work.
+
+This is an option, not a fixed schedule. Keep 1×/day only if the second run would genuinely have no positive-EV work after considering reversible preparation and adjacent lanes.
+
+Potential triggers include first sale, material revenue/checkout change, significant marketplace/SNS reaction, new capability, critical error, strategy-premise collapse, a newly published offer/LP that can be iterated, a test whose result arrives well before the next scheduled run, or a backlog of signal-independent positive-EV work that the current cadence is unnecessarily deferring. Deterministic Actions should handle cheap detection/logging whenever judgment is unnecessary.
 
 Cadence decisions belong to the AI operator. The owner does not choose the cadence strategy. The AI should not wait for the owner to suggest a cadence review. If the business is still poor and there is economically useful work available, ask whether the current Routine interval is leaving too much productive time idle.
 
@@ -364,6 +397,8 @@ If there is no meaningful state change, action due, new capability, actionable m
 - stop early.
 
 However, repeated zero-revenue early stops are themselves a strategic signal. Before choosing another hold/early-stop when revenue remains zero, explicitly compare hold against at least one concrete low-cost revenue experiment or alternate lane. If a credible experiment has better expected value, execute it instead.
+
+Before early-stopping because a signal is not yet mature, explicitly check for signal-independent preparation under §8. A wait on evidence is not automatically a wait on all productive work.
 
 A short, cheap, correct iteration is better than an expensive fake-productive iteration. But cost control should make the AI adapt more intelligently, not merely stop more often.
 
