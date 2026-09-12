@@ -418,11 +418,20 @@
       "currency": "usd",
       "jpy_equivalent": 53,
       "note": "Day 12 EVENING scheduled fire (20:09 JST) -- separate from the owner-triggered morning Day-12 run. Short, cheap early-stop iteration (estimate, X exposes no per-run figure; light read-only run). Verified no material change: revenue still Y0 (sales-monitor run 34673394985 success, ledger empty), no open Promotion-blocked issue, branch 0/0 with main. Did NOT read the Day-12 post reach (only +10.7h; decisive datum due ~+24h = Day-13 morning -- premature partial read burns scarce X credit). 1/day top-level cap already used today; next build (JP paid core) gated on the Day-13 reach read. Compared hold vs concrete alternatives (read-now / build-paid-core-now / edit-guide-or-store) -- all negative-EV or evidence-free speculation before the in-flight test matures -> early-stop is highest-EV. Housekeeping only: marked the stale top-level-consent human-action RESOLVED (granted 2026-09-11), refreshed revenue.verified_how + updated_at. leak_check 0/0."
+    },
+    {
+      "date": "2026-09-13",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.7,
+      "currency": "usd",
+      "jpy_equivalent": 105,
+      "note": "Day 13 off-cycle PREP SHIFT (owner-triggered) under clarified canon 9455734/18b37a3. Estimate. One revenue hypothesis (fix the JP audience -> EN commodity mismatch), multiple execution steps: synced canon, observed the funnel, built store/jp.html (JP-native paid sales page leading with the 2 scripts, -> existing live Stripe checkout), rewired the free JP guide CTA, added sitemap entry + reciprocal hreflang, recorded state, reassessed cadence. No X API calls (deferred the signal-dependent reach read). leak_check 0/0."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5321
+    "official_cost_jpy_equivalent": 5426
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

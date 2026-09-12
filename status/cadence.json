@@ -1,7 +1,7 @@
 {
   "_doc": "Adaptive firing-cadence policy for the autonomous judgment loop. The loop re-evaluates this each run from cost vs. benefit. Not a fixed rule.",
-  "current_cadence": "1x/day",
-  "current_time_jst": "20:07",
+  "current_cadence": "1x/day scheduled (20:07 JST) + owner-triggered prep shift while a signal-independent backlog exists (temporary two-shift bootstrap)",
+  "current_time_jst": "00:55",
   "cron_utc": "7 11 * 9 *",
   "rationale": "Current baseline remains 1x/day until the AI operator explicitly changes the actual Routine, but this is no longer presumed optimal during the ¥0 bootstrap phase. A maturing test is not, by itself, a reason to idle: signal-dependent decisions may wait while signal-independent, low-cost, reversible revenue preparation continues. If useful work repeatedly spills into the next day, cadence may be too low and a temporary two-shift model should be evaluated on expected Net Profit, not habit.",
   "reevaluate_from": [
@@ -35,6 +35,11 @@
     "reaffirmed": "2026-09-13: owner clarified the intended meaning of 貧乏暇なし for cadence: waiting for a signal should pause only decisions that depend on that signal, not all productive work. The AI operator must reassess whether the current 1x/day schedule is leaving low-cost revenue work idle and, if so, consider a temporary two-shift cadence. No schedule change is forced by the owner; the AI remains responsible for the economic decision."
   },
   "history": [
+    {
+      "date": "2026-09-13T00:55_JST",
+      "change": "ADOPT temporary two-shift bootstrap posture (operator decision) — 1x/day scheduled judgment + a second signal-independent PREP shift while positive-EV backlog exists",
+      "reason": "Decision made on evidence, not habit, per canon 9455734/18b37a3. (1) My own Day-12 EVENING scheduled fire early-stopped because a signal was still maturing, leaving signal-independent revenue work idle until THIS owner-triggered off-cycle run — direct evidence that pure 1x/day was deferring positive-EV work to the next day, exactly the failure the clarified canon names. (2) This prep shift produced a real, transactable revenue asset at ~$0.70 AI cost: store/jp.html, a JP-native paid sales page fixing the #1 no-sale cause, routed to the existing live Stripe checkout — clearly EXPECTED MARGINAL BENEFIT > MARGINAL AI COST. (3) A concrete signal-independent backlog remains (a JPY Stripe Payment Link, a higher-ticket offer, SEO JP LPs feeding jp.html, a before/after demo) that does not depend on the pending X reach read. Therefore a second daily run focused on signal-independent preparation is economically justified WHILE that backlog lasts. NOT raising frequency for its own sake: the trigger is a real positive-EV backlog; when the backlog is exhausted or the reach test resolves the strategy, revert to 1x/day. MECHANICAL NOTE: the judgment Routine schedule is the owner's claude.ai Routine, which this session cannot edit. Two ways to run the prep shift: (a) the owner adds a second daily Routine fire (recommended while the backlog lasts), or (b) the owner keeps triggering an off-cycle prep run as today. This is a low-friction scheduling recommendation, not a binding blocker — off-cycle prep runs already work via owner trigger, so it is NOT filed under human_actions_required. Division of labor when two shifts run: morning/scheduled = observe + judge + act on mature signals (e.g. the +24h reach read); prep shift = signal-independent preparation / owned-asset compounding / adjacent lanes."
+    },
     {
       "date": "2026-09-13T00:32_JST",
       "change": "policy clarification — current 1x/day not automatically changed, but immediate reassessment for temporary two-shift bootstrap is now required",

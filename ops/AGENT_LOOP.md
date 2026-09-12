@@ -57,6 +57,23 @@
 > not 18–37. Do NOT keep polishing the current English $19 bundle. Product NOT changed by this
 > review (diagnosis only).
 
+> ## ⭐ Day-13 off-cycle PREP SHIFT (2026-09-13 00:55 JST) — shipped the first JP-native PAID sales page
+> Owner-triggered off-cycle run under the clarified canon (9455734 "waiting does not mean idling"
+> + 18b37a3 cadence-for-signal-independent-work). Correctly **deferred** the signal-dependent
+> Day-12 reach read (not due until ~+24h ≈ 09:29 JST) and instead advanced **signal-independent
+> preparation**: built **`store/jp.html`** — a JP-native paid sales page that leads with the 2
+> working Google Apps Scripts (the real differentiator) as the hero, written for JP
+> solo-operators, routed to the **existing live Stripe checkout** (→ success.html → ZIP), so it
+> is **transactable today with no new checkout**. Fixes the product review's #1 no-sale cause
+> (JP audience → EN commodity, differentiator buried). Rewired the free JP guide CTA (EN Gumroad
+> → `../store/jp.html`), added sitemap entry + reciprocal hreflang. **Cadence:** adopted a
+> *temporary two-shift bootstrap* posture (scheduled judgment + a prep shift while a
+> signal-independent backlog exists — see status/cadence.json). **NEXT unchanged:** the Day-13
+> ~+24h reach read below; then, per its branch, iterate X or pivot reach to a non-X lever — the
+> JP conversion endpoint now already exists so any new reach converts immediately. Backlog for
+> the next prep shift: a JPY Stripe link (needs Stripe access), a higher-ticket offer, SEO JP
+> LPs feeding jp.html, a before/after demo.
+
 > **Day-12 EVENING scheduled fire (2026-09-12 20:09 JST) — EARLY-STOP, no material change.**
 > Separate from the owner-triggered morning Day-12 run (which did the day's real work).
 > This fire landed only ~10.7h after the value-first post 2098569637827141687, so the
