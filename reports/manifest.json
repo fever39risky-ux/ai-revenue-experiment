@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-12.html",
+  "latest_report": "reports/2026-09-13.html",
   "reports": [
     {
       "day": 1,
@@ -155,6 +155,19 @@
       "summary_en": "Official Day 12, owner-requested extra Routine (under the new 'Bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol). Advanced one revenue hypothesis across several steps. Read the Day-11 top-level post's reach = 4 impressions / 2 clicks (50% CTR); vs the owner's own 46-143 historical range, REACH is the binding constraint, with two suppressors: an inline external link (X throttles link-in-post reach) and a Day-N-diary hook (cold-reader-hostile, canon 4c40c22). Evidence-based fix: extended the poster so the main tweet is value-first and LINK-FREE and the link rides in a verified self-reply (canonical acquisition structure). Posted+verified a value-first main tweet (the anti-hallucination prompt trick) 2098569637827141687 + a self-reply to the free JP guide 2098569639416721518. Revenue still ¥0. Held cadence at 1x/day after reassessing it as an economic control variable (reasons below).",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 218,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 5321,
+      "cumulative_net_profit_jpy_equivalent": -5321
+    },
+    {
+      "day": 13,
+      "date": "2026-09-13",
+      "path": "reports/2026-09-13.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 5321,
       "cumulative_net_profit_jpy_equivalent": -5321
