@@ -3,13 +3,16 @@
   "current_cadence": "1x/day",
   "current_time_jst": "20:07",
   "cron_utc": "7 11 * 9 *",
-  "rationale": "Provisional optimum. Measured $3.30/run; 3x/day x 30d ~= $297 ~= entire ¥50k target -> not economically rational. Free Actions layer covers fast event detection + immediate reactions between daily runs.",
+  "rationale": "Current baseline remains 1x/day until the AI operator explicitly changes the actual Routine, but this is no longer presumed optimal during the ¥0 bootstrap phase. A maturing test is not, by itself, a reason to idle: signal-dependent decisions may wait while signal-independent, low-cost, reversible revenue preparation continues. If useful work repeatedly spills into the next day, cadence may be too low and a temporary two-shift model should be evaluated on expected Net Profit, not habit.",
   "reevaluate_from": [
     "per_run_ai_cost",
     "revenue",
     "market_change_rate",
     "strategy_change_frequency",
-    "coverage_by_actions_layer"
+    "coverage_by_actions_layer",
+    "backlog_of_signal_independent_positive_ev_work",
+    "time_to_revenue_lost_by_waiting",
+    "whether_1x_day_leaves_useful_capacity_idle"
   ],
   "off_cycle_run_gate": "expected marginal benefit > marginal AI cost",
   "off_cycle_trigger_events": [
@@ -21,15 +24,22 @@
     "marketplace_reaction",
     "new_capability_granted",
     "critical_error",
-    "strategy_premise_collapse"
+    "strategy_premise_collapse",
+    "signal_independent_positive_ev_work_backlog",
+    "pending_test_with_parallel_reversible_preparation_available"
   ],
   "recommended_change": {
-    "action": "keep_1x_day_baseline_plus_event_triggered_offcycle",
-    "reason": "Official period baseline of 1x/day remains rational (per-run cost small relative to the ¥50k target; the free Actions layer covers routine polling). 2026-09-01: an off-cycle run WAS justified and taken when the Etsy shop capability was granted mid-day -- this is exactly the kind of event the off_cycle_trigger_events list anticipated (new_capability_granted), and same-day thinking materially changed the outcome (built the entire publish pipeline instead of waiting for the next scheduled fire). Once the Etsy OAuth grant lands, another off-cycle run to trigger the publish Action and verify the result is also likely justified for the same reason -- a real sale or a listing going live is worth reacting to same-day, not next-day. 2026-09-02: the scheduled daily run found no material change (both publish pipelines empirically re-confirmed still blocked, near-zero-cost check via free Actions minutes). If both token grants remain outstanding for several more consecutive days with no other market signal, the next reasonable step is to drop the baseline below 1x/day (e.g. every 2-3 days) until a grant lands or new evidence appears, since repeat daily confirmation of an unchanged human-gated blocker has low marginal value once first empirically confirmed -- not yet done today because only one day of no-movement has passed.",
-    "set": "2026-08-26",
-    "reaffirmed": "2026-09-05T01:15Z: scheduled 1x/day run, day 5. The Etsy OAuth grant landed AND the first live Etsy listing actually published the same day -- a real capability_granted + listing-live event, exactly what off_cycle_trigger_events anticipates, and same-day thinking materially mattered (reconciling two sessions' concurrent work, verifying the real outcome rather than trusting stale prose). With all three core channels (Stripe, Gumroad, Etsy) now live and no further build work obviously pending, the situation shifts from 'unblock channels' to 'watch for a sale' -- the free Actions sales-monitor cron (4-hourly) already covers that detection cheaply between daily runs, so this is a case FOR possibly lowering cadence soon, not raising it, once a few more days confirm no other build work surfaces. Not cut today -- one day is not enough evidence that daily judgment has stopped finding real work (today's run found and fixed real things). Cadence held at 1x/day; re-evaluate the lowering case in the next few runs if it stays true."
+    "action": "reassess_now_for_temporary_two_shift_bootstrap",
+    "reason": "The experiment is still at ¥0 and recent owner-triggered off-cycle runs have produced real progress, while scheduled evening runs have sometimes stopped because a signal was still maturing. That is evidence that the cadence decision has been conflating 'the next decision must wait' with 'all useful work must wait.' Under the canonical 貧乏暇なし principle, work must be split into (1) signal-dependent work that genuinely waits for evidence and (2) signal-independent, low-cost, reversible preparation that can shorten time-to-revenue regardless of how the pending test resolves. Examples include offer/LP structure, SEO/query hypotheses, packaging existing assets, demo/proof preparation, pricing options, adjacent revenue-lane preparation, and other owned-asset work with a clear revenue hypothesis. The AI operator should now explicitly compare 1x/day against a temporary two-shift model such as observation/action in one run and signal-independent preparation/adjacent revenue work in another. Do not raise cadence merely to create activity; raise it only if the second run has positive expected Net Profit. Likewise, do not preserve 1x/day merely because a 24h test is maturing. Publication or irreversible strategy commitments may wait for evidence; reversible preparation normally should not.",
+    "set": "2026-09-13",
+    "reaffirmed": "2026-09-13: owner clarified the intended meaning of 貧乏暇なし for cadence: waiting for a signal should pause only decisions that depend on that signal, not all productive work. The AI operator must reassess whether the current 1x/day schedule is leaving low-cost revenue work idle and, if so, consider a temporary two-shift cadence. No schedule change is forced by the owner; the AI remains responsible for the economic decision."
   },
   "history": [
+    {
+      "date": "2026-09-13T00:32_JST",
+      "change": "policy clarification — current 1x/day not automatically changed, but immediate reassessment for temporary two-shift bootstrap is now required",
+      "reason": "Owner clarified that '観測待ち' must not be interpreted as complete inactivity. Separate signal-dependent decisions from signal-independent reversible preparation. If 1x/day causes useful low-cost preparation to spill into the next day while revenue remains ¥0, that is evidence cadence may be too low. A temporary two-shift model is explicitly available for AI consideration: one run can observe/decide/act on mature signals, while another advances signal-independent preparation or adjacent revenue work. The AI still owns the cadence decision and must justify it economically."
+    },
     {
       "date": "2026-09-12T09:40_JST",
       "change": "no change (held at 1x/day) -- Day 12 extra Routine, reassessed under the new 'Bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol (commit 37131af)",
