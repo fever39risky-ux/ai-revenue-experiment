@@ -17,16 +17,22 @@
 >    (cold-start won't pay off in 19 days — maintain only, stop polishing).
 > Also: make the **¥50k math lighter** — a higher-ticket (~¥5,000×10) or a
 > trustworthy affiliate offer reduces the units needed from ~18–37 to ~10.
-> **Next-Routine actions (priority):** (1) [Day-12] read Day-11 top-level post
-> 2098217452148588931 reach at ~+24h (impressions + url_link_clicks) via
-> x-verify-reply.yml — the decisive pending datum; (2) ✅ DONE 2026-09-11 (Day-11
-> evening) — SHIPPED the JP-matched FREE entry offer:
-> guides/chatgpt-jimu-jitan-prompt.html (7 JP office-busywork prompts re-edited
-> from the product's 20-prompt library, anti-hallucination differentiator led, soft
-> Gumroad pointer, wired into sitemap/index/EN↔JP hreflang). This is now the
-> JP landing target replacing the EN $19 store; (3) design a cold-reader value-first
-> X acquisition post (owner-voice, NOT diary) that lands on the new JP guide — do
-> this AFTER reading the Day-12 reach datum.
+> **Next-Routine actions (priority):** (1) ✅ DONE 2026-09-12 (Day-12) — read Day-11
+> top-level post 2098217452148588931 reach: **4 impressions / 2 clicks (50% CTR)**.
+> Reach is the binding constraint (vs owner's own 46-143); suppressors = inline link
+> + Day-N-diary hook. (2) ✅ DONE 2026-09-11 — SHIPPED the JP-matched FREE entry offer
+> guides/chatgpt-jimu-jitan-prompt.html (now the JP landing target). (3) ✅ DONE
+> 2026-09-12 — posted a VALUE-FIRST, LINK-FREE top-level post 2098569637827141687
+> (anti-hallucination prompt trick as standalone value) + a self-reply
+> 2098569639416721518 carrying the free-JP-guide link (extended the poster for
+> main+self-reply so the main tweet isn't link-throttled).
+>
+> **⭐ NEXT (Day-13, ~+24h):** read main 2098569637827141687 impressions + reply
+> 2098569639416721518 url_link_clicks. Reach recovering toward 46-143 ⇒ link-free
+> value-first is the winning format; make it standing, iterate, and (if the reply got
+> clicks) build a JP PAID core (the 2 working Google Apps Scripts) to convert the
+> free-guide traffic and lighten the ¥50k math. Still ~4 ⇒ owned top-level reach is
+> near-zero regardless of format; retire X, pivot to a non-X reach lever.
 > Do NOT keep polishing marketplace listings. Do NOT edit the store speculatively
 > before real click traffic exists. New behavior principle: **verify DEMAND before
 > building more SUPPLY; "no evidence" is a reason to cheaply create demand, not to wait.**
@@ -518,6 +524,48 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-12 (Day 12, owner-requested EXTRA Routine -- REACH READOUT -> EVIDENCE-BASED
+  REFORMAT, under the new "Bootstrap intensity / 貧乏暇なし" + Economic-cadence protocol):
+  BOOTSTRAP: fetched origin; owner had added commit 37131af (LOOP_PROTOCOL §"Bootstrap
+  intensity — 貧乏暇なし" + a rewritten §10 "Economic cadence": ¥0 + active tests => maintain/
+  raise cadence, not lower; treat cadence as an economic control variable; reduce expensive
+  redundant thinking/passive monitoring, increase cheap productive execution; one judgment
+  iteration MAY bundle several tightly-related execution steps for one hypothesis). Read both
+  new sections as canon. My Day-11 JP-guide work had promoted to main; fast-forwarded the branch
+  (0 ahead/0 behind; no open Promotion-blocked issue). OBSERVE: revenue ¥0 (ledgers empty;
+  sales-monitor run 34654667309 success, 0). The Day-11 top-level post's +24h reach read was now
+  DUE (not premature) -- dispatched x-verify-reply.yml (run 34661401317, HTTP 200): tweet
+  2098217452148588931 = **4 impressions, 2 url_link_clicks, 0 profile/likes/reposts**. DIAGNOSE:
+  reach is the binding constraint (4 vs the owner's own 46-143 historical top-level range), BUT
+  CTR was 50% (2/4) -- the hook/offer converts to clicks when seen, so the problem is being seen,
+  not click-appeal. Two evidence-based suppressors on that post: (a) an INLINE external link (X
+  throttles link-in-post reach) and (b) a meta Day-N-diary hook (cold-reader-hostile per owner
+  canon 4c40c22). DECIDE (one revenue hypothesis, several steps, per the new §"one iteration ≠
+  one tiny action"): fix reach with the canonical acquisition structure -- a value-first,
+  LINK-FREE main tweet + a self-reply carrying the link. EXECUTE (all real): (1) extended
+  scripts/x_post_toplevel.mjs to post an optional verified self-reply (reply_text) so the main
+  tweet stays link-free and a reply failure never loses the confirmed main tweet; (2) grounded
+  a value-first post in X_VOICE_GUIDE (Register A free-guide lead-magnet + Register C honesty),
+  citing real corpus posts 1990016748754538679 / 1989661719174795632 / 1991644474909552999,
+  completed the 14-item self-check (main = the anti-hallucination prompt trick as standalone
+  value, no diary framing; reply = link to the FREE JP guide, a JP-matched offer, not the EN $19
+  store); weighted 266 main / 216 reply; (3) committed+pushed, dispatched x-post-toplevel.yml
+  (run 34661787869) against the branch, and confirmed main 2098569637827141687 (standalone) +
+  self-reply 2098569639416721518 (threaded). RECORD: appended the Day-12 history entry + the two
+  EVENTS (reach readout, value-first post), drained the queue, updated status/CURRENT_STATUS,
+  cost_ledger (~$1.10 ai + $0 x_api from the existing credit), reports/data/2026-09-12.json.
+  CADENCE (owner explicitly asked): reassessed as an economic control variable -> HELD 1x/day.
+  We are in the "¥0 + active tests" state that says maintain (not lower), but RAISING posting
+  cadence would not raise revenue speed now, because the reach feedback loop matures on a ~24h
+  clock, top-level acquisition is capped at 1 post/JST-day, and the next larger build (a JP paid
+  core) is deliberately gated on the Day-13 reach read (premature to build before demand). Not
+  passive: committed to an off-cycle iteration if Day-13 shows reach recovery. NEXT (Day 13,
+  ~+24h): read main 2098569637827141687 impressions + reply 2098569639416721518 url_link_clicks;
+  reach recovering toward 46-143 => link-free value-first works, make it the standing format,
+  and (if the reply got clicks) build the JP paid core to convert the free-guide traffic; still
+  ~4 => owned-account top-level reach itself is near-zero, retire X and pivot to a non-X reach
+  lever. Do NOT edit the store before real click traffic; do NOT re-polish parked marketplaces;
+  no 2nd top-level today (cap used).
 - 2026-09-11 (Day 11, EVENING scheduled 20:07 JST fire -- DIAGNOSIS -> EXECUTION, JP ENTRY
   OFFER SHIPPED): distinct from today's three earlier sessions (the owner-granted top-level
   post, the 10-day midpoint review, the product review -- the latter two diagnosis-only per

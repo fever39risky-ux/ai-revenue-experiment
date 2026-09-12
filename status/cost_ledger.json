@@ -391,11 +391,29 @@
       "currency": "usd",
       "jpy_equivalent": 135,
       "note": "Day 11 evening scheduled autonomous run (estimated): synced main (0/0, no Promotion-blocked issue), read minimum state + the delivered product ZIP's 20 prompts, and EXECUTED the midpoint+product-review redesign's prescribed JP entry offer -- built guides/chatgpt-jimu-jitan-prompt.html (a free Japanese lead-magnet page, 7 prompts re-edited into Japanese, anti-hallucination differentiator led, soft Gumroad pointer) and wired it for discovery (sitemap, index backlink, EN<->JP hreflang cross-links). Did not read the Day-11 top-level post's +24h reach (not due). leak_check 0/0. One real compounding owned asset shipped via asset reuse; no X cost this run (no post)."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Day 12 extra Routine (owner-requested; new 'bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol, commit 37131af). One revenue hypothesis, multiple execution steps: read the Day-11 top-level reach (4 imp / 2 clicks -> reach is the constraint; inline-link + diary-hook the suspected suppressors); extended scripts/x_post_toplevel.mjs with a verified self-reply so the main tweet stays link-free; drafted+voice-checked+queued a value-first link-free post + reply to the free JP guide; dispatched and verified both tweets (main 2098569637827141687, reply 2098569639416721518); recorded state and made the cadence decision (hold 1x/day, with an evidence-based rationale). leak_check 0/0."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "From the owner's existing $5 X read/write credit (recorded 2026-09-07): 1 GET (Day-11 reach read) + 1 POST (main tweet) + 1 GET verify + 1 POST (self-reply) + 1 GET verify. X exposes no exact per-request credit cost, so no per-call dollar figure is invented (LOOP_PROTOCOL section 11)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5103
+    "official_cost_jpy_equivalent": 5268
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

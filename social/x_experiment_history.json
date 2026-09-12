@@ -44,6 +44,32 @@
       },
       "standalone_verified": true,
       "observation_plan": "Read impressions + url_link_clicks at ~+24h (Day-12 fire) via x-verify-reply.yml metrics read with X_TWEET_ID=2098217452148588931. Reach bar: owner own top-level posts historically 46-143 impressions (Day1/2/5/6); the Day-9 reply got 0. >0 impressions => top-level reaches; link clicks => funnel signal; ~0 => account top-level reach itself is near-zero."
+    },
+    {
+      "date": "2026-09-12",
+      "post_type": "top_level",
+      "tweet_id": "2098569637827141687",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2098569637827141687",
+      "in_reply_to_tweet_id": null,
+      "text": "ChatGPTを仕事で使うとき\n一番こわいのは、それっぽい嘘を堂々と返してくることやと思う\n\n対策は、プロンプトに一文足すだけ\n\n「分からんことは推測せず、\n『確認して折り返します』と書いて」\n\nこれだけで事実の捏造がだいぶ減るんよね\n\nただゼロにはならん\n最後は人が確認する前提でな",
+      "reply_text": "こういう「AIに嘘をつかせない」実務プロンプト、\nメール・議事録・請求書ぶんも入れて7個、\n登録なしで無料でまとめといた\n\n▼ 無料プロンプト集\nhttps://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html\n\n僕がAIに30日「自力で稼いで」と任せてる実験の一部やねん",
+      "reply_tweet_id": "2098569639416721518",
+      "reply_error": null,
+      "topic": "VALUE-FIRST cold-reader acquisition post (canon 4c40c22 / LOOP_PROTOCOL §9 top-level subsection), NOT an experiment diary. Rationale from hard evidence read this run (Day 12): the Day-11 top-level post carried an INLINE external link and a meta Day-N-diary hook, and got only 4 impressions (owner's own link-free posts historically 46-143), though 2 of those 4 clicked (50% CTR). Two evidence-based fixes applied at once: (1) the main tweet is now standalone-VALUABLE to any ChatGPT user (teaches the product's real differentiator -- the anti-hallucination 'don't invent facts / write I will confirm and follow up' constraint) with NO diary framing, so a cold reader gets value with zero prior context; (2) the main tweet carries NO external link (X throttles link-in-post reach) -- the link to the FREE JP guide (a better JP-matched offer than the EN $19 store) is moved to a self-reply. This tests whether owned-account top-level reach recovers toward the 46-143 baseline when the post is value-first and link-free, while giving engaged readers a real conversion path to the free lead magnet. Genuinely new vs both prior posts (different content type, different destination, different structure); not a rehash.",
+      "register": "A/C blend -- Register A's free-guide lead-magnet distribution (value-first give -> soft link) grounded with Register C's honest limit-stating (ただ〜) tone.",
+      "posted_at": "2026-09-12T00:29:26.482Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 34661787869)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "reply_verified": true,
+      "observation_plan": "Read main-tweet impressions + reply url_link_clicks at ~+24h (Day-13) via x-verify-reply.yml (X_TWEET_ID=2098569637827141687 for reach; X_TWEET_ID=2098569639416721518 for the reply's url_link_clicks). Compare reach vs Day-11's link-inline post (4 impressions): recovery toward 46-143 supports the link-suppression + value-first hypothesis; still ~4 means owned-account top-level reach itself is near-zero regardless of format (then pivot off X)."
     }
   ]
 }
