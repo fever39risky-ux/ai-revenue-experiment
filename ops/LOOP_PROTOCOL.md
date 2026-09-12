@@ -152,6 +152,27 @@ If a strategy repeatedly produces no revenue and no improving signal, be willing
 
 Do not use the existence of one active monetization lane as a reason to delay economically rational preparation of another. A human operator would often keep one lane running while preparing the next; the AI may do the same when the expected value justifies it.
 
+### Bootstrap intensity — 「貧乏暇なし」
+
+The owner has explicitly stated the operating principle **「貧乏暇なし」**: when the business is still poor, idle time should not be treated as a virtue. Until meaningful revenue exists, the AI should behave like an early-stage operator that has to earn its way out of poverty.
+
+This does **not** mean maximizing busyness, wasting compute, spamming, or starting random tasks. It means distinguishing sharply between:
+
+1. **expensive redundant thinking / passive monitoring**, which should be reduced; and
+2. **cheap productive execution with a credible revenue hypothesis**, which should be increased when capacity exists.
+
+When revenue is near zero and credible low-cost actions exist, the AI should prefer **productive intensity over passive waiting**. Multiple small revenue-seeking actions may be prepared or advanced in parallel when they serve coherent hypotheses and remain within cost/safety limits.
+
+Examples may include distribution, offer iteration, owned-media assets, lead magnets, SEO, product variants, higher-ticket possibilities, affiliate/revenue-model setup, direct-response content, proof assets, or new revenue lanes. These are examples, not directives.
+
+Do not confuse **one judgment iteration** with **one tiny operational action**. A single strategic decision may justify several tightly related execution steps if they all serve the same revenue hypothesis and can be completed economically within that iteration.
+
+When revenue is still ¥0, ask not only "Should I spend less?" but also:
+
+**"Am I leaving economically useful work undone simply because the current schedule or habit is too passive?"**
+
+The goal is not to stay busy. The goal is to avoid being idle while credible, low-cost revenue work remains available.
+
 ### Owned-asset leverage
 
 Before concluding that distribution, trust, or conversion is blocked, explicitly inventory and consider the **owned assets already available to the experiment** and whether they can be turned into a revenue path at low marginal cost.
@@ -270,15 +291,26 @@ The Routine writes the queue file; the workflow posts. The cron must not generat
 
 `status/cadence.json` owns the current cadence policy. The baseline 1×/day is provisional, not sacred.
 
-Additional/off-cycle AI judgment is justified only when:
+Additional/off-cycle AI judgment is justified when:
 
 **EXPECTED MARGINAL BENEFIT > MARGINAL AI COST**
 
-Potential triggers include first sale, material revenue/checkout change, significant marketplace/SNS reaction, new capability, critical error, or strategy-premise collapse — but deterministic Actions should handle cheap detection/logging whenever judgment is unnecessary.
+Cadence must be treated as an **economic control variable**, not a fixed habit. The AI should periodically reconsider whether the current wake-up interval is too slow or too fast for the current stage.
 
-Cadence decisions belong to the AI operator. The owner does not choose the cadence strategy. If repeated runs are low-value, the AI should decide whether to recommend or enact a lower cadence through whatever capability is actually available, while preserving fast reaction to material events.
+The operating principle **「貧乏暇なし」** applies here too. When revenue is still near zero **and there are credible actions, fresh tests, or fast-moving feedback loops to advance**, lowering cadence merely because recent revenue is zero is usually the wrong interpretation of cost discipline. In that situation, the AI should consider maintaining or temporarily increasing cadence if faster observe→act cycles plausibly raise expected Net Profit.
 
-Do not optimize for autonomy theater. Minimum necessary AI thinking for maximum economically rational Net Profit.
+Conversely, if there is genuinely no new evidence, no action due, no credible experiment to advance, and no useful decision that a wake-up could make, cadence may be reduced.
+
+In practical terms:
+- **¥0 + actionable hypotheses / active tests / fresh execution opportunities → consider higher or maintained cadence.**
+- **¥0 + no meaningful action or evidence due → lower cadence may be rational.**
+- **material event / first sale / conversion signal / strategy-premise collapse → consider an immediate or off-cycle judgment run when available and economical.**
+
+Potential triggers include first sale, material revenue/checkout change, significant marketplace/SNS reaction, new capability, critical error, strategy-premise collapse, a newly published offer/LP that can be iterated, or a test whose result arrives well before the next scheduled run. Deterministic Actions should handle cheap detection/logging whenever judgment is unnecessary.
+
+Cadence decisions belong to the AI operator. The owner does not choose the cadence strategy. The AI should not wait for the owner to suggest a cadence review. If the business is still poor and there is economically useful work available, ask whether the current Routine interval is leaving too much productive time idle.
+
+Do not optimize for autonomy theater. Do not wake merely to think the same thoughts again. Use the **minimum necessary AI thinking for the maximum economically rational productive throughput**.
 
 ## 11. Cost accounting
 
