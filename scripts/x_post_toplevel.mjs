@@ -150,6 +150,53 @@ console.log(`x_post_toplevel: CONFIRMED standalone (no replied_to reference).`);
 
 const tweetUrl = `https://x.com/KinoshitaTsks/status/${tweetId}`;
 const baseline = vBody.data.public_metrics || {};
+
+// Optional self-reply carrying the link/CTA. Rationale (evidence, 2026-09-12):
+// the Day-11 top-level post with an inline external link got only 4 impressions
+// (owner's own link-free posts historically get 46-143). X is well known to
+// throttle the reach of posts containing external links, so the acquisition
+// structure is: a value-first, LINK-FREE main tweet (maximise reach) + a
+// self-reply that carries the link (conversion path for engaged readers). This
+// self-reply is to the AI's OWN just-posted tweet only -- never to another user.
+let replyTweetId = null, replyError = null;
+if (queued.reply_text) {
+  const rlen = weightedLength(queued.reply_text);
+  if (rlen > 270) {
+    replyError = `reply_text too long (weighted ${rlen} > 270) -- main tweet already posted; skipping the reply.`;
+    console.error('x_post_toplevel: ' + replyError);
+  } else {
+    console.log('x_post_toplevel: posting the self-reply (link/CTA)...');
+    const rRes = await fetch(postUrl, {
+      method: 'POST',
+      headers: { Authorization: authHeader('POST', postUrl), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: queued.reply_text, reply: { in_reply_to_tweet_id: tweetId } }),
+    });
+    const rBody = await rRes.json().catch(() => ({}));
+    console.log(`POST /2/tweets (reply) -> ${rRes.status}`);
+    console.log(JSON.stringify(rBody, null, 2));
+    if (rRes.ok && rBody.data?.id) {
+      // Verify it is genuinely a reply to our main tweet.
+      const rGetParams = { 'tweet.fields': 'referenced_tweets,conversation_id' };
+      const rqs = new URLSearchParams(rGetParams).toString();
+      const rvUrl = `https://api.twitter.com/2/tweets/${rBody.data.id}`;
+      const rvRes = await fetch(`${rvUrl}?${rqs}`, { headers: { Authorization: authHeader('GET', rvUrl, rGetParams) } });
+      const rvBody = await rvRes.json().catch(() => ({}));
+      const rRepliedTo = (rvBody.data?.referenced_tweets || []).find(r => r.type === 'replied_to');
+      if (rvRes.status === 200 && rRepliedTo?.id === tweetId) {
+        replyTweetId = rBody.data.id;
+        console.log(`x_post_toplevel: self-reply CONFIRMED threaded under ${tweetId} -- ${replyTweetId}`);
+      } else {
+        replyError = `reply ${rBody.data.id} created but not confirmed threaded under ${tweetId} (GET ${rvRes.status}).`;
+        replyTweetId = rBody.data.id;
+        console.error('x_post_toplevel: ' + replyError);
+      }
+    } else {
+      replyError = `reply POST failed (${rRes.status}); main tweet is fine and recorded.`;
+      console.error('x_post_toplevel: ' + replyError);
+    }
+  }
+}
+
 const entry = {
   date: today,
   post_type: 'top_level',
@@ -157,6 +204,9 @@ const entry = {
   tweet_url: tweetUrl,
   in_reply_to_tweet_id: null,
   text: queued.text,
+  reply_text: queued.reply_text || null,
+  reply_tweet_id: replyTweetId,
+  reply_error: replyError,
   topic: queued.topic_chosen,
   register: queued.register_targeted,
   posted_at: new Date().toISOString(),
@@ -166,5 +216,5 @@ const entry = {
 history.posts.push(entry);
 writeFileSync(HISTORY, JSON.stringify(history, null, 2) + '\n');
 unlinkSync(QUEUE);
-console.log(`x_post_toplevel: posted and recorded -- ${tweetUrl}`);
-console.log('TOPLEVEL_RESULT=' + JSON.stringify({ tweet_id: tweetId, tweet_url: tweetUrl, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));
+console.log(`x_post_toplevel: posted and recorded -- ${tweetUrl}${replyTweetId ? ` (+ self-reply ${replyTweetId})` : ''}`);
+console.log('TOPLEVEL_RESULT=' + JSON.stringify({ tweet_id: tweetId, tweet_url: tweetUrl, reply_tweet_id: replyTweetId, reply_error: replyError, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));
