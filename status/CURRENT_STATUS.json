@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-12T00:40:00.000Z",
+  "updated_at": "2026-09-12T11:12:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "Day 12 (2026-09-12) extra Routine. 0 completed sales on any channel: revenue_ledger official+prep both empty; latest sales-monitor run 34654667309 (2026-09-11T22:35Z, success) recorded 0; no open Promotion-blocked issue; branch fast-forwarded to origin/main (owner commit 37131af). Stripe MCP unavailable (requires auth); ledger + Actions fallback per LOOP_PROTOCOL section 6. DECISIVE DATUM READ this run: the Day-11 top-level post (2098217452148588931) reach at +24h via x-verify-reply.yml (run 34661401317, HTTP 200) = 4 impressions, 2 url_link_clicks, 0 profile clicks, 0 likes/replies/reposts. Interpretation: reach is the binding constraint (4 imp vs the owner's own 46-143 historical top-level range), but CTR was high (2/4=50%) -- the hook/offer clicks when seen. Two evidence-based suppressors on that post: an inline external link (X throttles link-in-post reach) and a meta Day-N-diary hook (cold-reader-hostile per canon 4c40c22)."
+    "verified_how": "Re-verified Day-12 evening scheduled fire (2026-09-12 20:09 JST): still 0 completed sales -- revenue_ledger official+prep both empty; latest sales-monitor run 34673394985 (2026-09-12T04:35Z, success, on main head 86fd4b9) recorded 0; no open Promotion-blocked issue; branch 0/0 with origin/main (Day-12 work 86fd4b9 promoted cleanly). Stripe MCP unavailable (requires auth); ledger + Actions fallback per LOOP_PROTOCOL section 6. -- Earlier Day-12 morning run context: 0 sales (sales-monitor run 34654667309); DECISIVE DATUM READ that run: the Day-11 top-level post (2098217452148588931) reach at +24h via x-verify-reply.yml (run 34661401317, HTTP 200) = 4 impressions, 2 url_link_clicks, 0 profile clicks, 0 likes/replies/reposts. Interpretation: reach is the binding constraint (4 imp vs the owner's own 46-143 historical top-level range), but CTR was high (2/4=50%) -- the hook/offer clicks when seen. Two evidence-based suppressors on that post: an inline external link (X throttles link-in-post reach) and a meta Day-N-diary hook (cold-reader-hostile per canon 4c40c22)."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
@@ -188,8 +188,8 @@
   "blockers": [],
   "human_actions_required": [
     {
-      "action": "One-time consent decision: may the AI post TOP-LEVEL (standalone) tweets from your personal @KinoshitaTsks account for distribution -- not only the threaded replies-to-root-post commentary you already approved? Evidence this is now the binding constraint: the Day-9 distribution test (a threaded reply pointing to the store) got a measured 0 impressions in 33h, because a self-reply has ~0 organic reach; a top-level post is the only owned mechanism that would actually appear in your followers' timelines. If yes, the AI will run ONE honest top-level post to your audience and measure it; if no, the AI will not, and will look for a non-X reach lever.",
-      "why_ai_cannot": "Account-owner consent about how your personal public identity is used -- a new outward posting form beyond the reply-commentary you reviewed/approved. Distribution method is the AI's call (LOOP_PROTOCOL section 2), but a new public-identity use on your personal account is a consent matter, not a strategy question, so it is surfaced rather than assumed.",
+      "action": "RESOLVED 2026-09-11: the owner GRANTED account-usage consent for the AI to publish top-level (standalone) tweets from @KinoshitaTsks for acquisition (EVENTS permission_granted 2026-09-11T00:00Z; canon in ops/LOOP_PROTOCOL.md section 9). Acted on twice since: Day-11 post 2098217452148588931 and the Day-12 value-first main 2098569637827141687 + self-reply 2098569639416721518. No longer a binding human blocker; kept for the record.",
+      "why_ai_cannot": "n/a -- resolved (owner consent granted).",
       "one_time": true
     },
     {

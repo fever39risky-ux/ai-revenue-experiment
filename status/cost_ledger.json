@@ -409,11 +409,20 @@
       "currency": "usd",
       "jpy_equivalent": 0,
       "note": "From the owner's existing $5 X read/write credit (recorded 2026-09-07): 1 GET (Day-11 reach read) + 1 POST (main tweet) + 1 GET verify + 1 POST (self-reply) + 1 GET verify. X exposes no exact per-request credit cost, so no per-call dollar figure is invented (LOOP_PROTOCOL section 11)."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "note": "Day 12 EVENING scheduled fire (20:09 JST) -- separate from the owner-triggered morning Day-12 run. Short, cheap early-stop iteration (estimate, X exposes no per-run figure; light read-only run). Verified no material change: revenue still Y0 (sales-monitor run 34673394985 success, ledger empty), no open Promotion-blocked issue, branch 0/0 with main. Did NOT read the Day-12 post reach (only +10.7h; decisive datum due ~+24h = Day-13 morning -- premature partial read burns scarce X credit). 1/day top-level cap already used today; next build (JP paid core) gated on the Day-13 reach read. Compared hold vs concrete alternatives (read-now / build-paid-core-now / edit-guide-or-store) -- all negative-EV or evidence-free speculation before the in-flight test matures -> early-stop is highest-EV. Housekeeping only: marked the stale top-level-consent human-action RESOLVED (granted 2026-09-11), refreshed revenue.verified_how + updated_at. leak_check 0/0."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5268
+    "official_cost_jpy_equivalent": 5321
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

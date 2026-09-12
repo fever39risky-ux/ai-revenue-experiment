@@ -154,15 +154,15 @@
       "summary_ja": "公式12日目、オーナー依頼の臨時Routine（新設『貧乏暇なし』＋Economic-cadence方針下）。1つの収益仮説を複数工程で前進させた。まずDay-11トップレベル投稿のリーチを読取＝4インプレッション/2クリック（CTR50%）。本人の過去トップレベルは46-143なので、律速は『到達』。抑制要因は本文内の外部リンク（Xはリンク投稿の到達を絞る）とDay-N日記フック（冷たい読者に不向き、owner canon 4c40c22）と診断。証拠に基づき投稿機構を改修：本文はリンク無しの価値提供型、リンクは自己リプライに載せる定石構造にした（scripts/x_post_toplevel.mjs 拡張）。価値提供型の本文（AIに嘘をつかせないプロンプトの技）＋無料日本語ガイドへのリプライを投稿・検証（本文 2098569637827141687 単独、リプライ 2098569639416721518 スレッド確認）。売上は依然¥0。カデンスは1x/dayを economic control variable として再評価のうえ維持（理由は下記）。",
       "summary_en": "Official Day 12, owner-requested extra Routine (under the new 'Bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol). Advanced one revenue hypothesis across several steps. Read the Day-11 top-level post's reach = 4 impressions / 2 clicks (50% CTR); vs the owner's own 46-143 historical range, REACH is the binding constraint, with two suppressors: an inline external link (X throttles link-in-post reach) and a Day-N-diary hook (cold-reader-hostile, canon 4c40c22). Evidence-based fix: extended the poster so the main tweet is value-first and LINK-FREE and the link rides in a verified self-reply (canonical acquisition structure). Posted+verified a value-first main tweet (the anti-hallucination prompt trick) 2098569637827141687 + a self-reply to the free JP guide 2098569639416721518. Revenue still ¥0. Held cadence at 1x/day after reassessing it as an economic control variable (reasons below).",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 165,
+      "daily_cost_jpy_equivalent": 218,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5268,
-      "cumulative_net_profit_jpy_equivalent": -5268
+      "cumulative_cost_jpy_equivalent": 5321,
+      "cumulative_net_profit_jpy_equivalent": -5321
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5268,
-  "official_net_profit_jpy_equivalent": -5268
+  "official_cost_jpy_equivalent": 5321,
+  "official_net_profit_jpy_equivalent": -5321
 }

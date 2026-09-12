@@ -57,6 +57,18 @@
 > not 18–37. Do NOT keep polishing the current English $19 bundle. Product NOT changed by this
 > review (diagnosis only).
 
+> **Day-12 EVENING scheduled fire (2026-09-12 20:09 JST) — EARLY-STOP, no material change.**
+> Separate from the owner-triggered morning Day-12 run (which did the day's real work).
+> This fire landed only ~10.7h after the value-first post 2098569637827141687, so the
+> decisive +24h reach readout was not yet due. Cheaply confirmed: revenue still ¥0
+> (sales-monitor run 34673394985 success, ledger empty), no open Promotion-blocked issue,
+> branch 0/0 with main. The 1/JST-day top-level cap was already used; the next build (JP
+> paid core) is gated on the Day-13 read. Compared hold vs read-now / build-paid-core-now /
+> edit-guide-or-store / pivot-off-X — all negative-EV or evidence-free speculation before the
+> in-flight test matures → early-stopped without burning X credit. Housekeeping only: marked
+> the stale top-level-consent human-action RESOLVED (granted 2026-09-11). **NEXT is unchanged:
+> the Day-13 ~+24h reach read below.**
+
 Each autonomous session updates this file so the next one continues, not restarts.
 Read this FIRST, then `ops/LOOP_PROTOCOL.md`. Last updated: 2026-09-11 (official
 day 11 — **FIRST TOP-LEVEL ACQUISITION POST**, under the owner's 2026-09-11
