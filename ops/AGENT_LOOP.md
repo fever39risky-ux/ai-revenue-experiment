@@ -1,6 +1,38 @@
 # Operating Brief — resume point for the autonomous loop
 
-> ## ⭐⭐ LATEST — Day-13 evening (2026-09-13 20:09 JST): DECISIVE REACH READ → X RETIRED
+> ## ⭐⭐⭐ LATEST — Day-13 off-cycle (2026-09-13, owner-triggered): PIVOT X → note.com
+> New canon: **`ops/LOOP_PROTOCOL_ADDENDUM.md`** — *"A failed channel should create a pivot, not a
+> vacation."* Read it with the main protocol; it controls zero-revenue pivot/cadence behavior.
+> Owner triggered this off-cycle run to check that retiring X did not collapse into
+> "SEO only → wait." It didn't. **Re-diagnosed the full remaining revenue space** (addendum's 7
+> questions): binding constraint is still REACH, but every *fast* reach channel is human-account-gated
+> and owned-Pages SEO is slow (zero domain authority — won't rank in 17 days). **Chose the
+> highest-EV untested reach lane = note.com** (free, JP-audience-native, high domain authority, its own
+> reader base — what X failed to be). The existing LAUNCH_KIT note asset was **stale** (Day-N diary
+> framing → EN $19 store, both falsified by the 2026-09-11 reviews), so this is a genuine pivot.
+>
+> **EXECUTED (non-blocked):** wrote **`marketing/note_article_01_jp.md`** — a publish-ready,
+> value-first, owner-voice JP note article (anti-hallucination one-liner + 3 copy-paste office prompts
+> + the leap to automation), cold-reader-standalone, landing on the free JP guide → `store/jp.html`
+> (the coherent current funnel, NOT the EN store). Retired the stale outline in `LAUNCH_KIT.md`.
+>
+> **HUMAN STEP REQUESTED (narrow):** create/confirm a **note.com account** for the experiment (the
+> sole human-bound step; AI can't self-signup). In `human_actions_required`. Non-blocking — SEO +
+> backlog continue.
+>
+> **CADENCE:** the prior run's "reduce to ~every 2-3 days" recommendation is **RETRACTED** per the
+> addendum's cadence gate — positive-EV non-blocked work remains, so hold **1x/day**.
+>
+> **⭐ NEXT SESSION:** if a note.com account exists → publish `marketing/note_article_01_jp.md`, record
+> the URL, watch referral traffic to the JP funnel. Else advance the non-blocked backlog (do NOT wait):
+> (i) a **Zenn/Qiita** technical article on the 2 Google Apps Scripts (2nd free high-authority JP reach
+> channel; also account-gated → prepare + request); (ii) **enable Gumroad's native affiliate program**
+> via `GUMROAD_ACCESS_TOKEN` (distribution multiplier independent of our reach; verify API support);
+> (iii) repackage the 2 scripts as a standalone micro-product; (iv) affiliate/referral links on the EN
+> SEO guide. Let owned-page SEO mature in parallel. Do NOT post to X (retired). Do NOT reduce cadence
+> while this backlog exists. Watch all channels for the first sale.
+
+> ## ⭐⭐ Day-13 evening (2026-09-13 20:09 JST): DECISIVE REACH READ → X RETIRED
 > The multi-day pending test is resolved. Read the Day-12 value-first, **link-free** top-level
 > post reach at ~+34.7h (x-verify-reply.yml runs 34753719996 / 34753748953, both HTTP 200):
 > **main tweet 2098569637827141687 = 5 impressions** / 0 profile clicks / 0 external engagement;
@@ -587,6 +619,39 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-13 (Day 13, OFF-CYCLE owner-triggered run -- PIVOT X -> note.com, under the new pivot
+  addendum): distinct from today's scheduled fire (which retired X). BOOTSTRAP: synced main; owner had
+  added ops/LOOP_PROTOCOL_ADDENDUM.md (03b305a/9111711, canonical: "a failed channel should create a
+  pivot, not a vacation"; cadence may drop while revenue ~¥0 only after showing NO positive-EV work
+  remains across the full space) + a stripe sync (3615a2b, cost_ledger only; revenue still ¥0). The
+  owner triggered this run explicitly to stop "X dead -> SEO only -> lower cadence -> wait" from being
+  auto-accepted. DIAGNOSE (addendum's 7 questions, honestly): binding constraint is still REACH, but
+  every FAST reach channel is human-account-gated (note/Zenn/Qiita/Reddit/communities) and owned-Pages
+  SEO is slow (zero domain authority, won't rank in 17 days). So the pivot target is the highest-EV
+  UNTESTED reach lane that reaches cold JP buyers: note.com (free, JP-audience-native, high domain
+  authority + its own discovery/reader base -- exactly what X was supposed to be and wasn't). Found the
+  existing note asset in marketing/LAUNCH_KIT.md was STALE (Day-N diary framing -> EN $19 store, both
+  falsified by the 2026-09-11 midpoint+product reviews) -> genuine pivot, not duplication. DECIDE (vs
+  alternatives): note.com > (a) Etsy search-edit = blocked (stale OAuth); (b) JPY Stripe link = blocked
+  (no Stripe access); (c) higher-ticket offer = more SUPPLY with no working reach = 0 expected sales
+  now, and a done-with-you service needs owner labor (violates minimal-labor); (d) Gumroad native
+  affiliate = AI-operable but weak near-term on a 0-sale/0-review cold product; (e) more owned SEO pages
+  = premature before existing pages index. note.com is the fastest free JP-audience reach with real
+  authority. EXECUTE (non-blocked half, for real): wrote marketing/note_article_01_jp.md -- a
+  publish-ready, value-first, owner-voice JP article (the anti-hallucination one-liner + 3 copy-paste
+  office prompts + the leap to the 2 auto-scripts), cold-reader-standalone, honest soft experiment
+  disclosure, CTA -> the free JP guide -> store/jp.html (coherent current funnel). Marked the stale
+  LAUNCH_KIT note outline RETIRED so no future session publishes the wrong version. REQUEST (addendum
+  Human-permission-boundary): the smallest specific unlock -- create/confirm a note.com account
+  (account gate; AI can't self-signup) -- filed in human_actions_required with why + minimum scope +
+  an explicit non-blocking note. RECORD: EVENTS (reach_pivot_to_note_com_prepared), CURRENT_STATUS
+  (focus/action/result/next_action; new note_com_content_distribution lane; note-account human action),
+  cost_ledger (+$0.65/¥98; no X spend), reports/data/2026-09-13.json, and RETRACTED the prior run's
+  reduce-cadence recommendation in cadence.json under the addendum's cadence gate (positive-EV backlog
+  exists -> hold 1x/day). CADENCE: hold 1x/day (two-shift acceptable) while the pivot backlog lasts.
+  NEXT: see the ⭐⭐⭐ LATEST header -- publish the note article once an account exists, else advance the
+  backlog (Zenn/Qiita, Gumroad affiliate, script micro-product); SEO matures in parallel; no X; don't
+  cut cadence; watch for the first sale.
 - 2026-09-13 (Day 13, EVENING scheduled 20:07 JST fire -- DECISIVE REACH READ -> STRATEGY-PREMISE
   COLLAPSE -> X RETIRED): distinct from the earlier owner-triggered Day-13 prep shift (which shipped
   store/jp.html). BOOTSTRAP: synced branch to origin/main (0 ahead/0 behind; no open Promotion-blocked

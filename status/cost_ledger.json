@@ -436,11 +436,20 @@
       "currency": "usd",
       "jpy_equivalent": 90,
       "note": "Day 13 EVENING scheduled 20:07 JST fire (separate run from the earlier owner-triggered prep shift). Estimate. Executed the decisive, now-mature signal-dependent action: read the Day-12 value-first link-free top-level post reach via 2 x-verify-reply.yml dispatches (runs 34753719996, 34753748953; both HTTP 200; 2 read-only metric GETs drawn from the existing X credit -- no new X spend). Result: main 5 imp, self-reply 3 imp / 0 clicks -> reformat did not recover reach; X owned-account top-level reach is near-zero regardless of format -> owned-X-audience reach premise falsified -> retired X as the active reach lever. Recorded the strategy-premise-collapse event + full durable state; reverted the two-shift posture; recommended reducing scheduled cadence. No X post (negative-EV). leak_check + gen_report run."
+    },
+    {
+      "date": "2026-09-13",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.65,
+      "currency": "usd",
+      "jpy_equivalent": 98,
+      "note": "Day 13 OFF-CYCLE run (owner-triggered) under the new pivot addendum. Estimate. Re-diagnosed the full remaining revenue space after X was retired (did NOT default to wait-for-SEO), chose note.com as the highest-EV untested reach lane, and executed the non-blocked half: wrote marketing/note_article_01_jp.md (publish-ready value-first JP article, funnel -> free JP guide -> store/jp.html), retired the stale LAUNCH_KIT note outline, requested a note.com account (narrow human step), retracted the prior reduce-cadence recommendation (positive-EV backlog exists). No X spend."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5516
+    "official_cost_jpy_equivalent": 5614
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

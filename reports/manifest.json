@@ -163,19 +163,19 @@
       "day": 13,
       "date": "2026-09-13",
       "path": "reports/2026-09-13.html",
-      "summary": "Official Day 13, scheduled 20:07 JST fire. Executed the decisive observation: read the Day-12 value-first, link-free top-level post's reach at +34.7h -- main tweet 2098569637827141687 = 5 impressions; the link-carrying self-reply 2098569639416721518 = 3 impressions / 0 clicks. No recovery from Day-11 (4 imp). Format was varied across two posts and reach stayed ~4-5 (vs the owner's own 46-143), so the binding cause is the account's own near-zero top-level organic reach, NOT content/format. The central premise since Day 9 -- the owned X audience as a reach lever -- is empirically falsified. Per pre-registered branch (b): retire X as the active reach lever (reversible, nothing deleted). The only remaining AI-operable, in-scope non-X reach lever is organic search on the already-seeded owned JP pages (needs indexing time, days-weeks). No X post today (~5 reach = negative-EV). Cadence: reverted the temporary two-shift posture (its justification is gone). Revenue still ¥0.",
-      "summary_ja": "公式13日目・定時20:07 JST。決定的な観測を実行：Day-12の価値提供型・リンク無しトップレベル投稿のリーチを+34.7hで読取＝本文2098569637827141687が5インプレッション、リンク付き自己リプライ2098569639416721518が3インプレッション/0クリック。Day-11（4imp）から回復せず。2投稿で形式を変えても到達は≈4-5のまま（本人の過去46-143比で桁違いに低い）＝律速は本文/形式ではなくアカウント自体のトップレベル到達がほぼ0。Day-9以来の中核前提『所有Xオーディエンス＝到達レバー』が実証的に崩壊。事前登録の分岐(b)に従い、Xを能動的な到達レバーから撤退（可逆・削除せず）。残る唯一のAI操作可能・スコープ内の非X到達レバーは所有日本語ページの検索流入（既に種まき済み、索引化に数日〜週要）。本日はX投稿せず（到達≈5で負EV）。カデンス：一時的2シフト体制を撤回（根拠消失）。売上は依然¥0。",
-      "summary_en": "Official Day 13, scheduled 20:07 JST fire. Executed the decisive observation: read the Day-12 value-first, link-free top-level post's reach at +34.7h -- main tweet 2098569637827141687 = 5 impressions; the link-carrying self-reply 2098569639416721518 = 3 impressions / 0 clicks. No recovery from Day-11 (4 imp). Format was varied across two posts and reach stayed ~4-5 (vs the owner's own 46-143), so the binding cause is the account's own near-zero top-level organic reach, NOT content/format. The central premise since Day 9 -- the owned X audience as a reach lever -- is empirically falsified. Per pre-registered branch (b): retire X as the active reach lever (reversible, nothing deleted). The only remaining AI-operable, in-scope non-X reach lever is organic search on the already-seeded owned JP pages (needs indexing time, days-weeks). No X post today (~5 reach = negative-EV). Cadence: reverted the temporary two-shift posture (its justification is gone). Revenue still ¥0.",
+      "summary": "[Day 13 had two runs.] SCHEDULED FIRE: read the Day-12 reach = 5 imp (main) / 3 imp-0 clicks (reply); reformat did not recover reach; X retired as the active reach lever. OFF-CYCLE RUN (owner-triggered, under the new pivot addendum 'a failed channel should create a pivot, not a vacation'): instead of defaulting to wait-for-SEO, re-diagnosed the full remaining space and PIVOTED reach to note.com (the highest-EV untested lane: free, JP-audience-native, high domain authority). Wrote a publish-ready value-first JP note article (marketing/note_article_01_jp.md) landing on the free JP guide -> store/jp.html; retired the stale diary-framed note outline; requested one narrow human step (a note.com account); retracted the earlier reduce-cadence recommendation (positive-EV backlog exists). Revenue still ¥0.",
+      "summary_ja": "[Day 13は2回稼働。] 定時：Day-12リーチ読取＝本文5imp/リプライ3imp・0クリック、形式改善でも回復せずXを能動的到達レバーから撤退。オフサイクル（オーナー起動、新ピボット補遺『失敗チャネルは休暇でなく方向転換を生む』下）：SEO待ちを自動正解とせず残る収益空間を再診断し、リーチをnote.comへピボット（最高EVの未検証レーン：無料・日本語ネイティブ・高ドメイン権威）。公開可能な価値提供型の日本語note記事（marketing/note_article_01_jp.md、導線＝無料ガイド→store/jp.html）を作成、古い日記型noteアウトラインを廃止、人間の最小作業（note.comアカウント作成）を依頼、当日先の減cadence推奨を撤回（positive-EVのバックログ有り）。売上は依然¥0。",
+      "summary_en": "[Day 13 had two runs.] SCHEDULED FIRE: read the Day-12 reach = 5 imp (main) / 3 imp-0 clicks (reply); reformat did not recover reach; X retired as the active reach lever. OFF-CYCLE RUN (owner-triggered, under the new pivot addendum 'a failed channel should create a pivot, not a vacation'): instead of defaulting to wait-for-SEO, re-diagnosed the full remaining space and PIVOTED reach to note.com (the highest-EV untested lane: free, JP-audience-native, high domain authority). Wrote a publish-ready value-first JP note article (marketing/note_article_01_jp.md) landing on the free JP guide -> store/jp.html; retired the stale diary-framed note outline; requested one narrow human step (a note.com account); retracted the earlier reduce-cadence recommendation (positive-EV backlog exists). Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 195,
+      "daily_cost_jpy_equivalent": 293,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5516,
-      "cumulative_net_profit_jpy_equivalent": -5516
+      "cumulative_cost_jpy_equivalent": 5614,
+      "cumulative_net_profit_jpy_equivalent": -5614
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5516,
-  "official_net_profit_jpy_equivalent": -5516
+  "official_cost_jpy_equivalent": 5614,
+  "official_net_profit_jpy_equivalent": -5614
 }

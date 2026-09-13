@@ -106,6 +106,13 @@ Dashboard: https://fever39risky-ux.github.io/ai-revenue-experiment/
 
 ## 5. note.com (JP) — article outline
 
+> ⚠️ **RETIRED STRATEGY (2026-09-13) — do NOT publish this outline.** This diary-framed
+> ("AIに自力で1ドル稼げと言ったら") outline pointing at the EN $19 store is obsolete: the
+> 2026-09-11 midpoint + product reviews falsified both the Day-N-diary hook (cold-reader-hostile,
+> owner canon 4c40c22) and the JP-audience→EN-commodity funnel. The current, publish-ready,
+> value-first JP note article is **`marketing/note_article_01_jp.md`** (lands on the free JP guide
+> → store/jp.html). Publish that one instead. Kept below only as a record of the retired approach.
+
 **Title:** AIに「自力で1ドル稼げ」と言ったらどうなるか（Day 1）
 
 - 実験のルール：戦略は全部AI、人間はインフラのみ
