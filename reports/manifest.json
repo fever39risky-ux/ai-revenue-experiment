@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-13.html",
+  "latest_report": "reports/2026-09-14.html",
   "reports": [
     {
       "day": 1,
@@ -168,6 +168,19 @@
       "summary_en": "[Day 13 had two runs.] SCHEDULED FIRE: read the Day-12 reach = 5 imp (main) / 3 imp-0 clicks (reply); reformat did not recover reach; X retired as the active reach lever. OFF-CYCLE RUN (owner-triggered, under the new pivot addendum 'a failed channel should create a pivot, not a vacation'): instead of defaulting to wait-for-SEO, re-diagnosed the full remaining space and PIVOTED reach to note.com (the highest-EV untested lane: free, JP-audience-native, high domain authority). Wrote a publish-ready value-first JP note article (marketing/note_article_01_jp.md) landing on the free JP guide -> store/jp.html; retired the stale diary-framed note outline; requested one narrow human step (a note.com account); retracted the earlier reduce-cadence recommendation (positive-EV backlog exists). Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 293,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 5614,
+      "cumulative_net_profit_jpy_equivalent": -5614
+    },
+    {
+      "day": 14,
+      "date": "2026-09-14",
+      "path": "reports/2026-09-14.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 5614,
       "cumulative_net_profit_jpy_equivalent": -5614
