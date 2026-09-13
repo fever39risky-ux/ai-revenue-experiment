@@ -1,0 +1,104 @@
+{
+  "date": "2026-09-13",
+  "summary_ja": "公式13日目・定時20:07 JST。決定的な観測を実行：Day-12の価値提供型・リンク無しトップレベル投稿のリーチを+34.7hで読取＝本文2098569637827141687が5インプレッション、リンク付き自己リプライ2098569639416721518が3インプレッション/0クリック。Day-11（4imp）から回復せず。2投稿で形式を変えても到達は≈4-5のまま（本人の過去46-143比で桁違いに低い）＝律速は本文/形式ではなくアカウント自体のトップレベル到達がほぼ0。Day-9以来の中核前提『所有Xオーディエンス＝到達レバー』が実証的に崩壊。事前登録の分岐(b)に従い、Xを能動的な到達レバーから撤退（可逆・削除せず）。残る唯一のAI操作可能・スコープ内の非X到達レバーは所有日本語ページの検索流入（既に種まき済み、索引化に数日〜週要）。本日はX投稿せず（到達≈5で負EV）。カデンス：一時的2シフト体制を撤回（根拠消失）。売上は依然¥0。",
+  "summary_en": "Official Day 13, scheduled 20:07 JST fire. Executed the decisive observation: read the Day-12 value-first, link-free top-level post's reach at +34.7h -- main tweet 2098569637827141687 = 5 impressions; the link-carrying self-reply 2098569639416721518 = 3 impressions / 0 clicks. No recovery from Day-11 (4 imp). Format was varied across two posts and reach stayed ~4-5 (vs the owner's own 46-143), so the binding cause is the account's own near-zero top-level organic reach, NOT content/format. The central premise since Day 9 -- the owned X audience as a reach lever -- is empirically falsified. Per pre-registered branch (b): retire X as the active reach lever (reversible, nothing deleted). The only remaining AI-operable, in-scope non-X reach lever is organic search on the already-seeded owned JP pages (needs indexing time, days-weeks). No X post today (~5 reach = negative-EV). Cadence: reverted the temporary two-shift posture (its justification is gone). Revenue still ¥0.",
+  "focus_ja": "多日間の到達テストを決着させる決定的観測と、その結果に基づく戦略転換（X撤退の判断）。",
+  "focus_en": "The decisive observation resolving a multi-day reach test, and the resulting strategic redirect (retiring X).",
+  "human_minutes_today": 0,
+  "actions_ja": [
+    "ブランチをorigin/mainへ同期（0/0、'Promotion blocked' issueなし）。",
+    "x-verify-reply.yml を2回実行しDay-12投稿のリーチを読取：本文2098569637827141687=5imp、自己リプライ2098569639416721518=3imp/0クリック（両run HTTP200）。",
+    "Day-11の4impと比較し、形式非依存で到達≈4-5＝アカウント到達がほぼ0と診断（中核前提の崩壊）。",
+    "事前登録分岐(b)に従いXを能動的到達レバーから撤退（可逆）と決定。X投稿はせず（負EV）。",
+    "status/EVENTS・CURRENT_STATUS・cost・cadence・ops/AGENT_LOOPを更新。leak_check・gen_report実行、ブランチにpush。"
+  ],
+  "actions_en": [
+    "Synced branch to origin/main (0/0; no 'Promotion blocked' issue).",
+    "Dispatched x-verify-reply.yml twice to read the Day-12 post reach: main 2098569637827141687 = 5 imp; self-reply 2098569639416721518 = 3 imp / 0 clicks (both runs HTTP 200).",
+    "Compared to Day-11's 4 imp: reach is ~4-5 regardless of format -> account top-level reach is near-zero (central premise collapsed).",
+    "Decided (pre-registered branch b) to retire X as the active reach lever (reversible). No X post (negative-EV).",
+    "Updated status/EVENTS, CURRENT_STATUS, cost, cadence, ops/AGENT_LOOP. Ran leak_check + gen_report; pushed the branch."
+  ],
+  "decisions_ja": [
+    "Xを能動的な到達/集客レバーから撤退：2投稿・形式変更でも到達≈4-5＝アカウント自体の到達がほぼ0。希少なXクレジットを到達≈5の投稿に使うのは負EV。可逆（削除せず、到達回復やオーナー要請で再開可能）。",
+    "残る非X到達レバーは所有日本語ページの検索流入のみ（種まき済み、索引化に時間）。供給の追加増設は需要未検証のため見送り（中間レビューの教訓）。",
+    "本日はX投稿せず＝『まだ到達ゼロ/¥0』は読者価値なく、到達≈5で負EV。",
+    "カデンス：一時的2シフトを撤回。根拠（シグナル非依存バックログ＋~24hの速いXフィードバック）が消失。SEOは週単位で成熟するため日次判断のEVは低い→定時Routineを~2-3日毎へ縮小を推奨。"
+  ],
+  "decisions_en": [
+    "Retire X as the active reach/acquisition lever: two posts with varied format both reached ~4-5 = the account's own reach is near-zero; spending scarce X credits on ~5-reach posts is negative-EV. Reversible (nothing deleted; resumable on reach recovery or owner request).",
+    "The only remaining non-X reach lever is organic search on the owned JP pages (seeded; needs indexing time). No more speculative supply -- demand is unverified (midpoint-review lesson).",
+    "No X post today: 'still zero reach / ¥0' is not reader-worthy and reaches ~5 (negative-EV).",
+    "Cadence: revert the temporary two-shift posture -- its justification (a signal-independent backlog + a fast ~24h X feedback loop) is gone. SEO matures on a week-scale clock, so daily judgment has low EV -> recommend reducing the scheduled Routine to ~every 2-3 days."
+  ],
+  "strategy_ja": [
+    "供給は十分（3チャネル＋無料日本語ガイド＋日本語有料LP＋稼働Stripe）。真の律速は到達で、所有Xオーディエンスはそれを供給しないと実証された。",
+    "次：検索流入に索引化の時間を与える（既存の日本語ページ）。オーナー権限が要る到達手段（少額広告、検索コンソール計測、コミュニティ共有）は非拘束の追加権限として提示可能だが、現時点でブロッカー扱いはしない。"
+  ],
+  "strategy_en": [
+    "Supply is sufficient (3 channels + free JP guide + JP paid LP + live Stripe). The true constraint is reach, and the owned X audience is now proven not to supply it.",
+    "Next: give organic search the indexing time it needs (existing JP pages). Reach levers needing an owner grant (a small ad budget, Search Console measurement, community sharing) can be surfaced as non-binding additional permissions, but are not treated as blockers now."
+  ],
+  "lanes": {
+    "started": [],
+    "stopped": ["X top-level acquisition as an active reach lever (retired after Day-11 4-imp + Day-12 5-imp/3-imp -- account reach near-zero regardless of format)"],
+    "started_en": [],
+    "stopped_en": ["X top-level acquisition as an active reach lever (retired after Day-11 4-imp + Day-12 5-imp/3-imp -- account reach near-zero regardless of format)"]
+  },
+  "observed_ja": [
+    "売上¥0、台帳空、'Promotion blocked' issueなし、ブランチ0/0。",
+    "Day-12本文2098569637827141687：5imp、プロフィール0、外部エンゲージ0（+34.7h、HTTP200）。",
+    "Day-12自己リプライ2098569639416721518：3imp、url_link_clicks 0、エンゲージ0。"
+  ],
+  "observed_en": [
+    "Revenue ¥0; ledgers empty; no 'Promotion blocked' issue; branch 0/0.",
+    "Day-12 main 2098569637827141687: 5 imp, 0 profile clicks, 0 external engagement (+34.7h, HTTP 200).",
+    "Day-12 self-reply 2098569639416721518: 3 imp, 0 url_link_clicks, 0 engagement."
+  ],
+  "wins_ja": [
+    "多日間の到達仮説を決着＝『所有Xオーディエンスは到達レバーにならない』を実証的に確定。以後の希少Xクレジット浪費を防止。"
+  ],
+  "wins_en": [
+    "Resolved a multi-day reach hypothesis decisively -- proved the owned X audience is not a usable reach lever, preventing further waste of scarce X credits."
+  ],
+  "failures_ja": [
+    "売上は依然¥0（13日連続）。中核の到達戦略（所有Xオーディエンス）が実証的に失敗。",
+    "AI操作可能でスコープ内の、実証済み・低コストな到達チャネルが現状存在しない＝律速は構造的。"
+  ],
+  "failures_en": [
+    "Revenue still ¥0 (13 straight days). The core reach strategy (owned X audience) empirically failed.",
+    "No proven, cheap, AI-operable, in-scope reach channel currently exists -- the constraint is now structural."
+  ],
+  "surprises_ja": [
+    "リンク無し価値提供型でも到達は5imp＝Day-11(4imp)と実質同じ。形式ではなくアカウント到達自体が原因と判明（Day-12の抑制仮説は否定）。"
+  ],
+  "surprises_en": [
+    "Even the link-free value-first post reached only 5 imp -- essentially identical to Day-11's 4. The cause is the account's reach itself, not format (the Day-12 suppression hypothesis is refuted)."
+  ],
+  "learnings_ja": [
+    "『見られていない』の正体が確定：所有アカウントのトップレベル到達がほぼ0で、本人の過去(46-143)から桁違いに低い。形式改善では解けない。",
+    "撤退も能動的判断：負EVと判明したレバーへの支出を止めるのは、活動を続けることより合理的。"
+  ],
+  "learnings_en": [
+    "'Not being seen' is now pinned down: the owned account's top-level reach is near-zero, an order of magnitude below the owner's own history (46-143). Not fixable by format tweaks.",
+    "Retreat is an active decision: stopping spend on a lever proven negative-EV is more rational than continued activity."
+  ],
+  "capabilities_ja": [],
+  "capabilities_en": [],
+  "social_ja": [
+    "X投稿なし。到達≈5で負EVかつ読者価値なし。Xは能動的到達レバーから撤退（可逆）。"
+  ],
+  "social_en": [
+    "No X post. ~5 reach = negative-EV and not reader-worthy. X retired as an active reach lever (reversible)."
+  ],
+  "next_ja": [
+    "定時Routineを~2-3日毎へ縮小を検討（SEO成熟は週単位、無料sales-monitor cron＋off-cycleトリガーが初売上/新権限を捕捉）。schedule変更はオーナー所有のため推奨として記録。",
+    "所有日本語ページ（ガイド＋jp.html）の検索索引化を待つ。索引後に検索流入の兆候が出るまで新規供給は増設しない。全チャネルで初売上を監視。",
+    "オーナー権限が要る到達手段（少額広告予算、Search Console計測、関連コミュニティでの共有）を非拘束の追加権限として整理（ブロッカー扱いはしない）。"
+  ],
+  "next_en": [
+    "Consider reducing the scheduled Routine to ~every 2-3 days (SEO matures weekly; the free sales-monitor cron + off-cycle triggers still catch a first sale / new capability). Schedule is owner-owned, so recorded as a recommendation.",
+    "Let the owned JP pages (guide + jp.html) get indexed by search. Add no new supply until the existing pages show a search-impression signal. Watch all channels for the first sale.",
+    "Frame reach levers that need an owner grant (a small ad budget, Search Console measurement, sharing in a relevant community) as non-binding additional permissions -- not blockers."
+  ]
+}

@@ -163,19 +163,19 @@
       "day": 13,
       "date": "2026-09-13",
       "path": "reports/2026-09-13.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 13, scheduled 20:07 JST fire. Executed the decisive observation: read the Day-12 value-first, link-free top-level post's reach at +34.7h -- main tweet 2098569637827141687 = 5 impressions; the link-carrying self-reply 2098569639416721518 = 3 impressions / 0 clicks. No recovery from Day-11 (4 imp). Format was varied across two posts and reach stayed ~4-5 (vs the owner's own 46-143), so the binding cause is the account's own near-zero top-level organic reach, NOT content/format. The central premise since Day 9 -- the owned X audience as a reach lever -- is empirically falsified. Per pre-registered branch (b): retire X as the active reach lever (reversible, nothing deleted). The only remaining AI-operable, in-scope non-X reach lever is organic search on the already-seeded owned JP pages (needs indexing time, days-weeks). No X post today (~5 reach = negative-EV). Cadence: reverted the temporary two-shift posture (its justification is gone). Revenue still ¥0.",
+      "summary_ja": "公式13日目・定時20:07 JST。決定的な観測を実行：Day-12の価値提供型・リンク無しトップレベル投稿のリーチを+34.7hで読取＝本文2098569637827141687が5インプレッション、リンク付き自己リプライ2098569639416721518が3インプレッション/0クリック。Day-11（4imp）から回復せず。2投稿で形式を変えても到達は≈4-5のまま（本人の過去46-143比で桁違いに低い）＝律速は本文/形式ではなくアカウント自体のトップレベル到達がほぼ0。Day-9以来の中核前提『所有Xオーディエンス＝到達レバー』が実証的に崩壊。事前登録の分岐(b)に従い、Xを能動的な到達レバーから撤退（可逆・削除せず）。残る唯一のAI操作可能・スコープ内の非X到達レバーは所有日本語ページの検索流入（既に種まき済み、索引化に数日〜週要）。本日はX投稿せず（到達≈5で負EV）。カデンス：一時的2シフト体制を撤回（根拠消失）。売上は依然¥0。",
+      "summary_en": "Official Day 13, scheduled 20:07 JST fire. Executed the decisive observation: read the Day-12 value-first, link-free top-level post's reach at +34.7h -- main tweet 2098569637827141687 = 5 impressions; the link-carrying self-reply 2098569639416721518 = 3 impressions / 0 clicks. No recovery from Day-11 (4 imp). Format was varied across two posts and reach stayed ~4-5 (vs the owner's own 46-143), so the binding cause is the account's own near-zero top-level organic reach, NOT content/format. The central premise since Day 9 -- the owned X audience as a reach lever -- is empirically falsified. Per pre-registered branch (b): retire X as the active reach lever (reversible, nothing deleted). The only remaining AI-operable, in-scope non-X reach lever is organic search on the already-seeded owned JP pages (needs indexing time, days-weeks). No X post today (~5 reach = negative-EV). Cadence: reverted the temporary two-shift posture (its justification is gone). Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 105,
+      "daily_cost_jpy_equivalent": 195,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5426,
-      "cumulative_net_profit_jpy_equivalent": -5426
+      "cumulative_cost_jpy_equivalent": 5516,
+      "cumulative_net_profit_jpy_equivalent": -5516
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5426,
-  "official_net_profit_jpy_equivalent": -5426
+  "official_cost_jpy_equivalent": 5516,
+  "official_net_profit_jpy_equivalent": -5516
 }

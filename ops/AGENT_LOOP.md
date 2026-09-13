@@ -1,5 +1,39 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## ⭐⭐ LATEST — Day-13 evening (2026-09-13 20:09 JST): DECISIVE REACH READ → X RETIRED
+> The multi-day pending test is resolved. Read the Day-12 value-first, **link-free** top-level
+> post reach at ~+34.7h (x-verify-reply.yml runs 34753719996 / 34753748953, both HTTP 200):
+> **main tweet 2098569637827141687 = 5 impressions** / 0 profile clicks / 0 external engagement;
+> **self-reply (link) 2098569639416721518 = 3 impressions / 0 url_link_clicks**. The link-free +
+> value-first reformat did **NOT** recover reach (5 vs Day-11's 4). Format was varied across two
+> posts and reach stayed ~4–5 — an order of magnitude below the owner's own historical top-level
+> range (46–143). **Conclusion: the account's own top-level ORGANIC REACH is near-zero, not the
+> content/format/link.** This falsifies the central premise held since Day 9 — that the owned
+> @KinoshitaTsks X audience is a usable reach lever (reply pipeline reached ~0 on Day 10; top-level
+> ~4–5 across Day 11+12). **STRATEGY-PREMISE COLLAPSE.**
+>
+> **DECISION (pre-registered branch b): X is RETIRED as the active reach/acquisition lever** —
+> reversible (nothing deleted; resumable if account reach recovers or the owner requests a retest).
+> Stop spending scarce X credits on posts that reach ~5. **No X post today** (negative-EV,
+> not reader-worthy).
+>
+> **The binding constraint is now REACH with no proven cheap AI-operable in-scope channel = largely
+> structural.** Levers status: X = dead; owned-page **SEO** (guide + store/jp.html, sitemap+hreflang
+> seeded Day 11/13) = the only remaining AI-operable in-scope lever, but needs days–weeks to index;
+> Etsy search-edit = human-blocked (stale OAuth); JPY Stripe link = blocked (no Stripe access).
+>
+> **⭐ NEXT SESSION:** (1) **CADENCE** — the two-shift posture is REVERTED and cadence reduction to
+> **~every 2-3 days** is recommended to the owner (schedule is owner-owned). The fast ~24h X loop is
+> gone; SEO matures weekly; the free sales-monitor cron + off-cycle triggers still catch a first
+> sale / new capability. **Do not wake daily just to re-confirm ¥0.** (2) **Let SEO mature** — add
+> NO new supply until the owned JP pages show a real search-impression signal (verify-demand-before-
+> supply). (3) When a run is due, cheaply check: any first sale (all channels), a JP-page
+> indexing/traffic signal, a new owner capability. (4) Non-binding reach levers needing an owner
+> grant (small paid-ads budget, Google Search Console access to measure SEO, or the owner personally
+> sharing store/jp.html into a relevant JP community) are surfaced in
+> `status/CURRENT_STATUS.json.additional_permissions_requested` — **NOT blockers**; keep working the
+> SEO lane meanwhile. Do NOT re-polish parked marketplaces. Do NOT post to X.
+
 > ## ⭐ 10-DAY MID-POINT REVIEW (2026-09-11) — STRATEGY REDESIGN, execute next Routine
 > Full analysis: `reports/MIDPOINT_REVIEW_2026-09-11.md`. Owner-requested business
 > review (not a daily run). **Core diagnosis:** 10 days of effort went to SUPPLY
@@ -553,6 +587,42 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-13 (Day 13, EVENING scheduled 20:07 JST fire -- DECISIVE REACH READ -> STRATEGY-PREMISE
+  COLLAPSE -> X RETIRED): distinct from the earlier owner-triggered Day-13 prep shift (which shipped
+  store/jp.html). BOOTSTRAP: synced branch to origin/main (0 ahead/0 behind; no open Promotion-blocked
+  issue; the Day-13-prep commit 024c536 was already promoted). OBSERVE: revenue ¥0 (ledgers empty).
+  The Day-12 value-first link-free post reach read was now DUE (post ~34.7h old, well past +24h).
+  Dispatched x-verify-reply.yml twice against main: run 34753719996 -> main tweet 2098569637827141687
+  = 5 impressions, 0 user_profile_clicks, 0 likes/reposts/quotes/bookmarks (the 1 reply is my own
+  self-reply); run 34753748953 -> self-reply 2098569639416721518 = 3 impressions, 0 url_link_clicks,
+  0 engagements (both HTTP 200; 2 read-only GETs from the existing X credit, no new X spend).
+  DIAGNOSE: the link-free + value-first reformat did NOT recover reach (5 vs Day-11's link-inline
+  diary post's 4). Two posts, VARIED format (Day-11 link-inline diary; Day-12 link-free value-first),
+  and reach stayed ~4-5 -- an order of magnitude below the owner's OWN historical top-level range
+  (46-143). So the binding cause is the account's own near-zero top-level ORGANIC REACH, not
+  content/format/link. This refutes the Day-12 link-suppression + diary-hook hypothesis and, decisively,
+  falsifies the premise held since Day 9 that the owned @KinoshitaTsks X audience is a usable reach
+  lever (reply pipeline ~0 on Day 10; top-level ~4-5 across Day 11+12). STRATEGY-PREMISE COLLAPSE.
+  DECIDE (pre-registered branch b, and compared vs concrete alternatives per §8/§14): retire X as the
+  active reach/acquisition lever (reversible -- nothing deleted, resumable on reach recovery or owner
+  request); stop burning scarce X credits on ~5-reach posts. Rejected alternatives: (a) another X post
+  = negative-EV (~5 reach); (b) more SEO pages = premature SUPPLY before the existing JP pages show any
+  index/impression signal (verify-demand-before-supply); (c) Etsy search-edit = human-blocked (stale
+  ETSY_REFRESH_TOKEN needs owner OAuth); (d) JPY Stripe link = blocked (no Stripe access this session);
+  (e) higher-ticket offer = more supply with no working reach channel = zero expected sales now. The
+  decisive reach read + strategic redirect IS the highest-EV action (resolves a multi-day test, stops
+  ongoing negative-EV spend, redirects strategy). Constraint reclassified: REACH with no proven cheap
+  AI-operable in-scope channel = largely structural. Remaining in-scope lever = organic search on the
+  owned JP pages (needs indexing time). EXECUTE/RECORD: appended the strategy-premise-collapse EVENT,
+  updated status/CURRENT_STATUS (focus/action/result/next_action + a non-binding reach-lever entry in
+  additional_permissions_requested: Search Console access / a small ad budget / owner community-share --
+  NOT blockers), cost_ledger (+$0.60/¥90 ai_compute; no new X spend), reports/data/2026-09-13.json,
+  and reverted the temporary two-shift posture in cadence.json with a recommendation to reduce the
+  scheduled Routine to ~every 2-3 days (the fast X loop is gone, SEO matures weekly, so daily judgment
+  now mostly re-confirms ¥0 -- §10's condition for a rational reduction). No X post (negative-EV,
+  not reader-worthy). leak_check + gen_report run; pushed the branch. NEXT: see the ⭐⭐ LATEST header
+  block -- reduce cadence, let SEO index, add no new supply until a search-impression signal appears,
+  watch all channels for the first sale; do NOT post to X or re-polish parked marketplaces.
 - 2026-09-12 (Day 12, owner-requested EXTRA Routine -- REACH READOUT -> EVIDENCE-BASED
   REFORMAT, under the new "Bootstrap intensity / 貧乏暇なし" + Economic-cadence protocol):
   BOOTSTRAP: fetched origin; owner had added commit 37131af (LOOP_PROTOCOL §"Bootstrap
