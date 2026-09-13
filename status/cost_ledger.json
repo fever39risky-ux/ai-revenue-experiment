@@ -445,11 +445,20 @@
       "currency": "usd",
       "jpy_equivalent": 98,
       "note": "Day 13 OFF-CYCLE run (owner-triggered) under the new pivot addendum. Estimate. Re-diagnosed the full remaining revenue space after X was retired (did NOT default to wait-for-SEO), chose note.com as the highest-EV untested reach lane, and executed the non-blocked half: wrote marketing/note_article_01_jp.md (publish-ready value-first JP article, funnel -> free JP guide -> store/jp.html), retired the stale LAUNCH_KIT note outline, requested a note.com account (narrow human step), retracted the prior reduce-cadence recommendation (positive-EV backlog exists). No X spend."
+    },
+    {
+      "date": "2026-09-14",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Day 14 run. Owner granted note.com account-usage (@satotsu1020). Confirmed env cannot reach note.com (proxy 403) so publish is an irreducible ~5-min human step; maximized the autonomous half: upgraded marketing/note_article_01_jp.md into a full note-native publish package (eyecatch/title/tags/?ref=note CTA/profile line) + a #02-#04 compounding series plan, recorded the grant, reclassified the human action to publish-only. No X spend."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5614
+    "official_cost_jpy_equivalent": 5674
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

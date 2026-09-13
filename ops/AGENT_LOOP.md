@@ -1,6 +1,33 @@
 # Operating Brief — resume point for the autonomous loop
 
-> ## ⭐⭐⭐ LATEST — Day-13 off-cycle (2026-09-13, owner-triggered): PIVOT X → note.com
+> ## ⭐⭐⭐⭐ LATEST — Day-14 (2026-09-14 JST): note.com ACCOUNT GRANTED → lane fully packaged
+> Owner granted account-usage for the **existing note.com account @satotsu1020**
+> (https://note.com/satotsu1020): login/create/draft/publish/edit + profile & funnel adjustment +
+> links to owned pages, for the experiment. Owner directive: **keep owning strategy** (don't hand
+> content/CTA/timing back). This unblocks the note pivot lane.
+>
+> **HARD OPERATIONAL LIMIT (verified this run):** this execution environment **cannot reach note.com**
+> — agent proxy returns 403, note.com is not on the allowlist; there is no note write-API, no session
+> credentials, and the AI must not handle passwords. So the AI **physically cannot log in or post from
+> here.** Permission ≠ executability. Per the owner's own rule (request only the minimal human op when
+> login needs a human), the publish is an irreducible **~5-min human step**, and everything else was
+> done autonomously.
+>
+> **DONE this run:** upgraded **`marketing/note_article_01_jp.md`** into a complete note-native publish
+> package — eyecatch suggestion, exact title, 5 hashtags, the value-first body, a **`?ref=note` tracked
+> CTA** to the free JP guide, an additive profile-link line — plus a compounding **#02–#04 series plan**
+> (#02 automation = the 2 working Google Apps Scripts → also a Zenn/Qiita developer-reach variant; #03
+> invoicing; #04 complaint-reply). Reclassified the human action from "create account" to "publish only";
+> recorded the grant in `granted_permissions`. Cadence held 1×/day.
+>
+> **⭐ NEXT SESSION:** if the human has published note #01 → read note's own dashboard + `?ref=note`
+> referral clicks; if there's any traction, ship #02 (automation) + the Zenn/Qiita variant and measure
+> guide → `store/jp.html` → checkout. **Do NOT idle while awaiting the publish** — advance the
+> non-blocked backlog: draft note #02 / Zenn / Qiita; **enable Gumroad's native affiliate program** via
+> `GUMROAD_ACCESS_TOKEN` (verify API support); a script micro-product. SEO matures in parallel. No X
+> (retired). Hold cadence while this positive-EV backlog exists. Watch all channels for the first sale.
+
+> ## ⭐⭐⭐ Day-13 off-cycle (2026-09-13, owner-triggered): PIVOT X → note.com
 > New canon: **`ops/LOOP_PROTOCOL_ADDENDUM.md`** — *"A failed channel should create a pivot, not a
 > vacation."* Read it with the main protocol; it controls zero-revenue pivot/cadence behavior.
 > Owner triggered this off-cycle run to check that retiring X did not collapse into
@@ -619,6 +646,30 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-14 (Day 14 -- note.com ACCOUNT-USAGE GRANTED; lane operationalized to the publish line):
+  owner granted use of the EXISTING note.com account @satotsu1020 (login/create/draft/publish/edit +
+  profile/funnel + owned-page links, within the experiment) and explicitly said to keep owning strategy
+  (do not return content/CTA/timing). BOOTSTRAP: synced main (owner/automation had advanced it: a
+  2026-09-14 auto daily report + stripe syncs; revenue still ¥0; my Day-13 note article intact).
+  OBSERVE/VERIFY: tested reachability -- curl to https://note.com/satotsu1020 returns proxy 403
+  (note.com not on the agent-proxy allowlist); no note write-API, no credentials in-session; must not
+  handle passwords. CONCLUSION: permission != executability -- the AI cannot mechanically log in or post
+  to note.com from this environment. DECIDE: per the owner's own instruction (request only the minimal
+  human op when login is human-bound) AND the directive not to hand strategy back, do EVERYTHING
+  autonomously up to the publish click and request only the ~5-min login+publish. EXECUTE: upgraded
+  marketing/note_article_01_jp.md into a complete note-native publish package (eyecatch = reuse
+  marketing/etsy-images/01-cover.png; exact title; 5 hashtags; the unchanged value-first body; a
+  ?ref=note tracked CTA to the free JP guide so note's dashboard/future analytics can attribute clicks;
+  an additive profile-link line ?ref=note-profile) and DECIDED a compounding series plan (#02 automation
+  via the 2 working Google Apps Scripts -> also a Zenn/Qiita developer-reach variant of the same source;
+  #03 invoicing; #04 complaint-reply -- all owned-asset reuse, value-first, owner-voice). RECORD:
+  reclassified the human_actions_required item from 'create account' to 'publish the ready article
+  (~5 min)'; added a note_com_account_usage entry to granted_permissions (with the honest egress
+  limitation); updated the note lane state; EVENTS (note_com_account_usage_granted_lane_operationalized);
+  cost_ledger (+$0.40/¥60; no X spend); reports/data/2026-09-14.json. CADENCE: held 1x/day -- a
+  non-blocked positive-EV backlog remains (note #02 + Zenn/Qiita drafts, Gumroad native affiliate, script
+  micro-product), so the addendum's cadence-reduction gate is NOT met. NEXT: publish #01 (human ~5 min),
+  then read note dashboard + ?ref=note; meanwhile advance the backlog; no X; watch for the first sale.
 - 2026-09-13 (Day 13, OFF-CYCLE owner-triggered run -- PIVOT X -> note.com, under the new pivot
   addendum): distinct from today's scheduled fire (which retired X). BOOTSTRAP: synced main; owner had
   added ops/LOOP_PROTOCOL_ADDENDUM.md (03b305a/9111711, canonical: "a failed channel should create a
