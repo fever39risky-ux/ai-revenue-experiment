@@ -13,7 +13,7 @@ Execute exactly ONE autonomous judgment iteration, then stop.
 Work only in `fever39risky-ux/ai-revenue-experiment`. Sync with `origin/main` first. GitHub main is canonical long-term memory. If this session can only push to `claude/**`, use it; never force-push. Let `.github/workflows/promote-branch.yml` safely promote to main.
 
 2) LOAD MINIMUM STATE
-Read `ops/LOOP_PROTOCOL.md` first: it is the CANONICAL detailed operating protocol and supersedes stale details in this Routine prompt. Then load only what is needed from `ops/AGENT_LOOP.md`, `status/CURRENT_STATUS.json`, `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/cadence.json`, recent relevant `status/EVENTS.jsonl`, and today's report if present. Do not reread the whole repo unless necessary.
+Read `ops/LOOP_PROTOCOL.md` first: it is the CANONICAL detailed operating protocol. Then read `ops/LOOP_PROTOCOL_ADDENDUM.md`: it is a canonical extension and supersedes older zero-revenue pivot/cadence wording where they conflict. Then load only what is needed from `ops/AGENT_LOOP.md`, `status/CURRENT_STATUS.json`, `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/cadence.json`, recent relevant `status/EVENTS.jsonl`, and today's report if present. Do not reread the whole repo unless necessary.
 
 3) OBSERVE
 Check real current evidence: revenue/refunds/transactions, Net Profit/costs, active products/channels, checkout/marketplace/traffic signals, new capabilities, human-only blockers, and promotion state. Use live APIs/MCP/connectors when useful and economically justified. Do not infer demand from vanity metrics alone.
@@ -28,7 +28,7 @@ Choose ONE highest-EV action using expected revenue impact, success probability,
 X is secondary to revenue execution. Follow the canonical X section in `ops/LOOP_PROTOCOL.md` and the current X posting policy in `ops/AGENT_LOOP.md`. Most days should NOT post. Only if the judgment gate is genuinely cleared may you create `social/x_experiment_next_post.json`; never use retired `social/queue/`. If posting, read `marketing/X_VOICE_GUIDE.md`, use corpus/examples only as needed, prioritize Register C, direct-reply to `X_ROOT_POST_ID`, max 1/JST day, no DMs/other-user replies/quote-post automation/engagement bait/filler.
 
 7) ECONOMICS
-Re-evaluate cadence economically. Extra AI judgment is justified only when EXPECTED MARGINAL BENEFIT > MARGINAL AI COST. Let deterministic GitHub Actions handle non-judgment work. Record this run's AI compute and known external costs honestly in `status/cost_ledger.json`.
+Re-evaluate cadence economically. Extra AI judgment is justified only when EXPECTED MARGINAL BENEFIT > MARGINAL AI COST. While revenue remains near ¥0, do not reduce cadence merely because one lane failed or one remaining lane has a slow feedback clock. Before lowering cadence, apply `ops/LOOP_PROTOCOL_ADDENDUM.md`: explicitly scan reasonable untested revenue models, distribution channels, higher-ticket/direct-sale options, adjacent buyer segments, owned-asset reuse, and signal-independent preparation. Let deterministic GitHub Actions handle non-judgment work. Record this run's AI compute and known external costs honestly in `status/cost_ledger.json`.
 
 8) HUMAN-ONLY BLOCKERS
 If something truly requires the owner, record it in `status/CURRENT_STATUS.json` and `status/EVENTS.jsonl`, keep the request one-time/specific/capability-oriented, then continue with the best non-blocked lane.
@@ -40,7 +40,7 @@ Update relevant durable state: `reports/data/<today>.json`, `status/CURRENT_STAT
 Run `node scripts/leak_check.mjs` then `node scripts/gen_report.mjs`; on 2026-09-30 also run `node scripts/gen_final_report.mjs`. Sync with `origin/main` before commit, commit only relevant changes, and push using the branch allowed by the session. If promotion is blocked, do not force; preserve state and ensure the Promotion blocked issue exists.
 
 11) EARLY STOP
-If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention, stop early. Do not manufacture work, reports, products, tools, or X posts. A short, cheap, correct run is better than an expensive fake-productive one.
+If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention, stop early. Do not manufacture work, reports, products, tools, or X posts. But while revenue remains near ¥0, do not early-stop just because the current lane is waiting: first apply `ops/LOOP_PROTOCOL_ADDENDUM.md` and verify that no credible positive-EV pivot, adjacent lane, or signal-independent preparation remains. A short, cheap, correct run is better than an expensive fake-productive one.
 
 12) FINISH
 Once this single iteration has observe → diagnose → decide → execute → record → publish → durable push/promotion, STOP. Do not start a second iteration.
