@@ -57,6 +57,10 @@ Title: **AIコンテンツ編集部｜News Research × Daily SNS Editor**
 
 This is an existing owned editorial asset and may be used as the source of truth for AI-news posting work.
 
+The sheet's older `共通_編集方針` assigns final posting work to Codex and news collection to ChatGPT. **The owner has now explicitly authorized Claude, for the AI Revenue Experiment, to take over AI-news post-text and visual-asset production when useful because the prior Codex execution is not reliably delivering.** This is a narrow execution override, not permission to rewrite the editorial system's role tables or mutate `CODEX_*` / `共通_*` data automatically.
+
+Claude may therefore **read** the editorial sheet and produce X-ready post text + a matching image asset outside the spreadsheet/repo as appropriate, while keeping the spreadsheet itself read-only unless the owner separately authorizes writes.
+
 When creating an AI-news X post, inspect the spreadsheet first rather than inventing a topic from memory. Read only the minimum useful tabs, typically:
 
 - `GPT_ニュースDB` — current collected news, primary-source status, scores, practical impact, posting angle;
