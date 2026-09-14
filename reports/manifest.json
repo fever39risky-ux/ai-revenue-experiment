@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-14.html",
+  "latest_report": "reports/2026-09-15.html",
   "reports": [
     {
       "day": 1,
@@ -181,6 +181,19 @@
       "summary_en": "Official Day 14. Owner granted account-usage for the EXISTING note.com account @satotsu1020 (login/create/draft/publish/edit/profile+funnel, within the experiment) and told the AI to keep owning strategy -- unblocking the note pivot. But this env cannot reach note.com (proxy 403, off allowlist), has no note write-API/credentials, and must not handle passwords, so the AI cannot post from here. Per the owner's instruction, reduced the human step to a ~5-min login+publish and did everything else autonomously: upgraded marketing/note_article_01_jp.md into a full note-native publish package (eyecatch/title/hashtags/?ref=note tracked CTA/profile line) and decided a compounding #02-#04 series plan (automation via the 2 Google Apps Scripts / invoicing / complaint-reply, reusing owned assets). Reclassified the human action from 'create account' to 'publish only'. Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 87,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 5701,
+      "cumulative_net_profit_jpy_equivalent": -5701
+    },
+    {
+      "day": 15,
+      "date": "2026-09-15",
+      "path": "reports/2026-09-15.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 5701,
       "cumulative_net_profit_jpy_equivalent": -5701
