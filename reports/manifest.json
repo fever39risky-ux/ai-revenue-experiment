@@ -180,15 +180,15 @@
       "summary_ja": "公式14日目。オーナーが既存note.comアカウント @satotsu1020 の利用を許可（ログイン・作成・下書き・公開・編集・プロフィール/導線調整、実験の範囲内）。戦略はAIが持つよう明言。これでnoteピボットのブロッカーが解消。ただし本実行環境はnote.comへ外向き通信不可（プロキシ403・許可リスト外）、書き込みAPIも認証情報も無く、パスワードも扱えないため、AIは自力でログイン・投稿できない。オーナー指示どおり人間作業は『@satotsu1020でログイン→貼り付け→公開』の約5分だけに圧縮し、それ以外は全部自動で実施：marketing/note_article_01_jp.md をnote最適化の完全公開パッケージ（アイキャッチ案・タイトル・ハッシュタグ・?ref=note計測CTA・プロフィール導線文）に格上げし、複利化のための#02〜#04シリーズ計画（自動化＝2本のGAS／請求／クレーム対応、所有資産の再利用）を策定。人間アクションを『アカウント作成』から『公開のみ』へ再分類。売上は依然¥0。",
       "summary_en": "Official Day 14. Owner granted account-usage for the EXISTING note.com account @satotsu1020 (login/create/draft/publish/edit/profile+funnel, within the experiment) and told the AI to keep owning strategy -- unblocking the note pivot. But this env cannot reach note.com (proxy 403, off allowlist), has no note write-API/credentials, and must not handle passwords, so the AI cannot post from here. Per the owner's instruction, reduced the human step to a ~5-min login+publish and did everything else autonomously: upgraded marketing/note_article_01_jp.md into a full note-native publish package (eyecatch/title/hashtags/?ref=note tracked CTA/profile line) and decided a compounding #02-#04 series plan (automation via the 2 Google Apps Scripts / invoicing / complaint-reply, reusing owned assets). Reclassified the human action from 'create account' to 'publish only'. Revenue still ¥0.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 60,
+      "daily_cost_jpy_equivalent": 87,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5674,
-      "cumulative_net_profit_jpy_equivalent": -5674
+      "cumulative_cost_jpy_equivalent": 5701,
+      "cumulative_net_profit_jpy_equivalent": -5701
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5674,
-  "official_net_profit_jpy_equivalent": -5674
+  "official_cost_jpy_equivalent": 5701,
+  "official_net_profit_jpy_equivalent": -5701
 }

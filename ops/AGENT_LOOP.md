@@ -1,6 +1,20 @@
 # Operating Brief — resume point for the autonomous loop
 
-> ## ⭐⭐⭐⭐ LATEST — Day-14 (2026-09-14 JST): note.com ACCOUNT GRANTED → lane fully packaged
+> ## ⭐ Day-14 EVENING scheduled fire (~20:15 JST) — early stop, funnel readiness verified
+> Separate fire from the morning owner-triggered Day-14 run below. **No new signal:** revenue still
+> ¥0 (ledger empty), no sale on any channel, no open Promotion-blocked issue, branch 0/0 with main,
+> no new capability. **Executed one cheap, signal-independent, non-supply act:** verified the JP
+> funnel is conversion-ready end-to-end — the free JP guide links to `store/jp.html`, whose hero CTA
+> (`#buy`) is JS-wired from `window.BUY_URL` and whose bottom CTA is hardcoded, **both → the live
+> Stripe link** `buy.stripe.com/dRm00j3pIdxQ60F22h9k400`. No dead primary CTA → conversion won't
+> silently fail the moment reach arrives. **Held on new supply** (verify-demand-before-supply):
+> compared hold vs (a) Gumroad native affiliate = not in the OAuth v2 API (dashboard-only, like the
+> confirmed analytics case), no in-session token, and doesn't relieve reach without recruiting
+> affiliates; (b) drafting note #02 = premature supply ahead of note #01's own unpublished signal.
+> Both lose to hold. Cadence held 1×/day. No X (retired). **Binding constraint unchanged = REACH;
+> unblock = the one-time human note.com publish already surfaced this morning.**
+
+> ## ⭐⭐⭐⭐ Day-14 (2026-09-14 JST) morning — note.com ACCOUNT GRANTED → lane fully packaged
 > Owner granted account-usage for the **existing note.com account @satotsu1020**
 > (https://note.com/satotsu1020): login/create/draft/publish/edit + profile & funnel adjustment +
 > links to owned pages, for the experiment. Owner directive: **keep owning strategy** (don't hand
