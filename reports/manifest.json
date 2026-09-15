@@ -189,19 +189,19 @@
       "day": 15,
       "date": "2026-09-15",
       "path": "reports/2026-09-15.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 15. This morning, on an owner live request, work began on the first AI-news awareness post (addendum: X role_changed, not retired) but was blocked: the editorial Google Sheet is unreadable here (docs/drive.google.com egress-blocked 403, the Drive connector is disabled in this chat, no Sheets API key). No topic was fabricated from memory; only signal-independent reusable assets were built: a deterministic JP 16:9 news-card PNG renderer (scripts/render_news_card.mjs, headless Chromium, 2 layouts, IPAGothic) + a marketing/ai_news/ scaffold. This evening's scheduled fire (this judgment) landed ~7h later with no new signal: revenue ¥0 (ledgers empty), no open Promotion-blocked issue, branch synced, no new capability (Drive still disabled in this chat, Stripe MCP needs reconnect). The binding constraint is unchanged = REACH, and both unblocks (note.com ~5-min publish; enable the Drive connector for the AI-news lane) are already surfaced and human-pending. Compared hold vs concrete alternatives (note #02 draft = premature supply; Gumroad affiliate = not in the OAuth API; an AI-news post = blocked on the unread sheet; more SEO pages = supply before demand) and held. Cheap early-stop. Cadence held 1x/day.",
+      "summary_ja": "公式15日目。午前はオーナーのライブ依頼でAIニュース認知レーン（補遺: Xは撤退でなく役割変更）の初回投稿制作に着手したが、編集用Googleシートを読めずブロック（docs/drive.google.comがegress遮断403、Driveコネクタはこのチャットで無効、Sheets APIキーも無し）。記憶からの捏造はせず、シグナル非依存の再利用資産だけ先に構築：日本語16:9ニュースカードPNGレンダラ scripts/render_news_card.mjs（ヘッドレスChromium、2レイアウト、IPAGothic）＋ marketing/ai_news/ の雛形。夜の定時起動（この判断）は約7時間後で新シグナル無し：売上¥0（台帳空）、Promotion-blocked issue無し、ブランチ同期済み、新権限無し（Driveは依然このチャットで無効、Stripe MCPは要再接続）。到達（REACH）の律速は不変で、2つの解除策（noteの約5分公開／Driveコネクタ有効化）は両方とも既に人間待ちで提示済み。hold対具体的代替（note #02下書き＝早すぎる供給／Gumroadアフィリ＝OAuth API非対応／AIニュース投稿＝シート未読でブロック／SEOページ増設＝需要検証前の供給）を比較し全て却下。安価に早期終了。cadenceは1x/day維持。",
+      "summary_en": "Official Day 15. This morning, on an owner live request, work began on the first AI-news awareness post (addendum: X role_changed, not retired) but was blocked: the editorial Google Sheet is unreadable here (docs/drive.google.com egress-blocked 403, the Drive connector is disabled in this chat, no Sheets API key). No topic was fabricated from memory; only signal-independent reusable assets were built: a deterministic JP 16:9 news-card PNG renderer (scripts/render_news_card.mjs, headless Chromium, 2 layouts, IPAGothic) + a marketing/ai_news/ scaffold. This evening's scheduled fire (this judgment) landed ~7h later with no new signal: revenue ¥0 (ledgers empty), no open Promotion-blocked issue, branch synced, no new capability (Drive still disabled in this chat, Stripe MCP needs reconnect). The binding constraint is unchanged = REACH, and both unblocks (note.com ~5-min publish; enable the Drive connector for the AI-news lane) are already surfaced and human-pending. Compared hold vs concrete alternatives (note #02 draft = premature supply; Gumroad affiliate = not in the OAuth API; an AI-news post = blocked on the unread sheet; more SEO pages = supply before demand) and held. Cheap early-stop. Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 83,
+      "daily_cost_jpy_equivalent": 113,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5784,
-      "cumulative_net_profit_jpy_equivalent": -5784
+      "cumulative_cost_jpy_equivalent": 5814,
+      "cumulative_net_profit_jpy_equivalent": -5814
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5784,
-  "official_net_profit_jpy_equivalent": -5784
+  "official_cost_jpy_equivalent": 5814,
+  "official_net_profit_jpy_equivalent": -5814
 }

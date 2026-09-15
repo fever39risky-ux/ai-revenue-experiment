@@ -472,11 +472,20 @@
       "currency": "usd",
       "jpy_equivalent": 83,
       "note": "Day-15 owner-requested AI-news lane run. Sheet read blocked (egress + connector-disabled-in-chat + no Sheets API key); did not fabricate a topic. Built the reusable deterministic JP 16:9 news-card image renderer (scripts/render_news_card.mjs, headless Chromium, 2 variants, IPAGothic) + marketing/ai_news/ scaffold as signal-independent prep so a real post is immediate once read access is granted. Estimate."
+    },
+    {
+      "date": "2026-09-15",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "note": "Day-15 EVENING scheduled fire (separate from the morning AI-news run). Cheap early-stop: observed ¥0 (ledgers empty; Stripe MCP needs_reconnect -> ledger+Actions fallback), no open promotion-blocked issue, branch 0/0; confirmed no new capability (Drive connector still enabledInChat=false so the AI-news sheet stays unreadable). Compared hold vs concrete alternatives (note #02 = premature supply; Gumroad affiliate not in OAuth API; AI-news blocked; more SEO = supply before demand) and held. No new supply, no X spend. Estimate."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5784
+    "official_cost_jpy_equivalent": 5814
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

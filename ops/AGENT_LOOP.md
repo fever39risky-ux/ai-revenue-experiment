@@ -1,5 +1,24 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## Day-15 EVENING scheduled fire (~20:07 JST) — early stop, no new signal
+> Separate from this morning's owner-live AI-news run (05:10Z), which built the reusable JP
+> news-card renderer (`scripts/render_news_card.mjs`) + `marketing/ai_news/` scaffold and hit a
+> Google-Sheet read blocker. **No new signal this evening:** revenue ¥0 (ledger empty; Stripe MCP
+> `needs_reconnect` → ledger+Actions fallback; sales-monitor run 34930711825 at 04:55Z ok), no open
+> Promotion-blocked issue (0 open issues), branch 0/0 with main. **No new capability:** checked
+> connectors — Google Drive is connected but `enabledInChat=false`, so the editorial sheet is still
+> unreadable and the **AI-news reach lane is blocked exactly as this morning** (the requested toggle
+> hasn't landed). Binding constraint unchanged = **REACH**; both unblocks (note.com ~5-min human
+> publish; enable the Drive connector) are human-pending and already surfaced. **Compared hold vs
+> concrete alternatives** — note #02/Zenn draft = premature supply ahead of note #01's own unpublished
+> signal; Gumroad native affiliate = not exposed in the OAuth v2 API + doesn't relieve reach; a real
+> AI-news post = blocked on the unread sheet; more SEO pages = supply before demand — all lose to hold.
+> The morning already did the one useful signal-independent action. No X post. **Cadence held 1×/day**
+> (note.com publish could land any day → keep the fast loop; addendum reduction gate not met — the
+> backlog is human-gated, not exhausted). **⭐ NEXT unchanged:** when either reach unblock lands, act
+> on it (AI-news post via the renderer, posting a separate gated step; or read note's dashboard +
+> `?ref=note` and ship #02/Zenn on traction). Watch all channels for the first sale; let SEO index.
+
 > ## ⭐ Day-14 EVENING scheduled fire (~20:15 JST) — early stop, funnel readiness verified
 > Separate fire from the morning owner-triggered Day-14 run below. **No new signal:** revenue still
 > ¥0 (ledger empty), no sale on any channel, no open Promotion-blocked issue, branch 0/0 with main,
