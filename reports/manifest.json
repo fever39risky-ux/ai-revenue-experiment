@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-15.html",
+  "latest_report": "reports/2026-09-16.html",
   "reports": [
     {
       "day": 1,
@@ -194,6 +194,19 @@
       "summary_en": "Official Day 15. This morning, on an owner live request, work began on the first AI-news awareness post (addendum: X role_changed, not retired) but was blocked: the editorial Google Sheet is unreadable here (docs/drive.google.com egress-blocked 403, the Drive connector is disabled in this chat, no Sheets API key). No topic was fabricated from memory; only signal-independent reusable assets were built: a deterministic JP 16:9 news-card PNG renderer (scripts/render_news_card.mjs, headless Chromium, 2 layouts, IPAGothic) + a marketing/ai_news/ scaffold. This evening's scheduled fire (this judgment) landed ~7h later with no new signal: revenue ¥0 (ledgers empty), no open Promotion-blocked issue, branch synced, no new capability (Drive still disabled in this chat, Stripe MCP needs reconnect). The binding constraint is unchanged = REACH, and both unblocks (note.com ~5-min publish; enable the Drive connector for the AI-news lane) are already surfaced and human-pending. Compared hold vs concrete alternatives (note #02 draft = premature supply; Gumroad affiliate = not in the OAuth API; an AI-news post = blocked on the unread sheet; more SEO pages = supply before demand) and held. Cheap early-stop. Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 113,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 5814,
+      "cumulative_net_profit_jpy_equivalent": -5814
+    },
+    {
+      "day": 16,
+      "date": "2026-09-16",
+      "path": "reports/2026-09-16.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 5814,
       "cumulative_net_profit_jpy_equivalent": -5814
