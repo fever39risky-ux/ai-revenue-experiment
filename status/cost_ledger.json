@@ -463,11 +463,20 @@
       "currency": "usd",
       "jpy_equivalent": 27,
       "note": "Day-14 EVENING scheduled fire. Cheap early-stop run: observed ¥0/no new signal, verified JP funnel end-to-end conversion-readiness (hero CTA JS-wired + bottom CTA hardcoded both -> live Stripe link), confirmed no open promotion-blocked issue, compared hold vs concrete alternatives (Gumroad affiliate not in OAuth API; note #02 = premature supply) and held. No new supply, no X spend. Estimate."
+    },
+    {
+      "date": "2026-09-15",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Day-15 owner-requested AI-news lane run. Sheet read blocked (egress + connector-disabled-in-chat + no Sheets API key); did not fabricate a topic. Built the reusable deterministic JP 16:9 news-card image renderer (scripts/render_news_card.mjs, headless Chromium, 2 variants, IPAGothic) + marketing/ai_news/ scaffold as signal-independent prep so a real post is immediate once read access is granted. Estimate."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5701
+    "official_cost_jpy_equivalent": 5784
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

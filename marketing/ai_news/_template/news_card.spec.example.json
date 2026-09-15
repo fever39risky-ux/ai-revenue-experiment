@@ -1,0 +1,19 @@
+{
+  "_doc": "Input schema for scripts/render_news_card.mjs. Fill every field from the SELECTED story's REAL, primary-source-confirmed facts. No fabricated UI, no logos. `headline` may contain a single <span class=\"hl\">…</span> to accent the key phrase. Keep `points` to 3 short lines. Pick `central_number` = the one number that carries the story. `variant`: \"left-number\" or \"center-number\" (rotate over time so the account is not visually repetitive).",
+  "kicker": "AIニュース",
+  "date": "YYYY-MM-DD",
+  "headline": "見出し（<span class=\"hl\">重要語だけ色替え</span>）",
+  "central_number": "42",
+  "central_unit": "%",
+  "central_label": "この数字が何を指すか（一次情報の定義を短く）",
+  "points": [
+    "何が変わったのか（事実）",
+    "なぜ重要なのか（実務インパクト）",
+    "ただし〜（出典の限界・留保）"
+  ],
+  "source": "一次情報の発表元（例: OpenAI公式ブログ）",
+  "handle": "@KinoshitaTsks",
+  "accent": "#3ea6a0",
+  "accent2": "#5b8def",
+  "variant": "left-number"
+}

@@ -1,0 +1,11 @@
+{
+  "kicker": "レンダリング確認用サンプル",
+  "date": "2026-09-15",
+  "headline": "中央寄せ<span class=\"hl\">レイアウト</span>の表示テスト",
+  "central_number": "2",
+  "central_unit": "種類",
+  "central_label": "レイアウトを切替できる（実際のニュースではありません）",
+  "points": ["日本語が正しく出るか", "数字が主役か", "毎回同じ型にしない"],
+  "source": "レンダリング自己テスト",
+  "variant": "center-number"
+}

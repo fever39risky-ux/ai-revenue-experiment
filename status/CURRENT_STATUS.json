@@ -18,7 +18,7 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-14T11:15:00.000Z",
+  "updated_at": "2026-09-15T05:10:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
@@ -203,6 +203,14 @@
   "latest_strategy_decision_ja": "10日中間レビュー（2026-09-11、reports/MIDPOINT_REVIEW_2026-09-11.md）: 状況を単一レーンの流通問題から『供給過多・需要不足』へ再分類。10日間は供給（3チャネル・pipeline・自動化）を作ったが需要創出はほぼ0。¥0の主因は『そもそも見られていない』（全チャネル適格リーチ≈0）＋日本語層/英語$19コモディティ/レビュー0のミスマッチ。決定: 3軸で再設計（価値提供型の冷たい読者向けX集客／日本語適合の入口オファー／所有オーディエンス直販）、cold-startマーケットプレイスはpark、¥50kの算数を高単価orアフィリエイトで軽くする。オーナー指示によりこのレビューでは実行せず（診断・再設計のみ）、次Routineが実行。",
   "blockers": [],
   "human_actions_required": [
+    {
+      "action": "Enable the Google Drive connector for THIS chat (one-time toggle in the chat's connector settings). It is already authorized at the org level; it is just switched off for this session, so its read tools aren't loaded.",
+      "why_it_matters_for_revenue": "The owner asked Claude to run the AI-news awareness X lane (addendum: X role_changed, not retired) to grow recognition/followers/expertise, which strengthens future distribution for note, free guides, and products. The lane requires reading the owner's editorial sheet (GPT_ニュースDB etc.) to pick a primary-source-confirmed story before writing -- inventing a topic from memory is disallowed.",
+      "why_ai_cannot": "docs.google.com & drive.google.com are blocked by the org egress policy (403, confirmed via curl and WebFetch); sheets.googleapis.com is reachable but no API key/OAuth credential exists in this environment (Sheets API returns 403 without one). Enabling the connector is a user-side toggle Claude cannot perform in a non-interactive session.",
+      "alternatives": "Instead of the connector: allowlist docs.google.com for the session, add a Google API key as a repo/env secret, or export the needed tabs (GPT_ニュースDB, 共通_編集方針, 文体, CODEX_投稿DB) to CSV in the repo.",
+      "non_blocking": "Not a freeze. The image renderer (scripts/render_news_card.mjs) and marketing/ai_news/ scaffold are already built, so post + image production is immediate once read access exists. Other revenue lanes continue.",
+      "one_time": true
+    },
     {
       "action": "PUBLISH the ready note.com article (~5 min, one-time). Log in to @satotsu1020 -> New post -> paste the body from marketing/note_article_01_jp.md section (4) -> set the title (2) + hashtags (3) -> Publish. Optional: set the profile-link line and eyecatch shown in that file. Everything (title/body/tags/eyecatch/profile text/CTA) is prepared and publish-ready; only the login+publish click is human.",
       "why_it_matters_for_revenue": "X (our only fast owned reach lever) is empirically dead (~5 impressions vs the owner's own 46-143). note.com is the highest-EV untested reach lane: free, JP-audience-native, high domain authority, its own reader base -- reaching exactly our buyer segment (JP solo-operators). This publish opens it.",
