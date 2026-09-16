@@ -15,8 +15,8 @@
     "Production support is currently allowlist-based under a limited/private GA program; evaluation and non-production use are broadly available."
   ],
   "caveat": "Performance figures are Google engineering claims, not an independent benchmark; actual performance depends on workload. Production support is allowlist-based.",
-  "post_text": "AIエージェント、賢さだけ見てると足りんかもしれん。\n\nGoogle CloudがAgent SubstrateをGKEで公開。\nGoogle発表では10倍の密度、500ms未満で再開。\n\n増やすほど、モデルより「待機コスト・隔離・再開」まで含めて実行基盤を設計する方が大事になってきた。\n\nただし、本番サポートは現状allowlist。",
-  "x_weighted_length_estimate": 257,
+  "post_text": "AIエージェント、賢さだけ見てると足りんかもしれん。\n\nGoogle CloudがAgent SubstrateをGKEで公開。\nGoogle発表では10倍の密度、500ms未満で再開。\n\n増やすほど、モデルより「待機・隔離・再開」まで含めた実行基盤の設計が大事になってきた。\n\nただし、本番サポートは現状allowlist。",
+  "x_weighted_length_estimate": 265,
   "hashtags": [],
   "cta": null,
   "image_source": "marketing/ai_news/2026-09-16_google-agent-substrate.svg",
