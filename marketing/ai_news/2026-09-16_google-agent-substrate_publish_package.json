@@ -1,0 +1,29 @@
+{
+  "date_jst": "2026-09-16",
+  "lane": "ai_news_x_awareness",
+  "status": "publish_ready_human_only_x_publish",
+  "source_news_id": "N-20260916-001",
+  "topic": "Google Cloud Agent Substrate on GKE",
+  "source_primary": "https://cloud.google.com/blog/products/containers-kubernetes/agent-substrate-available-on-gke",
+  "source_supporting": "https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate",
+  "source_published": "2026-09-15",
+  "facts_used": [
+    "Google Cloud announced Agent Substrate availability on GKE on 2026-09-15.",
+    "Google states 10x higher sandbox density than standard container runtimes.",
+    "Google states sub-500ms resume operations at more than 500 suspend/resume activations per second.",
+    "Idle agents can be suspended so CPU and memory can be released for active workloads.",
+    "Production support is currently allowlist-based under a limited/private GA program; evaluation and non-production use are broadly available."
+  ],
+  "caveat": "Performance figures are Google engineering claims, not an independent benchmark; actual performance depends on workload. Production support is allowlist-based.",
+  "post_text": "AIエージェント、賢さだけ見てると足りんかもしれん。\n\nGoogle CloudがAgent SubstrateをGKEで公開。\nGoogle発表では10倍の密度、500ms未満で再開。\n\n増やすほど、モデルより「待機コスト・隔離・再開」まで含めて実行基盤を設計する方が大事になってきた。\n\nただし、本番サポートは現状allowlist。",
+  "x_weighted_length_estimate": 257,
+  "hashtags": [],
+  "cta": null,
+  "image_source": "marketing/ai_news/2026-09-16_google-agent-substrate.svg",
+  "image_render_target": "1600x900 PNG",
+  "posting_reason": "AI-news awareness/trust lane. Fresh primary-source-confirmed story with concrete numbers and direct practical relevance to AI workload design. This lane is intentionally separate from Claude's note.com conversion work.",
+  "duplicate_check": "No Agent Substrate / GKE match found in CODEX_投稿DB snapshot supplied by owner on 2026-09-16.",
+  "measurement_plan": "After publication, compare impressions and engagement with recent AI-news/value historical baseline and the failed direct-response experiment posts. Do not judge direct sales from one awareness post; use reach/follower/trust as the lane-level signal and downstream conversions only when attributable.",
+  "human_only_action": "Publish the prepared text with the prepared PNG on @KinoshitaTsks. Current ChatGPT/GitHub connector set cannot perform the X workflow dispatch or attach media, so publication is the only remaining manual step.",
+  "created_by": "Codex / ChatGPT GPT-5.6 Sol"
+}
