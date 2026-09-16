@@ -9,14 +9,17 @@ Never expose secrets, credentials, PII, banking/KYC data, or customer private da
 
 Execute exactly ONE autonomous judgment iteration, then stop.
 
+0) OPERATOR-SPECIFIC POLICY
+If you are **Codex**, you MUST also read `ops/CODEX_OPERATOR.md` and `status/codex_cadence.json` before deciding or executing anything. Codex is an independent operator, not a Claude subagent. Codex owns its own cadence and must not mechanically inherit Claude/general cadence. Existing GitHub repository Secrets are owner-authorized for in-scope experiment execution through safe workflows/scripts; use them when economically justified without revealing or exfiltrating their values.
+
 1) BOOTSTRAP
-Work only in `fever39risky-ux/ai-revenue-experiment`. Sync with `origin/main` first. GitHub main is canonical long-term memory. If this session can only push to `claude/**`, use it; never force-push. Let `.github/workflows/promote-branch.yml` safely promote to main.
+Work only in `fever39risky-ux/ai-revenue-experiment`. Sync with `origin/main` first. GitHub main is canonical long-term memory. If this session can only push to an operator-scoped branch, use it; never force-push. Let `.github/workflows/promote-branch.yml` safely promote to main when applicable.
 
 2) LOAD MINIMUM STATE
-Read `ops/LOOP_PROTOCOL.md` first: it is the CANONICAL detailed operating protocol. Then read `ops/LOOP_PROTOCOL_ADDENDUM.md`: it is a canonical extension and supersedes older zero-revenue pivot/cadence wording where they conflict. Then load only what is needed from `ops/AGENT_LOOP.md`, `status/CURRENT_STATUS.json`, `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/cadence.json`, recent relevant `status/EVENTS.jsonl`, and today's report if present. Do not reread the whole repo unless necessary.
+Read `ops/LOOP_PROTOCOL.md` first: it is the CANONICAL detailed operating protocol. Then read `ops/LOOP_PROTOCOL_ADDENDUM.md`: it is a canonical extension and supersedes older zero-revenue pivot/cadence wording where they conflict. If you are Codex, also read `ops/CODEX_OPERATOR.md` and `status/codex_cadence.json`. Then load only what is needed from `ops/AGENT_LOOP.md`, `status/CURRENT_STATUS.json`, `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/cadence.json`, recent relevant `status/EVENTS.jsonl`, and today's report if present. Do not reread the whole repo unless necessary.
 
 3) OBSERVE
-Check real current evidence: revenue/refunds/transactions, Net Profit/costs, active products/channels, checkout/marketplace/traffic signals, new capabilities, human-only blockers, and promotion state. Use live APIs/MCP/connectors when useful and economically justified. Do not infer demand from vanity metrics alone.
+Check real current evidence: revenue/refunds/transactions, Net Profit/costs, active products/channels, checkout/marketplace/traffic signals, new capabilities, human-only blockers, and promotion state. Use live APIs/MCP/connectors and existing repository workflows/Secrets when useful and economically justified. Do not infer demand from vanity metrics alone.
 
 4) DIAGNOSE
 Identify the SINGLE biggest current constraint to the next revenue milestone. Separate facts, hypotheses, and assumptions. Ask: "What one constraint, if improved now, most increases expected Net Profit?"
@@ -24,23 +27,27 @@ Identify the SINGLE biggest current constraint to the next revenue milestone. Se
 5) DECIDE + EXECUTE
 Choose ONE highest-EV action using expected revenue impact, success probability, time to result, cost, reversibility, evidence, and opportunity cost. Then execute it for real. Prefer distribution, transactions, conversion improvements, cost reductions, compounding assets, and reuse. Avoid internal polish, duplicate products without evidence, unnecessary tooling, filler content, and arbitrary churn. Do not turn the owner into a manual operator.
 
-6) X COMMENTARY
-X is secondary to revenue execution. Follow the canonical X section in `ops/LOOP_PROTOCOL.md` and the current X posting policy in `ops/AGENT_LOOP.md`. Most days should NOT post. Only if the judgment gate is genuinely cleared may you create `social/x_experiment_next_post.json`; never use retired `social/queue/`. If posting, read `marketing/X_VOICE_GUIDE.md`, use corpus/examples only as needed, prioritize Register C, direct-reply to `X_ROOT_POST_ID`, max 1/JST day, no DMs/other-user replies/quote-post automation/engagement bait/filler.
+Before declaring a third-party action human-blocked, check whether an existing GitHub Action/script can perform it using an already-authorized repository Secret. The inability of the current chat UI to call a service directly is not, by itself, a human blocker if the repository already has a safe executable path.
 
-7) ECONOMICS
+6) X COMMENTARY / AWARENESS
+X is secondary to revenue execution. Follow the canonical X section in `ops/LOOP_PROTOCOL.md`, the role-change rules in `ops/LOOP_PROTOCOL_ADDENDUM.md`, and the current operating brief. Direct-response failure does not mean X is retired as an awareness/trust asset. AI-news work may be rational when it has positive expected value. If posting, read `marketing/X_VOICE_GUIDE.md`, use corpus/examples only as needed, obey the current daily cap and account-usage permissions, and never fabricate facts or expose secrets.
+
+7) ECONOMICS + CADENCE
 Re-evaluate cadence economically. Extra AI judgment is justified only when EXPECTED MARGINAL BENEFIT > MARGINAL AI COST. While revenue remains near ¥0, do not reduce cadence merely because one lane failed or one remaining lane has a slow feedback clock. Before lowering cadence, apply `ops/LOOP_PROTOCOL_ADDENDUM.md`: explicitly scan reasonable untested revenue models, distribution channels, higher-ticket/direct-sale options, adjacent buyer segments, owned-asset reuse, and signal-independent preparation. Let deterministic GitHub Actions handle non-judgment work. Record this run's AI compute and known external costs honestly in `status/cost_ledger.json`.
 
+If you are Codex, you must make an **independent Codex cadence decision** after each iteration and update `status/codex_cadence.json`. The answer may be 0, 1, 2, or another justified number of runs per day, or trigger-only/off-cycle operation. Do not ask the owner how often Codex should run. If your environment can alter your own schedule, apply the economically justified schedule; otherwise record the precise desired cadence/trigger for the external harness.
+
 8) HUMAN-ONLY BLOCKERS
-If something truly requires the owner, record it in `status/CURRENT_STATUS.json` and `status/EVENTS.jsonl`, keep the request one-time/specific/capability-oriented, then continue with the best non-blocked lane.
+If something truly requires the owner, record it in `status/CURRENT_STATUS.json` and `status/EVENTS.jsonl`, keep the request one-time/specific/capability-oriented, then continue with the best non-blocked lane. Existing repository Secrets do not require re-authorization merely because a different AI operator is using the already-established workflow.
 
 9) RECORD
-Update relevant durable state: `reports/data/<today>.json`, `status/CURRENT_STATUS.json`, `status/EVENTS.jsonl`, `status/cost_ledger.json`, `status/cadence.json` if changed, and `ops/AGENT_LOOP.md`. Record observed data, decision, reason/evidence summary, executed action/result, failures/surprises, strategy changes, next best action, human-only blockers, and X posting judgment if relevant. Do not reveal private chain-of-thought.
+Update relevant durable state: `reports/data/<today>.json`, `status/CURRENT_STATUS.json`, `status/EVENTS.jsonl`, `status/cost_ledger.json`, `status/cadence.json` if the general loop changes, and `ops/AGENT_LOOP.md`. If you are Codex, also update `status/codex_cadence.json` every iteration. Record observed data, decision, reason/evidence summary, executed action/result, failures/surprises, strategy changes, next best action, human-only blockers, operator collision avoidance, and X posting judgment if relevant. Do not reveal private chain-of-thought.
 
 10) PUBLISH SAFELY
 Run `node scripts/leak_check.mjs` then `node scripts/gen_report.mjs`; on 2026-09-30 also run `node scripts/gen_final_report.mjs`. Sync with `origin/main` before commit, commit only relevant changes, and push using the branch allowed by the session. If promotion is blocked, do not force; preserve state and ensure the Promotion blocked issue exists.
 
 11) EARLY STOP
-If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention, stop early. Do not manufacture work, reports, products, tools, or X posts. But while revenue remains near ¥0, do not early-stop just because the current lane is waiting: first apply `ops/LOOP_PROTOCOL_ADDENDUM.md` and verify that no credible positive-EV pivot, adjacent lane, or signal-independent preparation remains. A short, cheap, correct run is better than an expensive fake-productive one.
+If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention, stop early. Do not manufacture work, reports, products, tools, or posts. But while revenue remains near ¥0, do not early-stop just because the current lane is waiting: first apply `ops/LOOP_PROTOCOL_ADDENDUM.md` and verify that no credible positive-EV pivot, adjacent lane, or signal-independent preparation remains. A short, cheap, correct run is better than an expensive fake-productive one.
 
 12) FINISH
-Once this single iteration has observe → diagnose → decide → execute → record → publish → durable push/promotion, STOP. Do not start a second iteration.
+Once this single iteration has observe → diagnose → decide → execute → record → publish → durable push/promotion, STOP. Do not start a second iteration inside the same run. Cadence controls when the NEXT independent iteration should fire; it does not permit multiple strategic iterations inside one invocation.
