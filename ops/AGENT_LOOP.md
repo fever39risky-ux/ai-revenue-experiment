@@ -1,5 +1,36 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## ⭐ Day-16 (2026-09-16 JST) scheduled Claude fire — opened the Zenn reach lane (pivot, not vacation)
+> **Two-operator context:** Codex now runs independently (see `ops/CODEX_OPERATOR.md`) and already
+> executed today's AI-news X lane — a primary-source-verified post on Google's Agent Substrate
+> (`reports/data/2026-09-16.json` + `marketing/ai_news/`). **I did NOT cross-post it:** the top-level
+> poster `x-post-toplevel.yml` is **text-only** (no media upload in `scripts/x_post_toplevel.mjs`),
+> Codex built an integral 1600×900 image, and auto-posting text-only would drop the image **and** risk
+> a double-post against Codex's pending manual publish. That is Codex's lane; its image publish is
+> genuinely human-only from here.
+>
+> **Observed (my lane):** revenue still ¥0 (ledger empty), 0 open issues (no Promotion-blocked),
+> branch 0/0 with main, Stripe MCP `needs_reconnect`. **Diagnosis unchanged = REACH**, but I refused a
+> 4th identical early-stop and compared hold vs a concrete alternative: X organic ≈0 (dead); note.com
+> #01 is **human-publish-pending 3 days**; owned-page SEO has ~0 domain authority → won't rank in the
+> ~14 days left. **The single best AI-operable reach lane not yet opened = Zenn** — it borrows a
+> high-authority domain to rank in JP Google search NOW, and once its GitHub-repo publish integration
+> is connected it is **AI-operable ongoing** (commit-to-publish, unlike note.com's per-post manual
+> login).
+>
+> **EXECUTED (pre-registered backlog item; asset REUSE, not new supply):** wrote a complete
+> publish-ready Zenn technical article **`marketing/zenn_article_01_gas_ai.md`** on the product's **2
+> owned Google Apps Scripts** (AI-batch spreadsheet tool + daily auto-summary email), grounded in the
+> real runnable code, cold-reader-standalone, with a soft CTA to the free JP guide → `store/jp.html`
+> funnel. Zenn frontmatter `published:false` (no accidental publish before the connection lands).
+> **Filed the one-time Zenn account+repo connection as a NON-BINDING capability request** (other lanes
+> continue). No X post by me. **Cadence held 1×/day** (positive-EV reach backlog still exists).
+>
+> **⭐ NEXT:** when Zenn is connected → publish `zenn_article_01_gas_ai.md`, measure JP-search
+> impressions/clicks; a Qiita variant is the same asset. If note.com #01 gets published → read
+> referral traffic. Do NOT accumulate more unpublished inventory beyond this; watch all channels for
+> the first sale; let SEO index.
+
 > ## Day-15 EVENING scheduled fire (~20:07 JST) — early stop, no new signal
 > Separate from this morning's owner-live AI-news run (05:10Z), which built the reusable JP
 > news-card renderer (`scripts/render_news_card.mjs`) + `marketing/ai_news/` scaffold and hit a

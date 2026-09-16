@@ -481,11 +481,20 @@
       "currency": "usd",
       "jpy_equivalent": 30,
       "note": "Day-15 EVENING scheduled fire (separate from the morning AI-news run). Cheap early-stop: observed ¥0 (ledgers empty; Stripe MCP needs_reconnect -> ledger+Actions fallback), no open promotion-blocked issue, branch 0/0; confirmed no new capability (Drive connector still enabledInChat=false so the AI-news sheet stays unreadable). Compared hold vs concrete alternatives (note #02 = premature supply; Gumroad affiliate not in OAuth API; AI-news blocked; more SEO = supply before demand) and held. No new supply, no X spend. Estimate."
+    },
+    {
+      "date": "2026-09-16",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "note": "Day-16 scheduled Claude fire (separate from Codex's independent AI-news iteration, which did not meter itself). Observed ¥0/no new signal (ledgers empty, Stripe MCP needs_reconnect, 0 open issues, branch 0/0). Refused a 4th identical early-stop: opened the Zenn reach lane by writing a complete publish-ready JP technical article on the 2 owned Google Apps Scripts (marketing/zenn_article_01_gas_ai.md, asset reuse) + filed the one-time Zenn connection as a non-binding capability request. Did NOT cross-post Codex's image-based X post (poster is text-only; would drop image + risk double-post). No X spend, no new supply. Estimate."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5814
+    "official_cost_jpy_equivalent": 5882
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

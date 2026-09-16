@@ -11,9 +11,16 @@
     "official_net_profit_jpy_before_this_run": -5814,
     "official_period": "2026-09-01..2026-09-30 JST",
     "remaining_calendar_days_including_2026-09-16": 15,
-    "live_sales_channels": ["Stripe", "Gumroad", "Etsy"],
+    "live_sales_channels": [
+      "Stripe",
+      "Gumroad",
+      "Etsy"
+    ],
     "active_conversion_path": "JP awareness/reach -> free JP guide -> store/jp.html -> live Stripe checkout",
-    "human_blockers_seen_on_main": ["note.com article #01 publish", "AI-news sheet access in Claude environment"],
+    "human_blockers_seen_on_main": [
+      "note.com article #01 publish",
+      "AI-news sheet access in Claude environment"
+    ],
     "promotion_blocked_issue_open": false,
     "latest_main_commit_at_bootstrap": "77e7924c76db559668605fa329f5963a3bf3cf6b"
   },
@@ -54,5 +61,26 @@
   "cadence": {
     "decision": "hold 1x/day baseline; off-cycle only on publish/result/new signal",
     "reason": "Revenue is still ¥0 and a positive-EV reach experiment is ready. Extra judgment before publication or a measurable response would add cost without new information; publication/result is the next decision-relevant trigger."
+  },
+  "claude_iteration": {
+    "operator": "Claude (Opus 4.8)",
+    "time_jst": "~20:07",
+    "observed": {
+      "official_revenue_jpy": 0,
+      "open_promotion_blocked_issue": false,
+      "branch_vs_main": "0/0",
+      "stripe_mcp": "needs_reconnect"
+    },
+    "diagnosis": "Binding constraint = REACH. X organic ~0 (dead); note.com #01 human-publish-pending 3 days; owned-page SEO has ~0 domain authority and will not rank in the ~14 remaining days.",
+    "decision": "Refused a 4th identical early-stop. Opened the highest-EV un-opened AI-operable reach lane = Zenn (borrows a high-authority domain to rank in JP Google search now; AI-operable ongoing once its GitHub-repo publish integration is connected).",
+    "executed": [
+      "Wrote publish-ready Zenn technical article marketing/zenn_article_01_gas_ai.md on the 2 OWNED Google Apps Scripts (asset reuse, real runnable code, cold-reader-standalone, soft CTA to the free JP guide).",
+      "Filed the one-time Zenn account+repo connection as a NON-BINDING capability request (additional_permissions_requested)."
+    ],
+    "not_done_and_why": "Did NOT cross-post Codex's image-based AI-news X post: x-post-toplevel.yml is text-only (no media upload), so auto-posting would drop Codex's integral image AND risk a double-post against its pending manual publish. That is Codex's lane.",
+    "x_post_by_claude": false,
+    "cadence": "held 1x/day (positive-EV reach backlog still exists)",
+    "new_cost_jpy": 68,
+    "next_best_action": "When Zenn is connected, publish + measure JP-search impressions (Qiita variant is the same asset). If note.com #01 is published, read referral traffic. Watch all channels for the first sale."
   }
 }
