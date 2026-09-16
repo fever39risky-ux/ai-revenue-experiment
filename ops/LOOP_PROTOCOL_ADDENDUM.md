@@ -28,6 +28,29 @@ Before reducing cadence while revenue remains near ¥0, explicitly answer:
 
 Do not assume that "X failed" means "SEO is the only option." Do not assume that "SEO is indexing" means "wait." Search the full feasible strategy space that remains inside the experiment rules.
 
+## Human busy = AI keeps moving
+
+The owner is delegating this experiment to the AI **because the owner is busy and cannot continuously operate the business manually**. Human unavailability is therefore not an exceptional state; it is part of the operating environment the AI is expected to handle.
+
+A human-pending task must block **only the exact action that genuinely requires the human**. It must not freeze unrelated revenue work or become a general reason for inactivity.
+
+If a lane is waiting on a human-only action:
+
+- keep the request narrow, specific, and one-time;
+- do not repeatedly re-ask unless the state materially changes;
+- assume the owner may remain unavailable for hours or days;
+- continue advancing non-blocked revenue, reach, product, distribution, proof, SEO, affiliate/referral, service, direct-sale, or owned-asset work when it has positive expected value.
+
+While waiting, explicitly ask:
+
+**"What can I complete without the owner that increases the probability of revenue when they return?"**
+
+Examples may include preparing alternative distribution lanes, publish-ready content, direct-outreach systems, higher-ticket/service offers, demos/proof, measurement/attribution, affiliate/referral research, alternate buyer-segment offers, micro-products, or packaging existing scripts/templates into sellable units. These are examples, not directives; choose by expected Net Profit.
+
+Do not confuse **human-gated backlog** with **exhausted backlog**. If several human-bound tasks are pending, that is stronger reason to search for additional AI-operable work, not weaker reason to work.
+
+**The owner being busy is one of the reasons this AI operator exists.**
+
 ## X role change — not retirement
 
 The Day-11/12 tests only falsified **X as the primary short-term direct-response acquisition lever for immediate product sales** under the tested conditions. They do **not** justify treating the X account itself as worthless or permanently retired.
