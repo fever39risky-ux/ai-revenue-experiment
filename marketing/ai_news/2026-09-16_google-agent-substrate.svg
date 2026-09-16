@@ -24,7 +24,7 @@
     <text x="86" y="296" font-size="64" font-weight="800" fill="#f2f6fa">「待機コスト」まで設計する時代へ</text>
     <g transform="translate(86,365)">
       <text x="0" y="150" font-size="164" font-weight="900" fill="#4fc3b3">10×</text>
-      <text x="5" y="206" font-size="29" font-weight="600" fill="#c2d0dc">標準コンテナ比の計算密度</text>
+      <text x="5" y="206" font-size="29" font-weight="600" fill="#c2d0dc">標準コンテナ比のサンドボックス密度</text>
       <text x="5" y="242" font-size="22" fill="#8297aa">※Google Cloud発表値</text>
     </g>
     <g transform="translate(720,388)" font-size="32" fill="#dbe6ef">
