@@ -1,0 +1,32 @@
+{
+  "_doc": "Codex-specific adaptive cadence state. Codex must update this after every Codex iteration. Do not mechanically inherit Claude/general status/cadence.json.",
+  "owner": "Codex",
+  "effective_from": "2026-09-16T12:02:00+09:00",
+  "mode": "adaptive_economic_control",
+  "current_decision": "UNSET_BY_CODEX_NEXT_ITERATION",
+  "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
+  "fixed_daily_frequency": null,
+  "next_scheduled_run": null,
+  "off_cycle_triggers": [
+    "first_sale",
+    "meaningful_revenue_change",
+    "new_checkout_or_conversion_signal",
+    "reach_or_follower_spike",
+    "new_capability_or_repo_secret_becomes usable",
+    "human-only blocker cleared",
+    "Claude strategy change that opens a complementary lane",
+    "strategy_premise_collapse",
+    "positive-EV signal-independent backlog would otherwise sit idle"
+  ],
+  "must_consider_each_iteration": [
+    "remaining official days",
+    "real revenue and net profit",
+    "positive-EV backlog",
+    "feedback clocks",
+    "other operator coverage and collision risk",
+    "time-to-revenue lost by waiting",
+    "incremental compute/API/platform cost",
+    "reversibility and signal independence"
+  ],
+  "note": "The next Codex execution must choose its own concrete cadence (including 0/1/2 runs per day or trigger-only) and record the rationale here. The owner does not choose this strategically."
+}
