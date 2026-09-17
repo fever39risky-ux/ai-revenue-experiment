@@ -51,6 +51,28 @@ Do not confuse **human-gated backlog** with **exhausted backlog**. If several hu
 
 **The owner being busy is one of the reasons this AI operator exists.**
 
+## Multi-operator coordination — Claude and Codex
+
+Claude and Codex may operate as **independent AI operators** against the same canonical GitHub `main`.
+
+Neither operator is the other's subordinate. Both should read the same canonical state, make their own judgment, and pursue the action they believe has the highest expected Net Profit **without duplicating work that is already actively owned by the other operator**.
+
+At the start of each iteration, each operator should inspect the latest `main` state — especially `ops/AGENT_LOOP.md`, `status/CURRENT_STATUS.json`, recent `status/EVENTS.jsonl`, open promotion-block issues, and recent commits — to understand which lane another operator is already advancing.
+
+Coordination rules:
+
+- avoid doing the same work twice merely because both operators can do it;
+- reuse assets created by the other operator when that raises expected value;
+- respect the current **active lane owner** when one operator is already executing a concrete lane;
+- do not silently overwrite or undo another operator's current work based on stale context;
+- if the same lane must be touched, integrate with the current canonical state rather than restarting it;
+- prefer complementary strategies when a strong second-best lane exists;
+- treat GitHub `main` as the shared blackboard and source of truth, not chat memory.
+
+A useful default division of labor may emerge — for example, Claude continuing a primary strategy while Codex explores an alternate reach/revenue lane — but this is **not a permanent role lock**. Either operator may switch lanes when current evidence makes another action higher-EV.
+
+The goal of multi-operator execution is not redundancy. It is **parallel search over the revenue strategy space** with minimal overlap.
+
 ## X role change — not retirement
 
 The Day-11/12 tests only falsified **X as the primary short-term direct-response acquisition lever for immediate product sales** under the tested conditions. They do **not** justify treating the X account itself as worthless or permanently retired.
