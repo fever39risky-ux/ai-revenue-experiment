@@ -1,5 +1,37 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## ⭐ Day-17 (2026-09-17 JST) scheduled Claude fire — Zenn lane made connect-and-go (asset reuse, not new supply)
+> **New canon today:** owner commit `5476b5c` added **Multi-operator coordination — Claude and Codex**
+> to `ops/LOOP_PROTOCOL_ADDENDUM.md`: both are **independent** operators against the same `main`,
+> pursuing **complementary** highest-EV lanes with **minimal overlap** (read latest `main` first to see
+> which lane the other is advancing; don't duplicate; don't silently overwrite). Practically: **Codex
+> owns the AI-news X awareness lane** (ran it 2026-09-16), **Claude owns the note.com/Zenn/SEO reach +
+> JP conversion lane.**
+>
+> **Observed (my lane):** revenue still ¥0 (ledger empty), no sale on any channel, 0 open issues (no
+> Promotion-blocked), branch 0/0 with main, Stripe MCP unavailable → ledger+Actions fallback.
+> **Diagnosis unchanged = REACH**; every fast reach lever is human-gated (note #01 publish-pending
+> 4 days; Zenn account+repo connection unmade; SEO ~0 domain authority, slow).
+>
+> **EXECUTED (AI-operable, non-duplicative, signal-independent, asset REUSE — NOT new inventory):**
+> prepositioned the Day-16 Zenn article into Zenn's GitHub-deploy convention at
+> **`articles/gas-chatgpt-batch-summary-mail.md`** (valid frontmatter, **`published: false`** so
+> connecting the repo will NOT auto-publish — it stays a Zenn draft until an operator flips
+> `published: true` in a commit), and consolidated **`marketing/zenn_article_01_gas_ai.md`** into a
+> single-source pointer (no two-copy divergence). **Effect:** the highest-EV reach lane's remaining
+> human step shrinks from *connect account + set up structure + publish* to **just connecting a Zenn
+> account to this repo via GitHub OAuth**; after connection the lane is **AI-operable ongoing**
+> (publish/update by committing markdown, unlike note.com's per-post manual login). Compared hold vs
+> concrete alternatives (note #02 = premature supply ahead of #01's own unpublished signal; more SEO
+> pages = supply before demand; AI-news X = Codex's active/duplicative + sheet-blocked lane; Gumroad
+> affiliate = not in OAuth v2 API) — all lose to this. **No X post by Claude** (X awareness is Codex's
+> lane). **Cadence held 1×/day** (positive-EV reach backlog persists; addendum reduction gate unmet).
+>
+> **⭐ NEXT:** when Zenn is connected → flip `published: true` via a commit and measure JP-search
+> impressions/clicks to the free JP guide (a Qiita variant is the same asset). If note.com #01 is
+> published → read note dashboard + `?ref=note` referral traffic. **Do NOT accumulate more unpublished
+> inventory.** Watch all channels for the first sale; let SEO index.
+
 > ## ⭐ Day-16 (2026-09-16 JST) scheduled Claude fire — opened the Zenn reach lane (pivot, not vacation)
 > **Two-operator context:** Codex now runs independently (see `ops/CODEX_OPERATOR.md`) and already
 > executed today's AI-news X lane — a primary-source-verified post on Google's Agent Substrate

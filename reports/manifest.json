@@ -215,19 +215,19 @@
       "day": 17,
       "date": "2026-09-17",
       "path": "reports/2026-09-17.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 17. Synced GitHub main as source of truth (branch 0/0). Revenue still ¥0 (revenue_ledger official+prep empty), no sale on any channel, no open Promotion-blocked issue. Stripe MCP unavailable this session -> ledger+Actions fallback. The only genuinely-new state today is owner commit 5476b5c adding canonical multi-operator coordination to ops/LOOP_PROTOCOL_ADDENDUM.md (Claude and Codex independent, complementary, minimal overlap; Codex owns the AI-news X lane, Claude owns the note.com/Zenn/SEO reach + JP conversion lane). Binding constraint unchanged = REACH; all fast reach levers human-gated. Compared hold vs concrete alternatives and executed one AI-operable, non-duplicative, signal-independent, asset-REUSE (not new inventory) action: prepositioned the already-written Zenn article into Zenn's GitHub-deploy convention at articles/gas-chatgpt-batch-summary-mail.md (published:false, so connecting the repo will not auto-publish) and consolidated marketing/zenn_article_01_gas_ai.md into a single-source pointer. This shrinks the highest-EV reach lane's remaining human step to just connecting a Zenn account to this repo via GitHub OAuth; after connection the lane is AI-operable ongoing (publish by commit). No Claude X post (X awareness lane is Codex's active lane). Cadence held 1x/day.",
+      "summary_ja": "公式17日目。GitHub mainを正本として同期（branch 0/0）。公式売上は依然¥0（revenue_ledger官式・準備とも空）、どのチャネルも販売ゼロ、Promotion-blocked issueなし。Stripe MCPは本セッションで利用不可のためledger+Actionsフォールバック。本日の唯一の新規状態はオーナーcommit 5476b5cで、ops/LOOP_PROTOCOL_ADDENDUM.mdに『ClaudeとCodexは独立オペレーターとして重複を避け補完的レーンを進める』という正典が追加された（CodexはAI-news Xレーン、Claudeはnote.com/Zenn/SEOリーチ＋JP転換レーン）。最大律速は変わらずREACHで、速いリーチ手段はすべて人手ゲート。holdと具体的代替案（note #02＝時期尚早な供給／SEOページ増＝需要前の供給／AI-news投稿＝Codexの現行レーンで重複かつシート未読でblock／Gumroadアフィリエイト＝OAuth API非対応）を比較し、AI実行可能・非重複・シグナル非依存・資産再利用（新規在庫ではない）の1手を選択：既存Zenn記事をZennのGitHub連携規約に沿ってarticles/gas-chatgpt-batch-summary-mail.mlに前配置（published:falseのため接続だけでは自動公開されない）し、marketing/zenn_article_01_gas_ai.mdを単一ソースの案内に統合。これで最大EVのリーチレーンの残り人手作業が『アカウント接続＋構成整備＋公開』から『Zennアカウントを本リポジトリにGitHub OAuthで接続するだけ』に短縮され、接続後はコミットで公開できるAI継続運用レーンになる。Claude側のX投稿はなし（XはCodexの現行レーン）。カデンス1x/day維持。",
+      "summary_en": "Official Day 17. Synced GitHub main as source of truth (branch 0/0). Revenue still ¥0 (revenue_ledger official+prep empty), no sale on any channel, no open Promotion-blocked issue. Stripe MCP unavailable this session -> ledger+Actions fallback. The only genuinely-new state today is owner commit 5476b5c adding canonical multi-operator coordination to ops/LOOP_PROTOCOL_ADDENDUM.md (Claude and Codex independent, complementary, minimal overlap; Codex owns the AI-news X lane, Claude owns the note.com/Zenn/SEO reach + JP conversion lane). Binding constraint unchanged = REACH; all fast reach levers human-gated. Compared hold vs concrete alternatives and executed one AI-operable, non-duplicative, signal-independent, asset-REUSE (not new inventory) action: prepositioned the already-written Zenn article into Zenn's GitHub-deploy convention at articles/gas-chatgpt-batch-summary-mail.md (published:false, so connecting the repo will not auto-publish) and consolidated marketing/zenn_article_01_gas_ai.md into a single-source pointer. This shrinks the highest-EV reach lane's remaining human step to just connecting a Zenn account to this repo via GitHub OAuth; after connection the lane is AI-operable ongoing (publish by commit). No Claude X post (X awareness lane is Codex's active lane). Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 60,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5882,
-      "cumulative_net_profit_jpy_equivalent": -5882
+      "cumulative_cost_jpy_equivalent": 5942,
+      "cumulative_net_profit_jpy_equivalent": -5942
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5882,
-  "official_net_profit_jpy_equivalent": -5882
+  "official_cost_jpy_equivalent": 5942,
+  "official_net_profit_jpy_equivalent": -5942
 }

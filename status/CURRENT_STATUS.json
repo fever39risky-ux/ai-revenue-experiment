@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-16T11:20:00.000Z",
+  "updated_at": "2026-09-17T11:20:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "Day-16 scheduled Claude fire (~20:07 JST). Revenue still 0 -- revenue_ledger official+prep both empty; 0 open issues (no Promotion-blocked); branch 0/0 with origin/main. Stripe MCP still needs_reconnect (unavailable) -> ledger+Actions fallback per LOOP_PROTOCOL section 6. Codex (independent operator) already executed today: prepared a primary-source-verified AI-news X post (Google Agent Substrate) as reports/data/2026-09-16.json + marketing/ai_news/ assets. Its publish is genuinely human-only from here: the top-level X poster (x-post-toplevel.yml) is TEXT-ONLY -- no media upload in scripts/x_post_toplevel.mjs -- and Codex built an integral 1600x900 image; auto-posting text-only would drop the image AND risk a double-post against Codex's pending manual publish, so I did NOT cross-post it. That is Codex's lane. CLAUDE LANE ACTION: reach is still the binding constraint (X organic ~0; note.com #01 human-publish-pending 3 days; owned-page SEO has ~0 domain authority -> will not rank in the remaining ~14 days). Executed the pre-registered backlog item = wrote a publish-ready Zenn technical article (marketing/zenn_article_01_gas_ai.md) on the 2 OWNED Google Apps Scripts (asset REUSE, not new supply), because Zenn borrows a high-authority domain to rank in JP Google search NOW and is AI-operable ONGOING once its GitHub-repo publish integration is connected (commit-to-publish, unlike note.com per-post manual login). Filed the one-time Zenn connection as a capability request (non-binding)."
+    "verified_how": "Day-17 scheduled Claude fire (~20:07 JST). Revenue still 0 -- revenue_ledger official+prep both empty; 0 open issues (no Promotion-blocked); branch 0/0 with origin/main. Stripe MCP unavailable this session -> ledger+Actions fallback per LOOP_PROTOCOL section 6. Genuinely-new state today: owner commit 5476b5c added canonical multi-operator coordination to ops/LOOP_PROTOCOL_ADDENDUM.md (Claude and Codex are independent operators pursuing complementary lanes with minimal overlap; Codex owns the AI-news X lane, Claude owns the note.com/Zenn/SEO reach + JP conversion lane). Diagnosis unchanged = REACH; all fast reach levers human-gated. CLAUDE LANE ACTION (AI-operable, non-duplicative, signal-independent, asset REUSE -- not new inventory): prepositioned the already-written Zenn article into the Zenn GitHub-deploy convention at articles/gas-chatgpt-batch-summary-mail.md with published:false (connecting the repo will NOT auto-publish it), and consolidated marketing/zenn_article_01_gas_ai.md into a single-source pointer. This shrinks the pending human step on the highest-EV reach lane from connect+structure+publish to just connecting a Zenn account to this repo (GitHub OAuth); after connection the lane is AI-operable ongoing (publish by commit). No X post by Claude (X awareness lane is Codex active). Cadence held 1x/day."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
@@ -272,10 +272,11 @@
     {
       "capability": "Connect a Zenn account (github.com OAuth) and link a GitHub repo for Zenn's repo-publish integration",
       "purpose": "Opens the highest-EV AI-operable reach lane available: a Zenn technical article borrows Zenn's high domain authority to rank in JP Google search (e.g. \"GAS ChatGPT 一括処理\", \"Google Apps Script AI 自動化\") -- which our zero-authority GitHub Pages cannot do in the remaining ~14 days -- and, once the repo integration is connected, becomes AI-operable ONGOING (the AI publishes/updates by committing markdown, no manual per-post login, unlike note.com). Directly attacks the binding REACH constraint via borrowed authority + differentiated content (the product's 2 working Google Apps Scripts).",
-      "ai_did_first": "Wrote the complete publish-ready article at marketing/zenn_article_01_gas_ai.md (Zenn frontmatter, real runnable code from the owned product, cold-reader-standalone, soft CTA to the free JP guide). Only the one-time account+repo connection is human (GitHub OAuth / account the AI cannot self-perform).",
+      "ai_did_first": "Wrote the complete publish-ready article AND (2026-09-17) prepositioned it into Zenns GitHub-deploy convention at articles/gas-chatgpt-batch-summary-mail.md (published:false, so connecting the repo will NOT auto-publish). marketing/zenn_article_01_gas_ai.md is now a single-source pointer. The remaining human step is reduced to ONLY connecting a Zenn account to this GitHub repo via Zenns GitHub OAuth integration -- no file/structure setup remains. After connection the lane is AI-operable ongoing (publish/update by committing markdown, unlike note.coms per-post manual login).",
       "non_binding": "NOT a freeze. note.com (pending) and owned-page SEO continue in parallel; this is an additional reach lever, not a prerequisite for any milestone.",
       "one_time": true,
-      "requested": "2026-09-16"
+      "requested": "2026-09-16",
+      "updated": "2026-09-17"
     }
   ],
   "opp_support_opportunities": [
