@@ -1,0 +1,33 @@
+{
+  "updated_at": "2026-09-18T00:54:14.609219+00:00",
+  "bootstrap_complete": false,
+  "route": "desktop_thread_heartbeat",
+  "requires_awake_host_and_running_app": true,
+  "write_test": {
+    "pr": "https://github.com/fever39risky-ux/ai-revenue-experiment/pull/6",
+    "commit": "6985d4b965d226d39bd4e1cf09f01e388255706e",
+    "environment": "desktop",
+    "verified": true
+  },
+  "cloud_shell_write_verified": false,
+  "scheduler": {
+    "automation_id": "ai-revenue-experiment",
+    "registered": true,
+    "automatic_wake_verified": false
+  },
+  "source_main_sha": "1e2a1859bd566794294d5ba1de695312188d71d0",
+  "previous_bootstrap_commit_reachable": false,
+  "openai_api_secret_present": false,
+  "revenue_ledger_jpy": 0,
+  "official_cost_ledger_jpy_before_run": 6002,
+  "remaining": [
+    "publish bootstrap to main",
+    "one coherent revenue iteration",
+    "scheduler-originated wake and state handoff evidence"
+  ],
+  "known_constraints": [
+    "Stripe monitoring key absent in repository Secrets; ledger zero is not live confirmation for every channel",
+    "Separate SNS automations use the same X account; inspect shared posting state before publishing",
+    "Attributable subscription compute cost unavailable; do not report zero cost"
+  ]
+}

@@ -508,6 +508,17 @@
       "currency": "usd",
       "jpy_equivalent": 60,
       "note": "Day-18 owner-live iteration. Owner confirmed note.com #01 is PUBLISHED and Zenns GitHub integration is CONNECTED. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn article goes live (borrowed-authority JP-search reach, AI-operable ongoing by commit). Publish-readiness edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn). Marked note-publish + Zenn-connection human blockers RESOLVED. Re-judged note measurement (env cannot read note.com or GitHub Pages traffic -> AI-measurable signal is the sales-monitor cron + a non-binding owner glance/analytics ask). No new supply. Estimate."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "codex-desktop-bootstrap-20260918",
+      "note": "Desktop subscription bootstrap and write test. Attributable compute cost is unavailable, not zero; excluded from numeric totals until reconciled. No separately billed OpenAI API call or new paid service was purchased."
     }
   ],
   "totals": {

@@ -3,10 +3,10 @@
   "owner": "Codex",
   "effective_from": "2026-09-16T12:02:00+09:00",
   "mode": "adaptive_economic_control",
-  "current_decision": "UNSET_BY_CODEX_NEXT_ITERATION",
+  "current_decision": "bootstrap_then_one_scheduled_handoff_validation",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": null,
-  "next_scheduled_run": null,
+  "next_scheduled_run": "2026-09-18T00:53:35.173284+00:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -28,5 +28,11 @@
     "incremental compute/API/platform cost",
     "reversibility and signal independence"
   ],
-  "note": "The next Codex execution must choose its own concrete cadence (including 0/1/2 runs per day or trigger-only) and record the rationale here. The owner does not choose this strategically."
+  "note": "The next Codex execution must choose its own concrete cadence (including 0/1/2 runs per day or trigger-only) and record the rationale here. The owner does not choose this strategically.",
+  "paused": false,
+  "max_business_runs_per_day": 2,
+  "scheduler": "Codex desktop thread heartbeat",
+  "scheduler_automation_id": "ai-revenue-experiment",
+  "rationale": "Validate one real scheduled handoff using existing subscription authentication, then choose adaptive daily cadence based on concrete backlog. No OpenAI API secret exists; no new paid API route enabled.",
+  "bootstrap_complete": false
 }
