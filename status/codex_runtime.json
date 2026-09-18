@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T00:57:54.148707+00:00",
+  "updated_at": "2026-09-18T01:00:47.093168+00:00",
   "bootstrap_complete": false,
   "route": "desktop_thread_heartbeat",
   "requires_awake_host_and_running_app": true,
@@ -21,8 +21,8 @@
   "revenue_ledger_jpy": 0,
   "official_cost_ledger_jpy_before_run": 6002,
   "remaining": [
-    "publish corrected product and first iteration receipt",
-    "scheduler-originated wake and state handoff evidence"
+    "scheduler-originated wake and state handoff evidence",
+    "set economically justified ongoing cadence after validation"
   ],
   "known_constraints": [
     "Stripe monitoring key absent in repository Secrets; ledger zero is not live confirmation for every channel",
@@ -34,7 +34,15 @@
     "hypothesis": "A reproducible product failure undermines trust in the existing working-script offer; correcting it improves buyer usability without adding speculative inventory. Revenue impact remains unproven.",
     "action": "Fix invalid-date crashes in delivered daily-report script and its published Zenn example; add offline regression tests.",
     "validation": "Failure reproduced before fix; mixed-date and no-data cases pass for both shipped ZIP and article. No live API call or mail send. ZIP integrity verified; only one ZIP member changed.",
-    "publication": "pending",
-    "new_external_spend_jpy": 0
+    "publication": "verified GitHub Pages ZIP SHA256 fc175c0f99559dfb424409a9d276ea20df5d4c38d159773ade50d116fc107406",
+    "new_external_spend_jpy": 0,
+    "pull_request": "https://github.com/fever39risky-ux/ai-revenue-experiment/pull/8",
+    "deployment": "https://github.com/fever39risky-ux/ai-revenue-experiment/actions/runs/35293432139",
+    "marketplace_copies": "Gumroad/Etsy hosted copies not updated; do not claim those copies fixed"
+  },
+  "sales_monitor_evidence": {
+    "run_id": 35284077071,
+    "gumroad": "0 new sales after successful API query",
+    "stripe": "skipped: STRIPE_RESTRICTED_KEY absent"
   }
 }
