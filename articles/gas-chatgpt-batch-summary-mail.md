@@ -136,6 +136,8 @@ function dailyReport() {
 }
 
 function _ymd(d) {
+  // 空白・不正な日付は当日分の対象外にする。
+  if (!Number.isFinite(d.getTime())) return '';
   return Utilities.formatDate(d, Session.getScriptTimeZone(), 'yyyy-MM-dd');
 }
 ```

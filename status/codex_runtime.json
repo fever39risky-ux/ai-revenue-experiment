@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T00:54:14.609219+00:00",
+  "updated_at": "2026-09-18T00:57:54.148707+00:00",
   "bootstrap_complete": false,
   "route": "desktop_thread_heartbeat",
   "requires_awake_host_and_running_app": true,
@@ -21,13 +21,20 @@
   "revenue_ledger_jpy": 0,
   "official_cost_ledger_jpy_before_run": 6002,
   "remaining": [
-    "publish bootstrap to main",
-    "one coherent revenue iteration",
+    "publish corrected product and first iteration receipt",
     "scheduler-originated wake and state handoff evidence"
   ],
   "known_constraints": [
     "Stripe monitoring key absent in repository Secrets; ledger zero is not live confirmation for every channel",
     "Separate SNS automations use the same X account; inspect shared posting state before publishing",
     "Attributable subscription compute cost unavailable; do not report zero cost"
-  ]
+  ],
+  "bootstrap_merge": "https://github.com/fever39risky-ux/ai-revenue-experiment/pull/7",
+  "first_business_iteration": {
+    "hypothesis": "A reproducible product failure undermines trust in the existing working-script offer; correcting it improves buyer usability without adding speculative inventory. Revenue impact remains unproven.",
+    "action": "Fix invalid-date crashes in delivered daily-report script and its published Zenn example; add offline regression tests.",
+    "validation": "Failure reproduced before fix; mixed-date and no-data cases pass for both shipped ZIP and article. No live API call or mail send. ZIP integrity verified; only one ZIP member changed.",
+    "publication": "pending",
+    "new_external_spend_jpy": 0
+  }
 }
