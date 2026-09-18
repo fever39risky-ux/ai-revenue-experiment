@@ -228,19 +228,19 @@
       "day": 18,
       "date": "2026-09-18",
       "path": "reports/2026-09-18.html",
-      "summary": "",
-      "summary_ja": "",
-      "summary_en": "",
+      "summary": "Official Day 18 (owner live). Owner confirmed two human blockers cleared: note.com #01 is PUBLISHED on @satotsu1020, and Zenn's GitHub publish integration is CONNECTED to this repo. Synced GitHub main. Revenue still ¥0; no open Promotion-blocked issue. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn technical article (2 owned Google Apps Scripts) goes LIVE, opening borrowed-authority JP-search reach; the lane is now AI-operable ongoing (publish by commit). Pre-publish edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn), keeping a one-line honest experiment disclosure. Marked note-publish + Zenn-connection blockers RESOLVED; recorded the Zenn integration under granted_permissions. Re-judged note measurement: with note + Zenn now live, the binding constraint shifts toward MEASUREMENT + CONVERSION, but the AI cannot read note.com (env 403) or GitHub Pages traffic (no analytics), so AI-measurable ground truth is the sales-monitor cron plus a non-binding owner glance/analytics ask. Complementary to Codex's AI-news X lane; no Claude X post. Cadence held 1x/day.",
+      "summary_ja": "公式18日目（オーナー同席）。オーナーがhuman-onlyブロッカーを2件解消したと確認：note.com #01が@satotsu1020で公開済み、ZennのGitHub公開連携が本リポジトリに接続済み。GitHub mainを同期（branch整合）。公式売上は依然¥0（revenue_ledger官式・準備とも空）、Promotion-blocked issueなし。最高EVアクションを実行：articles/gas-chatgpt-batch-summary-mail.mdをpublished:trueにしてpush→Zennの技術記事（自社の実働Google Apps Script 2本）が公開され、高ドメイン評価を借りた日本語検索リーチが開通。以後この記事はコミットで更新できるAI継続運用レーンになる。公開前の整備：CTAに?ref=zennを付与（note ?ref=noteと合わせて流入元を区別）、内部的なSEO戦略の注記を削除（Zenn上の信頼性配慮）、実験の正直な開示は1行だけ残す。ブロッカー更新：note公開とZenn接続をRESOLVEDに、Zenn連携をgranted_permissionsに記録。note計測の再判断：note/Zenn両リーチが実稼働に入り、律速はMEASUREMENT+CONVERSIONへ移行しつつある。ただし本環境はnote.com（proxy 403）もGitHub Pages流入（アナリティクス無し）も読めないため、流入計測はAI単独では不可。AIが読める真実はsales-monitor cron（Stripe/Gumroad）の初売上のみ。流入クリック可視化にはオーナーのダッシュボード一瞥か軽量アナリティクス/Search Console付与が必要—これは非拘束の任意アップグレードとして提示し、投機的な計測基盤は作らない（静的Pagesには外部サービス無しでAI可読のsinkが無い）。CodexのAIニュースXレーンとは補完維持、Claude側X投稿なし。カデンス1x/day維持。",
+      "summary_en": "Official Day 18 (owner live). Owner confirmed two human blockers cleared: note.com #01 is PUBLISHED on @satotsu1020, and Zenn's GitHub publish integration is CONNECTED to this repo. Synced GitHub main. Revenue still ¥0; no open Promotion-blocked issue. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn technical article (2 owned Google Apps Scripts) goes LIVE, opening borrowed-authority JP-search reach; the lane is now AI-operable ongoing (publish by commit). Pre-publish edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn), keeping a one-line honest experiment disclosure. Marked note-publish + Zenn-connection blockers RESOLVED; recorded the Zenn integration under granted_permissions. Re-judged note measurement: with note + Zenn now live, the binding constraint shifts toward MEASUREMENT + CONVERSION, but the AI cannot read note.com (env 403) or GitHub Pages traffic (no analytics), so AI-measurable ground truth is the sales-monitor cron plus a non-binding owner glance/analytics ask. Complementary to Codex's AI-news X lane; no Claude X post. Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 60,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 5942,
-      "cumulative_net_profit_jpy_equivalent": -5942
+      "cumulative_cost_jpy_equivalent": 6002,
+      "cumulative_net_profit_jpy_equivalent": -6002
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 5942,
-  "official_net_profit_jpy_equivalent": -5942
+  "official_cost_jpy_equivalent": 6002,
+  "official_net_profit_jpy_equivalent": -6002
 }

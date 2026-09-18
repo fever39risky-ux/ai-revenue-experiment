@@ -18,12 +18,12 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-17T11:20:00.000Z",
+  "updated_at": "2026-09-18T12:00:00.000Z",
   "revenue": {
     "total_jpy_equivalent": 0,
     "by_currency": {},
     "verified": true,
-    "verified_how": "Day-17 scheduled Claude fire (~20:07 JST). Revenue still 0 -- revenue_ledger official+prep both empty; 0 open issues (no Promotion-blocked); branch 0/0 with origin/main. Stripe MCP unavailable this session -> ledger+Actions fallback per LOOP_PROTOCOL section 6. Genuinely-new state today: owner commit 5476b5c added canonical multi-operator coordination to ops/LOOP_PROTOCOL_ADDENDUM.md (Claude and Codex are independent operators pursuing complementary lanes with minimal overlap; Codex owns the AI-news X lane, Claude owns the note.com/Zenn/SEO reach + JP conversion lane). Diagnosis unchanged = REACH; all fast reach levers human-gated. CLAUDE LANE ACTION (AI-operable, non-duplicative, signal-independent, asset REUSE -- not new inventory): prepositioned the already-written Zenn article into the Zenn GitHub-deploy convention at articles/gas-chatgpt-batch-summary-mail.md with published:false (connecting the repo will NOT auto-publish it), and consolidated marketing/zenn_article_01_gas_ai.md into a single-source pointer. This shrinks the pending human step on the highest-EV reach lane from connect+structure+publish to just connecting a Zenn account to this repo (GitHub OAuth); after connection the lane is AI-operable ongoing (publish by commit). No X post by Claude (X awareness lane is Codex active). Cadence held 1x/day."
+    "verified_how": "Day-18 owner-live iteration (2026-09-18). Revenue still 0 -- revenue_ledger official+prep both empty; 0 open issues; branch synced to origin/main then this push. Owner (live) confirmed TWO human blockers cleared: note.com #01 is PUBLISHED on @satotsu1020, and Zenns GitHub publish integration is CONNECTED to this repo. HIGHEST-EV ACTION EXECUTED: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn technical article (2 owned Google Apps Scripts) goes live, opening borrowed-authority JP-search reach; the lane is now AI-operable ongoing (publish/update by commit). Added ?ref=zenn to the CTA and removed the internal SEO-strategy note before publishing. Diagnosis: with note + Zenn now actually deployed, REACH lanes are finally live; the emerging constraint is MEASUREMENT+CONVERSION -- the AI cannot read note.com (env 403) or GitHub Pages traffic (no analytics), so AI-measurable ground truth is the sales-monitor cron (Stripe/Gumroad) plus a non-binding owner glance/analytics ask. Kept complementary to Codexs AI-news X lane; no Claude X post. Cadence held 1x/day."
   },
   "live_capabilities": {
     "_doc": "Formal, canonical list of capabilities confirmed working end-to-end (not just built/deployed). A capability moves here only after a real, successful execution against the live third-party service -- not on completion of code alone.",
@@ -212,9 +212,9 @@
       "one_time": true
     },
     {
-      "action": "PUBLISH the ready note.com article (~5 min, one-time). Log in to @satotsu1020 -> New post -> paste the body from marketing/note_article_01_jp.md section (4) -> set the title (2) + hashtags (3) -> Publish. Optional: set the profile-link line and eyecatch shown in that file. Everything (title/body/tags/eyecatch/profile text/CTA) is prepared and publish-ready; only the login+publish click is human.",
+      "action": "RESOLVED 2026-09-18: the owner PUBLISHED note.com article #01 on @satotsu1020. The note reach lane is now live (free JP guide funnel via ?ref=note). Kept for the record. Measurement note: this environment cannot read note.com (proxy 403) or GitHub Pages traffic (no analytics), so referral/view measurement is not directly AI-operable -- watched via the sales-monitor cron for the first sale, plus a non-binding owner glance at note stats.",
       "why_it_matters_for_revenue": "X (our only fast owned reach lever) is empirically dead (~5 impressions vs the owner's own 46-143). note.com is the highest-EV untested reach lane: free, JP-audience-native, high domain authority, its own reader base -- reaching exactly our buyer segment (JP solo-operators). This publish opens it.",
-      "why_ai_cannot": "Owner GRANTED account-usage for the existing @satotsu1020 on 2026-09-14 (login/create/save-draft/publish/edit/profile-link, within the experiment). But this execution environment has NO outbound access to note.com (agent proxy 403, note.com not on the allowlist), no note write-API, and no session credentials -- and the AI must not handle passwords -- so the AI physically cannot log in or post from here. Per the owner's own instruction, only the irreducible human step (login+publish) is requested; strategy/content are NOT handed back (all decided, article ready).",
+      "why_ai_cannot": "n/a -- resolved (owner published).",
       "non_blocking": "NOT a freeze: the AI continues the non-blocked backlog (Zenn/Qiita draft, Gumroad affiliate program, script micro-product) + SEO in parallel while this is pending.",
       "one_time": true
     },
@@ -276,7 +276,8 @@
       "non_binding": "NOT a freeze. note.com (pending) and owned-page SEO continue in parallel; this is an additional reach lever, not a prerequisite for any milestone.",
       "one_time": true,
       "requested": "2026-09-16",
-      "updated": "2026-09-17"
+      "updated": "2026-09-18",
+      "status": "RESOLVED 2026-09-18: owner connected a Zenn account to this GitHub repo. Claude published the prepared article by setting published:true in articles/gas-chatgpt-batch-summary-mail.md and pushing. Lane is now AI-operable ongoing (publish/update by commit)."
     }
   ],
   "opp_support_opportunities": [
@@ -319,6 +320,12 @@
       ],
       "canon": "ops/LOOP_PROTOCOL.md section 9 (Top-level acquisition posts); ops/AGENT_LOOP.md X posting policy (2026-09-11)",
       "mechanism": "separate queue social/x_experiment_next_toplevel.json + dedicated standalone poster (no in_reply_to); not the reply script. Build if absent."
+    },
+    {
+      "permission": "zenn_github_publish_integration",
+      "granted_at": "2026-09-18",
+      "type": "account_connection",
+      "scope": "Zenn account connected to this GitHub repo; articles/*.md with published:true auto-publish to Zenn on push. AI-operable ongoing via commit."
     }
   ],
   "midpoint_review": {

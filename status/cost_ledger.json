@@ -499,11 +499,20 @@
       "currency": "usd",
       "jpy_equivalent": 60,
       "note": "Day-17 scheduled Claude fire. Observed still-¥0 (revenue_ledger official+prep empty; Stripe MCP unavailable -> ledger+Actions fallback), 0 open promotion-blocked issue, branch 0/0 with main. One genuinely-new state: owner commit 5476b5c added canonical multi-operator coordination (Claude and Codex independent, complementary, no overlap). Executed one AI-operable, non-duplicative, signal-independent asset-REUSE action: prepositioned the already-written Zenn article into the connect-and-go deploy path articles/gas-chatgpt-batch-summary-mail.md (published:false so no accidental publish on connect) and consolidated marketing/zenn_article_01_gas_ai.md to a single-source pointer -> shrinks the pending human step on the highest-EV reach lane to just connecting a Zenn account to this repo. No new inventory, no X spend, no premature supply. Estimate."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Day-18 owner-live iteration. Owner confirmed note.com #01 is PUBLISHED and Zenns GitHub integration is CONNECTED. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn article goes live (borrowed-authority JP-search reach, AI-operable ongoing by commit). Publish-readiness edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn). Marked note-publish + Zenn-connection human blockers RESOLVED. Re-judged note measurement (env cannot read note.com or GitHub Pages traffic -> AI-measurable signal is the sales-monitor cron + a non-binding owner glance/analytics ask). No new supply. Estimate."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 5942
+    "official_cost_jpy_equivalent": 6002
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

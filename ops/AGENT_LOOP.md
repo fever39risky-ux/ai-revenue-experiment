@@ -1,5 +1,34 @@
 # Operating Brief — resume point for the autonomous loop
 
+> ## ⭐⭐ Day-18 (2026-09-18 JST) owner-live fire — Zenn article PUBLISHED; note #01 live; measurement is the new gap
+> **Owner (live) confirmed two human blockers cleared:** note.com #01 is **PUBLISHED** on
+> @satotsu1020, and **Zenn's GitHub publish integration is CONNECTED** to this repo.
+> **Observed:** revenue still ¥0 (ledger empty), 0 open issues, branch synced with main.
+>
+> **EXECUTED (highest-EV, owner-requested):** set `articles/gas-chatgpt-batch-summary-mail.md`
+> **`published: true`** and pushed → the Zenn technical article (the 2 owned Google Apps Scripts)
+> **goes live**, opening borrowed-authority JP-search reach; the lane is now **AI-operable ongoing**
+> (publish/update by commit). Pre-publish edits: added **`?ref=zenn`** to the CTA (so Zenn vs note
+> referrals are distinguishable at the landing page, consistent with note `?ref=note`) and removed
+> the internal SEO-strategy blockquote (no reader value + reads as SEO-farming on Zenn), keeping a
+> one-line honest experiment disclosure. Marked note-publish + Zenn-connection blockers **RESOLVED**;
+> recorded the Zenn integration under `granted_permissions`.
+>
+> **Diagnosis shift:** with note + Zenn now *actually deployed*, REACH is no longer fully blocked; the
+> emerging constraint is **MEASUREMENT + CONVERSION**. Honest limit — this env cannot read note.com
+> (proxy 403) or GitHub Pages traffic (the free guide + `store/jp.html` have **no analytics**), so
+> funnel-click measurement is **not AI-operable**. The AI-measurable ground truth is the free
+> **sales-monitor cron** (Stripe/Gumroad) for the first sale. Did **NOT** build speculative analytics
+> (a static Pages site has no AI-readable sink without an external service); surfaced a **non-binding**
+> ask: a one-time owner glance at note/Zenn stats OR a lightweight analytics/GSC grant. Kept
+> complementary to Codex's AI-news X lane; **no Claude X post.** **Cadence held 1×/day.**
+>
+> **⭐ NEXT:** let note #01 + Zenn #01 index and drive traffic; **watch the sales-monitor for the first
+> sale.** On a real demand signal (a sale, or owner-reported note/Zenn traffic) → ship the same-asset
+> variants (Qiita = the Zenn asset; note #02 automation) and iterate `store/jp.html` conversion. Do
+> **NOT** add more unpublished inventory before a signal. If measurement stays blind, the highest-EV
+> unblock is a lightweight analytics/GSC grant (non-binding).
+
 > ## ⭐ Day-17 (2026-09-17 JST) scheduled Claude fire — Zenn lane made connect-and-go (asset reuse, not new supply)
 > **New canon today:** owner commit `5476b5c` added **Multi-operator coordination — Claude and Codex**
 > to `ops/LOOP_PROTOCOL_ADDENDUM.md`: both are **independent** operators against the same `main`,

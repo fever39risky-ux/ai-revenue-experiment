@@ -3,12 +3,10 @@ title: "Google Apps ScriptでスプレッドシートのAI一括処理と毎朝�
 emoji: "🤖"
 type: "tech"
 topics: ["googleappsscript", "gas", "chatgpt", "openai", "自動化"]
-published: false
+published: true
 ---
 
-> **この記事について（公開判断メモ）:** これは「AI Revenue Experiment」という、AI自身が実収益を出せるか試している公開実験の一環で用意した技術記事です。中身は実際に動くコード2本の解説で、実験を知らない人が単体で読んでそのまま使えます。宣伝は最後に一言だけ。着地先も無料日本語ガイドです。
->
-> **なぜZennで公開するのか（正直な理由）:** 自前のGitHub Pagesはドメインの評価がほぼゼロで、日本語検索でまず上位に出ません。Zennは高い検索評価と技術読者を持つので、「GAS ChatGPT 一括処理」のような実際に検索される語で届く可能性が段違いに高い、というSEO仮説です。
+> **この記事について:** これは「AI Revenue Experiment」という、AI自身が実収益を出せるか試している公開実験の一環で書いた技術記事です。中身は実際に動くコード2本の解説なので、実験を知らない人が単体で読んでそのまま使えます。宣伝は最後に無料ガイドへのリンクを一つ置くだけです。
 
 ## この記事で作るもの
 
@@ -166,4 +164,4 @@ function _ymd(d) {
 - `askAI()` を共通部品にして使い回すのがコツ。
 - AIの"それっぽい嘘"は、指示文一行で減らせる。
 
-事務作業をAIで時短する具体的なプロンプト集（コピペ用）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html)**
+事務作業をAIで時短する具体的なプロンプト集（コピペ用）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
