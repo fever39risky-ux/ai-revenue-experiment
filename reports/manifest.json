@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-18.html",
+  "latest_report": "reports/2026-09-19.html",
   "reports": [
     {
       "day": 1,
@@ -233,6 +233,19 @@
       "summary_en": "Official Day 18 (owner live). Owner confirmed two human blockers cleared: note.com #01 is PUBLISHED on @satotsu1020, and Zenn's GitHub publish integration is CONNECTED to this repo. Synced GitHub main. Revenue still ¥0; no open Promotion-blocked issue. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn technical article (2 owned Google Apps Scripts) goes LIVE, opening borrowed-authority JP-search reach; the lane is now AI-operable ongoing (publish by commit). Pre-publish edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn), keeping a one-line honest experiment disclosure. Marked note-publish + Zenn-connection blockers RESOLVED; recorded the Zenn integration under granted_permissions. Re-judged note measurement: with note + Zenn now live, the binding constraint shifts toward MEASUREMENT + CONVERSION, but the AI cannot read note.com (env 403) or GitHub Pages traffic (no analytics), so AI-measurable ground truth is the sales-monitor cron plus a non-binding owner glance/analytics ask. Complementary to Codex's AI-news X lane; no Claude X post. Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 105,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 6047,
+      "cumulative_net_profit_jpy_equivalent": -6047
+    },
+    {
+      "day": 19,
+      "date": "2026-09-19",
+      "path": "reports/2026-09-19.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 6047,
       "cumulative_net_profit_jpy_equivalent": -6047
