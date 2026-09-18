@@ -56,6 +56,12 @@
         "confirmed_at": "2026-09-05T00:55:41.921Z",
         "evidence": "Real end-to-end publish run (refresh token -> create draft -> upload 4 images -> upload digital file -> activate) succeeded via GitHub Actions against Etsy's live production API v3. Listing: https://www.etsy.com/listing/4569271638, listing_id 4569271638, $9. status/etsy_listing.json is the machine-readable record.",
         "note": "Publishing capability confirmed live; a first SALE has not yet occurred. Two real bugs were found and fixed via the live error responses: (1) a 403 revealed x-api-key needs keystring:shared_secret, not keystring alone; (2) a 400 revealed a tag exceeding Etsy's 20-char limit. Both fixed with the minimal correction the real response called for, then re-run succeeded."
+      },
+      {
+        "capability": "codex_stripe_connector_read",
+        "confirmed_at": "2026-09-18T04:44:51.745207+00:00",
+        "evidence": "Live account ai-revenue-experiment: GetCharges and GetBalanceTransactions returned data=[], has_more=false. No credential value accessed or persisted.",
+        "note": "Distinct from GitHub Actions monitoring, whose Stripe key is absent."
       }
     ]
   },
@@ -365,5 +371,28 @@
     "biggest_reason_no_sale": "A trust-less, undifferentiated commodity offered to its only audience (JP) in the wrong language for an everyone-target, so no one feels this is for me, I need it now.",
     "restructure_hint": "free JP lead magnet (the 20 prompts) -> paid core (the 2 working scripts) -> optional higher-ticket (done-with-you) to cut the Y50k math to ~10 sales.",
     "note": "Diagnosis only; product NOT changed/regenerated/repriced this review, per owner."
+  },
+  "codex_latest": {
+    "recorded_at": "2026-09-18T04:44:51.745207+00:00",
+    "trigger": "heartbeat",
+    "automation_id": "ai-revenue-experiment",
+    "run_id": "20260918T010956.628910Z",
+    "source_main_sha": "7909dab25d1c4f73b6e59c223b46eb242c861be9",
+    "hypothesis": "Restoring actual payment visibility prevents missed demand signals and misallocated revenue work. Existing Stripe connector may close the Actions-key observation gap.",
+    "executed": "Read the live ai-revenue-experiment Stripe account via existing connector; retrieved complete empty charge and balance-transaction lists. Persisted reusable observation route and next cadence.",
+    "result": "Stripe live revenue observed as zero; no monetary impact claimed. Read capability now verified; Actions key still absent.",
+    "collision_avoidance": "No edits to Claude article/CTA strategy, no social posts, no new product inventory.",
+    "compute_cost_jpy": null,
+    "external_spend_jpy": 0,
+    "next": "2026-09-19T10:00:00+09:00",
+    "cadence_rationale": "One daily independent judgment at 10:00 JST for the remaining 13 calendar days. Two bootstrap/business iterations already ran today. Claude covers note/Zenn; sales polling in Actions handles Gumroad. Codex can now verify Stripe through its connector. Existing product delivery/channel consistency and complementary distribution remain concrete backlog; repeated minutes-long polling and new inventory without demand do not justify compute cost. Re-evaluate cadence on real signals; no new paid API route.",
+    "alternatives_considered": {
+      "new_product": "No demand evidence; reuse existing delivered product before adding inventory.",
+      "new_distribution": "Claude owns note/Zenn; separate X automations require account-wide coordination.",
+      "higher_ticket_direct_sale": "No qualified buyer signal yet; outbound messaging needs explicit session authorization.",
+      "adjacent_segment": "Existing Japanese solo-operator assets fit current reach; new segment without evidence would add inventory.",
+      "owned_asset_reuse": "Marketplace copy consistency remains concrete next backlog after the prior ZIP fix.",
+      "signal_independent_work": "Restore payment observation now rather than fabricate demand or repeatedly poll."
+    }
   }
 }

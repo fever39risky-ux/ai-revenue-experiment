@@ -64,6 +64,29 @@
       "compute_cost_jpy": null,
       "revenue_impact": "unproven; not counted as revenue",
       "next": "Verify deployed ZIP; then scheduled wake must read this receipt and choose a complementary evidence-based action."
+    },
+    {
+      "recorded_at": "2026-09-18T04:44:51.745207+00:00",
+      "trigger": "heartbeat",
+      "automation_id": "ai-revenue-experiment",
+      "run_id": "20260918T010956.628910Z",
+      "source_main_sha": "7909dab25d1c4f73b6e59c223b46eb242c861be9",
+      "hypothesis": "Restoring actual payment visibility prevents missed demand signals and misallocated revenue work. Existing Stripe connector may close the Actions-key observation gap.",
+      "executed": "Read the live ai-revenue-experiment Stripe account via existing connector; retrieved complete empty charge and balance-transaction lists. Persisted reusable observation route and next cadence.",
+      "result": "Stripe live revenue observed as zero; no monetary impact claimed. Read capability now verified; Actions key still absent.",
+      "collision_avoidance": "No edits to Claude article/CTA strategy, no social posts, no new product inventory.",
+      "compute_cost_jpy": null,
+      "external_spend_jpy": 0,
+      "next": "2026-09-19T10:00:00+09:00",
+      "cadence_rationale": "One daily independent judgment at 10:00 JST for the remaining 13 calendar days. Two bootstrap/business iterations already ran today. Claude covers note/Zenn; sales polling in Actions handles Gumroad. Codex can now verify Stripe through its connector. Existing product delivery/channel consistency and complementary distribution remain concrete backlog; repeated minutes-long polling and new inventory without demand do not justify compute cost. Re-evaluate cadence on real signals; no new paid API route.",
+      "alternatives_considered": {
+        "new_product": "No demand evidence; reuse existing delivered product before adding inventory.",
+        "new_distribution": "Claude owns note/Zenn; separate X automations require account-wide coordination.",
+        "higher_ticket_direct_sale": "No qualified buyer signal yet; outbound messaging needs explicit session authorization.",
+        "adjacent_segment": "Existing Japanese solo-operator assets fit current reach; new segment without evidence would add inventory.",
+        "owned_asset_reuse": "Marketplace copy consistency remains concrete next backlog after the prior ZIP fix.",
+        "signal_independent_work": "Restore payment observation now rather than fabricate demand or repeatedly poll."
+      }
     }
   ]
 }

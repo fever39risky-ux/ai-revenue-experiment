@@ -55,3 +55,7 @@ main receipt, executes the due iteration and writes a new receipt to main. An
 owner message, goal continuation, manual run or created schedule is not proof of
 automatic wake. Record actual start/end, trigger, source main SHA, action,
 result, cost confidence, next wake and persisted PR/commit evidence.
+
+## Verified schedule and final accounting
+
+The first real heartbeat arrived 2026-09-18T01:09:22.152Z and resumed the prior main receipt. After validation, daily judgment runs at 10:00 Asia/Tokyo beginning September 19. Stripe can be observed via the existing live-account connector; the Actions key remains absent. Candidate off-cycle triggers are not installed event subscriptions. October 1 at 10:00 is a final-accounting-only wake for September transactions: do not begin a business run (the period gate correctly refuses it), prepare final accounting, then disable the automation.

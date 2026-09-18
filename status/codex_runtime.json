@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-18T01:00:47.093168+00:00",
-  "bootstrap_complete": false,
+  "updated_at": "2026-09-18T04:44:51.745207+00:00",
+  "bootstrap_complete": true,
   "route": "desktop_thread_heartbeat",
   "requires_awake_host_and_running_app": true,
   "write_test": {
@@ -13,21 +13,24 @@
   "scheduler": {
     "automation_id": "ai-revenue-experiment",
     "registered": true,
-    "automatic_wake_verified": false
+    "automatic_wake_verified": true,
+    "received_at": "2026-09-18T01:09:22.152Z",
+    "run_id": "20260918T010956.628910Z",
+    "source_main_sha": "7909dab25d1c4f73b6e59c223b46eb242c861be9",
+    "prior_run_id": "20260918T005552.732870Z",
+    "schedule": "Daily 10:00 Asia/Tokyo; final accounting 2026-10-01 10:00",
+    "next_scheduled_run": "2026-09-19T10:00:00+09:00"
   },
   "source_main_sha": "1e2a1859bd566794294d5ba1de695312188d71d0",
   "previous_bootstrap_commit_reachable": false,
   "openai_api_secret_present": false,
   "revenue_ledger_jpy": 0,
   "official_cost_ledger_jpy_before_run": 6002,
-  "remaining": [
-    "scheduler-originated wake and state handoff evidence",
-    "set economically justified ongoing cadence after validation"
-  ],
+  "remaining": [],
   "known_constraints": [
-    "Stripe monitoring key absent in repository Secrets; ledger zero is not live confirmation for every channel",
     "Separate SNS automations use the same X account; inspect shared posting state before publishing",
-    "Attributable subscription compute cost unavailable; do not report zero cost"
+    "Attributable subscription compute cost unavailable; do not report zero cost",
+    "Stripe Actions key absent; live read verified through existing Stripe connector. Do not assume unattended reauthentication always succeeds."
   ],
   "bootstrap_merge": "https://github.com/fever39risky-ux/ai-revenue-experiment/pull/7",
   "first_business_iteration": {
@@ -43,6 +46,6 @@
   "sales_monitor_evidence": {
     "run_id": 35284077071,
     "gumroad": "0 new sales after successful API query",
-    "stripe": "skipped: STRIPE_RESTRICTED_KEY absent"
+    "stripe": "Live connector: charges and balance transactions empty, has_more=false; Actions monitor remains unavailable."
   }
 }

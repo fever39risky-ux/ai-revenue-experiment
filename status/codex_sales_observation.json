@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-18T04:44:51.745207+00:00",
+  "source": "Stripe connector, live account ai-revenue-experiment",
+  "operations": [
+    "GetBalanceTransactions(limit=100)",
+    "GetCharges(limit=100)"
+  ],
+  "balance_transactions": 0,
+  "charges": 0,
+  "has_more": false,
+  "scope": "Entire returned live account history; both empty lists. No Stripe revenue observed. Other channels not reverified in this run.",
+  "github_actions_stripe_key_present": false,
+  "connector_read_verified": true
+}

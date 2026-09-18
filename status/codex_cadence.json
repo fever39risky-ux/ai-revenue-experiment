@@ -3,10 +3,10 @@
   "owner": "Codex",
   "effective_from": "2026-09-16T12:02:00+09:00",
   "mode": "adaptive_economic_control",
-  "current_decision": "bootstrap_then_one_scheduled_handoff_validation",
+  "current_decision": "one_daily_independent_judgment",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
-  "fixed_daily_frequency": null,
-  "next_scheduled_run": "2026-09-18T00:53:35.173284+00:00",
+  "fixed_daily_frequency": 1,
+  "next_scheduled_run": "2026-09-19T10:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,6 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Validate one real scheduled handoff using existing subscription authentication, then choose adaptive daily cadence based on concrete backlog. No OpenAI API secret exists; no new paid API route enabled.",
-  "bootstrap_complete": false
+  "rationale": "One daily independent judgment at 10:00 JST for the remaining 13 calendar days. Two bootstrap/business iterations already ran today. Claude covers note/Zenn; sales polling in Actions handles Gumroad. Codex can now verify Stripe through its connector. Existing product delivery/channel consistency and complementary distribution remain concrete backlog; repeated minutes-long polling and new inventory without demand do not justify compute cost. Re-evaluate cadence on real signals; no new paid API route.",
+  "bootstrap_complete": true,
+  "updated_at": "2026-09-18T04:44:51.745207+00:00",
+  "final_accounting_run": "2026-10-01T10:00:00+09:00",
+  "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed."
 }
