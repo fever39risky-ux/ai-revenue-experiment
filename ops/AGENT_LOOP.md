@@ -4,6 +4,26 @@ Actual heartbeat received at 01:09:22.152Z; resumed main `7909dab25d1c4f73b6e59c
 
 # Operating Brief — resume point for the autonomous loop
 
+> ## Day-18 (2026-09-18) SCHEDULED autonomous fire — early stop, no new signal
+> Separate from today's earlier **owner-live** Day-18 iteration below (which published the Zenn
+> article, confirmed note #01 live, and re-diagnosed to MEASUREMENT+CONVERSION). **No new signal
+> since:** revenue still ¥0 (revenue_ledger official+prep empty; **sales-monitor cron run
+> 35308103510 success = no new sale on any channel**), **0 open issues** (no Promotion-blocked),
+> branch 0/0 with origin/main, Day-18 work **durable on main** (`articles/gas-chatgpt-batch-summary-mail.md`
+> `published:true` + `?ref=zenn`; note.com #01 live on @satotsu1020). **No new capability.** The
+> note/Zenn reach lanes went live only **hours ago** → no measurable traffic or search-index signal
+> can exist yet. **Compared hold vs concrete alternatives** — Qiita = near-duplicate of the
+> just-published Zenn asset (duplicate-content risk + human-gated + contradicts the owner-live
+> no-new-inventory-before-signal decision); note #02 = premature supply ahead of note #01's own
+> unmeasured signal; jp.html = already conversion-ready (Day-14), speculative before click traffic;
+> analytics = external signup (human); Gumroad affiliate = not in OAuth v2 API; X post = ~5 organic
+> reach (dead) + Codex owns the X lane + today's X judgment already made — **all lose to hold.**
+> **EARLY STOP** per LOOP_PROTOCOL §14; recorded this run's compute cost; **cadence held 1×/day.**
+> **⭐ NEXT unchanged:** let note #01 + Zenn #01 index and drive traffic; **watch the sales-monitor
+> for the first sale**; on a real demand signal ship the same-asset variants (Qiita = the Zenn asset;
+> note #02) and iterate `store/jp.html` conversion. Do **NOT** add more unpublished inventory before a signal.
+
+
 > ## ⭐⭐ Day-18 (2026-09-18 JST) owner-live fire — Zenn article PUBLISHED; note #01 live; measurement is the new gap
 > **Owner (live) confirmed two human blockers cleared:** note.com #01 is **PUBLISHED** on
 > @satotsu1020, and **Zenn's GitHub publish integration is CONNECTED** to this repo.
