@@ -12,12 +12,22 @@
     "official_net_profit_jpy_after_this_run": -6002,
     "official_period": "2026-09-01..2026-09-30 JST",
     "remaining_calendar_days_including_2026-09-18": 13,
-    "live_reach_lanes": ["note.com #01 (@satotsu1020, published)", "Zenn #01 (GAS+AI article, published today)"],
-    "live_sales_channels": ["Stripe", "Gumroad", "Etsy"],
+    "live_reach_lanes": [
+      "note.com #01 (@satotsu1020, published)",
+      "Zenn #01 (GAS+AI article, published today)"
+    ],
+    "live_sales_channels": [
+      "Stripe",
+      "Gumroad",
+      "Etsy"
+    ],
     "active_conversion_path": "JP reach (note / Zenn) -> free JP guide (?ref) -> store/jp.html -> live Stripe checkout",
     "promotion_blocked_issue_open": false,
     "stripe_mcp": "unavailable_this_session",
-    "blockers_resolved_today": ["note.com #01 publish", "Zenn account+repo connection"]
+    "blockers_resolved_today": [
+      "note.com #01 publish",
+      "Zenn account+repo connection"
+    ]
   },
   "diagnosis": "Two AI-prepared reach lanes (note, Zenn) are now actually LIVE, so REACH is no longer fully blocked. The emerging binding constraint is MEASUREMENT + CONVERSION: the AI cannot directly read note.com or GitHub Pages traffic, so it is blind to funnel clicks and can only see the ground-truth sale via the sales-monitor cron. Per multi-operator canon, Codex runs the AI-news X lane; Claude's marginal value stays on the note/Zenn/SEO reach + JP conversion lane, not duplicating X.",
   "decision": "Publish the Zenn article now (highest-EV: opens borrowed-authority JP-search reach, AI-operable ongoing, reversible, reuses the existing asset). Do NOT build speculative analytics infra (blocked without an external sink; scope creep). Surface a non-binding measurement ask; otherwise let the live lanes index and watch for the first sale.",
@@ -41,5 +51,19 @@
   "cadence": {
     "decision": "hold 1x/day baseline",
     "reason": "Revenue still ¥0 but two reach lanes just went live today; the next decision-relevant signal is a sale or owner-reported traffic. Daily judgment retains EV to catch the first conversion signal and ship the ready variants. The addendum cadence-reduction gate is not met."
-  }
+  },
+  "codex_iterations": [
+    {
+      "recorded_at": "2026-09-18T00:57:54.148707+00:00",
+      "trigger": "owner",
+      "source_main_sha": "1d7fc2b9bf432c111cc932f32d92268f2d4f03c7",
+      "hypothesis": "A reproducible product failure undermines trust in the existing working-script offer; correcting it improves buyer usability without adding speculative inventory. Revenue impact remains unproven.",
+      "executed": "Fix invalid-date crashes in delivered daily-report script and its published Zenn example; add offline regression tests.",
+      "validation": "Failure reproduced before fix; mixed-date and no-data cases pass for both shipped ZIP and article. No live API call or mail send. ZIP integrity verified; only one ZIP member changed.",
+      "collision_avoidance": "Kept Claude strategy, frontmatter, CTA and main report intact; narrowly corrected the identical defect in its published code sample. No X post because separate SNS scheduling exists.",
+      "compute_cost_jpy": null,
+      "revenue_impact": "unproven; not counted as revenue",
+      "next": "Verify deployed ZIP; then scheduled wake must read this receipt and choose a complementary evidence-based action."
+    }
+  ]
 }

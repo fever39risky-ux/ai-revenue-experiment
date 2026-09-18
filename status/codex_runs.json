@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "run_id": "20260918T005552.732870Z",
+    "started_at": "2026-09-18T00:55:52.732870+00:00",
+    "day_jst": "2026-09-18",
+    "trigger": "owner",
+    "source_main_sha": "1d7fc2b9bf432c111cc932f32d92268f2d4f03c7",
+    "result": "success",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution",
+    "finished_at": "2026-09-18T00:57:54.106278+00:00",
+    "action": "fix daily-report invalid-date crash in shipped ZIP and published example",
+    "validation": "offline regression and ZIP integrity passed"
+  }
+]
