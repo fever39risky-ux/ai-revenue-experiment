@@ -519,6 +519,17 @@
       "operator": "Codex",
       "reference": "codex-desktop-bootstrap-20260918",
       "note": "Desktop subscription bootstrap and write test. Attributable compute cost is unavailable, not zero; excluded from numeric totals until reconciled. No separately billed OpenAI API call or new paid service was purchased."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260918T010956.628910Z",
+      "note": "First scheduler-originated handoff; live Stripe observation and cadence decision. Subscription compute attribution unavailable, not zero; numeric known totals unchanged. No external purchase or paid API runner."
     }
   ],
   "totals": {
