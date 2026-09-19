@@ -550,11 +550,21 @@
       "operator": "Codex",
       "reference": "20260919T010156.200029Z",
       "note": "Scheduled live payment observation and marketplace delivery-path audit. Subscription attribution unknown; no added external purchase."
+    },
+    {
+      "date": "2026-09-19",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "operator": "Claude",
+      "note": "Day-19 SCHEDULED Claude fire (separate from Codex's 10:00 JST run). Observed: revenue still ¥0 (revenue_ledger official+prep empty; Codex Day-19 verified Stripe live charges=0 + Gumroad run 35402157979=0 new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, Day-18 note #01 + Zenn #01 durable on main. No new capability, no new market signal -- the two reach lanes went live only ~24-36h ago so no search-index/traffic signal can exist yet. Compared hold vs concrete alternatives (Qiita cross-post = premature 3rd unvalidated JP-search surface + human-gated + a 3rd owner ask right after two; note #02 = premature supply; jp.html edits = already conversion-ready; analytics/GSC = human-gated; X post = Codex's lane + dead reach + nothing reader-worthy; product ZIP-update = Codex's own backlog) -- all lose to hold. EARLY STOP per LOOP_PROTOCOL section 14; not strategy churn (strategy deployed ~1 day ago, awaiting first measurement). Cadence held 1x/day. Estimate."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6047
+    "official_cost_jpy_equivalent": 6092
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
