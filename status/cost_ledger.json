@@ -539,6 +539,17 @@
       "currency": "usd",
       "jpy_equivalent": 45,
       "note": "Day-18 SCHEDULED autonomous fire (separate from today's earlier owner-live iteration that published the Zenn article). Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35308103510 success = no new sale), 0 open issues (no Promotion-blocked), branch 0/0 synced with origin/main, Day-18 work durable on main (Zenn published:true + ?ref=zenn, note #01 live). No new capability, no new market signal -- the note/Zenn reach lanes went live only hours ago so no measurable traffic/index signal can exist yet. Compared hold vs concrete alternatives (Qiita near-duplicate / note #02 / jp.html speculative edits / analytics build / Gumroad OAuth affiliate / X post) -- all lose to hold or contradict the owner-live no-new-inventory-before-signal decision. EARLY STOP per LOOP_PROTOCOL section 14. Cadence held 1x/day. Estimate."
+    },
+    {
+      "date": "2026-09-19",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260919T010156.200029Z",
+      "note": "Scheduled live payment observation and marketplace delivery-path audit. Subscription attribution unknown; no added external purchase."
     }
   ],
   "totals": {
