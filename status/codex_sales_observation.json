@@ -1,14 +1,19 @@
 {
-  "checked_at": "2026-09-18T04:44:51.745207+00:00",
-  "source": "Stripe connector, live account ai-revenue-experiment",
-  "operations": [
-    "GetBalanceTransactions(limit=100)",
-    "GetCharges(limit=100)"
-  ],
-  "balance_transactions": 0,
-  "charges": 0,
-  "has_more": false,
-  "scope": "Entire returned live account history; both empty lists. No Stripe revenue observed. Other channels not reverified in this run.",
-  "github_actions_stripe_key_present": false,
-  "connector_read_verified": true
+  "checked_at": "2026-09-19T01:03:50.747952+00:00",
+  "source": "Stripe live connector and existing Gumroad workflow logs",
+  "stripe": {
+    "operation": "GetCharges(limit=100)",
+    "count": 0,
+    "has_more": false
+  },
+  "gumroad": {
+    "stripe_live_charges": 0,
+    "stripe_has_more": false,
+    "gumroad_new_sales": 0,
+    "gumroad_workflow_run": 35402157979,
+    "gumroad_observed_at": "2026-09-18T22:35:03Z",
+    "etsy_sales": "not observed; sales-monitor workflow contains no Etsy poll",
+    "marketplace_delivery": "Configured local ZIP is corrected; existing publish scripts return early for recorded listing IDs, so they cannot update hosted paid copies."
+  },
+  "scope": "No Etsy receipt polling in sales-monitor.yml; do not claim all-channel zero revenue from its success."
 }

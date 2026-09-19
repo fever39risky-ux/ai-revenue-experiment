@@ -242,7 +242,7 @@
       "date": "2026-09-19",
       "path": "reports/2026-09-19.html",
       "summary": "",
-      "summary_ja": "",
+      "summary_ja": "本番Stripe決済0件、直近Gumroad監視の新規売上0件。Etsy売上は未確認。販売スクリプトの再実行では既存の有料配布ファイルを更新できないことを確認し、重複出品を回避。追加制作・投稿は行わず、既存商品の安全なファイル更新経路を次回の具体的な課題とする。",
       "summary_en": "",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 0,

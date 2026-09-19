@@ -6,7 +6,7 @@
   "current_decision": "one_daily_independent_judgment",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": 1,
-  "next_scheduled_run": "2026-09-19T10:00:00+09:00",
+  "next_scheduled_run": "2026-09-20T10:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,9 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "One daily independent judgment at 10:00 JST for the remaining 13 calendar days. Two bootstrap/business iterations already ran today. Claude covers note/Zenn; sales polling in Actions handles Gumroad. Codex can now verify Stripe through its connector. Existing product delivery/channel consistency and complementary distribution remain concrete backlog; repeated minutes-long polling and new inventory without demand do not justify compute cost. Re-evaluate cadence on real signals; no new paid API route.",
+  "rationale": "Retain one daily independent judgment with 12 official calendar days left. Corrected-time wake is now observed. Concrete paid-file update backlog remains, but minute polling/new inventory lack demand evidence; Stripe live and existing Gumroad monitor cover known payment checks. No additional business iteration today.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-18T10:01:40.211290+00:00",
+  "updated_at": "2026-09-19T01:03:50.747952+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC: BYHOUR=1 corresponds to 10:00 Asia/Tokyo",
@@ -43,6 +43,6 @@
     "observed_early_wake": "2026-09-18T10:00:24.074Z",
     "gate_result": "not_due",
     "action": "Changed scheduler hour from 10 UTC to 01 UTC; next_scheduled_run remains September 19 10:00 JST",
-    "verification": "Saved configuration verified; corrected-time wake remains to be observed"
+    "verification": "Corrected schedule fired 2026-09-19T01:01:26.913Z (10:01 JST)."
   }
 }
