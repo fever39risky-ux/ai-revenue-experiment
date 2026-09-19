@@ -145,6 +145,36 @@ But continue testing economically plausible **new reach, monetization, audience,
 
 In particular, while revenue remains near ¥0, do not let an unpublished note article, slow SEO indexing, or a weak direct-response X test freeze independent work on awareness, alternate reach, higher-ticket/direct-sale options, affiliate/referral, micro-products, demos/proof, or other credible revenue paths.
 
+## Reach waiting does not freeze monetization exploration
+
+A reach or distribution lane being in an observation window does **not** freeze independent monetization work.
+
+In particular, while note, Zenn, SEO, X-awareness, marketplace discovery, or another reach lane is waiting for traffic/indexing/measurement, do not interpret that as a reason to stop testing separate revenue hypotheses.
+
+"Do not create more supply before demand" applies narrowly to **evidence-free polishing or duplicate inventory for the same unproven offer**. It does **not** mean:
+
+- do not explore higher-ticket/service offers;
+- do not design direct sales or direct outreach;
+- do not evaluate affiliate/referral paths;
+- do not test alternate buyer segments;
+- do not repackage existing scripts/templates into a distinct micro-product when the buyer/problem/revenue logic is materially different;
+- do not prepare BOOTH/Coconala/other distribution if it serves a genuinely different acquisition path;
+- do not create proof/demo assets that unlock a new sales motion;
+- do not improve measurement when better attribution would materially change decisions.
+
+While revenue remains near ¥0, each iteration should distinguish two separate questions:
+
+1. **What reach experiment is currently maturing?**
+2. **What monetization experiment can still advance independently of that reach result?**
+
+A pending reach signal may justify waiting on edits to the same funnel. It does not automatically justify waiting on a different revenue model.
+
+Before early-stopping because a reach lane is "too fresh to judge," explicitly compare hold against at least one monetization-side alternative such as service/higher-ticket, direct sale/outreach, affiliate/referral, alternate segment, or a materially distinct offer.
+
+If one of those has positive expected value and is low-cost/reversible, advance it.
+
+**Reach can wait. Revenue exploration should not automatically wait with it.**
+
 ## Cadence reduction gate while revenue is near zero
 
 Cadence may be reduced only after the AI has considered the reasonable remaining revenue space, not merely the currently active lane.
