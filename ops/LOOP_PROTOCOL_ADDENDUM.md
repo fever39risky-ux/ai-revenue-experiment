@@ -2,7 +2,25 @@
 
 Effective: **2026-09-13, Asia/Tokyo**
 
-This file is a **canonical extension of `ops/LOOP_PROTOCOL.md`**. Read it together with the main protocol. If this addendum conflicts with older cadence/pivot/X-retirement language in `ops/LOOP_PROTOCOL.md`, `status/cadence.json`, `status/CURRENT_STATUS.json`, or `ops/AGENT_LOOP.md`, this addendum controls until the older wording is explicitly reconciled.
+This file is a **canonical extension of `ops/LOOP_PROTOCOL.md`**. Read it together with the main protocol. `ops/FOUNDER_MODE.md` is the highest-priority business operating lens for interpreting both files; if older wording can be read as permission for passive waiting while safe positive-EV revenue work exists, Founder Mode controls that interpretation. If this addendum conflicts with older cadence/pivot/X-retirement language in `ops/LOOP_PROTOCOL.md`, `status/cadence.json`, `status/CURRENT_STATUS.json`, or `ops/AGENT_LOOP.md`, this addendum controls until the older wording is explicitly reconciled.
+
+## Founder-mode anti-passivity clarification
+
+The operator must not use the following as automatic reasons to hold:
+
+- "the primary bottleneck is reach";
+- "the current reach test is too fresh";
+- "there is no measurement yet";
+- "demand is unverified";
+- "the owner is busy";
+- "new supply could be premature";
+- "the next action is harder to measure".
+
+Each of these can be valid context, but none is a business-wide stop condition by itself.
+
+When official revenue is near ¥0, uncertainty should normally be converted into a **small bounded experiment**, not a blanket hold. Anti-waste discipline applies to duplicate polishing and low-value activity, not to economically rational exploration of a different sales motion or revenue model.
+
+Do not repeatedly re-label the same static condition (for example REACH) as the diagnosis and use it to suppress the rest of the strategy portfolio.
 
 ## Failed lane = pivot, not vacation
 
