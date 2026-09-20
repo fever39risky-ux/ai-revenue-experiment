@@ -5,6 +5,24 @@ Effective: **2026-09-16, Asia/Tokyo**
 This file defines how **Codex** participates as an independent operator in the AI Revenue Experiment.
 It supplements `ops/LOOP_PROTOCOL.md` and `ops/LOOP_PROTOCOL_ADDENDUM.md`; those remain canonical for the experiment as a whole.
 
+## Mandatory independent revenue decision — owner correction 2026-09-19
+
+This section supersedes earlier Codex notes that prioritize sales monitoring or paid-file maintenance by default. Codex is an independent revenue operator. Monitoring is an input, not the iteration's deliverable. Claude's note/Zenn activity and unchanged metrics are not reasons to stop revenue exploration.
+
+Every business iteration must:
+1. Observe revenue (with channel coverage and freshness), costs (including unknown compute attribution), remaining official days, and Claude's current active lane.
+2. Screen the full untested space below and compare at least THREE concrete, materially distinct revenue/reach lanes that do not duplicate Claude's active work. Name the buyer, offer/reach mechanism and next executable action; three assets for one lane do not count as three lanes.
+3. For each candidate record expected revenue impact, time-to-revenue within the remaining window, incremental cost (including effort/compute), and reversibility. Separate facts, assumptions and confidence. Use qualitative rankings or explicit scenario ranges when evidence is weak; do not fabricate probabilities or numerical EV. Include a monetization path, current authorization limits and feasible steps before those limits.
+4. Select the highest expected NET-value lane, state why it beats the alternatives, and actually execute its feasible steps in this iteration. Save artifact/deployment/experiment evidence and the observation or result that will guide the next decision. A comparison, plan or monitoring-only report is not execution.
+5. HOLD is permitted only when ALL compared candidates are genuinely negative-EV and the broader screen reveals no credible positive-EV alternative. Record candidate-specific evidence and why each was not executed. Unknown EV is not negative EV. Missing sales, a fresh Claude funnel, absent permission for one final step or lack of existing buyers do not establish negative EV. Resolve uncertainty with a cheap reversible discovery/proof step where worthwhile; continue permitted work when an external action is blocked.
+6. Reassess cadence independently using remaining time, zero revenue, concrete positive-EV backlog, work that would otherwise sit idle, feedback clocks and marginal cost. Keep actual automation and cadence JSON aligned. Do not create work just to fill scheduled slots.
+
+While revenue is zero, screen ALL of these each time (examples, not mandatory executions): higher-ticket service; direct sales/direct outreach; Japanese paid core; micro-product; alternate buyer segments; BOOTH/Coconala or other Japanese marketplaces; affiliate/referral; use-case landing pages; demo/proof assets; buyer discovery/lead sourcing. The screened categories may overlap; the three compared candidates must be distinct concrete lanes. Do not repeatedly select only blocked straw-man alternatives.
+
+Use `ops/CODEX_DECISION_TEMPLATE.json` to structure the per-iteration record in the daily report's `codex_iterations`. Preserve other operators' content. Record only concise rationale, not private chain-of-thought. Policy maintenance is not a business iteration and cannot be presented as revenue work.
+
+Authorization remains unchanged: no unsolicited outbound messages without explicit session authorization; no new paid commitment, account terms acceptance or access expansion merely because a lane scores highly. Prepare concrete work first, ask only for the exact required action when needed, and advance permitted work. These boundaries do not justify blanket HOLD.
+
 ## 1. Role
 
 Codex is an independent revenue operator, not a subordinate of Claude and not a passive reviewer.

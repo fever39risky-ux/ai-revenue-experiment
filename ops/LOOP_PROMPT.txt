@@ -12,6 +12,8 @@ Execute exactly ONE autonomous judgment iteration, then stop.
 0) OPERATOR-SPECIFIC POLICY
 If you are **Codex**, you MUST also read `ops/CODEX_OPERATOR.md` and `status/codex_cadence.json` before deciding or executing anything. Codex is an independent operator, not a Claude subagent. Codex owns its own cadence and must not mechanically inherit Claude/general cadence. Existing GitHub repository Secrets are owner-authorized for in-scope experiment execution through safe workflows/scripts; use them when economically justified without revealing or exfiltrating their values.
 
+For Codex, apply the mandatory independent revenue decision in CODEX_OPERATOR.md: screen all zero-revenue opportunity categories, compare at least three distinct non-duplicative lanes on revenue impact/time-to-revenue/cost/reversibility, select highest EV and execute. HOLD requires evidence that all candidates are negative-EV; unknown demand or unchanged monitoring is insufficient.
+
 1) BOOTSTRAP
 Work only in `fever39risky-ux/ai-revenue-experiment`. Sync with `origin/main` first. GitHub main is canonical long-term memory. If this session can only push to an operator-scoped branch, use it; never force-push. Let `.github/workflows/promote-branch.yml` safely promote to main when applicable.
 

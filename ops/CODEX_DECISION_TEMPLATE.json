@@ -1,0 +1,83 @@
+{
+  "observed": {
+    "revenue": null,
+    "revenue_coverage_and_timestamp": "",
+    "known_cost_jpy": null,
+    "unknown_costs": [],
+    "remaining_days": null,
+    "claude_active_lane": ""
+  },
+  "opportunity_screen": {
+    "higher_ticket_service": "",
+    "direct_sales_outreach": "",
+    "japanese_paid_core": "",
+    "micro_product": "",
+    "alternate_buyer_segments": "",
+    "jp_marketplace": "",
+    "affiliate_referral": "",
+    "use_case_landing_pages": "",
+    "demo_proof_assets": "",
+    "buyer_discovery_lead_sourcing": ""
+  },
+  "candidates_minimum_3": [
+    {
+      "lane": "",
+      "buyer": "",
+      "offer_or_reach_mechanism": "",
+      "claude_non_overlap": "",
+      "expected_revenue_impact_and_assumptions": "",
+      "time_to_revenue": "",
+      "incremental_cost_and_uncertainty": "",
+      "reversibility": "",
+      "evidence_and_confidence": "",
+      "feasible_next_action": "",
+      "permission_boundary": "",
+      "ev_assessment": ""
+    },
+    {
+      "lane": "",
+      "buyer": "",
+      "offer_or_reach_mechanism": "",
+      "claude_non_overlap": "",
+      "expected_revenue_impact_and_assumptions": "",
+      "time_to_revenue": "",
+      "incremental_cost_and_uncertainty": "",
+      "reversibility": "",
+      "evidence_and_confidence": "",
+      "feasible_next_action": "",
+      "permission_boundary": "",
+      "ev_assessment": ""
+    },
+    {
+      "lane": "",
+      "buyer": "",
+      "offer_or_reach_mechanism": "",
+      "claude_non_overlap": "",
+      "expected_revenue_impact_and_assumptions": "",
+      "time_to_revenue": "",
+      "incremental_cost_and_uncertainty": "",
+      "reversibility": "",
+      "evidence_and_confidence": "",
+      "feasible_next_action": "",
+      "permission_boundary": "",
+      "ev_assessment": ""
+    }
+  ],
+  "decision": {
+    "selected_lane": "",
+    "rationale": "",
+    "hold": false,
+    "hold_rejection_evidence_for_every_candidate": []
+  },
+  "execution": {
+    "actual_actions": [],
+    "evidence": [],
+    "result": "",
+    "blocked_final_step": null,
+    "next_measurement": ""
+  },
+  "cadence": {
+    "next_run": "",
+    "reason_from_backlog_remaining_time_and_cost": ""
+  }
+}

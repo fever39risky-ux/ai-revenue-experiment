@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T01:03:50.747952+00:00",
+  "updated_at": "2026-09-20T04:58:09.794889+00:00",
   "bootstrap_complete": true,
   "route": "desktop_thread_heartbeat",
   "requires_awake_host_and_running_app": true,
@@ -18,8 +18,8 @@
     "run_id": "20260918T010956.628910Z",
     "source_main_sha": "7909dab25d1c4f73b6e59c223b46eb242c861be9",
     "prior_run_id": "20260918T005552.732870Z",
-    "schedule": "Daily 10:00 Asia/Tokyo; final accounting 2026-10-01 10:00",
-    "next_scheduled_run": "2026-09-20T10:00:00+09:00",
+    "schedule": "Provisional 10:00 and 19:00 Asia/Tokyo; final accounting October 1 10:00",
+    "next_scheduled_run": "2026-09-20T19:00:00+09:00",
     "last_observed_wake": "2026-09-19T01:01:26.913Z"
   },
   "source_main_sha": "1e2a1859bd566794294d5ba1de695312188d71d0",

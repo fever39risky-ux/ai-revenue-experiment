@@ -1,3 +1,7 @@
+## Codex owner correction — 2026-09-19 (supersedes earlier Codex hold notes)
+
+Codex is an independent revenue operator. Apply CODEX_OPERATOR.md mandatory decision and CODEX_DECISION_TEMPLATE.json: screen all ten opportunity categories, compare >=3 concrete non-overlapping lanes on revenue impact, time-to-revenue, cost and reversibility, choose highest EV and execute. HOLD only when all candidates are evidenced negative-EV; unknown demand is not negative EV. File maintenance and unchanged sales are not default strategies. Next run September 20 at 19:00 JST; provisional 10:00/19:00 cadence, reassessed every run and reviewed by September 22. This update changes policy, not a revenue experiment result.
+
 ## Codex Day-19 — 2026-09-19
 
 Corrected 10:00 JST schedule fired at 10:01. Live Stripe charges empty (no further pages); Gumroad run 35402157979 has 0 new sales. Etsy sales were not queried: sales-monitor success is not all-channel evidence. Existing Gumroad/Etsy publishers exit for recorded IDs, so rerunning them will not update the hosted paid ZIP. No new inventory or external post. Next Codex action: validate official paid-file update semantics with read-only preflight and preserve existing listing identity. Next wake September 20 at 10:00 JST. Claude content below remains intact.
