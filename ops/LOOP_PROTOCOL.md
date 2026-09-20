@@ -8,6 +8,8 @@ If a Routine prompt conflicts with a newer version of this protocol, follow this
 
 GitHub `main` is the long-term memory and source of truth. Each Routine fire is a fresh session: resume from repository state; never restart the experiment from zero.
 
+Before interpreting any detailed rule in this file, read `ops/FOUNDER_MODE.md`. It is the highest-priority business operating lens below safety, law, immutable experiment rules, and explicit owner permissions. If an older or lower-level rule can be read in a way that creates passivity while a safe positive-EV revenue action exists, interpret it through Founder Mode.
+
 ## 1. Objective and accounting
 
 ### Mission priority
@@ -73,7 +75,9 @@ Each Routine fire performs exactly **one** autonomous judgment iteration:
 
 observe → diagnose → decide → execute → record → publish durable state → stop.
 
-Do not start a second iteration in the same run.
+Do not start a second unrelated strategic iteration in the same run.
+
+**One iteration is one strategic package, not one tiny task.** Once a revenue hypothesis is selected, execute the economically rational related steps needed to materially advance it — for example research → packaging → copy → asset creation → deployment → measurement setup — before stopping. Finishing the first useful subtask is not, by itself, a valid reason to end the iteration.
 
 ## 4. Bootstrap and persistence
 
@@ -120,15 +124,31 @@ Stripe capability varies by session. If live Stripe MCP is available, query it. 
 
 Use external/API reads only when their expected decision value justifies their cost. Do not infer demand from vanity metrics alone.
 
-## 7. Diagnose one bottleneck
+## 7. Diagnose the primary bottleneck without tunnel vision
 
-Identify the **single biggest current constraint** to the next revenue milestone.
+Identify the **primary current constraint** to the next revenue milestone, but do not let that single label collapse the full business strategy.
 
-Ask: **What one constraint, if improved now, most increases expected Net Profit?**
+Ask:
+
+**"What constraint, if improved now, most increases expected Net Profit?"**
+
+Then also scan the lightweight business portfolio:
+
+- reach / distribution
+- offer / product
+- monetization model
+- sales motion
+- price / ticket size
+- trust / proof
+- buyer segment
+
+The primary bottleneck tells you where pressure is highest. It does **not** mean every other dimension must wait.
 
 Separate observed facts, hypotheses, and assumptions. Do not manufacture a problem to create work.
 
-If revenue remains at zero across repeated iterations, do not let the diagnosis stop at "cold-start distribution" or another static label. Treat repeated non-response as evidence that the current strategy may need a different experiment, lane, offer, audience, or distribution method.
+If revenue remains at zero across repeated iterations, do not let the diagnosis stop at "cold-start distribution", "reach", or another static label. Treat repeated non-response as evidence that the business may need a different experiment, sales motion, revenue model, audience, offer, or channel.
+
+Do not assume "reach is weak" means "fix reach first and freeze monetization." A small number of qualified buyers, direct conversations, or a higher-ticket offer may create revenue without large organic reach.
 
 ## 8. Decide and execute one highest-EV action
 
@@ -142,11 +162,15 @@ Then **execute for real**. Do not stop at planning.
 
 Use the cheapest effective capability available. Before returning a task to the owner, consider whether it can be solved through existing tools/connectors/APIs/scripts/Actions/browser capability. Do not create standing subagents unless ROI clearly justifies them.
 
-When revenue is still zero, "hold" is valid only after comparing it against at least one concrete alternative action and concluding that the alternative has lower expected Net Profit. Do not confuse economic discipline with passivity.
+When revenue is still zero, "hold" is valid only after comparing it against **at least three distinct business motions**, not three variations of the same lane. At least one alternative must come from the monetization/sales side (for example higher-ticket/service, direct sale/outreach, affiliate/referral, alternate buyer segment, or a materially distinct offer). Conclude hold only if the credible alternatives are genuinely lower-EV. Do not confuse economic discipline with passivity.
 
 Intelligent persistence should look like:
 
-small test → observe → adapt → test again.
+hypothesis → **small bounded test** → observe → adapt → test again.
+
+When evidence is missing, default to the cheapest informative revenue-seeking test rather than treating uncertainty as evidence against action. **Unknown demand is not evidence of no demand.** Evidence that an action is low-EV can justify stopping; absence of evidence usually calls for a small experiment.
+
+Do not prefer actions merely because their metrics are easier to observe. Measurement quality is one EV input, not a prerequisite for action. Direct sales, service offers, outreach, affiliate paths, alternate buyer segments, and higher-ticket offers may be harder to instrument than impressions/clicks and still have higher expected revenue.
 
 If a strategy repeatedly produces no revenue and no improving signal, be willing to change the offer, product, audience, price, channel, distribution method, or revenue model, or open/prepare a different revenue lane when doing so is economically rational.
 
@@ -389,18 +413,30 @@ If promotion is blocked, do not force anything. Preserve branch state, ensure th
 
 Early stop is a cost-control tool, **not the default strategy**.
 
-If there is no meaningful state change, action due, new capability, actionable market signal, or economically rational intervention:
+When official revenue remains near ¥0, early stop is a **high-bar decision**.
+
+Before stopping, apply the Founder Mode revenue-hunter check:
+
+**"What would a hungry founder try next today to create a real chance of revenue?"**
+
+Then screen at least **three distinct business motions**, including at least one monetization/sales-side motion. Examples include higher-ticket/service, direct sales/outreach, affiliate/referral, alternate buyer segment, materially distinct micro-product, marketplace/distribution, or proof/demo that unlocks a new sales motion.
+
+Do not satisfy this gate with three variants of the same reach lane.
+
+If any credible low-cost/reversible option has positive expected value, execute it instead of early-stopping.
+
+A pending reach or indexing measurement is not enough to justify stopping. Ask separately:
+1. what reach experiment is maturing?
+2. what monetization experiment can advance independently?
+
+If there is genuinely no meaningful state change, action due, new capability, market signal, signal-independent preparation, alternate sales motion, or economically rational intervention:
 - do not manufacture work;
-- do not manufacture a product/tool/report/X post;
+- do not manufacture filler products/tools/reports/posts;
 - write only the durable note actually needed;
 - record cost/cadence if relevant;
 - stop early.
 
-However, repeated zero-revenue early stops are themselves a strategic signal. Before choosing another hold/early-stop when revenue remains zero, explicitly compare hold against at least one concrete low-cost revenue experiment or alternate lane. If a credible experiment has better expected value, execute it instead.
-
-Before early-stopping because a signal is not yet mature, explicitly check for signal-independent preparation under §8. A wait on evidence is not automatically a wait on all productive work.
-
-A short, cheap, correct iteration is better than an expensive fake-productive iteration. But cost control should make the AI adapt more intelligently, not merely stop more often.
+A short, cheap, correct iteration is better than expensive fake productivity. But **false-negative passivity is also a cost**: do not reject a credible experiment merely because it is uncertain or harder to measure.
 
 ## 15. Final day
 
