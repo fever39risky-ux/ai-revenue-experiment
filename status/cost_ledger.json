@@ -580,11 +580,21 @@
       "jpy_equivalent": 90,
       "operator": "Claude",
       "note": "Day-20 GOAL-CONTINUOUS Claude runtime (owner re-triggered continuous autonomy). Executed 2 positive-EV AI-operable packages toward the first ¥1: (1) published a 2nd, distinct high-value Zenn article (anti-hallucination office-prompt angle, articles/chatgpt-jimu-anti-hallucination-prompt.md, published:true -> live via the connected Zenn integration; a different high-intent JP query funneling to the free guide -> store) to expand the only fully-AI-operable reach channel; (2) added an objection-handling FAQ (API key / no-code / safety / refund) to the live store/jp.html to convert arriving reach. Then ran the Founder-Mode continue/stop gate: remaining high-EV levers (Coconala/note/ads/community, GSC) are human-gated and already surfaced; further content = filler, higher-ticket Gumroad launch = low first-¥1 EV + outward-facing (owner should review a new deliverable). Stopped per goal-continuous condition (b). Estimate (~$0.60 at ~150 JPY/USD)."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.25,
+      "currency": "usd",
+      "jpy_equivalent": 38,
+      "operator": "Claude",
+      "note": "Day-20 later SCHEDULED fire (goal-continuous re-fire), separate from the two earlier Day-20 runs. Cheap observe+screen+record run. OBSERVED (real, not carry-over): revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35490323822 at 2026-09-20T04:54Z = success/no new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, clean tree. NO new capability, NO new market signal since the 15:10Z run that published Zenn #02 + the store FAQ and stopped per condition (b). The reach/conversion assets (Zenn #01/#02, note #01, free guide, store/jp.html + proof + FAQ) are all freshly deployed today/Day-18 -> no index/traffic signal can exist yet. Applied the Founder-Mode >=3-motion early-stop gate honestly: (reach) 3rd same-day Zenn/Qiita = diminishing + content-farm/spam risk -> reject (filler); (conversion) more store/jp.html edits with zero click traffic = speculative polish -> reject; (monetization) unilateral higher-ticket Gumroad launch = outward-facing new public product, low first-¥1 EV, owner should review first -> reject for unilateral execution (queued fallback), Coconala = human-gated (surfaced), Gumroad affiliate = not in OAuth v2 API. No new non-filler, non-speculative, non-outward-facing-risky AI-operable work remained -> EARLY STOP per LOOP_PROTOCOL section 14 / goal-continuous condition (b). Not passivity: a full 2-package run executed hours earlier today. No X post. Estimate (~$0.25 at ~150 JPY/USD)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6265
+    "official_cost_jpy_equivalent": 6303
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
