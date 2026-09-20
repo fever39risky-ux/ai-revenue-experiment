@@ -69,15 +69,28 @@ A blocked human-only lane must not freeze non-blocked lanes.
 
 Never publish secrets, credentials, PII, customer personal data, KYC details, banking data, or private tokens.
 
-## 3. One iteration only
+## 3. Goal-continuous execution
 
-Each Routine fire performs exactly **one** autonomous judgment iteration:
+A Routine fire is a wake-up point, **not a daily work quota**.
 
-observe → diagnose → decide → execute → record → publish durable state → stop.
+While the current revenue milestone is not achieved, the operator should continue autonomous execution through as many sequential judgment cycles as the active runtime safely permits:
 
-Do not start a second unrelated strategic iteration in the same run.
+observe → diagnose → decide → execute → record → continue.
 
-**One iteration is one strategic package, not one tiny task.** Once a revenue hypothesis is selected, execute the economically rational related steps needed to materially advance it — for example research → packaging → copy → asset creation → deployment → measurement setup — before stopping. Finishing the first useful subtask is not, by itself, a valid reason to end the iteration.
+After each completed strategic package, immediately ask:
+
+**"Is the revenue goal achieved? If not, is there another safe AI-operable action with plausible positive expected value?"**
+
+If yes, continue. Do not stop merely because one strategic package, report, or daily iteration is complete.
+
+The operator may stop only when:
+1. the current revenue milestone is achieved and the resulting money flow is genuinely functioning; or
+2. the next economically rational action genuinely requires a human-only act **and no other positive-EV AI-operable work remains**; or
+3. a hard runtime/tool/quota/safety boundary forces the session to end.
+
+If condition 3 forces a stop, persist the exact next action so the next invocation resumes execution rather than redoing broad diagnosis.
+
+A single strategic package may itself include research → packaging → copy → asset creation → deployment → measurement setup. Finishing the first useful subtask is never sufficient reason to stop.
 
 ## 4. Bootstrap and persistence
 
@@ -409,9 +422,9 @@ Sync/rebase with `origin/main` before commit, inspect the intended diff, commit 
 
 If promotion is blocked, do not force anything. Preserve branch state, ensure the promotion-block issue exists, and record the blocker where practical.
 
-## 14. Early stop
+## 14. Stop gate while revenue is not yet flowing
 
-Early stop is a cost-control tool, **not the default strategy**.
+Stopping is an exception while the revenue goal is unmet. Cost control must shrink or redirect experiments, not create idle time while positive-EV AI-operable work exists.
 
 When official revenue remains near ¥0, early stop is a **high-bar decision**.
 
@@ -436,7 +449,9 @@ If there is genuinely no meaningful state change, action due, new capability, ma
 - record cost/cadence if relevant;
 - stop early.
 
-A short, cheap, correct iteration is better than expensive fake productivity. But **false-negative passivity is also a cost**: do not reject a credible experiment merely because it is uncertain or harder to measure.
+A short, cheap, correct action is better than expensive fake productivity. But **false-negative passivity is also a cost**: do not reject a credible experiment merely because it is uncertain or harder to measure.
+
+If money is not yet entering through a functioning path, "wait" is not a strategic state. External tests may mature in the background while autonomous sales, distribution, offer, proof, pricing, product, and monetization work continues.
 
 ## 15. Final day
 
