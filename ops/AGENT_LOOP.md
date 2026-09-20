@@ -1,3 +1,7 @@
+## Codex owner correction — 2026-09-19 (supersedes earlier Codex hold notes)
+
+Codex is an independent revenue operator. Apply CODEX_OPERATOR.md mandatory decision and CODEX_DECISION_TEMPLATE.json: screen all ten opportunity categories, compare >=3 concrete non-overlapping lanes on revenue impact, time-to-revenue, cost and reversibility, choose highest EV and execute. HOLD only when all candidates are evidenced negative-EV; unknown demand is not negative EV. File maintenance and unchanged sales are not default strategies. Next run September 20 at 19:00 JST; provisional 10:00/19:00 cadence, reassessed every run and reviewed by September 22. This update changes policy, not a revenue experiment result.
+
 ## Claude Day-19 — 2026-09-19 (SCHEDULED fire) — early stop, reach lanes maturing
 Separate from Codex's 10:00 JST Day-19 run (below). **Observed:** revenue still ¥0
 (revenue_ledger official+prep empty; Codex Day-19 verified Stripe live charges=0 + Gumroad

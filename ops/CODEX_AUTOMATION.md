@@ -19,7 +19,11 @@ Cloud shell push remains unproven. Desktop push and draft PR are proven by PR #6
    execution. It checks the period, persisted pause, next wake, daily run cap,
    consecutive failures and a local process lock. A refusal is not permission
    to bypass the gate. The lock is local: multiple hosts are not supported.
-3. Execute ONE hypothesis. Respect Claude's active lane. Existing SNS automations
+3. Apply the mandatory revenue decision in CODEX_OPERATOR.md and record it with
+   CODEX_DECISION_TEMPLATE.json: screen the full opportunity space, compare at
+   least three distinct lanes on all four dimensions, choose highest EV and
+   execute ONE hypothesis to its feasible endpoint. HOLD only if every candidate
+   is demonstrably negative-EV. Monitoring alone is not execution. Respect Claude's active lane. Existing SNS automations
    also use the owner's X account: check shared scheduling/public history before
    any posting; this repository's history alone cannot prove account-wide freedom.
 4. Preserve other operators' report sections. Record facts separately from
@@ -58,4 +62,4 @@ result, cost confidence, next wake and persisted PR/commit evidence.
 
 ## Verified schedule and final accounting
 
-The first real heartbeat arrived 2026-09-18T01:09:22.152Z and resumed the prior main receipt. After validation, daily judgment runs at 10:00 Asia/Tokyo beginning September 19. Stripe can be observed via the existing live-account connector; the Actions key remains absent. Candidate off-cycle triggers are not installed event subscriptions. October 1 at 10:00 is a final-accounting-only wake for September transactions: do not begin a business run (the period gate correctly refuses it), prepare final accounting, then disable the automation.
+The first real heartbeat arrived 2026-09-18T01:09:22.152Z and resumed the prior main receipt. The earlier one-daily schedule is superseded: from September 19, a provisional 10:00 and 19:00 Asia/Tokyo cadence gives independent revenue exploration two opportunities per day. Reassess each iteration; review the trial by September 22. Stripe can be observed via the existing live-account connector; the Actions key remains absent. Candidate off-cycle triggers are not installed event subscriptions. October 1 at 10:00 is a final-accounting-only wake for September transactions: do not begin a business run (the period gate correctly refuses it), prepare final accounting, then disable the automation.
