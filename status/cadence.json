@@ -1,9 +1,9 @@
 {
   "_doc": "Adaptive firing-cadence policy for the autonomous judgment loop. The loop re-evaluates this each run from cost vs. benefit. Not a fixed rule.",
-  "current_cadence": "1x/day scheduled baseline, HELD while revenue remains near ¥0 and Founder Mode still finds positive-EV work. Cadence reduction is not justified merely by slow reach feedback, missing measurement, or human-gated lanes. Reassess only after the Founder Mode early-stop gate finds no positive-EV work across distinct sales/monetization motions.",
+  "current_cadence": "GOAL-CONTINUOUS until real third-party revenue is flowing. A scheduled Routine is only a wake-up mechanism, not a once-per-day work quota. Each active runtime should continue through sequential revenue-seeking packages while safe positive-EV AI-operable work exists. If the harness cannot remain continuously active, use the highest practical re-fire frequency and persist the exact next action for immediate resume.",
   "current_time_jst": "23:05",
   "cron_utc": "7 11 * 9 *",
-  "rationale": "Founder Mode (2026-09-20) supersedes the prior tendency to equate a slow measurement clock with a slow business work clock. While revenue is near ¥0, each run must scan both reach and monetization/sales motions. If one lane is waiting, the operator should use the available run to advance an independent positive-EV motion. 1x/day remains the minimum baseline for now; a temporary second shift is economically reasonable whenever useful work is otherwise deferred and expected marginal benefit exceeds marginal AI cost.",
+  "rationale": "Owner clarified the intended autonomy model on 2026-09-20: the AI should not perform one bounded daily iteration and then idle at ¥0. It should keep working toward the goal until money is actually entering through a functioning route, or until a genuinely human-only blocker remains and no other AI-operable positive-EV work exists. Waiting for reach/indexing/measurement is not a business-wide wait state. The cadence file now describes wake-up behavior, not permission to stop.",
   "reevaluate_from": [
     "per_run_ai_cost",
     "revenue",
@@ -18,7 +18,7 @@
     "whether_measurement_bias_is_suppressing_action",
     "whether_human_blockers_are_causing_business_wide_idle_time"
   ],
-  "off_cycle_run_gate": "expected marginal benefit > marginal AI cost",
+  "off_cycle_run_gate": "goal_unmet AND safe_positive_ev_ai_operable_work_exists => continue/re-fire; goal achieved OR true human-only blocker with no alternate AI work OR hard runtime/tool boundary => stop",
   "off_cycle_trigger_events": [
     "first_sale",
     "large_revenue_change",
@@ -30,14 +30,26 @@
     "critical_error",
     "strategy_premise_collapse",
     "signal_independent_positive_ev_work_backlog",
-    "pending_test_with_parallel_reversible_preparation_available"
+    "pending_test_with_parallel_reversible_preparation_available",
+    "runtime_ended_while_goal_unmet_and_next_action_known",
+    "goal_unmet_positive_ev_backlog_exists",
+    "human_blocker_cleared"
   ],
   "recommended_change": {
-    "action": "hold_1x_day_minimum_founder_mode",
-    "reason_2026_09_20": "Keep at least the current 1x/day baseline while official revenue remains near ¥0 and distinct positive-EV revenue motions remain unexplored. Do not lower cadence because note/Zenn/SEO/X-awareness is maturing or hard to measure. Before any future cadence reduction, apply Founder Mode: scan at least three distinct business motions, including one monetization/sales-side motion, and show that credible low-cost alternatives are genuinely negative-EV or blocked. A temporary second shift is allowed when it prevents useful revenue work from sitting idle.",
-    "supersedes": "Older recommendations that reduced cadence primarily because a reach/measurement loop was slow."
+    "action": "goal_continuous_until_first_real_revenue",
+    "reason_2026_09_20": "Replace the old 1x/day mental model. The autonomous operator should keep executing sequential revenue-seeking packages until the first real revenue milestone is achieved or only genuine human-only blockers remain. If the platform cannot run continuously, the external scheduler should re-fire at the highest practical supported frequency rather than waiting a full day.",
+    "stop_conditions": [
+      "real third-party revenue milestone achieved and flow functioning",
+      "true human-only blocker AND no other positive-EV AI-operable work",
+      "hard runtime/tool/quota/safety boundary"
+    ]
   },
   "history": [
+    {
+      "date": "2026-09-20",
+      "change": "Replace once-per-day work model with goal-continuous autonomy",
+      "reason": "Owner clarified that autonomous AI value comes from continuing toward the goal, not waking once per day to inspect state. Until money is entering through a functioning funnel, the default state is working. Waiting is legitimate only after goal achievement or when a genuinely human-only blocker remains and there is no alternate positive-EV AI-operable work."
+    },
     {
       "date": "2026-09-20",
       "change": "Founder Mode cadence reset — hold 1x/day minimum; no reduction from slow reach/measurement alone",
