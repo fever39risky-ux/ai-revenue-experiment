@@ -1,3 +1,44 @@
+## ⭐⭐ Claude Day-20 — 2026-09-20 (FOUNDER-MODE first live fire) — opened a JP higher-ticket sales route (Coconala) + live proof upgrade
+Owner-triggered extraordinary run; first application of **`ops/FOUNDER_MODE.md`** as the top business lens.
+**Not an early stop.** Resynced to `origin/main` (Founder Mode + cadence reset now canonical). **Observed:**
+revenue still ¥0 (ledger empty), 0 open issues, Codex today only logged a policy-ack (its business run is
+19:00 JST; lanes = X/AI-news, payment observation, product-file delivery).
+
+**Portfolio re-diagnosis (all 7 dimensions):** primary bottleneck is still REACH, but the deeper *untapped*
+lever is **MONETIZATION + SALES-MOTION** — the paid offer is a low-ticket, zero-trust **EN commodity**
+($9 Gumroad / $19 Stripe) **mis-distributed for its real buyer** (JP solo-operators); the only true
+differentiator is the **2 working Google Apps Scripts**.
+
+**Founder-Mode early-stop gate — screened ≥3 distinct motions (≥1 monetization):** (reach) Qiita/SEO =
+reach-only; **(monetization) OPEN COCONALA** = JP-native marketplace, real buyer intent + platform trust +
+higher-ticket norms → **SELECTED**; (monetization/ticket) higher-ticket 3-tier offer → executed as the IP;
+(trust) live proof asset → executed; (sales) direct outreach = no owned contacts + human-gated → rejected.
+
+**EXECUTED (real, not just prep):**
+1. **Higher-ticket JP offer** — 3 tiers **¥2,980 / ¥7,980 / ¥19,800** reusing the 2 GAS scripts + prompt
+   library + templates; base tier ~0 owner labor (digital), upper tiers bounded labor. Makes **¥50k = ~3-17
+   sales** instead of 18-37.
+2. **Complete publish-ready Coconala listing package** → **`marketing/coconala_offer_and_listing_jp.md`**
+   (JP title/catch/body/FAQ, category/tags, thumbnail spec, delivery flow, honest API-cost/no-guarantee notes)
+   — one-step-to-publish.
+3. **LIVE AI-operable conversion upgrade** → a concrete **before/after proof section** on `store/jp.html`
+   (what 一括処理 actually does + a 3h→minutes time-saved framing) — the missing **trust lever**, converts the
+   note/Zenn reach arriving now; kept the working $19 Stripe checkout.
+4. **ONE narrow one-time human ask** — create/verify a Coconala seller account + payout (KYC/identity/banking
+   = genuinely human-only); everything else is done.
+
+**Human busy ≠ business stop:** pended only the exact human step; shipped AI-operable work now; queued a
+fully-AI-operable fallback (higher-ticket "JP complete-guide edition" via the existing Gumroad Actions
+pipeline) if Coconala stays blocked. **Complements Codex, no overlap.** **No X post by Claude.**
+**Cadence HELD 1×/day** (Founder-Mode gate: positive-EV monetization work still exists → reduction not
+justified; temporary 2nd shift acceptable). leak_check + gen_report run; compute cost recorded (~¥83 est.).
+
+**⭐ NEXT:** owner opens Coconala → publish the ready listing, then AI iterates copy/FAQ/price on real buyer
+response, and wires an "上位プラン 導入サポート" CTA from note/Zenn/free-guide into the higher-ticket offer.
+If Coconala stays blocked → author a high-quality JP setup-playbook PDF and deploy the higher-ticket edition
+as an independent Gumroad product via Actions (no human needed). Route note/Zenn traffic to the upgraded
+`store/jp.html`; watch the sales-monitor for the first sale.
+
 ## Codex owner correction — 2026-09-19 (supersedes earlier Codex hold notes)
 
 Codex is an independent revenue operator. Apply CODEX_OPERATOR.md mandatory decision and CODEX_DECISION_TEMPLATE.json: screen all ten opportunity categories, compare >=3 concrete non-overlapping lanes on revenue impact, time-to-revenue, cost and reversibility, choose highest EV and execute. HOLD only when all candidates are evidenced negative-EV; unknown demand is not negative EV. File maintenance and unchanged sales are not default strategies. Next run September 20 at 19:00 JST; provisional 10:00/19:00 cadence, reassessed every run and reviewed by September 22. This update changes policy, not a revenue experiment result.
