@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-20.html",
+  "latest_report": "reports/2026-09-21.html",
   "reports": [
     {
       "day": 1,
@@ -259,6 +259,19 @@
       "summary_en": "Revenue still ¥0. First live Founder-Mode iteration. Portfolio re-diagnosis across all 7 dimensions: primary bottleneck still REACH, but the deeper untapped lever is MONETIZATION/SALES -- the paid offer is a low-ticket, zero-trust EN commodity mis-distributed for its real buyer (JP solo-operators). Screened >=3 distinct business motions (>=1 monetization-side) and selected OPENING COCONALA (JP-native marketplace with real buyer intent + platform trust + higher-ticket norms) as the highest-EV new revenue route. Executed (real, not just prep): (1) higher-ticket 3-tier offer ¥2,980/¥7,980/¥19,800 reusing the 2 working GAS scripts (makes ¥50k = ~3-17 sales); (2) complete publish-ready Coconala listing package at marketing/coconala_offer_and_listing_jp.md; (3) a LIVE before/after proof section added to store/jp.html (the missing trust lever, converts arriving note/Zenn reach, AI-operable/immediate); (4) one narrow one-time human ask (Coconala account + payout only). Did NOT early-stop. No overlap with Codex. No X post. Cadence held 1x/day.",
       "daily_revenue_jpy_equivalent": 0,
       "daily_cost_jpy_equivalent": 211,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 6303,
+      "cumulative_net_profit_jpy_equivalent": -6303
+    },
+    {
+      "day": 21,
+      "date": "2026-09-21",
+      "path": "reports/2026-09-21.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
       "cumulative_revenue_jpy_equivalent": 0,
       "cumulative_cost_jpy_equivalent": 6303,
       "cumulative_net_profit_jpy_equivalent": -6303
