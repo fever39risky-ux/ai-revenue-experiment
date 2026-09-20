@@ -33,7 +33,7 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Owner correction: monitoring-only hold was unjustified. With zero recorded revenue, 11 days including September 20, known official costs 6047 JPY plus unattributed compute, and untested monetization space, one daily run leaves feasible discovery/offer/proof work idle. Trial two daily opportunities within the existing two-run cap, not a claim of optimality. Compare >=3 lanes and execute the best feasible lane each run; review marginal outcomes/cost each iteration and by September 21. No spending limit increased.",
+  "rationale": "Owner correction: monitoring-only hold was unjustified. With zero recorded revenue, 11 days including September 20, known official costs 6092 JPY plus unattributed compute, and untested monetization space, one daily run leaves feasible discovery/offer/proof work idle. Trial two daily opportunities within the existing two-run cap, not a claim of optimality. Compare >=3 lanes and execute the best feasible lane each run; review marginal outcomes/cost each iteration and by September 21. No spending limit increased.",
   "bootstrap_complete": true,
   "updated_at": "2026-09-20T04:58:09.794304+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
