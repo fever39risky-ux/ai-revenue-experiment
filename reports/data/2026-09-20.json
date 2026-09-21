@@ -10,7 +10,11 @@
       "mode": "Goal-continuous autonomy (ops/LOOP_PROMPT.txt + cadence.json)",
       "trigger": "owner re-triggered continuous execution",
       "goal": "first real third-party ¥1+",
-      "observed": {"official_revenue_jpy": 0, "open_issues": 0, "codex_1900_run": "not yet fired"},
+      "observed": {
+        "official_revenue_jpy": 0,
+        "open_issues": 0,
+        "codex_1900_run": "not yet fired"
+      },
       "diagnosis": "First-¥1 constraint = REACH; only fully-AI-operable reach channel is Zenn (commit-to-publish) + slow owned-page SEO (X = Codex's/dead; note/Coconala/ads/community = human-gated).",
       "executed": [
         "REACH: published a 2nd, distinct, high-value Zenn article (articles/chatgpt-jimu-anti-hallucination-prompt.md, published:true -> live) on the anti-hallucination 'constraint-prompt' angle for office work -- a different high-intent JP query funneling to the free guide -> store; expands the compounding JP-search surface feeding the working checkout.",
@@ -70,6 +74,107 @@
       "compute_cost_jpy": 83,
       "compute_cost_basis": "estimate (~$0.55 at ~150 JPY/USD)",
       "next_best_action": "Owner opens Coconala -> publish the ready listing; AI then iterates copy/FAQ/price on real buyer response and wires an upper-tier 導入サポート CTA from note/Zenn/free-guide into the higher-ticket offer. If Coconala stays blocked -> author a JP setup-playbook PDF and deploy the higher-ticket edition as an independent Gumroad product via Actions (no human needed). Route note/Zenn traffic to the upgraded store/jp.html; watch the sales-monitor for the first sale."
+    }
+  ],
+  "codex_iterations": [
+    {
+      "observed": {
+        "revenue": 0,
+        "revenue_coverage_and_timestamp": "Sep20 Stripe live GetCharges: data=[], has_more=false. Repo official ledger zero. Etsy not live verified.",
+        "known_cost_jpy": 6265,
+        "unknown_costs": [
+          "Codex subscription attribution"
+        ],
+        "remaining_days": 11,
+        "claude_active_lane": "Coconala service listing preparation, Zenn articles and existing JP store FAQ. Updated main preserved at save."
+      },
+      "opportunity_screen": {
+        "higher_ticket_service": "Selected buyer-originated fixed-scope service pilot, different acquisition path from Claude Coconala.",
+        "direct_sales_outreach": "Identified concrete open procurement; prepared named-recipient inquiry, not sent.",
+        "japanese_paid_core": "Existing core/FAQ belongs to Claude; distinct fleet workflow potential but not mass-produced now.",
+        "micro_product": "Fleet order-validation template is a candidate; use discovered need before generic inventory.",
+        "alternate_buyer_segments": "Vehicle relocation operator with public operational request.",
+        "jp_marketplace": "CrowdWorks procurement selected; Coconala already owned by Claude; BOOTH template sale remains candidate.",
+        "affiliate_referral": "Workflow-tool comparison/referral possible, program acceptance and conversion horizon unverified.",
+        "use_case_landing_pages": "A focused fleet page could support proposal later; SEO alone unlikely faster than already open request.",
+        "demo_proof_assets": "Implemented synthetic input-to-ledger-and-mail-preview demo for selected sales motion.",
+        "buyer_discovery_lead_sourcing": "Three current public requests qualified; one prioritized, two ruled out for specific fit limits."
+      },
+      "candidates_minimum_3": [
+        {
+          "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
+          "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
+          "lane": "Buyer-request-led limited automation service",
+          "buyer": "Vehicle relocation small business",
+          "offer_or_reach_mechanism": "Reply to existing procurement with synthetic proof and bounded TEST pilot",
+          "claude_non_overlap": "CrowdWorks outbound proposal rather than Coconala listing or Zenn traffic",
+          "expected_revenue_impact_and_assumptions": "Hypothetical 15000-30000 JPY limited pilot, not client budget or full Phase1 quote; one sale materially helps target, win/payment probability unknown",
+          "time_to_revenue": "Discussion may start within days; Sep27 application deadline; receipt before Sep30 uncertain",
+          "incremental_cost_and_uncertainty": "One bounded research/demo run, no external purchase; integration effort and platform fees not quoted",
+          "reversibility": "High before sending; synthetic files disposable; no customer-system change",
+          "feasible_next_action": "Discover and qualify requests, execute focused synthetic demo, prepare tailored inquiry",
+          "ev_assessment": "Highest provisional EV: explicit buyer pain, testable small scope and short path to conversation"
+        },
+        {
+          "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
+          "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
+          "lane": "Fleet paperwork micro-product on BOOTH",
+          "buyer": "Small fleet operators wanting self-service templates",
+          "offer_or_reach_mechanism": "Standalone validation template and paid Japanese instructions",
+          "claude_non_overlap": "Different buyer segment and product vs Claude general JP toolkit",
+          "expected_revenue_impact_and_assumptions": "Hypothetical 1000-3000 JPY per sale; more buyers needed; willingness to buy template untested",
+          "time_to_revenue": "Days to list after account setup, demand acquisition horizon unknown",
+          "incremental_cost_and_uncertainty": "Build+listing+distribution time, marketplace terms/fees not yet researched; compute unknown",
+          "reversibility": "High for draft; listing reversible subject to platform rules",
+          "feasible_next_action": "Interview/discover requirements then build one sample",
+          "ev_assessment": "Potential positive EV but weaker than explicit procurement; not rejected as negative"
+        },
+        {
+          "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
+          "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
+          "lane": "Workflow-tool referral comparison",
+          "buyer": "Small teams selecting automation services",
+          "offer_or_reach_mechanism": "Use-case comparison linking eligible referral offer",
+          "claude_non_overlap": "Software selection rather than Claude own-toolkit funnel",
+          "expected_revenue_impact_and_assumptions": "Commission unknown until an actual eligible program is verified; no amount assumed",
+          "time_to_revenue": "Program acceptance and payout may exceed Sep30",
+          "incremental_cost_and_uncertainty": "Research/content cost; no ad spend; eligibility not verified",
+          "reversibility": "High for unpublished research",
+          "feasible_next_action": "Verify program terms and buyer fit before recommending",
+          "ev_assessment": "Uncertain EV and weaker deadline fit; not negative by default"
+        }
+      ],
+      "decision": {
+        "selected_lane": "Buyer-request-led limited automation service",
+        "rationale": "Public buyer demand supports a bounded proof and proposal test more directly than a new self-serve product or unverified commission program.",
+        "hold": false,
+        "hold_rejection_evidence_for_every_candidate": []
+      },
+      "execution": {
+        "actual_actions": [
+          "Qualified three current public procurement pages",
+          "Prepared recipient-specific inquiry without claiming unknown credentials",
+          "Implemented and ran synthetic JavaScript workflow demo, six checks passed"
+        ],
+        "evidence": [
+          "marketing/buyer-discovery/2026-09-20.md",
+          "demos/dispatch-proof/demo.mjs",
+          "demos/dispatch-proof/result.json",
+          "https://crowdworks.jp/public/jobs/13466025"
+        ],
+        "result": "Runnable proof and concrete draft ready; no inquiry sent, contract, sale or Gmail integration claimed.",
+        "blocked_final_step": "Recipient-specific external message needs explicit session instruction; account usability still unverified. This blocks sending only.",
+        "next_measurement": "If permitted, send the prepared inquiry, track reply/scope/budget; otherwise extend discovery or reusable proof without external messaging."
+      },
+      "cadence": {
+        "next_run": "2026-09-21T19:00:00+09:00",
+        "reason_from_backlog_remaining_time_and_cost": "Retain provisional 10/19 JST. A concrete buyer and reusable proof now exist, providing real follow-through work; no frequency increase. Reassess by Sep22."
+      },
+      "run_id": "20260920T103846.018836Z",
+      "trigger": "heartbeat",
+      "started_at": "2026-09-20T10:38:46.018836+00:00",
+      "recorded_at": "2026-09-21T01:35:41.834024+00:00",
+      "source_main_sha": "6891943dd1cab191c67f6c3ae5cd44f5abc67c08"
     }
   ]
 }

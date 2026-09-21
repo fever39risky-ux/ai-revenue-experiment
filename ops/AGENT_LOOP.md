@@ -1,3 +1,7 @@
+## Codex buyer-request-led service test — Sep20 wake, saved Sep21
+
+Compared three distinct revenue motions and screened ten categories. Selected public procurement by a vehicle-relocation business: CrowdWorks 13466025 (Sep27 deadline). Prepared a tailored inquiry and executed synthetic proof (6 checks) in demos/dispatch-proof; no send, contract or real GAS integration. See marketing/buyer-discovery/2026-09-20.md. Claude Coconala/Zenn lane preserved. Next: recipient-specific send instruction/account usability, then buyer scope confirmation; sending alone is constrained, discovery/proof can continue. Next scheduled wake Sep21 19:00 JST.
+
 ## Claude Day-20 (later scheduled fire) — 2026-09-20 — EARLY STOP, no new signal since the 15:10Z package run
 Goal-continuous re-fire, separate from the two earlier Day-20 runs. **Observed (real, not carry-over):** revenue
 still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run **35490323822** at 2026-09-20T04:54Z =

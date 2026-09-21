@@ -1,0 +1,72 @@
+{
+  "synthetic": true,
+  "external_calls": 0,
+  "tests_passed": 6,
+  "first_run": {
+    "ledger": [
+      {
+        "id": "DEMO-001",
+        "date": "2026-09-23",
+        "from": "架空拠点A",
+        "to": "架空拠点B",
+        "driver": "担当例A",
+        "status": "配車済み（人間が指定）"
+      },
+      {
+        "id": "DEMO-002",
+        "date": "2026-09-23",
+        "from": "架空拠点C",
+        "to": "架空拠点D",
+        "driver": "",
+        "status": "未配車"
+      }
+    ],
+    "previews": [
+      {
+        "id": "DEMO-001",
+        "driver": "担当例A",
+        "subject": "回送確認 DEMO-001",
+        "body": "日付: 2026-09-23\n出発: 架空拠点A\n到着: 架空拠点B\n人間の確認後に送信してください。",
+        "fingerprint": "[\"2026-09-23\",\"架空拠点A\",\"架空拠点B\",\"担当例A\"]"
+      }
+    ],
+    "warnings": [
+      {
+        "id": "DEMO-002",
+        "reason": "未配車のため下書き対象外"
+      }
+    ]
+  },
+  "changed_assignment": {
+    "ledger": [
+      {
+        "id": "DEMO-001",
+        "date": "2026-09-23",
+        "from": "架空拠点A",
+        "to": "架空拠点B",
+        "driver": "担当例B",
+        "status": "配車済み（人間が指定）"
+      }
+    ],
+    "previews": [
+      {
+        "id": "DEMO-001",
+        "driver": "担当例B",
+        "subject": "回送確認 DEMO-001",
+        "body": "日付: 2026-09-23\n出発: 架空拠点A\n到着: 架空拠点B\n人間の確認後に送信してください。",
+        "fingerprint": "[\"2026-09-23\",\"架空拠点A\",\"架空拠点B\",\"担当例B\"]"
+      }
+    ],
+    "warnings": [
+      {
+        "id": "DEMO-001",
+        "reason": "変更あり：以前の下書きを人間が確認し、差替えが必要"
+      }
+    ]
+  },
+  "limitations": [
+    "Pure JavaScript plan only; not deployed to GAS",
+    "No real Gmail drafts or sheet writes",
+    "No claim of concurrency, rollback, layout/formula preservation or complete Phase1 implementation"
+  ]
+}
