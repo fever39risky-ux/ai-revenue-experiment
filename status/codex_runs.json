@@ -53,5 +53,19 @@
     "validation": "Six synthetic checks passed; public procurement pages reviewed; no external messages",
     "next_scheduled_run": "2026-09-21T19:00:00+09:00",
     "finished_at": "2026-09-21T01:35:41.934585+00:00"
+  },
+  {
+    "run_id": "20260921T105410.122148Z",
+    "started_at": "2026-09-21T10:54:10.122148+00:00",
+    "day_jst": "2026-09-21",
+    "trigger": "heartbeat",
+    "source_main_sha": "a5f7fe54ce828aea39dfaca071e90f206aba3038",
+    "result": "success",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution",
+    "action": "TEST Sheets prototype for buyer-led service",
+    "validation": "Mock service tests passed; no Google/customer writes",
+    "next_scheduled_run": "2026-09-22T10:00:00+09:00",
+    "finished_at": "2026-09-21T10:56:19.765711+00:00"
   }
 ]
