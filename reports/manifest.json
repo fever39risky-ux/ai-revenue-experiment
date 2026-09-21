@@ -271,15 +271,15 @@
       "summary_ja": "",
       "summary_en": "",
       "daily_revenue_jpy_equivalent": 0,
-      "daily_cost_jpy_equivalent": 143,
+      "daily_cost_jpy_equivalent": 195,
       "cumulative_revenue_jpy_equivalent": 0,
-      "cumulative_cost_jpy_equivalent": 6446,
-      "cumulative_net_profit_jpy_equivalent": -6446
+      "cumulative_cost_jpy_equivalent": 6498,
+      "cumulative_net_profit_jpy_equivalent": -6498
     }
   ],
   "preparation_revenue_jpy_equivalent": 0,
   "official_revenue_jpy_equivalent": 0,
   "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 6446,
-  "official_net_profit_jpy_equivalent": -6446
+  "official_cost_jpy_equivalent": 6498,
+  "official_net_profit_jpy_equivalent": -6498
 }
