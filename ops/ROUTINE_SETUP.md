@@ -24,7 +24,7 @@ Create it from the UI so the fired sessions inherit your repo push access + conn
    - **Runs in:** a **new session each time** (not "this session").
    - **Schedule:** once per day. If it accepts cron, use UTC **`7 11 * 9 *`** (= **20:07 JST daily, Sep 1–30**). If it only offers a time picker, choose **daily at 20:07 (Asia/Tokyo)** and, if it asks for a date range, Sep 1–30.
    - **Model:** leave default (Sonnet-class is fine and cheaper than Opus).
-   - **Prompt:** paste the entire contents of **`ops/LOOP_PROMPT.txt`**.
+   - **Prompt:** paste the entire contents of **`ops/ROUTINE_BOOTSTRAP_PROMPT.txt`**. This bootstrap prompt intentionally stays tiny and tells each fired session to read the CURRENT canonical files from GitHub. Do **not** paste a snapshot of `ops/LOOP_PROMPT.txt` into the Routine UI, because that copy goes stale when the repo policy evolves.
 5. Save. Then use **"Run now"** once to smoke-test.
 6. **Verify it persisted:** within a few minutes, `ops/AGENT_LOOP.md` should gain
    a new "Loop self-test log" line and there should be a fresh commit -- either
@@ -49,8 +49,8 @@ single actionable item instead of having to read Action logs. You should not
 need to merge PRs by hand for the loop's own commits under normal operation --
 only if that issue appears (real divergence needing a manual rebase/merge).
 
-### Cadence = 1×/day (economic decision, not fixed by the human)
-The smoke-test measured **$3.30 / run**. 3×/day × 30d ≈ **$297** in Claude compute — almost the entire ¥50,000 target, so it fails the experiment's own economic-rationality test. **1×/day** (≈$99, and less once bound to this small repo with a lean prompt + early-stop) is the ROI-optimized default. I will keep re-evaluating this from real cost data and may lower it further.
+### Cadence / wake-up model
+The Routine schedule is only a **wake-up mechanism**, not a daily work quota. Current cadence policy is owned by `status/cadence.json` and the canonical Founder Mode / Loop Protocol. While the revenue goal is unmet, a fired session should keep executing as long as the runtime permits and positive-EV AI-operable work exists. If the external scheduler remains once/day, that is merely the minimum wake-up frequency; it must not be interpreted as permission to idle after one package.
 
 ## Path B (fallback, fully AI-buildable): run the loop from GitHub Actions
 If UI-created Routines still can't push, I can move the judgment loop into a
