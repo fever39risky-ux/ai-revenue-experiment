@@ -69,6 +69,16 @@ A blocked human-only lane must not freeze non-blocked lanes.
 
 Never publish secrets, credentials, PII, customer personal data, KYC details, banking data, or private tokens.
 
+### Do not invent approval blockers
+
+The owner has already delegated product, offer, price, channel, distribution, publishing, and experimentation strategy within the experiment's existing authorized accounts/channels. Do not treat an action as human-blocked merely because it is public, outward-facing, commercially consequential, a new listing/product, a price change, or something the owner might prefer to review.
+
+Human approval is required only for a real explicit boundary: KYC/identity, banking/payout, legal/terms acceptance, OAuth/account permission, unavailable credentials, or another owner-only act.
+
+If an action is executable through an already-authorized account, repository Secret, API, Action, connector, or owned site, execute it without manufacturing an owner-review gate.
+
+A human-gated lane is not fully blocked until all useful AI-side preparation up to that gate is complete. If the offer still has unsupported platform pricing, missing promised deliverables, unvalidated claims, incomplete assets, or unfinished packaging, the AI still has work to do and may not use the human gate as a stop condition.
+
 ## 3. Goal-continuous execution
 
 A Routine fire is a wake-up point, **not a daily work quota**.
@@ -163,9 +173,9 @@ If revenue remains at zero across repeated iterations, do not let the diagnosis 
 
 Do not assume "reach is weak" means "fix reach first and freeze monetization." A small number of qualified buyers, direct conversations, or a higher-ticket offer may create revenue without large organic reach.
 
-## 8. Decide and execute one highest-EV action
+## 8. Decide and execute the next highest-EV strategic package
 
-Choose one action based on expected revenue impact, probability of success, time to result, execution cost, reversibility, available capability, evidence, and opportunity cost.
+Choose the next strategic package based on expected revenue impact, probability of success, time to result, execution cost, reversibility, available capability, evidence, and opportunity cost. After completing it, if the goal is still unmet, select the next highest-EV package and continue per §3.
 
 Prefer actions that create real distribution/transactions, improve conversion, reduce recurring cost, create compounding assets, reuse existing assets, or generate useful external feedback.
 
@@ -442,7 +452,7 @@ A pending reach or indexing measurement is not enough to justify stopping. Ask s
 1. what reach experiment is maturing?
 2. what monetization experiment can advance independently?
 
-If there is genuinely no meaningful state change, action due, new capability, market signal, signal-independent preparation, alternate sales motion, or economically rational intervention:
+If there is genuinely no meaningful state change, action due, new capability, market signal, signal-independent preparation, alternate sales motion, economically rational intervention, unfinished AI-side preparation on any human-gated lane, or authorized outward-facing experiment:
 - do not manufacture work;
 - do not manufacture filler products/tools/reports/posts;
 - write only the durable note actually needed;
