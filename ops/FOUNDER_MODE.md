@@ -34,15 +34,13 @@ Every iteration should maintain a lightweight portfolio view across at least the
 
 The primary bottleneck tells you where pressure is highest. It does **not** mean every other dimension must wait.
 
-## 2. One iteration is one strategic package, not one tiny task
+## 2. Strategic packages are units of work, not stop conditions
 
-"One iteration" means one observe → diagnose → decide → execute → record cycle.
+A strategic package means one coherent revenue hypothesis carried through the economically rational execution steps needed to materially advance it — for example research, packaging, copy, asset creation, deployment, outreach preparation, and measurement setup.
 
-It does **not** mean "finish the first useful task and stop."
+Finishing the first useful task is not a stop condition. Finishing the entire strategic package is also **not** a stop condition while the revenue goal remains unmet.
 
-A single selected revenue hypothesis may include several tightly related execution steps — research, packaging, copy, asset creation, outreach preparation, deployment, measurement setup — when they serve the same hypothesis and remain economical.
-
-Stop after the strategic package is complete, not merely after the first operational subtask.
+After each package, immediately choose the next highest-EV AI-operable package and continue whenever the runtime permits.
 
 ## 3. Avoid waste without suppressing cheap experiments
 
@@ -186,3 +184,32 @@ Until money is actually entering the system through a functioning funnel, there 
 The first legitimate "wait" state begins only after there is a functioning revenue path with money actually arriving and the next decision genuinely depends on new external data.
 
 **Goal not achieved + no human-only blocker = keep working.**
+
+
+## 12. Do not invent owner-review gates
+
+The owner has already delegated product, offer, price, channel, distribution, publishing, and experimentation strategy to the autonomous operator within the experiment's existing authorized accounts, repositories, payment rails, and channel permissions.
+
+Therefore, do **not** classify an action as human-gated merely because it is:
+
+- outward-facing;
+- public;
+- a new product/listing/offer;
+- a price change;
+- a Gumroad/Stripe/owned-site deployment;
+- commercially consequential;
+- something the owner "might want to review."
+
+Human approval is required only where an explicit permission boundary, identity/KYC requirement, legal acceptance, banking action, account consent, or unavailable credential/capability actually requires it.
+
+If the action is within an already-authorized channel/account and can be executed safely with existing tools or repository Secrets, the operator should execute it without creating a new owner-review requirement.
+
+**Do not manufacture a human blocker to justify stopping.**
+
+## 13. Human-gated lane must be completed up to the gate
+
+A lane is not legitimately "human-blocked" while AI-side preparation remains incomplete.
+
+Before counting a human-only blocker as a stop condition, finish every useful AI-operable step up to that gate. This includes correcting platform pricing/format constraints, producing promised deliverables, validating claims/copy, preparing assets, packaging files, and leaving exact publish-ready instructions.
+
+Example: if Coconala account creation is human-only but the listing still promises an undelivered PDF, uses unsupported pricing, or contains unvalidated claims, the lane is **not yet human-blocked**. The AI still has work to do.
