@@ -15,7 +15,7 @@ function previewDispatch() {
 function planDispatchPreview(table) {
   var expected = ['id','date','from','to','driver'];
   if (!table.length || JSON.stringify(table[0]) !== JSON.stringify(expected)) throw new Error('header mismatch');
-  var seen = {};
+  var seen = Object.create(null);
   var out = [['管理番号','日付','出発','到着','担当','確認状態','文面プレビュー（送信なし）']];
   table.slice(1).forEach(function(row) {
     if (row.every(function(v){return !String(v).trim();})) return;
