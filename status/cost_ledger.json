@@ -622,6 +622,16 @@
       "reference": "20260921T105410.122148Z",
       "operator": "Codex",
       "note": "TEST Sheets buyer-service proof and mock validation. Attributable compute unknown; no external purchase."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "operator": "Claude",
+      "note": "Day-21 LATER scheduled fire (~20:11 JST), separate from the earlier owner-directed 3-package burst (~12:20-12:30 JST) and Codex 20:00 JST Sheets-proof. Light observe/diagnose/verify iteration: confirmed revenue still ¥0 (Stripe empty, ledger official+prep 0), no open issues / no promotion-blocked issue, sales-monitor last run success with no sale, no new capability or market reaction. VERIFIED the JP funnel is coherent end-to-end (store/jp.html -> live $19 Stripe -> JP bundle success page; index.html backlinks both the Stripe funnel and the new live JP Gumroad product l/kaqnpj at $19, all consistent) -> no broken-funnel fix pending. Applied the Founder-Mode 3-motion early-stop screen (owned-content reach = premature supply ahead of the still-maturing note#01/SEO signal + human-gated accounts; direct sales = Codex-owned + human-send-gated; conversion = funnel already coherent; X = empirically dead ~5-impression reach, JP launch already the story). No un-done positive-EV AI-operable action remained, so stopped early rather than manufacture filler. ~$0.35 est at ~150 JPY/USD."
     }
   ],
   "totals": {
