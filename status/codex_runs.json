@@ -39,5 +39,19 @@
     "action": "Live payment observation and create-only publisher audit; no external mutation",
     "next_scheduled_run": "2026-09-20T10:00:00+09:00",
     "finished_at": "2026-09-19T01:03:50.834420+00:00"
+  },
+  {
+    "run_id": "20260920T103846.018836Z",
+    "started_at": "2026-09-20T10:38:46.018836+00:00",
+    "day_jst": "2026-09-20",
+    "trigger": "heartbeat",
+    "source_main_sha": "6891943dd1cab191c67f6c3ae5cd44f5abc67c08",
+    "result": "success",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution",
+    "action": "Buyer-request sourcing and tailored executable proof",
+    "validation": "Six synthetic checks passed; public procurement pages reviewed; no external messages",
+    "next_scheduled_run": "2026-09-21T19:00:00+09:00",
+    "finished_at": "2026-09-21T01:35:41.934585+00:00"
   }
 ]

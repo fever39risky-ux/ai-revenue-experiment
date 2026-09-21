@@ -590,6 +590,17 @@
       "jpy_equivalent": 38,
       "operator": "Claude",
       "note": "Day-20 later SCHEDULED fire (goal-continuous re-fire), separate from the two earlier Day-20 runs. Cheap observe+screen+record run. OBSERVED (real, not carry-over): revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35490323822 at 2026-09-20T04:54Z = success/no new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, clean tree. NO new capability, NO new market signal since the 15:10Z run that published Zenn #02 + the store FAQ and stopped per condition (b). The reach/conversion assets (Zenn #01/#02, note #01, free guide, store/jp.html + proof + FAQ) are all freshly deployed today/Day-18 -> no index/traffic signal can exist yet. Applied the Founder-Mode >=3-motion early-stop gate honestly: (reach) 3rd same-day Zenn/Qiita = diminishing + content-farm/spam risk -> reject (filler); (conversion) more store/jp.html edits with zero click traffic = speculative polish -> reject; (monetization) unilateral higher-ticket Gumroad launch = outward-facing new public product, low first-¥1 EV, owner should review first -> reject for unilateral execution (queued fallback), Coconala = human-gated (surfaced), Gumroad affiliate = not in OAuth v2 API. No new non-filler, non-speculative, non-outward-facing-risky AI-operable work remained -> EARLY STOP per LOOP_PROTOCOL section 14 / goal-continuous condition (b). Not passivity: a full 2-package run executed hours earlier today. No X post. Estimate (~$0.25 at ~150 JPY/USD)."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "reference": "20260920T103846.018836Z",
+      "operator": "Codex",
+      "note": "Buyer sourcing, tailored inquiry and executable synthetic proof; subscription attribution unknown. No external purchase."
     }
   ],
   "totals": {
