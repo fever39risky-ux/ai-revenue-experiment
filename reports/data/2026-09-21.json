@@ -100,5 +100,40 @@
       "recorded_at": "2026-09-21T10:56:19.650192+00:00",
       "source_main_sha": "a5f7fe54ce828aea39dfaca071e90f206aba3038"
     }
+  ],
+  "claude_iterations": [
+    {
+      "fire": "Day-21 goal-continuous scheduled fire (~22:05 JST), separate from the earlier owner-directed 3-package burst, Codex Sheets-proof, and the ~20:11 JST light iteration.",
+      "observed": {
+        "revenue_jpy": 0,
+        "official_cost_jpy_before_run": 6498,
+        "remaining_days": 9,
+        "funnel": "coherent & live: store/jp.html -> $19 Stripe; Gumroad JP l/kaqnpj $19 (both deliver). SEO base complete (sitemap/robots/JSON-LD/hreflang). 2 free guides + note#01 + Zenn#01 published.",
+        "binding_constraints": [
+          "qualified traffic (SEO maturing, X dead ~5 impr)",
+          "trust/proof: zero sales -> zero reviews/social-proof -> weak conversion of any traffic"
+        ],
+        "integrity_finding": "Stripe path fulfillment is a static public file (downloads/ai-automation-toolkit-v2-223c0c.zip referenced by success.html); hash-obscured but not payment-gated. Gumroad path DOES gate delivery. Low risk at ~0 traffic; recorded, not the revenue blocker. Proper fix needs Stripe-webhook signed-URL infra (deferred, low current EV)."
+      },
+      "founder_mode_screen": {
+        "reach_owned_content": "Rejected as primary: 2 guides+sitemap already built; a 3rd generic SEO page = flagged filler with a clock too slow to convert by Sep30.",
+        "direct_sales_outreach": "Codex-owned (CrowdWorks) + human-send-gated; did not duplicate.",
+        "monetization_conversion_trust": "SELECTED. Zero-proof is the #1 conversion killer once traffic arrives (SEO maturing + Codex outreach + Gumroad Discover). Built a reusable public proof/demo asset - highest non-duplicative AI-operable EV.",
+        "price_offer": "Considered a Gumroad intro-discount to manufacture first sale; deferred (EV~0 without traffic; converts nobody at ~0 visitors)."
+      },
+      "decision": {
+        "selected_package": "Trust/proof: buyer-facing public demo page for the $19 toolkit",
+        "hold": false
+      },
+      "execution": {
+        "actions": [
+          "Created guides/chatgpt-sheet-jidoka-demo.html (honest Before->After of 3_ai_batch.gs: inquiry-classification + fact-constrained summarization + real source excerpt; explicit no-fabrication/no-guarantee framing).",
+          "Interlinked: index.html (new 'SEE IT WORK' linkbox), store/jp.html (proof link under buy CTA), guides/chatgpt-jimu-jitan-prompt.html (CTA), sitemap.xml (priority 0.9).",
+          "Validated: internal links resolve, HTML well-formed, node scripts/leak_check.mjs = 0 fail/0 warn."
+        ],
+        "result": "Reusable proof asset live across all lanes (SEO, Gumroad, Codex outreach, note/Zenn CTAs). No new inventory invented; reused the actual shipped script."
+      },
+      "next_best_action": "If any traffic/first sale appears: prepare a Gumroad launch discount code + surface social proof. Else continue: (a) a 2nd distinct high-intent proof/use-case asset only if a reach signal justifies, (b) support Codex's outreach with this demo link, (c) revisit Stripe fulfillment gating if traffic materializes."
+    }
   ]
 }
