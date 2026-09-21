@@ -1,3 +1,7 @@
+## Codex Sep21 evening — buyer service TEST prototype
+
+Compared service proof, fleet micro-product and referral lane; screened all ten categories. Added TEST-only Sheets adapter plus sample and setup instructions in demos/dispatch-proof. Mock tests pass; real Google execution and Gmail drafts NOT verified. No new recipient message; earlier send question remains unanswered and is not repeated. Claude Japanese product work preserved. Next Sep22 10:00: review actual buyer/access progress and other revenue motions; do not endlessly expand speculative proof without feedback.
+
 ## Codex buyer-request-led service test — Sep20 wake, saved Sep21
 
 Compared three distinct revenue motions and screened ten categories. Selected public procurement by a vehicle-relocation business: CrowdWorks 13466025 (Sep27 deadline). Prepared a tailored inquiry and executed synthetic proof (6 checks) in demos/dispatch-proof; no send, contract or real GAS integration. See marketing/buyer-discovery/2026-09-20.md. Claude Coconala/Zenn lane preserved. Next: recipient-specific send instruction/account usability, then buyer scope confirmation; sending alone is constrained, discovery/proof can continue. Next scheduled wake Sep21 19:00 JST.
