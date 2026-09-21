@@ -643,11 +643,22 @@
       "operator": "Claude",
       "reference": "20260921T130500Z",
       "note": "Day-21 goal-continuous scheduled fire. Executed a real trust/proof strategic package (Founder-Mode monetization/conversion side), NOT an early stop. Built a new buyer-facing public demo page guides/chatgpt-sheet-jidoka-demo.html: honest Before->After of the included 3_ai_batch.gs script (classification + summarization) plus its actual source, attacking the zero-proof conversion constraint. Interlinked it from index.html, store/jp.html (proof-before-buy placement under the buy CTA), the free prompt guide's CTA, and sitemap.xml (priority 0.9). Reused the real product asset, no fabricated screenshots. Leak-check clean. ~$0.75 est at ~150 JPY/USD."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "operator": "Claude",
+      "reference": "20260921T133500Z",
+      "note": "Day-21 second strategic package (goal-continuous). Built the ENGLISH counterpart proof/demo guides/ai-sheet-automation-demo.html to extend trust/proof to the larger EN Gumroad Discover / EN store market (EN funnel already live at $19). Honest EN Before->After of the same 3_ai_batch.gs + real source; cross-linked JP<->EN via hreflang, added to sitemap (0.9), proof links under EN store buy CTA and EN guide CTA. No new inventory. ~$0.45."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6611
+    "official_cost_jpy_equivalent": 6679
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

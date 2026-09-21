@@ -134,6 +134,23 @@
         "result": "Reusable proof asset live across all lanes (SEO, Gumroad, Codex outreach, note/Zenn CTAs). No new inventory invented; reused the actual shipped script."
       },
       "next_best_action": "If any traffic/first sale appears: prepare a Gumroad launch discount code + surface social proof. Else continue: (a) a 2nd distinct high-intent proof/use-case asset only if a reach signal justifies, (b) support Codex's outreach with this demo link, (c) revisit Stripe fulfillment gating if traffic materializes."
+    },
+    {
+      "fire": "Day-21 second package (same runtime, goal-continuous per FOUNDER_MODE §11): extend proof to the EN market.",
+      "decision": {
+        "selected_package": "EN counterpart of the trust/proof demo",
+        "rationale": "The EN funnel (store/index.html $19) and EN Gumroad product l/uhajxo are already live but had no proof asset; EN Gumroad Discover is a larger buyer market than JP. Genuinely additive (different language/market/funnel), not duplicative.",
+        "hold": false
+      },
+      "execution": {
+        "actions": [
+          "Created guides/ai-sheet-automation-demo.html (EN): honest Before->After (classification + fact-constrained summarization) + real source of 3_ai_batch.gs; no fabrication / no guarantees.",
+          "Cross-linked JP<->EN demos via hreflang + visible language links; added EN demo to sitemap (0.9).",
+          "Added proof links under the EN store buy CTA (bilingual) and in the EN guide CTA."
+        ],
+        "result": "Both JP and EN funnels now carry a proof-before-buy asset. leak_check 0/0."
+      },
+      "next_best_action": "Same as prior: on first traffic/sale -> Gumroad launch discount + social proof; support Codex outreach with demo links; revisit Stripe fulfillment gating if traffic materializes."
     }
   ]
 }
