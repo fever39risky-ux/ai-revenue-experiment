@@ -5,9 +5,10 @@
   "published_at": "2026-09-21T03:19:13.000Z",
   "state": "published",
   "url": "https://feverish50.gumroad.com/l/kaqnpj",
-  "price": 19.0,
+  "price": 19,
   "currency": "usd",
   "taxonomy_id": 85,
-  "thumbnail_uploaded": false,
-  "thumbnail_note": "First attempt (16:9) was rejected by Gumroad: 'Please upload a square thumbnail.' A square thumbnail (marketing/coconala-images/01-thumb-square.png) is now configured; re-dispatch gumroad-publish-jp.yml to attach it (publish step no-ops idempotently)."
+  "thumbnail_uploaded": true,
+  "thumbnail_note": "First attempt (16:9) was rejected by Gumroad: 'Please upload a square thumbnail.' A square thumbnail (marketing/coconala-images/01-thumb-square.png) is now configured; re-dispatch gumroad-publish-jp.yml to attach it (publish step no-ops idempotently).",
+  "thumbnail_uploaded_at": "2026-09-21T03:24:15.206Z"
 }
