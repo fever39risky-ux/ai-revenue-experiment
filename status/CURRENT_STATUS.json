@@ -122,15 +122,17 @@
     },
     {
       "lane": "gumroad_jp_edition",
-      "state": "publish_dispatched_2026-09-21",
+      "state": "LIVE_published_2026-09-21",
       "product": "ChatGPTでスプレッドシート事務を自動化｜そのまま動くGAS2本＋日本語導入手順書",
       "price": "$19 USD",
+      "url": "https://feverish50.gumroad.com/l/kaqnpj",
+      "product_id": "Ppx1BhvRXS4yA7Z_FnC5jA==",
       "config": "marketing/gumroad_listing_config_jp.json",
       "state_file": "status/gumroad_listing_jp.json",
       "workflow": "github: gumroad-publish-jp.yml (workflow_dispatch)",
       "deliverable": "downloads/ai-automation-toolkit-v2-223c0c.zip (bilingual-coherent: 4-page JP setup-guide PDF + 2 GAS + 20 prompts + invoice template + EN bonus PDF)",
       "role": "jp_native_buy_once_paid_endpoint_for_the_jp_funnel_independent_of_coconala_human_step",
-      "note": "Launched 2026-09-21 as a fully-AI-operable monetization package (existing GUMROAD_ACCESS_TOKEN + parameterized gumroad_publish.mjs). Materially distinct from the EN $9 commodity (JP copy, JP buyer segment, higher ticket, a real JP setup-guide PDF as the lead deliverable). Isolated state file so the live EN listing (status/gumroad_listing.json, product KVChszgZy59QBao2fz609A==) is never touched. Dispatched via gumroad-publish-jp.yml; confirm the resulting product URL in status/gumroad_listing_jp.json after the run."
+      "note": "LIVE + purchasable 2026-09-21 at https://feverish50.gumroad.com/l/kaqnpj (product Ppx1BhvRXS4yA7Z_FnC5jA==, $19). Published as a fully-AI-operable monetization package (existing GUMROAD_ACCESS_TOKEN + parameterized gumroad_publish.mjs, run 35557107294). Materially distinct from the EN $9 commodity (JP copy, JP buyer segment, higher ticket, a real JP setup-guide PDF as the lead deliverable). Isolated state file so the live EN listing (status/gumroad_listing.json, product KVChszgZy59QBao2fz609A==) is untouched. First thumbnail attempt (16:9) was rejected by Gumroad ('Please upload a square thumbnail'); a 1200x1200 square (marketing/coconala-images/01-thumb-square.png) is now configured and a re-dispatch attaches it (publish step no-ops idempotently on the recorded product_id). No sale yet -- 'listing live' is distinct from 'first revenue'."
     },
     {
       "lane": "affiliate",

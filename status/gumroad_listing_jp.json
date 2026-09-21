@@ -1,0 +1,13 @@
+{
+  "_doc": "State for the JP-native Gumroad edition (distinct from the EN $9 listing in status/gumroad_listing.json). Published 2026-09-21 via gumroad-publish-jp.yml. This file is the idempotency guard: scripts/gumroad_publish.mjs skips creation when product_id is present, so a re-run will NOT create a duplicate. Recorded manually from the successful publish job log (run 35557107294) because that run's commit step was skipped after the thumbnail step failed (non-square image).",
+  "product_id": "Ppx1BhvRXS4yA7Z_FnC5jA==",
+  "created_at": "2026-09-21T03:19:11.000Z",
+  "published_at": "2026-09-21T03:19:13.000Z",
+  "state": "published",
+  "url": "https://feverish50.gumroad.com/l/kaqnpj",
+  "price": 19.0,
+  "currency": "usd",
+  "taxonomy_id": 85,
+  "thumbnail_uploaded": false,
+  "thumbnail_note": "First attempt (16:9) was rejected by Gumroad: 'Please upload a square thumbnail.' A square thumbnail (marketing/coconala-images/01-thumb-square.png) is now configured; re-dispatch gumroad-publish-jp.yml to attach it (publish step no-ops idempotently)."
+}

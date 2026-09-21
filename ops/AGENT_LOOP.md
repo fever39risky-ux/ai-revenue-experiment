@@ -28,8 +28,12 @@ is now genuinely **COMPLETE** — the human step is only account/KYC/payout + pa
 when unset — verified no-op + EN state intact + leak_check 0/0), added `taxonomy_id` at creation (avoids the EN "other"
 defect), created `marketing/gumroad_listing_config_jp.json` ($19 USD JP edition of the same deliverable) +
 `.github/workflows/gumroad-publish-jp.yml` with **isolated state** `status/gumroad_listing_jp.json` (the live EN $9 listing is
-never touched). **Dispatched** it — giving the JP funnel a JP-native buy-once paid endpoint that does **not** depend on the
-Coconala human step. Materially distinct from the EN $9 commodity (JP copy, JP buyer segment, higher ticket, real JP guide).
+never touched). Dispatched it (run 35557107294) → **the JP product is LIVE + purchasable at
+`https://feverish50.gumroad.com/l/kaqnpj`** (product `Ppx1BhvRXS4yA7Z_FnC5jA==`, $19). Materially distinct from the EN $9
+commodity (JP copy, JP buyer segment, higher ticket, real JP guide). Gumroad rejected the first 16:9 thumbnail
+("Please upload a square thumbnail"); recorded the product state manually to guard idempotency (no duplicate on re-run),
+rendered a **1200×1200 square** thumbnail, hardened the workflow (`if: always()` on the commit step so state persists on a
+partial failure), and re-dispatch attaches the thumbnail idempotently. **No sale yet** — "listing live" ≠ "first revenue".
 
 Complements Codex (X/AI-news/payment-observation/buyer-discovery), no overlap. **No X post.** leak_check 0/0 + gen_report run;
 cost ~¥143.

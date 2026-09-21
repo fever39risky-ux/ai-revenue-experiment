@@ -9,8 +9,8 @@
   "taxonomy_id": 85,
   "taxonomy_note": "self-improvement/productivity. gumroad_publish.mjs now sends taxonomy_id at creation (added 2026-09-21) so this product does not default to 'other' the way the EN listing did.",
   "tags": ["chatgpt", "google apps script", "業務効率化", "ai automation", "spreadsheet", "no code", "productivity"],
-  "cover_image": "marketing/coconala-images/01-thumb.png",
-  "cover_image_note": "Reuses the JP-native before/after thumbnail rendered 2026-09-21 (marketing/coconala-images/01-thumb.png). Attached via scripts/gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE pointed at the JP pair.",
+  "cover_image": "marketing/coconala-images/01-thumb-square.png",
+  "cover_image_note": "Gumroad requires a SQUARE thumbnail (the first 16:9 attempt was rejected 2026-09-21: 'Please upload a square thumbnail.'). Uses the 1200x1200 JP-native before/after square thumbnail. The 16:9 marketing/coconala-images/01-thumb.png remains for Coconala (which accepts landscape). Attached via scripts/gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE pointed at the JP pair.",
   "digital_file": "downloads/ai-automation-toolkit-v2-223c0c.zip",
   "digital_file_name": "AI-jidoka-toolkit-JP.zip",
   "refund_period_note": "Left at Gumroad's default; digital no-refund-after-download stated honestly in the description."
