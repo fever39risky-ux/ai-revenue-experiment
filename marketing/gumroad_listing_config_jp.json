@@ -1,0 +1,17 @@
+{
+  "_doc": "JP-native Gumroad edition, published through the same scripts/gumroad_publish.mjs pipeline via GUMROAD_CONFIG/GUMROAD_STATE env overrides (state -> status/gumroad_listing_jp.json). Distinct product from the EN $9 commodity: Japanese copy, JP buyer segment (solo-operators), higher ticket, and a real Japanese setup-guide PDF as the lead deliverable. Created 2026-09-21 to give the JP funnel (note/Zenn/free guide) a JP-native, buy-once paid endpoint that does NOT depend on the Coconala human account step. Reuses the same verified deliverable (downloads/ai-automation-toolkit-v2-*.zip) -- no new inventory invented.",
+  "name": "ChatGPTでスプレッドシート事務を自動化｜そのまま動くGAS2本＋日本語導入手順書",
+  "description": "「毎回ChatGPTに貼る」作業そのものを、そのまま動く Google Apps Script 2本で消します。使い方の“説明”ではなく、あなたのスプレッドシートに“導入”するキットです。コードが書けなくても、日本語の導入手順書のとおりにコピー＆ペーストで進められます。\n\n■ 手に入るもの\n・スクリプト①：シートの1列を、AIで一括処理（整理・要約・分類・翻訳など）。100行でも実行はボタン1回。\n・スクリプト②：決まった集計や進捗を、毎朝自動でメール送信。\n・日本語の導入手順書（PDF・全4ページ）— OpenAI APIキーの取得から、貼り付け・設定・つまずき対処まで。\n・実務プロンプト20本（CSV／Sheets・Notionに取り込み可）＋請求書テンプレート。\n・（ボーナス）英語版ワークフロー集PDF。\n\n■ こんな方へ\n個人事業主・ひとり社長・フリーランス・小規模チームの事務/運用担当。ChatGPTは触れるが「毎回貼る」のが面倒で自動化まで進めていない方。\n\n■ 必要なもの\nGoogleアカウント（スプレッドシート）＋ 従量課金の OpenAI APIキー（少額から。取得手順は手順書にあります）。ChatGPT等の有料プランは不要です。\n\n■ 進め方\nご購入後すぐにZIPをダウンロード → 手順書のとおりに貼って実行。ご質問はメッセージでどうぞ。\n\n■ 正直なご注意\n・収益や時短効果を保証するものではありません（効果は対象業務により変わります）。\n・APIの利用料はご購入者負担です（gpt-4o-miniは非常に安価）。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・本商品はAIの助けを借りて制作したオリジナルの編集物で、転売・ドロップシッピングではありません。",
+  "price": 19.00,
+  "currency": "usd",
+  "currency_note": "Priced in USD to match store/jp.html's live $19 Stripe checkout and to avoid the JPY smallest-unit bug (gumroad_publish.mjs multiplies price by 100, correct for USD cents but wrong for JPY). ~¥2,900 at ~150 JPY/USD, aligning with the Coconala base tier (¥2,980). Distinct from the EN $9 commodity (different language, buyer, ticket).",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "taxonomy_note": "self-improvement/productivity. gumroad_publish.mjs now sends taxonomy_id at creation (added 2026-09-21) so this product does not default to 'other' the way the EN listing did.",
+  "tags": ["chatgpt", "google apps script", "業務効率化", "ai automation", "spreadsheet", "no code", "productivity"],
+  "cover_image": "marketing/coconala-images/01-thumb.png",
+  "cover_image_note": "Reuses the JP-native before/after thumbnail rendered 2026-09-21 (marketing/coconala-images/01-thumb.png). Attached via scripts/gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE pointed at the JP pair.",
+  "digital_file": "downloads/ai-automation-toolkit-v2-223c0c.zip",
+  "digital_file_name": "AI-jidoka-toolkit-JP.zip",
+  "refund_period_note": "Left at Gumroad's default; digital no-refund-after-download stated honestly in the description."
+}

@@ -58,9 +58,15 @@ if (!GUMROAD_ACCESS_TOKEN) {
   process.exit(0);
 }
 
-const STATE = 'status/gumroad_listing.json';
+// Config/state paths default to the original EN listing, but can be
+// overridden via env so a SECOND product (e.g. a JP edition) can be
+// published through the same proven pipeline without touching or
+// clobbering the live EN listing's state file. Env overrides added
+// 2026-09-21 for the JP edition; the EN path is byte-for-byte unchanged
+// when the env vars are unset.
+const STATE = process.env.GUMROAD_STATE || 'status/gumroad_listing.json';
 const EVENTS = 'status/EVENTS.jsonl';
-const CONFIG = 'marketing/gumroad_listing_config.json';
+const CONFIG = process.env.GUMROAD_CONFIG || 'marketing/gumroad_listing_config.json';
 const API = 'https://api.gumroad.com/v2';
 
 let state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
@@ -141,6 +147,10 @@ try {
     price_currency_type: cfg.currency ?? 'usd',
     description: cfg.description,
     tags: cfg.tags || [],
+    // Set the category at creation when the config provides one, so this
+    // product does NOT default to 'other' the way the EN listing did
+    // (that required a post-hoc scripts/gumroad_fix_category.mjs fix).
+    ...(cfg.taxonomy_id ? { taxonomy_id: cfg.taxonomy_id } : {}),
     files: [{ ...uploadedFile, display_name: cfg.digital_file_name || cfg.digital_file.split('/').pop() }],
   });
   const product = created.product ?? created;

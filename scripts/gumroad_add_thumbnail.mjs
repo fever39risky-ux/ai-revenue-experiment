@@ -37,9 +37,12 @@ if (!GUMROAD_ACCESS_TOKEN) {
   process.exit(0);
 }
 
-const STATE = 'status/gumroad_listing.json';
+// Overridable via env (added 2026-09-21) so a second product (JP edition)
+// can attach its own thumbnail through the same flow. Defaults are the
+// original EN listing, so unset env == unchanged behavior.
+const STATE = process.env.GUMROAD_STATE || 'status/gumroad_listing.json';
 const EVENTS = 'status/EVENTS.jsonl';
-const CONFIG = 'marketing/gumroad_listing_config.json';
+const CONFIG = process.env.GUMROAD_CONFIG || 'marketing/gumroad_listing_config.json';
 const API = 'https://api.gumroad.com/v2';
 
 let state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};

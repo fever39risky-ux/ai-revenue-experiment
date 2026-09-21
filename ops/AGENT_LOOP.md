@@ -2,6 +2,43 @@
 
 Compared three distinct revenue motions and screened ten categories. Selected public procurement by a vehicle-relocation business: CrowdWorks 13466025 (Sep27 deadline). Prepared a tailored inquiry and executed synthetic proof (6 checks) in demos/dispatch-proof; no send, contract or real GAS integration. See marketing/buyer-discovery/2026-09-20.md. Claude Coconala/Zenn lane preserved. Next: recipient-specific send instruction/account usability, then buyer scope confirmation; sending alone is constrained, discovery/proof can continue. Next scheduled wake Sep21 19:00 JST.
 
+## ⭐⭐ Claude Day-21 — 2026-09-21 (owner-directed) — completed Coconala AI-prep + launched a JP Gumroad product (no invented review-gates)
+Owner re-triggered continuous autonomy and explicitly instructed: **do not stop merely because something needs human
+review / is outward-facing / is a public product**; execute what's possible within existing permissions; and **before
+treating Coconala as a human blocker, verify ALL AI-side prep is truly complete.** Synced to `origin/main` — which now
+carries new canon (`cb8026a` *"Close invented approval and premature stop loopholes"* + `4f4c3c7`): public/outward/new-product/
+price/Gumroad deployment are **NOT** human blockers when executable within already-authorized accounts + existing Secrets,
+and a human-gated lane is **not blocked until all AI-side prep up to the gate is done**. My prior-run deferral of the Gumroad
+launch "for owner review" is now explicitly forbidden — corrected here.
+
+**Executed TWO reused-asset strategic packages (goal-continuous):**
+
+**PACKAGE A — Coconala AI-prep completion + live-funnel coherence fix.** The listing package had two unfinished AI-side
+items (the promised **日本語導入手順書 PDF** and the **thumbnail**). Built both: authored a genuine **4-page Japanese setup
+guide** (`marketing/jp_deliverable/setup_guide_ja.pdf`, rendered via headless Chromium, IPAGothic embedded — API-key
+acquisition → paste → config → troubleshooting), assembled a **bilingual-coherent delivery ZIP**
+`downloads/ai-automation-toolkit-v2-223c0c.zip` (JP guide PDF + 2 GAS + 20 prompts + invoice template + EN bonus PDF +
+JP/EN START_HERE), and **pointed the LIVE $19 Stripe funnel at it** (`store/success.html`) — fixing the product-review
+"language incoherence" defect on the funnel **already receiving Zenn/note/guide traffic**. Rendered a JP-native Coconala
+**thumbnail** (`marketing/coconala-images/01-thumb.png`) and added a purchase **delivery-message template**. Coconala AI-prep
+is now genuinely **COMPLETE** — the human step is only account/KYC/payout + paste/upload.
+
+**PACKAGE B — JP-native Gumroad product (fully AI-operable, existing `GUMROAD_ACCESS_TOKEN`).** Parameterized
+`scripts/gumroad_publish.mjs` + `gumroad_add_thumbnail.mjs` with `GUMROAD_CONFIG`/`GUMROAD_STATE` env (EN path byte-identical
+when unset — verified no-op + EN state intact + leak_check 0/0), added `taxonomy_id` at creation (avoids the EN "other"
+defect), created `marketing/gumroad_listing_config_jp.json` ($19 USD JP edition of the same deliverable) +
+`.github/workflows/gumroad-publish-jp.yml` with **isolated state** `status/gumroad_listing_jp.json` (the live EN $9 listing is
+never touched). **Dispatched** it — giving the JP funnel a JP-native buy-once paid endpoint that does **not** depend on the
+Coconala human step. Materially distinct from the EN $9 commodity (JP copy, JP buyer segment, higher ticket, real JP guide).
+
+Complements Codex (X/AI-news/payment-observation/buyer-discovery), no overlap. **No X post.** leak_check 0/0 + gen_report run;
+cost ~¥143.
+
+**⭐ NEXT:** confirm the JP Gumroad product URL in `status/gumroad_listing_jp.json` after the Action run and wire a JP-store
+CTA to it; let Zenn/note/guide index and drive JP-search traffic into the (now product-coherent) `store/jp.html` + the JP
+Gumroad edition; watch the sales-monitor for the first sale. When the owner opens the Coconala account, everything is
+paste/upload-ready. If the JP Gumroad run needs a one-round API fix, re-diagnose from the job log and re-dispatch.
+
 ## Claude Day-20 (later scheduled fire) — 2026-09-20 — EARLY STOP, no new signal since the 15:10Z package run
 Goal-continuous re-fire, separate from the two earlier Day-20 runs. **Observed (real, not carry-over):** revenue
 still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run **35490323822** at 2026-09-20T04:54Z =

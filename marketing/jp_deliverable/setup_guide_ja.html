@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>AI業務自動化キット — 日本語導入手順書</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "IPAexGothic","IPAGothic","IPAPGothic","Noto Sans CJK JP","Noto Sans JP",sans-serif;
+    color: #1a2531; line-height: 1.7; font-size: 11pt; margin: 0;
+  }
+  h1 { font-size: 22pt; line-height: 1.25; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { color: #4a6172; font-size: 11.5pt; margin: 0 0 20px; }
+  h2 { font-size: 15pt; margin: 26px 0 10px; padding: 8px 0 8px 12px;
+       border-left: 5px solid #2f8f88; color: #10312e; background: #eef7f6; }
+  h3 { font-size: 12pt; margin: 16px 0 6px; color: #1c4a46; }
+  p { margin: 6px 0; }
+  ul, ol { margin: 6px 0 6px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  code, .mono { font-family: "DejaVu Sans Mono","Noto Sans Mono",monospace; font-size: 9.6pt;
+    background: #f2f5f7; border: 1px solid #dde4ea; border-radius: 4px; padding: 1px 5px; }
+  pre { background: #0f1720; color: #e6eef5; border-radius: 8px; padding: 12px 14px; font-size: 9pt;
+    overflow-x: auto; line-height: 1.5; }
+  .note { background: #fff8e6; border: 1px solid #f0dca0; border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 10.4pt; }
+  .warn { background: #fdeeee; border: 1px solid #f0b6b6; border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 10.4pt; }
+  .ok { background: #ecf7ee; border: 1px solid #a9dcb4; border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 10.4pt; }
+  .cover { border: 2px solid #2f8f88; border-radius: 12px; padding: 22px 24px; margin-bottom: 22px;
+    background: linear-gradient(160deg,#f4fbfa,#eaf3f7); }
+  .pill { display: inline-block; font-size: 9.5pt; font-weight: 700; color: #2f8f88;
+    border: 1.5px solid #2f8f88; border-radius: 999px; padding: 3px 12px; margin-bottom: 10px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 10.2pt; }
+  th, td { border: 1px solid #d5dde3; padding: 7px 10px; text-align: left; vertical-align: top; }
+  th { background: #eef2f5; }
+  .foot { margin-top: 26px; padding-top: 12px; border-top: 1px solid #dde4ea; color: #6b7d8a; font-size: 9.5pt; }
+  .toc { font-size: 10.5pt; }
+  .toc li { margin: 2px 0; }
+  .step { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="pill">日本語導入手順書 / Setup Guide</span>
+  <h1>AI業務自動化キット<br>導入手順書（日本語・完全版）</h1>
+  <p class="sub">「毎回ChatGPTに貼る」作業を、そのまま動く Google Apps Script 2本で自動化する。<br>
+  コードが書けなくても、コピー＆ペースト中心で導入できます。</p>
+</div>
+
+<h2>このキットで手に入るもの</h2>
+<ul>
+  <li><b>スクリプト①（<span class="mono">3_ai_batch.gs</span>）</b> — スプレッドシートの1列を、AIで一括処理（整理・要約・分類・翻訳など）。100行でも実行はボタン1回。</li>
+  <li><b>スクリプト②（<span class="mono">4_daily_report.gs</span>）</b> — 決まった集計や進捗を、毎朝自動でメール送信。</li>
+  <li><b>実務プロンプト20本</b>（<span class="mono">2_prompt_library.csv</span>） — Google Sheets / Notion に取り込み可。</li>
+  <li><b>請求書テンプレート</b>（<span class="mono">5_invoice_template.csv</span>）／ワークフロー集（PDF）。</li>
+</ul>
+
+<h2>目次</h2>
+<ol class="toc">
+  <li>準備するもの（所要 約5分）</li>
+  <li>ステップ1：OpenAI APIキーを取得する</li>
+  <li>ステップ2：スクリプト①を導入する（一括AI処理）</li>
+  <li>ステップ3：スクリプト①を使う</li>
+  <li>ステップ4：スクリプト②を導入する（毎朝の自動メール）</li>
+  <li>ステップ5：プロンプト集を取り込む</li>
+  <li>困ったとき（トラブルシューティング）</li>
+  <li>安全と費用について（必ずお読みください）</li>
+</ol>
+
+<h2 class="step">1. 準備するもの（所要 約5分）</h2>
+<ul>
+  <li>Google アカウント（Google スプレッドシートが使えればOK）</li>
+  <li>OpenAI アカウント（APIキー取得のため。取得手順は次章）</li>
+  <li>※ ChatGPT や Claude の有料プランは不要です。スクリプトは OpenAI API を直接呼び出します。</li>
+</ul>
+<div class="note">スクリプトは「従量課金の OpenAI API キー」を使います。ChatGPT Plus（月額）とは別物です。少額から始められ、<b>gpt-4o-mini</b> なら1行あたりの費用はごくわずかです（費用はご利用者負担）。</div>
+
+<h2 class="step">2. ステップ1：OpenAI APIキーを取得する</h2>
+<ol>
+  <li><b>platform.openai.com</b> にアクセスし、ログイン（またはアカウント作成）します。</li>
+  <li>右上のメニュー →「<b>API keys</b>」（または <span class="mono">platform.openai.com/api-keys</span>）を開きます。</li>
+  <li>「<b>Create new secret key</b>」をクリックし、名前を付けて作成します。</li>
+  <li>表示された <span class="mono">sk-</span> で始まるキーを<b>その場でコピー</b>します（再表示できません）。</li>
+  <li>「<b>Billing</b>（お支払い）」で支払い方法を登録し、少額（例：$5〜$10）をチャージします。未登録だと呼び出しがエラーになります。</li>
+</ol>
+<div class="warn">APIキーはパスワードと同じです。<b>他人に共有・公開しない</b>でください（GitHub やチャットに貼らない）。万一漏れたら、同じ画面で「Revoke」して無効化し、作り直します。</div>
+
+<h2 class="step">3. ステップ2：スクリプト①を導入する（一括AI処理）</h2>
+<ol>
+  <li>対象のスプレッドシートを開きます。</li>
+  <li>上部メニュー「<b>拡張機能</b>」→「<b>Apps Script</b>」を選びます。</li>
+  <li>エディタが開いたら、既存のコードを消して、<span class="mono">3_ai_batch.gs</span> の中身を<b>すべて貼り付け</b>ます。</li>
+  <li>上部の <span class="mono">CONFIG</span> ブロックの <span class="mono">API_KEY</span> を、自分の <span class="mono">sk-...</span> キーに書き換えます。</li>
+  <li>フロッピーアイコンで<b>保存</b>します。</li>
+  <li>スプレッドシートに戻ると、メニューに「<b>AIツール</b>」が増えています（出ない場合は再読み込み）。</li>
+</ol>
+<p>設定は <span class="mono">CONFIG</span> ブロックだけ変更すれば動きます：</p>
+<table>
+  <tr><th>項目</th><th>意味</th></tr>
+  <tr><td><span class="mono">API_KEY</span></td><td>あなたの OpenAI APIキー</td></tr>
+  <tr><td><span class="mono">MODEL</span></td><td>使うAIモデル。<span class="mono">gpt-4o-mini</span>（安価）／精度重視なら <span class="mono">gpt-4o</span></td></tr>
+  <tr><td><span class="mono">INSTRUCTION</span></td><td>AIへの指示。<span class="mono">{input}</span> が各行のA列テキストに置き換わります</td></tr>
+  <tr><td><span class="mono">INPUT_COL / OUTPUT_COL</span></td><td>入力列 / 出力列（1=A列, 2=B列 …）</td></tr>
+  <tr><td><span class="mono">START_ROW</span></td><td>処理を始める行（1行目が見出しなら 2）</td></tr>
+  <tr><td><span class="mono">MAX_ROWS</span></td><td>一度に処理する最大行数（暴走防止）</td></tr>
+</table>
+
+<h2 class="step">4. ステップ3：スクリプト①を使う</h2>
+<ol>
+  <li>A列に処理したいテキストを入れます（例：問い合わせ文、商品説明、英文など）。</li>
+  <li>「<b>AIツール</b>」→「<b>A列をB列へ一括処理</b>」をクリック。</li>
+  <li>初回は Google の<b>権限承認</b>画面が出ます。自分のアカウントで許可してください。</li>
+  <li>完了トーストが出たら、B列に結果が入っています。</li>
+</ol>
+<div class="ok"><b>まず数行で試す</b>のがコツです。<span class="mono">INSTRUCTION</span> を用途に合わせて書き換えれば、分類・要約・翻訳・タグ付け・感情判定などに使えます。処理済みの行は自動でスキップされるので、再実行しても安全です。</div>
+
+<h2 class="step">5. ステップ4：スクリプト②を導入する（毎朝の自動メール）</h2>
+<ol>
+  <li><b>同じ Apps Script プロジェクト</b>に <span class="mono">4_daily_report.gs</span> を追加で貼り付けます（＋ボタン →「スクリプト」）。<br>
+      ※ スクリプト②は①の <span class="mono">askAI()</span> 関数を使うため、必ず①と同じプロジェクトに置いてください。</li>
+  <li><span class="mono">RCONFIG</span> を設定します：<span class="mono">SHEET_NAME</span>（集計対象シート名）、<span class="mono">DATE_COL</span>（日付列）、<span class="mono">MAIL_TO</span>（送信先）など。</li>
+  <li>一度手動で <span class="mono">dailyReport</span> を実行し、動作とメール受信を確認します（初回は権限承認あり）。</li>
+  <li>左メニュー「<b>トリガー</b>」→「トリガーを追加」→ 関数 <span class="mono">dailyReport</span> / イベントのソース「時間主導型」/「日タイマー」/「午前7〜8時」に設定します。</li>
+</ol>
+<div class="warn">自動送信は<b>まず自分宛だけ</b>でテストしてください。外部への誤送信に注意。</div>
+
+<h2 class="step">6. ステップ5：プロンプト集を取り込む</h2>
+<p><span class="mono">2_prompt_library.csv</span> を Google Sheets で開く（ファイル →インポート）か、Notion のデータベースにインポートすれば、実務プロンプト20本をすぐ使えます。メール返信・議事録・データ整理・請求など、日々の作業をそのままコピペで進められます。</p>
+
+<h2 class="step">7. 困ったとき（トラブルシューティング）</h2>
+<table>
+  <tr><th>症状</th><th>対処</th></tr>
+  <tr><td>「AIツール」メニューが出ない</td><td>スプレッドシートを再読み込み。それでも出なければ、コードが保存されているか確認。</td></tr>
+  <tr><td>セルに <span class="mono">ERROR: ...</span> と入る</td><td>多くは APIキー未設定・請求未登録・キー誤り。<span class="mono">CONFIG.API_KEY</span> とOpenAIの Billing を確認。</td></tr>
+  <tr><td>401 / invalid api key</td><td>キーの貼り間違い・失効。OpenAIで新しいキーを作り直す。</td></tr>
+  <tr><td>429 / rate limit</td><td>短時間に多すぎ。<span class="mono">MAX_ROWS</span> を小さくし、少し待って再実行（処理済みはスキップされます）。</td></tr>
+  <tr><td>insufficient_quota / 課金エラー</td><td>OpenAIの Billing に残高が必要。少額をチャージ。</td></tr>
+  <tr><td>権限承認で止まる</td><td>初回のみ Google の承認が必要。自分のアカウントで「許可」。</td></tr>
+</table>
+
+<h2 class="step">8. 安全と費用について（必ずお読みください）</h2>
+<ul>
+  <li><b>費用：</b> スクリプトは従量課金の OpenAI API を使います。利用料はご利用者負担です（<span class="mono">gpt-4o-mini</span> は非常に安価ですが0円ではありません）。まず少額から。</li>
+  <li><b>データ：</b> スクリプトは<b>あなたの Google アカウント内</b>で動きます。当方があなたのデータを預かることはありません。個人情報・機密は、社内規約を確認のうえ、必要ならダミー化してからお試しください。</li>
+  <li><b>APIキー：</b> 他人に共有・公開しない。漏れたら即 Revoke。</li>
+  <li><b>効果：</b> 収益や時短効果を保証するものではありません。効果は対象業務により変わります。</li>
+  <li><b>本商品：</b> AIの助けを借りて制作したオリジナルの編集物です。転売・ドロップシッピングではありません。</li>
+</ul>
+
+<div class="foot">
+  AI業務自動化キット 導入手順書（日本語版） — この手順書は本キットの購入者向けの導入資料です。<br>
+  ご不明点は購入プラットフォームのメッセージ／購入時のレシートメールへのご返信でお問い合わせください。アップデートは無料です。
+</div>
+
+</body>
+</html>

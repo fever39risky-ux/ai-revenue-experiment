@@ -601,11 +601,21 @@
       "reference": "20260920T103846.018836Z",
       "operator": "Codex",
       "note": "Buyer sourcing, tailored inquiry and executable synthetic proof; subscription attribution unknown. No external purchase."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.95,
+      "currency": "usd",
+      "jpy_equivalent": 143,
+      "operator": "Claude",
+      "note": "Day-21 owner-directed goal-continuous run. Owner + new canon (cb8026a 'Close invented approval and premature stop loopholes' + 4f4c3c7) explicitly forbid deferring outward-facing/new-product/price work for 'owner should review' reasons, and require completing ALL AI-side prep on a human-gated lane before calling it blocked. Executed TWO reused-asset strategic packages toward the first ¥1. PACKAGE A (Coconala AI-prep completion + live-funnel coherence fix): authored a real 4-page Japanese setup guide (marketing/jp_deliverable/setup_guide_ja.html -> setup_guide_ja.pdf via headless Chromium, IPAGothic embedded), assembled a bilingual-coherent delivery bundle (downloads/ai-automation-toolkit-v2-223c0c.zip = JP guide PDF + 2 GAS + 20 prompts + invoice template + EN bonus PDF + JP/EN START_HERE), pointed the LIVE $19 Stripe funnel to it (store/success.html) fixing the product-review 'language incoherence' defect on the funnel already receiving Zenn/note/guide traffic, rendered a JP-native Coconala thumbnail (marketing/coconala-images/01-thumb.png), and updated marketing/coconala_offer_and_listing_jp.md to mark AI-prep COMPLETE (deliverable+guide+thumbnail+delivery-message template) -> the Coconala human step is now truly only account/KYC/payout + paste/upload. PACKAGE B (fully-AI-operable monetization, existing GUMROAD_ACCESS_TOKEN): parameterized scripts/gumroad_publish.mjs + gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE env (EN path byte-identical when unset; verified no-op + EN state intact + leak_check 0/0), added taxonomy_id at creation (avoids the EN 'other' defect), created marketing/gumroad_listing_config_jp.json ($19 USD JP-native edition of the same deliverable) + .github/workflows/gumroad-publish-jp.yml (isolated state status/gumroad_listing_jp.json), and dispatched it to publish a JP-native buy-once product for the JP funnel WITHOUT waiting on the Coconala human step. Estimate (~$0.95 at ~150 JPY/USD; multi-file asset creation + Chromium rendering + pipeline work + live deploy)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6303
+    "official_cost_jpy_equivalent": 6446
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
