@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Invoice Generator — Setup Guide</title>
+<style>body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:720px;margin:40px auto;color:#1b2430;line-height:1.55;font-size:14px}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:18px;margin-top:28px;border-bottom:2px solid #3ea6a0;padding-bottom:4px}
+code,pre{background:#f1f4f7;border-radius:4px;font-size:12.5px}pre{padding:10px;white-space:pre-wrap}
+table{border-collapse:collapse;width:100%;font-size:12.5px}td,th{border:1px solid #cfd8e0;padding:5px 7px;text-align:left}
+.note{background:#eef8f7;border-left:4px solid #3ea6a0;padding:8px 12px}</style></head><body>
+<h1>Google Sheets Invoice Generator</h1>
+<p>Bulk PDF invoices + Gmail drafts from one spreadsheet row each. Setup takes about 5 minutes. No coding, no add-on, no subscription.</p>
+<h2>What's in the download</h2>
+<ul><li><b>InvoiceGenerator.gs</b>: the script you paste into your Google Sheet</li>
+<li><b>sample_invoices.csv</b>: two example rows (optional, you can import it instead of using "Set up sheet")</li>
+<li><b>Setup-Guide.pdf</b>: this guide</li></ul>
+<h2>Step 1: Add the script to a Google Sheet</h2>
+<ol><li>Create a new Google Sheet (sheets.new).</li>
+<li>Click <b>Extensions → Apps Script</b>.</li>
+<li>Delete the sample <code>function myFunction()</code>, then paste the whole contents of <b>InvoiceGenerator.gs</b>. Click the save icon.</li></ol>
+<h2>Step 2: Enter your business details</h2>
+<p>At the top of the script, edit the <code>CONFIG</code> block:</p>
+<table><tr><th>Setting</th><th>What to put</th></tr>
+<tr><td>BUSINESS_NAME / BUSINESS_DETAILS</td><td>Your name or company, address, email, tax ID (shown on every invoice)</td></tr>
+<tr><td>PAYMENT_DETAILS</td><td>How clients pay you (bank, PayPal, etc.)</td></tr>
+<tr><td>CURRENCY_SYMBOL / CURRENCY_DECIMALS</td><td>e.g. <code>'$'</code>, <code>'€'</code>, <code>'£'</code>; use 0 decimals for currencies like JPY</td></tr>
+<tr><td>TAX_RATE / TAX_LABEL</td><td>e.g. <code>0.2</code> and <code>'VAT'</code>. Use <code>0</code> for no tax line.</td></tr>
+<tr><td>DUE_DAYS</td><td>Days until payment is due (default 14)</td></tr>
+<tr><td>INVOICE_PREFIX</td><td>Invoice numbers look like <code>INV-2026-0001</code> and count up automatically</td></tr>
+<tr><td>CREATE_GMAIL_DRAFT</td><td><code>true</code> = also create an email draft with the PDF attached</td></tr>
+<tr><td>OPENAI_API_KEY (optional)</td><td>Leave empty to use the built-in email template. If you add a key, AI writes a friendlier email. AI never touches the amounts.</td></tr></table>
+<h2>Step 3: Create the Invoices sheet</h2>
+<p>Reload the spreadsheet. A new <b>Invoices</b> menu appears. Click <b>Invoices → Set up sheet (first time)</b>. This creates the columns and two example rows. The first time, Google asks you to authorize the script. It is your own script running in your own account. Click <i>Advanced → Go to (project)</i> if Google shows the "unverified app" screen, which is normal for personal scripts.</p>
+<h2>Step 4: Fill rows and create invoices</h2>
+<p>One row = one invoice. Put line items in one cell, one per line (Ctrl/Cmd+Enter makes a new line inside a cell):</p>
+<pre>Homepage redesign ; 1 ; 450
+Extra page ; 2 ; 120</pre>
+<p>Then click <b>Invoices → Create invoices for new rows</b>. For each row not yet marked <i>Done</i>, the script:</p>
+<ol><li>calculates subtotal, tax and total,</li><li>saves a PDF to the Drive folder <b>Invoices (PDF)</b>,</li>
+<li>creates a Gmail <b>draft</b> to the client with the PDF attached,</li><li>writes <i>Done</i>, the invoice number and the PDF link back into the row.</li></ol>
+<p class="note">Nothing is ever sent automatically. Open Gmail → Drafts, check the email, and press Send yourself.</p>
+<h2>Troubleshooting</h2>
+<ul><li><b>Status shows "ERROR: no valid line items"</b>: check each line is <code>Item ; Qty ; Unit price</code> with semicolons.</li>
+<li><b>No Invoices menu</b>: reload the sheet; make sure the script was saved.</li>
+<li><b>Re-issue an invoice</b>: clear the Status cell of that row and run again (it gets a new number).</li>
+<li><b>Change the invoice layout</b>: edit the <code>makePdf_</code> function. Every line is commented.</li></ul>
+<h2>Important</h2>
+<p>You are responsible for checking that your invoices meet the tax and invoicing rules of your country. The script calculates totals with standard rounding to 2 decimals. Check amounts before sending. Google's normal Apps Script daily quotas apply (plenty for small businesses).</p>
+</body></html>

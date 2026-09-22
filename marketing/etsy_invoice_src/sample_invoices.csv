@@ -1,0 +1,4 @@
+Client / Company,Contact name,Client email,Project / Subject,Line items (one per line: Item ; Qty ; Unit price),Notes on invoice (optional),Status,Invoice #,PDF link
+Acme Ltd,Jane Smith,jane@example.com,Website update - May,"Homepage redesign ; 1 ; 450
+Extra page ; 2 ; 120",Thank you for your business!,,,
+Blue Cafe,Tom Lee,tom@example.com,Monthly bookkeeping,Bookkeeping (monthly) ; 1 ; 300,,,,

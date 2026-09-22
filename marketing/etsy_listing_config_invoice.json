@@ -1,0 +1,33 @@
+{
+  "_doc": "Second Etsy listing (distinct niche: Google Sheets invoice automation). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=invoice. Source: marketing/etsy_invoice_src/.",
+  "title": "Google Sheets Invoice Generator, Bulk PDF Invoices + Gmail Drafts, Apps Script Automation for Freelancers & Small Business, Instant Download",
+  "description": "Create professional PDF invoices straight from Google Sheets: one row per client, one click for all of them.\n\nWhat it does:\n• You type one row per invoice: client, email, project, and line items (Item ; Qty ; Unit price).\n• Click Invoices → Create invoices for new rows.\n• The script calculates subtotal, tax (VAT/GST/sales tax, or none) and total in code.\n• It saves a numbered PDF invoice (INV-2026-0001, 0002…) to a Google Drive folder.\n• It creates a Gmail DRAFT to your client with the PDF attached. Nothing is sent until you review it and press Send.\n• It marks the row Done and adds the PDF link. Finished rows are skipped next time.\n\nWhat's in the download:\n• InvoiceGenerator.gs: paste it into Extensions → Apps Script. No add-on, no subscription.\n• Setup Guide (PDF): step-by-step, about 5 minutes.\n• Sample CSV with example rows.\n\nWorks with any currency ($, €, £, ¥ and more). Your business details, payment details, tax rate, due days and invoice prefix are set in one settings block at the top.\n\nOptional: AI-written cover emails if you add your own OpenAI API key. Without one, a clean built-in email template is used. AI only writes the email wording. Every amount is calculated by the script.\n\nYou need a free Google account (Sheets, Drive, Gmail). The first run asks you to authorize your own script. The guide shows how.\n\nPlease note: this is a digital download (script + guide), not a physical item. You are responsible for checking that your invoices meet your country's tax and invoicing rules. The PDF uses a clean, simple Google Docs layout. The listing image of the invoice is an illustration of its contents.\n\nThis product was created with the help of AI and tested before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 7.0,
+  "tags": [
+    "invoice template",
+    "google sheets",
+    "invoice generator",
+    "apps script",
+    "small business",
+    "freelancer invoice",
+    "pdf invoice",
+    "invoice automation",
+    "gmail automation",
+    "bookkeeping",
+    "spreadsheet template",
+    "billing template",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-invoice/01.png",
+    "marketing/etsy-images-invoice/02.png",
+    "marketing/etsy-images-invoice/03.png",
+    "marketing/etsy-images-invoice/04.png"
+  ],
+  "digital_file": "downloads/sheets-invoice-generator-4c7e19.zip",
+  "digital_file_name": "Sheets-Invoice-Generator.zip"
+}

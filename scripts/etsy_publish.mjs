@@ -35,9 +35,9 @@ if (!ETSY_API_KEYSTRING || !ETSY_API_SHARED_SECRET || !ETSY_ACCESS_TOKEN || !ETS
   process.exit(0);
 }
 
-const STATE = 'status/etsy_listing.json';
+const STATE = process.env.ETSY_STATE || 'status/etsy_listing.json';
 const EVENTS = 'status/EVENTS.jsonl';
-const CONFIG = 'marketing/etsy_listing_config.json';
+const CONFIG = process.env.ETSY_CONFIG || 'marketing/etsy_listing_config.json';
 
 let state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : {};
 if (state.listing_id) {
