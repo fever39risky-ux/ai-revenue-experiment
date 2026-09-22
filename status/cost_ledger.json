@@ -670,7 +670,7 @@
       "date": "2026-09-22",
       "period": "official",
       "category": "ai_compute",
-      "amount": 1.0,
+      "amount": 1,
       "currency": "usd",
       "jpy_equivalent": 150,
       "reference": "claude-day22-zenn-reach",
