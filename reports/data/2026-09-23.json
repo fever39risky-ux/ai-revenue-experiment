@@ -85,7 +85,7 @@
           "store/jp.html",
           "downloads/ai-automation-toolkit-v2-223c0c.zip"
         ],
-        "result": "Copy checked against shipped source; leak and promotion checks pass. Pending deployment verification.",
+        "result": "Published via PR15 and successful Pages run 35752142634; live store/jp.html HTTP200 exactly matches source SHA256 be509987cbdbec99e5b132df257a38000480874024c9726049d6df9f1c94d4c3. Local links and buyer-fit placement validated; no revenue uplift claimed.",
         "blocked_final_step": null,
         "next_measurement": "Observe real payment/buyer response; no analytics means no conversion-rate claim. Next select fresh buyer discovery instead of more unmeasured content or proof expansion."
       },
