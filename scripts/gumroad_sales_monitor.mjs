@@ -68,10 +68,14 @@ if (costs) { costs.preparation_entries ||= []; costs.official_entries ||= []; co
 const costSeen = costs ? new Set([...costs.preparation_entries, ...costs.official_entries].filter(e => e.reference).map(e => e.reference)) : new Set();
 
 let added = 0;
+let freeDownloads = 0;
 for (const sale of (json.sales || [])) {
   const reference = 'gumroad:' + (sale.order_id ?? sale.id);
   if (seen.has(reference)) continue;
   if (sale.refunded || sale.chargedback) continue; // no net revenue to record
+
+  // $0 downloads of the free PWYW listing are not revenue: count them, never book them.
+  if (!(Number(sale.price || 0) > 0)) { freeDownloads++; continue; }
 
   const date = tokyoDate(sale.created_at);
   const period = date >= OFFICIAL_START ? 'official' : 'preparation';
@@ -114,4 +118,4 @@ if (costs) {
   costs.totals.official_cost_jpy_equivalent = costs.official_entries.reduce((s, e) => s + Number(e.jpy_equivalent || 0), 0);
   writeFileSync(COSTS, JSON.stringify(costs, null, 2) + '\n');
 }
-console.log(`gumroad_sales_monitor: ${added} new sale(s). official rev=${ledger.totals.official_revenue_jpy_equivalent} prep rev=${ledger.totals.preparation_revenue_jpy_equivalent} JPY`);
+console.log(`gumroad_sales_monitor: ${added} new sale(s), ${freeDownloads} $0 download(s) in this page (signal only, not booked). official rev=${ledger.totals.official_revenue_jpy_equivalent} prep rev=${ledger.totals.preparation_revenue_jpy_equivalent} JPY`);

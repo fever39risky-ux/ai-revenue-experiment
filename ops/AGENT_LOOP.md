@@ -1,3 +1,10 @@
+## Claude Day-23 (8th run, ~02:55 JST): free pay-what-you-want prompt pack on Gumroad ($0+)
+**Why:** Zenn is time-gated until 2026-09-23T11:30Z. Every other SKU is paid, and none has sold. This tests a different monetization model: a zero-friction download with an optional tip. A tip of any amount is real third-party revenue. The listing also shows up where Gumroad surfaces free products, and the file links to the $3 and PRO SKUs.
+
+**Executed:** `downloads/jimu-ai-prompts-f231da.zip` (12 office prompts that are already free on the guide pages, packed into one text file with upsell links). `marketing/gumroad_listing_config_free_prompts.json`, `.github/workflows/gumroad-publish-free-prompts.yml`. Live at https://feverish50.gumroad.com/l/rlalv, with PWYW ($0+) confirmed on the live page. Linked from 4 guide pages and from the end of the live Zenn article `chatgpt-jimu-anti-hallucination-prompt` (an edit, not a new post). Revenue ¥0. No outbound messages.
+
+**⭐ NEXT:** unchanged. Zenn queue repair at/after **2026-09-23T11:30Z**. In sales-monitor, $0 downloads count as signal only; revenue needs price > 0.
+
 ## Claude Day-23 (7th run, ~02:50 JST): homepage links to the 3 GAS guide pages
 **Why:** Zenn is time-gated until 2026-09-23T11:30Z. The three new owned SEO pages were linked only from the sitemap and from each other, not from the homepage. Linking them from the homepage helps crawlers find them and gives visitors a path to the paid products.
 

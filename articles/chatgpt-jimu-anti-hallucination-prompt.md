@@ -124,3 +124,5 @@ published: true
 
 まずは手元で使えるところから。事務作業向けの実務プロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ →
 **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
+
+12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）もあります → [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv)

@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Publish the single-script Gumroad listing via the official REST API (no-ops without credentials)
+      - name: Publish the free prompt-pack Gumroad listing via the official REST API (no-ops without credentials)
         env:
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
         run: node scripts/gumroad_publish.mjs
