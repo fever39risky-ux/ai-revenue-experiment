@@ -6,7 +6,7 @@
   "current_decision": "provisional_twice_daily_revenue_exploration",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": 2,
-  "next_scheduled_run": "2026-09-22T19:00:00+09:00",
+  "next_scheduled_run": "2026-09-23T19:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,9 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Trial review: previous two packages created buyer proof but no messages/sales; do not expand proof indefinitely. Retain two bounded opportunities today because an independently publishable segment test and channel follow-through exist. No proof this cadence is optimal; next iteration reevaluates based on real outcomes and cost, review again Sep23.",
+  "rationale": "Trial review: two daily opportunities produced publishable assets but zero recorded revenue, no evidence optimal. Keep two for Sep23 with distinct next buyer-discovery work; delayed evening wake consumed actual Sep23 first slot, skip 10:00 and next run 19:00. Unknown compute cost; no extra wake. Reassess after concrete discovery rather than repeating page work.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-22T01:05:23.333319+00:00",
+  "updated_at": "2026-09-22T16:07:28.019103+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC hours 01 and 10 correspond to JST 10 and 19",
@@ -50,5 +50,5 @@
     "19:00"
   ],
   "review_by": "2026-09-23T19:00:00+09:00",
-  "trial_reviewed_at": "2026-09-22T01:05:23.333319+00:00"
+  "trial_reviewed_at": "2026-09-22T16:07:28.019103+00:00"
 }
