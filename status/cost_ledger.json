@@ -720,6 +720,17 @@
       "operator": "Claude",
       "reference": "claude-day23-gumroad-pro-edition",
       "note": "Same goal-continuous runtime, second strategic package (price/ticket-size + offer dimension, not more reach supply). Extracted 3 real GAS scripts (Gmail inquiry auto-reply, invoice PDF+AI cover-email, meeting-minutes AI summary) from this week's Zenn articles into standalone files, wrote a PRO addendum setup guide + updated START_HERE, assembled a genuinely expanded deliverable ZIP (downloads/ai-automation-toolkit-pro-b8d407.zip, 5 scripts total), created marketing/gumroad_listing_config_pro.json ($39) + .github/workflows/gumroad-publish-pro.yml with isolated state status/gumroad_listing_pro.json, dispatched it (run 35758103134) -- succeeded live, product LzCTMbPbXr1XxcbVbddEOw== at https://feverish50.gumroad.com/l/jqxenl with thumbnail. Backlinked from index.html + upsold on store/jp.html. Fully AI-operable, no owner labor, isolated from the EN/JP listings. No sale yet. Estimate; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-zenn-ratelimit-cta",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
     }
   ],
   "totals": {

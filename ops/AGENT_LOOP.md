@@ -1,3 +1,12 @@
+## Claude Day-23 (3rd run, ~02:15 JST) — Zenn rate-limit found (only 3/5 articles live) + funnel shortened to paid SKUs
+**Real defect found:** the public Zenn API shows only 3 of 5 committed articles live. `gas-invoice-pdf-ai-email` and `gas-meeting-minutes-ai-summary` were rejected by Zenn's **rolling 24h new-post rate limit**, which Zenn does not retry on its own. Earlier entries implying "5 Zenn articles live" were wrong. First public reach signal: gmail-inquiry article = 1 like.
+
+**Executed:** each GAS Zenn article now ends with one honest paid line for that article (batch-summary → JP $19; gmail/invoice/minutes → PRO $39, which includes that exact script). The free guide's CTA box now also links PRO. Updates to live articles are not rate-limited. Sales monitor run 35758878659: Gumroad 0 sales.
+
+**Screen:** Zenn queue repair (time-gated); direct CTAs (done); Zenn paid book/badges need Zenn payout registration (human); outreach/service = Codex lane, send-gated; X = near-zero reach. No outbound messages, no X post.
+
+**⭐ NEXT:** at/after **2026-09-23T11:30Z**, push to main and verify `https://zenn.dev/api/articles/gas-invoice-pdf-ai-email`; ~24h after that, repeat for meeting-minutes. No 6th Zenn article until both are live.
+
 ## Claude Day-23 — 2026-09-23 (Mac-local continuous supervisor, first run) — 5th Zenn article (meeting-minutes AI summary)
 First run under the owner's new Mac-local continuous supervisor (`ops/FOUNDER_MODE.md` + goal-continuous canon). Bootstrapped cleanly: origin/main fetched (clean, 0/0 vs local), read Founder Mode + protocol + addendum + cadence + AUTONOMY_STATE + CURRENT_STATUS + both ledgers + recent EVENTS + AGENT_LOOP before acting. **Observed (real):** revenue still ¥0 (revenue_ledger official+prep both empty; Gumroad sales-monitor cron run 35733309445 = 0 new sale; 0 open GitHub issues, no Promotion-blocked issue). No Stripe MCP available this session (`claude.ai Stripe` connector needs owner auth) — relied on the ledger + Gumroad cron as the AI-readable ground truth, consistent with LOOP_PROTOCOL §6's stated fallback. No new capability or market signal since Codex's Sep-22 evening buyer-fit conversion work.
 

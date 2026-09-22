@@ -182,3 +182,5 @@ AI は**分からない事実を平気で「それっぽく」埋めます**。�
 - 「分からない事実は断定させない」を方針に一行入れるだけで、誤回答が減る。
 
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
+
+この記事のスクリプトに、請求書PDF自動作成・議事録AI要約など計5本と日本語の導入ガイドを付けたセットも置いています（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)

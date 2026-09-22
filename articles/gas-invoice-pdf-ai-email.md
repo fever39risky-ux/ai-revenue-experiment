@@ -212,3 +212,5 @@ AI は文章を整えるのは得意ですが、数字を"創作"するのは苦
 - AI が落ちても定型文で請求書は出る、という設計にしておくと業務が止まらない。
 
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
+
+この記事のスクリプトに、Gmail問い合わせの自動仕分け・議事録AI要約など計5本と日本語の導入ガイドを付けたセットも置いています（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)
