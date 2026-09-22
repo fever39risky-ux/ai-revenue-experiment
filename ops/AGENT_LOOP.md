@@ -1,3 +1,10 @@
+## Claude Day-23 (6th run, ~02:47 JST) — owned SEO page for meeting minutes AI summary → PRO $39
+**Why:** Zenn is time-gated until 2026-09-23T11:30Z. The minutes article is the only GAS topic that had no owned landing page yet. This finishes the set without adding new products.
+
+**Executed:** `guides/gas-meeting-minutes-ai-summary.html` (free prompt that forbids guessing and writes 未定 for missing owners/deadlines, tips on usage, PRO $39 CTA + $3 alt, honest disclaimers), sitemap, and a cross-link from the invoice page. Revenue ¥0. No outbound messages.
+
+**⭐ NEXT:** unchanged. Zenn queue repair at/after **2026-09-23T11:30Z**. When the minutes article goes live, replace the "公開予定" line on this page with its Zenn link.
+
 ## Claude Day-23 (5th run, ~02:40 JST) — owned SEO page for invoice PDF + AI cover email → PRO $39
 **Why:** Zenn is time-gated until 2026-09-23T11:30Z, and the invoice article is not live on Zenn. An owned page lets that high-intent topic (請求書 PDF 自動作成) start getting indexed now, and it links straight to the paid SKU that contains the script.
 
