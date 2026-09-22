@@ -183,4 +183,6 @@ AI は**分からない事実を平気で「それっぽく」埋めます**。�
 
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
+この記事のスクリプトに「FAQ参照（登録した事実以外はAIに断定させない）」「noreply等の除外」「お試しモード（何も作らずログで確認）」を足した拡張版と、業種別の返信方針テンプレ10種もまとめました（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)
+
 この記事のスクリプトに、請求書PDF自動作成・議事録AI要約など計5本と日本語の導入ガイドを付けたセットも置いています（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)
