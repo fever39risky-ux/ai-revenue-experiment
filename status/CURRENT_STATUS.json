@@ -403,99 +403,101 @@
   "codex_latest": {
     "observed": {
       "revenue": 0,
-      "revenue_coverage_and_timestamp": "Latest main official ledger zero; no fresh live payment query this iteration. Earlier Stripe zero is not a current all-channel observation.",
-      "known_cost_jpy": 6732,
+      "revenue_coverage_and_timestamp": "Live Stripe GetCharges limit100 returned empty data, has_more=false at this execution. Official ledger zero; Gumroad/Etsy not queried live in this iteration.",
+      "known_cost_jpy": 6882,
       "unknown_costs": [
-        "Codex subscription attribution"
+        "Codex subscription attribution; some recorded Claude compute costs are estimates"
       ],
-      "remaining_days": 9,
-      "claude_active_lane": "General JP/EN demo, Japanese paid core, Coconala preparation, Zenn. Existing store/demo preserved."
+      "remaining_days": 8,
+      "claude_active_lane": "Two high-intent Zenn reach articles (Gmail drafts / invoice PDF) published Sep22; Coconala preparation and existing core product."
     },
     "opportunity_screen": {
-      "higher_ticket_service": "Custom service remains credible; recipient send permission unanswered, no need to keep expanding proof.",
-      "direct_sales_outreach": "No message authorized by current session; proposal already prepared.",
-      "japanese_paid_core": "Reuse existing JP core; do not duplicate Claude product.",
-      "micro_product": "Retail-specific standalone template possible, but separate checkout/inventory unnecessary for first test.",
-      "alternate_buyer_segments": "Small-shop end-of-day handover distinct from vehicle-dispatch service.",
-      "jp_marketplace": "Coconala Claude-owned; BOOTH would require new listing setup, not selected now.",
-      "affiliate_referral": "Commission program still unverified; slower payout risk.",
-      "use_case_landing_pages": "Selected retail daily-report use case with free input template and existing paid core CTA.",
-      "demo_proof_assets": "Reuse shipped script and state exact limits instead of inventing performance claims.",
-      "buyer_discovery_lead_sourcing": "Existing procurement lead retained; no redundant shortlist built today."
+      "higher_ticket_service": "Higher-ticket service proposal prepared, no buyer response; no additional speculative code.",
+      "direct_sales_outreach": "Exact-recipient send permission unanswered; do not send.",
+      "japanese_paid_core": "Selected existing JP checkout buyer-fit conversion experiment.",
+      "micro_product": "Separate micro-product remains testable but packaging before audience evidence has lower marginal value.",
+      "alternate_buyer_segments": "Retail segment launched; avoid another unmeasured page.",
+      "jp_marketplace": "BOOTH possible; Coconala is Claude lane.",
+      "affiliate_referral": "Affiliate program economics unverified; research possible, payout inside eight days uncertain.",
+      "use_case_landing_pages": "Existing retail page reusable; no additional landing inventory.",
+      "demo_proof_assets": "Use shipped code as evidence for actual capabilities, not fabricated performance.",
+      "buyer_discovery_lead_sourcing": "Additional buyer procurement discovery remains positive candidate, compared below."
     },
     "candidates_minimum_3": [
       {
-        "lane": "Retail daily-report use-case funnel",
-        "buyer": "Small-shop owner",
-        "offer_or_reach_mechanism": "Free template -> existing JP $19 toolkit",
-        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
-        "expected_revenue_impact_and_assumptions": "Unknown conversion; existing checkout means a visitor can purchase without new setup. No uplift promised.",
-        "time_to_revenue": "Immediate availability after deployment, traffic and Sep30 receipt uncertain",
-        "incremental_cost_and_uncertainty": "One bounded page/download; no external purchase; compute unknown",
-        "reversibility": "High: remove page/link without changing product",
-        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
-        "feasible_next_action": "Publish a concrete input workflow and accurate capability boundaries",
-        "permission_boundary": "No outbound message/new account/new spending",
-        "ev_assessment": "Highest provisional EV: reaches alternate use case using live paid asset with no new sales setup"
+        "claude_non_overlap": "Claude focuses on Zenn acquisition; Codex complements with a distinct hypothesis.",
+        "reversibility": "High; no contract or new spending.",
+        "permission_boundary": "Existing repo/site edits only; no unsolicited messages, signup or purchase.",
+        "incremental_cost_and_uncertainty": "Bounded session compute unallocated; no external cash outlay.",
+        "lane": "Buyer-fit conversion at existing JP checkout",
+        "buyer": "Existing JP toolkit visitors",
+        "offer_or_reach_mechanism": "Clarify fit before $19 checkout, link free daily-report sample",
+        "expected_revenue_impact_and_assumptions": "May improve qualified purchase confidence and reduce mismatch; could lower unqualified sales. Traffic and numerical uplift unknown.",
+        "time_to_revenue": "Immediately available; any revenue by Sep30 depends on traffic.",
+        "evidence_and_confidence": "Verified delivered script filters today, truncates 6000 characters and sends automatically; page promised morning summary.",
+        "feasible_next_action": "Correct copy and add concrete fit criteria before buy CTA.",
+        "ev_assessment": "Highest provisional marginal EV: confirmed mismatch, existing reachable checkout, small reversible edit."
       },
       {
-        "lane": "Extend vehicle-dispatch service proof",
-        "buyer": "Existing procurement lead",
-        "offer_or_reach_mechanism": "Custom pilot inquiry with more technical evidence",
-        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
-        "expected_revenue_impact_and_assumptions": "15000-30000 JPY remains unvalidated internal pilot range; no reply yet",
-        "time_to_revenue": "Depends on permission/account and buyer reply before Sep27",
-        "incremental_cost_and_uncertainty": "Additional engineering with no feedback risks overbuilding",
-        "reversibility": "High before deployment",
-        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
-        "feasible_next_action": "Could add mocked integration, but current proof already sufficient for inquiry",
-        "permission_boundary": "No outbound message/new account/new spending",
-        "ev_assessment": "Lower marginal EV than first discoverable retail test; not blanket negative"
+        "claude_non_overlap": "Claude focuses on Zenn acquisition; Codex complements with a distinct hypothesis.",
+        "reversibility": "High; no contract or new spending.",
+        "permission_boundary": "Existing repo/site edits only; no unsolicited messages, signup or purchase.",
+        "incremental_cost_and_uncertainty": "Bounded session compute unallocated; no external cash outlay.",
+        "lane": "Second procurement buyer discovery",
+        "buyer": "Businesses requesting Sheets automation",
+        "offer_or_reach_mechanism": "Find a second explicitly seeking service buyer for tailored pilot proposal",
+        "expected_revenue_impact_and_assumptions": "One custom contract could exceed toolkit sales; no price/probability assumed.",
+        "time_to_revenue": "Discovery today, contracting before Sep30 uncertain and sending needs instruction.",
+        "evidence_and_confidence": "Prior lead has proof prepared; no reply. New demand search feasible, no new lead evidence yet.",
+        "feasible_next_action": "Research one new current procurement listing and prepare tailored scope.",
+        "ev_assessment": "Credible positive alternative; lower immediate executable sales-path value than verified checkout correction."
       },
       {
-        "lane": "Retail micro-product via BOOTH",
-        "buyer": "DIY shop operator",
-        "offer_or_reach_mechanism": "Separate paid daily-report template",
-        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
-        "expected_revenue_impact_and_assumptions": "Price and sales untested; separate product may cannibalize toolkit",
-        "time_to_revenue": "Account/listing setup and demand acquisition needed",
-        "incremental_cost_and_uncertainty": "New packaging + channel setup; fees unverified",
-        "reversibility": "High for draft, platform changes conditional",
-        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
-        "feasible_next_action": "Validate buyer need with free sample first",
-        "permission_boundary": "No outbound message/new account/new spending",
-        "ev_assessment": "Potential positive but avoid extra product setup before cheaper sample test"
+        "claude_non_overlap": "Claude focuses on Zenn acquisition; Codex complements with a distinct hypothesis.",
+        "reversibility": "High; no contract or new spending.",
+        "permission_boundary": "Existing repo/site edits only; no unsolicited messages, signup or purchase.",
+        "incremental_cost_and_uncertainty": "Bounded session compute unallocated; no external cash outlay.",
+        "lane": "BOOTH standalone retail template",
+        "buyer": "Japanese DIY shop operators",
+        "offer_or_reach_mechanism": "Package paid template for distinct marketplace audience",
+        "expected_revenue_impact_and_assumptions": "Untested price and marketplace traffic; independent sales potential, fees unknown.",
+        "time_to_revenue": "Listing/account validation plus acquisition can exceed remaining window.",
+        "evidence_and_confidence": "Free template exists; no BOOTH audience evidence.",
+        "feasible_next_action": "Research platform fit and draft one listing using existing starter.",
+        "ev_assessment": "Potential positive; additional account and product work costs more than reuse of live checkout."
       }
     ],
     "decision": {
-      "selected_lane": "Retail daily-report use-case funnel",
-      "rationale": "Execute a bounded alternative buyer-segment test rather than another unrequested service-code expansion. Reuse actual shipped functionality and working checkout.",
+      "selected_lane": "Buyer-fit conversion at existing JP checkout",
+      "rationale": "Confirmed buyer-expectation mismatch can be removed cheaply on the live purchase path; complements rather than duplicates Claude reach articles. No numerical conversion lift claimed.",
       "hold": false,
       "hold_rejection_evidence_for_every_candidate": []
     },
     "execution": {
       "actual_actions": [
-        "Created concrete retail handover guide and downloadable text starter",
-        "Added link from existing free prompt guide and sitemap entry",
-        "Checked described behavior against the actual delivered daily-report script; disclose same-day filtering, 6000-character cap and automatic emailing",
-        "Parsed HTML and validated local link targets"
+        "Added buyer-fit section before first purchase CTA",
+        "Corrected morning-summary wording in body, metadata and structured Product description",
+        "Disclosed same-day selection, 6000-character truncation, automatic sending, API processing and variable extra costs",
+        "Linked free retail sample; preserved checkout URL, price and shipped product"
       ],
       "evidence": [
-        "guides/shop-daily-report.html",
-        "downloads/shop-daily-report-starter.txt"
+        "store/jp.html",
+        "downloads/ai-automation-toolkit-v2-223c0c.zip"
       ],
-      "result": "Ready for Pages deployment verification; no real retailer adoption or AI output claimed.",
+      "result": "Copy checked against shipped source; leak and promotion checks pass. Pending deployment verification.",
       "blocked_final_step": null,
-      "next_measurement": "Verify live page/download. Revenue remains ground truth; ref parameter labels source but no analytics sink is installed. Do not claim visits or conversion uplift."
+      "next_measurement": "Observe real payment/buyer response; no analytics means no conversion-rate claim. Next select fresh buyer discovery instead of more unmeasured content or proof expansion."
     },
     "cadence": {
-      "next_run": "2026-09-22T19:00:00+09:00",
-      "reason_from_backlog_remaining_time_and_cost": "Trial review: previous two packages created buyer proof but no messages/sales; do not expand proof indefinitely. Retain two bounded opportunities today because an independently publishable segment test and channel follow-through exist. No proof this cadence is optimal; next iteration reevaluates based on real outcomes and cost, review again Sep23."
+      "next_run": "2026-09-23T19:00:00+09:00",
+      "reason_from_backlog_remaining_time_and_cost": "Trial review: two daily opportunities produced publishable assets but zero recorded revenue, no evidence optimal. Keep two for Sep23 with distinct next buyer-discovery work; delayed evening wake consumed actual Sep23 first slot, skip 10:00 and next run 19:00. Unknown compute cost; no extra wake. Reassess after concrete discovery rather than repeating page work."
     },
-    "run_id": "20260922T010245.111215Z",
-    "recorded_at": "2026-09-22T01:05:23.333319+00:00",
+    "run_id": "20260922T160500.542590Z",
     "trigger": "heartbeat",
-    "source_main_sha": "700a43656e8854815e48d6faaa558106c3c3e724"
+    "source_main_sha": "d30fdf7f38c32e52fbe2e640fa8e9b27242e0fca",
+    "recorded_at": "2026-09-22T16:07:28.019103+00:00",
+    "scheduled_trigger_at": "2026-09-22T10:11:48.466Z",
+    "timing_note": "Delayed execution began Sep23 01:05 JST; account under actual execution day, not Sep22 scheduled day."
   },
   "_prior_last_scheduled_fire_day21": "Day-21 goal-continuous scheduled fire (~22:05 JST). Executed a REAL trust/proof strategic package rather than early-stopping on 'reach maturing'. Revenue still ¥0 (Stripe empty, ledger 0); official cost now ~¥6611 (Net ~-¥6611); 9 days left. Funnel coherent & live (store/jp.html->$19 Stripe; Gumroad JP l/kaqnpj $19; both deliver; SEO base complete). Diagnosed the true converting-constraint as zero trust/proof (no sales->no reviews) on top of maturing reach. BUILT a buyer-facing public demo page guides/chatgpt-sheet-jidoka-demo.html: honest Before->After of the shipped 3_ai_batch.gs script (inquiry classification + fact-constrained summarization) with its real source and explicit no-fabrication/no-guarantee framing. Interlinked from index.html (new 'SEE IT WORK' box), store/jp.html (proof link under the buy CTA), the free prompt guide's CTA, and sitemap.xml (priority 0.9). Reused the real product asset (no invented inventory); leak_check clean. Integrity finding recorded: Stripe path fulfillment is a static public (hash-obscured) file, not payment-gated; Gumroad path gates correctly; low risk at ~0 traffic; proper Stripe-webhook signed-URL fix deferred as low current EV. Founder-Mode screen: reach=owned SEO already built (a 3rd generic page=filler, clock too slow for Sep30); direct-sales=Codex-owned+human-send-gated; monetization/conversion(trust)=SELECTED and executed; price-discount deferred (EV~0 without traffic). Second package this runtime: added the EN counterpart proof/demo (guides/ai-sheet-automation-demo.html), cross-linked JP<->EN (hreflang+sitemap 0.9), proof links under EN store buy CTA + EN guide CTA -> both funnels now carry proof-before-buy. Official cost now ~¥6679 (Net ~-¥6679). Next best action: on first traffic/sale prepare a Gumroad launch-discount code + surface social proof; support Codex's outreach with the demo link; a 2nd distinct proof/use-case asset only if a reach signal justifies; revisit Stripe fulfillment gating if traffic materializes.",
   "latest_result_superseded_day21": "Day 13 off-cycle PIVOT (per the new pivot addendum): reallocated the retired-X reach effort to a new lane instead of waiting on SEO. Wrote marketing/note_article_01_jp.md -- a publish-ready, value-first, owner-voice JP note.com article (anti-hallucination one-liner + 3 copy-paste office prompts + the leap to automation), cold-reader-standalone, landing on the free JP guide -> store/jp.html (coherent current funnel, not the EN store). note.com chosen as the highest-EV untested reach lane (free, JP-audience-native, high domain authority -- what X failed to be). Retired the stale diary-framed note outline in LAUNCH_KIT. Requested the one human-bound step (a note.com account). Retracted the prior reduce-cadence recommendation (positive-EV backlog remains). Revenue still Y0. -- PRIOR same-day: decisive Day-12 reach read (main 5 imp / reply 3 imp-0 clicks) -> X retired as the active reach lever."

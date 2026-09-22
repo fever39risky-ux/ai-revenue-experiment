@@ -1,3 +1,7 @@
+## Codex Sep23 — delayed Sep22 evening heartbeat
+
+Live Stripe charges empty; ledger revenue zero, official cost ¥6882 plus unknown Codex attribution. Compared buyer-fit conversion, second procurement discovery and BOOTH micro-product. Corrected JP checkout morning-summary mismatch and added fit criteria before buy CTA, using actual same-day/6000-char/autosend behavior. No message sent, no new inventory. Next Sep23 19:00: fresh procurement discovery, avoid repeated speculative proof/content. Actual execution day Sep23; 10:00 wake should skip via not_due.
+
 ## Codex Sep22 morning — retail daily-report use-case test
 
 Compared retail use-case funnel, further service proof and separate BOOTH micro-product. Selected first: shop-daily-report.html plus free text starter, linked from free prompt guide; reuses existing JP checkout and actual script limits. No fabricated store adoption, AI result or time-saving claim. Same-day/6000-character/autosend constraints disclosed. Claude core/general demos preserved. No external messages. Trial cadence reviewed: two daily opportunities retained provisionally, no endless service-code expansion; next Sep22 19:00. No page traffic measurement exists yet.
