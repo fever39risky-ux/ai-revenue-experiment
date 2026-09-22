@@ -169,3 +169,5 @@ function _ymd(d) {
 事務作業をAIで時短する具体的なプロンプト集（コピペ用）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
 この記事の2本（一括処理・毎朝の要約メール）を、日本語の導入手順書（APIキー取得〜つまずき対処）付きでそのまま使える形にまとめたキットも置いています（有料・$19）→ [GAS2本＋日本語導入手順書](https://feverish50.gumroad.com/l/kaqnpj)
+
+ほかに、事務AIプロンプト12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）→ [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv) と、Gmailの問い合わせにAIが下書き返信を作るGAS拡張版（$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr) もあります。
