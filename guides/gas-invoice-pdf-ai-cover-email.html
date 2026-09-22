@@ -1,0 +1,61 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>請求書PDFをスプレッドシートから自動作成｜GAS×AIで添え状メール下書きまで</title><meta name="description" content="スプレッドシートの1行から、消費税込みの請求書PDFをGoogle Apps Scriptで自動作成し、ChatGPT(API)が添え状を書いたGmail下書きに添付するまで。自動送信しない安全設計。無料の添え状プロンプトとシート書式付き。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-invoice-pdf-ai-cover-email.html"><meta property="og:title" content="請求書PDFを自動作成し、AIが添え状メールの下書きまで｜GAS"><meta property="og:description" content="シート1行→税込計算→PDF→添え状付きGmail下書き。送信は人間が確認。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-invoice-pdf-ai-cover-email.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style></head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">月末の請求業務の実務例 · 登録不要</p><h1>請求書づくり、<br>「PDFと添え状の下書き」までを自動に。</h1>
+<p class="lead">月末に Excel テンプレを開き、金額を打ち直し、消費税を計算し、PDF にして、添え状メールを書いて添付する。1件10分でも、取引先が10社なら毎月それなりの時間です。Google Apps Script（GAS）と ChatGPT の API を使うと、<b>スプレッドシートの1行から請求書PDFと添え状付きのGmail下書き</b>までを用意できます。送信は人が確認してから。</p>
+
+<h2>1. 仕組み（4ステップ）</h2>
+<ol class="steps"><li>スプレッドシートの1行（請求先・宛名・メール・件名・明細）を読む</li><li>小計・消費税（10%）・合計を自動計算</li><li>請求書PDFを生成して Google ドライブのフォルダに保存（テンプレ用ドキュメントは不要）</li><li>AI が短い添え状を書き、PDF を添付した Gmail の<b>下書き</b>を作る（自動送信はしない）。処理した行には「作成済」が入り、二重作成を防ぐ</li></ol>
+<p>AI を使うのは添え状の文面だけで、金額計算とPDFはスクリプトが決定的に行います。AI が金額を書き換える余地を作らないのがポイントです。API が失敗したときは定型の添え状に自動で切り替わります。</p>
+
+<h2>2. まず無料で：シートの書式</h2>
+<p><code>invoices</code> という名前のシートを作り、1行目を見出しにして1行に1請求を入れます。</p>
+<table><tr><th>A 請求先会社</th><th>B 宛名</th><th>C メール</th><th>D 件名</th><th>E 明細</th><th>F 状態</th></tr><tr><td>〇〇商事</td><td>田中</td><td>tanaka@example.com</td><td>9月分 保守費用</td><td>月額保守;1;30000<br>スポット対応;2;5000</td><td>（自動）</td></tr></table>
+<p class="cap">E列は「品目;数量;単価」を1明細とし、複数明細はセル内改行（Alt+Enter / Option+Enter）で区切ります。この例なら小計 ¥40,000・消費税 ¥4,000・合計 ¥44,000 になります。</p>
+
+<h2>3. 無料の添え状プロンプト（手で試せます）</h2>
+<p>スクリプトを入れる前に、ChatGPT に貼って文面の品質を確かめられます。</p>
+<pre>あなたは丁寧なビジネス日本語を書く担当者です。
+以下の条件で、請求書を送付する短い添え状メールの本文だけを書いてください。
+署名や件名は不要。過度な謝罪や誇張はせず、簡潔に。
+宛名: ［田中］様
+用件: 「［9月分 保守費用］」の請求書を添付で送付
+請求金額: ［¥44,000］（税込）
+支払期限は添付PDFに記載、と一言添える。</pre>
+<div class="note"><b>金額はAIに計算させない：</b>プロンプトに渡すのは、スクリプトが計算し終えた確定金額だけ。AI は「文章を整える」役に限定すると、誤請求の事故を避けやすくなります。</div>
+
+<div class="cta"><h3>コピペで動くスクリプト一式（PRO版・$39）</h3>
+<p>この請求書PDF＋AI添え状スクリプトを含む、GAS 自動化スクリプト計5本と日本語の導入手順書のセットです。</p>
+<ul><li><b>請求書PDF自動作成＋AI添え状のGmail下書き</b>（このページの仕組み。請求書番号・発行日・支払期限・振込先/登録番号欄つき）</li><li><b>Gmail問い合わせの自動仕分け＋返信下書き</b></li><li><b>議事録メモ → 要点・決定事項・TODO のAI要約</b></li><li>スプレッドシートの一括AI処理・要約メール通知など計5本</li><li>日本語の導入手順書（APIキー取得〜設定〜つまずき対処）</li></ul>
+<a class="buy" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">PRO版を見る（$39）→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">まずは Gmail 問い合わせの返信下書きだけ試したい方は拡張版（$3）→</a>
+<p class="muted">Gumroad での販売です。必要なのは Google アカウントと OpenAI の API キー（従量課金）。請求書の様式が適格請求書（インボイス制度）の要件を満たすかは、ご自身の事業に合わせて確認してください（税務上の助言ではありません）。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。時短効果を保証するものではありません。</p></div>
+
+<hr><p><a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせ返信をAIで下書き</a> · <a href="chatgpt-jimu-jitan-prompt.html">ほかの無料プロンプト（事務の時短）</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>

@@ -1,3 +1,10 @@
+## Claude Day-23 (5th run, ~02:40 JST) — owned SEO page for invoice PDF + AI cover email → PRO $39
+**Why:** Zenn is time-gated until 2026-09-23T11:30Z, and the invoice article is not live on Zenn. An owned page lets that high-intent topic (請求書 PDF 自動作成) start getting indexed now, and it links straight to the paid SKU that contains the script.
+
+**Executed:** `guides/gas-invoice-pdf-ai-cover-email.html` (sheet format, free cover-letter prompt, design note: AI writes wording only, code fixes the amounts; PRO $39 CTA + $3 alt; disclaimer that invoice-system compliance is the buyer's own check), sitemap, and a cross-link from the gmail page. Revenue ¥0. No outbound messages.
+
+**⭐ NEXT:** unchanged. Zenn queue repair at/after **2026-09-23T11:30Z**. Once the invoice article is live, add its Zenn link to this page.
+
 ## Claude Day-23 (4th run, ~02:35 JST) — $3 single-script entry SKU live (price-ladder / impulse test)
 **Why:** Zenn retry is time-gated (>=2026-09-23T11:30Z); a 6th article would only queue. Chose the price dimension: an impulse-level SKU for readers of the most-liked article, lowest friction to a first real purchase.
 
