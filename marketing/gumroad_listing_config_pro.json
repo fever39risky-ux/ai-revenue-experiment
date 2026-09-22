@@ -1,0 +1,17 @@
+{
+  "_doc": "PRO edition, published through the same scripts/gumroad_publish.mjs pipeline via GUMROAD_CONFIG/GUMROAD_STATE env overrides (state -> status/gumroad_listing_pro.json). Materially distinct from the JP $19 edition: 5 real working Google Apps Scripts instead of 2 (adds Gmail inquiry auto-reply, invoice PDF + AI cover-email, and meeting-minutes AI summary + auto-email -- all first shipped as honest, working-code Zenn articles on 2026-09-22/23), plus a PRO addendum guide. Created 2026-09-23 as a genuinely expanded higher-ticket digital SKU, fully AI-operable (no owner labor, unlike the Coconala done-with-you tiers), attacking the price/ticket-size + offer dimensions while Coconala stays human-blocked on KYC/payout.",
+  "name": "ChatGPTでスプレッドシート・Gmail・請求書・議事録を自動化｜そのまま動くGAS5本＋日本語導入ガイド【PRO】",
+  "description": "「毎回ChatGPTに貼る」「毎回自分でまとめる」作業を、そのまま動く Google Apps Script 5本で消します。基本のスプレッドシート一括処理・自動サマリーメールに加えて、Gmail問い合わせの自動仕分け＆下書き返信、請求書PDF自動作成＋AI添え状、議事録AI自動要約（要点・決定事項・TODO）＋自動メールまで、実務でそのまま使える5本をまとめたPRO版です。コードが書けなくても、日本語の導入ガイドのとおりにコピー＆ペーストで進められます。\n\n■ 手に入るもの（スクリプト5本）\n・スクリプト①：シートの1列を、AIで一括処理（整理・要約・分類・翻訳など）\n・スクリプト②：決まった集計や進捗を、毎朝自動でメール送信\n・スクリプト③【PRO】：Gmail問い合わせを自動で仕分けし、丁寧な返信の下書きを作成（送信は人間が確認）\n・スクリプト④【PRO】：請求書PDFを自動作成し、AIが書いた添え状つきのGmail下書きを用意（金額計算はコードで確定、送信は人間）\n・スクリプト⑤【PRO】：会議の文字起こし/メモを「要点・決定事項・TODO」に自動整形し、参加者へメール送信\n・日本語の導入手順書（基本2本用PDF・全4ページ）＋PRO追加3本の導入ガイド\n・実務プロンプト20本（CSV／Sheets・Notionに取り込み可）＋請求書テンプレート\n・（ボーナス）英語版ワークフロー集PDF\n\n■ こんな方へ\n個人事業主・ひとり社長・フリーランス・小規模チームの事務/運用担当。問い合わせ対応・請求書づくり・議事録まとめのどれか1つでも「地味に時間を溶かしている」と感じる方。\n\n■ 必要なもの\nGoogleアカウント（スプレッドシート・Gmail）＋ 従量課金の OpenAI APIキー（少額から。取得手順はガイドにあります）。ChatGPT等の有料プランは不要です。\n\n■ 安全設計について\nどのスクリプトも「AIは文章・下書きだけ、金額や送信の確定は人間またはコード」という役割分担にしています。自動送信はしません（下書き作成・要約メール通知まで）。\n\n■ 進め方\nご購入後すぐにZIPをダウンロード → 導入ガイドのとおりに貼って実行。5本は独立して動くので、必要なものだけ導入できます。ご質問はメッセージでどうぞ。\n\n■ 正直なご注意\n・収益や時短効果を保証するものではありません（効果は対象業務により変わります）。\n・APIの利用料はご購入者負担です（gpt-4o-miniは非常に安価）。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・本商品はAIの助けを借りて制作したオリジナルの編集物で、転売・ドロップシッピングではありません。",
+  "price": 39.00,
+  "currency": "usd",
+  "currency_note": "~¥5,850 at ~150 JPY/USD. Deliberately priced above the JP $19 base edition (~¥2,900) because the PRO ZIP contains 5 real working scripts instead of 2 -- more than double the shipped automation value, not a repriced duplicate. Kept below the Coconala mid-tier (¥7,980) since this is a pure self-serve digital SKU with zero owner labor, unlike Coconala's done-with-you tiers.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "taxonomy_note": "self-improvement/productivity, same as the EN and JP editions.",
+  "tags": ["chatgpt", "google apps script", "業務効率化", "gmail 自動化", "請求書 自動化", "議事録", "ai automation"],
+  "cover_image": "marketing/coconala-images/01-thumb-square.png",
+  "cover_image_note": "Reuses the same verified square (1200x1200) before/after thumbnail already live on the JP edition -- honest, no new claim, same visual product family. Gumroad requires a square thumbnail.",
+  "digital_file": "downloads/ai-automation-toolkit-pro-b8d407.zip",
+  "digital_file_name": "AI-jidoka-toolkit-PRO.zip",
+  "refund_period_note": "Left at Gumroad's default; digital no-refund-after-download stated honestly in the description."
+}
