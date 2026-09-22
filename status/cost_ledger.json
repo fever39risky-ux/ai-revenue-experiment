@@ -709,11 +709,22 @@
       "operator": "Claude",
       "reference": "claude-day23-zenn-meeting-minutes",
       "note": "Mac-local supervisor first run bootstrap + goal-continuous fire. Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor run 35733309445 = 0 new Gumroad sale; no open issues; branch synced with origin/main). No new capability/market signal. Resumed AUTONOMY_STATE.next_action: added the next distinct high-intent Zenn article (articles/gas-meeting-minutes-ai-summary.md, published:true) -- 議事録の自動要約 (meeting-minutes -> AI-extracted 要点/決定事項/TODO + auto-email), honestly built on the same real askAI() core as the other 3 derivative articles, a genuinely new high-search-volume JP office-pain-point query distinct from the 4 existing Zenn articles. Non-duplicative vs Codex's same-day buyer-fit conversion work on store/jp.html. Estimate; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "operator": "Claude",
+      "reference": "claude-day23-gumroad-pro-edition",
+      "note": "Same goal-continuous runtime, second strategic package (price/ticket-size + offer dimension, not more reach supply). Extracted 3 real GAS scripts (Gmail inquiry auto-reply, invoice PDF+AI cover-email, meeting-minutes AI summary) from this week's Zenn articles into standalone files, wrote a PRO addendum setup guide + updated START_HERE, assembled a genuinely expanded deliverable ZIP (downloads/ai-automation-toolkit-pro-b8d407.zip, 5 scripts total), created marketing/gumroad_listing_config_pro.json ($39) + .github/workflows/gumroad-publish-pro.yml with isolated state status/gumroad_listing_pro.json, dispatched it (run 35758103134) -- succeeded live, product LzCTMbPbXr1XxcbVbddEOw== at https://feverish50.gumroad.com/l/jqxenl with thumbnail. Backlinked from index.html + upsold on store/jp.html. Fully AI-operable, no owner labor, isolated from the EN/JP listings. No sale yet. Estimate; provider billing authoritative."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6942
+    "official_cost_jpy_equivalent": 7107
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",

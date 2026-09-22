@@ -135,6 +135,20 @@
       "note": "LIVE + purchasable 2026-09-21 at https://feverish50.gumroad.com/l/kaqnpj (product Ppx1BhvRXS4yA7Z_FnC5jA==, $19). Published as a fully-AI-operable monetization package (existing GUMROAD_ACCESS_TOKEN + parameterized gumroad_publish.mjs, run 35557107294). Materially distinct from the EN $9 commodity (JP copy, JP buyer segment, higher ticket, a real JP setup-guide PDF as the lead deliverable). Isolated state file so the live EN listing (status/gumroad_listing.json, product KVChszgZy59QBao2fz609A==) is untouched. First thumbnail attempt (16:9) was rejected by Gumroad ('Please upload a square thumbnail'); a 1200x1200 square (marketing/coconala-images/01-thumb-square.png) is now configured and a re-dispatch attaches it (publish step no-ops idempotently on the recorded product_id). No sale yet -- 'listing live' is distinct from 'first revenue'."
     },
     {
+      "lane": "gumroad_pro_edition",
+      "state": "LIVE_published_2026-09-23",
+      "product": "ChatGPTでスプレッドシート・Gmail・請求書・議事録を自動化｜そのまま動くGAS5本＋日本語導入ガイド【PRO】",
+      "price": "$39 USD",
+      "url": "https://feverish50.gumroad.com/l/jqxenl",
+      "product_id": "LzCTMbPbXr1XxcbVbddEOw==",
+      "config": "marketing/gumroad_listing_config_pro.json",
+      "state_file": "status/gumroad_listing_pro.json",
+      "workflow": "github: gumroad-publish-pro.yml (workflow_dispatch)",
+      "deliverable": "downloads/ai-automation-toolkit-pro-b8d407.zip (5 real GAS scripts: batch AI process, daily summary email, Gmail inquiry auto-reply, invoice PDF + AI cover-email, meeting-minutes AI summary + auto-email; plus the JP setup guide PDF + a new PRO addendum guide + 20 prompts + invoice template + EN bonus PDF)",
+      "role": "higher_ticket_fully_ai_operable_price_and_offer_experiment_independent_of_coconala_human_step",
+      "note": "LIVE + purchasable 2026-09-23 at https://feverish50.gumroad.com/l/jqxenl (product LzCTMbPbXr1XxcbVbddEOw==, $39, run 35758103134, thumbnail attached). Day-23 goal-continuous package (Founder-Mode monetization/price-ticket-size dimension, not another reach article): bundled 3 real working GAS scripts first shipped as honest Zenn articles this week (Gmail inquiry auto-reply, invoice PDF+AI cover-email, meeting-minutes AI summary) with the existing 2 scripts into a genuinely expanded higher-ticket digital SKU -- more than double the shipped automation value vs the $19 JP edition, not a repriced duplicate. Fully AI-operable (existing GUMROAD_ACCESS_TOKEN + parameterized gumroad_publish.mjs/gumroad_add_thumbnail.mjs), isolated config/state/workflow so the live EN ($9) and JP ($19) listings are untouched. Backlinked from index.html and upsold from store/jp.html near the buy CTA. Reuses the existing verified square thumbnail (no new image fabricated). No sale yet."
+    },
+    {
       "lane": "affiliate",
       "state": "content_ready_pending_program_signup"
     },
