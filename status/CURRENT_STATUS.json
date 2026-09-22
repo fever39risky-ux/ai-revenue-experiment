@@ -401,100 +401,98 @@
   "codex_latest": {
     "observed": {
       "revenue": 0,
-      "revenue_coverage_and_timestamp": "Sep21 live Stripe GetCharges returned empty list, has_more=false. Repo ledger zero; other channels not freshly queried.",
-      "known_cost_jpy": 6498,
+      "revenue_coverage_and_timestamp": "Latest main official ledger zero; no fresh live payment query this iteration. Earlier Stripe zero is not a current all-channel observation.",
+      "known_cost_jpy": 6732,
       "unknown_costs": [
-        "Subscription compute attribution"
+        "Codex subscription attribution"
       ],
-      "remaining_days": 10,
-      "claude_active_lane": "New Japanese Gumroad product, Coconala materials, Japanese delivery guide and existing checkout coherence."
+      "remaining_days": 9,
+      "claude_active_lane": "General JP/EN demo, Japanese paid core, Coconala preparation, Zenn. Existing store/demo preserved."
     },
     "opportunity_screen": {
-      "higher_ticket_service": "Selected buyer-originated fixed-scope service pilot, different acquisition path from Claude Coconala.",
-      "direct_sales_outreach": "Prior recipient-specific send question is unanswered; no message sent. Continue reusable proof, not a repeat permission request.",
-      "japanese_paid_core": "Claude now launched Japanese Gumroad core; do not duplicate.",
-      "micro_product": "Standalone fleet input validator on BOOTH remains a test candidate, separate packaging/traffic needed.",
-      "alternate_buyer_segments": "Vehicle relocation operator with public operational request.",
-      "jp_marketplace": "CrowdWorks procurement selected; Coconala already owned by Claude; BOOTH template sale remains candidate.",
-      "affiliate_referral": "Workflow-tool comparison/referral possible, program acceptance and conversion horizon unverified.",
-      "use_case_landing_pages": "A focused fleet page could support proposal later; SEO alone unlikely faster than already open request.",
-      "demo_proof_assets": "Selected TEST-only Sheets prototype to strengthen the buyer-originated service path.",
-      "buyer_discovery_lead_sourcing": "Three current public requests qualified; one prioritized, two ruled out for specific fit limits."
+      "higher_ticket_service": "Custom service remains credible; recipient send permission unanswered, no need to keep expanding proof.",
+      "direct_sales_outreach": "No message authorized by current session; proposal already prepared.",
+      "japanese_paid_core": "Reuse existing JP core; do not duplicate Claude product.",
+      "micro_product": "Retail-specific standalone template possible, but separate checkout/inventory unnecessary for first test.",
+      "alternate_buyer_segments": "Small-shop end-of-day handover distinct from vehicle-dispatch service.",
+      "jp_marketplace": "Coconala Claude-owned; BOOTH would require new listing setup, not selected now.",
+      "affiliate_referral": "Commission program still unverified; slower payout risk.",
+      "use_case_landing_pages": "Selected retail daily-report use case with free input template and existing paid core CTA.",
+      "demo_proof_assets": "Reuse shipped script and state exact limits instead of inventing performance claims.",
+      "buyer_discovery_lead_sourcing": "Existing procurement lead retained; no redundant shortlist built today."
     },
     "candidates_minimum_3": [
       {
-        "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
-        "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
-        "lane": "Buyer-request-led service with TEST Sheets proof",
-        "buyer": "Vehicle relocation small business",
-        "offer_or_reach_mechanism": "Reply to existing procurement with synthetic proof and bounded TEST pilot",
-        "claude_non_overlap": "CrowdWorks outbound proposal rather than Coconala listing or Zenn traffic",
-        "expected_revenue_impact_and_assumptions": "Prior internal 15000-30000 JPY pilot range is a price hypothesis, not a quote or buyer budget. Better technical evidence may improve fit assessment; impact unknown.",
-        "time_to_revenue": "Possible discussion before Sep27 deadline if messaging becomes authorized; Sep30 cash receipt uncertain",
-        "incremental_cost_and_uncertainty": "One bounded coding/test package with no external spend; real integration effort not yet known",
-        "reversibility": "High before sending; synthetic files disposable; no customer-system change",
-        "feasible_next_action": "Implement actual Apps Script adapter and verify failure-before-write behavior using mocks",
-        "ev_assessment": "Highest provisional EV through reuse of identified buyer requirement; stop further speculative expansion after TEST adapter until feedback or live test"
+        "lane": "Retail daily-report use-case funnel",
+        "buyer": "Small-shop owner",
+        "offer_or_reach_mechanism": "Free template -> existing JP $19 toolkit",
+        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
+        "expected_revenue_impact_and_assumptions": "Unknown conversion; existing checkout means a visitor can purchase without new setup. No uplift promised.",
+        "time_to_revenue": "Immediate availability after deployment, traffic and Sep30 receipt uncertain",
+        "incremental_cost_and_uncertainty": "One bounded page/download; no external purchase; compute unknown",
+        "reversibility": "High: remove page/link without changing product",
+        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
+        "feasible_next_action": "Publish a concrete input workflow and accurate capability boundaries",
+        "permission_boundary": "No outbound message/new account/new spending",
+        "ev_assessment": "Highest provisional EV: reaches alternate use case using live paid asset with no new sales setup"
       },
       {
-        "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
-        "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
-        "lane": "Fleet paperwork micro-product on BOOTH",
-        "buyer": "Small fleet operators wanting self-service templates",
-        "offer_or_reach_mechanism": "Standalone validation template and paid Japanese instructions",
-        "claude_non_overlap": "Different buyer segment and product vs Claude general JP toolkit",
-        "expected_revenue_impact_and_assumptions": "Hypothetical 1000-3000 JPY per sale; more buyers needed; willingness to buy template untested",
-        "time_to_revenue": "Days to list after account setup, demand acquisition horizon unknown",
-        "incremental_cost_and_uncertainty": "Build+listing+distribution time, marketplace terms/fees not yet researched; compute unknown",
-        "reversibility": "High for draft; listing reversible subject to platform rules",
-        "feasible_next_action": "Interview/discover requirements then build one sample",
-        "ev_assessment": "Potential positive EV, but new packaging/distribution slower than strengthening already targeted service proof; not classified negative."
+        "lane": "Extend vehicle-dispatch service proof",
+        "buyer": "Existing procurement lead",
+        "offer_or_reach_mechanism": "Custom pilot inquiry with more technical evidence",
+        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
+        "expected_revenue_impact_and_assumptions": "15000-30000 JPY remains unvalidated internal pilot range; no reply yet",
+        "time_to_revenue": "Depends on permission/account and buyer reply before Sep27",
+        "incremental_cost_and_uncertainty": "Additional engineering with no feedback risks overbuilding",
+        "reversibility": "High before deployment",
+        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
+        "feasible_next_action": "Could add mocked integration, but current proof already sufficient for inquiry",
+        "permission_boundary": "No outbound message/new account/new spending",
+        "ev_assessment": "Lower marginal EV than first discoverable retail test; not blanket negative"
       },
       {
-        "permission_boundary": "No external message sent; explicit recipient-specific send instruction still needed. No account creation or contract.",
-        "evidence_and_confidence": "Qualitative scenario, no invented conversion probability.",
-        "lane": "Workflow-tool referral comparison",
-        "buyer": "Small teams selecting automation services",
-        "offer_or_reach_mechanism": "Use-case comparison linking eligible referral offer",
-        "claude_non_overlap": "Software selection rather than Claude own-toolkit funnel",
-        "expected_revenue_impact_and_assumptions": "Commission unknown until an actual eligible program is verified; no amount assumed",
-        "time_to_revenue": "Program acceptance and payout may exceed Sep30",
-        "incremental_cost_and_uncertainty": "Research/content cost; no ad spend; eligibility not verified",
-        "reversibility": "High for unpublished research",
-        "feasible_next_action": "Verify program terms and buyer fit before recommending",
-        "ev_assessment": "Still uncertain commission eligibility/payout horizon; lower rank than testable service proof, not blanket negative."
+        "lane": "Retail micro-product via BOOTH",
+        "buyer": "DIY shop operator",
+        "offer_or_reach_mechanism": "Separate paid daily-report template",
+        "claude_non_overlap": "Distinct candidate; no edits to Claude paid offer or general demonstration",
+        "expected_revenue_impact_and_assumptions": "Price and sales untested; separate product may cannibalize toolkit",
+        "time_to_revenue": "Account/listing setup and demand acquisition needed",
+        "incremental_cost_and_uncertainty": "New packaging + channel setup; fees unverified",
+        "reversibility": "High for draft, platform changes conditional",
+        "evidence_and_confidence": "Hypothesis, no measured conversion probability",
+        "feasible_next_action": "Validate buyer need with free sample first",
+        "permission_boundary": "No outbound message/new account/new spending",
+        "ev_assessment": "Potential positive but avoid extra product setup before cheaper sample test"
       }
     ],
     "decision": {
-      "selected_lane": "Buyer-request-led service with TEST Sheets proof",
-      "rationale": "Concrete requirement and existing proof lower preparation cost compared with separate BOOTH product or new referral acquisition. Claude is covering JP paid core.",
+      "selected_lane": "Retail daily-report use-case funnel",
+      "rationale": "Execute a bounded alternative buyer-segment test rather than another unrequested service-code expansion. Reuse actual shipped functionality and working checkout.",
       "hold": false,
       "hold_rejection_evidence_for_every_candidate": []
     },
     "execution": {
       "actual_actions": [
-        "Added preview.gs adapter reading DEMO_INPUT and writing only a fresh PREVIEW sheet in TEST-named workbook",
-        "Added synthetic sample.tsv and Japanese setup steps",
-        "Executed mock-service tests for valid/unassigned data, duplicate IDs, invalid dates, missing values, bad header, TEST guard and formula-like strings"
+        "Created concrete retail handover guide and downloadable text starter",
+        "Added link from existing free prompt guide and sitemap entry",
+        "Checked described behavior against the actual delivered daily-report script; disclose same-day filtering, 6000-character cap and automatic emailing",
+        "Parsed HTML and validated local link targets"
       ],
       "evidence": [
-        "demos/dispatch-proof/preview.gs",
-        "demos/dispatch-proof/test-preview.mjs",
-        "demos/dispatch-proof/sample.tsv",
-        "demos/dispatch-proof/README.md"
+        "guides/shop-daily-report.html",
+        "downloads/shop-daily-report-starter.txt"
       ],
-      "result": "Code and reproducible mock verification complete; real Google execution, Gmail integration, customer response and revenue unproven. No external messages sent.",
-      "blocked_final_step": "Prior external-send question remains unanswered; no duplicate request. Live Google run not performed.",
-      "next_measurement": "Use existing proof in authorized buyer conversation or a TEST Google execution when access is available. Avoid adding further unrequested modules without feedback; consider other buyer segments next."
+      "result": "Ready for Pages deployment verification; no real retailer adoption or AI output claimed.",
+      "blocked_final_step": null,
+      "next_measurement": "Verify live page/download. Revenue remains ground truth; ref parameter labels source but no analytics sink is installed. Do not claim visits or conversion uplift."
     },
     "cadence": {
-      "next_run": "2026-09-22T10:00:00+09:00",
-      "reason_from_backlog_remaining_time_and_cost": "Keep 10/19 JST trial until Sep22 review. Concrete sales package ready; next evaluate buyer progress and alternate monetization, not another speculative code expansion."
+      "next_run": "2026-09-22T19:00:00+09:00",
+      "reason_from_backlog_remaining_time_and_cost": "Trial review: previous two packages created buyer proof but no messages/sales; do not expand proof indefinitely. Retain two bounded opportunities today because an independently publishable segment test and channel follow-through exist. No proof this cadence is optimal; next iteration reevaluates based on real outcomes and cost, review again Sep23."
     },
-    "run_id": "20260921T105410.122148Z",
+    "run_id": "20260922T010245.111215Z",
+    "recorded_at": "2026-09-22T01:05:23.333319+00:00",
     "trigger": "heartbeat",
-    "started_at": "2026-09-21T10:54:10.122148+00:00",
-    "recorded_at": "2026-09-21T10:56:19.650192+00:00",
-    "source_main_sha": "a5f7fe54ce828aea39dfaca071e90f206aba3038"
+    "source_main_sha": "700a43656e8854815e48d6faaa558106c3c3e724"
   }
 }

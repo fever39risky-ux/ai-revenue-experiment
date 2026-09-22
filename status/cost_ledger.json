@@ -654,6 +654,17 @@
       "operator": "Claude",
       "reference": "20260921T133500Z",
       "note": "Day-21 second strategic package (goal-continuous). Built the ENGLISH counterpart proof/demo guides/ai-sheet-automation-demo.html to extend trust/proof to the larger EN Gumroad Discover / EN store market (EN funnel already live at $19). Honest EN Before->After of the same 3_ai_batch.gs + real source; cross-linked JP<->EN via hreflang, added to sitemap (0.9), proof links under EN store buy CTA and EN guide CTA. No new inventory. ~$0.45."
+    },
+    {
+      "date": "2026-09-22",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "reference": "20260922T010245.111215Z",
+      "operator": "Codex",
+      "note": "Retail use-case funnel and free starter. Unknown subscription compute attribution; no external purchase."
     }
   ],
   "totals": {
