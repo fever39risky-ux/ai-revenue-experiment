@@ -1,0 +1,65 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailの問い合わせ返信をAIで下書き｜GAS×ChatGPT、自動送信しない安全設計</title><meta name="description" content="Gmailに届く問い合わせを、Google Apps Script と ChatGPT(API) で自動仕分けし、返信の下書きまで作る方法。自動送信はしない・分からない事実は断定させない設計。無料で使える返信方針プロンプト付き。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-inquiry-ai-draft-reply.html"><meta property="og:title" content="Gmailの問い合わせ返信をAIで下書き｜GAS×ChatGPT"><meta property="og:description" content="問い合わせを自動仕分けし、返信の下書きまで。送信は人間が確認する安全設計。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-inquiry-ai-draft-reply.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style></head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">問い合わせ対応の実務例 · 登録不要</p><h1>Gmailの問い合わせ返信、<br>「下書きまで」をAIに任せる。</h1>
+<p class="lead">フォーム通知や問い合わせメールが来るたびに、ゼロから返信を書いていませんか。Google Apps Script（GAS）と ChatGPT の API を使うと、届いたメールの<b>分類と返信の下書き</b>までを自動で用意できます。送信は人が確認してから。これが事故らない使い方です。</p>
+
+<h2>1. 仕組み（3ステップ）</h2>
+<ol class="steps"><li>Gmail のフィルタで、問い合わせメールに「問い合わせ」ラベルが付くようにする</li><li>GAS が1時間おきに未読のラベル付きスレッドを読み、AI が「緊急・質問・要望・クレーム・その他」に分類</li><li>AI が返信文を作り、Gmail の<b>下書き</b>として保存（自動送信はしない）</li></ol>
+<p>分類と下書きは1回のAPI呼び出しでまとめて取るので、gpt-4o-mini なら1件あたりの費用はごく小さく済みます（従量課金・利用量により変動）。</p>
+
+<h2>2. まず無料で試す：返信方針プロンプト</h2>
+<p>スクリプトを入れる前に、ChatGPT に手で貼って品質を確かめられます。<b>［ ］</b>の部分をあなたのお店・事業に合わせて書き換えてください。</p>
+<pre>あなたは丁寧で簡潔な日本語のカスタマーサポート担当です。
+相手の名前が分かれば宛名を付け、要件を1文で受け止めてから回答します。
+回答に使ってよい確定事実は次だけです。これ以外の在庫・価格・日程・規定は
+断定せず「確認して折り返します」と書いてください。
+- 営業時間：［平日10:00〜18:00］
+- 返信目安：［1営業日以内］
+- ［料金・キャンセル規定などを1行ずつ］
+過度な謝罪や誇張はしません。
+
+次の問い合わせに対する返信文だけを書いてください（署名は不要）。
+---
+［問い合わせメールの本文を貼る］</pre>
+<div class="note"><b>いちばん大事な一行：</b>「確定事実以外は断定せず『確認して折り返します』と書く」。AI は分からない在庫や日程を"それっぽく"埋めがちです。言ってよい事実を明示し、それ以外を断定させないだけで、誤った約束をする事故がかなり減ります。</div>
+
+<h2>3. 自動化するなら（コードは無料で公開中）</h2>
+<p>GAS のコード全文と解説は Zenn で無料公開しています → <a href="https://zenn.dev/kinoshita_ai/articles/gas-chatgpt-gmail-inquiry-auto-reply" target="_blank" rel="noopener">GAS×ChatGPTでGmail問い合わせを自動仕分け・返信下書き（Zenn）</a></p>
+<ul><li>必要なもの：Google アカウントと OpenAI の API キー（従量課金）。ChatGPT の有料プランは不要です。</li><li>メールはあなたの Google アカウント内で処理され、本文は OpenAI API に送信されます。個人情報を含むメールの扱いは、各自の運用ルールに従ってください。</li><li>下書きを作るだけなので、深夜や休日に動いても外部に勝手に送られることはありません。</li></ul>
+
+<div class="cta"><h3>拡張版（$3）：FAQ参照・除外設定・お試しモード付き</h3>
+<p>記事版のスクリプトに、実務で欲しくなる3機能と業種別テンプレを足した1本です。</p>
+<ul><li><b>FAQ参照</b>：登録した確定事実だけを使って回答（上のプロンプトの考え方をコード化）</li><li><b>除外送信元</b>：noreply・通知・メルマガなど返信不要なメールを自動スキップ</li><li><b>お試しモード</b>：下書きもラベルも作らず、分類と返信案をログで確認してから本番化</li><li><b>業種別の返信方針テンプレ10種</b>（飲食・サロン・EC・士業・制作・教室・BtoB・不動産・治療院・宿泊）＋日本語の導入手順</li></ul>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">拡張版を見る（$3・約470円）→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF自動作成・議事録AI要約など計5本のPRO版（$39）はこちら →</a>
+<p class="muted">Gumroad での販売です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。時短効果を保証するものではありません。</p></div>
+
+<hr><p><a href="chatgpt-jimu-jitan-prompt.html">ほかの無料プロンプト（事務の時短）</a> · <a href="chatgpt-sheet-jidoka-demo.html">スプレッドシート自動化の実演</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
