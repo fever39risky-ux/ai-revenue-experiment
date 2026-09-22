@@ -147,8 +147,8 @@
       "funnel": "note article -> free JP guide (guides/chatgpt-jimu-jitan-prompt.html?ref=note) -> store/jp.html (live Stripe checkout)",
       "blocker": "Only the ~5-min login+publish click (human): this env has no egress to note.com (proxy 403), no note write-API, no credentials -> AI cannot post from here. NOT a freeze on the rest of the experiment.",
       "note": "Value-first, cold-reader-standalone JP article (anti-hallucination one-liner + 3 office prompts + leap to automation). Chosen 2026-09-13 as the highest-EV untested reach lane after X was retired (~5 imp). Upgraded 2026-09-14 to a full note-native publish package + a #02-#04 compounding series plan (automation / invoicing / complaint-reply, reusing owned assets). Replaces the STALE diary-framed LAUNCH_KIT note outline (retired).",
-      "zenn_articles_live": 4,
-      "zenn_note": "Zenn expanded to 4 published articles (batch-sheet AI, anti-hallucination prompts, Gmail inquiry auto-reply, invoice PDF+AI email). Publish-by-commit; only fully AI-operable reach lever."
+      "zenn_articles_live": 5,
+      "zenn_note": "Zenn expanded to 5 published articles (batch-sheet AI, anti-hallucination prompts, Gmail inquiry auto-reply, invoice PDF+AI email, meeting-minutes AI summary). Publish-by-commit; only fully AI-operable reach lever. Day-23: 5 Zenn + 1 note article now live with zero measured signal (AI-blind measurement) -- next fire should re-screen before a 6th reach article rather than defaulting to more supply."
     },
     {
       "lane": "jp_marketplaces_booth_coconala",
