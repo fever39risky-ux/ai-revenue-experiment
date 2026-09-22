@@ -1,0 +1,39 @@
+name: Etsy taxonomy (list / set category)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'list or set'
+        required: true
+        default: 'list'
+      pattern:
+        description: 'regex for list mode'
+        required: false
+        default: 'template|planner|business|office|spreadsheet|digital'
+      taxonomy_id:
+        description: 'taxonomy id for set mode'
+        required: false
+      listing_ids:
+        description: 'comma-separated listing ids for set mode'
+        required: false
+permissions:
+  contents: read
+jobs:
+  taxonomy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run
+        env:
+          ETSY_API_KEYSTRING: ${{ secrets.ETSY_API_KEYSTRING }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+          ETSY_SHOP_ID: ${{ secrets.ETSY_SHOP_ID }}
+          MODE: ${{ inputs.mode }}
+          PATTERN: ${{ inputs.pattern }}
+          TAXONOMY_ID: ${{ inputs.taxonomy_id }}
+          LISTING_IDS: ${{ inputs.listing_ids }}
+        run: node scripts/etsy_taxonomy.mjs
