@@ -1,0 +1,49 @@
+name: Gumroad publish (free PWYW prompt pack)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-gumroad-free-prompts
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      # Publish the $0+ pay-what-you-want prompt pack through the same proven pipeline, isolated
+      # from the live EN, JP and PRO listings by its own config + state file.
+      # No other listing's status/gumroad_listing*.json is read or written here.
+      GUMROAD_CONFIG: marketing/gumroad_listing_config_free_prompts.json
+      GUMROAD_STATE: status/gumroad_listing_free_prompts.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Publish the single-script Gumroad listing via the official REST API (no-ops without credentials)
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: node scripts/gumroad_publish.mjs
+      - name: Upload the free prompt-pack listing thumbnail (idempotent, no-ops without credentials or if already done)
+        if: always()
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: node scripts/gumroad_add_thumbnail.mjs
+      - name: Regenerate report + leak gate
+        if: always()
+        run: |
+          node scripts/leak_check.mjs
+          node scripts/gen_report.mjs
+      - name: Commit & push if changed
+        if: always()
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add status/ reports/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(gumroad-free-prompts): publish run $(date -u +%FT%TZ)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no changes"
+          fi

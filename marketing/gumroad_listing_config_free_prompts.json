@@ -1,0 +1,20 @@
+{
+  "_doc": "Free / pay-what-you-want ($0+) prompt pack, published through the same scripts/gumroad_publish.mjs pipeline via GUMROAD_CONFIG/GUMROAD_STATE env overrides (state -> status/gumroad_listing_free_prompts.json). Created 2026-09-23 as a distinct MONETIZATION-MODEL experiment (PWYW/tip rail + Gumroad Discover free-product surface + in-file upsell to $3/$39), complementing the paid price ladder. Content = 12 office prompts already published free on the owned guide pages, packaged as one download.",
+  "name": "【無料・投げ銭歓迎】事務AIプロンプト集12種｜問い合わせ返信・請求書添え状・議事録・日報（事実を作らせない設計）",
+  "description": "ChatGPT / Claude / Gemini にそのまま貼って使える、事務作業向けの日本語プロンプト12種をテキスト1枚にまとめました。無料（0円）でダウンロードできます。役に立った場合だけ、任意の金額でご支援ください。\n\n■ 収録プロンプト\n1. 問い合わせ返信（確定事実だけで答える）\n2. 短いメール返信（120字）\n3. クレーム一次返信\n4. 請求書の添え状メール\n5. 請求明細をTSVで整形\n6. 議事録（事実のみ・未定は未定と書く）\n7. 文字起こし→議事録＋アクション表＋未確定論点\n8. 店舗日報→引継ぎ文（日報テンプレ付き）\n9. データ整理（表記ゆれ・重複・空欄）\n10. 広告・告知文の校正（言い過ぎチェック）\n11. 30秒要約\n12. 問い合わせの仕分け（ラベル付け）\n\n■ 特徴：AIに「事実を作らせない」\nプロンプト内に書いた事実以外は断定させず、「確認して折り返します」「未定」と書かせる設計です。金額はAIに計算させない、送信前に人が照合する、といった運用上の注意も添えています。\n\n■ 自動化したい方へ\n同じ考え方を Google Apps Script で自動実行するスクリプト（Gmail仕分け＋返信下書き $3 / GAS 5本入りPRO版 $39）もあります。リンクは資料内に記載しています。\n\n■ ご注意\n・効果や時短を保証するものではありません。AIの出力は必ず人が確認してください。\n・個人情報や機密情報をAIに貼らないでください。",
+  "price": 0,
+  "currency": "usd",
+  "currency_note": "$0+ (Gumroad treats a $0 price as pay-what-you-want with a $0 minimum). Goal: remove all purchase friction, let a satisfied reader tip any amount (a tip counts as real third-party revenue), and surface in Gumroad's free-product discovery; paid upsell links inside the file.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "chatgpt プロンプト",
+    "業務効率化",
+    "事務",
+    "議事録",
+    "無料"
+  ],
+  "cover_image": "marketing/coconala-images/01-thumb-square.png",
+  "digital_file": "downloads/jimu-ai-prompts-f231da.zip",
+  "digital_file_name": "jimu-ai-prompts-12.zip"
+}
