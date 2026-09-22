@@ -1,0 +1,17 @@
+Gmail問い合わせ 自動仕分け＆下書き返信【拡張版】 — ご購入ありがとうございます
+
+同梱物
+  gmail_inquiry_autoreply_plus.gs … スクリプト本体（そのまま貼って使えます）
+  01_setup_guide_ja.txt         … 導入の手順とよくあるつまずき
+  02_reply_policy_templates_ja.txt … 10業種の返信方針（REPLY_POLICY用）
+
+Zenn記事版からの追加点
+  (1) FAQ参照：AIが言ってよい確定事実を登録 → それ以外は断定させない
+  (2) 除外送信元：noreply・通知・メルマガ等を自動スキップ
+  (3) お試しモード：DRY_RUN で、何も作らずログだけで挙動を確認
+  (4) 10業種の返信方針テンプレ
+
+請求書PDF自動作成・議事録AI要約など計5本をまとめたPRO版もあります：
+  https://feverish50.gumroad.com/l/jqxenl
+
+ご質問は Gumroad のメッセージからどうぞ。

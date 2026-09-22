@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3), published through the same scripts/gumroad_publish.mjs pipeline via GUMROAD_CONFIG/GUMROAD_STATE env overrides (state -> status/gumroad_listing_single_gmail.json). Created 2026-09-23 as a price-ladder / impulse-purchase experiment ($3 -> $19 JP -> $39 PRO) targeting readers of the most-liked Zenn article (Gmail inquiry auto-reply). Materially more than the free article code: adds FAQ-grounded replies, sender skip-list, DRY_RUN trial mode (all mock-tested locally), and 10 industry reply-policy templates.",
+  "name": "Gmail問い合わせをAIで自動仕分け＆返信下書き｜GAS拡張版（FAQ参照・除外設定・お試しモード＋業種別テンプレ10種）",
+  "description": "Zennで公開した「GAS×ChatGPTでGmail問い合わせを自動仕分け・返信下書き」スクリプトの拡張版です。そのまま貼って動く Google Apps Script 1本と、日本語の導入手順・業種別の返信方針テンプレをまとめました。\n\n■ 記事版からの追加機能\n・FAQ参照：営業時間・料金・キャンセル規定など「AIが言ってよい確定事実」を登録。書いていない事実はAIに断定させず「確認して折り返します」と書かせます\n・除外送信元：noreply・通知メール・メルマガなど返信不要なメールを自動スキップ\n・お試しモード（DRY_RUN）：下書きもラベルも作らず、分類と返信案をログで確認してから本番化できます\n・業種別の返信方針テンプレ10種（飲食・サロン・EC・士業・制作フリーランス・教室・BtoB・不動産・治療院・宿泊）\n\n■ 同梱物\n・gmail_inquiry_autoreply_plus.gs（スクリプト本体）\n・導入手順とよくあるつまずき（日本語テキスト）\n・業種別 返信方針テンプレ10種\n\n■ 必要なもの\nGoogleアカウント（Gmail）＋ 従量課金の OpenAI APIキー（gpt-4o-mini は非常に安価）。ChatGPTの有料プランは不要です。\n\n■ 安全設計\n下書きを作るだけで、自動送信は一切しません。送信は必ず人間が確認してから行います。メールはあなたのGoogleアカウント内で処理され、当方がデータを預かることはありません。\n\n■ 正直なご注意\n・時短効果などを保証するものではありません。\n・APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・請求書PDF自動作成・議事録AI要約など計5本入りのPRO版もあります。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Deliberately an impulse-level entry price: the goal of this SKU is the first real third-party purchase (lowest possible friction for Zenn readers who already saw the free code), not margin.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "gmail 自動化",
+    "google apps script",
+    "chatgpt",
+    "問い合わせ対応",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/coconala-images/01-thumb-square.png",
+  "digital_file": "downloads/gmail-autoreply-plus-5e71d4.zip",
+  "digital_file_name": "gmail-autoreply-plus.zip"
+}
