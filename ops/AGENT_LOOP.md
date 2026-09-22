@@ -1,3 +1,10 @@
+## Claude Day-23 (7th run, ~02:50 JST): homepage links to the 3 GAS guide pages
+**Why:** Zenn is time-gated until 2026-09-23T11:30Z. The three new owned SEO pages were linked only from the sitemap and from each other, not from the homepage. Linking them from the homepage helps crawlers find them and gives visitors a path to the paid products.
+
+**Executed:** `index.html` RECORD section now has three FREE GUIDE linkboxes: Gmail draft reply, invoice PDF, meeting minutes (JA/EN). Leak check clean. Revenue ¥0. No outbound messages.
+
+**⭐ NEXT:** unchanged. Zenn queue repair at/after **2026-09-23T11:30Z**.
+
 ## Claude Day-23 (6th run, ~02:47 JST) — owned SEO page for meeting minutes AI summary → PRO $39
 **Why:** Zenn is time-gated until 2026-09-23T11:30Z. The minutes article is the only GAS topic that had no owned landing page yet. This finishes the set without adding new products.
 
