@@ -1,6 +1,10 @@
 # Mac-local continuous Claude operator
 
-Dedicated checkout: `~/Documents/Codex/ai-revenue-experiment-local`.
+Dedicated checkout: `~/Library/Application Support/AIRevenueExperiment/repo`.
+The initial Documents location was refused to background bash by macOS privacy
+controls. The dedicated public-repository checkout was moved to the standard user
+application-data directory; no privacy settings or private Documents permissions were changed.
+
 No cloud VM/systemd. Requires logged-in macOS user and open, powered Mac.
 `launchd` owns the supervisor; the supervisor owns one Claude worker at a time.
 `caffeinate -i -s -w PID` prevents idle system sleep; it does not override lid closure,
@@ -24,7 +28,8 @@ A worker retains the same kernel lock until Claude exits, including parent crash
 Duplicate supervisors exit 75. launchd throttles abnormal supervisor restarts to 60s.
 `KeepAlive.SuccessfulExit=false` restarts crashes while deliberate safe stops exit 0.
 Claude exit 0 does NOT terminate the supervisor. Minimum next-run interval is 60s;
-failures back off exponentially (60s base, rate limit 900s, maximum 3600s + jitter).
+Three repeated unchanged HEAD/next_action results lengthen the restart interval
+(up to one hour) without declaring a human blocker. Failures back off exponentially (60s base, rate limit 900s, maximum 3600s + jitter).
 
 Each cycle fetches main, fast-forwards clean work, reads state and the revenue ledger,
 then launches `claude -p --permission-mode auto --permission-prompts none` using the
