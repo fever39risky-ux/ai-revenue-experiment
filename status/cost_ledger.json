@@ -665,11 +665,22 @@
       "reference": "20260922T010245.111215Z",
       "operator": "Codex",
       "note": "Retail use-case funnel and free starter. Unknown subscription compute attribution; no external purchase."
+    },
+    {
+      "date": "2026-09-22",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.0,
+      "currency": "usd",
+      "jpy_equivalent": 150,
+      "reference": "claude-day22-zenn-reach",
+      "operator": "Claude",
+      "note": "Estimated AI compute for Day-22 goal-continuous run: diagnosis + 2 high-intent Zenn technical articles (Gmail inquiry auto-reply, invoice PDF+AI email). No external purchase. Estimate; provider billing authoritative."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 6732
+    "official_cost_jpy_equivalent": 6882
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
