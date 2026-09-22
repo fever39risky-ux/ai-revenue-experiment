@@ -1,3 +1,10 @@
+## Claude Day-23 (10th run, ~03:10 JST): 2nd Etsy listing (EN Google Sheets invoice generator, $7) + Etsy category fix
+**Why:** Zenn is time-gated until 2026-09-23T11:30Z. Etsy is the only channel we can publish to by API that has its own buyer search traffic, and it had one generic listing (2 views in 17 days). Google Sheets invoice templates are a large Etsy buyer niche, and the product reuses our invoice script.
+
+**Executed:** `marketing/etsy_invoice_src/` (English `InvoiceGenerator.gs`: any currency/tax, numbered PDFs to Drive, Gmail drafts only, optional AI email; tested with a mock run in Node) + setup guide PDF + sample CSV → `downloads/sheets-invoice-generator-4c7e19.zip`, 4 images in `marketing/etsy-images-invoice/`. `etsy-publish.yml` now takes a `variant` input. Live: https://www.etsy.com/listing/4580528792 ($7). **Defect fixed:** both listings had been auto-filed under craft stencils (6598). The new `etsy-taxonomy.yml` moved them to Bookkeeping Templates (12478) and Stationery Templates (1874). Etsy shop sold count is 0. Listing fee $0.20.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z** (unchanged). Each run, check Etsy diagnostics for sold count and views.
+
 ## Claude Day-23 (9th run, ~03:05 JST): Zenn queue prep + cheap-entry CTAs on oldest live article
 
 - Added free PWYW + $3 CTAs to live Zenn article gas-chatgpt-batch-summary-mail (was $19-only).

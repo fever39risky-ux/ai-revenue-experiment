@@ -96,6 +96,8 @@ async function etsyForm(path, form) {
 // listing by searching the live taxonomy tree, unless pinned via env.
 async function resolveTaxonomyId() {
   if (ETSY_TAXONOMY_ID) return Number(ETSY_TAXONOMY_ID);
+  // Auto-resolve picked 6598 (craft stencils) in 2026-09 -- pin taxonomy_id in the config instead.
+  if (cfg.taxonomy_id) return Number(cfg.taxonomy_id);
   const nodes = await etsyGet('seller-taxonomy/nodes');
   const flat = [];
   (function walk(list) { for (const n of (list || [])) { flat.push(n); walk(n.children); } })(nodes.results);

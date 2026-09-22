@@ -1,15 +1,15 @@
 {
-  "goal": "first_real_third_party_revenue",
-  "goal_revenue_jpy": 1,
-  "goal_achieved": false,
-  "human_blocked": false,
-  "ai_operable_work_remaining": true,
-  "stop_reason": null,
-  "next_action": "ZENN PUBLISH-QUEUE REPAIR (time-gated, exact): 2 committed articles (gas-invoice-pdf-ai-email, gas-meeting-minutes-ai-summary) are blocked by Zenn's rolling 24h new-post limit (live = 3). Last live publish 2026-09-22T11:19Z. At/after 2026-09-23T11:30Z: push a commit to main (state checkpoint is fine), then verify via curl https://zenn.dev/api/articles/gas-invoice-pdf-ai-email (expect published_at). ~24h after THAT, push again for gas-meeting-minutes-ai-summary. QUEUED 6th article articles/gas-google-form-ai-triage-notify.md (published:false, drafted 2026-09-22T18:0xZ, JS syntax-checked; CTAs free l/rlalv + $3 l/koujr + PRO $39 l/jqxenl): flip to published:true only after BOTH invoice and minutes are live and >=24h after the minutes publish. When invoice/minutes go live, add Zenn links to guides/gas-invoice-pdf-ai-cover-email.html and replace the '公開予定' line on guides/gas-meeting-minutes-ai-summary.html. Meanwhile watch Gumroad sales-monitor (5 SKUs: EN $9, JP $19 l/kaqnpj, PRO $39 l/jqxenl, single $3 l/koujr, FREE PWYW l/rlalv; only price>0 counts) and Zenn liked_count (gmail article has 1 like as of 2026-09-22T18:00Z). Do not add duplicate paid inventory; act first on any new signal (sale, like, message).",
-  "last_operator_run": "2026-09-22T17:58:35.000Z",
-  "consecutive_failures": 0,
-  "human_blocker_evidence": null,
-  "schema_version": 1,
-  "last_supervisor_run_end": "2026-09-22T17:46:31.530521+00:00",
-  "last_run_ended": "2026-09-22T17:55:09.760328+00:00"
+ "goal": "first_real_third_party_revenue",
+ "goal_revenue_jpy": 1,
+ "goal_achieved": false,
+ "human_blocked": false,
+ "ai_operable_work_remaining": true,
+ "stop_reason": null,
+ "next_action": "ZENN PUBLISH-QUEUE REPAIR (time-gated, exact): 2 committed articles (gas-invoice-pdf-ai-email, gas-meeting-minutes-ai-summary) blocked by Zenn's rolling 24h new-post limit (live = 3). At/after 2026-09-23T11:30Z: push a commit to main, then verify curl https://zenn.dev/api/articles/gas-invoice-pdf-ai-email (expect published_at). ~24h after THAT, push again for gas-meeting-minutes-ai-summary. 6th article articles/gas-google-form-ai-triage-notify.md stays published:false until both are live and >=24h after minutes. When invoice/minutes go live, add Zenn links to guides/gas-invoice-pdf-ai-cover-email.html and replace '公開予定' on guides/gas-meeting-minutes-ai-summary.html. ETSY (new lane activity 2026-09-22T18:05Z): 2 active listings — 4569271638 ($9 AI toolkit, now taxonomy 1874) and 4580528792 ($7 Google Sheets invoice generator, taxonomy 12478). Each run: gh workflow run etsy-diagnostics.yml and check shop transaction_sold_count (0 at 18:01Z) + views; any sold_count>0 = verify and record. If invoice listing gets views but no sale within ~5 days, test price/thumbnail; if it's the only one with views, consider 1-2 more EN Sheets-automation listings from existing scripts (meeting minutes -> action items, Gmail auto-reply) with pinned taxonomy_id in config. Meanwhile watch Gumroad sales-monitor (5 SKUs; only price>0 counts). Act first on any new signal.",
+ "last_operator_run": "2026-09-22T18:08:44.000Z",
+ "consecutive_failures": 0,
+ "human_blocker_evidence": null,
+ "schema_version": 1,
+ "last_supervisor_run_end": "2026-09-22T17:46:31.530521+00:00",
+ "last_run_ended": "2026-09-22T17:58:56.124113+00:00"
 }

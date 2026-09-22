@@ -11,7 +11,10 @@ if (!ETSY_API_KEYSTRING || !ETSY_API_SHARED_SECRET || !ETSY_REFRESH_TOKEN || !ET
 }
 const mask = v => { if (v) console.log(`::add-mask::${v}`); };
 mask(ETSY_REFRESH_TOKEN); mask(ETSY_API_SHARED_SECRET);
-const p = new URLSearchParams({ grant_type: 'refresh_token', client_id: ETSY_API_KEYSTRING, refresh_token: ETSY_REFRESH_TOKEN });
+const p = new URLSearchParams();
+p.set('grant_type', 'refresh_token');
+p.set('client_id', ETSY_API_KEYSTRING);
+p.set('refresh_token', ETSY_REFRESH_TOKEN);
 const tr = await fetch('https://api.etsy.com/v3/public/oauth/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: p });
 const tok = await tr.json();
 if (!tr.ok) { console.error('etsy_taxonomy: token refresh failed', tr.status); process.exit(1); }

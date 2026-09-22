@@ -753,11 +753,33 @@
       "operator": "Claude",
       "reference": "claude-day23-free-pwyw-prompt-pack",
       "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (free Gumroad listing; fees only on paid tips)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580528792",
+      "note": "Etsy listing fee for 2nd listing (Google Sheets invoice generator, $7). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-etsy-invoice-listing",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 7107
+    "official_cost_jpy_equivalent": 7137
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
