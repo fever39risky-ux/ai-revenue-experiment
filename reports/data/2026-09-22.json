@@ -85,9 +85,19 @@
           "guides/shop-daily-report.html",
           "downloads/shop-daily-report-starter.txt"
         ],
-        "result": "Ready for Pages deployment verification; no real retailer adoption or AI output claimed.",
+        "result": "Published via PR #14; Pages run 35674500660 succeeded. Live guide and $19 store CTA verified in browser; downloadable starter HTTP 200 and byte-identical to source. No adoption, traffic, conversion or revenue uplift claimed.",
         "blocked_final_step": null,
-        "next_measurement": "Verify live page/download. Revenue remains ground truth; ref parameter labels source but no analytics sink is installed. Do not claim visits or conversion uplift."
+        "next_measurement": "Check actual revenue and available buyer response. No analytics sink exists for ref; do not infer visits or conversion uplift. Existing store morning-summary wording may need coordination with Claude because the script filters execution-day rows.",
+        "deployment_verification": {
+          "checked_at": "2026-09-22T01:09:16.122468+00:00",
+          "main_sha": "563265692d4e05e56ef8634774e994a84cc87af4",
+          "pages_run": "https://github.com/fever39risky-ux/ai-revenue-experiment/actions/runs/35674500660",
+          "guide": "https://fever39risky-ux.github.io/ai-revenue-experiment/guides/shop-daily-report.html",
+          "download_http_status": 200,
+          "download_matches_source": true,
+          "download_sha256": "e5b573dd8a1212e5c161183876ee221006e052e488d1d8167dc0aeead6aa1950",
+          "store_cta_verified": true
+        }
       },
       "cadence": {
         "next_run": "2026-09-22T19:00:00+09:00",
