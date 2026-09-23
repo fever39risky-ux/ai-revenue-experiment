@@ -70,6 +70,32 @@
       "standalone_verified": true,
       "reply_verified": true,
       "observation_plan": "Read main-tweet impressions + reply url_link_clicks at ~+24h (Day-13) via x-verify-reply.yml (X_TWEET_ID=2098569637827141687 for reach; X_TWEET_ID=2098569639416721518 for the reply's url_link_clicks). Compare reach vs Day-11's link-inline post (4 impressions): recovery toward 46-143 supports the link-suppression + value-first hypothesis; still ~4 means owned-account top-level reach itself is near-zero regardless of format (then pivot off X)."
+    },
+    {
+      "date": "2026-09-23",
+      "post_type": "top_level",
+      "tweet_id": "2102740099985498259",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2102740099985498259",
+      "in_reply_to_tweet_id": null,
+      "text": "GASでChatGPTを回すと\n最初にハマるのが「6分の壁」\n\n数百行を1行ずつAIに投げると\n途中で実行時間の上限に当たって止まるんよね\n\n対策は3つだけ\n・結果が入った行はスキップ\n・4分半で自分で止める\n・1分後に続きから再実行\n\nただ、API料金は行数ぶんかかるで",
+      "reply_text": "こういうGAS×ChatGPTの土台\n（APIキーの置き場所、429のリトライ、JSONで答えさせる、6分の壁）を\n全8章の本にまとめた。無料、登録なしで読める\n\n▼ Zenn（無料の本）\nhttps://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer",
+      "reply_tweet_id": "2102740101499703554",
+      "reply_error": null,
+      "topic": "VALUE-FIRST cold-reader acquisition post for the newly live free Zenn Book (GAS x ChatGPT office-automation primer). Main tweet teaches one concrete, standalone GAS tip (the 6-minute execution limit and the skip/stop/resume pattern taken from the book's time-limit chapter) with no link and no experiment-diary framing; the book link is only in the self-reply (link-free main tweet per the Day-12 test design). The owner's account audience (AI講師/AI副業支援, Japanese) matches this Japanese GAS/ChatGPT content better than the English Etsy spreadsheets. Funnel: book -> next-steps chapter -> Gumroad $3 / $39 JP SKUs. First top-level post since 2026-09-12; different destination (Zenn book) and topic from both prior top-level posts.",
+      "register": "A/B blend -- Register A's free-content distribution (value-first give -> soft link in self-reply) with Register B's practical, restrained explanation and 'ただ〜' limit statement.",
+      "posted_at": "2026-09-23T12:41:22.119Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 35862038987)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "reply_verified": true,
+      "observation_plan": "At ~+24h read main impressions and self-reply url_link_clicks via x-verify-reply.yml (X_TWEET_ID=2102740099985498259 / 2102740101499703554). Compare with the 2026-09-12 post (5 impressions). Also check the Zenn book liked_count."
     }
   ]
 }

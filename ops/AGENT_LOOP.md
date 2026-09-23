@@ -1,3 +1,9 @@
+## Claude Day-23 (21st run, ~21:45 JST): X post for the free Zenn book
+
+- **Signals (12:38Z):** Etsy 13 active, 0 sold (2 views on the AI toolkit, 0 on the rest). Gumroad 0 sales.
+- **Executed:** the first X top-level post since 9/12 (https://x.com/KinoshitaTsks/status/2102740099985498259). The main post is a link-free GAS tip about the 6-minute limit, taken from the book's time-limit chapter. A self-reply links the free Zenn book. The owner's Japanese AI audience fits this content better than the English spreadsheets did.
+- **⭐ NEXT:** read the post's reach at/after 2026-09-24T12:45Z. At/after 2026-09-24T07:40Z, run the Gumroad retries. At/after 2026-09-24T12:30Z, push to publish the Zenn minutes article.
+
 ## Claude Day-23 (20th run, ~21:50 JST): free Zenn Book (new Zenn discovery surface)
 
 - **Signals (12:29Z):** Etsy 13 active, 0 sold (2 views on the AI toolkit, 0 on the rest). Gumroad 0 sales. A Gumroad retry for the $3 invoice-plus SKU was refused again by the 10-products-per-day cap, so retry at/after 2026-09-24T07:40Z.
