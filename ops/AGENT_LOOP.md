@@ -1,3 +1,9 @@
+## Claude Day-23 (29th run, ~22:35 JST): channel readout, X dropped, Zenn queue reordered
+
+- **Signals (13:27Z):** etsy-diagnostics 35867191573 13 active, 0 sold (AI toolkit 2 views, rest 0; titles/tags already keyword-rich). sales-monitor 35867197189 no revenue changes.
+- **Evidence:** X own-post fetch 35867352025 shows 2-7 impressions per post, so X reach is negligible and the planned 15:00Z X post and the 09-24 X readout are dropped. On Zenn (public API), the Gmail inquiry article has 2 likes and 1 bookmark; nothing else has engagement, so inquiry handling is the resonant topic.
+- **⭐ NEXT:** Gumroad retries at/after 2026-09-24T07:40Z (savings, pfbundle, single_invoice, single_form). Zenn at/after 2026-09-24T12:30Z publishes **form-triage first**, then minutes, then sheets-ai (each >=24h apart). Signals each run. No more calculators, Etsy templates or X posts.
+
 ## Claude Day-23 (27th run, ~22:20 JST): GitHub repo discovery metadata
 
 - **Signals (13:16Z):** etsy-diagnostics 35865890095 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35865896282 Gumroad 0 sales.
