@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3) #3, same pipeline as single_gmail/single_invoice. Created 2026-09-23 for readers of guides/google-form-ai-triage-notify.html and the queued Zenn article gas-google-form-ai-triage-notify (not in PRO). Materially more than the free article code: categories/routes managed in a settings sheet, PII masking before AI, escalation + Google Chat webhook, status column + one-time overdue reminder, daily digest, resumable backfill, 429/5xx retry, DRY_RUN (all mock-tested locally in node). Queued behind Gumroad's 10-products/day cap (retry >=2026-09-24T07:40Z).",
+  "name": "Googleフォーム問い合わせAI仕分け＆担当者通知｜GAS拡張版（設定シート・個人情報マスク・放置リマインド・日次まとめ）",
+  "description": "Zennで公開した「Googleフォームの問い合わせをAIが種別・緊急度・要約に仕分けて担当者に通知する」Google Apps Scriptの拡張版です。そのまま貼って動くスクリプト1本と、日本語の導入手順・見本データをまとめました。\n\n■ 記事版からの追加機能\n・種別と通知先を「仕分け設定」シートで管理：コードを触らずに種別の追加・変更ができます。通知先を空欄にした種別（営業・スパムなど）は記録だけして通知しません\n・個人情報のマスク：メールアドレス・電話番号・郵便番号を伏せ字にしてからAIへ送ります\n・緊急度「高」はエスカレーション先にも同時通知。Googleチャット（Webhook）にも通知できます\n・対応状況の列（未対応／対応中／完了／対象外）と、緊急度「高」が指定時間放置されたときのリマインド（1件につき1回）\n・毎朝の日次まとめ：直近24時間の件数を種別・緊急度ごとに1通で\n・過去分の一括仕分け：6分の実行制限の手前で止まり、もう一度実行すると続きから再開\n・API混雑（429/5xx）時の自動リトライ。AIが失敗しても「その他・中」で必ず通知するので取りこぼしません\n・お試しモード（DRY_RUN）：メールもチャットも送らず、ログで振り分けを確認してから本番化\n・メニュー1つで初期設定（設定シート・判定列・トリガー3つを自動作成）\n\n■ 同梱物\n・form_ai_triage_plus.gs（スクリプト本体）\n・導入手順とよくあるつまずき（日本語テキスト）\n・回答シートの見本CSV（読み込めば一括仕分けをすぐ試せます）\n\n■ 必要なもの\nGoogleフォーム＋Googleアカウント＋従量課金の OpenAI APIキー（gpt-4o-mini は非常に安価）。ChatGPTの有料プランは不要です。\n\n■ 安全設計\nお客様への返信はAIに書かせません。AIがやるのは社内向けの種別・緊急度・要約だけで、通知メールには本文をそのまま付けて判断は人が行う前提です。データはあなたのGoogleアカウント内で処理され、当方が預かることはありません。\n\n■ 正直なご注意\n・AIの判定は間違えることがあります。個人情報のマスクは代表的な書式（メール・電話・郵便番号）のみが対象です。\n・時短効果などを保証するものではありません。APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・Gmail問い合わせ自動返信・請求書PDF・議事録AI要約など計5本入りのPRO版もあります（このフォーム仕分けはPRO版には含まれません）。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Impulse-level entry price mirroring the Gmail $3 SKU: lowest-friction first purchase for Zenn/guide readers who already saw the free code.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "問い合わせ管理",
+    "google apps script",
+    "chatgpt",
+    "googleフォーム",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/form-triage-plus-thumb.png",
+  "digital_file": "downloads/form-triage-plus-347de2.zip",
+  "digital_file_name": "form-triage-plus.zip"
+}
