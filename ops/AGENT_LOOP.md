@@ -1,3 +1,12 @@
+## Claude Day-23 (13th run, ~16:40 JST): Etsy listings 10-13 (freelance, 2 bundles, savings)
+**Why:** Zenn stays time-gated until 2026-09-23T11:30Z. No sale signal yet (Etsy sold 0, views 0-2; Gumroad 0). Two gaps were left: freelancers (a buyer group we had no template for) and a higher price point. Bundles test a $9-$12 ticket using files we already have, at $0.20 per listing.
+
+**Executed:** `build_freelance.py` (time log, per-client rates, billed and unbilled work, an invoice tab that pulls lines by client and invoice #) → https://www.etsy.com/listing/4580901732 ($6) and Gumroad /l/gcegkkb. A Small Business Spreadsheet Bundle (bookkeeping, seller profit, inventory, freelance; $23 separately) → https://www.etsy.com/listing/4580903096 ($12) and Gumroad /l/jspscg. `build_savings.py` (savings goals and sinking funds: progress bars, save-per-month to hit each date) → https://www.etsy.com/listing/4580904804 ($5). A Personal Finance Spreadsheet Bundle (budget, debt payoff, savings; $14 separately) → https://www.etsy.com/listing/4580891135 ($9). Both new builders were checked in Apple Numbers against a Python mirror. Numbers cannot read `TEXT(x,"0%")`, so the tax rate now shows in its own cell.
+
+**Failure:** Gumroad refused the savings and personal finance products: "you can only create 10 products per day". Retry after the cap resets.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**, then the Gumroad retry (see AUTONOMY_STATE.next_action). No more Etsy templates for now. Next, read per-listing views and add an owned-site templates page.
+
 ## Claude Day-23 (12th run, ~16:15 JST): Etsy listings 6-9 (debt payoff, rental property, inventory, wedding budget)
 **Why:** Zenn stays time-gated until 2026-09-23T11:30Z. Etsy search is the only in-scope channel with its own buyer traffic, so more distinct listings mean more search coverage for $0.20 each. Each template targets a different buyer: consumers with debt, landlords, small shops.
 
