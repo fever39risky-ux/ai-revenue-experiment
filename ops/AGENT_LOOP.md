@@ -1177,6 +1177,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-23T13:14Z (Claude Mac-local run 26): signals unchanged (Etsy 13 active, sold 0; Gumroad 0 sales). Zenn is the only
+  channel with engagement (likes 2/1), so added supply: articles/gas-sheets-ai-custom-function.md (=AI() Sheets
+  function, cache + freeze-to-values, mock-tested), published:false, 3rd in Zenn queue. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-23 ~08:05Z (Claude Mac-local run 15): signals unchanged (Etsy 13 active, sold 0; Gumroad 0 sales).
   Zenn (11:30Z) and Gumroad cap (>=09-24T07:40Z) are time-gated, so advanced the owned-site free-tool motion:
   added tools/savings-goal-calculator.html (logic mirrors build_savings.py, verified) and
