@@ -1,0 +1,19 @@
+{
+  "_doc": "English freelance time tracker + invoice single (also on Etsy). Published via gumroad-publish-config.yml config=marketing/gumroad_listing_config_freelance.json state=status/gumroad_listing_freelance.json. Source: marketing/etsy_bookkeeping_src/build_freelance.py.",
+  "name": "Freelance Time Tracker & Invoice: Hourly Billing Spreadsheet (Excel, Google Sheets, Numbers)",
+  "description": "Log your hours by client, see what's still unbilled, and print invoices from the same simple spreadsheet. Made for freelancers, contractors, consultants, designers, VAs and anyone who bills by the hour.\n\nWhat's inside (one .xlsx file, 5 tabs):\n• Start Here: your name or business, currency label, default hourly rate, tax/VAT rate, payment terms and year, plus short instructions.\n• Dashboard: hours logged, billable hours and share, billed, unbilled work and unbilled hours, effective hourly rate. Hours and earnings by client and by month.\n• Time Log: 1,000 rows. Date, client from a dropdown, project, task, hours, billable Yes/No and invoice number. Rate, amount and status (Unbilled, Billed, Non-billable) are filled in for you.\n• Clients: up to 30 clients, each with its own hourly rate (or your default), contact email, hours, billed, unbilled and effective rate.\n• Invoice: pick the client and type the invoice number. The lines from your time log, total hours, subtotal, tax, total and due date fill in. Print it or save it as PDF.\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Images show the file with its sample data. Tax is a simple rate you set; it is not tax advice.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 6.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "freelance",
+    "time tracker",
+    "invoice template",
+    "spreadsheet",
+    "google sheets"
+  ],
+  "cover_image": "marketing/etsy-images-freelance/01.png",
+  "digital_file": "downloads/freelance-time-tracker-invoice-0e67f6.zip",
+  "digital_file_name": "Freelance-Time-Tracker-Invoice.zip"
+}
