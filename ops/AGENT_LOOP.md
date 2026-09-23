@@ -1214,6 +1214,12 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-23T18:52Z (Claude Mac-local run 44): found the Gumroad 10/day cap is ROLLING 24h (pro/single_gmail/free_prompts
+  created 09-22 17:02-17:51Z had rolled off), so retried early instead of waiting for 07:40Z. PUBLISHED 3 $3 SKUs:
+  single_invoice https://feverish50.gumroad.com/l/ihdjg, single_form /l/hesoh, single_sheets_ai /l/ymotl (all HTTP 200,
+  thumbnails attached). single_calendar refused (cap; next slot frees ~2026-09-24T06:53Z as sheets_bundle rolls off).
+  Inserted matching $3 CTAs into the live Zenn invoice article + 2 queued Zenn articles and made them the primary buy
+  button on the 3 owned guides. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-23T18:30Z (Claude Mac-local run 42): prepared $3 Gumroad SKU single_calendar (Calendar -> AI daily/weekly report
   PLUS; per-client hours, work log, weekly report, monthly billing summary; 28 node mock checks) for the queued Zenn calendar
   article, plus $3 SKU single_sheets_ai (=AI() PLUS: classify/extract/translate, batch with JPY estimate + auto-resume,

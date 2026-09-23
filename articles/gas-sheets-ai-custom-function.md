@@ -179,4 +179,6 @@ function freezeSelection() {
 
 Gmailに届く問い合わせにAIが下書き返信を作る（送信はしない）GAS拡張版もあります（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)
 
+この記事の =AI() を実務向けに拡張した版（分類・抽出・翻訳の専用関数、数百行を数式なしで一括処理＆途中再開、月の予算上限）もあります（有料・$3）→ [スプレッドシート =AI() 関数・GAS拡張版](https://feverish50.gumroad.com/l/ymotl)
+
 請求書PDF自動作成・議事録整形など計5本と日本語の導入ガイドを付けたセット（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)

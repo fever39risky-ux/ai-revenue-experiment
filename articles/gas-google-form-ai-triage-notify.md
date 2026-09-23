@@ -180,4 +180,6 @@ JSONで返させると、パース失敗の心配がほぼ無くなります。�
 
 Gmailに届く問い合わせにAIが下書き返信を作る（送信はしない）GAS拡張版もあります（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)
 
+この記事のスクリプトを実務向けに拡張した版（設定シートでカテゴリ・担当者を変更、個人情報マスク、未対応の放置リマインド、日次まとめ）もあります（有料・$3）→ [Googleフォーム問い合わせAI仕分け＆担当者通知・GAS拡張版](https://feverish50.gumroad.com/l/hesoh)
+
 請求書PDF自動作成・議事録整形など計5本と日本語の導入ガイドを付けたセット（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)

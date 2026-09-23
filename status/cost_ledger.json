@@ -1061,6 +1061,17 @@
       "operator": "Claude",
       "reference": "claude-day23-run42-calendar-plus-sku",
       "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
+    },
+    {
+      "date": "2026-09-24",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day24-run44-gumroad-3-skus-live",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
     }
   ],
   "totals": {
