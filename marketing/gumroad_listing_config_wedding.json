@@ -1,0 +1,19 @@
+{
+  "_doc": "English wedding budget planner single (also on Etsy). Published via gumroad-publish-config.yml config=marketing/gumroad_listing_config_wedding.json state=status/gumroad_listing_wedding.json. Source: marketing/etsy_bookkeeping_src/build_wedding.py.",
+  "name": "Wedding Budget Planner: Budget, Vendor Payments and Guest List RSVP Spreadsheet (Excel, Google Sheets, Numbers)",
+  "description": "Keep your wedding budget, vendor payments and guest list in one simple spreadsheet. See what you've booked, what you've paid, what's still due and who's coming.\n\nWhat's inside (one .xlsx file, 6 tabs):\n• Start Here: names, wedding date, currency label and total budget, plus short instructions.\n• Dashboard: countdown, total budget, booked, paid, still to pay and left to book. Upcoming payments with due dates, soonest first. Guests invited, attending, pending and declined, meal counts and cost per attending guest.\n• Budget: 16 categories (venue, catering, photography, attire, flowers, music and more) with a suggested % of budget. Planned vs booked vs paid and what's left for every category, with a simple bar. Rename, add up to 25 and change the split.\n• Vendors: 150 rows. Vendor, category from a dropdown, total cost, paid so far and next due date. Balance and status (Paid, Due, Overdue) are filled in for you.\n• Guests: 400 rows. Party size, RSVP and meal choice from dropdowns, table number and notes.\n• Lists: RSVP and meal options (edit the meals if you like).\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 5.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "wedding budget",
+    "wedding planner",
+    "spreadsheet",
+    "google sheets",
+    "excel template"
+  ],
+  "cover_image": "marketing/etsy-images-wedding/01.png",
+  "digital_file": "downloads/wedding-budget-planner-f80da8.zip",
+  "digital_file_name": "Wedding-Budget-Planner.zip"
+}

@@ -1,0 +1,34 @@
+{
+  "_doc": "Ninth Etsy listing (wedding budget planner: budget, vendors/payments, guests/RSVP). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=wedding. Source: marketing/etsy_bookkeeping_src/build_wedding.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Wedding Budget Planner Spreadsheet, Wedding Budget Tracker with Vendor Payments and Guest List RSVP, Excel and Google Sheets Template",
+  "description": "Keep your wedding budget, vendor payments and guest list in one simple spreadsheet. See what you've booked, what you've paid, what's still due and who's coming.\n\nWhat's inside (one .xlsx file, 6 tabs):\n• Start Here: names, wedding date, currency label and total budget, plus short instructions.\n• Dashboard: countdown, total budget, booked, paid, still to pay and left to book. Upcoming payments with due dates, soonest first. Guests invited, attending, pending and declined, meal counts and cost per attending guest.\n• Budget: 16 categories (venue, catering, photography, attire, flowers, music and more) with a suggested % of budget. Planned vs booked vs paid and what's left for every category, with a simple bar. Rename, add up to 25 and change the split.\n• Vendors: 150 rows. Vendor, category from a dropdown, total cost, paid so far and next due date. Balance and status (Paid, Due, Overdue) are filled in for you.\n• Guests: 400 rows. Party size, RSVP and meal choice from dropdowns, table number and notes.\n• Lists: RSVP and meal options (edit the meals if you like).\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 5.0,
+  "tags": [
+    "wedding budget",
+    "wedding planner",
+    "wedding spreadsheet",
+    "budget planner",
+    "guest list",
+    "rsvp tracker",
+    "wedding checklist",
+    "vendor tracker",
+    "google sheets",
+    "excel template",
+    "wedding template",
+    "bride to be",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-wedding/01.png",
+    "marketing/etsy-images-wedding/02.png",
+    "marketing/etsy-images-wedding/03.png",
+    "marketing/etsy-images-wedding/04.png"
+  ],
+  "digital_file": "downloads/wedding-budget-planner-f80da8.zip",
+  "digital_file_name": "Wedding-Budget-Planner.zip",
+  "taxonomy_id": 12487
+}
