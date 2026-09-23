@@ -1,0 +1,34 @@
+{
+  "_doc": "Third Etsy listing (no-code spreadsheet template, broader buyer segment than script tools). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=bookkeeping. Source: marketing/etsy_bookkeeping_src/build_xlsx.py (formulas verified by opening in Apple Numbers 2026-09-23).",
+  "title": "Small Business Bookkeeping Spreadsheet, Income and Expense Tracker, Monthly Profit and Loss, Excel and Google Sheets Template, Download",
+  "description": "A simple bookkeeping spreadsheet for sellers, freelancers and small businesses. Log each sale and each cost once. Your dashboard, monthly profit and loss, profit margin and tax set-aside estimate update automatically.\n\nWhat's inside (one .xlsx file, 5 tabs):\n• Start Here: your business name, year, currency label and tax set-aside rate, plus short instructions.\n• Dashboard: year-to-date income, expenses, net profit, profit margin, tax set-aside, and a month-by-month table with simple bars.\n• Transactions: 2,000 ready rows. Enter the date, pick a category from the dropdown, type the amount. Income or Expense is filled in for you.\n• Monthly P&L: every income and expense category by month, with totals, net profit and margin. A check row flags entries with no category.\n• Categories: 5 income and 14 expense categories to start (sales, services, supplies, software, advertising, shipping, platform fees and more). Rename them or add your own: up to 10 income and 20 expense categories.\n\nSample rows (January to June) show how it works. Delete them when you start.\n\nWorks in:\n• Microsoft Excel (Windows and Mac)\n• Apple Numbers\n• Google Sheets (upload the file to Google Drive and open it with Google Sheets)\n\nNo macros, no scripts, no add-ons, no subscription. Any currency works because amounts are plain numbers.\n\nPlease note: this is a digital download, not a physical item. The tax set-aside is a simple percentage of profit for planning only. It is not tax or accounting advice. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 6.0,
+  "tags": [
+    "bookkeeping",
+    "expense tracker",
+    "income tracker",
+    "small business",
+    "profit and loss",
+    "google sheets",
+    "excel template",
+    "budget spreadsheet",
+    "business planner",
+    "sales tracker",
+    "tax spreadsheet",
+    "digital download",
+    "self employed"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-bookkeeping/01.png",
+    "marketing/etsy-images-bookkeeping/02.png",
+    "marketing/etsy-images-bookkeeping/03.png",
+    "marketing/etsy-images-bookkeeping/04.png"
+  ],
+  "digital_file": "downloads/bookkeeping-tracker-7b2e5d.zip",
+  "digital_file_name": "Small-Business-Bookkeeping-Tracker.zip",
+  "taxonomy_id": 12478
+}
