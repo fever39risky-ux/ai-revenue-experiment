@@ -1,0 +1,76 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Googleカレンダーから日報をAIで自動作成｜GAS×ChatGPTで毎日18時にGmail下書き（時間集計はコード）</title><meta name="description" content="Googleカレンダーの予定から、Google Apps ScriptとChatGPT(API)が日報の下書きを毎日Gmailに作成。重なった会議を二重に数えない時間集計はコードで行い、AIは文章化だけ。送信はしない安全設計。無料の日報プロンプト付き。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-calendar-ai-daily-report.html"><meta property="og:title" content="Googleカレンダーから日報をAIで自動作成｜GAS"><meta property="og:description" content="カレンダーの予定→時間をコードで集計→AIが日報の文章に→Gmailの下書きへ。送信はしない。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-calendar-ai-daily-report.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">日報・工数管理の実務例 · 登録不要</p><h1>日報、カレンダーに<br>もう書いてある。</h1>
+<p class="lead">毎日の日報を書くとき、結局やっているのは「今日のカレンダーを見返して、予定と時間を書き写す」作業です。Google Apps Script（GAS）と ChatGPT の API を使うと、<b>毎日18時にその日の予定から日報の下書きを作り、Gmailの下書きフォルダに入れておく</b>ところまで自動にできます。開いて所感を一言足して送るだけです。</p>
+
+<h2>1. 仕組み（3ステップ）</h2>
+<ol class="steps"><li>GAS がその日の Google カレンダーの予定を集める（「私用」「ランチ」など除外したい語を含む予定は捨てる）</li><li>予定ごとの時間と、<b>重なりを除いた合計時間</b>を GAS が計算して「事実」として確定</li><li>AI は事実を日報の文章にするだけ。結果は <b>Gmail の下書き</b>に入り、自動送信はしない</li></ol>
+
+<table><tr><th>カレンダーの予定（例）</th><th>日報に載る時間</th></tr>
+<tr><td>10:00-11:00 A社 定例MTG<br>10:30-12:00 A社 資料作成</td><td class="out">A社：2時間<br>（重なった30分は1回だけ）</td></tr>
+<tr><td>15:00-16:30 採用面接</td><td class="out">1時間30分</td></tr>
+<tr><td>12:00-13:00 ランチ</td><td class="out">載せない</td></tr></table>
+<p class="cap">合計は 3時間30分。AIに「合計何時間？」を任せると重なりを二重に足しがちなので、数字は必ずコードで計算します。</p>
+
+<h2>2. まず無料で：日報プロンプト</h2>
+<p>スクリプトを入れる前に、今日の予定を書き写して ChatGPT に貼れば同じ形の日報が作れます。</p>
+<pre>あなたは社内日報の下書きを書くアシスタントです。
+下の「事実」だけを使い、書かれていない成果・数字・人名を足さないこと。
+時刻と合計時間は事実の数字をそのまま使い、計算し直さないこと。
+構成: 「本日の業務」（箇条書き）、「合計時間」、「明日の予定」、
+最後に「所感: （ここに一言）」の空欄。社内向けの敬語で400字以内。
+---
+【今日の予定】
+- 10:00-11:00 A社 定例MTG
+- 10:30-12:00 A社 資料作成
+- 15:00-16:30 採用面接
+【予定の合計時間（重複を除く）】3時間30分
+【明日の予定】
+- 09:00 A社 レビュー</pre>
+<div class="note"><b>日報を「盛らせない」3つのコツ：</b>①合計時間は自分（またはコード）で出して「計算し直さない」と指示する。②「書かれていない成果を足さない」と明記する（日報で一番まずいのは、やっていない仕事が書かれていること）。③所感は空欄で返させ、人が一言書く。</div>
+
+<h2>3. 送信はしない。下書きに置くだけ</h2>
+<p>自動化で怖いのは、AIの文章がそのまま上司に飛ぶことです。この仕組みは <b>Gmail の下書きを作るところまで</b>。AIが失敗した日も、予定一覧と合計時間だけの素朴な下書きは必ず作るので、日報の習慣が途切れません。</p>
+<ul><li><b>予定の説明欄にお客様の個人情報を書いている場合</b>は、説明欄をAIに送らない設定で使ってください。予定の内容は OpenAI の API に送信されます。</li><li><b>費用の目安：</b>1日1回・予定の一覧だけなので、gpt-4o-mini なら1回あたり1円未満。土日と予定ゼロの日はAPIを呼びません。</li></ul>
+
+<h2>4. コード全文（無料）</h2>
+<p>コピペで動くコード全文とトリガー設定の手順は Zenn の解説記事として順次公開します。APIキーの安全な置き場所・429エラー時の再試行・6分制限の回避など、GAS×ChatGPT自動化の共通の土台は無料の Zenn 本にまとめています。</p>
+<p><a class="buy" href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer?ref=guide-calendar" target="_blank" rel="noopener">無料の本「GAS×ChatGPTで事務自動化」を読む →</a></p>
+
+<div class="cta"><h3>日報のほかの定型作業もまとめて自動にしたい方へ</h3>
+<p>Gmail 問い合わせの返信下書き・請求書PDF＋送付メール・議事録の要点とTODO整形など、<b>そのまま動く GAS 5本</b>と日本語の導入手順書のセットです（どれも送信はせず下書きまで）。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">そのまま動くGAS5本＋導入ガイド【PRO版・$39】→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">まず1本だけ試すなら：Gmail問い合わせ AI 下書き返信・拡張版（$3）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの日報スクリプト自体は PRO版には含まれていません（無料公開予定）。必要なのは Google アカウントと OpenAI の API キー（従量課金）。AI の文章は誤りを含む可能性があります。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="google-form-ai-triage-notify.html">フォーム問い合わせをAIで振り分け</a> · <a href="gas-invoice-pdf-ai-cover-email.html">請求書PDF＋AI添え状メール</a> · <a href="gas-meeting-minutes-ai-summary.html">議事録をAIで要点・TODOに整形</a> · <a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせ返信をAIで下書き</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
