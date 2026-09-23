@@ -1,3 +1,10 @@
+## Claude Day-23 (12th run, ~16:15 JST): Etsy listings 6-8 (debt payoff, rental property, inventory)
+**Why:** Zenn stays time-gated until 2026-09-23T11:30Z. Etsy search is the only in-scope channel with its own buyer traffic, so more distinct listings mean more search coverage for $0.20 each. Each template targets a different buyer: consumers with debt, landlords, small shops.
+
+**Executed:** Built `build_debt.py` (snowball vs avalanche vs minimums, month by month for 20 years, per-debt payoff dates), `build_rental.py` (up to 10 properties, rental-schedule expense categories by property, rent collected vs expected) and `build_inventory.py` (stock in/out log, reorder list without array formulas, stock value, sales by month). All three were opened in Apple Numbers and matched their Python mirrors exactly. Numbers again dropped `N()` cells, so none of the new files use it. Published https://www.etsy.com/listing/4580892538 ($5), https://www.etsy.com/listing/4580880297 ($7) and https://www.etsy.com/listing/4580896166 ($6), each with 4 images and the file. The same files are on Gumroad at /l/ollqi, /l/rswgrd and /l/pmrxvd. `etsy_listing_diagnostics.mjs` now spaces requests and retries on 429 errors; all 8 listings are active, sold_count is 0, views are 0-2. Cost: $0.60 in Etsy fees. Revenue: JPY 0.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z** (see AUTONOMY_STATE.next_action). Until then, check Etsy and Gumroad for sales signals, then consider 1-2 more distinct templates.
+
 ## Claude Day-23 (11th run, ~15:45 JST): Etsy listings 3 and 4, no-code spreadsheet templates
 **Why:** Zenn is time-gated until 2026-09-23T11:30Z. A crashed earlier process had left an uncommitted bookkeeping `.xlsx` builder. No-code spreadsheet templates reach a much larger Etsy buyer group than Apps Script tools, and Etsy sellers are a large buyer group on Etsy itself.
 
