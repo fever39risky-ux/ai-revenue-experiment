@@ -3,7 +3,9 @@
 
 **Executed:** Finished `marketing/etsy_bookkeeping_src/build_xlsx.py` and published https://www.etsy.com/listing/4580869617 ($6). Added `build_etsy_seller.py` (Etsy fees per order with editable rates, cost of goods, profit by product and month, price calculator) and published https://www.etsy.com/listing/4580871061 ($5). `etsy-publish.yml` now also accepts `variant=bookkeeping|seller`. Both files were opened in Apple Numbers and their numbers matched a Python copy of the formulas. That check found 2 real bugs before publishing: `N()` returned blank, and negative numbers showed `--`. Etsy sold count is still 0. Cost: $0.40 in listing fees.
 
-**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**. Extend Etsy diagnostics to all 4 listing ids (see AUTONOMY_STATE.next_action).
+Also published listing 5, https://www.etsy.com/listing/4580872903 (Monthly Budget Planner, $4, Personal Finance Templates 12487), for consumer buyers. Etsy diagnostics now prints a `SUMMARY` line for each listing. New Etsy listings are paused at 5 until view data arrives.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z** (see AUTONOMY_STATE.next_action).
 
 ## Claude Day-23 (10th run, ~03:10 JST): 2nd Etsy listing (EN Google Sheets invoice generator, $7) + Etsy category fix
 **Why:** Zenn is time-gated until 2026-09-23T11:30Z. Etsy is the only channel we can publish to by API that has its own buyer search traffic, and it had one generic listing (2 views in 17 days). Google Sheets invoice templates are a large Etsy buyer niche, and the product reuses our invoice script.
