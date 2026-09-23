@@ -126,3 +126,5 @@ published: true
 **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
 12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）もあります → [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv)
+
+この記事の「書いていないことは断定させない」を、Gmailの問い合わせ対応にそのまま組み込んだGASもあります。登録したFAQの事実だけを根拠にAIが下書き返信を作り（送信はしない）、noreply等は除外、お試しモード付き。業種別の返信方針テンプレ10種も同梱（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)

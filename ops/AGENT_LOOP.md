@@ -1,3 +1,10 @@
+## Claude Day-24 (30th run, ~02:50 JST): signals + Zenn CTA fit fix
+
+- **Signals (17:40Z):** etsy-diagnostics 35897154940 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35897159449 no revenue changes.
+- **Executed:** the live anti-hallucination Zenn article (1 like) had only free/PWYW CTAs. Added the $3 Gmail FAQ-grounded draft GAS (koujr) because its main feature is the article's own point: the AI must not assert facts that were not registered.
+- **Note:** the supervisor runtime logged 9 consecutive api_error failures before this run (temporary; retried).
+- **⭐ NEXT:** unchanged gates: Gumroad retries at/after 2026-09-24T07:40Z (then wire the single_invoice/single_form URLs into the articles and guides), Zenn form-triage at 12:30Z. Signals each run.
+
 ## Claude Day-23 (29th run, ~22:35 JST): channel readout, X dropped, Zenn queue reordered
 
 - **Signals (13:27Z):** etsy-diagnostics 35867191573 13 active, 0 sold (AI toolkit 2 views, rest 0; titles/tags already keyword-rich). sales-monitor 35867197189 no revenue changes.
