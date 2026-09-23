@@ -1,0 +1,58 @@
+name: Gumroad publish (any prepared config)
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: 'marketing/gumroad_listing_config_<name>.json'
+        required: true
+      state:
+        description: 'status/gumroad_listing_<name>.json (idempotency state; must be new for a new product)'
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: publish-gumroad-config
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GUMROAD_CONFIG: ${{ inputs.config }}
+      GUMROAD_STATE: ${{ inputs.state }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate paths (only prepared configs / per-product state files)
+        run: |
+          [[ "$GUMROAD_CONFIG" =~ ^marketing/gumroad_listing_config_[a-z0-9_]+\.json$ ]] || { echo "bad config path"; exit 1; }
+          [[ "$GUMROAD_STATE" =~ ^status/gumroad_listing_[a-z0-9_]+\.json$ ]] || { echo "bad state path"; exit 1; }
+          test -f "$GUMROAD_CONFIG"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Publish via the official REST API (no-ops without credentials; idempotent via state file)
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: node scripts/gumroad_publish.mjs
+      - name: Upload the thumbnail (idempotent)
+        if: always()
+        env:
+          GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+        run: node scripts/gumroad_add_thumbnail.mjs
+      - name: Regenerate report + leak gate
+        if: always()
+        run: |
+          node scripts/leak_check.mjs
+          node scripts/gen_report.mjs
+      - name: Commit & push if changed
+        if: always()
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add status/ reports/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(gumroad): publish run $(date -u +%FT%TZ)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no changes"
+          fi

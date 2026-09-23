@@ -1,0 +1,19 @@
+{
+  "_doc": "English spreadsheet bundle (3 no-code .xlsx templates also sold separately on Etsy). Published via .github/workflows/gumroad-publish-config.yml with config=marketing/gumroad_listing_config_sheets_bundle.json state=status/gumroad_listing_sheets_bundle.json. Source builders: marketing/etsy_bookkeeping_src/.",
+  "name": "3 Money Spreadsheets: Small Business Bookkeeping Tracker + Seller Profit & Fee Tracker + Monthly Budget Planner (Excel, Google Sheets, Numbers)",
+  "description": "Three no-code spreadsheets for tracking money, in one download. Log each transaction once and the dashboards update themselves.\n\n1. Small Business Bookkeeping Tracker: income and expense log with category dropdowns, monthly profit and loss by category, profit margin, and a tax set-aside estimate.\n2. Seller Profit & Fee Tracker (for Etsy-style marketplace shops): marketplace fees per order from rates you can edit, cost of goods per product, shipping label cost, profit by product and by month, and a price calculator for a target margin.\n3. Monthly Budget Planner: budget vs actual for every category, what's left this month, and a 12-month overview with savings rate.\n\nEach file has a Start Here tab with instructions and sample data you can delete. Works in Microsoft Excel, Apple Numbers and Google Sheets (upload to Google Drive, open with Google Sheets). No macros, no scripts, no add-ons, any currency. Formulas checked by opening the files in Apple Numbers.\n\nEstimates only. Not tax, accounting or financial advice. Not affiliated with Etsy. Created with the help of AI and checked before listing.",
+  "price": 9.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "spreadsheet",
+    "bookkeeping",
+    "budget planner",
+    "google sheets",
+    "excel template"
+  ],
+  "cover_image": "marketing/gumroad-images-bundle/cover.png",
+  "digital_file": "downloads/spreadsheet-bundle-e41f7c.zip",
+  "digital_file_name": "3-Money-Spreadsheets.zip"
+}
