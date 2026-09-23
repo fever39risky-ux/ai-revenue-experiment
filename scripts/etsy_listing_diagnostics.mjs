@@ -58,4 +58,16 @@ const activeJson = await activeRes.json().catch(() => ({}));
 console.log(`\n=== GET /v3/application/shops/${ETSY_SHOP_ID}/listings/active?listing_ids=${LISTING_ID} -> ${activeRes.status} ===`);
 console.log(JSON.stringify(activeJson, null, 2));
 
+// 4. Compact summary for every listing we have published (ids from status/etsy_listing*.json).
+const { readdirSync, readFileSync } = await import('node:fs');
+const ids = readdirSync('status').filter((f) => /^etsy_listing.*\.json$/.test(f))
+  .map((f) => { try { return JSON.parse(readFileSync(`status/${f}`, 'utf8')).listing_id; } catch { return null; } })
+  .filter(Boolean);
+console.log(`\n=== SUMMARY shop transaction_sold_count=${shopJson.transaction_sold_count} ===`);
+for (const id of ids) {
+  const r = await fetch(`https://api.etsy.com/v3/application/listings/${id}`, { headers });
+  const j = await r.json().catch(() => ({}));
+  console.log(`SUMMARY listing ${id} -> ${r.status} state=${j.state} views=${j.views} favorers=${j.num_favorers} price=${j.price ? j.price.amount / j.price.divisor : '?'} taxonomy=${j.taxonomy_id}`);
+}
+
 console.log('\netsy_listing_diagnostics: done. Read the raw JSON above to determine which real fields are available (views, num_favorers, tags, taxonomy, state, etc.) -- do not assume any field exists beyond what is actually printed.');
