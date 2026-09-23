@@ -1,0 +1,72 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>スプレッドシートに =AI() 関数を自作｜GAS×ChatGPTで要約・分類・翻訳（再計算で課金が増えない）</title><meta name="description" content="Googleスプレッドシートのセルに =AI(&quot;30文字で要約&quot;, A2) と書くとChatGPTの答えが返る自作関数をGoogle Apps Scriptで。再計算のたびにAPI課金が増える・大量コピーでエラーになる、の2つの落とし穴をキャッシュと「値で確定」で回避。無料の指示文テンプレ付き。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-sheets-ai-function.html"><meta property="og:title" content="スプレッドシートに =AI() 関数を自作｜GAS×ChatGPT"><meta property="og:description" content="セルに =AI() と書くだけで要約・分類・翻訳。再計算で課金が膨らまない作り方。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-sheets-ai-function.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">表計算×AIの実務例 · 登録不要</p><h1>セルに <code>=AI()</code> と書くだけ。<br>ただし課金の落とし穴に注意。</h1>
+<p class="lead">アンケートの自由記述の要約、問い合わせの分類、商品説明の下書き。「1行ずつAIに聞きたい」作業は、Google Apps Script（GAS）で <b>=AI("指示", A2)</b> という自作関数を作ると表計算のまま片付きます。純正のAI機能が使えないプランや個人アカウントでも、OpenAI の API キーがあれば動きます。</p>
+
+<h2>1. こう使う</h2>
+<table><tr><th>やりたいこと</th><th>セルに書く式</th></tr>
+<tr><td>自由記述を要約</td><td class="out">=AI("30文字以内で要約して", B2)</td></tr>
+<tr><td>分類（選択肢を固定）</td><td class="out">=AI("次のどれか1語で: 要望/不満/質問/その他", B2)</td></tr>
+<tr><td>英訳</td><td class="out">=AI("自然な英語に翻訳して", B2)</td></tr>
+<tr><td>商品説明の下書き</td><td class="out">=AI("この特徴から60文字の商品説明を", B2&amp;" / "&amp;C2)</td></tr></table>
+<p class="cap">分類は「選択肢を指示文の中で固定」するのが一番効きます。自由に答えさせると「要望（改善）」のような表記ゆれが出て集計できません。</p>
+
+<h2>2. 落とし穴は2つ</h2>
+<ol class="steps"><li><b>再計算のたびにAPIが呼ばれて課金が増える。</b>カスタム関数は、ファイルを開く・行を並べ替える・参照先が変わる、で再実行されます。500行の表を開くたびに500回呼ばれる、が起こり得ます。</li><li><b>数百行に一気にコピーするとエラーだらけ。</b>同時リクエストが集中して、API 側の混雑エラー（429）が大量に出ます。</li></ol>
+<div class="note"><b>対策は3段：</b>①同じ「指示＋対象」の答えは6時間キャッシュして再課金しない。②空セルではAPIを呼ばない。③結果が埋まったら、メニュー「AI → 値で確定」で数式を消して<b>ただの値</b>にする。確定した値は二度と再計算されないので、後で並べ替えても課金はゼロです。コピーは最初20〜30行ずつが安全です。</div>
+
+<h2>3. まず無料で：セルに入れやすい答えを返させる指示文</h2>
+<p>関数を作る前に、ChatGPT に数行貼って指示文を固めておくと、あとで表に入れたときのブレが減ります。</p>
+<pre>次の各行について、指示に対する答えだけを1行ずつ返してください。
+前置き・説明・引用符・番号は付けない。分からない行は「不明」とだけ書く。
+指示: 次のどれか1語で答えて: 要望/不満/質問/その他
+---
+配送が遅すぎる。もう頼みません
+領収書の宛名は変更できますか
+アプリにダークモードがあると嬉しい</pre>
+<p class="cap">期待する返答：「不満」「質問」「要望」。この3行が安定して返るようになってから、同じ指示文を =AI() に入れます。</p>
+
+<h2>4. 入れてはいけないデータ</h2>
+<ul><li>セルの内容はそのまま OpenAI の API に送信されます。<b>個人名・電話番号・住所などを流さない</b>、社内ルールでAPI利用が許可されているかを先に確認してください。</li><li><b>費用の目安：</b>gpt-4o-mini で短い要約・分類なら、1,000行でも数十円程度です（文章の長さで変わります）。キャッシュと「値で確定」を使えば、同じ行に二度課金されません。</li><li>エラーは <code>#AIエラー 401</code> のような<b>原因が読める文字列</b>で返すので、#ERROR! で原因不明、になりません。</li></ul>
+
+<h2>5. コード全文（無料）</h2>
+<p>キャッシュと「値で確定」メニュー付きのコード全文（約90行）は Zenn の解説記事として順次公開します。APIキーの安全な置き場所・429エラー時の再試行・6分制限の回避など、GAS×ChatGPT自動化の共通の土台は無料の Zenn 本にまとめています。</p>
+<p><a class="buy" href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer?ref=guide-sheets-ai" target="_blank" rel="noopener">無料の本「GAS×ChatGPTで事務自動化」を読む →</a></p>
+
+<div class="cta"><h3>1行ずつではなく、表をまるごとAIで処理したい方へ</h3>
+<p>Gmail 問い合わせの返信下書き・請求書PDF＋送付メール・議事録の要点とTODO整形など、<b>そのまま動く GAS 5本</b>と日本語の導入手順書のセットです（どれも送信はせず下書きまで）。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">そのまま動くGAS5本＋導入ガイド【PRO版・$39】→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">まず1本だけ試すなら：Gmail問い合わせ AI 下書き返信・拡張版（$3）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの =AI() 関数自体は PRO版には含まれていません（無料公開予定）。必要なのは Google アカウントと OpenAI の API キー（従量課金）。AI の答えは誤りを含む可能性があります。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="chatgpt-sheet-jidoka-demo.html">実演：スプレッドシートをChatGPTで一括処理</a> · <a href="google-calendar-ai-daily-report.html">カレンダーから日報をAIで下書き</a> · <a href="google-form-ai-triage-notify.html">フォーム問い合わせをAIで振り分け</a> · <a href="gas-invoice-pdf-ai-cover-email.html">請求書PDF＋AI添え状メール</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
