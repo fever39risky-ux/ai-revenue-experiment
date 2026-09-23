@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Property Cash Flow Calculator (Free): Cash Flow, Cap Rate, Cash-on-Cash Return</title>
+<meta name="description" content="Free rental property cash flow calculator. Enter the price, loan, rent and expenses to see monthly and yearly cash flow, NOI, cap rate, cash-on-cash return, the 1% rule and break-even rent. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/rental-property-cash-flow-calculator.html">
+<meta property="og:title" content="Rental Property Cash Flow Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/rental-property-cash-flow-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/rental.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rental Property Cash Flow Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/rental-property-cash-flow-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is rental property cash flow calculated?","acceptedAnswer":{"@type":"Answer","text":"Cash flow is the rent you actually collect (after vacancy) minus operating expenses (property tax, insurance, HOA, repairs and maintenance, property management, utilities and other costs) minus the mortgage payment (principal and interest)."}},{"@type":"Question","name":"What is the difference between cap rate and cash-on-cash return?","acceptedAnswer":{"@type":"Answer","text":"Cap rate is net operating income (NOI, before any mortgage payment) divided by the purchase price, so it ignores financing. Cash-on-cash return is the yearly cash flow after the mortgage divided by the cash you put in (down payment plus closing and repair costs)."}},{"@type":"Question","name":"What is the 1% rule?","acceptedAnswer":{"@type":"Answer","text":"A quick screening rule: monthly rent should be at least 1% of the purchase price (for example $2,000 a month for a $200,000 property). It is only a rough filter; the full cash flow calculation is what matters."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}.panel h2{margin-top:0;font-size:1.2rem}
+table{width:100%;border-collapse:collapse}th,td{padding:6px 6px;text-align:left;border-bottom:1px solid #e3eaf0;font-size:.95rem}th{color:#40525f;font-weight:600}td.n{text-align:right;font-variant-numeric:tabular-nums}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 16px}.grid label{font-weight:600;font-size:.92rem}
+button{background:#1f7f7a;color:#fff;border:0;border-radius:10px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}.card{border:2px solid #e3eaf0;border-radius:14px;padding:14px}.card h3{margin:0 0 6px;font-size:1rem;color:#40525f}
+.big{font-size:1.5rem;font-weight:800;color:#1f7f7a;margin:0}.big.neg{color:#a33}.muted{color:#5a6b78;font-size:.9rem}
+.warn{background:#fff4e5;border-radius:10px;padding:10px 12px;color:#7a4b00;margin-top:12px}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="debt-payoff-calculator.html">Debt payoff</a> · <a href="budget-503020-calculator.html">50/30/20 budget</a> · <a href="savings-goal-calculator.html">Savings goals</a> · <a href="freelance-rate-calculator.html">Freelance rate calculator</a></p>
+<h1>Rental property cash flow calculator</h1>
+<p class="lead">Enter the purchase price, loan, rent and expenses. See <strong>monthly and yearly cash flow</strong>, <strong>NOI</strong>, <strong>cap rate</strong>, <strong>cash-on-cash return</strong>, the <strong>1% rule</strong> and the <strong>break-even rent</strong>. Free, no sign-up. Everything runs in your browser and nothing is sent anywhere.</p>
+
+<div class="panel">
+<h2>Purchase and loan</h2>
+<div class="grid">
+<label>Purchase price<input id="price" type="number" min="0" step="1000" value="250000"></label>
+<label>Down payment %<input id="down" type="number" min="0" max="100" step="1" value="20"></label>
+<label>Interest rate % (yearly)<input id="rate" type="number" min="0" step="0.05" value="7"></label>
+<label>Loan term (years)<input id="term" type="number" min="1" max="50" step="1" value="30"></label>
+<label>Closing + repair costs<input id="closing" type="number" min="0" step="500" value="8000"></label>
+</div>
+<h2 style="margin-top:20px">Income</h2>
+<div class="grid">
+<label>Monthly rent (all units)<input id="rent" type="number" min="0" step="50" value="2200"></label>
+<label>Other monthly income (parking, laundry)<input id="other" type="number" min="0" step="10" value="0"></label>
+<label>Vacancy % of rent<input id="vac" type="number" min="0" max="100" step="1" value="5"></label>
+</div>
+<h2 style="margin-top:20px">Operating expenses</h2>
+<div class="grid">
+<label>Property tax per year<input id="tax" type="number" min="0" step="100" value="3000"></label>
+<label>Insurance per year<input id="ins" type="number" min="0" step="100" value="1500"></label>
+<label>HOA per month<input id="hoa" type="number" min="0" step="10" value="0"></label>
+<label>Repairs + maintenance % of rent<input id="maint" type="number" min="0" max="100" step="1" value="8"></label>
+<label>Capital reserves % of rent<input id="capex" type="number" min="0" max="100" step="1" value="5"></label>
+<label>Property management % of rent<input id="mgmt" type="number" min="0" max="100" step="1" value="8"></label>
+<label>Utilities you pay per month<input id="util" type="number" min="0" step="10" value="0"></label>
+<label>Other costs per month<input id="misc" type="number" min="0" step="10" value="0"></label>
+</div>
+<button id="calc" type="button">Calculate</button>
+</div>
+
+<div class="panel" id="out" hidden>
+<h2>Your results</h2>
+<div class="cards" id="cards"></div>
+<div id="warn"></div>
+<h3>Monthly breakdown</h3>
+<table><tbody id="rows"></tbody></table>
+<p class="muted">Mortgage is principal and interest only (standard fixed-rate amortization). Percent-of-rent costs are based on the scheduled rent. A planning estimate, not financial, tax or investment advice.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Bought it? Track the real numbers every month</h2>
+<p>The <strong>Rental Property Income and Expense Tracker</strong> is an .xlsx for Excel, Google Sheets and Apple Numbers: log each rent payment and expense once and see net cash flow, rent collected vs expected and yearly category totals for up to 10 properties or units, ready for tax time. $7, instant download, no subscription.</p>
+<p><a class="btn" href="https://feverish50.gumroad.com/l/rswgrd">Get the Rental Property Tracker on Gumroad ($7)</a><a class="btn alt" href="https://www.etsy.com/listing/4580880297">View on Etsy</a></p>
+</div>
+
+<section class="faq">
+<h2>How to read the results</h2>
+<p><strong>Cash flow</strong> is what is left each month after collected rent pays every operating expense and the mortgage. Negative cash flow means you add money every month to keep the property.</p>
+<p><strong>NOI (net operating income)</strong> is collected income minus operating expenses, before the mortgage. Lenders and buyers use it to compare properties regardless of financing.</p>
+<p><strong>Cap rate</strong> = yearly NOI ÷ purchase price. <strong>Cash-on-cash return</strong> = yearly cash flow ÷ cash invested (down payment + closing and repair costs).</p>
+<p><strong>Break-even rent</strong> is the monthly rent at which cash flow is exactly zero with your vacancy and percent-of-rent assumptions.</p>
+<p><strong>The 1% rule</strong> is a quick filter: monthly rent of at least 1% of the price. Many good deals fail it and many bad ones pass it, so trust the full calculation.</p>
+<h2>Why include maintenance and capital reserves if nothing is broken?</h2>
+<p>Repairs and big replacements (roof, water heater, appliances) are certain over time, just not every month. Setting aside a percentage of rent keeps one bad month from wiping out a year of cash flow.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI.</footer>
+</div>
+<script>
+function payment(principal, yearlyRate, years) {
+  var n = years * 12, r = yearlyRate / 100 / 12;
+  if (principal <= 0) return 0;
+  if (r === 0) return principal / n;
+  return principal * r / (1 - Math.pow(1 + r, -n));
+}
+function analyze(v) {
+  var loan = v.price * (1 - v.down / 100);
+  var mort = payment(loan, v.rate, v.term);
+  var pctRent = (v.vac + v.maint + v.capex + v.mgmt) / 100;
+  var fixed = v.tax / 12 + v.ins / 12 + v.hoa + v.util + v.misc;
+  var income = v.rent * (1 - v.vac / 100) + v.other;
+  var opex = fixed + v.rent * (v.maint + v.capex + v.mgmt) / 100;
+  var noi = income - opex;
+  var cf = noi - mort;
+  var cash = v.price * v.down / 100 + v.closing;
+  var breakEven = pctRent < 1 ? (fixed + mort - v.other) / (1 - pctRent) : Infinity;
+  return {loan: loan, mort: mort, income: income, opex: opex, noi: noi, cf: cf, cash: cash,
+    cap: v.price > 0 ? noi * 12 / v.price * 100 : 0,
+    coc: cash > 0 ? cf * 12 / cash * 100 : null,
+    onePct: v.price > 0 ? v.rent / v.price * 100 : 0,
+    breakEven: Math.max(0, breakEven), fixed: fixed};
+}
+function money(x) { return (x < 0 ? '-$' : '$') + Math.abs(x).toLocaleString('en-US', {maximumFractionDigits: 0}); }
+function pct(x) { return x === null ? 'n/a' : x.toFixed(2) + '%'; }
+function val(id) { var x = parseFloat(document.getElementById(id).value); return isNaN(x) ? 0 : x; }
+function run() {
+  var ids = ['price','down','rate','term','closing','rent','other','vac','tax','ins','hoa','maint','capex','mgmt','util','misc'], v = {};
+  ids.forEach(function (id) { v[id] = val(id); });
+  if (v.term < 1) v.term = 1;
+  var a = analyze(v);
+  var cards = [
+    ['Monthly cash flow', money(a.cf), a.cf < 0], ['Yearly cash flow', money(a.cf * 12), a.cf < 0],
+    ['Cap rate', pct(a.cap), a.cap < 0], ['Cash-on-cash return', pct(a.coc), a.coc !== null && a.coc < 0],
+    ['Break-even rent / month', isFinite(a.breakEven) ? money(a.breakEven) : 'n/a', false],
+    ['Rent-to-price (1% rule)', a.onePct.toFixed(2) + '% ' + (a.onePct >= 1 ? '(passes)' : '(below 1%)'), false]
+  ];
+  document.getElementById('cards').innerHTML = cards.map(function (c) {
+    return '<div class="card"><h3>' + c[0] + '</h3><p class="big' + (c[2] ? ' neg' : '') + '">' + c[1] + '</p></div>';
+  }).join('');
+  var rows = [
+    ['Scheduled rent', money(v.rent)], ['Vacancy loss', money(-v.rent * v.vac / 100)], ['Other income', money(v.other)],
+    ['<strong>Collected income</strong>', '<strong>' + money(a.income) + '</strong>'],
+    ['Property tax', money(-v.tax / 12)], ['Insurance', money(-v.ins / 12)], ['HOA', money(-v.hoa)],
+    ['Repairs + maintenance', money(-v.rent * v.maint / 100)], ['Capital reserves', money(-v.rent * v.capex / 100)],
+    ['Property management', money(-v.rent * v.mgmt / 100)], ['Utilities', money(-v.util)], ['Other costs', money(-v.misc)],
+    ['<strong>NOI</strong>', '<strong>' + money(a.noi) + '</strong>'],
+    ['Mortgage (P&amp;I) on ' + money(a.loan) + ' loan', money(-a.mort)],
+    ['<strong>Cash flow</strong>', '<strong>' + money(a.cf) + '</strong>'],
+    ['Cash invested (down + closing/repairs)', money(a.cash)]
+  ];
+  document.getElementById('rows').innerHTML = rows.map(function (r) { return '<tr><td>' + r[0] + '</td><td class="n">' + r[1] + '</td></tr>'; }).join('');
+  var w = [];
+  if (a.cf < 0) w.push('This property loses ' + money(-a.cf) + ' a month with these numbers. You would need about ' + money(a.breakEven) + ' rent to break even.');
+  if (v.vac + v.maint + v.capex < 10) w.push('Vacancy + maintenance + reserves are under 10% of rent, which is optimistic for most rentals.');
+  document.getElementById('warn').innerHTML = w.map(function (t) { return '<div class="warn">' + t + '</div>'; }).join('');
+  document.getElementById('out').hidden = false;
+}
+document.getElementById('calc').addEventListener('click', run);
+if (typeof module !== 'undefined') module.exports = {payment: payment, analyze: analyze};
+</script>
+</body>
+</html>
