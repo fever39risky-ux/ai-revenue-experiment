@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 41 (2026-09-23T18:15Z): added 3rd queued Zenn article articles/gas-calendar-ai-daily-report.md (Calendar -> AI daily-report Gmail draft; hours computed in code with overlap merge; node mock-tested), published:false. NEXT EXECUTABLE: signals (etsy-diagnostics + sales-monitor) due >=18:40Z; at/after 2026-09-24T07:40Z Gumroad retry order (savings, pfbundle, single_invoice, single_form) then add single_invoice URL to articles/gas-invoice-pdf-ai-email.md + guides/gas-invoice-pdf-ai-cover-email.html and single_form URL to guides/google-form-ai-triage-notify.html + articles/gas-google-form-ai-triage-notify.md; Zenn publish queue >=24h apart: at/after 2026-09-24T12:30Z form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report. Zenn queue now covers 3 days; do not add a 4th until one publishes. Do not create no-op checkpoint commits. Do not add more calculators, Etsy templates, X posts or repo-metadata tweaks.",
-  "last_operator_run": "2026-09-23T18:15:00.000Z",
+  "next_action": "Run 42 (2026-09-23T18:30Z): prepared $3 Gumroad SKU single_calendar (Calendar -> AI daily/weekly report PLUS: multi-calendar dedupe, keyword client/project categorization with per-category overlap-merged hours, idempotent work-log sheet, auto weekly report, monthly per-category summary for billing; 28 node mock checks) = marketing/gumroad_listing_config_single_calendar.json + downloads/calendar-report-plus-032cc6.zip + thumbnail. NEXT EXECUTABLE: signals (etsy-diagnostics + sales-monitor) due >=18:40Z; at/after 2026-09-24T07:40Z Gumroad retry via gumroad-publish-config.yml in order savings, pfbundle, single_invoice, single_form, single_calendar (state status/gumroad_listing_<name>.json) then add single_invoice URL to articles/gas-invoice-pdf-ai-email.md + guides/gas-invoice-pdf-ai-cover-email.html, single_form URL to guides/google-form-ai-triage-notify.html + articles/gas-google-form-ai-triage-notify.md, single_calendar URL to articles/gas-calendar-ai-daily-report.md; Zenn publish queue >=24h apart: at/after 2026-09-24T12:30Z form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report. Optional next package while gated: $3 PLUS SKU for the =AI() sheets article (the only queued article without a paid step). Do not add a 4th Zenn article until one publishes. Do not create no-op checkpoint commits. Do not add more calculators, Etsy templates, X posts or repo-metadata tweaks.",
+  "last_operator_run": "2026-09-23T18:30:00.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-23T06:53:27.222253+00:00",
-  "last_run_ended": "2026-09-23T18:11:34.088122+00:00"
+  "last_run_ended": "2026-09-23T18:14:41.488793+00:00"
 }

@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3) #4, same pipeline as single_gmail/single_invoice/single_form (publish via gumroad-publish-config.yml). Created 2026-09-23 for readers of the queued Zenn article gas-calendar-ai-daily-report (not in PRO). Materially more than the free article code: multiple calendars with cross-calendar dedupe, keyword-rule categorization (client/project) with per-category overlap-merged hours, idempotent work-log sheet, automatic weekly report on the last workday, monthly per-category summary sheet for billing, JP holidays/declined/overnight handling, PII masking, duplicate-draft guard, 429/5xx retry, DRY_RUN (28 node mock checks passed). Queued behind Gumroad's 10-products/day cap (retry >=2026-09-24T07:40Z).",
+  "name": "Googleカレンダー→AI日報・週報の下書き｜GAS拡張版（顧客・案件別の時間集計・稼働ログ・月次集計）",
+  "description": "Zennで公開した「Googleカレンダーの予定から日報の下書きをAIで自動作成する」Google Apps Scriptの拡張版です。そのまま貼って動くスクリプト1本と、日本語の導入手順をまとめました。\n\n■ 記事版からの追加機能\n・複数カレンダー対応：自分＋チームの共有カレンダーをまとめて集計（同じ予定は1回だけ数えます）\n・「分類ルール」シートのキーワードで予定を顧客・案件ごとに自動分類し、分類別の時間を日報に載せます\n・「稼働ログ」シートに毎日の予定を記録。同じ日を再実行しても行が重複しません\n・週の最終営業日に「週報」の下書きも自動作成（分類別の時間・件数・主な予定）\n・月次の分類別集計シート：顧客・案件ごとの稼働時間(h)・件数・稼働日数をメニュー1つで。請求や工数管理の下書きに\n・日本の祝日はスキップ、辞退した予定は除外、日をまたぐ予定はその日の分だけ数えます\n・説明欄のメールアドレス・電話番号・郵便番号を伏せ字にしてからAIへ送ります\n・同じ件名の下書きがあれば作り直さない／API混雑（429/5xx）時の自動リトライ／お試しモード（DRY_RUN）\n\n■ 数字はコード、文章はAI\n時間・件数はすべてスクリプトで計算します（重なった会議を二重に数えません）。AIには「事実にない成果や数字を足さない」と指示し、文章化だけを任せます。APIキーが無い・AIが失敗した日も、予定一覧と合計時間だけの日報は必ず作られます。\n\n■ 同梱物\n・calendar_ai_report_plus.gs（スクリプト本体）\n・導入手順・時間の数え方・よくあるつまずき（日本語テキスト）\n\n■ 必要なもの\nGoogleアカウント＋従量課金の OpenAI APIキー（gpt-4o-mini なら1日1回で1円未満が目安）。ChatGPTの有料プランは不要です。\n\n■ 安全設計\n送信はしません。Gmailの下書きに置くだけなので、必ず人が目を通して送ります。データはあなたのGoogleアカウント内で処理され、当方が預かることはありません。\n\n■ 正直なご注意\n・AIの文章は間違えることがあります。個人情報の伏せ字は代表的な書式（メール・電話・郵便番号）のみが対象です。\n・時短効果などを保証するものではありません。APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・Gmail問い合わせ自動返信・請求書PDF・議事録AI要約など計5本入りのPRO版もあります（この日報スクリプトはPRO版には含まれません）。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Impulse-level entry price mirroring the other $3 single-script SKUs.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "日報",
+    "google apps script",
+    "chatgpt",
+    "googleカレンダー",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/calendar-report-plus-thumb.png",
+  "digital_file": "downloads/calendar-report-plus-032cc6.zip",
+  "digital_file_name": "calendar-report-plus.zip"
+}
