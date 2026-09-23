@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>50/30/20 Budget Calculator (Free): Needs, Wants and Savings from Your Income</title>
+<meta name="description" content="Free 50/30/20 budget calculator. Enter your monthly take-home pay to see how much goes to needs, wants and savings or debt, then add what you actually spend to see where you are over or under. Change the split if 50/30/20 does not fit. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/budget-503020-calculator.html">
+<meta property="og:title" content="50/30/20 Budget Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/budget-503020-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/budget.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"50/30/20 Budget Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/budget-503020-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 50/30/20 budget rule?","acceptedAnswer":{"@type":"Answer","text":"The 50/30/20 rule splits your monthly take-home pay into three parts: 50% for needs such as rent, utilities, groceries, insurance and minimum debt payments; 30% for wants such as eating out, hobbies and subscriptions; and 20% for savings and paying off debt faster."}},{"@type":"Question","name":"Is the 50/30/20 rule based on gross or net income?","acceptedAnswer":{"@type":"Answer","text":"It uses take-home (net) pay: what reaches your bank account after tax and deductions. If retirement contributions are taken from your paycheck, you can count them toward the 20% savings part."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 16px}label{font-weight:600;font-size:.93rem}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem;margin-top:3px}
+table{width:100%;border-collapse:collapse;margin-top:8px}td{padding:6px;border-bottom:1px solid #e3eaf0}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}.kpi{border:2px solid #e3eaf0;border-radius:14px;padding:12px}.kpi.main{border-color:#1f7f7a}.kpi p{margin:0}.big{font-size:1.5rem;font-weight:800;color:#1f7f7a}
+.muted{color:#5a6b78;font-size:.9rem}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="savings-goal-calculator.html">Savings goal calculator</a> · <a href="debt-payoff-calculator.html">Debt payoff calculator</a></p>
+<h1>50/30/20 budget calculator</h1>
+<p class="lead">Enter your monthly <strong>take-home pay</strong> to see how much the 50/30/20 rule gives to needs, wants and savings. Add what you really spend to see where you are over or under. Free, no sign-up, runs in your browser. Any currency.</p>
+
+<div class="panel"><div class="grid">
+<label>Monthly take-home pay (after tax)<input id="income" type="number" min="0" step="any" value="4000"></label>
+<label>Needs %<input id="pN" type="number" min="0" max="100" step="any" value="50"></label>
+<label>Wants %<input id="pW" type="number" min="0" max="100" step="any" value="30"></label>
+<label>Savings &amp; extra debt payments %<input id="pS" type="number" min="0" max="100" step="any" value="20"></label>
+</div>
+<h3>What you actually spend per month (optional)</h3>
+<div class="grid">
+<label>Needs: rent, bills, groceries, transport, insurance, minimum payments<input id="aN" type="number" min="0" step="any" value="2300"></label>
+<label>Wants: eating out, shopping, hobbies, subscriptions, travel<input id="aW" type="number" min="0" step="any" value="1050"></label>
+<label>Savings &amp; extra debt payments<input id="aS" type="number" min="0" step="any" value="450"></label>
+</div></div>
+
+<div class="panel">
+<p id="warn" class="muted" style="color:#b0413e"></p>
+<div class="kpis">
+<div class="kpi main"><p class="muted">Needs budget</p><p class="big" id="kN">-</p></div>
+<div class="kpi main"><p class="muted">Wants budget</p><p class="big" id="kW">-</p></div>
+<div class="kpi main"><p class="muted">Savings &amp; debt budget</p><p class="big" id="kS">-</p></div>
+<div class="kpi"><p class="muted">Left after actual spending</p><p class="big" id="kL">-</p></div>
+</div>
+<table><thead><tr><td><b>Part</b></td><td class="n"><b>Budget</b></td><td class="n"><b>Actual</b></td><td class="n"><b>Actual % of pay</b></td><td class="n"><b>Budget − actual</b></td></tr></thead><tbody id="rows"></tbody></table>
+<p class="muted">Yearly savings at your actual rate: <b id="kYear">-</b>. If needs are over 50%, that is common in high-rent cities: try 60/20/20 or 70/20/10 and focus on keeping savings steady.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Track every category, month by month</h2>
+<p>The <strong>Monthly Budget Planner</strong> is an .xlsx file for Excel, Google Sheets and Apple Numbers: plan each category, log your spending once, and see budget vs actual for the month plus a 12-month overview with your savings rate. , instant download, no subscription.</p>
+<p><a class="btn" href="https://www.etsy.com/listing/4580872903">Get the Monthly Budget Planner on Etsy ($4)</a></p>
+<p class="muted">Or the <a href="https://www.etsy.com/listing/4580891135">Personal Finance Spreadsheet Bundle</a> ($9, 3 files): budget planner + debt payoff planner (snowball vs avalanche) + savings goals tracker.</p>
+</div>
+
+<section class="faq">
+<h2>How the 50/30/20 rule works</h2>
+<p><strong>Needs (50%)</strong>: things you must pay to live and work: housing, utilities, groceries, transport, insurance, childcare and the minimum payment on every debt.</p>
+<p><strong>Wants (30%)</strong>: things you could cut: eating out, entertainment, streaming, clothes beyond the basics, hobbies and holidays.</p>
+<p><strong>Savings and debt (20%)</strong>: emergency fund, retirement, sinking funds for known costs and anything you pay on debt above the minimum.</p>
+<p>The split is a starting point, not a law. The calculator lets you change it; the three parts should add up to 100%.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI and checked by hand.</footer>
+</div>
+<script>
+function budgetSplit(o) {
+  var parts = [['Needs', o.pN, o.aN], ['Wants', o.pW, o.aW], ['Savings & debt', o.pS, o.aS]].map(function (p) {
+    var budget = o.income * p[1] / 100;
+    return {name: p[0], budget: budget, actual: p[2], actualPct: o.income > 0 ? p[2] / o.income : 0, diff: budget - p[2]};
+  });
+  var pct = o.pN + o.pW + o.pS, spent = o.aN + o.aW + o.aS;
+  return {parts: parts, pctTotal: pct, unassigned: o.income * (100 - pct) / 100, leftAfterActual: o.income - spent, yearlySavings: o.aS * 12};
+}
+if (typeof module !== 'undefined') { module.exports = {budgetSplit: budgetSplit}; }
+if (typeof document !== 'undefined') (function () {
+  var ids = ['income', 'pN', 'pW', 'pS', 'aN', 'aW', 'aS'];
+  var fmt = function (x, d) { return isFinite(x) ? x.toLocaleString(undefined, {minimumFractionDigits: d || 0, maximumFractionDigits: d || 0}) : '-'; };
+  function run() {
+    var o = {}; ids.forEach(function (k) { o[k] = Math.max(0, +document.getElementById(k).value || 0); });
+    var r = budgetSplit(o);
+    document.getElementById('kN').textContent = fmt(r.parts[0].budget);
+    document.getElementById('kW').textContent = fmt(r.parts[1].budget);
+    document.getElementById('kS').textContent = fmt(r.parts[2].budget);
+    document.getElementById('kL').textContent = fmt(r.leftAfterActual);
+    document.getElementById('kYear').textContent = fmt(r.yearlySavings);
+    document.getElementById('warn').textContent = Math.abs(r.pctTotal - 100) > 1e-9 ? 'Your split adds up to ' + fmt(r.pctTotal, 1) + '%, not 100%.' : '';
+    document.getElementById('rows').innerHTML = r.parts.map(function (p) {
+      return '<tr><td>' + p.name.replace('&', '&amp;') + '</td><td class="n">' + fmt(p.budget) + '</td><td class="n">' + fmt(p.actual) + '</td><td class="n">' + fmt(p.actualPct * 100, 1) + '%</td><td class="n">' + fmt(p.diff) + '</td></tr>';
+    }).join('');
+  }
+  ids.forEach(function (k) { document.getElementById(k).addEventListener('input', run); });
+  run();
+})();
+</script>
+</body></html>

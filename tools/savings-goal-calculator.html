@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Goal &amp; Sinking Funds Calculator (Free): How Much to Save per Month</title>
+<meta name="description" content="Free savings goal and sinking funds calculator. List your goals (emergency fund, car, holiday, gifts...) with a target, what you have saved and a date, and see how much to save each month for every goal and in total, compared with what you can set aside. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/savings-goal-calculator.html">
+<meta property="og:title" content="Savings Goal &amp; Sinking Funds Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/savings-goal-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/savings.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Savings Goal & Sinking Funds Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/savings-goal-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I save each month to reach a savings goal?","acceptedAnswer":{"@type":"Answer","text":"Take what is still left to save (the target minus what you already have) and divide it by the number of months until the goal date, counting the current month. If the date has already passed, the whole remaining amount is due now."}},{"@type":"Question","name":"What is a sinking fund?","acceptedAnswer":{"@type":"Answer","text":"A sinking fund is money you set aside a little at a time for a cost you know is coming, such as car insurance, holidays, gifts or a new laptop, so the bill does not land on your credit card when it arrives."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 16px}label{font-weight:600;font-size:.93rem}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem;margin-top:3px}
+table{width:100%;border-collapse:collapse;margin-top:8px}td{padding:6px;border-bottom:1px solid #e3eaf0}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}.kpi{border:2px solid #e3eaf0;border-radius:14px;padding:12px}.kpi.main{border-color:#1f7f7a}.kpi p{margin:0}.big{font-size:1.5rem;font-weight:800;color:#1f7f7a}
+.muted{color:#5a6b78;font-size:.9rem}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="budget-503020-calculator.html">50/30/20 budget calculator</a> · <a href="debt-payoff-calculator.html">Debt payoff calculator</a></p>
+<h1>Savings goal &amp; sinking funds calculator</h1>
+<p class="lead">List what you are saving for, how much you already have and when you need it. See <strong>how much to save each month</strong> for each goal, the total, and whether it fits what you can set aside. Free, no sign-up, runs in your browser. Any currency.</p>
+
+<div class="panel">
+<label>What you can set aside per month in total<input id="monthly" type="number" min="0" step="any" value="600" style="max-width:260px;display:block"></label>
+<table><thead><tr><td><b>Goal</b></td><td><b>Target</b></td><td><b>Saved so far</b></td><td><b>Need it by</b></td></tr></thead><tbody id="inputs"></tbody></table>
+<p class="muted">Leave a row's name empty to skip it.</p>
+</div>
+
+<div class="panel">
+<div class="kpis">
+<div class="kpi main"><p class="muted">Save per month for all goals</p><p class="big" id="kNeed">-</p></div>
+<div class="kpi"><p class="muted">Spare (+) or short (-) per month</p><p class="big" id="kSpare">-</p></div>
+<div class="kpi"><p class="muted">Left to save</p><p class="big" id="kLeft">-</p></div>
+<div class="kpi"><p class="muted">Overall progress</p><p class="big" id="kProg">-</p></div>
+</div>
+<table><thead><tr><td><b>Goal</b></td><td class="n"><b>Left</b></td><td class="n"><b>Done</b></td><td class="n"><b>Months left</b></td><td class="n"><b>Per month</b></td></tr></thead><tbody id="rows"></tbody></table>
+<p class="muted">Months left counts the current month. If you are short, move a date later, lower a target or save for the most urgent goal first.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Keep your goals up to date in a spreadsheet</h2>
+<p>The <strong>Savings Goals &amp; Sinking Funds Tracker</strong> does this for up to 20 goals in an .xlsx file for Excel, Google Sheets and Apple Numbers, with a deposit and withdrawal log, progress bars, what to save per month to hit each date and savings by month. , instant download, no subscription.</p>
+<p><a class="btn" href="https://www.etsy.com/listing/4580904804">Get the Savings Goals Tracker on Etsy ($5)</a></p>
+<p class="muted">Or the <a href="https://www.etsy.com/listing/4580891135">Personal Finance Spreadsheet Bundle</a> ($9, 3 files): monthly budget planner + debt payoff planner + savings goals tracker.</p>
+</div>
+
+<section class="faq">
+<h2>How the monthly amount is worked out</h2>
+<p><strong>Left to save</strong> = target − saved so far (never below zero).</p>
+<p><strong>Months left</strong> = full months from today to the goal date, plus the current month. A goal due later this month has 1 month left; a date in the past has 0 and the whole amount left is due now.</p>
+<p><strong>Save per month</strong> = left to save ÷ months left. Add these up to get what all your goals need each month, then compare with what you can set aside.</p>
+<h2>Common sinking funds</h2>
+<p>Emergency fund (often 3-6 months of essential costs), car repairs and insurance, holidays and travel, birthdays and holiday gifts, yearly subscriptions, medical and dental, home repairs, a new phone or laptop, and a house deposit.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI and checked by hand.</footer>
+</div>
+<script>
+function monthsLeft(today, due) {
+  if (due <= today) return 0;
+  var m = (due.getFullYear() - today.getFullYear()) * 12 + due.getMonth() - today.getMonth() - (due.getDate() < today.getDate() ? 1 : 0);
+  return m + 1;
+}
+function savingsPlan(goals, monthly, today) {
+  var out = {rows: [], need: 0, left: 0, target: 0, saved: 0};
+  goals.forEach(function (g) {
+    var left = Math.max(0, g.target - g.saved), ml = monthsLeft(today, g.date);
+    var pm = left <= 0 ? 0 : (ml > 0 ? left / ml : left);
+    out.rows.push({name: g.name, left: left, done: g.target > 0 ? Math.min(1, g.saved / g.target) : 0, months: ml, perMonth: pm});
+    out.need += pm; out.left += left; out.target += g.target; out.saved += Math.min(g.saved, g.target);
+  });
+  out.spare = monthly - out.need;
+  out.progress = out.target > 0 ? out.saved / out.target : 0;
+  return out;
+}
+if (typeof module !== 'undefined') { module.exports = {monthsLeft: monthsLeft, savingsPlan: savingsPlan}; }
+if (typeof document !== 'undefined') (function () {
+  var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function iso(y, m, d) { var t = new Date(y, m, d); return t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2); }
+  var y = today.getFullYear(), mo = today.getMonth();
+  var defs = [['Emergency fund', 6000, 1500, iso(y + 1, mo, 1)], ['Holiday', 2000, 300, iso(y, mo + 8, 1)], ['Car insurance', 900, 150, iso(y, mo + 6, 1)], ['Gifts', 600, 50, iso(y, mo + 3, 1)], ['', '', '', ''], ['', '', '', '']];
+  var body = document.getElementById('inputs');
+  body.innerHTML = defs.map(function (d, i) {
+    return '<tr><td><input id="n' + i + '" value="' + d[0] + '"></td><td><input id="t' + i + '" type="number" min="0" step="any" value="' + d[1] + '"></td><td><input id="s' + i + '" type="number" min="0" step="any" value="' + d[2] + '"></td><td><input id="d' + i + '" type="date" value="' + d[3] + '"></td></tr>';
+  }).join('');
+  var fmt = function (x, d) { return isFinite(x) ? x.toLocaleString(undefined, {minimumFractionDigits: d || 0, maximumFractionDigits: d || 0}) : '-'; };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
+  function run() {
+    var goals = [];
+    defs.forEach(function (_, i) {
+      var n = document.getElementById('n' + i).value.trim(), dv = document.getElementById('d' + i).value;
+      if (!n || !dv) return;
+      var p = dv.split('-');
+      goals.push({name: n, target: Math.max(0, +document.getElementById('t' + i).value || 0), saved: Math.max(0, +document.getElementById('s' + i).value || 0), date: new Date(+p[0], +p[1] - 1, +p[2])});
+    });
+    var r = savingsPlan(goals, Math.max(0, +document.getElementById('monthly').value || 0), today);
+    document.getElementById('kNeed').textContent = fmt(r.need, 2);
+    document.getElementById('kSpare').textContent = fmt(r.spare, 2);
+    document.getElementById('kLeft').textContent = fmt(r.left);
+    document.getElementById('kProg').textContent = fmt(r.progress * 100, 1) + '%';
+    document.getElementById('rows').innerHTML = r.rows.map(function (x) {
+      return '<tr><td>' + esc(x.name) + '</td><td class="n">' + fmt(x.left) + '</td><td class="n">' + fmt(x.done * 100, 1) + '%</td><td class="n">' + x.months + '</td><td class="n">' + fmt(x.perMonth, 2) + '</td></tr>';
+    }).join('');
+  }
+  document.querySelectorAll('input').forEach(function (el) { el.addEventListener('input', run); });
+  run();
+})();
+</script>
+</body></html>

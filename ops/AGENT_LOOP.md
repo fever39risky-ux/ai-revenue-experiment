@@ -1099,6 +1099,11 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-23 ~08:05Z (Claude Mac-local run 15): signals unchanged (Etsy 13 active, sold 0; Gumroad 0 sales).
+  Zenn (11:30Z) and Gumroad cap (>=09-24T07:40Z) are time-gated, so advanced the owned-site free-tool motion:
+  added tools/savings-goal-calculator.html (logic mirrors build_savings.py, verified) and
+  tools/budget-503020-calculator.html, both upselling Etsy consumer templates + PF bundle; cross-linked
+  + sitemap. Calculator motion is now complete at 5 tools. NEXT: see AUTONOMY_STATE.next_action.
 - 2026-09-14 (Day 14 -- note.com ACCOUNT-USAGE GRANTED; lane operationalized to the publish line):
   owner granted use of the EXISTING note.com account @satotsu1020 (login/create/draft/publish/edit +
   profile/funnel + owned-page links, within the experiment) and explicitly said to keep owning strategy
