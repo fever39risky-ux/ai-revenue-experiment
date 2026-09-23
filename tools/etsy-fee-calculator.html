@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etsy Fee Calculator (Free): Fees, Profit per Sale and Price for a Target Margin</title>
+<meta name="description" content="Free Etsy fee and profit calculator. Enter item price, shipping and your costs to see listing, transaction and payment processing fees, optional Offsite Ads, profit per sale, margin and the price you need for a target profit margin. Editable fee rates. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/etsy-fee-calculator.html">
+<meta property="og:title" content="Etsy Fee & Profit Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/etsy-fee-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/seller.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Etsy Fee & Profit Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/etsy-fee-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What fees does Etsy charge on a sale?","acceptedAnswer":{"@type":"Answer","text":"For a typical US seller: a $0.20 listing fee, a transaction fee of 6.5% of the item price plus shipping and gift wrap, and a payment processing fee of about 3% plus $0.25 per order. If the sale came from an Offsite Ad, there is also an Offsite Ads fee of 15% (12% for sellers with over $10,000 in yearly sales). Rates vary by country and change over time, so check Etsy's fee page and edit the rates in this calculator."}},{"@type":"Question","name":"How do I price for a target profit margin on Etsy?","acceptedAnswer":{"@type":"Answer","text":"Percentage fees scale with the price, so you cannot just add your margin to your costs. This calculator solves for the item price where profit divided by what the buyer pays equals your target margin, after all percentage and fixed fees."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 16px}label{font-weight:600;font-size:.93rem}
+input,select{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem;margin-top:3px}
+details{margin-top:14px}summary{cursor:pointer;font-weight:700;color:#1f7f7a}
+table{width:100%;border-collapse:collapse;margin-top:8px}td{padding:6px;border-bottom:1px solid #e3eaf0}td.n{text-align:right;font-variant-numeric:tabular-nums}tr.tot td{font-weight:800;border-top:2px solid #13202b}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}.kpi{border:2px solid #e3eaf0;border-radius:14px;padding:12px}.kpi p{margin:0}.big{font-size:1.5rem;font-weight:800;color:#1f7f7a}.neg{color:#b3261e}
+.muted{color:#5a6b78;font-size:.9rem}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a></p>
+<h1>Etsy fee and profit calculator</h1>
+<p class="lead">See exactly what Etsy takes from a sale and what you keep. Enter your price, shipping and costs to get every fee, your <strong>profit per sale</strong>, your <strong>margin</strong> and the <strong>price you need</strong> for a target margin. Free, no sign-up, runs in your browser.</p>
+
+<div class="panel">
+<div class="grid">
+<label>Item price<input id="price" type="number" min="0" step="any" value="24"></label>
+<label>Shipping charged to buyer<input id="ship" type="number" min="0" step="any" value="5"></label>
+<label>Quantity in the order<input id="qty" type="number" min="1" step="1" value="1"></label>
+<label>Cost of materials / goods (per item)<input id="cogs" type="number" min="0" step="any" value="6"></label>
+<label>Shipping label + packaging (per order)<input id="label" type="number" min="0" step="any" value="4.5"></label>
+<label>Sale came from an Offsite Ad?<select id="offsite"><option value="0">No</option><option value="15">Yes, 15% fee</option><option value="12">Yes, 12% fee (over $10k/yr)</option></select></label>
+<label>Target profit margin %<input id="target" type="number" min="0" max="90" step="any" value="30"></label>
+</div>
+<details><summary>Fee rates (edit for your country)</summary>
+<p class="muted">Defaults are typical rates for a US seller paying in USD. Other countries have different payment processing rates, and some add a regulatory operating fee or VAT on fees. Check Etsy's current fee page and edit these.</p>
+<div class="grid">
+<label>Listing fee per item sold<input id="rList" type="number" min="0" step="any" value="0.20"></label>
+<label>Transaction fee %<input id="rTx" type="number" min="0" step="any" value="6.5"></label>
+<label>Payment processing %<input id="rPp" type="number" min="0" step="any" value="3"></label>
+<label>Payment processing fixed per order<input id="rPpf" type="number" min="0" step="any" value="0.25"></label>
+<label>Regulatory operating fee %<input id="rReg" type="number" min="0" step="any" value="0"></label>
+<label>Currency conversion % (if listing currency differs)<input id="rFx" type="number" min="0" step="any" value="0"></label>
+<label>Offsite Ads fee cap per order<input id="rCap" type="number" min="0" step="any" value="100"></label>
+</div></details>
+</div>
+
+<div class="panel" id="out">
+<div class="kpis">
+<div class="kpi"><p class="muted">Buyer pays</p><p class="big" id="kRev">-</p></div>
+<div class="kpi"><p class="muted">Total Etsy fees</p><p class="big" id="kFees">-</p></div>
+<div class="kpi"><p class="muted">Profit per order</p><p class="big" id="kProfit">-</p></div>
+<div class="kpi"><p class="muted">Profit margin</p><p class="big" id="kMargin">-</p></div>
+</div>
+<table><tbody id="rows"></tbody></table>
+<p id="need" style="margin-top:14px"></p>
+<p class="muted">Estimates from the rates above. Sales tax / VAT collected by Etsy is left out because Etsy passes it to the tax authority. Not tax or accounting advice.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Track every order's profit, not just one</h2>
+<p>The <strong>Seller Profit &amp; Fee Tracker</strong> is a spreadsheet for Etsy and other marketplace sellers: log each order and it works out the fees from rates you can edit, cost of goods per product, shipping label cost, profit by product and by month, plus a price calculator for a target margin. Excel, Google Sheets and Apple Numbers. $5, instant download.</p>
+<p><a class="btn" href="https://www.etsy.com/listing/4580871061">Get the Seller Profit Tracker ($5)</a></p>
+<p class="muted">Running the whole shop? The <a href="https://feverish50.gumroad.com/l/jspscg">Small Business Spreadsheet Bundle</a> ($12) adds bookkeeping, inventory and a freelance time &amp; invoice tracker. Also on <a href="https://www.etsy.com/listing/4580903096">Etsy</a>.</p>
+</div>
+
+<section class="faq">
+<h2>How Etsy fees work</h2>
+<p><strong>Listing fee:</strong> $0.20 when you publish a listing, and again each time it auto-renews after a sale. In an order of several items, each item sold renews the listing.</p>
+<p><strong>Transaction fee:</strong> 6.5% of what the buyer pays for the item, shipping and gift wrap (not sales tax).</p>
+<p><strong>Payment processing fee:</strong> in the US about 3% of the order total plus $0.25. Other countries differ.</p>
+<p><strong>Offsite Ads fee:</strong> only when a sale comes from an Etsy ad shown on another site: 15% of the order, or 12% if you made over $10,000 on Etsy in the past 12 months, capped at $100 per order.</p>
+<p><strong>Why the target price is higher than cost plus margin:</strong> most Etsy fees are a percentage of the price, so raising the price also raises the fees. The calculator solves for the price where your margin holds after fees.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Not affiliated with Etsy. Made with the help of AI and checked by hand.</footer>
+</div>
+<script>
+function etsyFees(o) {
+  // o: price, ship, qty, cogs, label, offsite(%), rList, rTx, rPp, rPpf, rReg, rFx, rCap
+  var rev = o.price * o.qty + o.ship;
+  var f = {};
+  f.listing = o.rList * o.qty;
+  f.transaction = rev * o.rTx / 100;
+  f.processing = rev * o.rPp / 100 + o.rPpf;
+  f.regulatory = rev * o.rReg / 100;
+  f.conversion = rev * o.rFx / 100;
+  f.offsite = Math.min(rev * o.offsite / 100, o.rCap);
+  var fees = f.listing + f.transaction + f.processing + f.regulatory + f.conversion + f.offsite;
+  var costs = o.cogs * o.qty + o.label;
+  var profit = rev - fees - costs;
+  return {rev: rev, f: f, fees: fees, costs: costs, profit: profit, margin: rev > 0 ? profit / rev : 0};
+}
+function priceForMargin(o, target) {
+  // margin m = profit/rev. Offsite cap makes it piecewise linear; profit - m*rev is increasing in price while pct < 1 - m, so bisection works.
+  var g = function (p) { var r = etsyFees(Object.assign({}, o, {price: p})); return r.profit - target / 100 * r.rev; };
+  var lo = 0, hi = 1e6;
+  if (g(hi) < 0) return null;
+  for (var i = 0; i < 100; i++) { var mid = (lo + hi) / 2; if (g(mid) >= 0) hi = mid; else lo = mid; }
+  return hi;
+}
+if (typeof module !== 'undefined') { module.exports = {etsyFees: etsyFees, priceForMargin: priceForMargin}; }
+if (typeof document !== 'undefined') (function () {
+  var ids = ['price', 'ship', 'qty', 'cogs', 'label', 'offsite', 'target', 'rList', 'rTx', 'rPp', 'rPpf', 'rReg', 'rFx', 'rCap'];
+  var money = function (x) { return (x < 0 ? '-' : '') + '$' + Math.abs(x).toFixed(2); };
+  function run() {
+    var o = {}; ids.forEach(function (k) { o[k] = Math.max(0, +document.getElementById(k).value || 0); }); o.qty = Math.max(1, Math.round(o.qty));
+    var r = etsyFees(o);
+    document.getElementById('kRev').textContent = money(r.rev);
+    document.getElementById('kFees').textContent = money(r.fees) + (r.rev > 0 ? ' (' + (r.fees / r.rev * 100).toFixed(1) + '%)' : '');
+    var kp = document.getElementById('kProfit'); kp.textContent = money(r.profit); kp.className = 'big' + (r.profit < 0 ? ' neg' : '');
+    document.getElementById('kMargin').textContent = (r.margin * 100).toFixed(1) + '%';
+    var rows = [['Item price × ' + o.qty + ' + shipping', r.rev], ['Listing fee', -r.f.listing], ['Transaction fee', -r.f.transaction], ['Payment processing', -r.f.processing]];
+    if (r.f.regulatory) rows.push(['Regulatory operating fee', -r.f.regulatory]);
+    if (r.f.conversion) rows.push(['Currency conversion', -r.f.conversion]);
+    if (r.f.offsite) rows.push(['Offsite Ads fee', -r.f.offsite]);
+    rows.push(['Cost of goods', -o.cogs * o.qty], ['Shipping label + packaging', -o.label]);
+    document.getElementById('rows').innerHTML = rows.map(function (x) { return '<tr><td>' + x[0] + '</td><td class="n">' + money(x[1]) + '</td></tr>'; }).join('') + '<tr class="tot"><td>Profit</td><td class="n">' + money(r.profit) + '</td></tr>';
+    var p = priceForMargin(o, o.target);
+    document.getElementById('need').innerHTML = p === null ? 'A ' + o.target + '% margin is not reachable with these fee rates.' : 'To make a <strong>' + o.target + '%</strong> margin with these costs and shipping, price the item at <strong>' + money(Math.ceil(p * 100) / 100) + '</strong>' + (o.qty > 1 ? ' each' : '') + '.';
+  }
+  ids.forEach(function (k) { document.getElementById(k).addEventListener('input', run); });
+  run();
+})();
+</script>
+</body></html>
