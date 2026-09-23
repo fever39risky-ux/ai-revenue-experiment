@@ -1,0 +1,34 @@
+{
+  "_doc": "Fifth Etsy listing (personal budget spreadsheet, a large consumer segment on Etsy). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=budget. Source: marketing/etsy_bookkeeping_src/build_budget.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Monthly Budget Planner Spreadsheet, Budget vs Actual Tracker, Expense and Savings Tracker, Excel and Google Sheets Template",
+  "description": "A clean, simple budget spreadsheet. Set a monthly budget for each category, log what you spend, and see exactly what's left.\n\nWhat's inside (one .xlsx file, 5 tabs):\n• Start Here: year, currency label and the month you want to view, plus short instructions.\n• Monthly Budget: planned vs actual income, spending and money left over. Every category shows budget, spent, left, % used and a simple bar. Overspent categories go negative so you can spot them.\n• Transactions: 3,000 ready rows. Enter the date, pick a category from the dropdown, type the amount. Income or Expense is filled in for you.\n• Categories: 3 income sources and 15 spending categories to start (rent, groceries, transport, subscriptions, savings and more). Rename them, add up to 8 income and 25 spending categories, and set your budgets.\n• Year Overview: income, spending, money saved, savings rate and budget difference for all 12 months.\n\nA sample month (September) shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. It is a planning tool, not financial advice. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 4.0,
+  "tags": [
+    "budget planner",
+    "budget spreadsheet",
+    "monthly budget",
+    "expense tracker",
+    "savings tracker",
+    "google sheets",
+    "excel template",
+    "personal finance",
+    "budget template",
+    "finance planner",
+    "spending tracker",
+    "money tracker",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-budget/01.png",
+    "marketing/etsy-images-budget/02.png",
+    "marketing/etsy-images-budget/03.png",
+    "marketing/etsy-images-budget/04.png"
+  ],
+  "digital_file": "downloads/monthly-budget-planner-5c08e2.zip",
+  "digital_file_name": "Monthly-Budget-Planner.zip",
+  "taxonomy_id": 12487
+}
