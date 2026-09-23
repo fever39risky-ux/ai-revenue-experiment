@@ -18,6 +18,9 @@ title: "次の一歩：具体的な自動化レシピ"
 自分で組み立てる時間を省きたい方向けです。
 
 - **Gmail問い合わせAI下書き返信・GAS拡張版（$3）**：FAQ参照（登録した事実以外はAIに断定させない）、noreply等の除外、お試しモード付き → [Gumroad](https://feverish50.gumroad.com/l/koujr)
+- **請求書PDF＋AI添え状メール下書き・GAS拡張版（$3）**：10%・8%の税率区分ごとの消費税、源泉徴収、請求書の通し番号、お試しモード付き → [Gumroad](https://feverish50.gumroad.com/l/ihdjg)
+- **Googleフォーム問い合わせAI仕分け＆担当者通知・GAS拡張版（$3）**：設定シート、個人情報マスク、放置リマインド、日次まとめ付き → [Gumroad](https://feverish50.gumroad.com/l/hesoh)
+- **スプレッドシート =AI() 関数・GAS拡張版（$3）**：分類・抽出・翻訳関数、数百行の一括処理（続きから再開）、月の予算上限付き → [Gumroad](https://feverish50.gumroad.com/l/ymotl)
 - **そのまま動くGAS5本＋日本語導入ガイド【PRO】（$39）**：一括処理・毎朝の要約・Gmail問い合わせ仕分け・請求書PDF＋添え状・議事録要約の5本と、APIキー取得からつまずき対処までの導入ガイド → [Gumroad](https://feverish50.gumroad.com/l/jqxenl)
 
 どれも、この本で解説した設計（下書き止まり・DRY_RUN・再実行しても二重処理しない）に沿って作っています。

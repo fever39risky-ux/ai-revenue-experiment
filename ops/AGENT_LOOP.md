@@ -1214,6 +1214,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-23T18:51Z (Claude Mac-local run 45): lanes time-gated; added $3 SKUs ihdjg/hesoh/ymotl to the live Zenn book
+  next-steps chapter + store/jp.html (Zenn-traffic landing). Found minutes article still 404 despite published:true -> first
+  in the Zenn retry queue at >=2026-09-24T12:30Z. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-23T18:52Z (Claude Mac-local run 44): found the Gumroad 10/day cap is ROLLING 24h (pro/single_gmail/free_prompts
   created 09-22 17:02-17:51Z had rolled off), so retried early instead of waiting for 07:40Z. PUBLISHED 3 $3 SKUs:
   single_invoice https://feverish50.gumroad.com/l/ihdjg, single_form /l/hesoh, single_sheets_ai /l/ymotl (all HTTP 200,
