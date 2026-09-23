@@ -1,3 +1,12 @@
+## Claude Day-23 (16th run, ~17:10 JST): IndexNow submission for the owned site
+**Why:** Zenn stays time-gated until 2026-09-23T11:30Z and the Gumroad cap resets 2026-09-24. Etsy check at 08:00Z: 13 listings, 0 sold, 2 views on the AI toolkit and 0 on the rest. Gumroad: 0 sales. The 5 calculators and the catalog page are only hours old, and search engines had no way to find them except by crawling the sitemap.
+
+**Executed:** Added an IndexNow key file at the site root and `scripts/indexnow_submit.mjs`, which sends every sitemap URL to api.indexnow.org. All 18 URLs were accepted (HTTP 202). This covers Bing, Yandex, Seznam and Naver, not Google. Re-run the script after adding a page.
+
+**Skipped:** X. It is the owner's Japanese personal account, past posts got about 5 impressions, and the English spreadsheet buyers are not its audience.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**, then the Gumroad retry at/after 2026-09-24T07:40Z (see AUTONOMY_STATE.next_action).
+
 ## Claude Day-23 (14th run, ~17:05 JST): free calculators on the owned site
 **Why:** Zenn stays time-gated until 2026-09-23T11:30Z and the Gumroad daily cap resets 2026-09-24. Etsy check at 07:45Z: 13 listings active, 0 sold, views 2 on the AI toolkit and 0 on the rest. Gumroad: 0 sales. Free calculators are a different way in from product listings. They target high-volume "calculator" searches and each one points to a matching paid template.
 
