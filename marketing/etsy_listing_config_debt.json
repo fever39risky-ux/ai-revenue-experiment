@@ -1,0 +1,34 @@
+{
+  "_doc": "Sixth Etsy listing (debt payoff planner: snowball vs avalanche vs minimums). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=debt. Source: marketing/etsy_bookkeeping_src/build_debt.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Debt Payoff Planner Spreadsheet, Debt Snowball and Avalanche Calculator, Credit Card and Loan Payoff Tracker, Excel and Google Sheets",
+  "description": "See when you'll be debt-free and how much interest you can save. Enter your debts once and this spreadsheet compares the debt snowball and debt avalanche methods side by side, month by month.\n\nWhat's inside (one .xlsx file, 6 tabs):\n• Start Here: first payment month, currency label and your extra payment per month, plus short instructions.\n• Payoff Plan: months to debt-free, debt-free date, total interest, total paid, and the interest and months you save compared with paying minimums only. Also the payoff date of every debt and the balance left at the end of each year, with a progress bar.\n• Debts: up to 8 debts (credit cards, store cards, car loan, student loan, personal loan, medical bills...). Name, balance, APR and minimum payment. The payoff order for each method is set automatically.\n• Snowball: smallest balance first. When a debt is paid off, its minimum rolls over to the next one.\n• Avalanche: highest APR first, with the same roll-over.\n• Minimums only: what it costs if you only pay the minimums, for comparison.\n\nEach schedule runs up to 20 years, month by month, for every debt.\n\nSample debts show how it works. Replace them with your own.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Interest is estimated monthly (APR / 12), so your lender's figures may differ slightly. It is a planning tool, not financial advice. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 5.0,
+  "tags": [
+    "debt payoff",
+    "debt snowball",
+    "debt avalanche",
+    "debt tracker",
+    "debt planner",
+    "payoff calculator",
+    "google sheets",
+    "excel template",
+    "personal finance",
+    "budget spreadsheet",
+    "credit card payoff",
+    "loan tracker",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-debt/01.png",
+    "marketing/etsy-images-debt/02.png",
+    "marketing/etsy-images-debt/03.png",
+    "marketing/etsy-images-debt/04.png"
+  ],
+  "digital_file": "downloads/debt-payoff-planner-be0f3a.zip",
+  "digital_file_name": "Debt-Payoff-Planner.zip",
+  "taxonomy_id": 12487
+}

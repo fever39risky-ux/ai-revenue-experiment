@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       variant:
-        description: 'Listing to publish: default (original $9 toolkit), invoice, bookkeeping, seller, or budget'
+        description: 'Listing to publish: default (original $9 toolkit), invoice, bookkeeping, seller, budget, or debt'
         required: false
         default: 'default'
 permissions:
@@ -26,8 +26,8 @@ jobs:
           ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
           ETSY_SHOP_ID: ${{ secrets.ETSY_SHOP_ID }}
-          ETSY_CONFIG: ${{ inputs.variant == 'invoice' && 'marketing/etsy_listing_config_invoice.json' || inputs.variant == 'bookkeeping' && 'marketing/etsy_listing_config_bookkeeping.json' || inputs.variant == 'seller' && 'marketing/etsy_listing_config_seller.json' || inputs.variant == 'budget' && 'marketing/etsy_listing_config_budget.json' || '' }}
-          ETSY_STATE: ${{ inputs.variant == 'invoice' && 'status/etsy_listing_invoice.json' || inputs.variant == 'bookkeeping' && 'status/etsy_listing_bookkeeping.json' || inputs.variant == 'seller' && 'status/etsy_listing_seller.json' || inputs.variant == 'budget' && 'status/etsy_listing_budget.json' || '' }}
+          ETSY_CONFIG: ${{ inputs.variant == 'invoice' && 'marketing/etsy_listing_config_invoice.json' || inputs.variant == 'bookkeeping' && 'marketing/etsy_listing_config_bookkeeping.json' || inputs.variant == 'seller' && 'marketing/etsy_listing_config_seller.json' || inputs.variant == 'budget' && 'marketing/etsy_listing_config_budget.json' || inputs.variant == 'debt' && 'marketing/etsy_listing_config_debt.json' || '' }}
+          ETSY_STATE: ${{ inputs.variant == 'invoice' && 'status/etsy_listing_invoice.json' || inputs.variant == 'bookkeeping' && 'status/etsy_listing_bookkeeping.json' || inputs.variant == 'seller' && 'status/etsy_listing_seller.json' || inputs.variant == 'budget' && 'status/etsy_listing_budget.json' || inputs.variant == 'debt' && 'status/etsy_listing_debt.json' || '' }}
         run: node scripts/etsy_publish.mjs
       - name: Regenerate report + leak gate
         run: |

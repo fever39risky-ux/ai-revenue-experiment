@@ -64,8 +64,15 @@ const ids = readdirSync('status').filter((f) => /^etsy_listing.*\.json$/.test(f)
   .map((f) => { try { return JSON.parse(readFileSync(`status/${f}`, 'utf8')).listing_id; } catch { return null; } })
   .filter(Boolean);
 console.log(`\n=== SUMMARY shop transaction_sold_count=${shopJson.transaction_sold_count} ===`);
+// Space calls and retry 429s: Etsy's per-second rate limit otherwise drops some listings.
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 for (const id of ids) {
-  const r = await fetch(`https://api.etsy.com/v3/application/listings/${id}`, { headers });
+  let r;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    await sleep(1000 * (attempt + 1));
+    r = await fetch(`https://api.etsy.com/v3/application/listings/${id}`, { headers });
+    if (r.status !== 429) break;
+  }
   const j = await r.json().catch(() => ({}));
   console.log(`SUMMARY listing ${id} -> ${r.status} state=${j.state} views=${j.views} favorers=${j.num_favorers} price=${j.price ? j.price.amount / j.price.divisor : '?'} taxonomy=${j.taxonomy_id}`);
 }
