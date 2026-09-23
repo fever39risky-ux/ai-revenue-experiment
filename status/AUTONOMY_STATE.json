@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 47 (2026-09-23T19:45Z): IndexNow resubmitted 26 sitemap URLs (HTTP 200; calendar + sheets-ai guides were unsubmitted); signals 19:40Z: sales-monitor 35910847233 0 sales, etsy-diagnostics 35910852750 all 0 views. NEXT EXECUTABLE: at/after 2026-09-24T06:53Z retry gumroad-publish-config.yml in order single_minutes, single_calendar, savings, pfbundle (rolling 24h cap; retry each as slots free ~07:40Z+), wiring each live URL into matching guide/Zenn draft/store. Zenn at/after 2026-09-24T12:30Z: FIRST re-trigger minutes (insert single_minutes $3 URL as CTA above PRO link in articles/gas-meeting-minutes-ai-summary.md, commit/push, verify 200, add to books/.../next-steps.md free+paid lists), then >=24h apart form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report (insert single_calendar URL first). Signals only if >=60 min since 19:40Z. Do not add a 4th queued Zenn article, calculators, Etsy templates, X posts or repo-metadata tweaks. No no-op checkpoint commits.",
-  "last_operator_run": "2026-09-23T19:45:00.000Z",
+  "next_action": "Run 48 (2026-09-23T19:50Z): time-gated; funnel health check - 6 live Gumroad SKUs (ihdjg, hesoh, ymotl, koujr, jqxenl, rlalv) all HTTP 200. NEXT EXECUTABLE: at/after 2026-09-24T06:53Z retry gumroad-publish-config.yml in order single_minutes, single_calendar, savings, pfbundle (rolling 24h cap; retry each as slots free ~07:40Z+), wiring each live URL into matching guide/Zenn draft/store. Zenn at/after 2026-09-24T12:30Z: FIRST re-trigger minutes (insert single_minutes $3 URL as CTA above PRO link in articles/gas-meeting-minutes-ai-summary.md, commit/push, verify 200, add to books/.../next-steps.md free+paid lists), then >=24h apart form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report (insert single_calendar URL first). Signals only if >=60 min since 19:40Z. Do not add a 4th queued Zenn article, calculators, Etsy templates, X posts or repo-metadata tweaks. No no-op checkpoint commits.",
+  "last_operator_run": "2026-09-23T19:50:00.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-23T06:53:27.222253+00:00",
-  "last_run_ended": "2026-09-23T19:16:48.710154+00:00"
+  "last_run_ended": "2026-09-23T19:41:26.505393+00:00"
 }
