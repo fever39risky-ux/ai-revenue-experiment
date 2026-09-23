@@ -5,7 +5,9 @@
 
 **Failure:** Gumroad refused the savings and personal finance products: "you can only create 10 products per day". Retry after the cap resets.
 
-**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**, then the Gumroad retry (see AUTONOMY_STATE.next_action). No more Etsy templates for now. Next, read per-listing views and add an owned-site templates page.
+Also published https://fever39risky-ux.github.io/ai-revenue-experiment/store/spreadsheets.html, an English catalog of all 12 spreadsheet products with Gumroad and Etsy buy links. It is linked from the homepage and the sitemap.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**, then the Gumroad retry (see AUTONOMY_STATE.next_action). No more Etsy templates for now. Next, read per-listing views.
 
 ## Claude Day-23 (12th run, ~16:15 JST): Etsy listings 6-9 (debt payoff, rental property, inventory, wedding budget)
 **Why:** Zenn stays time-gated until 2026-09-23T11:30Z. Etsy search is the only in-scope channel with its own buyer traffic, so more distinct listings mean more search coverage for $0.20 each. Each template targets a different buyer: consumers with debt, landlords, small shops.
