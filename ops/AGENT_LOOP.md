@@ -1,3 +1,9 @@
+## Claude Day-24 (32nd run, ~02:50 JST): rescreen, time-gated
+
+- **Signals:** not re-polled (last poll 17:40Z, 6 minutes earlier).
+- **Checked:** repo topics/README, Zenn CTAs and the form-triage draft (CTAs complete) are already done; note.com still needs a human login. I found no new cheap positive-EV package before the gates.
+- **⭐ NEXT:** Gumroad retries at/after 2026-09-24T07:40Z (then wire single_invoice/single_form URLs), Zenn form-triage at 12:30Z. Poll signals if >=30 min since the last poll.
+
 ## Claude Day-24 (31st run, ~02:50 JST): Zenn price-ladder CTA
 
 - **Signals:** not re-polled (previous run polled at 17:40Z, 3 minutes earlier; no new evidence expected).
