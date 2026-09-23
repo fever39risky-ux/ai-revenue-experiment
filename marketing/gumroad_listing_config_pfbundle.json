@@ -1,0 +1,19 @@
+{
+  "_doc": "Gumroad pfbundle (also Etsy variant=pfbundle). gumroad-publish-config.yml config=marketing/gumroad_listing_config_pfbundle.json state=status/gumroad_listing_pfbundle.json.",
+  "name": "Personal Finance Spreadsheet Bundle: Monthly Budget, Debt Payoff Snowball and Savings Goals (Excel, Google Sheets, Numbers)",
+  "description": "Three no-code personal finance spreadsheets in one download: budget every month, pay off debt faster and hit your savings goals. Save compared with buying them one by one ($14 separately).\n\nWhat's inside (3 .xlsx files):\n1. Monthly Budget Planner: plan each category, log what you spend, see budget vs actual and what's left this month, plus a 12-month overview with savings rate.\n2. Debt Payoff Planner: up to 8 debts. Compares the debt snowball, debt avalanche and minimum payments month by month for up to 20 years. Debt-free date, total interest and the interest you save.\n3. Savings Goals & Sinking Funds Tracker: up to 20 goals with target amount and date, progress bars, what to save each month to hit each date, and net savings by month.\n\nEach file has a Start Here tab with instructions and sample data you can delete. Works in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency. Formulas checked by opening the files in Apple Numbers.\n\nImages show the files with sample data. A planning tool, not financial advice.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 9.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "budget planner",
+    "debt payoff",
+    "savings tracker",
+    "personal finance",
+    "spreadsheet bundle"
+  ],
+  "cover_image": "marketing/etsy-images-pfbundle/01.png",
+  "digital_file": "downloads/personal-finance-spreadsheet-bundle-845d49.zip",
+  "digital_file_name": "Personal-Finance-Spreadsheet-Bundle.zip"
+}

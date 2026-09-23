@@ -1,0 +1,34 @@
+{
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "taxonomy_id": 12487,
+  "_doc": "Twelfth Etsy listing (savings goals & sinking funds tracker). variant=savings in etsy-publish.yml. Source: marketing/etsy_bookkeeping_src/build_savings.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Savings Goals Tracker Spreadsheet, Sinking Funds Tracker, Emergency Fund and Savings Planner, Excel and Google Sheets Template",
+  "description": "Set a goal and a date, log what you put in, and see exactly what to save each month to get there. Works for an emergency fund, sinking funds (car insurance, holidays, gifts, repairs), a trip, a house deposit or anything else.\n\nWhat's inside (one .xlsx file, 4 tabs):\n• Start Here: name, currency label, how much you can set aside per month and the year, plus short instructions.\n• Dashboard: total of all targets, saved so far, still to save, overall progress, total needed per month vs what you set aside (spare or short), goals done. Every goal with a progress bar, and net savings by month.\n• Goals: up to 20 goals or sinking funds. Target amount, target date and starting balance. Saved, left, % done, months left, save-per-month to hit the date and status (Saving, Done, Past date) are calculated for you.\n• Log: 2,000 rows. Date, goal from a dropdown, Deposit or Withdrawal, amount and a note.\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Listing images show the file with sample data. A planning tool, not financial advice.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 5.0,
+  "tags": [
+    "savings tracker",
+    "sinking funds",
+    "savings goals",
+    "emergency fund",
+    "savings planner",
+    "money tracker",
+    "budget planner",
+    "personal finance",
+    "savings challenge",
+    "google sheets",
+    "excel template",
+    "finance planner",
+    "digital download"
+  ],
+  "images": [
+    "marketing/etsy-images-savings/01.png",
+    "marketing/etsy-images-savings/02.png",
+    "marketing/etsy-images-savings/03.png",
+    "marketing/etsy-images-savings/04.png"
+  ],
+  "digital_file": "downloads/savings-goals-tracker-51d2ae.zip",
+  "digital_file_name": "Savings-Goals-Tracker.zip"
+}
