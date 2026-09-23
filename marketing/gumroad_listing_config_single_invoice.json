@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3) #2, same pipeline as single_gmail. Created 2026-09-23 for readers of the Zenn article gas-invoice-pdf-ai-email (live 2026-09-23T12:22Z) and guides/gas-invoice-pdf-ai-cover-email.html. Materially more than the free article code: per-rate (10/8/0) totals with per-rate rounding, withholding tax, sequential invoice numbers, month-end due dates, DRY_RUN, AI amount check with fallback (all mock-tested locally in node incl. rerun idempotency). Queued behind Gumroad's 10-products/day cap (retry >=2026-09-24T07:40Z).",
+  "name": "請求書PDF＋AI添え状メール下書き｜GAS拡張版（10%・8%税率区分・源泉徴収・通し番号・お試しモード）",
+  "description": "Zennで公開した「Google Apps Scriptで請求書PDFを自動作成し、AIが添え状を書いた下書きメールまで用意する」スクリプトの拡張版です。そのまま貼って動く Google Apps Script 1本と、日本語の導入手順・見本シートをまとめました。\n\n■ 記事版からの追加機能\n・税率ごとの区分：明細ごとに10%・8%（軽減税率）・対象外（立替金など）を指定。税率ごとの合計額と消費税額をPDFに表示し、端数処理は税率ごとに1回（切り捨て／四捨五入／切り上げを選択）。8%の明細には※印\n・源泉徴収：G列に「する」と入れた請求だけ、源泉徴収税額（10.21%、100万円超の部分は20.42%）を差し引いた請求額に\n・請求書番号の連番：INV-2026-0001 のような年ごとの通し番号。行を並べ替えても重複しません\n・支払期限：「月末締め翌月末払い」または「発行日から○日後」\n・登録番号の欄：適格請求書発行事業者の登録番号をPDFに記載（未登録なら空欄に）\n・お試しモード（DRY_RUN）：PDFも下書きも作らず、行ごとの計算結果をログで確認してから本番化\n・添え状の金額チェック：AIの文面に正しい請求額が入っていなければ定型文に自動で切り替え\n\n■ 同梱物\n・invoice_pdf_ai_email_plus.gs（スクリプト本体）\n・導入手順とよくあるつまずき（日本語テキスト）\n・invoices シートの見本CSV（読み込めばすぐ試せます）\n\n■ 必要なもの\nGoogleアカウント ＋ 従量課金の OpenAI APIキー（gpt-4o-mini は非常に安価）。ChatGPTの有料プランは不要です。APIキーが無くても、添え状が定型文になるだけで請求書PDFと下書きは作れます。\n\n■ 安全設計\n金額・消費税・源泉徴収額はすべてコードで計算し、AIには添え状の文章だけを書かせます。自動送信は一切しません。PDFとGmail下書きを作るところまでで、送信は必ず人間が確認してから行います。データはあなたのGoogleアカウント内で処理され、当方が預かることはありません。\n\n■ 正直なご注意\n・源泉徴収の要否、登録番号の記載、端数処理などの税務判断はご自身の事業に合わせて確認してください（税務上の助言ではありません）。\n・時短効果などを保証するものではありません。APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・Gmail問い合わせ自動返信・議事録AI要約など計5本入りのPRO版もあります。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Impulse-level entry price mirroring the Gmail $3 SKU: lowest-friction first purchase for Zenn/guide readers who already saw the free code.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "請求書 自動化",
+    "google apps script",
+    "chatgpt",
+    "インボイス",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/invoice-plus-thumb.png",
+  "digital_file": "downloads/invoice-pdf-plus-3a57e8.zip",
+  "digital_file_name": "invoice-pdf-plus.zip"
+}
