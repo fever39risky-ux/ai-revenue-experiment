@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3) #6, same pipeline as single_gmail/invoice/form/sheets_ai/calendar (publish via gumroad-publish-config.yml). Created 2026-09-23 (run 46) for readers of the Zenn article gas-meeting-minutes-ai-summary (published:true, live retry >=2026-09-24T12:30Z). Materially more than the free article code and the PRO copy: chunked long-transcript summarization, JSON output verified in code (owner must appear in transcript, due dates parsed only from explicit dates present in transcript), idempotent TODO ledger sheet, daily per-assignee overdue/due-soon reminders via member sheet, draft-by-default sharing, PII masking, 429/5xx retry, 6-min resume, DRY_RUN (31 node mock checks passed).",
+  "name": "議事録AI要約｜GAS拡張版（長文の分割要約・TODO台帳・担当者別の期限リマインド）",
+  "description": "Zennで公開した「議事録をAIが要点・決定事項・TODOに自動整形してメールする」Google Apps Scriptの拡張版です。そのまま貼って動くスクリプト1本と、日本語の導入手順をまとめました。\n\n■ 記事版からの追加機能\n・長い文字起こしも途中で切らない：自動で分割 → 分割ごとに要点メモ → 最後に1つへ統合（記事版は先頭8000字まで）\n・TODOを「TODO」シートに1行ずつ台帳化。同じ議事録を再実行しても重複しません\n・毎朝、期限切れ・期限間近のTODOを担当者ごとに1通へまとめてリマインド（「メンバー」シートに名前とメールを書くだけ）\n・共有は既定で「Gmailの下書き」。確認してから送れます（直接送信にも切り替え可）\n・AIへ送る前にメールアドレス・電話番号・郵便番号を伏せ字\n・API混雑（429/5xx）時の自動リトライ／6分の実行時間制限の手前で区切って次回に続き／お試しモード（DRY_RUN）／APIキーはスクリプト プロパティに保存\n\n■ AIの出力をコードで確かめます\n・担当者名が文字起こしに出てこなければ「未定」に戻します（AIによる担当者の作文を防止）\n・期限は本文に書かれた日付（10/3・10月3日・2026-10-03 など）だけを日付にします。「来週中」のような曖昧な表現から日付を作りません\n\n■ 同梱物\n・minutes_ai_plus.gs（スクリプト本体）\n・導入手順・TODO台帳とリマインドの使い方・よくあるつまずき（日本語テキスト）\n\n■ 必要なもの\nGoogleアカウント＋従量課金の OpenAI APIキー（gpt-4o-mini なら1時間程度の会議1件で数円が目安）。ChatGPTの有料プランは不要です。\n\n■ 安全設計\n既定では送信しません。Gmailの下書きに置くだけなので、人が目を通してから共有します。データはあなたのGoogleアカウント内で処理され、当方が預かることはありません。\n\n■ 正直なご注意\n・AIの要約は間違えることがあります。必ず目を通してから共有してください。個人情報の伏せ字は代表的な書式（メール・電話・郵便番号）のみが対象です。\n・時短効果などを保証するものではありません。APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・Gmail問い合わせ自動返信・請求書PDF・議事録AI要約（記事版相当）など計5本入りのPRO版もあります（この拡張版のTODO台帳・リマインド機能はPRO版には含まれません）。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Impulse-level entry price mirroring the other $3 single-script SKUs.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "議事録",
+    "google apps script",
+    "chatgpt",
+    "todo管理",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/minutes-ai-plus-thumb.png",
+  "digital_file": "downloads/minutes-ai-plus-4ffdaf.zip",
+  "digital_file_name": "minutes-ai-plus.zip"
+}

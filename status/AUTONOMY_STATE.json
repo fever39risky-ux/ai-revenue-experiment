@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 45 (2026-09-23T18:51Z): added $3 SKUs ihdjg/hesoh/ymotl to the live Zenn book next-steps chapter + store/jp.html. FOUND: Zenn article gas-meeting-minutes-ai-summary is published:true but still HTTP 404 (Zenn 24h rate limit; omitted from prior queue). NEXT EXECUTABLE: signals (etsy-diagnostics + sales-monitor) due >=19:40Z; at/after 2026-09-24T06:53Z retry gumroad-publish-config.yml in order single_calendar, savings, pfbundle, then insert single_calendar URL as $3 CTA into articles/gas-calendar-ai-daily-report.md + guides/google-calendar-ai-daily-report.html. Zenn at/after 2026-09-24T12:30Z: FIRST re-trigger minutes (touch articles/gas-meeting-minutes-ai-summary.md, verify 200, then add its link to books/.../next-steps.md free list), then >=24h apart form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report. Do not add a 4th queued Zenn article, calculators, Etsy templates, X posts or repo-metadata tweaks. No no-op checkpoint commits.",
-  "last_operator_run": "2026-09-23T18:51:50.000Z",
+  "next_action": "Run 46 (2026-09-23T19:17Z): prepared $3 Gumroad SKU single_minutes (議事録AI要約 PLUS: chunked long transcripts, code-verified owners/due dates, TODO ledger, per-assignee reminders; 31 mock checks) = marketing/gumroad_listing_config_single_minutes.json, state status/gumroad_listing_single_minutes.json. NEXT EXECUTABLE: signals (etsy-diagnostics + sales-monitor) due >=19:40Z. At/after 2026-09-24T06:53Z retry gumroad-publish-config.yml in order single_minutes (pairs with minutes Zenn article going live 12:30Z), single_calendar, savings, pfbundle; cap is rolling 24h so retry each as slots free (~07:40Z+). Zenn at/after 2026-09-24T12:30Z: FIRST re-trigger minutes (edit articles/gas-meeting-minutes-ai-summary.md: insert single_minutes $3 URL as CTA above the PRO link, commit/push, verify 200, then add its link to books/.../next-steps.md free list + minutes $3 to paid list), then >=24h apart form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report (insert single_calendar URL first). Do not add a 4th queued Zenn article, calculators, Etsy templates, X posts or repo-metadata tweaks. No no-op checkpoint commits.",
+  "last_operator_run": "2026-09-23T19:17:00.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-23T06:53:27.222253+00:00",
-  "last_run_ended": "2026-09-23T18:49:09.608900+00:00"
+  "last_run_ended": "2026-09-23T18:55:50.657638+00:00"
 }

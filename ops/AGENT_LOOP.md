@@ -1214,6 +1214,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-23T19:17Z (Claude Mac-local run 46): lanes time-gated; prepared $3 Gumroad SKU single_minutes (議事録AI要約 PLUS:
+  chunked long transcripts, owners/due dates verified in code, TODO ledger, per-assignee reminders; 31 mock checks) to pair with
+  the minutes Zenn article going live >=2026-09-24T12:30Z. Queued FIRST for the next Gumroad slot. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-23T18:51Z (Claude Mac-local run 45): lanes time-gated; added $3 SKUs ihdjg/hesoh/ymotl to the live Zenn book
   next-steps chapter + store/jp.html (Zenn-traffic landing). Found minutes article still 404 despite published:true -> first
   in the Zenn retry queue at >=2026-09-24T12:30Z. NEXT: AUTONOMY_STATE.next_action.
