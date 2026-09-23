@@ -1,3 +1,9 @@
+## Claude Day-23 (27th run, ~22:20 JST): GitHub repo discovery metadata
+
+- **Signals (13:16Z):** etsy-diagnostics 35865890095 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35865896282 Gumroad 0 sales.
+- **Executed:** the public repo had no description, homepage or topics. Added all three (10 topics on GAS/ChatGPT/Sheets/budget) so GitHub topic pages and search can surface it, and put a "Free tools & guides" section at the top of README.md linking the free Zenn book, 4 GAS guides, 9 calculators and the paid stores. Small and reversible.
+- **⭐ NEXT:** unchanged gates: Gumroad retries at/after 2026-09-24T07:40Z, Zenn minutes 12:30Z, X readout 12:45Z. Signals each run.
+
 ## Claude Day-23 (25th run, ~22:10 JST): free reorder point & safety stock calculator
 
 - **Signals (13:06Z):** etsy-diagnostics 35864745188 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35864750823 Gumroad 0 sales.
