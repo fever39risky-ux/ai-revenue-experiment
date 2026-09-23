@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Hourly Rate Calculator (Free): What Should I Charge per Hour?</title>
+<meta name="description" content="Free freelance rate calculator. Enter the income you want, your business costs, tax set-aside, time off and how many hours you can actually bill, and get the minimum hourly rate, day rate and monthly retainer to charge. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/freelance-rate-calculator.html">
+<meta property="og:title" content="Freelance Hourly Rate Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/freelance-rate-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/freelance.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Freelance Hourly Rate Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/freelance-rate-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my freelance hourly rate?","acceptedAnswer":{"@type":"Answer","text":"Add the yearly income you want before tax (take-home divided by one minus your tax set-aside rate) to your yearly business costs, then divide by the hours you can actually bill in a year: working weeks times hours per week times the share of those hours that is billable."}},{"@type":"Question","name":"Why is my freelance rate so much higher than an employee's hourly pay?","acceptedAnswer":{"@type":"Answer","text":"Freelancers pay their own tools, insurance, retirement and taxes, get no paid holidays or sick days, and spend part of every week on unpaid work such as sales, admin and invoicing. Only billable hours earn money, so each one has to cover all of that."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 16px}label{font-weight:600;font-size:.93rem}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem;margin-top:3px}
+table{width:100%;border-collapse:collapse;margin-top:8px}td{padding:6px;border-bottom:1px solid #e3eaf0}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}.kpi{border:2px solid #e3eaf0;border-radius:14px;padding:12px}.kpi.main{border-color:#1f7f7a}.kpi p{margin:0}.big{font-size:1.5rem;font-weight:800;color:#1f7f7a}
+.muted{color:#5a6b78;font-size:.9rem}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="etsy-fee-calculator.html">Etsy fee calculator</a> · <a href="debt-payoff-calculator.html">Debt payoff calculator</a></p>
+<h1>Freelance hourly rate calculator</h1>
+<p class="lead">Work out the <strong>minimum hourly rate</strong> you need to charge to take home the income you want, after business costs, tax and the unpaid hours every freelancer has. Also shows a day rate and a monthly retainer. Free, no sign-up, runs in your browser. Any currency.</p>
+
+<div class="panel"><div class="grid">
+<label>Take-home income you want per year<input id="net" type="number" min="0" step="any" value="60000"></label>
+<label>Tax set-aside % (income tax + self-employment)<input id="tax" type="number" min="0" max="90" step="any" value="28"></label>
+<label>Business costs per year (software, equipment, insurance, accountant...)<input id="costs" type="number" min="0" step="any" value="6000"></label>
+<label>Weeks off per year (holidays, sick days, quiet periods)<input id="off" type="number" min="0" max="52" step="any" value="7"></label>
+<label>Hours you work per week<input id="hours" type="number" min="0" step="any" value="40"></label>
+<label>Share of hours you can bill %<input id="bill" type="number" min="1" max="100" step="any" value="65"></label>
+<label>Hours in a day rate<input id="day" type="number" min="1" step="any" value="8"></label>
+</div></div>
+
+<div class="panel">
+<div class="kpis">
+<div class="kpi main"><p class="muted">Minimum hourly rate</p><p class="big" id="kRate">-</p></div>
+<div class="kpi"><p class="muted">Day rate</p><p class="big" id="kDay">-</p></div>
+<div class="kpi"><p class="muted">Monthly retainer (avg billable hours)</p><p class="big" id="kMonth">-</p></div>
+<div class="kpi"><p class="muted">Billable hours per year</p><p class="big" id="kHours">-</p></div>
+</div>
+<table><tbody id="rows"></tbody></table>
+<p class="muted">This is the break-even rate for your goal. Many freelancers add 10-20% on top for slow months and late payments. An estimate, not tax advice: your real tax rate depends on where you live.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Now track the hours you actually bill</h2>
+<p>The <strong>Freelance Time Tracker &amp; Invoice</strong> spreadsheet logs your hours by client with per-client rates, shows billed vs unbilled work and fills in a printable invoice from your time log. Excel, Google Sheets and Apple Numbers. $6, instant download, no subscription.</p>
+<p><a class="btn" href="https://feverish50.gumroad.com/l/gcegkkb">Get it on Gumroad ($6)</a><a class="btn alt" href="https://www.etsy.com/listing/4580901732">View on Etsy</a></p>
+<p class="muted">Or the <a href="https://feverish50.gumroad.com/l/jspscg">Small Business Spreadsheet Bundle</a> ($12, 4 files): time tracker &amp; invoice + bookkeeping with a tax set-aside estimate + seller profit + inventory. Also on <a href="https://www.etsy.com/listing/4580903096">Etsy</a>.</p>
+</div>
+
+<section class="faq">
+<h2>How the rate is worked out</h2>
+<p><strong>1. Income before tax</strong> = the take-home you want ÷ (1 − tax set-aside %).</p>
+<p><strong>2. Revenue you need</strong> = income before tax + business costs.</p>
+<p><strong>3. Billable hours</strong> = (52 − weeks off) × hours per week × billable share. Sales, admin, invoicing, learning and chasing payments take real time but nobody pays for it, so 50-70% billable is common.</p>
+<p><strong>4. Hourly rate</strong> = revenue you need ÷ billable hours.</p>
+<p><strong>Why not just copy an employee salary?</strong> An employee's pay doesn't include their employer's share of tax, their tools, paid holidays or the hours between projects. As a freelancer you cover all of that from billable hours alone.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI and checked by hand.</footer>
+</div>
+<script>
+function freelanceRate(o) {
+  var gross = o.tax < 100 ? o.net / (1 - o.tax / 100) : Infinity;
+  var need = gross + o.costs;
+  var hours = Math.max(0, 52 - o.off) * o.hours * o.bill / 100;
+  var rate = hours > 0 ? need / hours : Infinity;
+  return {gross: gross, need: need, hours: hours, rate: rate, day: rate * o.day, month: rate * hours / 12};
+}
+if (typeof module !== 'undefined') { module.exports = {freelanceRate: freelanceRate}; }
+if (typeof document !== 'undefined') (function () {
+  var ids = ['net', 'tax', 'costs', 'off', 'hours', 'bill', 'day'];
+  var fmt = function (x, d) { return isFinite(x) ? x.toLocaleString(undefined, {minimumFractionDigits: d || 0, maximumFractionDigits: d || 0}) : '-'; };
+  function run() {
+    var o = {}; ids.forEach(function (k) { o[k] = Math.max(0, +document.getElementById(k).value || 0); });
+    var r = freelanceRate(o);
+    document.getElementById('kRate').textContent = fmt(r.rate, 2);
+    document.getElementById('kDay').textContent = fmt(r.day);
+    document.getElementById('kMonth').textContent = fmt(r.month);
+    document.getElementById('kHours').textContent = fmt(r.hours);
+    document.getElementById('rows').innerHTML = [['Take-home you want', o.net], ['Income before tax', r.gross], ['+ Business costs', o.costs], ['= Revenue you need per year', r.need], ['Working weeks', Math.max(0, 52 - o.off)], ['Billable hours per week', o.hours * o.bill / 100]].map(function (x) { return '<tr><td>' + x[0] + '</td><td class="n">' + fmt(x[1], x[0].indexOf('hours') > -1 ? 1 : 0) + '</td></tr>'; }).join('');
+  }
+  ids.forEach(function (k) { document.getElementById(k).addEventListener('input', run); });
+  run();
+})();
+</script>
+</body></html>
