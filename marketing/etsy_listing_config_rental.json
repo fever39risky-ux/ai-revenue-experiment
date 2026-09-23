@@ -1,0 +1,34 @@
+{
+  "_doc": "Seventh Etsy listing (rental property income & expense tracker, landlord segment). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=rental. Source: marketing/etsy_bookkeeping_src/build_rental.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Rental Property Income and Expense Tracker Spreadsheet, Landlord Bookkeeping Template, Rent and Cash Flow Tracker, Excel and Google Sheets",
+  "description": "Track rent and expenses for every rental property in one simple spreadsheet. Log each payment once and see net cash flow, rent collected and yearly category totals per property.\n\nWhat's inside (one .xlsx file, 7 tabs):\n• Start Here: year, currency label and short instructions.\n• Property Summary: income, expenses, net cash flow and margin for each property, plus rent collected vs expected rent.\n• Transactions: 3,000 ready rows. Enter the date, pick the property and category from dropdowns, type the amount. Income or Expense is filled in for you.\n• Categories by Property: yearly totals for every category and every property, ready for tax time (advertising, insurance, mortgage interest, repairs, property taxes, utilities and more).\n• Monthly: month-by-month income, expenses and net for all properties together and for one property you pick.\n• Properties: up to 10 properties or units with the expected monthly rent.\n• Categories: 4 income and 15 expense categories to start. Rename them or add your own (up to 8 income and 20 expense).\n\nSample data for 3 units shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. It is a record-keeping tool, not tax, legal or financial advice. Depreciation is not calculated. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 7.0,
+  "tags": [
+    "rental property",
+    "landlord",
+    "rental income",
+    "property management",
+    "expense tracker",
+    "landlord template",
+    "rental tracker",
+    "real estate",
+    "google sheets",
+    "excel template",
+    "bookkeeping",
+    "cash flow tracker",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-rental/01.png",
+    "marketing/etsy-images-rental/02.png",
+    "marketing/etsy-images-rental/03.png",
+    "marketing/etsy-images-rental/04.png"
+  ],
+  "digital_file": "downloads/rental-property-tracker-e8a86b.zip",
+  "digital_file_name": "Rental-Property-Tracker.zip",
+  "taxonomy_id": 12478
+}
