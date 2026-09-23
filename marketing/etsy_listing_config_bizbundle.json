@@ -1,0 +1,36 @@
+{
+  "_doc": "Eleventh Etsy listing: Small Business Spreadsheet Bundle (bookkeeping + seller profit + inventory + freelance time/invoice). Higher-ticket bundle test ($12 vs $23 separately). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=bizbundle. Files are the same verified xlsx as listings 4580869617, 4580871061, 4580896166, 4580901732.",
+  "title": "Small Business Spreadsheet Bundle, Bookkeeping, Inventory, Seller Profit and Freelance Invoice Templates, Excel and Google Sheets",
+  "description": "Four no-code spreadsheets to run the money side of a small business, in one download. Save compared with buying them one by one ($23 separately).\n\nWhat's inside (4 .xlsx files):\n1. Small Business Bookkeeping Tracker: income and expense log with category dropdowns, monthly profit and loss by category, profit margin and a tax set-aside estimate.\n2. Seller Profit Tracker: marketplace fees per order from rates you can edit, cost of goods per product, shipping label cost, profit by product and by month, and a price calculator for a target margin.\n3. Inventory Tracker: up to 200 products, stock in and out, current stock and stock value, an automatic reorder list and sales by month.\n4. Freelance Time Tracker & Invoice: hours by client with per-client rates, billed vs unbilled work, and a printable invoice that fills in from your time log.\n\nEach file has a Start Here tab with instructions and sample data you can delete. Works in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency. Formulas checked by opening the files in Apple Numbers.\n\nPlease note: this is a digital download, not a physical item. Listing images show the files with their sample data. Fees, tax set-asides and totals are estimates from the rates you enter, not tax or accounting advice.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 12.0,
+  "tags": [
+    "small business",
+    "bookkeeping",
+    "inventory tracker",
+    "invoice template",
+    "business bundle",
+    "spreadsheet bundle",
+    "profit tracker",
+    "seller spreadsheet",
+    "google sheets",
+    "excel template",
+    "time tracker",
+    "business planner",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-bizbundle/01.png",
+    "marketing/etsy-images-bizbundle/02.png",
+    "marketing/etsy-images-freelance/02.png",
+    "marketing/etsy-images-inventory/02.png",
+    "marketing/etsy-images-seller/02.png",
+    "marketing/etsy-images-bookkeeping/02.png"
+  ],
+  "digital_file": "downloads/small-business-spreadsheet-bundle-23b2d9.zip",
+  "digital_file_name": "Small-Business-Spreadsheet-Bundle.zip",
+  "taxonomy_id": 12478
+}

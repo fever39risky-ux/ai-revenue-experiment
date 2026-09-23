@@ -1,0 +1,19 @@
+{
+  "_doc": "Small Business Spreadsheet Bundle on Gumroad (also Etsy variant=bizbundle). Published via gumroad-publish-config.yml config=marketing/gumroad_listing_config_bizbundle.json state=status/gumroad_listing_bizbundle.json.",
+  "name": "Small Business Spreadsheet Bundle: Bookkeeping, Seller Profit, Inventory and Freelance Time & Invoice (Excel, Google Sheets, Numbers)",
+  "description": "Four no-code spreadsheets to run the money side of a small business, in one download. Save compared with buying them one by one ($23 separately).\n\nWhat's inside (4 .xlsx files):\n1. Small Business Bookkeeping Tracker: income and expense log with category dropdowns, monthly profit and loss by category, profit margin and a tax set-aside estimate.\n2. Seller Profit Tracker: marketplace fees per order from rates you can edit, cost of goods per product, shipping label cost, profit by product and by month, and a price calculator for a target margin.\n3. Inventory Tracker: up to 200 products, stock in and out, current stock and stock value, an automatic reorder list and sales by month.\n4. Freelance Time Tracker & Invoice: hours by client with per-client rates, billed vs unbilled work, and a printable invoice that fills in from your time log.\n\nEach file has a Start Here tab with instructions and sample data you can delete. Works in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency. Formulas checked by opening the files in Apple Numbers.\n\nImages show the files with their sample data. Fees, tax set-asides and totals are estimates from the rates you enter, not tax or accounting advice. Not affiliated with Etsy.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 12.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "small business",
+    "bookkeeping",
+    "inventory",
+    "invoice template",
+    "spreadsheet bundle"
+  ],
+  "cover_image": "marketing/etsy-images-bizbundle/01.png",
+  "digital_file": "downloads/small-business-spreadsheet-bundle-23b2d9.zip",
+  "digital_file_name": "Small-Business-Spreadsheet-Bundle.zip"
+}

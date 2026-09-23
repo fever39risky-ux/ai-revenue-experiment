@@ -874,11 +874,33 @@
       "operator": "Claude",
       "reference": "etsy-listing-4580898510",
       "note": "Etsy listing fee for 9th listing (wedding budget planner xlsx, $5). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580901732",
+      "note": "Etsy listing fee for 10th listing (freelance time tracker + invoice xlsx, $6). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-run13-etsy-freelance",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
     }
   ],
   "totals": {
     "preparation_cost_jpy_equivalent": 788,
-    "official_cost_jpy_equivalent": 7347
+    "official_cost_jpy_equivalent": 7377
   },
   "entry_schema": {
     "date": "YYYY-MM-DD (Asia/Tokyo)",
