@@ -1,881 +1,881 @@
 {
- "_doc": "Experiment cost ledger. Net Profit = Gross Revenue - AI/API cost - platform fees - other costs. Costs are split preparation vs official (same boundary as revenue: official = date >= 2026-09-01 Asia/Tokyo). Preparation costs are tracked but excluded from the official 30-day Net.",
- "currency_base": "JPY",
- "fx_note": "USD amounts converted at ~150 JPY/USD for reporting; provider billing is authoritative. jpy_equivalent is the figure used in totals.",
- "categories": [
-  "ai_compute",
-  "api",
-  "x_api",
-  "etsy_fees",
-  "stripe_fees",
-  "gumroad_fees",
-  "other"
- ],
- "preparation_entries": [
-  {
-   "date": "2026-08-25",
-   "period": "preparation",
-   "category": "ai_compute",
-   "amount": 3.3,
-   "currency": "usd",
-   "jpy_equivalent": 495,
-   "note": "Durable-Routine smoke-test: one fired Claude session (~46k output tokens). Measured baseline for cadence/ROI decisions."
+  "_doc": "Experiment cost ledger. Net Profit = Gross Revenue - AI/API cost - platform fees - other costs. Costs are split preparation vs official (same boundary as revenue: official = date >= 2026-09-01 Asia/Tokyo). Preparation costs are tracked but excluded from the official 30-day Net.",
+  "currency_base": "JPY",
+  "fx_note": "USD amounts converted at ~150 JPY/USD for reporting; provider billing is authoritative. jpy_equivalent is the figure used in totals.",
+  "categories": [
+    "ai_compute",
+    "api",
+    "x_api",
+    "etsy_fees",
+    "stripe_fees",
+    "gumroad_fees",
+    "other"
+  ],
+  "preparation_entries": [
+    {
+      "date": "2026-08-25",
+      "period": "preparation",
+      "category": "ai_compute",
+      "amount": 3.3,
+      "currency": "usd",
+      "jpy_equivalent": 495,
+      "note": "Durable-Routine smoke-test: one fired Claude session (~46k output tokens). Measured baseline for cadence/ROI decisions."
+    },
+    {
+      "date": "2026-08-26",
+      "period": "preparation",
+      "category": "ai_compute",
+      "amount": 1.2,
+      "currency": "usd",
+      "jpy_equivalent": 180,
+      "note": "Prep judgment-loop iteration (estimate): market observe + published SEO guide + sitemap."
+    },
+    {
+      "date": "2026-08-26",
+      "period": "preparation",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Prep loop iteration (light/early-stop): no material change; added robots.txt; recommended pausing prep runs to avoid negative-EV spend."
+    },
+    {
+      "date": "2026-08-28",
+      "period": "preparation",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "note": "Prep loop iteration (light/early-stop, estimated): verified ¥0 revenue directly via live Stripe MCP, verified no new capability granted, fixed a status-ledger bookkeeping gap; no new product/content work (would have been negative-EV busywork with 3 days left in prep and every buyer channel still human-gated)."
+    }
+  ],
+  "official_entries": [
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.5,
+      "currency": "usd",
+      "jpy_equivalent": 75,
+      "note": "Owner correction, live conversation (estimated): reclassified human_actions_required vs additional_permissions_requested (STRIPE_RESTRICTED_KEY/X credentials are optional, not blockers), documented per-run MCP observation fallback in ops/LOOP_PROTOCOL.md + ops/AGENT_LOOP.md. State-accuracy fix, not a strategy change."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.5,
+      "currency": "usd",
+      "jpy_equivalent": 225,
+      "note": "Off-cycle judgment run (estimated), owner-directed: Etsy shop access granted. Re-diagnosed the bottleneck and built the full Etsy API v3 publish pipeline (marketing/etsy_listing_config.json, scripts/etsy_publish.mjs, scripts/etsy_oauth_setup.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md) reusing existing prepared content. This is capability-building infrastructure, not revenue itself -- no listing is live yet, blocked on the owner's one-time OAuth grant. Justified as an off-cycle run per cadence.json's new_capability_granted trigger: expected benefit (unblocking the entire revenue mechanism) clearly exceeds this run's cost."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "note": "Owner-directed investigation (estimated): checked whether a Browser/Computer-Use capability could publish to Etsy directly instead of the API/OAuth path. Confirmed not viable (no browser-driving tool in this session, sandbox egress to etsy.com blocked, no Etsy credentials accessible) and documented why in ops/ETSY_API_SETUP.md. No code changes -- investigation and honest recording only."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "note": "Owner-directed spec verification (estimated): checked the Etsy API v3 implementation against 6 spec points (redirect_uri HTTPS rule, keystring vs shared secret, minimum OAuth scope, Seller App access level, refresh-token rotation spec, digital-listing required fields) before the OAuth grant. Fixed redirect_uri wording, clarified shared-secret handling, trimmed scope to least-privilege, added access-level guidance, tightened refresh-token lifetime figure. One point (exact required-field schema) remains honestly unverified pending a live run."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed full channel inventory (estimated): re-checked Stripe/Etsy/Gumroad/Creem/Lemon Squeezy against real repo evidence (git history, EVENTS.jsonl, GitHub issues, connectors) before further Etsy work. Found no evidence Gumroad or Creem were ever opened (both remain 2026-08-25 research skips); corrected an inaccurate prior claim that Gumroad has no create-product API. Did not build any new integration code -- recorded findings + asked one factual owner status question instead."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.6,
+      "currency": "usd",
+      "jpy_equivalent": 240,
+      "note": "Owner correction + Gumroad activation (estimated): corrected the prior inventory's error (repo silence misread as non-existence) across 3 files with an explicit verification-level taxonomy. Used live WebSearch/WebFetch (not training memory) to verify Gumroad's actual current API/CLI capability -- found and confirmed the official antiwork/gumroad-cli, purpose-built for CI/agent publishing. Built the full Gumroad publish capability (marketing/gumroad_listing_config.json, scripts/gumroad_publish.mjs, .github/workflows/gumroad-publish.yml, ops/GUMROAD_CLI_SETUP.md) as a parallel low-cost addition to Etsy. Confirmed Creem's create-product API also exists but reaffirmed it stays deprioritized (duplicates Stripe's role, no distribution advantage)."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.3,
+      "currency": "usd",
+      "jpy_equivalent": 195,
+      "note": "Owner correction #2, same day (estimated): the just-built Gumroad pipeline had trusted antiwork/gumroad-cli's own docs instead of Gumroad's official help center or actual API behavior. Re-verified by reading Gumroad's actual production Rails source (routes.rb + api/v2 controllers) directly via multiple WebFetch calls -- confirmed POST /v2/products, the ActiveStorage direct-upload flow, and PUT .../enable (publish) are real working routes, resolving a contradictory WebSearch claim that the endpoint 404s. Rebuilt scripts/gumroad_publish.mjs to call the REST API directly (dropped the CLI dependency entirely), simplified the workflow, replaced the setup doc with the simpler personal-access-token grant path."
+    },
+    {
+      "date": "2026-09-01",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Owner-directed re-check (estimated): investigated Browser/Computer-Use publishing for Gumroad specifically, fresh (not reused from the Etsy check). Live curl test confirmed gumroad.com/app.gumroad.com/gumroad.com/login are fully blocked at the sandbox egress proxy; re-searched for a browser-driving tool, found none. Confirmed the already-built REST API pipeline as necessary. No code changes -- investigation and recording only."
+    },
+    {
+      "date": "2026-09-02",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "note": "Scheduled cadence run (light, estimated): confirmed no new GitHub issues, no Promotion-blocked issue, main in sync with this branch, Sales Monitor detected no new revenue. Empirically re-verified (rather than assumed) that both the Etsy and Gumroad publish blockers are unchanged by triggering etsy-publish.yml and gumroad-publish.yml via GitHub MCP (free Actions minutes) -- both confirmed 'no-ops without credentials'. No new product/content; wrote reports/data/2026-09-02.json."
+    },
+    {
+      "date": "2026-09-02",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.2,
+      "currency": "usd",
+      "jpy_equivalent": 180,
+      "note": "Owner-directed live Gumroad publish (estimated): triggered gumroad-publish.yml via GitHub MCP. 1st run failed with a real API error (POST /v2/direct_uploads -> 400, media-only endpoint). Diagnosed by reading Gumroad's production files_controller.rb directly, cross-checked the files-array shape against antiwork/gumroad-cli's Go source, applied a minimal fix to scripts/gumroad_publish.mjs (S3-multipart presign/complete flow), committed, re-triggered -- 2nd run succeeded. Achieved a real, live, purchasable Gumroad listing ($9, https://feverish50.gumroad.com/l/uhajxo). Updated status/CURRENT_STATUS.json, ops/AGENT_LOOP.md, reports/data/2026-09-03.json to reflect the milestone."
+    },
+    {
+      "date": "2026-09-03",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.95,
+      "currency": "usd",
+      "jpy_equivalent": 143,
+      "note": "Owner-directed (estimated): formalized the Gumroad publish as a canonical live_capabilities entry; found and fixed a real idempotency bug in scripts/gumroad_publish.mjs (saveState() was dropping product_id on its 2nd call, confirmed by the on-disk state file actually missing it) and restored the missing product_id. Investigated Gumroad sale-detection options in priority order by reading production source directly (api/v2/sales_controller.rb, purchase.rb, doorkeeper.rb, oauth_application.rb): confirmed GET /v2/sales is real and requires the optional view_sales scope, which the existing access token's grant is not yet confirmed to include. Built scripts/gumroad_sales_monitor.mjs and wired it into the existing sales-monitor.yml cron (no new schedule, near-zero incremental cost) rather than building new monitoring infrastructure. Documented the full priority order and fallback in ops/GUMROAD_API_SETUP.md and ops/AGENT_LOOP.md."
+    },
+    {
+      "date": "2026-09-03",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed Etsy OAuth walkthrough (estimated): guided app registration + local OAuth run; fixed a real bug in the ETSY_SHOP_ID auto-lookup (missing res.ok check swallowed the real error) and shipped scripts/etsy_get_shop_id.mjs as a no-redo-OAuth recovery path. That surfaced a real 403 (x-api-key needs keystring:shared_secret, not keystring alone), contradicting the earlier documented claim that the Shared Secret is never needed. Corrected scripts/etsy_oauth_setup.mjs, scripts/etsy_publish.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md, and status/CURRENT_STATUS.json to add ETSY_API_SHARED_SECRET as a 5th required secret, based on the real API response, not re-verified documentation (egress to Etsy's docs reconfirmed blocked)."
+    },
+    {
+      "date": "2026-09-04",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1,
+      "currency": "usd",
+      "jpy_equivalent": 150,
+      "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.4,
+      "currency": "usd",
+      "jpy_equivalent": 210,
+      "note": "Owner-directed live Etsy publish (estimated): owner completed the Etsy OAuth grant (5/5 secrets) and reported Creem approved. Merged in Day 4's Gumroad work (done by another session), resolved 3-file merge conflicts, re-promoted to main. Triggered etsy-publish.yml: 1st run got past auth/taxonomy (proving the shared-secret fix) but hit a real 400 (a tag exceeding Etsy's 20-char limit); fixed the one tag, re-ran, succeeded fully -- draft -> images -> file -> active. Etsy listing is now live ($9, https://www.etsy.com/listing/4569271638). Found and fixed the same saveState() idempotency bug in scripts/etsy_publish.mjs that gumroad_publish.mjs had -- but not before a concurrent session's independent re-trigger hit the still-broken check and created a real duplicate listing (4569274006, since deactivated); corrected the record accordingly rather than overstate this as prevented. Evaluated and declined to activate Creem despite approval (no distribution advantage over Stripe identified). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl to reflect all three digital-product channels now being live."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.5,
+      "currency": "usd",
+      "jpy_equivalent": 225,
+      "note": "Scheduled cadence run, day 5 (estimated, concurrent with the entry above): closed a stale 'Promotion blocked' GitHub issue (#4) after verifying via git history it was no longer accurate. Confirmed 0 Stripe charges live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log. Independently triggered etsy-publish.yml, hit the same Shared-Secret 403, and investigated it via WebSearch/WebFetch against two independent primary sources before discovering a concurrent session's already-merged fix and deferring to it rather than duplicating the work. Re-triggered etsy-publish.yml as an idempotency check -- this run is, on cross-referencing timestamps, the one that actually caused the real duplicate listing (4569274006) recorded in the entry above; added an attribution_correction event to status/EVENTS.jsonl identifying this honestly as this session's own action rather than an anonymous trigger. Corrected the same overstated 'prevented' framing in reports/data/2026-09-05.json's summary/wins/failures sections."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "note": "Owner-directed re-diagnosis (estimated): with all 3 channels technically live, re-diagnosed the true binding constraint by comparing inflow/search-exposure/pitch/price/mix/funnel/owned-assets across Stripe/Gumroad/Etsy using real evidence (grepped index.html, the SEO guide, sitemap.xml, /store/, social/queue, social/posted -- not assumption). Found index.html had zero link to the brand-new Etsy listing (same class of gap fixed for Gumroad on Day 4) and that X posting is dormant (no credentials, zero posts ever sent). Fixed the one concrete, zero-cost gap: added an Etsy linkbox to index.html. Explicitly declined a new sales channel, a price/mix change, and X posting -- none had supporting evidence, only the backlink gap did. No new capability built."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Owner correction, same day (estimated): owner flagged that the prior entry's index.html backlink fix had been overclaimed as 'the' binding constraint, and that the 'new listings get a temporary recency boost' claim was unverified. Rather than defend the claim, built real diagnostic tooling: scripts/etsy_listing_diagnostics.mjs + .github/workflows/etsy-diagnostics.yml and scripts/gumroad_listing_diagnostics.mjs + .github/workflows/gumroad-diagnostics.yml (this sandbox has zero egress to Etsy/Gumroad, so ran via GitHub Actions and read the job logs), plus a live Stripe MCP query (GetCheckoutSessions filtered by the payment link). Real results: Etsy confirms views:0/num_favorers:0 and confirms no search-term/traffic/CVR/quality-warning fields exist in the API (dashboard-only); Gumroad's API has no views field at all but revealed a real 'Other'-category defect; Stripe confirms 0 checkout sessions ever over 11 days. Rewrote CURRENT_STATUS.json, AGENT_LOOP.md, and EVENTS.jsonl to retract the prior overclaim and record the honest conclusion that no channel shows a differentiating real-inflow signal yet."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Owner-approved, priority-ordered execution (estimated): (1) fixed Gumroad's confirmed 'Other' category -- read Gumroad's production source (api/v2/links_controller.rb, api/v2/categories_controller.rb) to confirm the real update mechanism, fetched the live category tree (GET /v2/categories, no new grant needed), chose 'self-improvement/productivity' (taxonomy_id 85) over a mismatched PHP-scoped 'ai-tools' leaf, built scripts/gumroad_fix_category.mjs + a workflow, ran it live, and confirmed the change via an independent re-fetch. (2) Deliberately did NOT re-run the Etsy diagnostic -- listing is only ~8.5h old, short of the owner's 24-48h window; deferred to the next scheduled run rather than forced early. (3) Investigated Gumroad's view-count data down to the production-source auth model (AnalyticsController requires a seller session/cookie, no matching OAuth scope exists) before concluding it's genuinely AI-unreachable, then queued exactly one low-priority human ask rather than skip straight to asking. No new channel, no new SKU, no resource-reallocation decision made."
+    },
+    {
+      "date": "2026-09-05",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Actual 20:07 JST scheduled daily cadence run, day 5 (estimated, light -- this run only re-observed and recorded, no code changes): queried live Stripe data directly via the Stripe MCP connector (0 charges, 0 checkout sessions ever); checked for open GitHub issues (none); confirmed the latest sales-monitor.yml run (04:30 UTC, ~6.7h earlier) succeeded with 0 new Gumroad sales; confirmed the Etsy re-diagnostic timing gate (~2026-09-06T00:55Z) had not yet been reached. No new capability, no market signal change, no economically rational action available beyond what the owner-directed sessions already did earlier today -- stopped early per the loop's own cost-control rule rather than manufacture busywork. Cadence held at 1x/day."
+    },
+    {
+      "date": "2026-09-06",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Actual 20:07 JST scheduled daily cadence run, day 6 (estimated): confirmed no open GitHub issues and main already in sync with the branch (591d17c). Triggered etsy-diagnostics.yml live (the owner's 24-48h re-diagnostic gate had passed) -- views moved 0->2, num_favorers still 0. Queried live Stripe data via the Stripe MCP connector and found the first non-zero checkout-session result in 13 days of checking (2 real sessions, both open/unpaid, $19, created today). Audited store/index.html's buy-button/BUY_URL wiring for a defect that might explain the abandonment -- found none. Triggered gumroad-diagnostics.yml for completeness (category fix holding, sales_count 0). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl, cadence.json, and reports/data/2026-09-06.json to record the new evidence honestly without over-interpreting an n=2 sample; also fixed a pre-existing duplicate-JSON-key bug in CURRENT_STATUS.json found while editing the same fields. No code/price/lane changes -- evidence did not support any."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Owner-directed, X voice-corpus build (estimated): owner asked for a real-voice corpus from @KinoshitaTsks's own past X posts, sourced only from the official X API, before any autonomous posting begins. Paused social-x.yml's 30-min cron (it drains social/queue/'s 2 AI-authored items and now has live-ish credentials) so no premature auto-post could occur mid-task. Built scripts/x_fetch_own_posts.mjs + .github/workflows/x-fetch-own-posts.yml and ran it live via GitHub Actions (no sandbox egress to api.twitter.com). No X API cost incurred -- the script correctly no-op'd before making any API call: the job log shows only 2 of 4 required secrets (X_API_KEY, X_ACCESS_TOKEN) are actually registered, X_API_SECRET and X_ACCESS_SECRET are blank. Queued one human-only ask to verify all 4 secrets; wrote no corpus files since no real post data was fetched. category=x_api, amount=$0 (no request was made)."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "note": "Owner correction, same task (estimated): owner identified the real root cause was a secret-naming mismatch (code used X_API_SECRET/X_ACCESS_SECRET; the owner's actual secrets are X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET), not missing credentials, and asked to align the code rather than add new secrets. Renamed the env vars in all 4 referencing files, re-ran the fetch live. This time a real X API call fired -- GET /2/users/by/username/KinoshitaTsks returned a real 402 Payment Required, 'credits depleted' (X's own read-credits billing system, distinct from the per-window rate limit which showed 899/900 remaining). No X API monetary cost was incurred on this project's side beyond whatever the account's existing plan already reflects -- the request itself was rejected before returning data, so category=x_api, amount=$0 for this call. Queued a new human-only ask (check X Developer Portal credit/plan status); corpus files still not written, per instruction not to fabricate from no data."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "x_api",
+      "amount": 5,
+      "currency": "usd",
+      "jpy_equivalent": 750,
+      "note": "Owner's real, actual purchase (not estimated): owner topped up X API read credits by $5 and set the account's spending limit to $5 to unblock this project's voice-corpus fetch, after the prior 402 'credits depleted' blocker. This is the owner's direct out-of-pocket X Developer Portal transaction -- the API itself does not expose a per-call dollar cost in its responses, so this project cannot itemize exactly how much of the $5 this one fetch consumed; recording the full real purchase amount here is more honest than guessing a per-call fraction. Any remaining credit balance carries forward for future X API use (posting, further diagnostics)."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.3,
+      "currency": "usd",
+      "jpy_equivalent": 195,
+      "note": "Owner-directed, X voice-corpus build (estimated): after the owner topped up X API credits, re-ran x-fetch-own-posts.yml on main -- succeeded, fetched 195 real posts (2025-11-15 to 2026-09-05, retweets excluded via the API's own exclude=retweets param) into status/x_own_posts_raw.json. Read the full 195-post corpus verbatim (not summarized/skimmed) to classify each post (normal/thread/reply/promo, by real API-confirmed reply fields plus content judgment for thread/promo) and to write marketing/X_VOICE_CORPUS.md (categorized real excerpts, unedited), marketing/X_VOICE_GUIDE.md (style analysis grounded only in the corpus, DO/DON'T, a voice-fingerprint checklist), and marketing/x_voice_examples.json (all 195 posts, machine-readable). No style guessing -- every claim in X_VOICE_GUIDE.md traces to a real example in the corpus. The X auto-post cron (social-x.yml) stays paused pending the owner's review of these deliverables."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Owner-directed, single real-voice test post (estimated): re-checked Day 6's Stripe checkout-session thread live via the Stripe MCP connector first (confirmed both now status='expired', unpaid -- ruled it out as today's topic since it was already reported yesterday and has no new news), then chose the voice-corpus completion as today's one real topic per the owner's data sources (status/cost_ledger/AGENT_LOOP/reports). Drafted post text grounded in 3 cited real corpus examples, completed a documented 14-item Voice fingerprint self-check (status/x_voice_test_post_draft.json), then built scripts/x_post_voice_test.mjs + .github/workflows/x-post-voice-test.yml (isolated from scripts/post_x.mjs/social/queue) and posted one real reply to X_ROOT_POST_ID (tweet 2096802000679657477). Built and ran a 2nd, independent verification (scripts/x_verify_reply.mjs + x-verify-reply.yml) rather than trust the posting script's own success message -- confirmed via a fresh GET call that the reply is genuinely threaded under X_ROOT_POST_ID. social-x.yml's cron remains paused, not re-enabled -- that decision was left explicitly to the owner."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Owner-directed, resume automatic X posting as a judgment-gated system (estimated): owner approved the test post and asked to resume social-x.yml, but explicitly not as a daily-streak poster -- only on genuinely new-fact days, max 1/day, register C prioritized, corpus re-read every time, Voice-fingerprint self-check every time, no auto-replies/DMs, results recorded, same-day idempotency. Archived 2 stale pre-corpus social/queue/ items to social/queue_archive_pre_corpus/ (would otherwise have been silently posted by the resumed cron's first tick -- ungrounded, unchecked content, exactly the outcome the corpus work exists to prevent). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log, backfilled with the real test post) and social/x_experiment_next_post.json (queue-of-one contract). Built scripts/x_post_experiment_commentary.mjs: deliberately no content-judgment logic (that stays with the daily agentic session, encoded as a checklist), only same-day idempotency, a weighted-length safety guard, and independent 2nd-GET verification before recording success. Repointed and re-enabled social-x.yml's schedule/push triggers to run this new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md and updated ops/LOOP_PROMPT.txt's step 5 to reference it, so every future daily session applies the same judgment checklist."
+    },
+    {
+      "date": "2026-09-07",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Scheduled daily autonomous judgment run (Day 7, 20:07 JST fire), distinct from today's three earlier owner-directed X sessions. Lean run: synced with origin/main (branch 0/0 vs main, no open 'Promotion blocked' issue), live-verified reality rather than assuming carry-over -- Stripe GetCharges (livemode) returned 0 charges, revenue_ledger official/prep both empty, sales-monitor.yml run 34084105212 succeeded (0 new sales). Confirmed Day 6's 2 Stripe checkout sessions already recorded as expired/unpaid (no new news). Reviewed the primary discovery channel's search surface: the live Etsy listing already carries 13 well-targeted buyer-search tags and Gumroad's category is already fixed -- no defect to correct, so no listing churn. X: already posted once today (same-day idempotency) and no genuinely-new fact, so no queue entry. Diagnosis unchanged (bottleneck = cold-start distribution / no qualified traffic; not a build or config gap). No economically-rational new intervention available -> disciplined hold + honest record, per LOOP_PROTOCOL step 14."
+    },
+    {
+      "date": "2026-09-08",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Scheduled daily autonomous judgment run (Day 8, 20:07 JST fire, estimated): live-verified 0 Stripe charges + Day6 sessions expired/unpaid + 0 new checkout since Day6, no open issues, branch synced. Disciplined early-stop; no work manufactured. 4th consecutive no-action daily run."
+    },
+    {
+      "date": "2026-09-09",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.7,
+      "currency": "usd",
+      "jpy_equivalent": 105,
+      "note": "Day 9 scheduled run (estimated): processed owner mission-priority protocol update (dac1bb7), re-diagnosed offer/audience/traffic mismatch, and executed the experiment’s first deliberate distribution test (register-C X post driving owned audience to the store, voice-fingerprint self-checked). Active adaptation, not a hold."
+    },
+    {
+      "date": "2026-09-09",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "note": "Day 9 scheduled 20:07 JST fire (estimated), distinct from this morning's off-cycle strategy-pivot session. Observed the first distribution test in flight (~9h old, tweet 2097502803740516784): 0 completed sales; Stripe MCP unavailable + no store analytics, so primary test signals (traffic/clicks/checkout) not cheaply observable this run. Verified the broadcast store link is sound (BUY_URL -> live Stripe payment link) as the one cheap non-confounding check. Compared hold vs alternatives; deferred the test readout to the natural ~24h Day-10 checkpoint (cheapest, most-informative). No confounding store/offer edit, no 2nd X post."
+    },
+    {
+      "date": "2026-09-10",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Day 10 scheduled run: built a read-only engagement-metrics capability and read the Day-9 distribution test result via a registered workflow dispatched at the working branch. Decisive finding (0 impressions / 0 clicks in 33h -> the reply structure is zero-reach; distribution reach is the binding constraint). Reclassified the constraint, surfaced a one-time top-level-posting consent item. Active observe->adapt iteration, not a hold."
+    },
+    {
+      "date": "2026-09-10",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "2 GET /2/tweets reads (reply-threading verify + engagement metrics) against the Day-9 test tweet, drawn from the owner's existing $5 X read-credit balance (recorded Day 7). X does not expose an exact per-request credit cost, so no per-read dollar figure is invented (LOOP_PROTOCOL section 11)."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.2,
+      "currency": "usd",
+      "jpy_equivalent": 180,
+      "note": "Day 11 (owner-granted top-level post): read voice guide + corpus, built the standalone top-level poster + workflow + queue (canon §9), drafted a Register-C 14-item-checked post, merged an intervening owner mission commit, fixed a URL length-guard bug, and posted+verified the first top-level acquisition tweet (id 2098217452148588931). Multiple promote/dispatch cycles."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "1 POST /2/tweets (the top-level post) + 1 GET /2/tweets verify, from the owner's existing $5 X credit. X exposes no exact per-request credit cost, so no per-call dollar figure invented (LOOP_PROTOCOL §11)."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.8,
+      "currency": "usd",
+      "jpy_equivalent": 120,
+      "note": "10-day mid-point business review (owner-requested, separate from daily Routine): read canon + state from main, pulled fresh sales evidence, produced reports/MIDPOINT_REVIEW_2026-09-11.md (10-section diagnosis + strategy redesign), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; no new strategy executed."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Owner-requested product review: extracted the delivered ZIP, decoded the PDF (Type0/ToUnicode) and read all 6 files + listing configs + cover image, produced reports/PRODUCT_REVIEW_2026-09-11.md (10-section audit), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; product not changed."
+    },
+    {
+      "date": "2026-09-11",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.9,
+      "currency": "usd",
+      "jpy_equivalent": 135,
+      "note": "Day 11 evening scheduled autonomous run (estimated): synced main (0/0, no Promotion-blocked issue), read minimum state + the delivered product ZIP's 20 prompts, and EXECUTED the midpoint+product-review redesign's prescribed JP entry offer -- built guides/chatgpt-jimu-jitan-prompt.html (a free Japanese lead-magnet page, 7 prompts re-edited into Japanese, anti-hallucination differentiator led, soft Gumroad pointer) and wired it for discovery (sitemap, index backlink, EN<->JP hreflang cross-links). Did not read the Day-11 top-level post's +24h reach (not due). leak_check 0/0. One real compounding owned asset shipped via asset reuse; no X cost this run (no post)."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "note": "Day 12 extra Routine (owner-requested; new 'bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol, commit 37131af). One revenue hypothesis, multiple execution steps: read the Day-11 top-level reach (4 imp / 2 clicks -> reach is the constraint; inline-link + diary-hook the suspected suppressors); extended scripts/x_post_toplevel.mjs with a verified self-reply so the main tweet stays link-free; drafted+voice-checked+queued a value-first link-free post + reply to the free JP guide; dispatched and verified both tweets (main 2098569637827141687, reply 2098569639416721518); recorded state and made the cadence decision (hold 1x/day, with an evidence-based rationale). leak_check 0/0."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "x_api",
+      "amount": 0,
+      "currency": "usd",
+      "jpy_equivalent": 0,
+      "note": "From the owner's existing $5 X read/write credit (recorded 2026-09-07): 1 GET (Day-11 reach read) + 1 POST (main tweet) + 1 GET verify + 1 POST (self-reply) + 1 GET verify. X exposes no exact per-request credit cost, so no per-call dollar figure is invented (LOOP_PROTOCOL section 11)."
+    },
+    {
+      "date": "2026-09-12",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "note": "Day 12 EVENING scheduled fire (20:09 JST) -- separate from the owner-triggered morning Day-12 run. Short, cheap early-stop iteration (estimate, X exposes no per-run figure; light read-only run). Verified no material change: revenue still Y0 (sales-monitor run 34673394985 success, ledger empty), no open Promotion-blocked issue, branch 0/0 with main. Did NOT read the Day-12 post reach (only +10.7h; decisive datum due ~+24h = Day-13 morning -- premature partial read burns scarce X credit). 1/day top-level cap already used today; next build (JP paid core) gated on the Day-13 reach read. Compared hold vs concrete alternatives (read-now / build-paid-core-now / edit-guide-or-store) -- all negative-EV or evidence-free speculation before the in-flight test matures -> early-stop is highest-EV. Housekeeping only: marked the stale top-level-consent human-action RESOLVED (granted 2026-09-11), refreshed revenue.verified_how + updated_at. leak_check 0/0."
+    },
+    {
+      "date": "2026-09-13",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.7,
+      "currency": "usd",
+      "jpy_equivalent": 105,
+      "note": "Day 13 off-cycle PREP SHIFT (owner-triggered) under clarified canon 9455734/18b37a3. Estimate. One revenue hypothesis (fix the JP audience -> EN commodity mismatch), multiple execution steps: synced canon, observed the funnel, built store/jp.html (JP-native paid sales page leading with the 2 scripts, -> existing live Stripe checkout), rewired the free JP guide CTA, added sitemap entry + reciprocal hreflang, recorded state, reassessed cadence. No X API calls (deferred the signal-dependent reach read). leak_check 0/0."
+    },
+    {
+      "date": "2026-09-13",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "note": "Day 13 EVENING scheduled 20:07 JST fire (separate run from the earlier owner-triggered prep shift). Estimate. Executed the decisive, now-mature signal-dependent action: read the Day-12 value-first link-free top-level post reach via 2 x-verify-reply.yml dispatches (runs 34753719996, 34753748953; both HTTP 200; 2 read-only metric GETs drawn from the existing X credit -- no new X spend). Result: main 5 imp, self-reply 3 imp / 0 clicks -> reformat did not recover reach; X owned-account top-level reach is near-zero regardless of format -> owned-X-audience reach premise falsified -> retired X as the active reach lever. Recorded the strategy-premise-collapse event + full durable state; reverted the two-shift posture; recommended reducing scheduled cadence. No X post (negative-EV). leak_check + gen_report run."
+    },
+    {
+      "date": "2026-09-13",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.65,
+      "currency": "usd",
+      "jpy_equivalent": 98,
+      "note": "Day 13 OFF-CYCLE run (owner-triggered) under the new pivot addendum. Estimate. Re-diagnosed the full remaining revenue space after X was retired (did NOT default to wait-for-SEO), chose note.com as the highest-EV untested reach lane, and executed the non-blocked half: wrote marketing/note_article_01_jp.md (publish-ready value-first JP article, funnel -> free JP guide -> store/jp.html), retired the stale LAUNCH_KIT note outline, requested a note.com account (narrow human step), retracted the prior reduce-cadence recommendation (positive-EV backlog exists). No X spend."
+    },
+    {
+      "date": "2026-09-14",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Day 14 run. Owner granted note.com account-usage (@satotsu1020). Confirmed env cannot reach note.com (proxy 403) so publish is an irreducible ~5-min human step; maximized the autonomous half: upgraded marketing/note_article_01_jp.md into a full note-native publish package (eyecatch/title/tags/?ref=note CTA/profile line) + a #02-#04 compounding series plan, recorded the grant, reclassified the human action to publish-only. No X spend."
+    },
+    {
+      "date": "2026-09-14",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.18,
+      "currency": "usd",
+      "jpy_equivalent": 27,
+      "note": "Day-14 EVENING scheduled fire. Cheap early-stop run: observed ¥0/no new signal, verified JP funnel end-to-end conversion-readiness (hero CTA JS-wired + bottom CTA hardcoded both -> live Stripe link), confirmed no open promotion-blocked issue, compared hold vs concrete alternatives (Gumroad affiliate not in OAuth API; note #02 = premature supply) and held. No new supply, no X spend. Estimate."
+    },
+    {
+      "date": "2026-09-15",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "note": "Day-15 owner-requested AI-news lane run. Sheet read blocked (egress + connector-disabled-in-chat + no Sheets API key); did not fabricate a topic. Built the reusable deterministic JP 16:9 news-card image renderer (scripts/render_news_card.mjs, headless Chromium, 2 variants, IPAGothic) + marketing/ai_news/ scaffold as signal-independent prep so a real post is immediate once read access is granted. Estimate."
+    },
+    {
+      "date": "2026-09-15",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "note": "Day-15 EVENING scheduled fire (separate from the morning AI-news run). Cheap early-stop: observed ¥0 (ledgers empty; Stripe MCP needs_reconnect -> ledger+Actions fallback), no open promotion-blocked issue, branch 0/0; confirmed no new capability (Drive connector still enabledInChat=false so the AI-news sheet stays unreadable). Compared hold vs concrete alternatives (note #02 = premature supply; Gumroad affiliate not in OAuth API; AI-news blocked; more SEO = supply before demand) and held. No new supply, no X spend. Estimate."
+    },
+    {
+      "date": "2026-09-16",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "note": "Day-16 scheduled Claude fire (separate from Codex's independent AI-news iteration, which did not meter itself). Observed ¥0/no new signal (ledgers empty, Stripe MCP needs_reconnect, 0 open issues, branch 0/0). Refused a 4th identical early-stop: opened the Zenn reach lane by writing a complete publish-ready JP technical article on the 2 owned Google Apps Scripts (marketing/zenn_article_01_gas_ai.md, asset reuse) + filed the one-time Zenn connection as a non-binding capability request. Did NOT cross-post Codex's image-based X post (poster is text-only; would drop image + risk double-post). No X spend, no new supply. Estimate."
+    },
+    {
+      "date": "2026-09-17",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Day-17 scheduled Claude fire. Observed still-¥0 (revenue_ledger official+prep empty; Stripe MCP unavailable -> ledger+Actions fallback), 0 open promotion-blocked issue, branch 0/0 with main. One genuinely-new state: owner commit 5476b5c added canonical multi-operator coordination (Claude and Codex independent, complementary, no overlap). Executed one AI-operable, non-duplicative, signal-independent asset-REUSE action: prepositioned the already-written Zenn article into the connect-and-go deploy path articles/gas-chatgpt-batch-summary-mail.md (published:false so no accidental publish on connect) and consolidated marketing/zenn_article_01_gas_ai.md to a single-source pointer -> shrinks the pending human step on the highest-EV reach lane to just connecting a Zenn account to this repo. No new inventory, no X spend, no premature supply. Estimate."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "note": "Day-18 owner-live iteration. Owner confirmed note.com #01 is PUBLISHED and Zenns GitHub integration is CONNECTED. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn article goes live (borrowed-authority JP-search reach, AI-operable ongoing by commit). Publish-readiness edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn). Marked note-publish + Zenn-connection human blockers RESOLVED. Re-judged note measurement (env cannot read note.com or GitHub Pages traffic -> AI-measurable signal is the sales-monitor cron + a non-binding owner glance/analytics ask). No new supply. Estimate."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "codex-desktop-bootstrap-20260918",
+      "note": "Desktop subscription bootstrap and write test. Attributable compute cost is unavailable, not zero; excluded from numeric totals until reconciled. No separately billed OpenAI API call or new paid service was purchased."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260918T010956.628910Z",
+      "note": "First scheduler-originated handoff; live Stripe observation and cadence decision. Subscription compute attribution unavailable, not zero; numeric known totals unchanged. No external purchase or paid API runner."
+    },
+    {
+      "date": "2026-09-18",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "note": "Day-18 SCHEDULED autonomous fire (separate from today's earlier owner-live iteration that published the Zenn article). Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35308103510 success = no new sale), 0 open issues (no Promotion-blocked), branch 0/0 synced with origin/main, Day-18 work durable on main (Zenn published:true + ?ref=zenn, note #01 live). No new capability, no new market signal -- the note/Zenn reach lanes went live only hours ago so no measurable traffic/index signal can exist yet. Compared hold vs concrete alternatives (Qiita near-duplicate / note #02 / jp.html speculative edits / analytics build / Gumroad OAuth affiliate / X post) -- all lose to hold or contradict the owner-live no-new-inventory-before-signal decision. EARLY STOP per LOOP_PROTOCOL section 14. Cadence held 1x/day. Estimate."
+    },
+    {
+      "date": "2026-09-19",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260919T010156.200029Z",
+      "note": "Scheduled live payment observation and marketplace delivery-path audit. Subscription attribution unknown; no added external purchase."
+    },
+    {
+      "date": "2026-09-19",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.3,
+      "currency": "usd",
+      "jpy_equivalent": 45,
+      "operator": "Claude",
+      "note": "Day-19 SCHEDULED Claude fire (separate from Codex's 10:00 JST run). Observed: revenue still ¥0 (revenue_ledger official+prep empty; Codex Day-19 verified Stripe live charges=0 + Gumroad run 35402157979=0 new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, Day-18 note #01 + Zenn #01 durable on main. No new capability, no new market signal -- the two reach lanes went live only ~24-36h ago so no search-index/traffic signal can exist yet. Compared hold vs concrete alternatives (Qiita cross-post = premature 3rd unvalidated JP-search surface + human-gated + a 3rd owner ask right after two; note #02 = premature supply; jp.html edits = already conversion-ready; analytics/GSC = human-gated; X post = Codex's lane + dead reach + nothing reader-worthy; product ZIP-update = Codex's own backlog) -- all lose to hold. EARLY STOP per LOOP_PROTOCOL section 14; not strategy churn (strategy deployed ~1 day ago, awaiting first measurement). Cadence held 1x/day. Estimate."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.55,
+      "currency": "usd",
+      "jpy_equivalent": 83,
+      "operator": "Claude",
+      "note": "Day-20 FOUNDER-MODE extraordinary fire (owner-triggered). Not an early stop: executed a monetization strategic package -- portfolio re-diagnosis; higher-ticket 3-tier JP offer design; complete publish-ready Coconala listing package (marketing/coconala_offer_and_listing_jp.md); LIVE proof/before-after conversion upgrade to store/jp.html; one narrow human ask (Coconala account+payout). Larger than a typical early-stop run (multi-file asset creation + judgment). Estimate (~$0.55 at ~150 JPY/USD)."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.6,
+      "currency": "usd",
+      "jpy_equivalent": 90,
+      "operator": "Claude",
+      "note": "Day-20 GOAL-CONTINUOUS Claude runtime (owner re-triggered continuous autonomy). Executed 2 positive-EV AI-operable packages toward the first ¥1: (1) published a 2nd, distinct high-value Zenn article (anti-hallucination office-prompt angle, articles/chatgpt-jimu-anti-hallucination-prompt.md, published:true -> live via the connected Zenn integration; a different high-intent JP query funneling to the free guide -> store) to expand the only fully-AI-operable reach channel; (2) added an objection-handling FAQ (API key / no-code / safety / refund) to the live store/jp.html to convert arriving reach. Then ran the Founder-Mode continue/stop gate: remaining high-EV levers (Coconala/note/ads/community, GSC) are human-gated and already surfaced; further content = filler, higher-ticket Gumroad launch = low first-¥1 EV + outward-facing (owner should review a new deliverable). Stopped per goal-continuous condition (b). Estimate (~$0.60 at ~150 JPY/USD)."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.25,
+      "currency": "usd",
+      "jpy_equivalent": 38,
+      "operator": "Claude",
+      "note": "Day-20 later SCHEDULED fire (goal-continuous re-fire), separate from the two earlier Day-20 runs. Cheap observe+screen+record run. OBSERVED (real, not carry-over): revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35490323822 at 2026-09-20T04:54Z = success/no new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, clean tree. NO new capability, NO new market signal since the 15:10Z run that published Zenn #02 + the store FAQ and stopped per condition (b). The reach/conversion assets (Zenn #01/#02, note #01, free guide, store/jp.html + proof + FAQ) are all freshly deployed today/Day-18 -> no index/traffic signal can exist yet. Applied the Founder-Mode >=3-motion early-stop gate honestly: (reach) 3rd same-day Zenn/Qiita = diminishing + content-farm/spam risk -> reject (filler); (conversion) more store/jp.html edits with zero click traffic = speculative polish -> reject; (monetization) unilateral higher-ticket Gumroad launch = outward-facing new public product, low first-¥1 EV, owner should review first -> reject for unilateral execution (queued fallback), Coconala = human-gated (surfaced), Gumroad affiliate = not in OAuth v2 API. No new non-filler, non-speculative, non-outward-facing-risky AI-operable work remained -> EARLY STOP per LOOP_PROTOCOL section 14 / goal-continuous condition (b). Not passivity: a full 2-package run executed hours earlier today. No X post. Estimate (~$0.25 at ~150 JPY/USD)."
+    },
+    {
+      "date": "2026-09-20",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "reference": "20260920T103846.018836Z",
+      "operator": "Codex",
+      "note": "Buyer sourcing, tailored inquiry and executable synthetic proof; subscription attribution unknown. No external purchase."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.3,
+      "currency": "usd",
+      "jpy_equivalent": 195,
+      "operator": "Claude",
+      "note": "Day-21 owner-directed goal-continuous run (THREE packages; ~$1.30 covers multi-file asset creation + Chromium PDF/thumbnail rendering + pipeline parameterization + 2 live Gumroad deploys incl. a thumbnail-format recovery + funnel wiring). Owner + new canon (cb8026a 'Close invented approval and premature stop loopholes' + 4f4c3c7) explicitly forbid deferring outward-facing/new-product/price work for 'owner should review' reasons, and require completing ALL AI-side prep on a human-gated lane before calling it blocked. Executed THREE reused-asset strategic packages toward the first ¥1. PACKAGE C (funnel coherence): backlinked the LIVE JP Gumroad product from index.html + corrected store/jp.html's honest note to reflect the now-included JP setup-guide PDF. RESULT: JP-native Gumroad product LIVE at https://feverish50.gumroad.com/l/kaqnpj ($19, product Ppx1BhvRXS4yA7Z_FnC5jA==) with square thumbnail; live $19 Stripe funnel now delivers the coherent JP bundle; Coconala AI-prep 100% complete. Revenue still ¥0 (listing-live != first-sale). PACKAGE A (Coconala AI-prep completion + live-funnel coherence fix): authored a real 4-page Japanese setup guide (marketing/jp_deliverable/setup_guide_ja.html -> setup_guide_ja.pdf via headless Chromium, IPAGothic embedded), assembled a bilingual-coherent delivery bundle (downloads/ai-automation-toolkit-v2-223c0c.zip = JP guide PDF + 2 GAS + 20 prompts + invoice template + EN bonus PDF + JP/EN START_HERE), pointed the LIVE $19 Stripe funnel to it (store/success.html) fixing the product-review 'language incoherence' defect on the funnel already receiving Zenn/note/guide traffic, rendered a JP-native Coconala thumbnail (marketing/coconala-images/01-thumb.png), and updated marketing/coconala_offer_and_listing_jp.md to mark AI-prep COMPLETE (deliverable+guide+thumbnail+delivery-message template) -> the Coconala human step is now truly only account/KYC/payout + paste/upload. PACKAGE B (fully-AI-operable monetization, existing GUMROAD_ACCESS_TOKEN): parameterized scripts/gumroad_publish.mjs + gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE env (EN path byte-identical when unset; verified no-op + EN state intact + leak_check 0/0), added taxonomy_id at creation (avoids the EN 'other' defect), created marketing/gumroad_listing_config_jp.json ($19 USD JP-native edition of the same deliverable) + .github/workflows/gumroad-publish-jp.yml (isolated state status/gumroad_listing_jp.json), and dispatched it to publish a JP-native buy-once product for the JP funnel WITHOUT waiting on the Coconala human step. Estimate (~$0.95 at ~150 JPY/USD; multi-file asset creation + Chromium rendering + pipeline work + live deploy)."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "reference": "20260921T105410.122148Z",
+      "operator": "Codex",
+      "note": "TEST Sheets buyer-service proof and mock validation. Attributable compute unknown; no external purchase."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.35,
+      "currency": "usd",
+      "jpy_equivalent": 53,
+      "operator": "Claude",
+      "note": "Day-21 LATER scheduled fire (~20:11 JST), separate from the earlier owner-directed 3-package burst (~12:20-12:30 JST) and Codex 20:00 JST Sheets-proof. Light observe/diagnose/verify iteration: confirmed revenue still ¥0 (Stripe empty, ledger official+prep 0), no open issues / no promotion-blocked issue, sales-monitor last run success with no sale, no new capability or market reaction. VERIFIED the JP funnel is coherent end-to-end (store/jp.html -> live $19 Stripe -> JP bundle success page; index.html backlinks both the Stripe funnel and the new live JP Gumroad product l/kaqnpj at $19, all consistent) -> no broken-funnel fix pending. Applied the Founder-Mode 3-motion early-stop screen (owned-content reach = premature supply ahead of the still-maturing note#01/SEO signal + human-gated accounts; direct sales = Codex-owned + human-send-gated; conversion = funnel already coherent; X = empirically dead ~5-impression reach, JP launch already the story). No un-done positive-EV AI-operable action remained, so stopped early rather than manufacture filler. ~$0.35 est at ~150 JPY/USD."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.75,
+      "currency": "usd",
+      "jpy_equivalent": 113,
+      "operator": "Claude",
+      "reference": "20260921T130500Z",
+      "note": "Day-21 goal-continuous scheduled fire. Executed a real trust/proof strategic package (Founder-Mode monetization/conversion side), NOT an early stop. Built a new buyer-facing public demo page guides/chatgpt-sheet-jidoka-demo.html: honest Before->After of the included 3_ai_batch.gs script (classification + summarization) plus its actual source, attacking the zero-proof conversion constraint. Interlinked it from index.html, store/jp.html (proof-before-buy placement under the buy CTA), the free prompt guide's CTA, and sitemap.xml (priority 0.9). Reused the real product asset, no fabricated screenshots. Leak-check clean. ~$0.75 est at ~150 JPY/USD."
+    },
+    {
+      "date": "2026-09-21",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.45,
+      "currency": "usd",
+      "jpy_equivalent": 68,
+      "operator": "Claude",
+      "reference": "20260921T133500Z",
+      "note": "Day-21 second strategic package (goal-continuous). Built the ENGLISH counterpart proof/demo guides/ai-sheet-automation-demo.html to extend trust/proof to the larger EN Gumroad Discover / EN store market (EN funnel already live at $19). Honest EN Before->After of the same 3_ai_batch.gs + real source; cross-linked JP<->EN via hreflang, added to sitemap (0.9), proof links under EN store buy CTA and EN guide CTA. No new inventory. ~$0.45."
+    },
+    {
+      "date": "2026-09-22",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "reference": "20260922T010245.111215Z",
+      "operator": "Codex",
+      "note": "Retail use-case funnel and free starter. Unknown subscription compute attribution; no external purchase."
+    },
+    {
+      "date": "2026-09-22",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1,
+      "currency": "usd",
+      "jpy_equivalent": 150,
+      "reference": "claude-day22-zenn-reach",
+      "operator": "Claude",
+      "note": "Estimated AI compute for Day-22 goal-continuous run: diagnosis + 2 high-intent Zenn technical articles (Gmail inquiry auto-reply, invoice PDF+AI email). No external purchase. Estimate; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260922T160500.542590Z",
+      "note": "Buyer-fit conversion experiment; no external purchase, subscription attribution unknown."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "local-autonomy-setup-20260923",
+      "note": "Owner-requested local supervisor setup and Claude subscription read-only smoke tests. Attributable subscription compute cost unknown, not zero. No cloud service purchased."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 0.4,
+      "currency": "usd",
+      "jpy_equivalent": 60,
+      "operator": "Claude",
+      "reference": "claude-day23-zenn-meeting-minutes",
+      "note": "Mac-local supervisor first run bootstrap + goal-continuous fire. Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor run 35733309445 = 0 new Gumroad sale; no open issues; branch synced with origin/main). No new capability/market signal. Resumed AUTONOMY_STATE.next_action: added the next distinct high-intent Zenn article (articles/gas-meeting-minutes-ai-summary.md, published:true) -- 議事録の自動要約 (meeting-minutes -> AI-extracted 要点/決定事項/TODO + auto-email), honestly built on the same real askAI() core as the other 3 derivative articles, a genuinely new high-search-volume JP office-pain-point query distinct from the 4 existing Zenn articles. Non-duplicative vs Codex's same-day buyer-fit conversion work on store/jp.html. Estimate; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": 1.1,
+      "currency": "usd",
+      "jpy_equivalent": 165,
+      "operator": "Claude",
+      "reference": "claude-day23-gumroad-pro-edition",
+      "note": "Same goal-continuous runtime, second strategic package (price/ticket-size + offer dimension, not more reach supply). Extracted 3 real GAS scripts (Gmail inquiry auto-reply, invoice PDF+AI cover-email, meeting-minutes AI summary) from this week's Zenn articles into standalone files, wrote a PRO addendum setup guide + updated START_HERE, assembled a genuinely expanded deliverable ZIP (downloads/ai-automation-toolkit-pro-b8d407.zip, 5 scripts total), created marketing/gumroad_listing_config_pro.json ($39) + .github/workflows/gumroad-publish-pro.yml with isolated state status/gumroad_listing_pro.json, dispatched it (run 35758103134) -- succeeded live, product LzCTMbPbXr1XxcbVbddEOw== at https://feverish50.gumroad.com/l/jqxenl with thumbnail. Backlinked from index.html + upsold on store/jp.html. Fully AI-operable, no owner labor, isolated from the EN/JP listings. No sale yet. Estimate; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-zenn-ratelimit-cta",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-entry-sku-3usd",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (Gumroad listing free; fees only on sale)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-free-pwyw-prompt-pack",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (free Gumroad listing; fees only on paid tips)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580528792",
+      "note": "Etsy listing fee for 2nd listing (Google Sheets invoice generator, $7). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-etsy-invoice-listing",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580869617",
+      "note": "Etsy listing fee for 3rd listing (bookkeeping tracker xlsx, $6). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580871061",
+      "note": "Etsy listing fee for 4th listing (Etsy seller profit tracker xlsx, $5). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-etsy-spreadsheet-listings",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580872903",
+      "note": "Etsy listing fee for 5th listing (monthly budget planner xlsx, $4). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580892538",
+      "note": "Etsy listing fee for 6th listing (debt payoff planner xlsx, $5). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580880297",
+      "note": "Etsy listing fee for 7th listing (rental property tracker xlsx, $7). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "etsy_fees",
+      "amount": 0.2,
+      "currency": "usd",
+      "jpy_equivalent": 30,
+      "operator": "Claude",
+      "reference": "etsy-listing-4580896166",
+      "note": "Etsy listing fee for 8th listing (inventory tracker xlsx, $6). Billed by Etsy; provider billing authoritative."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-day23-run12-etsy-templates-6-8",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
+    }
+  ],
+  "totals": {
+    "preparation_cost_jpy_equivalent": 788,
+    "official_cost_jpy_equivalent": 7317
   },
-  {
-   "date": "2026-08-26",
-   "period": "preparation",
-   "category": "ai_compute",
-   "amount": 1.2,
-   "currency": "usd",
-   "jpy_equivalent": 180,
-   "note": "Prep judgment-loop iteration (estimate): market observe + published SEO guide + sitemap."
-  },
-  {
-   "date": "2026-08-26",
-   "period": "preparation",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Prep loop iteration (light/early-stop): no material change; added robots.txt; recommended pausing prep runs to avoid negative-EV spend."
-  },
-  {
-   "date": "2026-08-28",
-   "period": "preparation",
-   "category": "ai_compute",
-   "amount": 0.35,
-   "currency": "usd",
-   "jpy_equivalent": 53,
-   "note": "Prep loop iteration (light/early-stop, estimated): verified ¥0 revenue directly via live Stripe MCP, verified no new capability granted, fixed a status-ledger bookkeeping gap; no new product/content work (would have been negative-EV busywork with 3 days left in prep and every buyer channel still human-gated)."
+  "entry_schema": {
+    "date": "YYYY-MM-DD (Asia/Tokyo)",
+    "period": "preparation | official",
+    "category": "one of categories",
+    "amount": "number in original currency",
+    "currency": "usd | jpy | ...",
+    "jpy_equivalent": "number used in totals",
+    "note": "no secrets"
   }
- ],
- "official_entries": [
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Scheduled cadence run (light/early-stop, estimated): confirmed no material change since the earlier same-day check-in (no new capability, no Promotion-blocked issue, Sales Monitor detected no new revenue), fixed a real gap (missing reports/data/2026-09-01.json left the Day-1 public report empty). No new product/content work."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.5,
-   "currency": "usd",
-   "jpy_equivalent": 75,
-   "note": "Owner correction, live conversation (estimated): reclassified human_actions_required vs additional_permissions_requested (STRIPE_RESTRICTED_KEY/X credentials are optional, not blockers), documented per-run MCP observation fallback in ops/LOOP_PROTOCOL.md + ops/AGENT_LOOP.md. State-accuracy fix, not a strategy change."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.5,
-   "currency": "usd",
-   "jpy_equivalent": 225,
-   "note": "Off-cycle judgment run (estimated), owner-directed: Etsy shop access granted. Re-diagnosed the bottleneck and built the full Etsy API v3 publish pipeline (marketing/etsy_listing_config.json, scripts/etsy_publish.mjs, scripts/etsy_oauth_setup.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md) reusing existing prepared content. This is capability-building infrastructure, not revenue itself -- no listing is live yet, blocked on the owner's one-time OAuth grant. Justified as an off-cycle run per cadence.json's new_capability_granted trigger: expected benefit (unblocking the entire revenue mechanism) clearly exceeds this run's cost."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.6,
-   "currency": "usd",
-   "jpy_equivalent": 90,
-   "note": "Owner-directed investigation (estimated): checked whether a Browser/Computer-Use capability could publish to Etsy directly instead of the API/OAuth path. Confirmed not viable (no browser-driving tool in this session, sandbox egress to etsy.com blocked, no Etsy credentials accessible) and documented why in ops/ETSY_API_SETUP.md. No code changes -- investigation and honest recording only."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.45,
-   "currency": "usd",
-   "jpy_equivalent": 68,
-   "note": "Owner-directed spec verification (estimated): checked the Etsy API v3 implementation against 6 spec points (redirect_uri HTTPS rule, keystring vs shared secret, minimum OAuth scope, Seller App access level, refresh-token rotation spec, digital-listing required fields) before the OAuth grant. Fixed redirect_uri wording, clarified shared-secret handling, trimmed scope to least-privilege, added access-level guidance, tightened refresh-token lifetime figure. One point (exact required-field schema) remains honestly unverified pending a live run."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.55,
-   "currency": "usd",
-   "jpy_equivalent": 83,
-   "note": "Owner-directed full channel inventory (estimated): re-checked Stripe/Etsy/Gumroad/Creem/Lemon Squeezy against real repo evidence (git history, EVENTS.jsonl, GitHub issues, connectors) before further Etsy work. Found no evidence Gumroad or Creem were ever opened (both remain 2026-08-25 research skips); corrected an inaccurate prior claim that Gumroad has no create-product API. Did not build any new integration code -- recorded findings + asked one factual owner status question instead."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.6,
-   "currency": "usd",
-   "jpy_equivalent": 240,
-   "note": "Owner correction + Gumroad activation (estimated): corrected the prior inventory's error (repo silence misread as non-existence) across 3 files with an explicit verification-level taxonomy. Used live WebSearch/WebFetch (not training memory) to verify Gumroad's actual current API/CLI capability -- found and confirmed the official antiwork/gumroad-cli, purpose-built for CI/agent publishing. Built the full Gumroad publish capability (marketing/gumroad_listing_config.json, scripts/gumroad_publish.mjs, .github/workflows/gumroad-publish.yml, ops/GUMROAD_CLI_SETUP.md) as a parallel low-cost addition to Etsy. Confirmed Creem's create-product API also exists but reaffirmed it stays deprioritized (duplicates Stripe's role, no distribution advantage)."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.3,
-   "currency": "usd",
-   "jpy_equivalent": 195,
-   "note": "Owner correction #2, same day (estimated): the just-built Gumroad pipeline had trusted antiwork/gumroad-cli's own docs instead of Gumroad's official help center or actual API behavior. Re-verified by reading Gumroad's actual production Rails source (routes.rb + api/v2 controllers) directly via multiple WebFetch calls -- confirmed POST /v2/products, the ActiveStorage direct-upload flow, and PUT .../enable (publish) are real working routes, resolving a contradictory WebSearch claim that the endpoint 404s. Rebuilt scripts/gumroad_publish.mjs to call the REST API directly (dropped the CLI dependency entirely), simplified the workflow, replaced the setup doc with the simpler personal-access-token grant path."
-  },
-  {
-   "date": "2026-09-01",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Owner-directed re-check (estimated): investigated Browser/Computer-Use publishing for Gumroad specifically, fresh (not reused from the Etsy check). Live curl test confirmed gumroad.com/app.gumroad.com/gumroad.com/login are fully blocked at the sandbox egress proxy; re-searched for a browser-driving tool, found none. Confirmed the already-built REST API pipeline as necessary. No code changes -- investigation and recording only."
-  },
-  {
-   "date": "2026-09-02",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.35,
-   "currency": "usd",
-   "jpy_equivalent": 53,
-   "note": "Scheduled cadence run (light, estimated): confirmed no new GitHub issues, no Promotion-blocked issue, main in sync with this branch, Sales Monitor detected no new revenue. Empirically re-verified (rather than assumed) that both the Etsy and Gumroad publish blockers are unchanged by triggering etsy-publish.yml and gumroad-publish.yml via GitHub MCP (free Actions minutes) -- both confirmed 'no-ops without credentials'. No new product/content; wrote reports/data/2026-09-02.json."
-  },
-  {
-   "date": "2026-09-02",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.2,
-   "currency": "usd",
-   "jpy_equivalent": 180,
-   "note": "Owner-directed live Gumroad publish (estimated): triggered gumroad-publish.yml via GitHub MCP. 1st run failed with a real API error (POST /v2/direct_uploads -> 400, media-only endpoint). Diagnosed by reading Gumroad's production files_controller.rb directly, cross-checked the files-array shape against antiwork/gumroad-cli's Go source, applied a minimal fix to scripts/gumroad_publish.mjs (S3-multipart presign/complete flow), committed, re-triggered -- 2nd run succeeded. Achieved a real, live, purchasable Gumroad listing ($9, https://feverish50.gumroad.com/l/uhajxo). Updated status/CURRENT_STATUS.json, ops/AGENT_LOOP.md, reports/data/2026-09-03.json to reflect the milestone."
-  },
-  {
-   "date": "2026-09-03",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.95,
-   "currency": "usd",
-   "jpy_equivalent": 143,
-   "note": "Owner-directed (estimated): formalized the Gumroad publish as a canonical live_capabilities entry; found and fixed a real idempotency bug in scripts/gumroad_publish.mjs (saveState() was dropping product_id on its 2nd call, confirmed by the on-disk state file actually missing it) and restored the missing product_id. Investigated Gumroad sale-detection options in priority order by reading production source directly (api/v2/sales_controller.rb, purchase.rb, doorkeeper.rb, oauth_application.rb): confirmed GET /v2/sales is real and requires the optional view_sales scope, which the existing access token's grant is not yet confirmed to include. Built scripts/gumroad_sales_monitor.mjs and wired it into the existing sales-monitor.yml cron (no new schedule, near-zero incremental cost) rather than building new monitoring infrastructure. Documented the full priority order and fallback in ops/GUMROAD_API_SETUP.md and ops/AGENT_LOOP.md."
-  },
-  {
-   "date": "2026-09-03",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.55,
-   "currency": "usd",
-   "jpy_equivalent": 83,
-   "note": "Owner-directed Etsy OAuth walkthrough (estimated): guided app registration + local OAuth run; fixed a real bug in the ETSY_SHOP_ID auto-lookup (missing res.ok check swallowed the real error) and shipped scripts/etsy_get_shop_id.mjs as a no-redo-OAuth recovery path. That surfaced a real 403 (x-api-key needs keystring:shared_secret, not keystring alone), contradicting the earlier documented claim that the Shared Secret is never needed. Corrected scripts/etsy_oauth_setup.mjs, scripts/etsy_publish.mjs, .github/workflows/etsy-publish.yml, ops/ETSY_API_SETUP.md, and status/CURRENT_STATUS.json to add ETSY_API_SHARED_SECRET as a 5th required secret, based on the real API response, not re-verified documentation (egress to Etsy's docs reconfirmed blocked)."
-  },
-  {
-   "date": "2026-09-04",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1,
-   "currency": "usd",
-   "jpy_equivalent": 150,
-   "note": "Scheduled cadence run, day 4 (estimated): re-confirmed Etsy OAuth still blocked (empirically, via a fresh workflow_dispatch trigger -- no status/etsy_listing.json created) and that Gumroad's view_sales sales-detection scope is granted (resolved the 2026-09-03 open question by reading sales-monitor.yml's own successful job-log output, no new code). Verified Gumroad's thumbnail/covers endpoint shapes against production source (thumbnails_controller.rb, covers_controller.rb, direct_uploads_controller.rb), built scripts/gumroad_add_thumbnail.mjs, and ran it live: real success (thumbnail attached to the published product, confirmed by the job log, not assumed). Also fixed a real navigational gap -- the live Gumroad listing had zero backlinks from any owned page -- by linking it from index.html."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.4,
-   "currency": "usd",
-   "jpy_equivalent": 210,
-   "note": "Owner-directed live Etsy publish (estimated): owner completed the Etsy OAuth grant (5/5 secrets) and reported Creem approved. Merged in Day 4's Gumroad work (done by another session), resolved 3-file merge conflicts, re-promoted to main. Triggered etsy-publish.yml: 1st run got past auth/taxonomy (proving the shared-secret fix) but hit a real 400 (a tag exceeding Etsy's 20-char limit); fixed the one tag, re-ran, succeeded fully -- draft -> images -> file -> active. Etsy listing is now live ($9, https://www.etsy.com/listing/4569271638). Found and fixed the same saveState() idempotency bug in scripts/etsy_publish.mjs that gumroad_publish.mjs had -- but not before a concurrent session's independent re-trigger hit the still-broken check and created a real duplicate listing (4569274006, since deactivated); corrected the record accordingly rather than overstate this as prevented. Evaluated and declined to activate Creem despite approval (no distribution advantage over Stripe identified). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl to reflect all three digital-product channels now being live."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.5,
-   "currency": "usd",
-   "jpy_equivalent": 225,
-   "note": "Scheduled cadence run, day 5 (estimated, concurrent with the entry above): closed a stale 'Promotion blocked' GitHub issue (#4) after verifying via git history it was no longer accurate. Confirmed 0 Stripe charges live via Stripe MCP and 0 new Gumroad sales via the sales-monitor job log. Independently triggered etsy-publish.yml, hit the same Shared-Secret 403, and investigated it via WebSearch/WebFetch against two independent primary sources before discovering a concurrent session's already-merged fix and deferring to it rather than duplicating the work. Re-triggered etsy-publish.yml as an idempotency check -- this run is, on cross-referencing timestamps, the one that actually caused the real duplicate listing (4569274006) recorded in the entry above; added an attribution_correction event to status/EVENTS.jsonl identifying this honestly as this session's own action rather than an anonymous trigger. Corrected the same overstated 'prevented' framing in reports/data/2026-09-05.json's summary/wins/failures sections."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.6,
-   "currency": "usd",
-   "jpy_equivalent": 90,
-   "note": "Owner-directed re-diagnosis (estimated): with all 3 channels technically live, re-diagnosed the true binding constraint by comparing inflow/search-exposure/pitch/price/mix/funnel/owned-assets across Stripe/Gumroad/Etsy using real evidence (grepped index.html, the SEO guide, sitemap.xml, /store/, social/queue, social/posted -- not assumption). Found index.html had zero link to the brand-new Etsy listing (same class of gap fixed for Gumroad on Day 4) and that X posting is dormant (no credentials, zero posts ever sent). Fixed the one concrete, zero-cost gap: added an Etsy linkbox to index.html. Explicitly declined a new sales channel, a price/mix change, and X posting -- none had supporting evidence, only the backlink gap did. No new capability built."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.1,
-   "currency": "usd",
-   "jpy_equivalent": 165,
-   "note": "Owner correction, same day (estimated): owner flagged that the prior entry's index.html backlink fix had been overclaimed as 'the' binding constraint, and that the 'new listings get a temporary recency boost' claim was unverified. Rather than defend the claim, built real diagnostic tooling: scripts/etsy_listing_diagnostics.mjs + .github/workflows/etsy-diagnostics.yml and scripts/gumroad_listing_diagnostics.mjs + .github/workflows/gumroad-diagnostics.yml (this sandbox has zero egress to Etsy/Gumroad, so ran via GitHub Actions and read the job logs), plus a live Stripe MCP query (GetCheckoutSessions filtered by the payment link). Real results: Etsy confirms views:0/num_favorers:0 and confirms no search-term/traffic/CVR/quality-warning fields exist in the API (dashboard-only); Gumroad's API has no views field at all but revealed a real 'Other'-category defect; Stripe confirms 0 checkout sessions ever over 11 days. Rewrote CURRENT_STATUS.json, AGENT_LOOP.md, and EVENTS.jsonl to retract the prior overclaim and record the honest conclusion that no channel shows a differentiating real-inflow signal yet."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.9,
-   "currency": "usd",
-   "jpy_equivalent": 135,
-   "note": "Owner-approved, priority-ordered execution (estimated): (1) fixed Gumroad's confirmed 'Other' category -- read Gumroad's production source (api/v2/links_controller.rb, api/v2/categories_controller.rb) to confirm the real update mechanism, fetched the live category tree (GET /v2/categories, no new grant needed), chose 'self-improvement/productivity' (taxonomy_id 85) over a mismatched PHP-scoped 'ai-tools' leaf, built scripts/gumroad_fix_category.mjs + a workflow, ran it live, and confirmed the change via an independent re-fetch. (2) Deliberately did NOT re-run the Etsy diagnostic -- listing is only ~8.5h old, short of the owner's 24-48h window; deferred to the next scheduled run rather than forced early. (3) Investigated Gumroad's view-count data down to the production-source auth model (AnalyticsController requires a seller session/cookie, no matching OAuth scope exists) before concluding it's genuinely AI-unreachable, then queued exactly one low-priority human ask rather than skip straight to asking. No new channel, no new SKU, no resource-reallocation decision made."
-  },
-  {
-   "date": "2026-09-05",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Actual 20:07 JST scheduled daily cadence run, day 5 (estimated, light -- this run only re-observed and recorded, no code changes): queried live Stripe data directly via the Stripe MCP connector (0 charges, 0 checkout sessions ever); checked for open GitHub issues (none); confirmed the latest sales-monitor.yml run (04:30 UTC, ~6.7h earlier) succeeded with 0 new Gumroad sales; confirmed the Etsy re-diagnostic timing gate (~2026-09-06T00:55Z) had not yet been reached. No new capability, no market signal change, no economically rational action available beyond what the owner-directed sessions already did earlier today -- stopped early per the loop's own cost-control rule rather than manufacture busywork. Cadence held at 1x/day."
-  },
-  {
-   "date": "2026-09-06",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.1,
-   "currency": "usd",
-   "jpy_equivalent": 165,
-   "note": "Actual 20:07 JST scheduled daily cadence run, day 6 (estimated): confirmed no open GitHub issues and main already in sync with the branch (591d17c). Triggered etsy-diagnostics.yml live (the owner's 24-48h re-diagnostic gate had passed) -- views moved 0->2, num_favorers still 0. Queried live Stripe data via the Stripe MCP connector and found the first non-zero checkout-session result in 13 days of checking (2 real sessions, both open/unpaid, $19, created today). Audited store/index.html's buy-button/BUY_URL wiring for a defect that might explain the abandonment -- found none. Triggered gumroad-diagnostics.yml for completeness (category fix holding, sales_count 0). Updated CURRENT_STATUS.json, AGENT_LOOP.md, EVENTS.jsonl, cadence.json, and reports/data/2026-09-06.json to record the new evidence honestly without over-interpreting an n=2 sample; also fixed a pre-existing duplicate-JSON-key bug in CURRENT_STATUS.json found while editing the same fields. No code/price/lane changes -- evidence did not support any."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.55,
-   "currency": "usd",
-   "jpy_equivalent": 83,
-   "note": "Owner-directed, X voice-corpus build (estimated): owner asked for a real-voice corpus from @KinoshitaTsks's own past X posts, sourced only from the official X API, before any autonomous posting begins. Paused social-x.yml's 30-min cron (it drains social/queue/'s 2 AI-authored items and now has live-ish credentials) so no premature auto-post could occur mid-task. Built scripts/x_fetch_own_posts.mjs + .github/workflows/x-fetch-own-posts.yml and ran it live via GitHub Actions (no sandbox egress to api.twitter.com). No X API cost incurred -- the script correctly no-op'd before making any API call: the job log shows only 2 of 4 required secrets (X_API_KEY, X_ACCESS_TOKEN) are actually registered, X_API_SECRET and X_ACCESS_SECRET are blank. Queued one human-only ask to verify all 4 secrets; wrote no corpus files since no real post data was fetched. category=x_api, amount=$0 (no request was made)."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.3,
-   "currency": "usd",
-   "jpy_equivalent": 45,
-   "note": "Owner correction, same task (estimated): owner identified the real root cause was a secret-naming mismatch (code used X_API_SECRET/X_ACCESS_SECRET; the owner's actual secrets are X_API_KEY_SECRET/X_ACCESS_TOKEN_SECRET), not missing credentials, and asked to align the code rather than add new secrets. Renamed the env vars in all 4 referencing files, re-ran the fetch live. This time a real X API call fired -- GET /2/users/by/username/KinoshitaTsks returned a real 402 Payment Required, 'credits depleted' (X's own read-credits billing system, distinct from the per-window rate limit which showed 899/900 remaining). No X API monetary cost was incurred on this project's side beyond whatever the account's existing plan already reflects -- the request itself was rejected before returning data, so category=x_api, amount=$0 for this call. Queued a new human-only ask (check X Developer Portal credit/plan status); corpus files still not written, per instruction not to fabricate from no data."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "x_api",
-   "amount": 5,
-   "currency": "usd",
-   "jpy_equivalent": 750,
-   "note": "Owner's real, actual purchase (not estimated): owner topped up X API read credits by $5 and set the account's spending limit to $5 to unblock this project's voice-corpus fetch, after the prior 402 'credits depleted' blocker. This is the owner's direct out-of-pocket X Developer Portal transaction -- the API itself does not expose a per-call dollar cost in its responses, so this project cannot itemize exactly how much of the $5 this one fetch consumed; recording the full real purchase amount here is more honest than guessing a per-call fraction. Any remaining credit balance carries forward for future X API use (posting, further diagnostics)."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.3,
-   "currency": "usd",
-   "jpy_equivalent": 195,
-   "note": "Owner-directed, X voice-corpus build (estimated): after the owner topped up X API credits, re-ran x-fetch-own-posts.yml on main -- succeeded, fetched 195 real posts (2025-11-15 to 2026-09-05, retweets excluded via the API's own exclude=retweets param) into status/x_own_posts_raw.json. Read the full 195-post corpus verbatim (not summarized/skimmed) to classify each post (normal/thread/reply/promo, by real API-confirmed reply fields plus content judgment for thread/promo) and to write marketing/X_VOICE_CORPUS.md (categorized real excerpts, unedited), marketing/X_VOICE_GUIDE.md (style analysis grounded only in the corpus, DO/DON'T, a voice-fingerprint checklist), and marketing/x_voice_examples.json (all 195 posts, machine-readable). No style guessing -- every claim in X_VOICE_GUIDE.md traces to a real example in the corpus. The X auto-post cron (social-x.yml) stays paused pending the owner's review of these deliverables."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.9,
-   "currency": "usd",
-   "jpy_equivalent": 135,
-   "note": "Owner-directed, single real-voice test post (estimated): re-checked Day 6's Stripe checkout-session thread live via the Stripe MCP connector first (confirmed both now status='expired', unpaid -- ruled it out as today's topic since it was already reported yesterday and has no new news), then chose the voice-corpus completion as today's one real topic per the owner's data sources (status/cost_ledger/AGENT_LOOP/reports). Drafted post text grounded in 3 cited real corpus examples, completed a documented 14-item Voice fingerprint self-check (status/x_voice_test_post_draft.json), then built scripts/x_post_voice_test.mjs + .github/workflows/x-post-voice-test.yml (isolated from scripts/post_x.mjs/social/queue) and posted one real reply to X_ROOT_POST_ID (tweet 2096802000679657477). Built and ran a 2nd, independent verification (scripts/x_verify_reply.mjs + x-verify-reply.yml) rather than trust the posting script's own success message -- confirmed via a fresh GET call that the reply is genuinely threaded under X_ROOT_POST_ID. social-x.yml's cron remains paused, not re-enabled -- that decision was left explicitly to the owner."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.1,
-   "currency": "usd",
-   "jpy_equivalent": 165,
-   "note": "Owner-directed, resume automatic X posting as a judgment-gated system (estimated): owner approved the test post and asked to resume social-x.yml, but explicitly not as a daily-streak poster -- only on genuinely new-fact days, max 1/day, register C prioritized, corpus re-read every time, Voice-fingerprint self-check every time, no auto-replies/DMs, results recorded, same-day idempotency. Archived 2 stale pre-corpus social/queue/ items to social/queue_archive_pre_corpus/ (would otherwise have been silently posted by the resumed cron's first tick -- ungrounded, unchecked content, exactly the outcome the corpus work exists to prevent). Built social/x_experiment_history.json (idempotency + topic-reuse-avoidance log, backfilled with the real test post) and social/x_experiment_next_post.json (queue-of-one contract). Built scripts/x_post_experiment_commentary.mjs: deliberately no content-judgment logic (that stays with the daily agentic session, encoded as a checklist), only same-day idempotency, a weighted-length safety guard, and independent 2nd-GET verification before recording success. Repointed and re-enabled social-x.yml's schedule/push triggers to run this new script instead of the old generic post_x.mjs path. Added a durable 'X posting policy' section to ops/AGENT_LOOP.md and updated ops/LOOP_PROMPT.txt's step 5 to reference it, so every future daily session applies the same judgment checklist."
-  },
-  {
-   "date": "2026-09-07",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Scheduled daily autonomous judgment run (Day 7, 20:07 JST fire), distinct from today's three earlier owner-directed X sessions. Lean run: synced with origin/main (branch 0/0 vs main, no open 'Promotion blocked' issue), live-verified reality rather than assuming carry-over -- Stripe GetCharges (livemode) returned 0 charges, revenue_ledger official/prep both empty, sales-monitor.yml run 34084105212 succeeded (0 new sales). Confirmed Day 6's 2 Stripe checkout sessions already recorded as expired/unpaid (no new news). Reviewed the primary discovery channel's search surface: the live Etsy listing already carries 13 well-targeted buyer-search tags and Gumroad's category is already fixed -- no defect to correct, so no listing churn. X: already posted once today (same-day idempotency) and no genuinely-new fact, so no queue entry. Diagnosis unchanged (bottleneck = cold-start distribution / no qualified traffic; not a build or config gap). No economically-rational new intervention available -> disciplined hold + honest record, per LOOP_PROTOCOL step 14."
-  },
-  {
-   "date": "2026-09-08",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Scheduled daily autonomous judgment run (Day 8, 20:07 JST fire, estimated): live-verified 0 Stripe charges + Day6 sessions expired/unpaid + 0 new checkout since Day6, no open issues, branch synced. Disciplined early-stop; no work manufactured. 4th consecutive no-action daily run."
-  },
-  {
-   "date": "2026-09-09",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.7,
-   "currency": "usd",
-   "jpy_equivalent": 105,
-   "note": "Day 9 scheduled run (estimated): processed owner mission-priority protocol update (dac1bb7), re-diagnosed offer/audience/traffic mismatch, and executed the experiment’s first deliberate distribution test (register-C X post driving owned audience to the store, voice-fingerprint self-checked). Active adaptation, not a hold."
-  },
-  {
-   "date": "2026-09-09",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.3,
-   "currency": "usd",
-   "jpy_equivalent": 45,
-   "note": "Day 9 scheduled 20:07 JST fire (estimated), distinct from this morning's off-cycle strategy-pivot session. Observed the first distribution test in flight (~9h old, tweet 2097502803740516784): 0 completed sales; Stripe MCP unavailable + no store analytics, so primary test signals (traffic/clicks/checkout) not cheaply observable this run. Verified the broadcast store link is sound (BUY_URL -> live Stripe payment link) as the one cheap non-confounding check. Compared hold vs alternatives; deferred the test readout to the natural ~24h Day-10 checkpoint (cheapest, most-informative). No confounding store/offer edit, no 2nd X post."
-  },
-  {
-   "date": "2026-09-10",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.9,
-   "currency": "usd",
-   "jpy_equivalent": 135,
-   "note": "Day 10 scheduled run: built a read-only engagement-metrics capability and read the Day-9 distribution test result via a registered workflow dispatched at the working branch. Decisive finding (0 impressions / 0 clicks in 33h -> the reply structure is zero-reach; distribution reach is the binding constraint). Reclassified the constraint, surfaced a one-time top-level-posting consent item. Active observe->adapt iteration, not a hold."
-  },
-  {
-   "date": "2026-09-10",
-   "period": "official",
-   "category": "x_api",
-   "amount": 0,
-   "currency": "usd",
-   "jpy_equivalent": 0,
-   "note": "2 GET /2/tweets reads (reply-threading verify + engagement metrics) against the Day-9 test tweet, drawn from the owner's existing $5 X read-credit balance (recorded Day 7). X does not expose an exact per-request credit cost, so no per-read dollar figure is invented (LOOP_PROTOCOL section 11)."
-  },
-  {
-   "date": "2026-09-11",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.2,
-   "currency": "usd",
-   "jpy_equivalent": 180,
-   "note": "Day 11 (owner-granted top-level post): read voice guide + corpus, built the standalone top-level poster + workflow + queue (canon §9), drafted a Register-C 14-item-checked post, merged an intervening owner mission commit, fixed a URL length-guard bug, and posted+verified the first top-level acquisition tweet (id 2098217452148588931). Multiple promote/dispatch cycles."
-  },
-  {
-   "date": "2026-09-11",
-   "period": "official",
-   "category": "x_api",
-   "amount": 0,
-   "currency": "usd",
-   "jpy_equivalent": 0,
-   "note": "1 POST /2/tweets (the top-level post) + 1 GET /2/tweets verify, from the owner's existing $5 X credit. X exposes no exact per-request credit cost, so no per-call dollar figure invented (LOOP_PROTOCOL §11)."
-  },
-  {
-   "date": "2026-09-11",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.8,
-   "currency": "usd",
-   "jpy_equivalent": 120,
-   "note": "10-day mid-point business review (owner-requested, separate from daily Routine): read canon + state from main, pulled fresh sales evidence, produced reports/MIDPOINT_REVIEW_2026-09-11.md (10-section diagnosis + strategy redesign), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; no new strategy executed."
-  },
-  {
-   "date": "2026-09-11",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.9,
-   "currency": "usd",
-   "jpy_equivalent": 135,
-   "note": "Owner-requested product review: extracted the delivered ZIP, decoded the PDF (Type0/ToUnicode) and read all 6 files + listing configs + cover image, produced reports/PRODUCT_REVIEW_2026-09-11.md (10-section audit), reflected into AGENT_LOOP + CURRENT_STATUS. Diagnosis only; product not changed."
-  },
-  {
-   "date": "2026-09-11",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.9,
-   "currency": "usd",
-   "jpy_equivalent": 135,
-   "note": "Day 11 evening scheduled autonomous run (estimated): synced main (0/0, no Promotion-blocked issue), read minimum state + the delivered product ZIP's 20 prompts, and EXECUTED the midpoint+product-review redesign's prescribed JP entry offer -- built guides/chatgpt-jimu-jitan-prompt.html (a free Japanese lead-magnet page, 7 prompts re-edited into Japanese, anti-hallucination differentiator led, soft Gumroad pointer) and wired it for discovery (sitemap, index backlink, EN<->JP hreflang cross-links). Did not read the Day-11 top-level post's +24h reach (not due). leak_check 0/0. One real compounding owned asset shipped via asset reuse; no X cost this run (no post)."
-  },
-  {
-   "date": "2026-09-12",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.1,
-   "currency": "usd",
-   "jpy_equivalent": 165,
-   "note": "Day 12 extra Routine (owner-requested; new 'bootstrap intensity / 貧乏暇なし' + Economic-cadence protocol, commit 37131af). One revenue hypothesis, multiple execution steps: read the Day-11 top-level reach (4 imp / 2 clicks -> reach is the constraint; inline-link + diary-hook the suspected suppressors); extended scripts/x_post_toplevel.mjs with a verified self-reply so the main tweet stays link-free; drafted+voice-checked+queued a value-first link-free post + reply to the free JP guide; dispatched and verified both tweets (main 2098569637827141687, reply 2098569639416721518); recorded state and made the cadence decision (hold 1x/day, with an evidence-based rationale). leak_check 0/0."
-  },
-  {
-   "date": "2026-09-12",
-   "period": "official",
-   "category": "x_api",
-   "amount": 0,
-   "currency": "usd",
-   "jpy_equivalent": 0,
-   "note": "From the owner's existing $5 X read/write credit (recorded 2026-09-07): 1 GET (Day-11 reach read) + 1 POST (main tweet) + 1 GET verify + 1 POST (self-reply) + 1 GET verify. X exposes no exact per-request credit cost, so no per-call dollar figure is invented (LOOP_PROTOCOL section 11)."
-  },
-  {
-   "date": "2026-09-12",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.35,
-   "currency": "usd",
-   "jpy_equivalent": 53,
-   "note": "Day 12 EVENING scheduled fire (20:09 JST) -- separate from the owner-triggered morning Day-12 run. Short, cheap early-stop iteration (estimate, X exposes no per-run figure; light read-only run). Verified no material change: revenue still Y0 (sales-monitor run 34673394985 success, ledger empty), no open Promotion-blocked issue, branch 0/0 with main. Did NOT read the Day-12 post reach (only +10.7h; decisive datum due ~+24h = Day-13 morning -- premature partial read burns scarce X credit). 1/day top-level cap already used today; next build (JP paid core) gated on the Day-13 reach read. Compared hold vs concrete alternatives (read-now / build-paid-core-now / edit-guide-or-store) -- all negative-EV or evidence-free speculation before the in-flight test matures -> early-stop is highest-EV. Housekeeping only: marked the stale top-level-consent human-action RESOLVED (granted 2026-09-11), refreshed revenue.verified_how + updated_at. leak_check 0/0."
-  },
-  {
-   "date": "2026-09-13",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.7,
-   "currency": "usd",
-   "jpy_equivalent": 105,
-   "note": "Day 13 off-cycle PREP SHIFT (owner-triggered) under clarified canon 9455734/18b37a3. Estimate. One revenue hypothesis (fix the JP audience -> EN commodity mismatch), multiple execution steps: synced canon, observed the funnel, built store/jp.html (JP-native paid sales page leading with the 2 scripts, -> existing live Stripe checkout), rewired the free JP guide CTA, added sitemap entry + reciprocal hreflang, recorded state, reassessed cadence. No X API calls (deferred the signal-dependent reach read). leak_check 0/0."
-  },
-  {
-   "date": "2026-09-13",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.6,
-   "currency": "usd",
-   "jpy_equivalent": 90,
-   "note": "Day 13 EVENING scheduled 20:07 JST fire (separate run from the earlier owner-triggered prep shift). Estimate. Executed the decisive, now-mature signal-dependent action: read the Day-12 value-first link-free top-level post reach via 2 x-verify-reply.yml dispatches (runs 34753719996, 34753748953; both HTTP 200; 2 read-only metric GETs drawn from the existing X credit -- no new X spend). Result: main 5 imp, self-reply 3 imp / 0 clicks -> reformat did not recover reach; X owned-account top-level reach is near-zero regardless of format -> owned-X-audience reach premise falsified -> retired X as the active reach lever. Recorded the strategy-premise-collapse event + full durable state; reverted the two-shift posture; recommended reducing scheduled cadence. No X post (negative-EV). leak_check + gen_report run."
-  },
-  {
-   "date": "2026-09-13",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.65,
-   "currency": "usd",
-   "jpy_equivalent": 98,
-   "note": "Day 13 OFF-CYCLE run (owner-triggered) under the new pivot addendum. Estimate. Re-diagnosed the full remaining revenue space after X was retired (did NOT default to wait-for-SEO), chose note.com as the highest-EV untested reach lane, and executed the non-blocked half: wrote marketing/note_article_01_jp.md (publish-ready value-first JP article, funnel -> free JP guide -> store/jp.html), retired the stale LAUNCH_KIT note outline, requested a note.com account (narrow human step), retracted the prior reduce-cadence recommendation (positive-EV backlog exists). No X spend."
-  },
-  {
-   "date": "2026-09-14",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Day 14 run. Owner granted note.com account-usage (@satotsu1020). Confirmed env cannot reach note.com (proxy 403) so publish is an irreducible ~5-min human step; maximized the autonomous half: upgraded marketing/note_article_01_jp.md into a full note-native publish package (eyecatch/title/tags/?ref=note CTA/profile line) + a #02-#04 compounding series plan, recorded the grant, reclassified the human action to publish-only. No X spend."
-  },
-  {
-   "date": "2026-09-14",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.18,
-   "currency": "usd",
-   "jpy_equivalent": 27,
-   "note": "Day-14 EVENING scheduled fire. Cheap early-stop run: observed ¥0/no new signal, verified JP funnel end-to-end conversion-readiness (hero CTA JS-wired + bottom CTA hardcoded both -> live Stripe link), confirmed no open promotion-blocked issue, compared hold vs concrete alternatives (Gumroad affiliate not in OAuth API; note #02 = premature supply) and held. No new supply, no X spend. Estimate."
-  },
-  {
-   "date": "2026-09-15",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.55,
-   "currency": "usd",
-   "jpy_equivalent": 83,
-   "note": "Day-15 owner-requested AI-news lane run. Sheet read blocked (egress + connector-disabled-in-chat + no Sheets API key); did not fabricate a topic. Built the reusable deterministic JP 16:9 news-card image renderer (scripts/render_news_card.mjs, headless Chromium, 2 variants, IPAGothic) + marketing/ai_news/ scaffold as signal-independent prep so a real post is immediate once read access is granted. Estimate."
-  },
-  {
-   "date": "2026-09-15",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "note": "Day-15 EVENING scheduled fire (separate from the morning AI-news run). Cheap early-stop: observed ¥0 (ledgers empty; Stripe MCP needs_reconnect -> ledger+Actions fallback), no open promotion-blocked issue, branch 0/0; confirmed no new capability (Drive connector still enabledInChat=false so the AI-news sheet stays unreadable). Compared hold vs concrete alternatives (note #02 = premature supply; Gumroad affiliate not in OAuth API; AI-news blocked; more SEO = supply before demand) and held. No new supply, no X spend. Estimate."
-  },
-  {
-   "date": "2026-09-16",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.45,
-   "currency": "usd",
-   "jpy_equivalent": 68,
-   "note": "Day-16 scheduled Claude fire (separate from Codex's independent AI-news iteration, which did not meter itself). Observed ¥0/no new signal (ledgers empty, Stripe MCP needs_reconnect, 0 open issues, branch 0/0). Refused a 4th identical early-stop: opened the Zenn reach lane by writing a complete publish-ready JP technical article on the 2 owned Google Apps Scripts (marketing/zenn_article_01_gas_ai.md, asset reuse) + filed the one-time Zenn connection as a non-binding capability request. Did NOT cross-post Codex's image-based X post (poster is text-only; would drop image + risk double-post). No X spend, no new supply. Estimate."
-  },
-  {
-   "date": "2026-09-17",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Day-17 scheduled Claude fire. Observed still-¥0 (revenue_ledger official+prep empty; Stripe MCP unavailable -> ledger+Actions fallback), 0 open promotion-blocked issue, branch 0/0 with main. One genuinely-new state: owner commit 5476b5c added canonical multi-operator coordination (Claude and Codex independent, complementary, no overlap). Executed one AI-operable, non-duplicative, signal-independent asset-REUSE action: prepositioned the already-written Zenn article into the connect-and-go deploy path articles/gas-chatgpt-batch-summary-mail.md (published:false so no accidental publish on connect) and consolidated marketing/zenn_article_01_gas_ai.md to a single-source pointer -> shrinks the pending human step on the highest-EV reach lane to just connecting a Zenn account to this repo. No new inventory, no X spend, no premature supply. Estimate."
-  },
-  {
-   "date": "2026-09-18",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "note": "Day-18 owner-live iteration. Owner confirmed note.com #01 is PUBLISHED and Zenns GitHub integration is CONNECTED. Executed the highest-EV action: set articles/gas-chatgpt-batch-summary-mail.md published:true and pushed -> the Zenn article goes live (borrowed-authority JP-search reach, AI-operable ongoing by commit). Publish-readiness edits: added ?ref=zenn to the CTA (distinguish Zenn vs note referrals) and removed the internal SEO-strategy note (credibility on Zenn). Marked note-publish + Zenn-connection human blockers RESOLVED. Re-judged note measurement (env cannot read note.com or GitHub Pages traffic -> AI-measurable signal is the sales-monitor cron + a non-binding owner glance/analytics ask). No new supply. Estimate."
-  },
-  {
-   "date": "2026-09-18",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Codex",
-   "reference": "codex-desktop-bootstrap-20260918",
-   "note": "Desktop subscription bootstrap and write test. Attributable compute cost is unavailable, not zero; excluded from numeric totals until reconciled. No separately billed OpenAI API call or new paid service was purchased."
-  },
-  {
-   "date": "2026-09-18",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Codex",
-   "reference": "20260918T010956.628910Z",
-   "note": "First scheduler-originated handoff; live Stripe observation and cadence decision. Subscription compute attribution unavailable, not zero; numeric known totals unchanged. No external purchase or paid API runner."
-  },
-  {
-   "date": "2026-09-18",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.3,
-   "currency": "usd",
-   "jpy_equivalent": 45,
-   "note": "Day-18 SCHEDULED autonomous fire (separate from today's earlier owner-live iteration that published the Zenn article). Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35308103510 success = no new sale), 0 open issues (no Promotion-blocked), branch 0/0 synced with origin/main, Day-18 work durable on main (Zenn published:true + ?ref=zenn, note #01 live). No new capability, no new market signal -- the note/Zenn reach lanes went live only hours ago so no measurable traffic/index signal can exist yet. Compared hold vs concrete alternatives (Qiita near-duplicate / note #02 / jp.html speculative edits / analytics build / Gumroad OAuth affiliate / X post) -- all lose to hold or contradict the owner-live no-new-inventory-before-signal decision. EARLY STOP per LOOP_PROTOCOL section 14. Cadence held 1x/day. Estimate."
-  },
-  {
-   "date": "2026-09-19",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Codex",
-   "reference": "20260919T010156.200029Z",
-   "note": "Scheduled live payment observation and marketplace delivery-path audit. Subscription attribution unknown; no added external purchase."
-  },
-  {
-   "date": "2026-09-19",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.3,
-   "currency": "usd",
-   "jpy_equivalent": 45,
-   "operator": "Claude",
-   "note": "Day-19 SCHEDULED Claude fire (separate from Codex's 10:00 JST run). Observed: revenue still ¥0 (revenue_ledger official+prep empty; Codex Day-19 verified Stripe live charges=0 + Gumroad run 35402157979=0 new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, Day-18 note #01 + Zenn #01 durable on main. No new capability, no new market signal -- the two reach lanes went live only ~24-36h ago so no search-index/traffic signal can exist yet. Compared hold vs concrete alternatives (Qiita cross-post = premature 3rd unvalidated JP-search surface + human-gated + a 3rd owner ask right after two; note #02 = premature supply; jp.html edits = already conversion-ready; analytics/GSC = human-gated; X post = Codex's lane + dead reach + nothing reader-worthy; product ZIP-update = Codex's own backlog) -- all lose to hold. EARLY STOP per LOOP_PROTOCOL section 14; not strategy churn (strategy deployed ~1 day ago, awaiting first measurement). Cadence held 1x/day. Estimate."
-  },
-  {
-   "date": "2026-09-20",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.55,
-   "currency": "usd",
-   "jpy_equivalent": 83,
-   "operator": "Claude",
-   "note": "Day-20 FOUNDER-MODE extraordinary fire (owner-triggered). Not an early stop: executed a monetization strategic package -- portfolio re-diagnosis; higher-ticket 3-tier JP offer design; complete publish-ready Coconala listing package (marketing/coconala_offer_and_listing_jp.md); LIVE proof/before-after conversion upgrade to store/jp.html; one narrow human ask (Coconala account+payout). Larger than a typical early-stop run (multi-file asset creation + judgment). Estimate (~$0.55 at ~150 JPY/USD)."
-  },
-  {
-   "date": "2026-09-20",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.6,
-   "currency": "usd",
-   "jpy_equivalent": 90,
-   "operator": "Claude",
-   "note": "Day-20 GOAL-CONTINUOUS Claude runtime (owner re-triggered continuous autonomy). Executed 2 positive-EV AI-operable packages toward the first ¥1: (1) published a 2nd, distinct high-value Zenn article (anti-hallucination office-prompt angle, articles/chatgpt-jimu-anti-hallucination-prompt.md, published:true -> live via the connected Zenn integration; a different high-intent JP query funneling to the free guide -> store) to expand the only fully-AI-operable reach channel; (2) added an objection-handling FAQ (API key / no-code / safety / refund) to the live store/jp.html to convert arriving reach. Then ran the Founder-Mode continue/stop gate: remaining high-EV levers (Coconala/note/ads/community, GSC) are human-gated and already surfaced; further content = filler, higher-ticket Gumroad launch = low first-¥1 EV + outward-facing (owner should review a new deliverable). Stopped per goal-continuous condition (b). Estimate (~$0.60 at ~150 JPY/USD)."
-  },
-  {
-   "date": "2026-09-20",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.25,
-   "currency": "usd",
-   "jpy_equivalent": 38,
-   "operator": "Claude",
-   "note": "Day-20 later SCHEDULED fire (goal-continuous re-fire), separate from the two earlier Day-20 runs. Cheap observe+screen+record run. OBSERVED (real, not carry-over): revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor cron run 35490323822 at 2026-09-20T04:54Z = success/no new sale), 0 open issues (no Promotion-blocked), branch 0/0 with origin/main, clean tree. NO new capability, NO new market signal since the 15:10Z run that published Zenn #02 + the store FAQ and stopped per condition (b). The reach/conversion assets (Zenn #01/#02, note #01, free guide, store/jp.html + proof + FAQ) are all freshly deployed today/Day-18 -> no index/traffic signal can exist yet. Applied the Founder-Mode >=3-motion early-stop gate honestly: (reach) 3rd same-day Zenn/Qiita = diminishing + content-farm/spam risk -> reject (filler); (conversion) more store/jp.html edits with zero click traffic = speculative polish -> reject; (monetization) unilateral higher-ticket Gumroad launch = outward-facing new public product, low first-¥1 EV, owner should review first -> reject for unilateral execution (queued fallback), Coconala = human-gated (surfaced), Gumroad affiliate = not in OAuth v2 API. No new non-filler, non-speculative, non-outward-facing-risky AI-operable work remained -> EARLY STOP per LOOP_PROTOCOL section 14 / goal-continuous condition (b). Not passivity: a full 2-package run executed hours earlier today. No X post. Estimate (~$0.25 at ~150 JPY/USD)."
-  },
-  {
-   "date": "2026-09-20",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "reference": "20260920T103846.018836Z",
-   "operator": "Codex",
-   "note": "Buyer sourcing, tailored inquiry and executable synthetic proof; subscription attribution unknown. No external purchase."
-  },
-  {
-   "date": "2026-09-21",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.3,
-   "currency": "usd",
-   "jpy_equivalent": 195,
-   "operator": "Claude",
-   "note": "Day-21 owner-directed goal-continuous run (THREE packages; ~$1.30 covers multi-file asset creation + Chromium PDF/thumbnail rendering + pipeline parameterization + 2 live Gumroad deploys incl. a thumbnail-format recovery + funnel wiring). Owner + new canon (cb8026a 'Close invented approval and premature stop loopholes' + 4f4c3c7) explicitly forbid deferring outward-facing/new-product/price work for 'owner should review' reasons, and require completing ALL AI-side prep on a human-gated lane before calling it blocked. Executed THREE reused-asset strategic packages toward the first ¥1. PACKAGE C (funnel coherence): backlinked the LIVE JP Gumroad product from index.html + corrected store/jp.html's honest note to reflect the now-included JP setup-guide PDF. RESULT: JP-native Gumroad product LIVE at https://feverish50.gumroad.com/l/kaqnpj ($19, product Ppx1BhvRXS4yA7Z_FnC5jA==) with square thumbnail; live $19 Stripe funnel now delivers the coherent JP bundle; Coconala AI-prep 100% complete. Revenue still ¥0 (listing-live != first-sale). PACKAGE A (Coconala AI-prep completion + live-funnel coherence fix): authored a real 4-page Japanese setup guide (marketing/jp_deliverable/setup_guide_ja.html -> setup_guide_ja.pdf via headless Chromium, IPAGothic embedded), assembled a bilingual-coherent delivery bundle (downloads/ai-automation-toolkit-v2-223c0c.zip = JP guide PDF + 2 GAS + 20 prompts + invoice template + EN bonus PDF + JP/EN START_HERE), pointed the LIVE $19 Stripe funnel to it (store/success.html) fixing the product-review 'language incoherence' defect on the funnel already receiving Zenn/note/guide traffic, rendered a JP-native Coconala thumbnail (marketing/coconala-images/01-thumb.png), and updated marketing/coconala_offer_and_listing_jp.md to mark AI-prep COMPLETE (deliverable+guide+thumbnail+delivery-message template) -> the Coconala human step is now truly only account/KYC/payout + paste/upload. PACKAGE B (fully-AI-operable monetization, existing GUMROAD_ACCESS_TOKEN): parameterized scripts/gumroad_publish.mjs + gumroad_add_thumbnail.mjs with GUMROAD_CONFIG/GUMROAD_STATE env (EN path byte-identical when unset; verified no-op + EN state intact + leak_check 0/0), added taxonomy_id at creation (avoids the EN 'other' defect), created marketing/gumroad_listing_config_jp.json ($19 USD JP-native edition of the same deliverable) + .github/workflows/gumroad-publish-jp.yml (isolated state status/gumroad_listing_jp.json), and dispatched it to publish a JP-native buy-once product for the JP funnel WITHOUT waiting on the Coconala human step. Estimate (~$0.95 at ~150 JPY/USD; multi-file asset creation + Chromium rendering + pipeline work + live deploy)."
-  },
-  {
-   "date": "2026-09-21",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "reference": "20260921T105410.122148Z",
-   "operator": "Codex",
-   "note": "TEST Sheets buyer-service proof and mock validation. Attributable compute unknown; no external purchase."
-  },
-  {
-   "date": "2026-09-21",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.35,
-   "currency": "usd",
-   "jpy_equivalent": 53,
-   "operator": "Claude",
-   "note": "Day-21 LATER scheduled fire (~20:11 JST), separate from the earlier owner-directed 3-package burst (~12:20-12:30 JST) and Codex 20:00 JST Sheets-proof. Light observe/diagnose/verify iteration: confirmed revenue still ¥0 (Stripe empty, ledger official+prep 0), no open issues / no promotion-blocked issue, sales-monitor last run success with no sale, no new capability or market reaction. VERIFIED the JP funnel is coherent end-to-end (store/jp.html -> live $19 Stripe -> JP bundle success page; index.html backlinks both the Stripe funnel and the new live JP Gumroad product l/kaqnpj at $19, all consistent) -> no broken-funnel fix pending. Applied the Founder-Mode 3-motion early-stop screen (owned-content reach = premature supply ahead of the still-maturing note#01/SEO signal + human-gated accounts; direct sales = Codex-owned + human-send-gated; conversion = funnel already coherent; X = empirically dead ~5-impression reach, JP launch already the story). No un-done positive-EV AI-operable action remained, so stopped early rather than manufacture filler. ~$0.35 est at ~150 JPY/USD."
-  },
-  {
-   "date": "2026-09-21",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.75,
-   "currency": "usd",
-   "jpy_equivalent": 113,
-   "operator": "Claude",
-   "reference": "20260921T130500Z",
-   "note": "Day-21 goal-continuous scheduled fire. Executed a real trust/proof strategic package (Founder-Mode monetization/conversion side), NOT an early stop. Built a new buyer-facing public demo page guides/chatgpt-sheet-jidoka-demo.html: honest Before->After of the included 3_ai_batch.gs script (classification + summarization) plus its actual source, attacking the zero-proof conversion constraint. Interlinked it from index.html, store/jp.html (proof-before-buy placement under the buy CTA), the free prompt guide's CTA, and sitemap.xml (priority 0.9). Reused the real product asset, no fabricated screenshots. Leak-check clean. ~$0.75 est at ~150 JPY/USD."
-  },
-  {
-   "date": "2026-09-21",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.45,
-   "currency": "usd",
-   "jpy_equivalent": 68,
-   "operator": "Claude",
-   "reference": "20260921T133500Z",
-   "note": "Day-21 second strategic package (goal-continuous). Built the ENGLISH counterpart proof/demo guides/ai-sheet-automation-demo.html to extend trust/proof to the larger EN Gumroad Discover / EN store market (EN funnel already live at $19). Honest EN Before->After of the same 3_ai_batch.gs + real source; cross-linked JP<->EN via hreflang, added to sitemap (0.9), proof links under EN store buy CTA and EN guide CTA. No new inventory. ~$0.45."
-  },
-  {
-   "date": "2026-09-22",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "reference": "20260922T010245.111215Z",
-   "operator": "Codex",
-   "note": "Retail use-case funnel and free starter. Unknown subscription compute attribution; no external purchase."
-  },
-  {
-   "date": "2026-09-22",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1,
-   "currency": "usd",
-   "jpy_equivalent": 150,
-   "reference": "claude-day22-zenn-reach",
-   "operator": "Claude",
-   "note": "Estimated AI compute for Day-22 goal-continuous run: diagnosis + 2 high-intent Zenn technical articles (Gmail inquiry auto-reply, invoice PDF+AI email). No external purchase. Estimate; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Codex",
-   "reference": "20260922T160500.542590Z",
-   "note": "Buyer-fit conversion experiment; no external purchase, subscription attribution unknown."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Codex",
-   "reference": "local-autonomy-setup-20260923",
-   "note": "Owner-requested local supervisor setup and Claude subscription read-only smoke tests. Attributable subscription compute cost unknown, not zero. No cloud service purchased."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 0.4,
-   "currency": "usd",
-   "jpy_equivalent": 60,
-   "operator": "Claude",
-   "reference": "claude-day23-zenn-meeting-minutes",
-   "note": "Mac-local supervisor first run bootstrap + goal-continuous fire. Observed: revenue still ¥0 (revenue_ledger official+prep empty; sales-monitor run 35733309445 = 0 new Gumroad sale; no open issues; branch synced with origin/main). No new capability/market signal. Resumed AUTONOMY_STATE.next_action: added the next distinct high-intent Zenn article (articles/gas-meeting-minutes-ai-summary.md, published:true) -- 議事録の自動要約 (meeting-minutes -> AI-extracted 要点/決定事項/TODO + auto-email), honestly built on the same real askAI() core as the other 3 derivative articles, a genuinely new high-search-volume JP office-pain-point query distinct from the 4 existing Zenn articles. Non-duplicative vs Codex's same-day buyer-fit conversion work on store/jp.html. Estimate; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": 1.1,
-   "currency": "usd",
-   "jpy_equivalent": 165,
-   "operator": "Claude",
-   "reference": "claude-day23-gumroad-pro-edition",
-   "note": "Same goal-continuous runtime, second strategic package (price/ticket-size + offer dimension, not more reach supply). Extracted 3 real GAS scripts (Gmail inquiry auto-reply, invoice PDF+AI cover-email, meeting-minutes AI summary) from this week's Zenn articles into standalone files, wrote a PRO addendum setup guide + updated START_HERE, assembled a genuinely expanded deliverable ZIP (downloads/ai-automation-toolkit-pro-b8d407.zip, 5 scripts total), created marketing/gumroad_listing_config_pro.json ($39) + .github/workflows/gumroad-publish-pro.yml with isolated state status/gumroad_listing_pro.json, dispatched it (run 35758103134) -- succeeded live, product LzCTMbPbXr1XxcbVbddEOw== at https://feverish50.gumroad.com/l/jqxenl with thumbnail. Backlinked from index.html + upsold on store/jp.html. Fully AI-operable, no owner labor, isolated from the EN/JP listings. No sale yet. Estimate; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-zenn-ratelimit-cta",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-entry-sku-3usd",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (Gumroad listing free; fees only on sale)."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-free-pwyw-prompt-pack",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (free Gumroad listing; fees only on paid tips)."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580528792",
-   "note": "Etsy listing fee for 2nd listing (Google Sheets invoice generator, $7). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-etsy-invoice-listing",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580869617",
-   "note": "Etsy listing fee for 3rd listing (bookkeeping tracker xlsx, $6). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580871061",
-   "note": "Etsy listing fee for 4th listing (Etsy seller profit tracker xlsx, $5). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-etsy-spreadsheet-listings",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580872903",
-   "note": "Etsy listing fee for 5th listing (monthly budget planner xlsx, $4). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580892538",
-   "note": "Etsy listing fee for 6th listing (debt payoff planner xlsx, $5). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580880297",
-   "note": "Etsy listing fee for 7th listing (rental property tracker xlsx, $7). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "etsy_fees",
-   "amount": 0.2,
-   "currency": "usd",
-   "jpy_equivalent": 30,
-   "operator": "Claude",
-   "reference": "etsy-listing-4580896166",
-   "note": "Etsy listing fee for 8th listing (inventory tracker xlsx, $6). Billed by Etsy; provider billing authoritative."
-  },
-  {
-   "date": "2026-09-23",
-   "period": "official",
-   "category": "ai_compute",
-   "amount": null,
-   "currency": "jpy",
-   "jpy_equivalent": null,
-   "operator": "Claude",
-   "reference": "claude-day23-run12-etsy-templates-6-8",
-   "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero)."
-  }
- ],
- "totals": {
-  "preparation_cost_jpy_equivalent": 788,
-  "official_cost_jpy_equivalent": 7317
- },
- "entry_schema": {
-  "date": "YYYY-MM-DD (Asia/Tokyo)",
-  "period": "preparation | official",
-  "category": "one of categories",
-  "amount": "number in original currency",
-  "currency": "usd | jpy | ...",
-  "jpy_equivalent": "number used in totals",
-  "note": "no secrets"
- }
 }
