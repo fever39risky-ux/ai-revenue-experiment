@@ -1,0 +1,34 @@
+{
+  "_doc": "Fourth Etsy listing (spreadsheet for Etsy sellers, a large buyer segment on Etsy itself). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=seller. Source: marketing/etsy_bookkeeping_src/build_etsy_seller.py (formulas verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Etsy Seller Spreadsheet, Profit and Fee Calculator, Order and Expense Tracker, Pricing Calculator, Excel and Google Sheets Template",
+  "description": "Know what you really keep from every Etsy sale. Log each order once and this spreadsheet works out Etsy fees, cost of goods, shipping label cost and your real profit, per order, per product and per month.\n\nWhat's inside (one .xlsx file, 6 tabs):\n• Start Here: shop name, year, currency and your Etsy fee rates (transaction fee, payment processing % and fixed fee, listing fee per item sold, Offsite Ads fee). Defaults are Etsy's published US rates. Every rate is editable.\n• Orders: 1,500 ready rows. Pick the product from a dropdown, enter quantity, item total, shipping charged and your label cost. Mark Offsite Ads orders. Revenue, Etsy fees, cost of goods, profit and margin fill in automatically.\n• Products: material and packaging cost per unit and your price. Shows fees, profit and margin per unit at your current price.\n• Expenses: Etsy Ads, bulk supplies, subscriptions and other costs.\n• Dashboard: year-to-date revenue, Etsy fees, labels, cost of goods, other expenses, net profit, profit margin and fees as a share of revenue. Month-by-month table with profit bars. Profit by product.\n• Price Calculator: enter your costs, shipping and target margin to get a suggested item price, plus a quick table for 20% to 60% margins.\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no scripts, no add-ons, no subscription.\n\nPlease note: this is a digital download, not a physical item. Fee calculations are estimates based on the rates you enter. Etsy fees vary by country and can change, and your Etsy Payments statement is the final word. This is not tax or accounting advice. Not affiliated with or endorsed by Etsy. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 5.0,
+  "tags": [
+    "etsy seller",
+    "etsy spreadsheet",
+    "profit calculator",
+    "etsy fee calculator",
+    "small business",
+    "pricing calculator",
+    "order tracker",
+    "expense tracker",
+    "google sheets",
+    "excel template",
+    "bookkeeping",
+    "seller tools",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-seller/01.png",
+    "marketing/etsy-images-seller/02.png",
+    "marketing/etsy-images-seller/03.png",
+    "marketing/etsy-images-seller/04.png"
+  ],
+  "digital_file": "downloads/etsy-seller-profit-tracker-3d91a6.zip",
+  "digital_file_name": "Etsy-Seller-Profit-Tracker.zip",
+  "taxonomy_id": 12478
+}

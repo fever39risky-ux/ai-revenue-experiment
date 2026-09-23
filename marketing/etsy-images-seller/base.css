@@ -1,0 +1,14 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:2000px;height:2000px;overflow:hidden;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:linear-gradient(160deg,#f4f8fb,#e3eef3)}
+.pad{padding:140px 150px}
+.eyebrow{display:inline-block;font-size:40px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1f7f7a;border:3px solid #1f7f7a;border-radius:999px;padding:18px 40px;margin-bottom:56px}
+h1{font-size:138px;line-height:1.04;font-weight:800;letter-spacing:-.02em}
+h1 .g{color:#1f7f7a}
+h2{font-size:100px;font-weight:800;margin-bottom:70px;letter-spacing:-.02em}
+.lead{font-size:54px;line-height:1.4;color:#40525f;margin-top:50px}
+ul{list-style:none;display:flex;flex-direction:column;gap:42px}
+li{display:flex;gap:38px;align-items:flex-start;font-size:56px;line-height:1.3}
+.n{flex:0 0 92px;height:92px;border-radius:22px;background:#1f7f7a;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:50px}
+.foot{position:absolute;bottom:130px;left:150px;right:150px;display:flex;justify-content:space-between;font-size:48px;font-weight:700;color:#1f7f7a}
+.card{background:#fff;border-radius:36px;box-shadow:0 30px 80px rgba(20,40,60,.15);padding:80px}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:3px solid #dbe4ea;padding:22px 16px;text-align:left;font-size:40px}th{color:#1f7f7a}
