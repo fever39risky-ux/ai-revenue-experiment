@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT API 料金計算ツール（無料）：GAS・スプレッドシート一括処理の月額コストと6分制限を見積もる</title>
+<meta name="description" content="ChatGPT（OpenAI）APIをGoogle Apps Scriptやスプレッドシートで使うときの料金を、日本語の文字数から概算する無料ツールです。行数・入力/出力の文字数・単価・為替を入れると、1回あたり・月あたりの費用（円）とトークン数、GASの6分制限に収まるかを計算します。ブラウザ内で計算し、何も送信しません。">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/ai-api-cost-calculator-jp.html">
+<meta property="og:title" content="ChatGPT API 料金計算ツール（GAS・スプレッドシート向け）"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/ai-api-cost-calculator-jp.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ChatGPT API 料金計算ツール","inLanguage":"ja","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/ai-api-cost-calculator-jp.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"日本語1文字は何トークンですか？","acceptedAnswer":{"@type":"Answer","text":"モデルのトークナイザーによって変わりますが、最近のモデルでは日本語1文字あたりおおむね0.7〜1.2トークン程度です。このツールは初期値を1.0にしています。正確な値はOpenAIのTokenizerページに実際の文章を貼って確認してください。"}},{"@type":"Question","name":"APIの料金はどう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"料金 = 入力トークン数 ÷ 100万 × 入力単価 + 出力トークン数 ÷ 100万 × 出力単価 です。単価はモデルごとに異なり、100万トークンあたりのドル建てで公表されています。"}},{"@type":"Question","name":"GASの6分制限に引っかかるのは何行からですか？","acceptedAnswer":{"@type":"Answer","text":"1回の実行は最大6分です。1行あたりのAPI応答時間が3秒なら、余裕を見て5分（300秒）で区切ると約100行が目安です。それを超える場合は、処理済みの行を記録して時間ベースのトリガーで続きから再開する作りにします。"}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Yu Gothic","Segoe UI",sans-serif;color:#13202b;background:#f4f8fb;line-height:1.7}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:1.8rem;line-height:1.3;margin:0 0 10px}.lead{color:#40525f;font-size:1.04rem;max-width:780px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}.panel h2{margin-top:0;font-size:1.15rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px 16px}.grid label{font-weight:600;font-size:.9rem}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem}
+button{background:#1f7f7a;color:#fff;border:0;border-radius:10px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}.card{border:2px solid #e3eaf0;border-radius:14px;padding:14px}.card h3{margin:0 0 6px;font-size:.95rem;color:#40525f}
+.big{font-size:1.45rem;font-weight:800;color:#1f7f7a;margin:0}.muted{color:#5a6b78;font-size:.88rem}.warn{color:#9b1c1c;font-weight:700}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.25rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">ホーム</a> · <a href="../store/jp.html">日本語ストア</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本（Zenn）</a></p>
+<h1>ChatGPT API 料金計算ツール<br><span style="font-size:1.1rem;color:#40525f">GAS・スプレッドシートの一括処理は月いくら？6分制限に収まる？</span></h1>
+<p class="lead">「シートの100行をAIで要約したら、いくらかかるのか」を<strong>日本語の文字数</strong>から概算します。行数・1行あたりの文字数・単価・為替を入れると、<strong>1回あたり／月あたりの費用（円）</strong>、<strong>トークン数</strong>、<strong>GASの6分制限に収まるか</strong>を計算します。登録不要・ブラウザ内で計算し、何も送信しません。</p>
+
+<div class="panel">
+<h2>処理の量</h2>
+<div class="grid">
+<label>1回に処理する行数<input id="rows" type="number" min="0" step="1" value="100"></label>
+<label>月の実行回数（毎営業日なら20）<input id="runs" type="number" min="0" step="1" value="20"></label>
+<label>1行の入力（元の文章）文字数<input id="inChars" type="number" min="0" step="10" value="400"></label>
+<label>1行の出力（AIの返答）文字数<input id="outChars" type="number" min="0" step="10" value="150"></label>
+<label>指示文（プロンプト）の文字数 ※毎行送る<input id="promptChars" type="number" min="0" step="10" value="300"></label>
+<label>日本語1文字あたりのトークン数<input id="ratio" type="number" min="0" step="0.1" value="1.0"></label>
+</div>
+<h2 style="margin-top:20px">単価と為替</h2>
+<div class="grid">
+<label>入力単価（ドル／100万トークン）<input id="pIn" type="number" min="0" step="0.01" value="0.15"></label>
+<label>出力単価（ドル／100万トークン）<input id="pOut" type="number" min="0" step="0.01" value="0.60"></label>
+<label>為替（円／ドル）<input id="fx" type="number" min="0" step="1" value="150"></label>
+<label>1行あたりのAPI応答時間（秒）<input id="sec" type="number" min="0" step="0.5" value="3"></label>
+</div>
+<p class="muted">単価の初期値は計算例です。モデルごとに違い、改定もあるので、必ず<a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAIの料金ページ</a>で使うモデルの最新値に置き換えてください。文字あたりトークン数は<a href="https://platform.openai.com/tokenizer" target="_blank" rel="noopener">Tokenizer</a>に実際の文章を貼ると確認できます。</p>
+<button id="calc" type="button">計算する</button>
+</div>
+
+<div class="panel" id="out" hidden>
+<h2>見積もり結果</h2>
+<div class="cards">
+<div class="card"><h3>1回の実行あたり</h3><p class="big" id="perRun"></p><p class="muted" id="perRunUsd"></p></div>
+<div class="card"><h3>1か月あたり</h3><p class="big" id="perMonth"></p><p class="muted" id="perMonthUsd"></p></div>
+<div class="card"><h3>1行あたり</h3><p class="big" id="perRow"></p><p class="muted" id="tokRow"></p></div>
+<div class="card"><h3>GASの6分制限</h3><p class="big" id="time"></p><p class="muted" id="timeNote"></p></div>
+</div>
+<p class="muted" id="detail"></p>
+<p class="muted">計算式：トークン数 = 文字数 × 1文字あたりトークン数。料金 = 入力トークン ÷ 100万 × 入力単価 + 出力トークン ÷ 100万 × 出力単価。6分制限は余裕を見て1回5分（300秒）で区切った場合の目安です。あくまで概算で、実際の請求はOpenAIの利用状況ページで確認してください。</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">費用が分かったら、そのまま動くスクリプトで始める</h2>
+<p>シートの1列をAIで一括処理するスクリプトと、毎朝の集計メールを自動送信するスクリプトの2本に、日本語の導入手順書を付けたキットです。APIキーをコードに書かない保存、429エラー時の再試行、<strong>6分制限を越えても続きから処理する仕組み</strong>まで入っています。コードが書けなくてもコピー＆ペーストで導入できます。</p>
+<p><a class="btn" href="https://feverish50.gumroad.com/l/kaqnpj">GAS×ChatGPT 導入キットを見る（$19）</a><a class="btn alt" href="https://feverish50.gumroad.com/l/jqxenl">Gmail自動返信・請求書PDF・議事録要約も入ったPRO版（$39）</a></p>
+<p class="muted">まず1本だけ試すなら <a href="https://feverish50.gumroad.com/l/koujr">単品・拡張版（$3）</a>。無料の <a href="https://feverish50.gumroad.com/l/rlalv">事務AIプロンプト集（0円〜）</a> もあります。</p>
+</div>
+
+<section class="faq">
+<h2>よくある質問</h2>
+<h3>日本語1文字は何トークン？</h3>
+<p>モデルのトークナイザーで変わりますが、最近のモデルではおおむね0.7〜1.2トークン程度です。初期値は安全側の1.0にしています。英語は1単語あたり約1.3トークンなので、英文を処理する場合は「文字数」の代わりに単語数×1.3を入れてください。</p>
+<h3>指示文（プロンプト）も料金に入る？</h3>
+<p>入ります。1行ずつAPIを呼ぶ作りでは、毎回同じ指示文を送るので「指示文の文字数 × 行数」が入力トークンに加わります。指示文を短くする、または同じ入力の結果をキャッシュして再送しないことが節約になります。</p>
+<h3>6分制限を越えそうなときは？</h3>
+<p>処理済みの行に印を付け、1回の実行で5分を過ぎたら中断し、時間ベースのトリガーで続きから再開する作りにします。<a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本（Zenn）</a>の「6分の実行時間制限」の章でコード付きで解説しています。</p>
+<h3>入力した内容はどこかに送られる？</h3>
+<p>送られません。計算はすべてこのページの中（お使いのブラウザ）で行います。</p>
+</section>
+<footer>AI Revenue Experiment · <a href="../">ホーム</a> · <a href="../store/jp.html">日本語ストア</a></footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const num=id=>Math.max(0,parseFloat($(id).value)||0);
+const yen=v=>'¥'+(v<10?v.toFixed(2):Math.round(v).toLocaleString('ja-JP'));
+const usd=v=>'$'+(v<1?v.toFixed(4):v.toFixed(2));
+function calc(){
+  const rows=num('rows'),runs=num('runs'),ratio=num('ratio'),fx=num('fx'),sec=num('sec');
+  const inTokRow=(num('inChars')+num('promptChars'))*ratio, outTokRow=num('outChars')*ratio;
+  const usdRow=inTokRow/1e6*num('pIn')+outTokRow/1e6*num('pOut');
+  const usdRun=usdRow*rows, usdMonth=usdRun*runs;
+  $('perRun').textContent=yen(usdRun*fx); $('perRunUsd').textContent=usd(usdRun)+'（'+rows.toLocaleString('ja-JP')+'行）';
+  $('perMonth').textContent=yen(usdMonth*fx); $('perMonthUsd').textContent=usd(usdMonth)+'（'+runs+'回／月）';
+  $('perRow').textContent=yen(usdRow*fx); $('tokRow').textContent='入力 約'+Math.round(inTokRow).toLocaleString('ja-JP')+'／出力 約'+Math.round(outTokRow).toLocaleString('ja-JP')+'トークン';
+  const total=rows*sec, perExec=sec>0?Math.floor(300/sec):Infinity, execs=sec>0&&rows>0?Math.ceil(rows/perExec):1;
+  if(total<=300){$('time').textContent='収まります';$('timeNote').textContent='約'+Math.ceil(total/60)+'分（'+Math.round(total)+'秒）で1回に完了';}
+  else{$('time').innerHTML='<span class="warn">越えます</span>';$('timeNote').textContent='約'+Math.ceil(total/60)+'分かかるため、1回'+perExec+'行ずつ・'+execs+'回に分けて続きから処理する作りが必要';}
+  $('detail').textContent='月の合計トークン：入力 約'+Math.round(inTokRow*rows*runs).toLocaleString('ja-JP')+'／出力 約'+Math.round(outTokRow*rows*runs).toLocaleString('ja-JP')+'。';
+  $('out').hidden=false;
+}
+$('calc').addEventListener('click',calc);
+calc();
+</script>
+</body>
+</html>

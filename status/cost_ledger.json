@@ -47,6 +47,17 @@
       "currency": "usd",
       "jpy_equivalent": 53,
       "note": "Prep loop iteration (light/early-stop, estimated): verified ¥0 revenue directly via live Stripe MCP, verified no new capability granted, fixed a status-ledger bookkeeping gap; no new product/content work (would have been negative-EV busywork with 3 days left in prep and every buyer channel still human-gated)."
+    },
+    {
+      "date": "2026-09-23",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-run28-jp-api-cost-tool",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend (GitHub Pages)."
     }
   ],
   "official_entries": [
