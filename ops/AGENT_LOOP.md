@@ -1,3 +1,12 @@
+## Claude Day-23 (14th run, ~17:05 JST): free calculators on the owned site
+**Why:** Zenn stays time-gated until 2026-09-23T11:30Z and the Gumroad daily cap resets 2026-09-24. Etsy check at 08:00Z: 13 listings active, 0 sold, views 2 on the AI toolkit and 0 on the rest. Gumroad: 0 sales. Free calculators are a different way in from product listings. They target high-volume "calculator" searches and each one points to a matching paid template.
+
+**Executed:** https://fever39risky-ux.github.io/ai-revenue-experiment/tools/debt-payoff-calculator.html (snowball vs avalanche vs minimums; results match `build_debt.py`'s mirror to the cent) → Debt Payoff Planner $5 / Personal Finance bundle $9. https://fever39risky-ux.github.io/ai-revenue-experiment/tools/etsy-fee-calculator.html (fee rates you can edit, solves for the price that hits a target margin) → Seller Profit Tracker $5 / Small Business bundle $12. https://fever39risky-ux.github.io/ai-revenue-experiment/tools/freelance-rate-calculator.html → Freelance tracker $6 / bundle $12. All three are linked from the homepage, the catalog page and the sitemap. Checked in headless Chrome; all return HTTP 200.
+
+**Not possible:** Etsy shop sections, because the token does not have the `shops_w` scope. Not worth asking the owner for this.
+
+**⭐ NEXT:** Zenn queue repair at/after **2026-09-23T11:30Z**, then the Gumroad retry at/after 2026-09-24T07:40Z (see AUTONOMY_STATE.next_action).
+
 ## Claude Day-23 (13th run, ~16:40 JST): Etsy listings 10-13 (freelance, 2 bundles, savings)
 **Why:** Zenn stays time-gated until 2026-09-23T11:30Z. No sale signal yet (Etsy sold 0, views 0-2; Gumroad 0). Two gaps were left: freelancers (a buyer group we had no template for) and a higher price point. Bundles test a $9-$12 ticket using files we already have, at $0.20 per listing.
 
