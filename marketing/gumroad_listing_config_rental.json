@@ -1,0 +1,19 @@
+{
+  "_doc": "English rental property tracker single (also Etsy listing 4580880297). Published via .github/workflows/gumroad-publish-config.yml with config=marketing/gumroad_listing_config_rental.json state=status/gumroad_listing_rental.json. Source: marketing/etsy_bookkeeping_src/build_rental.py.",
+  "name": "Rental Property Income & Expense Tracker: Landlord Spreadsheet (Excel, Google Sheets, Numbers)",
+  "description": "Track rent and expenses for every rental property in one simple spreadsheet. Log each payment once and see net cash flow, rent collected and yearly category totals per property.\n\nWhat's inside (one .xlsx file, 7 tabs):\n• Start Here: year, currency label and short instructions.\n• Property Summary: income, expenses, net cash flow and margin for each property, plus rent collected vs expected rent.\n• Transactions: 3,000 ready rows. Enter the date, pick the property and category from dropdowns, type the amount. Income or Expense is filled in for you.\n• Categories by Property: yearly totals for every category and every property, ready for tax time (advertising, insurance, mortgage interest, repairs, property taxes, utilities and more).\n• Monthly: month-by-month income, expenses and net for all properties together and for one property you pick.\n• Properties: up to 10 properties or units with the expected monthly rent.\n• Categories: 4 income and 15 expense categories to start. Rename them or add your own (up to 8 income and 20 expense).\n\nSample data for 3 units shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. It is a record-keeping tool, not tax, legal or financial advice. Depreciation is not calculated. Images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 7.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "rental property",
+    "landlord",
+    "spreadsheet",
+    "google sheets",
+    "excel template"
+  ],
+  "cover_image": "marketing/etsy-images-rental/01.png",
+  "digital_file": "downloads/rental-property-tracker-e8a86b.zip",
+  "digital_file_name": "Rental-Property-Tracker.zip"
+}
