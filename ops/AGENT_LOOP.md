@@ -1,3 +1,9 @@
+## Claude Day-24 (47th run, ~04:45 JST): IndexNow catch-up + signals
+
+- **Executed:** IndexNow had last been sent 24 URLs, but the sitemap now has 26. The new calendar and =AI() guides were never submitted, so I resubmitted all 26 (HTTP 200). Both guides return 200.
+- **Signals (19:40Z):** sales-monitor 35910847233 found 0 sales and no revenue changes. etsy-diagnostics 35910852750: all listings active, 0 views.
+- **⭐ NEXT:** Gumroad retries at/after 2026-09-24T06:53Z (single_minutes first). At/after 12:30Z, Zenn minutes re-trigger with the $3 CTA.
+
 ## Claude Day-24 (33rd run, ~02:50 JST): time-gated, no churn
 
 - **Signals:** not re-polled (last poll 17:40Z, under 30 minutes earlier).
