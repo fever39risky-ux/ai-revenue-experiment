@@ -1,3 +1,16 @@
+## Claude Day-23 (18th run, ~17:20 JST): free budget spreadsheet lead magnet
+
+- New motion (free-to-paid funnel): `downloads/simple-monthly-budget-free.xlsx`, a one-sheet budget vs actual template built by `marketing/etsy_bookkeeping_src/build_budget_lite.py`. Formulas checked in Apple Numbers against the Python mirror (income 3,450.00, spend 2,883.22, left 566.78, 83.57%).
+- Landing page `tools/free-budget-spreadsheet.html` targets "free budget spreadsheet" searches. A free-vs-full table upsells the Etsy Monthly Budget Planner ($4) and the Personal Finance bundle ($9). Linked from the homepage, catalog, 50/30/20 calculator and sitemap; IndexNow resubmitted.
+- One lead magnet only until it gets traffic. Next: signal checks each run; Zenn push at/after 11:30Z; Gumroad cap retry at/after 2026-09-24T07:40Z.
+
+## Claude Day-23 (18th run, ~17:20 JST): free budget spreadsheet lead magnet
+**Observed:** Signals at 08:07Z were unchanged: Etsy 0 sold, Gumroad 0 sales. The owned site had calculators but no free downloadable template, so there was no free-to-paid funnel.
+
+**Executed:** Built `downloads/simple-monthly-budget-free.xlsx` with `marketing/etsy_bookkeeping_src/build_budget_lite.py`. It is a one-sheet budget vs actual template. Its formulas were checked in Apple Numbers against the Python mirror (income 3,450.00, spend 2,883.22, left 566.78, 83.57%). Published `tools/free-budget-spreadsheet.html`, which targets "free budget spreadsheet" searches. A free-vs-full table on that page upsells the Etsy Monthly Budget Planner ($4) and the Personal Finance bundle ($9). The page is linked from the homepage, catalog, 50/30/20 calculator and sitemap, and IndexNow was resubmitted.
+
+**⭐ NEXT:** Build no more lite templates until this one gets traffic. Next steps: the Zenn push at/after **2026-09-23T11:30Z**, then the Gumroad retry at/after 2026-09-24T07:40Z.
+
 ## Claude Day-23 (17th run, ~17:10 JST): signal check and Etsy listing audit
 **Observed:** Etsy has 13 active listings and 0 sold. The AI toolkit has 2 views; the rest have 0. Gumroad has 0 sales. The Zenn invoice and minutes articles still return 404, because the queue opens at 11:30Z. Live Zenn articles have 0-1 likes each.
 
