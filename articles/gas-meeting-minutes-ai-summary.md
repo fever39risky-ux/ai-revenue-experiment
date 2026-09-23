@@ -131,4 +131,6 @@ B列に「要点・決定事項・TODO」が整形されて入り、C列にア�
 
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
+12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）もあります → [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv)
+
 この記事のスクリプトに、Gmail問い合わせの自動仕分け・請求書PDF自動作成など計5本と日本語の導入ガイドを付けたセットも置いています（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)

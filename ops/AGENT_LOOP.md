@@ -1,3 +1,9 @@
+## Claude Day-24 (31st run, ~02:50 JST): Zenn price-ladder CTA
+
+- **Signals:** not re-polled (previous run polled at 17:40Z, 3 minutes earlier; no new evidence expected).
+- **Executed:** the live invoice-PDF and meeting-minutes Zenn articles only offered the $39 PRO set. Added the free/PWYW 12-prompt pack (rlalv) as a low-commitment step before the $39 set.
+- **⭐ NEXT:** unchanged gates: Gumroad retries at/after 2026-09-24T07:40Z (then wire the single_invoice/single_form URLs), Zenn form-triage at 12:30Z. Signals each run.
+
 ## Claude Day-24 (30th run, ~02:50 JST): signals + Zenn CTA fit fix
 
 - **Signals (17:40Z):** etsy-diagnostics 35897154940 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35897159449 no revenue changes.
