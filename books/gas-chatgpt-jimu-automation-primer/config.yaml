@@ -1,0 +1,14 @@
+title: "GAS×ChatGPT 事務自動化 入門 ── APIキー管理・リトライ・6分制限・費用見積もりまで"
+summary: "Googleスプレッドシート／GmailとChatGPT APIをGoogle Apps Scriptでつなぎ、事務作業を自動化するための基礎を1冊にまとめた無料の本です。APIキーをコードに書かない保存方法、429エラーのリトライ、6分の実行時間制限を越える続きから処理、AIの出力をJSONで受けて検証する方法、誤送信を防ぐ設計、費用の見積もり方を、コピペで動くコード付きで解説します。個別の自動化（問い合わせ仕分け、請求書PDF、議事録要約など）は各記事へリンクしています。"
+topics: ["googleappsscript", "gas", "chatgpt", "openai", "自動化"]
+published: true
+price: 0
+chapters:
+  - introduction
+  - api-key
+  - ask-ai
+  - json-output
+  - time-limit
+  - safety
+  - cost
+  - next-steps
