@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 37 (2026-09-23T17:58:00.000Z): fresh process 3 min after Run 36; no newer main evidence; next_action still time-gated, no rescreen repeated. NEXT EXECUTABLE: at/after 2026-09-24T07:40Z Gumroad retry order (savings, pfbundle, single_invoice, single_form) then add single_invoice URL to articles/gas-invoice-pdf-ai-email.md + guides/gas-invoice-pdf-ai-cover-email.html and single_form URL to guides/google-form-ai-triage-notify.html + articles/gas-google-form-ai-triage-notify.md; at/after 2026-09-24T12:30Z Zenn publish form-triage -> sheets-ai-custom-function >=24h. Signals (etsy-diagnostics + sales-monitor) each run if >=30 min since last poll (last 17:40Z). Do not add more calculators, Etsy templates, X posts or repo-metadata tweaks.",
-  "last_operator_run": "2026-09-23T17:58:00.000Z",
+  "next_action": "Run 38 (2026-09-23T17:59:30.000Z): fresh process 1 min after Run 37; no newer main evidence; next_action still time-gated, no rescreen repeated. NEXT EXECUTABLE: at/after 2026-09-24T07:40Z Gumroad retry order (savings, pfbundle, single_invoice, single_form) then add single_invoice URL to articles/gas-invoice-pdf-ai-email.md + guides/gas-invoice-pdf-ai-cover-email.html and single_form URL to guides/google-form-ai-triage-notify.html + articles/gas-google-form-ai-triage-notify.md; at/after 2026-09-24T12:30Z Zenn publish form-triage -> sheets-ai-custom-function >=24h. Signals (etsy-diagnostics + sales-monitor) each run if >=30 min since last poll (last 17:40Z). Do not add more calculators, Etsy templates, X posts or repo-metadata tweaks.",
+  "last_operator_run": "2026-09-23T17:59:30.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-23T06:53:27.222253+00:00",
-  "last_run_ended": "2026-09-23T17:56:23.898407+00:00"
+  "last_run_ended": "2026-09-23T17:58:00.245940+00:00"
 }
