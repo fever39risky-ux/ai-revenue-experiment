@@ -1,0 +1,34 @@
+{
+  "_doc": "Eighth Etsy listing (small business inventory tracker). Read by scripts/etsy_publish.mjs via ETSY_CONFIG when etsy-publish.yml runs with variant=inventory. Source: marketing/etsy_bookkeeping_src/build_inventory.py (verified in Apple Numbers against a python mirror 2026-09-23).",
+  "title": "Inventory Tracker Spreadsheet, Small Business Stock Tracker with Reorder Alerts, Product Inventory Template, Excel and Google Sheets",
+  "description": "Know what's in stock, what it's worth and what to reorder. Log stock in and out once and this spreadsheet keeps every product's stock level, value and status up to date.\n\nWhat's inside (one .xlsx file, 5 tabs):\n• Start Here: business name, currency label and short instructions.\n• Dashboard: products, units in stock, stock value at cost, retail value, items to reorder and out of stock. An automatic reorder list, plus units sold and sales by month.\n• Products: up to 200 products with SKU, category, unit cost, sale price, reorder point and opening stock. Stock in, stock out, current stock, stock value and status (OK, Reorder, Out of stock) are calculated for you.\n• Stock Movements: 3,000 ready rows. Pick the SKU and the type from dropdowns (Purchase in, Sale out, Return in, Adjustment + or -) and enter the quantity.\n• Lists: the movement types used by the dropdown.\n\nGreat for handmade sellers, small retail shops, resellers and anyone who keeps stock of materials and finished products.\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Listing images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold. Questions? Message me any time.",
+  "price": 6.0,
+  "tags": [
+    "inventory tracker",
+    "inventory template",
+    "stock tracker",
+    "small business",
+    "inventory sheet",
+    "reorder tracker",
+    "google sheets",
+    "excel template",
+    "product tracker",
+    "shop inventory",
+    "business template",
+    "stock management",
+    "digital download"
+  ],
+  "who_made": "i_did",
+  "when_made": "2020_2026",
+  "quantity": 999,
+  "materials": [],
+  "images": [
+    "marketing/etsy-images-inventory/01.png",
+    "marketing/etsy-images-inventory/02.png",
+    "marketing/etsy-images-inventory/03.png",
+    "marketing/etsy-images-inventory/04.png"
+  ],
+  "digital_file": "downloads/inventory-tracker-8d628b.zip",
+  "digital_file_name": "Inventory-Tracker.zip",
+  "taxonomy_id": 12478
+}

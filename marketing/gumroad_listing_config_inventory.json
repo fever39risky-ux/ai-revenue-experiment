@@ -1,0 +1,19 @@
+{
+  "_doc": "English inventory tracker single (also on Etsy). Published via gumroad-publish-config.yml config=marketing/gumroad_listing_config_inventory.json state=status/gumroad_listing_inventory.json. Source: marketing/etsy_bookkeeping_src/build_inventory.py.",
+  "name": "Small Business Inventory Tracker with Reorder Alerts (Excel, Google Sheets, Numbers)",
+  "description": "Know what's in stock, what it's worth and what to reorder. Log stock in and out once and this spreadsheet keeps every product's stock level, value and status up to date.\n\nWhat's inside (one .xlsx file, 5 tabs):\n• Start Here: business name, currency label and short instructions.\n• Dashboard: products, units in stock, stock value at cost, retail value, items to reorder and out of stock. An automatic reorder list, plus units sold and sales by month.\n• Products: up to 200 products with SKU, category, unit cost, sale price, reorder point and opening stock. Stock in, stock out, current stock, stock value and status (OK, Reorder, Out of stock) are calculated for you.\n• Stock Movements: 3,000 ready rows. Pick the SKU and the type from dropdowns (Purchase in, Sale out, Return in, Adjustment + or -) and enter the quantity.\n• Lists: the movement types used by the dropdown.\n\nGreat for handmade sellers, small retail shops, resellers and anyone who keeps stock of materials and finished products.\n\nSample data shows how it works. Delete it when you start.\n\nWorks in Microsoft Excel, Apple Numbers and Google Sheets (upload the file to Google Drive and open it with Google Sheets). No macros, no add-ons, no subscription. Any currency.\n\nPlease note: this is a digital download, not a physical item. Images show the file with its sample data.\n\nThis product was created with the help of AI and checked before listing. It is an original product, not resold.",
+  "price": 6.0,
+  "currency": "usd",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "inventory",
+    "small business",
+    "spreadsheet",
+    "google sheets",
+    "excel template"
+  ],
+  "cover_image": "marketing/etsy-images-inventory/01.png",
+  "digital_file": "downloads/inventory-tracker-8d628b.zip",
+  "digital_file_name": "Inventory-Tracker.zip"
+}
