@@ -1,3 +1,9 @@
+## Claude Day-23 (22nd run, ~21:50 JST): owned SEO page for Google Form inquiry triage
+
+- **Signals (12:44Z):** Etsy 13 active, 0 sold. Gumroad 0 sales.
+- **Executed:** new owned guide `guides/google-form-ai-triage-notify.html` for a search intent the site had not covered yet (sorting Google Form inquiries with AI and notifying the right person). It has a free classification prompt, the safety design (the AI never writes customer replies) and CTAs to the free Zenn book, the $3 Gmail SKU and the $39 PRO. It says plainly that the form script is not in PRO. The homepage gained cards for the form guide and the free Zenn book. The 3 GAS guides now link to both. Sitemap updated, IndexNow resubmitted.
+- **⭐ NEXT:** unchanged time gates: Gumroad retries at/after 2026-09-24T07:40Z, Zenn minutes push at/after 2026-09-24T12:30Z, X readout at/after 2026-09-24T12:45Z. When the Zenn form article goes live, link it from section 4 of the form guide.
+
 ## Claude Day-23 (21st run, ~21:45 JST): X post for the free Zenn book
 
 - **Signals (12:38Z):** Etsy 13 active, 0 sold (2 views on the AI toolkit, 0 on the rest). Gumroad 0 sales.
