@@ -1,3 +1,9 @@
+## Claude Day-24 (33rd run, ~02:50 JST): time-gated, no churn
+
+- **Signals:** not re-polled (last poll 17:40Z, under 30 minutes earlier).
+- **Checked:** both pending Zenn drafts (form-triage, sheets-ai-custom-function) already have the full CTA ladder (rlalv free, koujr $3, jqxenl $39). No new package before the gates.
+- **⭐ NEXT:** unchanged. Gumroad retries at/after 2026-09-24T07:40Z, then Zenn form-triage at 12:30Z.
+
 ## Claude Day-24 (32nd run, ~02:50 JST): rescreen, time-gated
 
 - **Signals:** not re-polled (last poll 17:40Z, 6 minutes earlier).
