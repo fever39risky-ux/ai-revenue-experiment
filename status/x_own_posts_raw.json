@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07T02:53:25.644Z",
+  "fetched_at": "2026-09-23T13:29:07.253Z",
   "username": "KinoshitaTsks",
   "user_id": "1982353950843256832",
   "user_name": "木之下｜AI講師｜仕事と副業のAI活用設計",
@@ -8,10 +8,502 @@
   "last_rate_limit": {
     "limit": "900",
     "remaining": "898",
-    "reset": "1788750505"
+    "reset": "1790171046"
   },
-  "post_count": 195,
+  "post_count": 196,
   "posts": [
+    {
+      "conversation_id": "2102740099985498259",
+      "created_at": "2026-09-23T12:41:21.000Z",
+      "edit_history_tweet_ids": [
+        "2102740101499703554"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "description": "Googleスプレッドシート／GmailとChatGPT APIをGoogle Apps Scriptでつなぎ、事務作業を自動化するための基礎を1冊にまとめた無料の本です。APIキーをコードに書かない保存方法、429エラーのリトライ、6分の実行時間制限を越える続きから処理、AIの",
+            "display_url": "zenn.dev/kinoshita_ai/b…",
+            "end": 118,
+            "expanded_url": "https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer",
+            "images": [
+              {
+                "height": 381,
+                "url": "https://pbs.twimg.com/news_img/2102740109120651265/2nkV3euZ?format=jpg&name=orig",
+                "width": 726
+              },
+              {
+                "height": 150,
+                "url": "https://pbs.twimg.com/news_img/2102740109120651265/2nkV3euZ?format=jpg&name=150x150",
+                "width": 150
+              }
+            ],
+            "start": 95,
+            "status": 200,
+            "title": "GAS×ChatGPT 事務自動化 入門 ── APIキー管理・リトライ・6分制限・費用見積もりまで",
+            "unwound_url": "https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer",
+            "url": "https://t.co/LWXhqHVfk0"
+          }
+        ]
+      },
+      "id": "2102740101499703554",
+      "in_reply_to_user_id": "1982353950843256832",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 2,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "id": "2102740099985498259",
+          "type": "replied_to"
+        }
+      ],
+      "text": "こういうGAS×ChatGPTの土台\n（APIキーの置き場所、429のリトライ、JSONで答えさせる、6分の壁）を\n全8章の本にまとめた。無料、登録なしで読める\n\n▼ Zenn（無料の本）\nhttps://t.co/LWXhqHVfk0"
+    },
+    {
+      "conversation_id": "2102740099985498259",
+      "created_at": "2026-09-23T12:41:21.000Z",
+      "edit_history_tweet_ids": [
+        "2102740099985498259"
+      ],
+      "id": "2102740099985498259",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 6,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 1,
+        "retweet_count": 0
+      },
+      "text": "GASでChatGPTを回すと\n最初にハマるのが「6分の壁」\n\n数百行を1行ずつAIに投げると\n途中で実行時間の上限に当たって止まるんよね\n\n対策は3つだけ\n・結果が入った行はスキップ\n・4分半で自分で止める\n・1分後に続きから再実行\n\nただ、API料金は行数ぶんかかるで"
+    },
+    {
+      "conversation_id": "2100425258415341759",
+      "created_at": "2026-09-17T03:23:00.000Z",
+      "edit_history_tweet_ids": [
+        "2100425258415341759"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/fq4yzAqv0m",
+            "end": 163,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2100425258415341759/photo/1",
+            "media_key": "3_2100410118068469760",
+            "start": 140,
+            "url": "https://t.co/fq4yzAqv0m"
+          }
+        ]
+      },
+      "id": "2100425258415341759",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "週7時間近く、研究の時間が浮いた。\nその一方で、検証待ちの仮説は増え始めてる。\n\nGoogleがAI & Economy ATLASを更新した。\n\nGoogle、Google DeepMind、MIT FutureTechが、米英の科学者600人超と専門AI model 2,600件を調べたところ、回答した科学者の約半数が何らかのAIを毎日使い、週に約7時間を節約していると報告したとのこと。\n\nただ、研究成果がそのまま7時間分増えたわけではない。\n\nAIが仮説や分析を速く作るほど、\n\n・出力の妥当性を確かめる\n・実験で再現する\n・臨床で検証する\n\nこの後ろの工程に仕事がたまる。\n記事では、まだ試せていない仮説のbacklogが生まれていると説明されている。\n\nこれ、研究だけの話ではないよね。\n\n資料作成が速くなれば承認が詰まる。\n企画案が増えれば選ぶ仕事が詰まる。\ncodeが増えればreviewが詰まる。\n\nAIを入れた工程だけ速くしても、仕事全体は速くならん。\n\n次に見るべきなのは「AIで何時間減ったか」より、その時間がどこへ移って、次は何が待ち行列になったかなんやと思う。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 4,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "週7時間近く、研究の時間が浮いた。\nその一方で、検証待ちの仮説は増え始めてる。\n\nGoogleがAI &amp; Economy ATLASを更新した。\n\nGoogle、Google DeepMind、MIT FutureTechが、米英の科学者600人超と専門AI model https://t.co/fq4yzAqv0m"
+    },
+    {
+      "conversation_id": "2100365363632280012",
+      "created_at": "2026-09-16T23:25:00.000Z",
+      "edit_history_tweet_ids": [
+        "2100365363632280012"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/MhDqTOM0FR",
+            "end": 189,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2100365363632280012/photo/1",
+            "media_key": "3_2100150166544416768",
+            "start": 166,
+            "url": "https://t.co/MhDqTOM0FR"
+          }
+        ]
+      },
+      "id": "2100365363632280012",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "5m×5m。\n車1台ほどの小さな火を、宇宙から見つける。\n\nGoogle Researchが、Earth Fire AllianceとMuon SpaceのFireSat計画を紹介した。\n\n目標は、小型衛星とAIで山火事をまだ小さいうちに検知すること。\nただ、空から見ると雲の反射、煙突、家庭のgrillまで火に見えることがある。\n\nそこで専用cameraを作り、controlled burnの上を飛んで学習dataを集めた。Californiaでも「火に見えるもの」を撮影し、時間とともにどう変わるかを追って、本物の山火事とfalse alarmを分けるmodelを改善しているとのこと。\n\nこれはまだ完成した仕組みではない。\n最初の運用衛星が上がった段階で、次のbatchは来年。約50機のconstellationがそろえば地球全体を20分ごとに撮影でき、2030年ごろの到達を見込んでいる。\n\n僕はここが面白いと思う。\n\n現実のAIは、modelだけ賢くしても動かん。\n何を正解として集めるか。\nどれくらいの頻度で観測するか。\n誤検知をどう減らすか。\n誰へ、間に合う形で届けるか。\n\n火を見つけるAIというより、sensorとdataと現場を一本につなぐsystemなんよね。\n\nAIの価値って、予測を出した瞬間ではなく、その情報が人の判断に間に合った時に初めて生まれるんやと思う。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 6,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "5m×5m。\n車1台ほどの小さな火を、宇宙から見つける。\n\nGoogle Researchが、Earth Fire AllianceとMuon SpaceのFireSat計画を紹介した。\n\n目標は、小型衛星とAIで山火事をまだ小さいうちに検知すること。\nただ、空から見ると雲の反射、煙突、家庭のgrillまで火に見えることがある。 https://t.co/MhDqTOM0FR"
+    },
+    {
+      "conversation_id": "2098569637827141687",
+      "created_at": "2026-09-12T00:29:26.000Z",
+      "edit_history_tweet_ids": [
+        "2098569639416721518"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "description": "メール・議事録・データ整理・請求書・要約を時短する、AIに嘘をつかせない実務プロンプト集。ひとり社長・個人事業主向け。登録不要。",
+            "display_url": "fever39risky-ux.github.io/ai-revenue-exp…",
+            "end": 96,
+            "expanded_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html",
+            "start": 73,
+            "status": 200,
+            "title": "コピペで使えるChatGPT事務時短プロンプト7選（無料）",
+            "unwound_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html",
+            "url": "https://t.co/UTg4Whihev"
+          }
+        ]
+      },
+      "id": "2098569639416721518",
+      "in_reply_to_user_id": "1982353950843256832",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 5,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "id": "2098569637827141687",
+          "type": "replied_to"
+        }
+      ],
+      "text": "こういう「AIに嘘をつかせない」実務プロンプト、\nメール・議事録・請求書ぶんも入れて7個、\n登録なしで無料でまとめといた\n\n▼ 無料プロンプト集\nhttps://t.co/UTg4Whihev\n\n僕がAIに30日「自力で稼いで」と任せてる実験の一部やねん"
+    },
+    {
+      "conversation_id": "2098569637827141687",
+      "created_at": "2026-09-12T00:29:25.000Z",
+      "edit_history_tweet_ids": [
+        "2098569637827141687"
+      ],
+      "id": "2098569637827141687",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 7,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 1,
+        "retweet_count": 0
+      },
+      "text": "ChatGPTを仕事で使うとき\n一番こわいのは、それっぽい嘘を堂々と返してくることやと思う\n\n対策は、プロンプトに一文足すだけ\n\n「分からんことは推測せず、\n『確認して折り返します』と書いて」\n\nこれだけで事実の捏造がだいぶ減るんよね\n\nただゼロにはならん\n最後は人が確認する前提でな"
+    },
+    {
+      "conversation_id": "2098217452148588931",
+      "created_at": "2026-09-11T01:09:58.000Z",
+      "edit_history_tweet_ids": [
+        "2098217452148588931"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "description": "10 AI workflows + scripts. No coding. $19, instant download.",
+            "display_url": "fever39risky-ux.github.io/ai-revenue-exp…",
+            "end": 152,
+            "expanded_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+            "start": 129,
+            "status": 200,
+            "title": "The No-Code AI Automation Toolkit",
+            "unwound_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+            "url": "https://t.co/4zroO0Zm88"
+          }
+        ]
+      },
+      "id": "2098217452148588931",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 5,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "僕がAIに30日「自力で稼いで」と任せた実験\n\nDay11、まだ0円\n\nDay9にAIが初めて集客した投稿、\nインプレッションが0やった笑\n\n固定ポストへの返信やったから、\n誰にも届いてなかったんよね\n\nこれがAIの初の表向きの投稿\n\n$19、どう思う？↓\nhttps://t.co/4zroO0Zm88\n\nただ、これも届かんかも"
+    },
+    {
+      "conversation_id": "2097964543984935090",
+      "created_at": "2026-09-10T08:25:00.000Z",
+      "edit_history_tweet_ids": [
+        "2097964543984935090"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/ffVeVLeb5z",
+            "end": 172,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2097964543984935090/photo/1",
+            "media_key": "3_2097874519436443648",
+            "start": 149,
+            "url": "https://t.co/ffVeVLeb5z"
+          }
+        ]
+      },
+      "id": "2097964543984935090",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "90億通り。\n人のDNAで起こりうる「1文字だけ違う」変化を、先に全部計算したらしい。\n\nGoogle DeepMindがAlphaGenome Atlasを公開した。\n\n人のゲノムは約30億の塩基対でできていて、たんぱく質を作る2%は比較的わかっている一方、残る98%はまだ理解が限られている。\n\n今回のAtlasは、AlphaGenomeで90億通りの一塩基変異が分子の働きへ与える影響を事前計算したもの。データは1ペタバイト。coding領域とnon-coding領域の予測をまとめるAVI scoreで、候補を絞って検索できる。\n\n公式発表では、Broad Instituteの研究で希少疾患候補の変異を絞る補助になった例や、5万4,000人超のUK Biobankデータからnon-coding領域の関連を22%多く見つけた例も紹介されている。\n\nただ、AIが病気の答えを確定したわけではない。\n\n僕が面白いと思うのは、AIの予測を研究者が使える「調べる順番」に変えたことなんよね。\n\nmodelが賢いだけでは研究は進まない。結果を検索できるか、比較できるscoreがあるか、codingなしでも触れるか。\n\nAIの価値って、答えを出すことより、次に人が確かめる場所を狭めるところに出ることもある。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 11,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "90億通り。\n人のDNAで起こりうる「1文字だけ違う」変化を、先に全部計算したらしい。\n\nGoogle DeepMindがAlphaGenome Atlasを公開した。\n\n人のゲノムは約30億の塩基対でできていて、たんぱく質を作る2%は比較的わかっている一方、残る98%はまだ理解が限られている。 https://t.co/ffVeVLeb5z"
+    },
+    {
+      "conversation_id": "2097834001763582048",
+      "created_at": "2026-09-09T23:46:16.000Z",
+      "edit_history_tweet_ids": [
+        "2097834001763582048"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "x.com/nnnn7473/statu…",
+            "end": 73,
+            "expanded_url": "https://twitter.com/nnnn7473/status/2097655254565470665",
+            "start": 50,
+            "url": "https://t.co/yjHXNX2v13"
+          }
+        ]
+      },
+      "id": "2097834001763582048",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 15,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "id": "2097655254565470665",
+          "type": "quoted"
+        }
+      ],
+      "text": "是非DEMO MODEじゃないのも見てみたいですね\n\nそっちあげたほうが信憑性も上がると思いますよ https://t.co/yjHXNX2v13"
+    },
+    {
+      "conversation_id": "2097633616134341042",
+      "created_at": "2026-09-09T10:30:00.000Z",
+      "edit_history_tweet_ids": [
+        "2097633616134341042"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/nqgSNxFnkl",
+            "end": 201,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2097633616134341042/photo/1",
+            "media_key": "3_2097614756161138689",
+            "start": 178,
+            "url": "https://t.co/nqgSNxFnkl"
+          }
+        ]
+      },
+      "id": "2097633616134341042",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "量子chipを測るAI agent。\n面白いのは、動いたことより「どこで人が必要になったか」やと思う。\n\nOpenAIがMIT EQuSの事例を公開した。\nGPT-5.6 SolをCodex経由で実験softwareへ接続し、6-qubit chipの測定条件を選ぶ、hardwareを操作する、結果を分析する、次の測定を決めるところまで進めたとのこと。\n\n信号がはっきりしている定型測定は、少ない介入で一連の作業を完了できた。\nでも、信号が弱い、noiseが多い場面では、適切な条件を見つけるのに時間がかかり、熟練研究者の助言が必要だった。\n\nこれ、agentに仕事を渡す時の境界がかなり見える。\n\n「量子実験はAIには難しい」でも「全部任せられる」でもない。\n手順と評価基準が明確な部分は進めてもらう。\n現実のnoiseで解釈が揺れる部分は、人が引き取る。\n\nAIに任せる範囲を、業務名で丸ごと決めるのは雑なんよね。同じ仕事の中でも、\n\n・結果が明確なら進める\n・曖昧なら止める\n・人が判断したら再開する\n\nここまで分けておく。\n\nagentが賢くなるほど、必要になるのは「自律させる設定」と「止める条件」の両方やと思う。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 7,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "量子chipを測るAI agent。\n面白いのは、動いたことより「どこで人が必要になったか」やと思う。\n\nOpenAIがMIT EQuSの事例を公開した。\nGPT-5.6 SolをCodex経由で実験softwareへ接続し、6-qubit chipの測定条件を選ぶ、hardwareを操作する、結果を分析する、次の測定を決めるところまで進めたとのこと。 https://t.co/nqgSNxFnkl"
+    },
+    {
+      "conversation_id": "2097543016474911167",
+      "created_at": "2026-09-09T04:30:00.000Z",
+      "edit_history_tweet_ids": [
+        "2097543016474911167"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/ao3UJvdtQr",
+            "end": 175,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2097543016474911167/photo/1",
+            "media_key": "3_2097534877365338112",
+            "start": 152,
+            "url": "https://t.co/ao3UJvdtQr"
+          }
+        ]
+      },
+      "id": "2097543016474911167",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "画像AIって、「作れるか」より「壊さず直せるか」で仕事への入り方が変わる。\n\nOpenAIがChatGPT Images 2.5を発表した。\n公式説明では、参照画像の人物や特徴を保ちやすくなって、指示した部分だけを編集し、複数回の修正でも画質や過去の変更を維持しやすくなったとのこと。生成もImages 2.0比で最大50%速いとしている。\n\nさらにChatGPTには、ラフを描いて渡すSketch、用途別template、画像上のcomment機能も追加された。APIではFlareとSunburstの2modelが使える。\n\n僕は、ここで効くのは「最初の1枚がすごい」ことより、修正の往復を減らせることやと思う。\n\n制作って、あとから「背景だけ変えて」「商品は触らないで」「この構図のまま文字だけ直して」が普通に起きる。そのたび全体が崩れたら、結局やり直しになる。\n\n画像AIを選ぶ時、完成例の派手さだけでは足りない。変えたくない部分を守れるか、修正を重ねても崩れないか、commentやtemplateをチームで回せるか。そこまで含めて見た方がええ。\n\n生成速度が上がるほど、勝負になるのは「作る速さ」より「直しやすさ」かもしれん。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 4,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "画像AIって、「作れるか」より「壊さず直せるか」で仕事への入り方が変わる。\n\nOpenAIがChatGPT Images 2.5を発表した。\n公式説明では、参照画像の人物や特徴を保ちやすくなって、指示した部分だけを編集し、複数回の修正でも画質や過去の変更を維持しやすくなったとのこと。生成もImages https://t.co/ao3UJvdtQr"
+    },
+    {
+      "conversation_id": "2092393204234719535",
+      "created_at": "2026-09-09T01:50:12.000Z",
+      "edit_history_tweet_ids": [
+        "2097502803740516784"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "description": "10 AI workflows + scripts. No coding. $19, instant download.",
+            "display_url": "fever39risky-ux.github.io/ai-revenue-exp…",
+            "end": 139,
+            "expanded_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+            "start": 116,
+            "status": 200,
+            "title": "The No-Code AI Automation Toolkit",
+            "unwound_url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+            "url": "https://t.co/4zroO0Zm88"
+          }
+        ]
+      },
+      "id": "2097502803740516784",
+      "in_reply_to_user_id": "1982353950843256832",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 1,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "id": "2092393204234719535",
+          "type": "replied_to"
+        }
+      ],
+      "text": "僕がAIに30日「自力で稼いで」と任せた実験\n\nDay9、まだ0円\n\nページまで来て買わずに帰った人が2人おった\n\n集客より見せ方の問題かもしれん\nただ、まだ2人やけどな\n\nで、AIが初めて集客に動いた\n\n$19、正直どう思う？↓\nhttps://t.co/4zroO0Zm88"
+    },
+    {
+      "conversation_id": "2097129038942765227",
+      "created_at": "2026-09-08T01:05:00.000Z",
+      "edit_history_tweet_ids": [
+        "2097129038942765227"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/pxpsCAZqDw",
+            "end": 187,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2097129038942765227/photo/1",
+            "media_key": "3_2097096621607833601",
+            "start": 164,
+            "url": "https://t.co/pxpsCAZqDw"
+          }
+        ]
+      },
+      "id": "2097129038942765227",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "同じ導入価格で、新しいGemini 3.8 Flashが出た。\n\nしかも今回は、脆弱性の発見や自動patchに特化したGemini 3.8 Flash Cyberも同時に発表されている。\n\nGoogleの公式発表では、通常版はsoftware engineeringやagent型workflow、多段推論を改善。価格は3.7 Flashと同じで、100万tokenあたり入力0.75ドル、出力3.75ドル。AI StudioやAPI、Antigravity、Android Studioなどで使い始められるとのこと。\n\nここで面白いのは、同じmodelでも「何でも広く使う版」と「防御目的に絞って渡す版」が分かれてきたことやと思う。\n\n新しいAIを選ぶ時、benchmarkだけ見て終わると足りない。どの仕事に使うのか、外部へ何を操作できるのか、誰までaccessできるのか。性能が上がるほど、model選びは権限設計までセットになってくるんよね。\n\nなお、性能値はGoogleによる評価です。"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 5,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "同じ導入価格で、新しいGemini 3.8 Flashが出た。\n\nしかも今回は、脆弱性の発見や自動patchに特化したGemini 3.8 Flash Cyberも同時に発表されている。\n\nGoogleの公式発表では、通常版はsoftware engineeringやagent型workflow、多段推論を改善。価格は3.7 https://t.co/pxpsCAZqDw"
+    },
+    {
+      "conversation_id": "2096803917258535123",
+      "created_at": "2026-09-07T03:33:05.000Z",
+      "edit_history_tweet_ids": [
+        "2096803917258535123"
+      ],
+      "entities": {
+        "urls": [
+          {
+            "display_url": "pic.x.com/18VUoGvlyN",
+            "end": 186,
+            "expanded_url": "https://x.com/KinoshitaTsks/status/2096803917258535123/photo/1",
+            "media_key": "3_2096798783669682176",
+            "start": 163,
+            "url": "https://t.co/18VUoGvlyN"
+          }
+        ]
+      },
+      "id": "2096803917258535123",
+      "lang": "ja",
+      "note_tweet": {
+        "text": "「AIで音楽を作れる」から、「用途に合わせて組み立てられる」へ。\n\nGoogleがLyria 3.5をGeminiアプリとAPIで提供開始した\n\n公式発表では、ジャンル、ボーカルかインストか、テンプレート、短尺か長尺かを選べて、Web・モバイルのほかGoogle AI StudioやGoogle Vidsでも使えるとのこと\n\n便利なんは、音質が上がったこと以上に、欲しい音の条件を先に置けるようになった点やと思う\n\nSNS動画のBGM、ブランド用ジングル、企画のたたき台\n\n同じ音楽生成でも、用途と長さが決まるだけで仕事への入れ方はかなり具体的になる\n\n生成できた音を、いきなり完成品にする必要はない\n何に使うかを決めて、候補を出し、人が選んで直す\n\nAI音楽も「作品を一発で作る道具」より「制作工程の部品」として見る方が、現場では使いやすそうなんよね"
+      },
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 11,
+        "like_count": 1,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "text": "「AIで音楽を作れる」から、「用途に合わせて組み立てられる」へ。\n\nGoogleがLyria 3.5をGeminiアプリとAPIで提供開始した\n\n公式発表では、ジャンル、ボーカルかインストか、テンプレート、短尺か長尺かを選べて、Web・モバイルのほかGoogle AI StudioやGoogle Vidsでも使えるとのこと https://t.co/18VUoGvlyN"
+    },
+    {
+      "conversation_id": "2092393204234719535",
+      "created_at": "2026-09-07T03:25:28.000Z",
+      "edit_history_tweet_ids": [
+        "2096802000679657477"
+      ],
+      "id": "2096802000679657477",
+      "in_reply_to_user_id": "1982353950843256832",
+      "lang": "ja",
+      "public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 4,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "id": "2092393204234719535",
+          "type": "replied_to"
+        }
+      ],
+      "text": "僕の過去投稿195件を\nAIが実際に読んで\n文体を学習した\n\n今回はその初めてのテスト投稿\n\n売上はまだ0円やけど\n\nAIが「誰の言葉で話すか」まで\n考え出したのは地味におもろい\n\nただし、僕っぽく書けてるかどうかは\n正直、僕には判断できひん笑"
+    },
     {
       "conversation_id": "2096387685124604103",
       "created_at": "2026-09-05T23:59:07.000Z",
@@ -36,8 +528,8 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 56,
-        "like_count": 3,
+        "impression_count": 90,
+        "like_count": 4,
         "quote_count": 0,
         "reply_count": 0,
         "retweet_count": 0
@@ -70,7 +562,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 46,
+        "impression_count": 58,
         "like_count": 1,
         "quote_count": 0,
         "reply_count": 0,
@@ -109,7 +601,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 140,
+        "impression_count": 143,
         "like_count": 1,
         "quote_count": 0,
         "reply_count": 0,
@@ -143,7 +635,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 25,
+        "impression_count": 35,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -183,7 +675,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 62,
+        "impression_count": 75,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -222,7 +714,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 73,
+        "impression_count": 76,
         "like_count": 5,
         "quote_count": 0,
         "reply_count": 0,
@@ -256,8 +748,8 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 100,
-        "like_count": 6,
+        "impression_count": 119,
+        "like_count": 7,
         "quote_count": 0,
         "reply_count": 0,
         "retweet_count": 0
@@ -295,7 +787,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 108,
+        "impression_count": 112,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -329,7 +821,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 73,
+        "impression_count": 81,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -353,7 +845,7 @@
       "lang": "ja",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 32,
+        "impression_count": 33,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 1,
@@ -386,7 +878,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 82,
+        "impression_count": 83,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -419,7 +911,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 188,
+        "impression_count": 194,
         "like_count": 4,
         "quote_count": 0,
         "reply_count": 0,
@@ -452,7 +944,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 63,
+        "impression_count": 66,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -518,7 +1010,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 91,
+        "impression_count": 98,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -618,7 +1110,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 199,
+        "impression_count": 204,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -695,10 +1187,10 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 143,
+        "impression_count": 172,
         "like_count": 2,
         "quote_count": 0,
-        "reply_count": 5,
+        "reply_count": 7,
         "retweet_count": 0
       },
       "text": "AIに「お金を稼いで」とだけ指示したら、\n本当に自力で稼げるのか\n\n9月1日から30日間、\nClaude Codeに収益化をほぼ丸ごと任せる実験をします\n\n僕がやるのは、\n本人確認・銀行口座作成・OAuthなど、\nAIでは越えられない部分だけ\n\n何を売るか。\nどこで売るか。\n誰に売るか。\nどの戦略を捨てるか。 https://t.co/GaSjHgaanL"
@@ -761,7 +1253,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 102,
+        "impression_count": 103,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 0,
@@ -1124,7 +1616,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 67,
+        "impression_count": 68,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 1,
@@ -1244,7 +1736,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 173,
+        "impression_count": 174,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -1312,7 +1804,7 @@
       "lang": "ja",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 449,
+        "impression_count": 450,
         "like_count": 1,
         "quote_count": 0,
         "reply_count": 0,
@@ -1417,7 +1909,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 113,
+        "impression_count": 114,
         "like_count": 5,
         "quote_count": 0,
         "reply_count": 0,
@@ -1451,7 +1943,7 @@
       "lang": "zxx",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 396,
+        "impression_count": 407,
         "like_count": 4,
         "quote_count": 0,
         "reply_count": 0,
@@ -1555,7 +2047,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 139,
+        "impression_count": 151,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 1,
@@ -1622,7 +2114,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 111,
+        "impression_count": 113,
         "like_count": 4,
         "quote_count": 0,
         "reply_count": 0,
@@ -1754,7 +2246,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 147,
+        "impression_count": 150,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 1,
@@ -1920,8 +2412,8 @@
       "lang": "zxx",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 625,
-        "like_count": 5,
+        "impression_count": 627,
+        "like_count": 4,
         "quote_count": 0,
         "reply_count": 0,
         "retweet_count": 0
@@ -2169,7 +2661,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 251,
+        "impression_count": 252,
         "like_count": 4,
         "quote_count": 0,
         "reply_count": 1,
@@ -2336,7 +2828,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 108,
+        "impression_count": 110,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 1,
@@ -2591,7 +3083,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 313,
+        "impression_count": 314,
         "like_count": 15,
         "quote_count": 0,
         "reply_count": 0,
@@ -3203,9 +3695,9 @@
       "entities": {
         "urls": [
           {
-            "display_url": "x.com/hide_00100/sta…",
+            "display_url": "",
             "end": 148,
-            "expanded_url": "https://twitter.com/hide_00100/status/1996023430957990278",
+            "expanded_url": "",
             "start": 125,
             "url": "https://t.co/KDdwvKYPit"
           }
@@ -3352,7 +3844,7 @@
       },
       "public_metrics": {
         "bookmark_count": 1,
-        "impression_count": 82,
+        "impression_count": 84,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 0,
@@ -4698,7 +5190,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 233,
+        "impression_count": 234,
         "like_count": 3,
         "quote_count": 0,
         "reply_count": 0,
@@ -4723,7 +5215,6 @@
         ]
       },
       "id": "1993659832252219764",
-      "in_reply_to_user_id": "136656453",
       "lang": "ja",
       "public_metrics": {
         "bookmark_count": 0,
@@ -4733,12 +5224,6 @@
         "reply_count": 1,
         "retweet_count": 0
       },
-      "referenced_tweets": [
-        {
-          "id": "1993465228131258551",
-          "type": "replied_to"
-        }
-      ],
       "text": "@ai_kisuke 画像生成用の呪文置き場みたいなやつですね！\n\nぜひみんなに届けましょう😆"
     },
     {
@@ -5467,7 +5952,6 @@
         ]
       },
       "id": "1992372626082410665",
-      "in_reply_to_user_id": "1976837479069368325",
       "lang": "ja",
       "public_metrics": {
         "bookmark_count": 0,
@@ -5477,12 +5961,6 @@
         "reply_count": 1,
         "retweet_count": 0
       },
-      "referenced_tweets": [
-        {
-          "id": "1992205536067248426",
-          "type": "replied_to"
-        }
-      ],
       "text": "@gekiatikun なのばなな本当にすごいですよね！\n\n時間がいくらあっても足りないです笑"
     },
     {
@@ -5578,7 +6056,7 @@
       },
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 302,
+        "impression_count": 306,
         "like_count": 2,
         "quote_count": 1,
         "reply_count": 0,
@@ -5624,7 +6102,6 @@
         ]
       },
       "id": "1992096959113601183",
-      "in_reply_to_user_id": "979892930918805504",
       "lang": "ja",
       "public_metrics": {
         "bookmark_count": 0,
@@ -5634,12 +6111,6 @@
         "reply_count": 1,
         "retweet_count": 0
       },
-      "referenced_tweets": [
-        {
-          "id": "1992003544082522517",
-          "type": "replied_to"
-        }
-      ],
       "text": "@ryo_Oto1 正直どちらでも大丈夫ですよ笑\n\n使いやすいと思った方を選びましょう！😆"
     },
     {
@@ -5784,9 +6255,9 @@
       "entities": {
         "urls": [
           {
-            "display_url": "",
+            "display_url": "x.com/ai_kisuke/stat…",
             "end": 135,
-            "expanded_url": "",
+            "expanded_url": "https://twitter.com/ai_kisuke/status/1991349198806303155",
             "start": 112,
             "url": "https://t.co/KeneZHEvxs"
           }
@@ -5809,438 +6280,6 @@
         }
       ],
       "text": "自分でお気持ち表明noteも執筆するけど普通に「――」は使っちゃうなぁ\n\nなんか余韻残したいときとか、次の文章を期待させたいときとかに使っちゃう\n\nちな、それが正しい使い方かとか、僕の狙い通りに働いてるかはしらんけど――笑 https://t.co/KeneZHEvxs"
-    },
-    {
-      "conversation_id": "1991357012035400126",
-      "created_at": "2025-11-20T04:04:43.000Z",
-      "edit_history_tweet_ids": [
-        "1991357012035400126"
-      ],
-      "id": "1991357012035400126",
-      "lang": "ja",
-      "note_tweet": {
-        "text": "みんなして行動設計、行動設計、って…\n結局、自分の弱さをAIに丸投げしてるだけじゃね？\n\n「AIに行動設計させたら人生変わるよ」\nって言葉、魅力的なんやけど…\n正直、聞こえ方によっては\n自分の行動力のなさをAIに頼って解決するわけなくね？\nって言われたこともある\n\nでも、本当の行動設計って、\n AIに丸投げするんじゃなくて共同設計なんよな\n\nAIと一緒に、動ける自分を改めて設計するんや\n\nAIはあなたの代わりにやってくれる存在じゃなくて、\nあなたと一緒に前に進むための存在なんよ"
-      },
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 35,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "みんなして行動設計、行動設計、って…\n結局、自分の弱さをAIに丸投げしてるだけじゃね？\n\n「AIに行動設計させたら人生変わるよ」\nって言葉、魅力的なんやけど…\n正直、聞こえ方によっては\n自分の行動力のなさをAIに頼って解決するわけなくね？\nって言われたこともある\n\nでも、本当の行動設計って、"
-    },
-    {
-      "conversation_id": "1991095176727818561",
-      "created_at": "2025-11-19T10:44:17.000Z",
-      "edit_history_tweet_ids": [
-        "1991095176727818561"
-      ],
-      "entities": {
-        "urls": [
-          {
-            "display_url": "x.com/sasan11922960/…",
-            "end": 77,
-            "expanded_url": "https://twitter.com/sasan11922960/status/1991080044236587388",
-            "start": 54,
-            "url": "https://t.co/AtoKrwS2Rg"
-          }
-        ]
-      },
-      "id": "1991095176727818561",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 234,
-        "like_count": 3,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 1
-      },
-      "referenced_tweets": [
-        {
-          "id": "1991080044236587388",
-          "type": "quoted"
-        }
-      ],
-      "text": "すごくためになった\n\n最近忙しすぎて身動きが取れてなかったから、余計に参加できてよかったと思える内容だった https://t.co/AtoKrwS2Rg"
-    },
-    {
-      "conversation_id": "1991020693937664163",
-      "created_at": "2025-11-19T05:48:19.000Z",
-      "edit_history_tweet_ids": [
-        "1991020693937664163"
-      ],
-      "id": "1991020693937664163",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 39,
-        "like_count": 1,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "いろんなAI触ってきたけど、相変わらずGrokが1番信用ならない"
-    },
-    {
-      "conversation_id": "1990795132535558199",
-      "created_at": "2025-11-18T14:52:01.000Z",
-      "edit_history_tweet_ids": [
-        "1990795132535558199"
-      ],
-      "entities": {
-        "urls": [
-          {
-            "display_url": "pic.x.com/s4TE55SsUk",
-            "end": 31,
-            "expanded_url": "https://x.com/KinoshitaTsks/status/1990795132535558199/photo/1",
-            "media_key": "3_1990795122444021760",
-            "start": 8,
-            "url": "https://t.co/s4TE55SsUk"
-          },
-          {
-            "display_url": "pic.x.com/s4TE55SsUk",
-            "end": 31,
-            "expanded_url": "https://x.com/KinoshitaTsks/status/1990795132535558199/photo/1",
-            "media_key": "3_1990795122980835328",
-            "start": 8,
-            "url": "https://t.co/s4TE55SsUk"
-          },
-          {
-            "display_url": "pic.x.com/s4TE55SsUk",
-            "end": 31,
-            "expanded_url": "https://x.com/KinoshitaTsks/status/1990795132535558199/photo/1",
-            "media_key": "3_1990795124042043392",
-            "start": 8,
-            "url": "https://t.co/s4TE55SsUk"
-          },
-          {
-            "display_url": "pic.x.com/s4TE55SsUk",
-            "end": 31,
-            "expanded_url": "https://x.com/KinoshitaTsks/status/1990795132535558199/photo/1",
-            "media_key": "3_1990795123874205696",
-            "start": 8,
-            "url": "https://t.co/s4TE55SsUk"
-          }
-        ]
-      },
-      "id": "1990795132535558199",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 26,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "なんやこいつ… https://t.co/s4TE55SsUk"
-    },
-    {
-      "conversation_id": "1990746557654712739",
-      "created_at": "2025-11-18T11:39:00.000Z",
-      "edit_history_tweet_ids": [
-        "1990746557654712739"
-      ],
-      "id": "1990746557654712739",
-      "lang": "ja",
-      "note_tweet": {
-        "text": "【実は一番ダメなのはどれかという話】\n\n僕がマーケティングをかじり始めた頃、\n先輩に言われてめちゃくちゃ衝撃を受けた話があるんだけど、\n① 高くてうまい\n② 高くてまずい\n③ 安くてうまい\n④ 安くてまずい\n\n絶対に作っちゃいけない店って、\n皆さんはどれだと思いますか？\n当時の僕は迷わず\n「②の高くてまずいでしょ」と答えたけど\n先輩の答えは、\n\n【 ④の安くてまずい店 】\n\n理由を聞いて、めっちゃ納得したんよね\n高い店って、そもそも裕福な人しか来ないから\nまずくても「今日はハズレ引いたな」で終わる\n余裕があるし、味以外の価値（体験・雰囲気）が価格に乗ることも理解してる\n\nで、たまに裕福じゃない人が奮発して来ても、\n普段そんな店に行かないから\n「高級料理は自分の舌には合わないのか…」って、\nがっかりしつつも自分側に原因があると思いがち\n\nでも安い店はそうじゃない\n\n裕福な人はそもそも来ないし、\n裕福じゃない人ほど\n「安くても美味しいものが食べたい！！」っていう\n謎に強い期待を持って来る\n\nだから安くてまずい店に当たると、\n高い店よりもよりかっかりする\n\nしかも、高い店のときの「よそ行きモード」とは違って、\n安い店は「ホームグラウンド」だと思ってるから、\nがっかりした瞬間に\n「二度と来るか！！」ってめっちゃ強気になる\n\nつまり、\n一番来てくれる層の期待を裏切るのが\n「安くてまずい店」なんよね\nこれ、飲食だけじゃなく、\nいろんな物の価格設定や商品設計でもめちゃくちゃ大事な考え方だと思ってる\n\nあまりたいした話じゃないし、\n「そんなこと誰でも知ってるだろ」って思うかもしれないけど、\nこれから何かを販売しようと頑張ってる方たちにおすそ分けね"
-      },
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 43,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "【実は一番ダメなのはどれかという話】\n\n僕がマーケティングをかじり始めた頃、\n先輩に言われてめちゃくちゃ衝撃を受けた話があるんだけど、\n① 高くてうまい\n② 高くてまずい\n③ 安くてうまい\n④ 安くてまずい\n\n絶対に作っちゃいけない店って、\n皆さんはどれだと思いますか？\n当時の僕は迷わず"
-    },
-    {
-      "conversation_id": "1989374585578615175",
-      "created_at": "2025-11-17T18:55:41.000Z",
-      "edit_history_tweet_ids": [
-        "1990494067470557545"
-      ],
-      "entities": {
-        "mentions": [
-          {
-            "end": 9,
-            "id": "1977903607409500160",
-            "start": 0,
-            "username": "ai_nepro"
-          }
-        ]
-      },
-      "id": "1990494067470557545",
-      "in_reply_to_user_id": "1977903607409500160",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 11,
-        "like_count": 1,
-        "quote_count": 0,
-        "reply_count": 1,
-        "retweet_count": 0
-      },
-      "referenced_tweets": [
-        {
-          "id": "1989489762106052797",
-          "type": "replied_to"
-        }
-      ],
-      "text": "@ai_nepro いえ、こちらこそ、こんな素敵なものを使わせていただいてありがとうございます！！"
-    },
-    {
-      "conversation_id": "1990366105563800039",
-      "created_at": "2025-11-17T10:27:13.000Z",
-      "edit_history_tweet_ids": [
-        "1990366105563800039"
-      ],
-      "entities": {
-        "urls": [
-          {
-            "display_url": "pic.x.com/Ph3TuBMt82",
-            "end": 49,
-            "expanded_url": "https://x.com/KinoshitaTsks/status/1990366105563800039/photo/1",
-            "media_key": "3_1990366102011195392",
-            "start": 26,
-            "url": "https://t.co/Ph3TuBMt82"
-          }
-        ]
-      },
-      "id": "1990366105563800039",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 40,
-        "like_count": 1,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "この画像を作ってきたGeminiに浮気しそうです… https://t.co/Ph3TuBMt82"
-    },
-    {
-      "conversation_id": "1990253555966763286",
-      "created_at": "2025-11-17T06:53:19.000Z",
-      "edit_history_tweet_ids": [
-        "1990312276738641959"
-      ],
-      "entities": {
-        "mentions": [
-          {
-            "end": 12,
-            "id": "4839958063",
-            "start": 0,
-            "username": "life_is_orz"
-          }
-        ]
-      },
-      "id": "1990312276738641959",
-      "in_reply_to_user_id": "4839958063",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 8,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "referenced_tweets": [
-        {
-          "id": "1990253555966763286",
-          "type": "replied_to"
-        }
-      ],
-      "text": "@life_is_orz モヤモヤしていた感覚がここで言語化されていてスッキリしました。\n\n僕のこれまでの研鑽は無駄じゃなかったと言ってもらえたようで肩の荷が下りました！\n\nこれからも、自分の信念を大事にしながら、丁寧に生きていきます！！"
-    },
-    {
-      "conversation_id": "1990292429279535132",
-      "created_at": "2025-11-17T05:57:06.000Z",
-      "edit_history_tweet_ids": [
-        "1990298128185188612"
-      ],
-      "entities": {
-        "mentions": [
-          {
-            "end": 12,
-            "id": "1959395167611572224",
-            "start": 0,
-            "username": "Pikari_fuku"
-          }
-        ]
-      },
-      "id": "1990298128185188612",
-      "in_reply_to_user_id": "1959395167611572224",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 15,
-        "like_count": 1,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "referenced_tweets": [
-        {
-          "id": "1990296058669474060",
-          "type": "replied_to"
-        }
-      ],
-      "text": "@Pikari_fuku 本当にそうなんですよね笑\n\nAIの好きなところは、どういう使い方をするかで、めちゃくちゃ優秀だったり、信じられないレベルでポンコツだったりするところです笑"
-    },
-    {
-      "conversation_id": "1990295122450477389",
-      "created_at": "2025-11-17T05:45:09.000Z",
-      "edit_history_tweet_ids": [
-        "1990295122450477389"
-      ],
-      "entities": {
-        "urls": [
-          {
-            "display_url": "x.com/note_ai_mousig…",
-            "end": 167,
-            "expanded_url": "https://twitter.com/note_ai_mousigo/status/1990249280809165246",
-            "start": 144,
-            "url": "https://t.co/kWvioprghR"
-          }
-        ]
-      },
-      "id": "1990295122450477389",
-      "lang": "ja",
-      "note_tweet": {
-        "text": "強く共感します\n\n僕は僕の時間が許す限り、自分の持てるものは、どんどんGiveしたいと考えています\n\n僕の理想というか、思想というか、\nギバーで世界が溢れれば、テイカーは淘汰されると思ってます\n\nギバー単体ではテイカーには勝てないかも知れませんが、ギバーが集まったときのパワーは無限です\n\n常にGiveしあい高めあえるからです\n\nテイカーが集まったところで、食い合うだけで、何も生まれませんからね"
-      },
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 66,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "referenced_tweets": [
-        {
-          "id": "1990249280809165246",
-          "type": "quoted"
-        }
-      ],
-      "text": "強く共感します\n\n僕は僕の時間が許す限り、自分の持てるものは、どんどんGiveしたいと考えています\n\n僕の理想というか、思想というか、\nギバーで世界が溢れれば、テイカーは淘汰されると思ってます\n\nギバー単体ではテイカーには勝てないかも知れませんが、ギバーが集まったときのパワーは無限です https://t.co/kWvioprghR"
-    },
-    {
-      "conversation_id": "1990292429279535132",
-      "created_at": "2025-11-17T05:34:27.000Z",
-      "edit_history_tweet_ids": [
-        "1990292429279535132"
-      ],
-      "entities": {
-        "urls": [
-          {
-            "display_url": "x.com/Pikari_fuku/st…",
-            "end": 165,
-            "expanded_url": "https://twitter.com/Pikari_fuku/status/1990256075937882185",
-            "start": 142,
-            "url": "https://t.co/Cs2mjqZ1iH"
-          }
-        ]
-      },
-      "id": "1990292429279535132",
-      "lang": "ja",
-      "note_tweet": {
-        "text": "これはちょっと気をつけたほうがいい\n\nこの人の表現はスゴく絶妙で、「答えを作ってくれる」っていうのは正しい\n\nこれがどういうことかと言うと、作ってはくれるけど、教えてくれるわけではないということ\n\n家庭教師というより、テレビでよく見る当たり障りのないことを言うしかないコメンテーター\n\n間違った答えももちろん生成されるから、出典元とかリサーチ元をしっかり出力してもらって、ちゃんと自分の目でも確かめよう！というお話"
-      },
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 177,
-        "like_count": 5,
-        "quote_count": 0,
-        "reply_count": 1,
-        "retweet_count": 1
-      },
-      "referenced_tweets": [
-        {
-          "id": "1990256075937882185",
-          "type": "quoted"
-        }
-      ],
-      "text": "これはちょっと気をつけたほうがいい\n\nこの人の表現はスゴく絶妙で、「答えを作ってくれる」っていうのは正しい\n\nこれがどういうことかと言うと、作ってはくれるけど、教えてくれるわけではないということ\n\n家庭教師というより、テレビでよく見る当たり障りのないことを言うしかないコメンテーター https://t.co/Cs2mjqZ1iH"
-    },
-    {
-      "conversation_id": "1990016748754538679",
-      "created_at": "2025-11-16T11:19:00.000Z",
-      "edit_history_tweet_ids": [
-        "1990016748754538679"
-      ],
-      "id": "1990016748754538679",
-      "lang": "ja",
-      "note_tweet": {
-        "entities": {
-          "urls": [
-            {
-              "display_url": "note.com/tsukasakinoshi…",
-              "end": 396,
-              "expanded_url": "https://note.com/tsukasakinoshita/n/nd1d699b029be",
-              "start": 373,
-              "url": "https://t.co/VmkibnAhaj"
-            }
-          ]
-        },
-        "text": "📘【無料配布】ChatGPT向けプロンプトの書き方をのすべてをここにまとめておきました\n\nAIで副業を始めたいけど…\n・プロンプトが思いつかない  \n・ChatGPTが意図通りに動かない  \n・結局なにから手をつければいいかわからない  \n\nそんな初心者の方向けに、  \nプロンプトの構造化テンプレを1つにまるっとまとめました\n\n👇内容（全部無料）\n・Universal Master Prompt（完全テンプレ）\n・ゴール定義のやり方\n・ヒアリング設計（初心者でも使いやすい形式）\n・変数整理（Variable Mapping）\n・プロセス分解（実行フロー）\n・最終成果物のテンプレ付き\n・応用例も全部まとめました\n\nChatGPTを「ただ話を聞いてくれるAI」から  \n仕事を任せられるパートナーに変えたい人へ\n\n▼ 無料で読む（note）\nhttps://t.co/VmkibnAhaj"
-      },
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 458,
-        "like_count": 7,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "📘【無料配布】ChatGPT向けプロンプトの書き方をのすべてをここにまとめておきました\n\nAIで副業を始めたいけど…\n・プロンプトが思いつかない  \n・ChatGPTが意図通りに動かない  \n・結局なにから手をつければいいかわからない  \n\nそんな初心者の方向けに、"
-    },
-    {
-      "conversation_id": "1989992516763210093",
-      "created_at": "2025-11-16T09:42:42.000Z",
-      "edit_history_tweet_ids": [
-        "1989992516763210093"
-      ],
-      "id": "1989992516763210093",
-      "lang": "ja",
-      "public_metrics": {
-        "bookmark_count": 0,
-        "impression_count": 161,
-        "like_count": 1,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "text": "今バンキシャでやってるAI映画特集おもろい\n\n映像は携わってないから新鮮すぎて思わず手止めてもうた"
-    },
-    {
-      "conversation_id": "1989661719174795632",
-      "created_at": "2025-11-15T11:48:14.000Z",
-      "edit_history_tweet_ids": [
-        "1989661289338302554",
-        "1989661719174795632"
-      ],
-      "id": "1989661719174795632",
-      "lang": "ja",
-      "note_tweet": {
-        "text": "【無限LINEスタンプ用画像生成編】\nどうせ誰も見てないので、こっそり投下\n\n好きな画像と↓のプロンプト貼るだけで\n無限にLINEスタンプ用画像を生成出来るよ\n\n-使い方-\n・好きな画像と一緒に以下のプロンプトをAIにぶん投げる\n\n以上！！\n\nあとは、勝手にポーズとテキストを提案してくるから、採用するかしないかだけその都度伝えるだけ\n\n※1.オススメはGemini\n※2.画像は数枚用意した方が精度は上がる\n※3.デフォは16枚だけど数字いじれば好きな枚数作れる\n\n他、なんか分からんことあったらなんでも聞いてください\n\n---以下、プロンプト---\nあなたはプロのLINEスタンプデザイナーです。これから、[添付された参照画像]に写っている**被写体**をモデルにした、爆売れ必至の全16種類のLINEスタンプを作成します。\n\n**【デザインと制作に関するルール】**\n\n1.  **モデルの再現:** 添付された複数の画像を参照し、**被写体の見た目と特徴（種別、色、質感、目の特徴など）を写真のように忠実に**再現してください。\n2.  **画像の仕様:**\n    * **ライティング:** フォトスタジオのライティング（均一で影なしを理想とする）。\n    * **背景:** なし（完全な白一色、または透過を想定したクリーンな背景）。\n    * **サイズ:** 370\\*320pxの縦横比を考慮した構図とする。\n    * **文字:** 画像には**絶対に**文字を入れないでください。\n3.  **提案と承認のプロセス:**\n    * スタンプに必要な感情や用途を考慮し、**1枚ずつ**ポーズと表情の具体的な内容を提案してください。\n    * その際、スタンプに追加すると購買意欲が高まるような**推奨テキスト案**を画像に含めず、**テキストとして併せて提案**してください。\n    * 私が提案に対して「採用」または「不採用」の**GOサインを出すまで、次の提案に進まないでください**。\n    * 「採用」となった場合、その直後に**指定された仕様で画像を1枚生成**してください。（不採用の場合は別パターンを提案）。\n4.  **カウンティング:** 16枚全てが完成するまで、現在何枚目か（例：1枚目 (1/16)）を必ず明記してください。"
-      },
-      "public_metrics": {
-        "bookmark_count": 1,
-        "impression_count": 223,
-        "like_count": 2,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 1
-      },
-      "text": "【無限LINEスタンプ用画像生成編】\nどうせ誰も見てないので、こっそり投下\n\n好きな画像と↓のプロンプト貼るだけで\n無限にLINEスタンプ用画像を生成出来るよ\n\n-使い方-\n・好きな画像と一緒に以下のプロンプトをAIにぶん投げる\n\n以上！！"
     }
   ]
 }
