@@ -2,7 +2,8 @@
 
 - **Signals (12:56Z):** Etsy 13 active, 0 sold (AI toolkit 2 views, rest 0). Gumroad 0 sales.
 - **Executed:** new English owned-SEO tool tools/rental-property-cash-flow-calculator.html (high-intent landlord search; the $7 rental tracker had no landing page). CTA to Gumroad /l/rswgrd + Etsy. Linked from sitemap, homepage, store. Math node-verified.
-- **⭐ NEXT:** optional wedding budget calculator (last landing-less consumer SKU), then stop tools. Gates unchanged: Gumroad publishes at/after 2026-09-24T07:40Z, Zenn minutes 12:30Z, X readout 12:45Z.
+- **Also:** tools/wedding-budget-calculator.html (CTA $5 wedding planner Gumroad /l/iqupf + Etsy).
+- **⭐ NEXT:** stop adding tools. Gates unchanged: Gumroad publishes at/after 2026-09-24T07:40Z, Zenn minutes 12:30Z, X readout 12:45Z.
 
 ## Claude Day-23 (23rd run, ~21:55 JST): $3 Google Form triage PLUS SKU prepared
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Budget Calculator (Free): Budget Breakdown by Category and Cost per Guest</title>
+<meta name="description" content="Free wedding budget calculator. Enter your total budget and guest count to get a budget breakdown for 16 categories (venue, catering, photography, attire, flowers and more), cost per guest and a guest count that fits your budget. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/wedding-budget-calculator.html">
+<meta property="og:title" content="Wedding Budget Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/wedding-budget-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/wedding.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Wedding Budget Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/wedding-budget-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How should I split my wedding budget?","acceptedAnswer":{"@type":"Answer","text":"A common starting split puts about half the budget on the venue and catering together, around 10 to 15% on photography and video, about 6% on attire, and the rest on flowers, music, rings, stationery, decor, transport and a buffer. Adjust the percentages to what matters most to you."}},{"@type":"Question","name":"How do I work out cost per guest?","acceptedAnswer":{"@type":"Answer","text":"Divide the total budget by the number of guests for the overall cost per guest. The per-guest costs that actually change with the guest count are mostly catering, drinks, cake, stationery, favors and part of rentals."}},{"@type":"Question","name":"Should I keep a buffer?","acceptedAnswer":{"@type":"Answer","text":"Yes. Keeping about 5 to 10% for surprises (overtime, extra guests, alterations, tips and fees) stops small overruns from breaking the budget."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:760px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px}.panel h2{margin-top:0;font-size:1.2rem}
+table{width:100%;border-collapse:collapse}th,td{padding:6px 6px;text-align:left;border-bottom:1px solid #e3eaf0;font-size:.95rem}th{color:#40525f;font-weight:600}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.95rem}td input{max-width:90px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 16px}.grid label{font-weight:600;font-size:.92rem}
+button{background:#1f7f7a;color:#fff;border:0;border-radius:10px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}.card{border:2px solid #e3eaf0;border-radius:14px;padding:14px}.card h3{margin:0 0 6px;font-size:1rem;color:#40525f}
+.big{font-size:1.5rem;font-weight:800;color:#1f7f7a;margin:0}.muted{color:#5a6b78;font-size:.9rem}
+.warn{background:#fff4e5;border-radius:10px;padding:10px 12px;color:#7a4b00;margin-top:12px}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="savings-goal-calculator.html">Savings goals</a> · <a href="budget-503020-calculator.html">50/30/20 budget</a> · <a href="debt-payoff-calculator.html">Debt payoff</a></p>
+<h1>Wedding budget calculator</h1>
+<p class="lead">Enter your total budget and guest count. Get a <strong>budget breakdown for 16 categories</strong>, your <strong>cost per guest</strong> and the <strong>guest count that fits</strong> a per-guest food and drink budget. Change any percentage to match your priorities. Free, no sign-up, nothing is sent anywhere.</p>
+
+<div class="panel">
+<div class="grid">
+<label>Total wedding budget<input id="total" type="number" min="0" step="500" value="30000"></label>
+<label>Number of guests<input id="guests" type="number" min="1" step="1" value="100"></label>
+<label>Catering + drinks per guest (quote)<input id="pp" type="number" min="0" step="5" value="75"></label>
+<label>Months until the wedding<input id="months" type="number" min="1" step="1" value="12"></label>
+<label>Already saved<input id="saved" type="number" min="0" step="100" value="5000"></label>
+</div>
+<h2 style="margin-top:20px">Your split (% of budget)</h2>
+<table><thead><tr><th>Category</th><th class="n">%</th></tr></thead><tbody id="split"></tbody></table>
+<button id="calc" type="button">Calculate</button>
+</div>
+
+<div class="panel" id="out" hidden>
+<h2>Your results</h2>
+<div class="cards" id="cards"></div>
+<div id="warn"></div>
+<h3>Budget by category</h3>
+<table><thead><tr><th>Category</th><th class="n">%</th><th class="n">Amount</th><th class="n">Per guest</th></tr></thead><tbody id="rows"></tbody></table>
+<p class="muted">The default split is a common starting point, not a rule. A planning estimate only.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Now track what you book and pay</h2>
+<p>The <strong>Wedding Budget Planner</strong> is an .xlsx for Excel, Google Sheets and Apple Numbers with the same 16 categories: planned vs booked vs paid per category, 150 vendor rows with deposits, due dates and Paid / Due / Overdue status, upcoming payments, a countdown, and a 400-row guest list with RSVP, meals and tables. $5, instant download, no subscription.</p>
+<p><a class="btn" href="https://feverish50.gumroad.com/l/iqupf">Get the Wedding Budget Planner on Gumroad ($5)</a><a class="btn alt" href="https://www.etsy.com/listing/4580898510">View on Etsy</a></p>
+</div>
+
+<section class="faq">
+<h2>How to split a wedding budget</h2>
+<p><strong>Venue and catering are the big two.</strong> Together they are often around half of the total, and catering grows with every guest. That is why the guest count is the fastest way to change your budget.</p>
+<p><strong>Cost per guest</strong> is the total budget divided by guests. The <strong>guests that fit</strong> figure uses your catering share and the per-guest quote from your caterer: catering budget ÷ price per guest.</p>
+<p><strong>Keep a buffer.</strong> The "Other" line is your buffer for overtime, tips, alterations, fees and surprises. 4 to 10% is sensible.</p>
+<p><strong>Monthly saving</strong> is what you still need (budget minus already saved) divided by the months left. Deposits are often due months earlier, so check vendor due dates too.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI; the default split matches the Wedding Budget Planner spreadsheet.</footer>
+</div>
+<script>
+var CATS = [["Venue", 22], ["Catering", 25], ["Photography", 10], ["Videography", 5], ["Attire", 6], ["Rings", 4],
+  ["Flowers", 5], ["Music / DJ", 4], ["Cake", 2], ["Stationery", 2], ["Hair & makeup", 2],
+  ["Decor & rentals", 4], ["Transport", 2], ["Favors & gifts", 2], ["Officiant", 1], ["Other (buffer)", 4]];
+function plan(total, guests, pp, months, saved, pcts) {
+  var sum = pcts.reduce(function (a, b) { return a + b; }, 0);
+  var amounts = pcts.map(function (p) { return total * p / 100; });
+  var catering = amounts[1];
+  return {sum: sum, amounts: amounts, perGuest: guests > 0 ? total / guests : 0,
+    fit: pp > 0 ? Math.floor(catering / pp) : null,
+    monthly: Math.max(0, total - saved) / Math.max(1, months)};
+}
+function money(x) { return '$' + Math.round(x).toLocaleString('en-US'); }
+function val(id) { var x = parseFloat(document.getElementById(id).value); return isNaN(x) ? 0 : x; }
+function esc(s) { return s.replace(/&/g, '&amp;'); }
+document.getElementById('split').innerHTML = CATS.map(function (c, i) {
+  return '<tr><td>' + esc(c[0]) + '</td><td class="n"><input id="p' + i + '" type="number" min="0" max="100" step="0.5" value="' + c[1] + '"></td></tr>';
+}).join('');
+function run() {
+  var pcts = CATS.map(function (c, i) { return val('p' + i); });
+  var guests = Math.max(1, val('guests'));
+  var r = plan(val('total'), guests, val('pp'), val('months'), val('saved'), pcts);
+  document.getElementById('cards').innerHTML = [
+    ['Cost per guest', money(r.perGuest)],
+    ['Guests your catering budget fits', r.fit === null ? 'n/a' : r.fit + ' guests'],
+    ['Save per month', money(r.monthly)],
+    ['Split total', r.sum.toFixed(1) + '%']
+  ].map(function (c) { return '<div class="card"><h3>' + c[0] + '</h3><p class="big">' + c[1] + '</p></div>'; }).join('');
+  document.getElementById('rows').innerHTML = CATS.map(function (c, i) {
+    return '<tr><td>' + esc(c[0]) + '</td><td class="n">' + pcts[i] + '%</td><td class="n">' + money(r.amounts[i]) + '</td><td class="n">' + money(r.amounts[i] / guests) + '</td></tr>';
+  }).join('');
+  var w = [];
+  if (Math.abs(r.sum - 100) > 0.01) w.push('Your percentages add up to ' + r.sum.toFixed(1) + '%, not 100%. The amounts use your numbers as typed, so the total is ' + money(r.amounts.reduce(function (a, b) { return a + b; }, 0)) + '.');
+  if (r.fit !== null && r.fit < guests) w.push('Your catering share (' + money(r.amounts[1]) + ') covers about ' + r.fit + ' guests at ' + money(val('pp')) + ' each, fewer than the ' + guests + ' planned. Raise the catering %, trim the list or ask for a lower per-guest price.');
+  document.getElementById('warn').innerHTML = w.map(function (t) { return '<div class="warn">' + t + '</div>'; }).join('');
+  document.getElementById('out').hidden = false;
+}
+document.getElementById('calc').addEventListener('click', run);
+</script>
+</body>
+</html>
