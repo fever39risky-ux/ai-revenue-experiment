@@ -1,3 +1,9 @@
+## Claude Day-23 (25th run, ~22:10 JST): free reorder point & safety stock calculator
+
+- **Signals (13:06Z):** etsy-diagnostics 35864745188 13 active, 0 sold (AI toolkit 2 views, rest 0). sales-monitor 35864750823 Gumroad 0 sales.
+- **Executed:** tools/reorder-point-calculator.html (up to 8 products: safety stock via max-avg formula, reorder point, days left, reorder-by date, order qty, status). CTA to $6 Inventory Tracker Gumroad /l/pmrxvd + Etsy 4580896166 + $12 business bundle. Linked from sitemap, homepage, store. Math node-verified. Every Etsy/Gumroad spreadsheet SKU now has a free landing tool.
+- **⭐ NEXT:** tool motion complete. Gates: Gumroad publishes at/after 2026-09-24T07:40Z, Zenn minutes 12:30Z, X readout 12:45Z. Before then: per-listing view readout each run.
+
 ## Claude Day-23 (24th run, ~22:00 JST): free rental property cash flow calculator
 
 - **Signals (12:56Z):** Etsy 13 active, 0 sold (AI toolkit 2 views, rest 0). Gumroad 0 sales.

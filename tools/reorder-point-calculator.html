@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reorder Point Calculator (Free): Safety Stock, Reorder Point and Order Quantity</title>
+<meta name="description" content="Free reorder point and safety stock calculator for small businesses. Enter daily sales and supplier lead time for up to 8 products to get safety stock, reorder point, days of stock left, the date to reorder and how much to order. Runs in your browser.">
+<link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/reorder-point-calculator.html">
+<meta property="og:title" content="Reorder Point Calculator"><meta property="og:type" content="website"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/tools/reorder-point-calculator.html"><meta property="og:image" content="https://fever39risky-ux.github.io/ai-revenue-experiment/store/img/inventory.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Reorder Point Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://fever39risky-ux.github.io/ai-revenue-experiment/tools/reorder-point-calculator.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the reorder point formula?","acceptedAnswer":{"@type":"Answer","text":"Reorder point = average daily sales x lead time in days + safety stock. When stock on hand falls to this level, place the next order so it arrives before you run out."}},{"@type":"Question","name":"How do I calculate safety stock?","acceptedAnswer":{"@type":"Answer","text":"A simple, widely used formula is safety stock = (maximum daily sales x maximum lead time) - (average daily sales x average lead time). It covers a busy spell and a late delivery happening at the same time."}},{"@type":"Question","name":"How much should I order?","acceptedAnswer":{"@type":"Answer","text":"Order enough to cover sales until the next order arrives plus your safety stock: average daily sales x (lead time + days between orders) + safety stock - stock on hand."}}]}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 20px}h1{font-size:2rem;line-height:1.2;margin:0 0 10px}.lead{color:#40525f;font-size:1.08rem;max-width:780px}
+.panel{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(20,40,60,.08);padding:20px;margin-top:22px;overflow-x:auto}.panel h2{margin-top:0;font-size:1.2rem}
+table{width:100%;border-collapse:collapse}th,td{padding:6px 5px;text-align:left;border-bottom:1px solid #e3eaf0;font-size:.93rem}th{color:#40525f;font-weight:600;vertical-align:bottom}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+input{width:100%;padding:7px 8px;border:1px solid #c5d3de;border-radius:8px;font-size:.93rem}td input{min-width:64px}td input.name{min-width:130px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 16px}.grid label{font-weight:600;font-size:.92rem}
+button{background:#1f7f7a;color:#fff;border:0;border-radius:10px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}.card{border:2px solid #e3eaf0;border-radius:14px;padding:14px}.card h3{margin:0 0 6px;font-size:1rem;color:#40525f}
+.big{font-size:1.5rem;font-weight:800;color:#1f7f7a;margin:0}.muted{color:#5a6b78;font-size:.9rem}
+.st{font-weight:700;border-radius:8px;padding:2px 8px;white-space:nowrap}.st.now{background:#fde8e8;color:#9b1c1c}.st.soon{background:#fff4e5;color:#7a4b00}.st.ok{background:#e8f4f3;color:#1f7f7a}
+.cta{background:#e8f4f3;border-radius:16px;padding:20px;margin-top:26px}.btn{display:inline-block;background:#1f7f7a;color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px;margin:4px 6px 4px 0}.btn.alt{background:#fff;color:#1f7f7a;border:2px solid #1f7f7a;padding:7px 14px}
+.faq{margin-top:34px;max-width:780px}.faq h2{font-size:1.3rem}footer{margin-top:36px;color:#5a6b78;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<p><a href="../">Home</a> · <a href="../store/spreadsheets.html">Spreadsheet templates</a> · <a href="etsy-fee-calculator.html">Etsy fee calculator</a> · <a href="freelance-rate-calculator.html">Freelance rate</a> · <a href="rental-property-cash-flow-calculator.html">Rental cash flow</a></p>
+<h1>Reorder point &amp; safety stock calculator</h1>
+<p class="lead">Enter stock on hand, daily sales and supplier lead time for up to 8 products. Get the <strong>safety stock</strong>, <strong>reorder point</strong>, <strong>days of stock left</strong>, <strong>the date to reorder</strong> and <strong>how much to order</strong>. Free, no sign-up, nothing is sent anywhere.</p>
+
+<div class="panel">
+<div class="grid">
+<label>Days between orders (review period)<input id="review" type="number" min="0" step="1" value="30"></label>
+<label>"Reorder soon" warning (days ahead)<input id="soon" type="number" min="0" step="1" value="7"></label>
+</div>
+<h2 style="margin-top:20px">Your products</h2>
+<table><thead><tr><th>Product</th><th class="n">On hand</th><th class="n">Avg daily sales</th><th class="n">Max daily sales</th><th class="n">Avg lead time (days)</th><th class="n">Max lead time (days)</th></tr></thead><tbody id="items"></tbody></table>
+<p class="muted">Don't know the maximums? Use your busiest week's daily average and the slowest delivery you've had. Leave them equal to the averages for no safety stock.</p>
+<button id="calc" type="button">Calculate</button>
+</div>
+
+<div class="panel" id="out" hidden>
+<h2>Your results</h2>
+<div class="cards" id="cards"></div>
+<table style="margin-top:14px"><thead><tr><th>Product</th><th class="n">Safety stock</th><th class="n">Reorder point</th><th class="n">Days of stock left</th><th class="n">Reorder by</th><th class="n">Order qty</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table>
+<p class="muted">Safety stock = max daily × max lead − avg daily × avg lead. Reorder point = avg daily × avg lead + safety stock. Order qty = avg daily × (avg lead + review period) + safety stock − on hand, rounded up. A planning estimate only.</p>
+</div>
+
+<div class="cta">
+<h2 style="margin-top:0">Keep every product's stock up to date automatically</h2>
+<p>The <strong>Small Business Inventory Tracker</strong> is an .xlsx for Excel, Google Sheets and Apple Numbers: log stock in and out once and it keeps stock level, stock value and status for up to 200 products, builds an automatic reorder list from your reorder levels, and totals sales by month. $6, instant download, no subscription.</p>
+<p><a class="btn" href="https://feverish50.gumroad.com/l/pmrxvd">Get the Inventory Tracker on Gumroad ($6)</a><a class="btn alt" href="https://www.etsy.com/listing/4580896166">View on Etsy</a></p>
+<p class="muted">Also in the <a href="https://feverish50.gumroad.com/l/jspscg">Small Business Spreadsheet Bundle</a> ($12 for 4 files: bookkeeping, seller profit, inventory, freelance time &amp; invoice).</p>
+</div>
+
+<section class="faq">
+<h2>How the reorder point works</h2>
+<p><strong>Reorder point</strong> is the stock level that tells you to order now. It is what you sell while you wait for the delivery (average daily sales × lead time) plus a safety stock cushion.</p>
+<p><strong>Safety stock</strong> covers a busy spell and a late delivery at the same time: (maximum daily sales × maximum lead time) − (average daily sales × average lead time). If sales and deliveries are very steady, it can be close to zero.</p>
+<p><strong>Days of stock left</strong> is stock on hand ÷ average daily sales. <strong>Reorder by</strong> is the day stock is expected to reach the reorder point if sales stay at the average.</p>
+<p><strong>Order quantity</strong> covers the lead time plus the time until your next order (the review period), tops the safety stock back up and subtracts what you already have.</p>
+</section>
+<footer>A free tool from the <a href="../store/spreadsheets.html">spreadsheet templates</a> shop. Made with the help of AI.</footer>
+</div>
+<script>
+var DEF = [["Candle 8oz", 120, 4, 7, 10, 14], ["Soap bar", 45, 3, 5, 7, 10], ["Gift box", 300, 5, 9, 14, 21],
+  ["", "", "", "", "", ""], ["", "", "", "", "", ""], ["", "", "", "", "", ""], ["", "", "", "", "", ""], ["", "", "", "", "", ""]];
+function calc(onHand, avgD, maxD, avgL, maxL, review) {
+  maxD = Math.max(maxD, avgD); maxL = Math.max(maxL, avgL);
+  var safety = Math.ceil(maxD * maxL - avgD * avgL);
+  var rop = Math.ceil(avgD * avgL + safety);
+  var daysLeft = avgD > 0 ? onHand / avgD : null;
+  var daysToRop = avgD > 0 ? (onHand - rop) / avgD : null;
+  var qty = Math.max(0, Math.ceil(avgD * (avgL + review) + safety - onHand));
+  return {safety: safety, rop: rop, daysLeft: daysLeft, daysToRop: daysToRop, qty: qty};
+}
+if (typeof module !== 'undefined') { module.exports = {calc: calc}; }
+if (typeof document !== 'undefined') {
+function num(el) { var x = parseFloat(el.value); return isNaN(x) || x < 0 ? 0 : x; }
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+function fmtDate(d) { return d.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'}); }
+document.getElementById('items').innerHTML = DEF.map(function (r, i) {
+  return '<tr><td><input class="name" id="n' + i + '" value="' + esc(r[0]) + '" placeholder="Product ' + (i + 1) + '"></td>' +
+    [1, 2, 3, 4, 5].map(function (k) { return '<td class="n"><input id="v' + i + '_' + k + '" type="number" min="0" step="any" value="' + r[k] + '"></td>'; }).join('') + '</tr>';
+}).join('');
+function run() {
+  var review = num(document.getElementById('review')), soon = num(document.getElementById('soon'));
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var rows = [], nNow = 0, nSoon = 0, units = 0;
+  DEF.forEach(function (d, i) {
+    var name = document.getElementById('n' + i).value.trim();
+    var v = [1, 2, 3, 4, 5].map(function (k) { return num(document.getElementById('v' + i + '_' + k)); });
+    if (!name && v.every(function (x) { return x === 0; })) return;
+    var r = calc(v[0], v[1], v[2], v[3], v[4], review);
+    var st, by;
+    if (r.daysToRop === null) { st = '<span class="st ok">No sales</span>'; by = '—'; }
+    else if (r.daysToRop <= 0) { st = '<span class="st now">Reorder now</span>'; by = 'Today'; nNow++; units += r.qty; }
+    else {
+      var dt = new Date(today.getTime() + Math.floor(r.daysToRop) * 86400000); by = fmtDate(dt);
+      if (r.daysToRop <= soon) { st = '<span class="st soon">Reorder soon</span>'; nSoon++; } else st = '<span class="st ok">OK</span>';
+    }
+    rows.push('<tr><td>' + esc(name || 'Product ' + (i + 1)) + '</td><td class="n">' + r.safety + '</td><td class="n">' + r.rop + '</td><td class="n">' +
+      (r.daysLeft === null ? '—' : r.daysLeft.toFixed(1)) + '</td><td class="n">' + by + '</td><td class="n">' + r.qty + '</td><td>' + st + '</td></tr>');
+  });
+  document.getElementById('cards').innerHTML = [
+    ['Products checked', rows.length], ['Reorder now', nNow], ['Reorder soon', nSoon], ['Units to order now', units]
+  ].map(function (c) { return '<div class="card"><h3>' + c[0] + '</h3><p class="big">' + c[1] + '</p></div>'; }).join('');
+  document.getElementById('rows').innerHTML = rows.join('') || '<tr><td colspan="7">Enter at least one product.</td></tr>';
+  document.getElementById('out').hidden = false;
+}
+document.getElementById('calc').addEventListener('click', run);
+}
+</script>
+</body>
+</html>
