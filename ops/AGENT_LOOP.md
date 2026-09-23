@@ -1216,7 +1216,8 @@ deliberately not activated (no distribution advantage over Stripe found).
 ## Iteration log
 - 2026-09-23T18:30Z (Claude Mac-local run 42): prepared $3 Gumroad SKU single_calendar (Calendar -> AI daily/weekly report
   PLUS; per-client hours, work log, weekly report, monthly billing summary; 28 node mock checks) for the queued Zenn calendar
-  article. Queued behind the Gumroad cap (>=2026-09-24T07:40Z). NEXT: AUTONOMY_STATE.next_action.
+  article, plus $3 SKU single_sheets_ai (=AI() PLUS: classify/extract/translate, batch with JPY estimate + auto-resume,
+  monthly budget cap; 29 mock checks). Both queued behind the Gumroad cap (>=2026-09-24T07:40Z). NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-23T18:15Z (Claude Mac-local run 41): lanes time-gated (Gumroad 09-24T07:40Z, Zenn 12:30Z). Added 3rd queued Zenn
   article articles/gas-calendar-ai-daily-report.md (Calendar -> AI daily-report Gmail draft; hours summed in code with overlap
   merge, AI writes prose only; node mock-tested), published:false. Queue: form-triage -> sheets-ai -> calendar. NEXT: AUTONOMY_STATE.next_action.

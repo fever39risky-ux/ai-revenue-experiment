@@ -1,0 +1,20 @@
+{
+  "_doc": "Single-script entry SKU ($3) #5, same pipeline as the other single SKUs (publish via gumroad-publish-config.yml). Created 2026-09-23 for readers of the queued Zenn article gas-sheets-ai-custom-function (not in PRO). Materially more than the free article code: AI_CLASSIFY (validated against fixed choices), AI_EXTRACT (multi-field horizontal spill), AI_TRANSLATE, formula-free batch processing with row count + JPY estimate confirm, 6-minute-limit auto-resume, skip-filled rows (no double billing), monthly JPY budget cap from API usage tokens, usage menu, PII masking (29 node mock checks passed). Queued behind Gumroad's 10-products/day cap (retry >=2026-09-24T07:40Z).",
+  "name": "スプレッドシート =AI() 関数｜GAS拡張版（分類・抽出・翻訳関数／数百行の一括処理／月の予算上限）",
+  "description": "Zennで公開した「スプレッドシートに =AI() 関数を自作する」Google Apps Scriptの拡張版です。そのまま貼って動くスクリプト1本と、日本語の導入手順・見本データをまとめました。\n\n■ 記事版からの追加機能\n・=AI_CLASSIFY(セル, \"要望/不満/質問/その他\")：選択肢のどれか1つだけを返します。AIが余計な言葉を付けても選択肢に合わせ、合わなければ「#判定不能」。そのまま集計に使えます\n・=AI_EXTRACT(セル, \"会社名/氏名/金額\")：項目ごとに右のセルへ横並びで抜き出します\n・=AI_TRANSLATE(セル, \"英語\")：翻訳\n・一括処理（値で書き込み）：列を選んでメニューから実行。数式を使わないので再計算で課金されません。実行前に件数と概算の利用料（円）を表示、6分の実行制限の手前で止まって自動で続きから再開、答えが入っている行は飛ばすので二重課金しません\n・月の予算上限（円）：APIが返すトークン数から今月の概算を記録し、上限を超えたらAPIを呼ばずに「#予算上限」を返します。今月の利用量はメニューで確認\n・メールアドレス・電話番号・郵便番号を伏せ字にしてからAIへ送るオプション\n・記事版と同じキャッシュ・空セル除外・「値で確定」（新しい関数にも対応）\n\n■ 同梱物\n・sheets_ai_plus.gs（スクリプト本体）\n・導入手順・使い方・エラーの見方（日本語テキスト）\n・アンケート自由記述の見本CSV（分類・抽出・一括処理をすぐ試せます）\n\n■ 必要なもの\nGoogleアカウント＋従量課金の OpenAI APIキー。ChatGPTの有料プランは不要です。\n\n■ 安全設計\nデータはあなたのGoogleアカウントとOpenAIのAPIの間だけでやり取りされ、当方が預かることはありません。APIキーはスクリプトプロパティに保存するので、シートを閲覧共有してもキーは見えません。\n\n■ 正直なご注意\n・AIの答えは間違えることがあります。個人情報の伏せ字は代表的な書式（メール・電話・郵便番号）のみが対象です。\n・利用量の円はトークン数と設定した単価・為替からの概算です。実際の請求はOpenAIの管理画面でご確認ください。\n・時短効果などを保証するものではありません。APIの利用料はご購入者負担です。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・Gmail問い合わせ自動返信・請求書PDF・議事録AI要約など計5本入りのPRO版もあります（この =AI() 拡張版はPRO版には含まれません）。",
+  "price": 3.0,
+  "currency": "usd",
+  "currency_note": "~¥450 at ~150 JPY/USD. Impulse-level entry price mirroring the other $3 single-script SKUs.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "スプレッドシート",
+    "google apps script",
+    "chatgpt",
+    "関数",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/sheets-ai-plus-thumb.png",
+  "digital_file": "downloads/sheets-ai-plus-8b58ed.zip",
+  "digital_file_name": "sheets-ai-plus.zip"
+}
