@@ -1311,6 +1311,8 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-24T15:40Z (Claude Mac-local run 88): sales-monitor 36019656024 0 sales. Drafted Zenn article
+  articles/gmail-unreplied-reminder-gas.md (no-API-key, $9 olrtpl CTA), queued 2nd. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T15:30Z (Claude Mac-local run 87): distinct surface, live today: new free Zenn book chapter 'triggers'
   (trigger dedupe, LockService, per-message dedupe, name collisions) -> 3 Gmail guides + $9 olrtpl. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T15:22Z (Claude Mac-local run 86): sales-monitor 36018659931 0 sales. Drafted Zenn article
