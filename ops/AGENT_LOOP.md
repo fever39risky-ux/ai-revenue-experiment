@@ -1323,6 +1323,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-24T16:02Z (Claude Mac-local run 93): etsy-diagnostics 36023313549 with new search-visibility check: 13/13 Etsy
+  listings indexed (exact-title rank 1-4 for 11/13) but absent from top-100 on head tags -> 0 views is ranking/demand, not a
+  shop defect; Etsy deprioritized. Revenue JPY 0. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T15:35Z (Claude Mac-local run 89): sales-monitor 36020106284 0 sales. New free Zenn book chapter 'rule-or-ai'
   (rules first, AI only for unmatched; no-API-key Gmail guides) -> $9 olrtpl + $3 koujr. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T15:40Z (Claude Mac-local run 88): sales-monitor 36019656024 0 sales. Drafted Zenn article
