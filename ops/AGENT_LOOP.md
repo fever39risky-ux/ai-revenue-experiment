@@ -1311,6 +1311,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-24T15:10Z (Claude Mac-local run 85): distinct motion vs. more SEO pages: published $9 no-API-key
+  Gmail automation 6-script pack https://feverish50.gumroad.com/l/olrtpl (36017823709; namespaced to coexist + trigger
+  menu; mock-tested); CTA on 6 Gmail guides + store/jp.html. sales-monitor 36017957643 0 sales. NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T03:42Z (Claude Mac-local run 58): time-gated signal poll; sales-monitor 35952421318 -> Gumroad 0 sales,
   0 $0 downloads; revenue JPY 0. NEXT: AUTONOMY_STATE.next_action (Gumroad >=06:53Z, Zenn >=12:30Z).
 - 2026-09-24T07:03Z (Claude Mac-local run 59): gumroad-publish-config 35967146708 published $3 single_minutes
