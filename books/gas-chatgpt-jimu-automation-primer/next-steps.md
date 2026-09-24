@@ -10,8 +10,9 @@ title: "次の一歩：具体的な自動化レシピ"
 - [Gmailの問い合わせメールを自動仕分けして、AIが下書き返信を作る](https://zenn.dev/kinoshita_ai/articles/gas-chatgpt-gmail-inquiry-auto-reply)
 - [請求書PDFを自動作成し、AIが添え状を書いた下書きメールまで用意する](https://zenn.dev/kinoshita_ai/articles/gas-invoice-pdf-ai-email)
 - [ChatGPTに事実をでっち上げさせない「制約プロンプト」の型](https://zenn.dev/kinoshita_ai/articles/chatgpt-jimu-anti-hallucination-prompt)
-- [議事録メモをAIで要点・決定事項・TODOに整形する（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-meeting-minutes-ai-summary.html?ref=zenn-book)
+- [議事録メモをAIで要点・決定事項・TODOに整形する](https://zenn.dev/kinoshita_ai/articles/gas-meeting-minutes-ai-summary)
 - [Googleカレンダーの予定からAIで日報の下書きを作る（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-calendar-ai-daily-report.html?ref=zenn-book)
+- [GASからChatGPT APIを安全に呼ぶ askAI() の作り方（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-openai-api-safe-wrapper.html?ref=zenn-book)
 
 事務作業向けのコピペ用プロンプト集も無料で置いています → [ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn-book)
 

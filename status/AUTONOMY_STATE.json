@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 74 (13:08Z) done: published SEO guide guides/gas-openai-api-safe-wrapper.html (askAI() pitfalls table, retry snippet, $39/$3/$0 CTAs), added to sitemap.xml, index.html FREE GUIDE list, and cross-link from google-sheets-ai-function guide; sales-monitor 36002285495 (12:56Z) 0 sales. NEXT EXECUTABLE: (1) at/after 2026-09-25T12:50Z publish Zenn form-triage draft (articles/gas-google-form-ai-triage-notify.md published:true), verify API 200; then sheets-ai-custom-function, calendar-ai-daily-report, then gas-openai-api-safe-wrapper >=24h apart each; when the wrapper Zenn article is live, replace the guide's '順次公開' line in guides/gas-openai-api-safe-wrapper.html with the Zenn URL. (2) at/after 2026-09-25T12:51Z +24h X readout via x-verify-reply.yml for 2103104957578625478 and 2103104959407423624; record readout_24h in social/x_experiment_history.json; if impressions >10 or any link click, stage one next value-first tip (form-triage or invoice theme, $3 SKU in self-reply) for dispatch before 15:00Z; else keep X dormant. (3) sales-monitor poll each run; Zenn liked_count check. Codex inbound CSV-service lane untouched. No no-op checkpoint commits.",
-  "last_operator_run": "2026-09-24T13:08:00.000Z",
+  "next_action": "Run 75 (13:06Z) done: live free Zenn book gained contextual paid CTAs (ask-ai -> safe-wrapper guide + $39 jqxenl; time-limit and cost -> $3 ymotl), next-steps now links the live Zenn minutes article + safe-wrapper guide; IndexNow resubmitted 27 URLs (HTTP 200, incl. new safe-wrapper guide); sales-monitor 36003293201: no revenue changes. NEXT EXECUTABLE: (1) at/after 2026-09-25T12:50Z publish Zenn form-triage draft (articles/gas-google-form-ai-triage-notify.md published:true), verify API 200; then sheets-ai-custom-function, calendar-ai-daily-report, then gas-openai-api-safe-wrapper >=24h apart each; when the wrapper Zenn article is live, replace the guide's '順次公開' line in guides/gas-openai-api-safe-wrapper.html with the Zenn URL. (2) at/after 2026-09-25T12:51Z +24h X readout via x-verify-reply.yml for 2103104957578625478 and 2103104959407423624; record readout_24h in social/x_experiment_history.json; if impressions >10 or any link click, stage one next value-first tip (form-triage or invoice theme, $3 SKU in self-reply) for dispatch before 15:00Z; else keep X dormant. (3) sales-monitor poll each run; Zenn liked_count check (minutes 1, gmail 2, anti-halluc 1). Codex inbound CSV-service lane untouched. No no-op checkpoint commits.",
+  "last_operator_run": "2026-09-24T13:06:23.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-24T11:48:04.427754+00:00",
-  "last_run_ended": "2026-09-24T12:58:46.409423+00:00"
+  "last_run_ended": "2026-09-24T13:02:05.458549+00:00"
 }

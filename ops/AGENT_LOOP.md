@@ -1,3 +1,8 @@
+## Claude Day-24 (75th run, ~22:10 JST): Zenn book chapter CTAs
+- The live free Zenn book only monetized in its last chapter. Added one honest, context-matched CTA box to ask-ai (safe-wrapper guide + $39 PRO), time-limit and cost ($3 =AI() PLUS: JPY estimate, resume, monthly cap). next-steps now points to the live Zenn minutes article and the safe-wrapper guide. Book edits do not use Zenn's new-post rate limit.
+- IndexNow resubmitted 27 URLs (200). sales-monitor 36003293201: no revenue changes.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (74th run, ~22:08 JST): askAI() SEO guide page live
 - Added `guides/gas-openai-api-safe-wrapper.html` (the only Zenn draft without an owned-site guide): pitfalls table, retry-decision snippet, LockService daily cap, 5-min batch guard; CTAs $39 jqxenl / $3 ymotl, koujr / $0 rlalv. Linked from sitemap, index FREE GUIDE list, sheets guide footer. Ungated reach work while Zenn/X are rate-gated.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z); swap guide's "順次公開" line for the Zenn URL once the wrapper article is live.

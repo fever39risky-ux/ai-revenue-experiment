@@ -61,3 +61,7 @@ function testAskAI() {
 ```
 
 エディタで `testAskAI` を選んで実行し、初回の承認画面で許可します。実行ログに英文が出れば準備完了です。
+
+:::message
+`askAI()` を実運用に載せるときの落とし穴（429のリトライ判定、1日の呼び出し上限、同じ入力のキャッシュ）は、[GASからChatGPT APIを安全に呼ぶ askAI() の作り方（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-openai-api-safe-wrapper.html?ref=zenn-book-ask-ai)にまとめています。この `askAI()` を土台にした、そのまま動くGAS5本＋日本語導入ガイドは[【PRO】（$39）](https://feverish50.gumroad.com/l/jqxenl)で配布しています。
+:::
