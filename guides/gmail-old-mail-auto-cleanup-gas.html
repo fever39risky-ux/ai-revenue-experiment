@@ -1,0 +1,117 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailの古いメールを自動で削除・アーカイブする（GAS）｜お試しモード・スター保護つき（コード全文）</title><meta name="description" content="Gmailの容量不足や受信トレイの散らかりを、Google Apps Scriptで自動整理する方法。プロモーション・SNS通知は30日でゴミ箱へ、受信トレイは90日でアーカイブ。まずお試しモードで対象を確認、スター付き・「保存」ラベルは触らない、最近返信があったスレッドは除外、100件ずつ処理して6分制限も回避。テスト済みのコード全文。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-old-mail-auto-cleanup-gas.html"><meta property="og:title" content="Gmailの古いメールを自動で削除・アーカイブ（GAS・コード全文）"><meta property="og:description" content="消しすぎない自動整理。お試しモード・スター保護・最近のやり取りの除外つき。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-old-mail-auto-cleanup-gas.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail · 登録不要 · コード全文</p><h1>Gmailの古いメールを<br>自動で削除・アーカイブする（GAS）。</h1>
+<p class="lead">「Googleアカウントの保存容量がいっぱい」「受信トレイが何万件」——手で消すのは大変ですが、一括削除は大事なメールまで消しそうで怖いものです。このページでは Google Apps Script（GAS）で、<b>決めたルールに合う古いメールだけを、毎日少しずつゴミ箱かアーカイブへ移す</b>仕組みを作ります。</p>
+
+<h2>1. できること</h2>
+<table><tr><th>項目</th><th>このページのコード</th></tr>
+<tr><td>初期ルール</td><td>プロモーション・SNS通知タブは最後のやり取りから30日でゴミ箱へ／受信トレイは90日でアーカイブ（消さずに受信トレイから外すだけ）</td></tr>
+<tr><td>お試しモード</td><td><code>DRY_RUN = true</code> の間は何も動かさず、対象の件数と件名の例だけをログに出します</td></tr>
+<tr><td>触らないもの</td><td>スター付き・「保存」ラベル付きのスレッド、最後のメッセージがまだ新しいスレッド</td></tr>
+<tr><td>大量のメール</td><td>100件ずつ処理し、4.5分で止めて続きは次回（6分の実行時間制限に当たりません）</td></tr></table>
+<p class="cap">ゴミ箱に移したメールは30日間は元に戻せます。完全削除はしません。</p>
+
+<h2>2. 手順</h2>
+<ol class="steps"><li><a href="https://script.google.com/" target="_blank" rel="noopener">script.google.com</a> で「新しいプロジェクト」を作り、下のコードを貼り付けます。</li>
+<li>残したいメールにスターを付けるか、Gmailで「保存」というラベルを作って付けておきます。</li>
+<li><code>DRY_RUN = true</code> のまま ▶ で <code>cleanupGmail</code> を実行し、Gmailへのアクセスを許可します。実行ログに「[お試し] プロモーション: 245件 ゴミ箱へ 例: …」のように出ます。</li>
+<li>件数と例を見て問題なければ、<code>DRY_RUN = false</code> にして保存し、もう一度実行します。</li>
+<li>左の時計アイコン「トリガー」→ 関数 <code>cleanupGmail</code>・「時間主導型」・「日付ベースのタイマー」・「午前3時〜4時」などで保存します。初回で終わらなかった分は毎日続きが処理されます。</li></ol>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<pre>const DRY_RUN = true;                  // まずは true のまま実行し、ログで対象を確認する
+const RULES = [                        // days: 最後のメッセージからこの日数が過ぎたスレッドが対象
+  { name: 'プロモーション', query: 'category:promotions', days: 30, action: 'trash' },
+  { name: 'SNS通知',       query: 'category:social',     days: 30, action: 'trash' },
+  { name: '受信トレイ整理', query: 'in:inbox',            days: 90, action: 'archive' },
+];
+const PROTECT = ' -is:starred -label:保存';   // スター付きと「保存」ラベルは絶対に触らない
+const BATCH = 100;                     // GmailApp の一括操作は1回100件まで
+const TIME_LIMIT_MS = 4.5 * 60 * 1000; // 6分制限の手前で止め、続きは次回
+
+function cleanupGmail() {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) return;
+  const start = Date.now();
+  try {
+    for (const r of RULES) {
+      if (!(r.days &gt;= 1)) throw new Error(r.name + ': days を1以上にしてください');
+      const q = r.query + ' older_than:' + r.days + 'd' + PROTECT + (r.action === 'archive' ? ' in:inbox' : '');
+      const cutoff = new Date(Date.now() - r.days * 86400000);
+      let offset = 0, done = 0, sample = [];
+      while (Date.now() - start &lt; TIME_LIMIT_MS) {
+        const threads = GmailApp.search(q, offset, BATCH);
+        if (!threads.length) break;
+        // 検索は「どれか1通が古い」スレッドも返すので、最後のやり取りが新しいものは除外
+        const targets = threads.filter(t =&gt; t.getLastMessageDate() &lt; cutoff);
+        if (sample.length &lt; 5) targets.slice(0, 5 - sample.length).forEach(t =&gt; sample.push(t.getFirstMessageSubject()));
+        if (DRY_RUN) { done += targets.length; offset += threads.length; continue; }
+        if (targets.length) {
+          if (r.action === 'trash') GmailApp.moveThreadsToTrash(targets);
+          else GmailApp.moveThreadsToArchive(targets);
+        }
+        done += targets.length;
+        offset += threads.length - targets.length;  // 除外したぶんだけ次の検索位置をずらす
+      }
+      console.log((DRY_RUN ? '[お試し] ' : '') + r.name + ': ' + done + '件 ' +
+        (r.action === 'trash' ? 'ゴミ箱へ' : 'アーカイブ') + ' 例: ' + sample.join(' / '));
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+</pre>
+<p class="cap">書き換えるのは <code>RULES</code> です。例：<code>{ name: '通販の発送通知', query: 'from:(@example-shop.jp) subject:発送', days: 60, action: 'trash' }</code>、<code>{ name: '大きいメール', query: 'larger:10M', days: 365, action: 'archive' }</code>。<code>query</code> はGmailの検索窓と同じ書き方です。検索窓で試してから入れると確実です。</p>
+
+<h2>4. このコードが防いでいる4つの失敗</h2>
+<ul><li><b>最近返信が来たスレッドまで消える：</b>Gmailの検索は「スレッドのどれか1通が条件に合う」と結果に出るので、<code>older_than:30d</code> だけだと、昨日返信があった古いやり取りも対象になります。このコードは最後のメッセージの日付を確かめ、新しいものは除外します。</li>
+<li><b>確認せずに一括で消してしまう：</b>最初はお試しモードで件数と件名の例だけを出します。ルールの書き間違い（検索式が広すぎる）に、動かす前に気づけます。</li>
+<li><b>大事なメールが巻き込まれる：</b>スター付きと「保存」ラベルは、どのルールでも検索式に除外条件を足しています。</li>
+<li><b>数万件でエラーになる：</b>一括操作は1回100件までなので100件ずつ、実行時間は4.5分で区切ります。<code>LockService</code> で、前回の実行が終わる前に次が重なっても二重に動きません。</li></ul>
+
+<h2>5. よくあるつまずき</h2>
+<div class="note"><b>実行したのに容量が減らない：</b>ゴミ箱のメールも容量に数えられます。30日で自動的に消えるのを待つか、確認したうえでゴミ箱を手動で空にしてください。アーカイブは容量を減らしません。<br>
+<b>SNS通知が0件：</b>Gmailの設定でタブ（カテゴリ）を使っていないと <code>category:social</code> には何も入りません。<code>from:</code> で送信元を指定するルールに変えてください。<br>
+<b>間違えて消した：</b>Gmailの「ゴミ箱」を開き、スレッドを選んで「受信トレイに移動」で戻せます（30日以内）。<br>
+<b>会社のGoogle Workspaceで使う：</b>保存義務のあるメール（契約・請求など）は、社内ルールや管理者の保持設定を先に確認してください。</div>
+
+<h2>6. AIはどこに使う？</h2>
+<p>整理そのものにAIは不要です。ルールで決めたほうが確実で、あとから説明もできます。AIが役立つのは、残したメールの中の<b>問い合わせを分類して返信の下書きを作る</b>ほうです。作り方は <a href="gmail-inquiry-ai-draft-reply.html">Gmailの問い合わせ返信をAIで下書き</a> にまとめています。</p>
+
+<div class="cta"><h3>メールを「減らす」だけでなく、問い合わせ対応も軽くしたい方へ</h3>
+<p>届いた問い合わせをAIで分類し、<b>登録した事実（FAQ）だけを使って返信の下書き</b>を作る拡張版です。noreply・通知・メルマガは自動でスキップし、お試しモードで結果を確認してから本番にできます。自動送信はせず、下書きまでです。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（FAQ参照・除外送信元・お試しモード／$3）を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF＋AI添え状・議事録AI要約など、そのまま動くGAS5本＋日本語の導入手順書（PRO版・$39）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページのメール整理のコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-notify-slack-google-chat-gas.html">Gmailの新着をSlack・Google Chatに通知</a> · <a href="gmail-unreplied-reminder-gas.html">Gmailの未返信メールを毎朝リマインド</a> · <a href="gmail-to-spreadsheet-export-gas.html">Gmailの受信メールをスプレッドシートに書き出す</a> · <a href="gmail-attachment-auto-save-drive-gas.html">Gmailの添付ファイルをドライブに自動保存</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>

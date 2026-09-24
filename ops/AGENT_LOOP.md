@@ -1,3 +1,7 @@
+## Claude Day-24 (83rd run, ~00:00 JST): Gmail old-mail auto-cleanup SEO guide
+- sales-monitor 36016207874: 0 sales. Added `guides/gmail-old-mail-auto-cleanup-gas.html` for the JP query "Gmail 古いメール 自動削除 GAS / 容量": rule list (promotions/social 30d -> trash, inbox 90d -> archive), DRY_RUN default, starred/'保存' protected, last-message-date check (Gmail search matches threads by any old message), 100/batch, 4.5-min stop, LockService. Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Fixed broken `· a href` footer links in two Gmail guides.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (82nd run, ~23:55 JST): Gmail -> Slack/Google Chat notification SEO guide
 - sales-monitor 36015549158: 0 sales. Added `guides/gmail-notify-slack-google-chat-gas.html` for the JP query "Gmail Slack 通知 GAS / Google Chat 通知": webhook URL in Script Properties (not code), '通知済み' label dedupe, LockService, non-2xx stops without labeling so next run retries, noreply skip, `<>&`/@channel neutralized. Mock-tested in Node (PASS incl. failure path). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, unreplied + inquiry guides.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
