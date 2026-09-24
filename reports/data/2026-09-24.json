@@ -101,6 +101,104 @@
       "recorded_at": "2026-09-24T01:04:49.041095+00:00",
       "trigger": "heartbeat",
       "source_main_sha": "41ac6a90376d9db48ccef672b8a378bf268cde57"
+    },
+    {
+      "observed": {
+        "revenue": 0,
+        "revenue_coverage_and_timestamp": "Live Stripe charges empty/has_more false; main Gumroad09:26Z zero sales; no fresh Etsy query.",
+        "known_cost_jpy": 7467,
+        "unknown_costs": [
+          "Subscription compute attribution",
+          "Estimated costs and delayed platform fees"
+        ],
+        "remaining_days": 7,
+        "claude_active_lane": "Gumroad publication completed; Zenn minutes12:30Z and conditional X12:41Z; existing catalog and paid core. No duplication."
+      },
+      "opportunity_screen": {
+        "higher_ticket_service": "Selected inbound fixed-file service leveraging morning proof",
+        "direct_sales_outreach": "No outbound messages; buyer-initiated public inquiry only",
+        "japanese_paid_core": "Preserve Claude core",
+        "micro_product": "No more inventory",
+        "alternate_buyer_segments": "Shop operators needing done-for-you cleanup",
+        "jp_marketplace": "BOOTH setup lower priority; Claude Coconala",
+        "affiliate_referral": "Verified Make/n8n payout hurdles; do not enroll",
+        "use_case_landing_pages": "Reuse existing shop page for scope inquiry",
+        "demo_proof_assets": "Reuse morning synthetic proof without code expansion",
+        "buyer_discovery_lead_sourcing": "Prior search no qualified buyer; now test inbound offer"
+      },
+      "candidates_minimum_3": [
+        {
+          "lane": "Inbound CSV cleanup offer",
+          "buyer": "Shop operator with one export",
+          "offer_or_reach_mechanism": "Existing owned guide -> scoped inquiry -> agreed paid service",
+          "expected_revenue_impact_and_assumptions": "Reference quote from3000JPY; no sales probability or demand evidence",
+          "time_to_revenue": "Inquiry can arrive now; agreement/payment bySep30 uncertain",
+          "incremental_cost_and_uncertainty": "One section and existing GitHub form; no external cash",
+          "reversibility": "Remove section reversibly",
+          "evidence_and_confidence": "Morning proof exists; repo public Issues enabled",
+          "feasible_next_action": "Publish scope, reference quote, proof link and inquiry route",
+          "permission_boundary": "No automatic contract, payment, file collection or outbound message",
+          "ev_assessment": "Highest provisional EV: makes existing proof actionable without enrollment delay",
+          "claude_non_overlap": "Separate service monetization versus Claude product/Zenn/X lanes"
+        },
+        {
+          "lane": "Automation affiliate enrollment",
+          "buyer": "Users considering Make/n8n",
+          "offer_or_reach_mechanism": "Approved referral commissions",
+          "expected_revenue_impact_and_assumptions": "Make35%, n8n30%; no conversion audience demonstrated",
+          "time_to_revenue": "Minimum balances and monthly/eligibility hurdles poorly fit7days",
+          "incremental_cost_and_uncertainty": "Research low; enrollment and acquisition additional cost",
+          "reversibility": "Research reversible; no enrollment",
+          "evidence_and_confidence": "Official Make $100+3paying users; n8n€100/monthly plus approval",
+          "feasible_next_action": "Validate official conditions before registration",
+          "permission_boundary": "No terms acceptance or payout-account setup",
+          "ev_assessment": "Lower short-window EV after validation; not universally negative",
+          "claude_non_overlap": "Separate service monetization versus Claude product/Zenn/X lanes"
+        },
+        {
+          "lane": "BOOTH retail micro-product",
+          "buyer": "JP DIY retailer",
+          "offer_or_reach_mechanism": "New marketplace product from existing sample",
+          "expected_revenue_impact_and_assumptions": "Unverified price and demand; may duplicate existing inventory",
+          "time_to_revenue": "Account/listing/acquisition timing uncertain",
+          "incremental_cost_and_uncertainty": "More setup than existing guide section; fees unverified",
+          "reversibility": "Draft reversible",
+          "evidence_and_confidence": "Claude already has broad unsold marketplace inventory",
+          "feasible_next_action": "Validate platform eligibility and a distinct buyer need",
+          "permission_boundary": "No new account/terms/spend",
+          "ev_assessment": "Potential positive, lower immediate value than activating prepared service",
+          "claude_non_overlap": "Separate service monetization versus Claude product/Zenn/X lanes"
+        }
+      ],
+      "decision": {
+        "selected_lane": "Inbound CSV cleanup offer",
+        "rationale": "Official affiliate validation revealed payout hurdles; publish an actionable inbound route for existing proof instead. No new code or product inventory.",
+        "hold": false,
+        "hold_rejection_evidence_for_every_candidate": []
+      },
+      "execution": {
+        "actual_actions": [
+          "Verified official affiliate payout/eligibility conditions",
+          "Confirmed public repository Issues enabled",
+          "Added scope, reference quote, proof and prefilled public inquiry link to owned shop guide",
+          "Decoded inquiry link and checked its public-data warning"
+        ],
+        "evidence": [
+          "marketing/referral-review/2026-09-24.md",
+          "guides/shop-daily-report.html#csv-service"
+        ],
+        "result": "Prepared for Pages deployment; no inquiry or sale claimed.",
+        "blocked_final_step": null,
+        "next_measurement": "Check actual buyer-created inquiry and payments; no traffic analytics. Do not count our own link checks or draft forms as leads."
+      },
+      "cadence": {
+        "next_run": "2026-09-25T10:00:00+09:00",
+        "reason_from_backlog_remaining_time_and_cost": "Keep10/19JST next day: now an actionable service inquiry route exists alongside independent marketplace work; response handling time matters within remaining6days. No increased cadence, no more offer building without response; re-evaluate next morning against inquiries, costs and distinct backlog."
+      },
+      "run_id": "20260924T100042.817405Z",
+      "trigger": "heartbeat",
+      "source_main_sha": "a7bd65d7204a74915aa8962f0d4a8bff1ab5c393",
+      "recorded_at": "2026-09-24T10:03:31.185144+00:00"
     }
   ]
 }
