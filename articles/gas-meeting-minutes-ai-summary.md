@@ -129,6 +129,8 @@ B列に「要点・決定事項・TODO」が整形されて入り、C列にア�
 - **「事実だけを使う」「不明な項目は未定と書く」の2行を指示に入れる**だけで、AIの創作事故がかなり減る。
 - 結果はシートに残り、必要ならそのまま参加者へ自動メールできる。
 
+APIキーの安全な置き場所・429/5xxのリトライ・6分の実行時間制限・月額費用の見積もりでつまずいたら、無料の入門本にまとめています → **[GAS×ChatGPT 事務自動化 入門（無料）](https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer)**
+
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
 12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）もあります → [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv)

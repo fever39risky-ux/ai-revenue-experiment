@@ -185,6 +185,8 @@ AI は**分からない事実を平気で「それっぽく」埋めます**。�
 - 分類と下書きは1回のAPIでまとめて取り、`json_object` + フォールバックで壊れにくくする。
 - 「分からない事実は断定させない」を方針に一行入れるだけで、誤回答が減る。
 
+APIキーの安全な置き場所・429/5xxのリトライ・6分の実行時間制限・月額費用の見積もりでつまずいたら、無料の入門本にまとめています → **[GAS×ChatGPT 事務自動化 入門（無料）](https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer)**
+
 事務作業を AI で時短する具体的なプロンプト集（コピペ用・登録不要）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
 この記事のスクリプトに「FAQ参照（登録した事実以外はAIに断定させない）」「noreply等の除外」「お試しモード（何も作らずログで確認）」を足した拡張版と、業種別の返信方針テンプレ10種もまとめました（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)
