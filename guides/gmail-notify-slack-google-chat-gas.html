@@ -1,0 +1,119 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailの新着メールをSlack・Google Chatに通知する（GAS）｜Webhook・二重通知防止つき（コード全文）</title><meta name="description" content="Gmailに届いた大事なメールを、Google Apps ScriptでSlackやGoogle Chatに自動通知する方法。Webhook URLはコードに書かずスクリプトプロパティへ、「通知済み」ラベルで二重通知を防止、送信失敗時は次回に再送、@channelやリンクの誤発火を防ぐ整形つき。テスト済みのコード全文。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-notify-slack-google-chat-gas.html"><meta property="og:title" content="Gmailの新着メールをSlack・Google Chatに通知（GAS・コード全文）"><meta property="og:description" content="問い合わせや取引先からのメールだけを、チャットに1件ずつ通知。二重通知・送信失敗・@channel誤爆を防ぐ実用版。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-notify-slack-google-chat-gas.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail · 登録不要 · コード全文</p><h1>Gmailの新着メールを<br>Slack・Google Chatに通知する（GAS）。</h1>
+<p class="lead">問い合わせや取引先からのメールに気づくのが遅れる——チームがチャット中心で動いていると、よく起きることです。このページでは Google Apps Script（GAS）で、<b>条件に合うGmailの新着メールを、SlackやGoogle Chatのチャンネルに1件ずつ通知する</b>仕組みを作ります。</p>
+
+<h2>1. できること</h2>
+<table><tr><th>項目</th><th>このページのコード</th></tr>
+<tr><td>通知先</td><td>Slack の Incoming Webhook、または Google Chat スペースの Webhook（どちらも同じコードで動きます）</td></tr>
+<tr><td>通知の内容</td><td>送信元・件名・本文の先頭200文字・Gmailで開くリンク</td></tr>
+<tr><td>対象</td><td>Gmailの検索式 <code>QUERY</code> に合うメール（初期値は受信トレイの直近2日、プロモーション/SNS/新着タブは除外）。noreply・メルマガは通知しません</td></tr>
+<tr><td>二重通知の防止</td><td>通知したスレッドに「通知済み」ラベルを付け、次回からは対象外。送信に失敗したものはラベルを付けず、次回もう一度送ります</td></tr></table>
+<p class="cap">メール本文の一部がチャットに流れます。社外秘のメールが届くアドレスでは、<code>QUERY</code> で対象を絞るか、本文を送らない設定（後述）にしてください。</p>
+
+<h2>2. 準備</h2>
+<ol class="steps"><li><b>Webhook URLを用意します。</b><br>Slack：Slack API の「Incoming Webhooks」でアプリを作り、通知したいチャンネルのWebhook URLを発行します。<br>Google Chat：通知したいスペースの「アプリと統合」→「Webhook を追加」でURLを発行します（Google Workspace のアカウントが必要です）。</li>
+<li><a href="https://script.google.com/" target="_blank" rel="noopener">script.google.com</a> で「新しいプロジェクト」を作り、下のコードを貼り付けます。</li>
+<li>左の歯車「プロジェクトの設定」→「スクリプト プロパティ」で、プロパティ <code>WEBHOOK_URL</code>、値にWebhook URLを保存します。<b>URLはコードに直接書かないでください</b>（URLを知っている人は誰でもそのチャンネルに投稿できます）。</li>
+<li>▶ で <code>notifyNewMail</code> を一度実行し、Gmailと外部への接続を許可します。直近2日の該当メールが通知されます。</li>
+<li>左の時計アイコン「トリガー」→ 関数 <code>notifyNewMail</code>・「時間主導型」・「分ベースのタイマー」・「5分おき」または「10分おき」で保存します。</li></ol>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<pre>const QUERY = 'in:inbox -category:promotions -category:social -category:updates newer_than:2d';
+const DONE_LABEL = '通知済み';          // 通知したスレッドに付けるラベル（二重通知の防止）
+const SKIP_FROM = /no-?reply|mailer-daemon|newsletter|magazine/i;
+const MAX_PER_RUN = 20;               // 1回の実行で通知する上限
+
+function notifyNewMail() {
+  const url = PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL');
+  if (!url) throw new Error('スクリプトプロパティ WEBHOOK_URL を設定してください');
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) return;     // 前回の実行が終わっていなければ何もしない
+  try {
+    const done = GmailApp.getUserLabelByName(DONE_LABEL) || GmailApp.createLabel(DONE_LABEL);
+    const threads = GmailApp.search(QUERY + ' -label:' + DONE_LABEL, 0, MAX_PER_RUN).reverse(); // 古い順
+    for (const th of threads) {
+      const msgs = th.getMessages();
+      const m = msgs[msgs.length - 1];
+      if (SKIP_FROM.test(m.getFrom())) { th.addLabel(done); continue; }
+      const text = '📩 新着メール\n' +
+        '送信元: ' + clean_(m.getFrom(), 80) + '\n' +
+        '件名: ' + clean_(m.getSubject() || '(件名なし)', 120) + '\n' +
+        clean_(m.getPlainBody(), 200) + '\n' +
+        'https://mail.google.com/mail/u/0/#all/' + th.getId();
+      const res = UrlFetchApp.fetch(url, {
+        method: 'post', contentType: 'application/json; charset=UTF-8',
+        payload: JSON.stringify({ text: text }), muteHttpExceptions: true
+      });
+      if (res.getResponseCode() &gt;= 300) {  // 失敗したらラベルを付けずに止め、次回もう一度送る
+        console.warn('通知に失敗: HTTP ' + res.getResponseCode());
+        break;
+      }
+      th.addLabel(done);
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// 外部から届いた文字列を、通知先でリンクやメンションとして解釈されない形に整える
+function clean_(s, max) {
+  const t = String(s).replace(/\s+/g, ' ').trim()
+    .replace(/&lt;/g, '＜').replace(/&gt;/g, '＞').replace(/&amp;/g, '＆').replace(/@(channel|here|everyone|all)\b/gi, '＠$1');
+  return t.length &gt; max ? t.slice(0, max) + '…' : t;
+}
+</pre>
+<p class="cap">書き換えるのは主に <code>QUERY</code>（どのメールを通知するか）です。例：<code>'in:inbox from:(@torihikisaki.co.jp) newer_than:2d'</code>、<code>'in:inbox to:(info@example.com) newer_than:2d'</code>。本文を送りたくない場合は、<code>clean_(m.getPlainBody(), 200) + '\n' +</code> の行を消してください。</p>
+
+<h2>4. このコードが防いでいる4つの失敗</h2>
+<ul><li><b>同じメールが何度も通知される：</b>5分おきに実行しても、通知済みのスレッドには「通知済み」ラベルが付いているので検索に出てきません。前回の実行がまだ終わっていないときは <code>LockService</code> で今回の実行をスキップします。</li>
+<li><b>送信に失敗したメールが通知されないまま消える：</b>Webhookが200番台以外を返したら、そのスレッドにはラベルを付けずに止めます。次回の実行でもう一度送られます。</li>
+<li><b>メールの件名で @channel やリンクが発動する：</b>件名・本文は外部の人が自由に書ける文字列です。<code>&lt;!channel&gt;</code> や <code>@here</code>、<code>&lt;URL|表示名&gt;</code> 形式のリンクがそのままチャットで解釈されないよう、<code>&lt; &gt; &amp;</code> と <code>@channel</code> などを全角にしてから送ります。</li>
+<li><b>Webhook URLが漏れる：</b>URLはスクリプトプロパティに置き、コードには書きません。コードを他の人に共有しても、URLは一緒に渡りません。</li></ul>
+
+<h2>5. よくあるつまずき</h2>
+<div class="note"><b>何も届かない：</b>実行ログに「通知に失敗: HTTP 4xx」と出ていないか確認してください。403/404ならWebhook URLの貼り間違いか、Webhookが削除されています。<br>
+<b>同じスレッドに返信が来ても通知されない：</b>このコードはスレッド単位で「通知済み」にします。返信のたびに通知したい場合は、通知後にラベルを外す運用にするか、メッセージIDを記録する方式に変える必要があります。<br>
+<b>過去のメールが一気に流れた：</b>初回は <code>QUERY</code> の <code>newer_than:2d</code> の範囲がまとめて通知されます（1回20件まで）。気になる場合は初回だけ <code>newer_than:1h</code> にしてください。<br>
+<b>「Gmailで開く」リンクが別のアカウントを開く：</b>リンクの <code>/u/0/</code> を <code>/u/1/</code> などに変えてください。</div>
+
+<h2>6. AIはどこに使う？</h2>
+<p>通知そのものにAIは不要です。役立つのは、通知されたメールに<b>「問い合わせ／請求／営業」などの分類や、返信の下書きを添える</b>使い方です。チャットで通知を見た時点で、下書きがGmailにできている状態にできます。作り方は <a href="gmail-inquiry-ai-draft-reply.html">Gmailの問い合わせ返信をAIで下書き</a> と <a href="google-form-ai-triage-notify.html">フォームの問い合わせをAIで仕分けて通知</a> にまとめています。AIに渡すのは必要な部分だけにし、送る前には必ず人が確認してください。</p>
+
+<div class="cta"><h3>通知だけでなく、返信の下書きまで自動で用意したい方へ</h3>
+<p>届いた問い合わせをAIで分類し、<b>登録した事実（FAQ）だけを使って返信の下書き</b>を作る拡張版です。noreply・通知・メルマガは自動でスキップし、お試しモードで結果を確認してから本番にできます。自動送信はせず、下書きまでです。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（FAQ参照・除外送信元・お試しモード／$3）を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF＋AI添え状・議事録AI要約など、そのまま動くGAS5本＋日本語の導入手順書（PRO版・$39）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページのチャット通知のコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-unreplied-reminder-gas.html">Gmailの未返信メールを毎朝リマインド</a> · <a href="gmail-to-spreadsheet-export-gas.html">Gmailの受信メールをスプレッドシートに書き出す</a> · <a href="gmail-attachment-auto-save-drive-gas.html">Gmailの添付ファイルをドライブに自動保存</a> · <a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせ返信をAIで下書き</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>

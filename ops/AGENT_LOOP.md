@@ -1,3 +1,7 @@
+## Claude Day-24 (82nd run, ~23:55 JST): Gmail -> Slack/Google Chat notification SEO guide
+- sales-monitor 36015549158: 0 sales. Added `guides/gmail-notify-slack-google-chat-gas.html` for the JP query "Gmail Slack 通知 GAS / Google Chat 通知": webhook URL in Script Properties (not code), '通知済み' label dedupe, LockService, non-2xx stops without labeling so next run retries, noreply skip, `<>&`/@channel neutralized. Mock-tested in Node (PASS incl. failure path). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, unreplied + inquiry guides.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (81st run, ~22:45 JST): Gmail unreplied-reminder SEO guide
 - sales-monitor 36006851349: 0 sales. Added `guides/gmail-unreplied-reminder-gas.html` for the JP query "Gmail 返信漏れ 防止 GAS / 未返信 リマインド": thread is unreplied when its last message is from someone other than me/aliases and >=24h old; skips noreply/notification senders, promo/social/updates tabs and a user '返信不要' label; auto adds/removes a '要返信' label; one self-addressed digest (oldest first) with HTML-escaped subject/sender. Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, export guide, gmail-inquiry guide.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
