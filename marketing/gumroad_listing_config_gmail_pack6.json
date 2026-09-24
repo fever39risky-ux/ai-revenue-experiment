@@ -1,0 +1,20 @@
+{
+  "_doc": "Gmail automation 6-script pack ($9), created Run 85 (2026-09-24) as the distinct-motion follow-up to the 7-page owned Gmail GAS guide cluster: a no-API-key bundle for readers who do not want an OpenAI key (the $3/$19/$39 SKUs all need one). Materially more than the free guide code: the 6 guide scripts cannot coexist in one Apps Script project (duplicate top-level const QUERY/LIMIT_MS/DRY_RUN/BATCH...), this pack namespaces them so all 6 run from one spreadsheet, and adds a custom menu (run now / idempotent trigger ON-OFF / status / scoped remove-all) and a setup-sheets action. Mock-tested in Node (menu handlers public, trigger toggle idempotent, removeAll leaves foreign triggers, dry-run cleanup/label paths make no changes, invalid sender row cannot widen the query).",
+  "name": "Gmail自動化GAS 6本セット｜APIキー不要（添付保存・Slack通知・古いメール整理・自動ラベル・シート書き出し・未返信リマインド）",
+  "description": "Googleスプレッドシート1つに貼るだけで、Gmailの定番の面倒ごと6つを自動化する Google Apps Script のセットです。OpenAIなどのAPIキーは不要、追加費用もかかりません。\n\n■ 入っている6本\n・添付ファイルをGoogleドライブへ自動保存（二重保存なし・保存ログ付き）\n・新着メールをSlack / Google Chatに通知（二重通知なし・メンション誤爆対策）\n・古いメールを自動でゴミ箱／アーカイブ（スター付き・「保存」ラベルは触らない）\n・送信元・ドメインごとに自動ラベル（ルールはシートに書くだけ）\n・メールをスプレッドシートに書き出し（数式注入対策済み）\n・未返信メールを毎朝リマインド（「要返信」ラベルを自動で付け外し）\n\n■ 無料記事版との違い\n当サイトの無料ガイド記事のコードは1本ずつ単独で使う前提のため、同じプロジェクトに複数入れると定数名が衝突してエラーになります。このセットは6本が1つのシートで同時に動くよう整理し、さらに：\n・「Gmail自動化」メニュー：各機能の今すぐ実行／定期実行ON・OFF（二重登録なし）／状態確認／このセットの定期実行だけ一括停止\n・初期シート（ルール・保存ログ・メール一覧）をワンクリックで作成\n・日本語の導入手順とよくあるつまずき\n\n■ 安全設計\n・整理とラベル付けは「お試しモード」が既定。ログで対象を確認してから本番化できます\n・他人へメールを送る処理はありません（未返信リマインドは自分宛てのみ）\n・メールはあなたのGoogleアカウント内で処理され、当方がデータを預かることはありません\n\n■ 正直なご注意\n・時短効果などを保証するものではありません。\n・デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。\n・AIで問い合わせを仕分け・返信下書きする版（APIキー必要）は別商品です。",
+  "price": 9.0,
+  "currency": "usd",
+  "currency_note": "~¥1,350 at ~150 JPY/USD. Between the $3 single-script impulse tier and the $19 JP / $39 PRO AI kits; targets the no-API-key segment reading the free Gmail guides.",
+  "type": "digital",
+  "taxonomy_id": 85,
+  "tags": [
+    "gmail 自動化",
+    "google apps script",
+    "gas",
+    "スプレッドシート",
+    "業務効率化"
+  ],
+  "cover_image": "marketing/gumroad-images/gmail-pack6-thumb.png",
+  "digital_file": "downloads/gmail-auto-pack6-03fb32.zip",
+  "digital_file_name": "gmail-auto-pack6.zip"
+}
