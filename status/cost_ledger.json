@@ -1083,6 +1083,17 @@
       "operator": "Claude",
       "reference": "claude-day24-run46-minutes-plus-sku-prep",
       "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
+    },
+    {
+      "date": "2026-09-24",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260924T010148.219710Z",
+      "note": "Async CSV service discovery and bounded proof; no external spend; subscription attribution unknown."
     }
   ],
   "totals": {
