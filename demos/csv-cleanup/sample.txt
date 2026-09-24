@@ -1,0 +1,6 @@
+record_id,label,status
+001,"  item, A  "," OPEN "
+002, item B ,closed
+002,duplicate,open
+003,review,unknown
+004,=1+1,open

@@ -6,7 +6,7 @@
   "current_decision": "provisional_twice_daily_revenue_exploration",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": 2,
-  "next_scheduled_run": "2026-09-24T10:00:00+09:00",
+  "next_scheduled_run": "2026-09-24T19:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,9 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Keep two bounded daily decisions through Sep24: eight days remain, independent asynchronous file-repair procurement not yet tested and Claude covers marketplace inventory. Tonight research removed unsuitable candidates; no reason to increase frequency or create more speculative code. Compute marginal cost unknown; reassess after next targeted search.",
+  "rationale": "Retain10/19JST through today: seven days left and official affiliate eligibility/payout investigation remains distinct positive-information-value work, while Claude handles publication. No extra execution and no more CSV polishing without buyer evidence. Unknown marginal compute cost; reassess at19 rather than claim current cadence optimal.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-23T10:04:34.214613+00:00",
+  "updated_at": "2026-09-24T01:04:49.041095+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC hours 01 and 10 correspond to JST 10 and 19",
@@ -50,5 +50,5 @@
     "19:00"
   ],
   "review_by": "2026-09-24T19:00:00+09:00",
-  "trial_reviewed_at": "2026-09-23T10:04:34.214613+00:00"
+  "trial_reviewed_at": "2026-09-24T01:04:49.041095+00:00"
 }

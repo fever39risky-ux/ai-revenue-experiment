@@ -1,0 +1,30 @@
+{
+  "accepted": [
+    {
+      "record_id": "001",
+      "label": "item, A",
+      "status": "open"
+    },
+    {
+      "record_id": "002",
+      "label": "item B",
+      "status": "closed"
+    }
+  ],
+  "issues": [
+    {
+      "row": 4,
+      "reason": "duplicate_id"
+    },
+    {
+      "row": 5,
+      "reason": "unknown_status"
+    },
+    {
+      "row": 6,
+      "reason": "spreadsheet_formula_prefix"
+    }
+  ],
+  "input_rows": 5,
+  "note": "Preview only. Issues require review; nothing silently fixed or deleted."
+}
