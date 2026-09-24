@@ -1,0 +1,122 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailの返信漏れを防ぐ：未返信メールを毎朝リマインド（GAS）｜「要返信」ラベル自動付与（コード全文）</title><meta name="description" content="Gmailで返信していないメールを、Google Apps Scriptで毎朝一覧にして自分宛てに通知する方法。自分やエイリアスが最後に返信したスレッドは除外、noreply・通知メールも除外、「要返信」ラベルを自動で付け外し、件名のHTMLエスケープつき。テスト済みのコード全文。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-unreplied-reminder-gas.html"><meta property="og:title" content="Gmailの返信漏れを防ぐ：未返信メールを毎朝リマインド（GAS・コード全文）"><meta property="og:description" content="相手が最後に送ってきたまま24時間たったスレッドだけを、古い順に毎朝通知。「要返信」ラベルも自動で付け外し。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-unreplied-reminder-gas.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail · 登録不要 · コード全文</p><h1>Gmailの返信漏れを防ぐ。<br>未返信メールを毎朝リマインド（GAS）。</h1>
+<p class="lead">「あとで返そう」と思ったメールが、他のメールに埋もれて数日たっていた——小さな事業ほど、それがそのまま失注やクレームになります。このページでは Google Apps Script（GAS）で、<b>相手から届いたまま返信していないスレッドだけを毎朝一覧にして、自分宛てに通知する</b>仕組みを作ります。</p>
+
+<h2>1. できること</h2>
+<table><tr><th>項目</th><th>このページのコード</th></tr>
+<tr><td>「未返信」の判定</td><td>スレッドの<b>最後のメールが自分以外から</b>届いていて、そこから24時間以上たっているもの</td></tr>
+<tr><td>対象外にするもの</td><td>自分・エイリアス（別名アドレス）が最後に送ったスレッド、noreply・通知・メルマガ、プロモーション/SNS/新着タブ、「返信不要」ラベルを付けたスレッド</td></tr>
+<tr><td>通知</td><td>毎朝1通、自分宛てに「未返信◯件」のメール。古い順に、経過時間・送信元・件名（Gmailで開くリンク）</td></tr>
+<tr><td>ラベル</td><td>未返信のスレッドに「要返信」ラベルを自動で付け、返信したら次回の実行で自動で外す</td></tr></table>
+<p class="cap">送るのは自分宛ての通知だけです。相手に自動でメールを送ることはありません。</p>
+
+<h2>2. 準備</h2>
+<ol class="steps"><li><a href="https://script.google.com/" target="_blank" rel="noopener">script.google.com</a> で「新しいプロジェクト」を作ります（スプレッドシートは不要です）。</li>
+<li>下のコードを貼り付けます。まずはそのままで大丈夫です。</li>
+<li>▶ で <code>remindUnreplied</code> を一度実行し、Gmailの許可を与えます。未返信があれば自分宛てに通知が届きます。</li>
+<li>左の時計アイコン「トリガー」→「トリガーを追加」→ 関数 <code>remindUnreplied</code>・「時間主導型」・「日付ベースのタイマー」・「午前8〜9時」などで保存します。</li>
+<li>返信する必要のないメール（お礼への返事など）には、Gmailで「返信不要」ラベルを付けておくと、以後は通知されません。</li></ol>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<pre>const QUERY = 'in:inbox -category:promotions -category:social -category:updates newer_than:14d';
+const WAIT_HOURS = 24;                 // 最後のメールからこの時間たっても返信がなければ対象
+const SKIP_FROM = /no-?reply|mailer-daemon|notification|magazine|newsletter/i;
+const SKIP_LABEL = '返信不要';          // このラベルを付けたスレッドは対象外
+const MARK_LABEL = '要返信';            // 未返信のスレッドに自動で付けるラベル（空文字なら付けない）
+
+function remindUnreplied() {
+  const me = [Session.getActiveUser().getEmail()].concat(GmailApp.getAliases())
+    .map(s =&gt; s.toLowerCase());
+  const now = Date.now();
+  const mark = MARK_LABEL ? (GmailApp.getUserLabelByName(MARK_LABEL) || GmailApp.createLabel(MARK_LABEL)) : null;
+  const pending = [];
+  for (const th of GmailApp.search(QUERY + ' -label:' + SKIP_LABEL, 0, 200)) {
+    const msgs = th.getMessages();
+    const last = msgs[msgs.length - 1];
+    const from = addr_(last.getFrom());
+    const hours = (now - last.getDate().getTime()) / 3600000;
+    const mine = me.includes(from);
+    if (mine || SKIP_FROM.test(from) || hours &lt; WAIT_HOURS) {
+      if (mine &amp;&amp; mark) th.removeLabel(mark);  // 返信済みになったらラベルを外す
+      continue;
+    }
+    if (mark) th.addLabel(mark);
+    pending.push({ hours, from, subject: last.getSubject() || '(件名なし)', id: th.getId() });
+  }
+  if (!pending.length) return;
+  pending.sort((a, b) =&gt; b.hours - a.hours);   // 古いものから
+  const rows = pending.map(p =&gt;
+    '&lt;li&gt;' + Math.floor(p.hours / 24) + '日' + Math.floor(p.hours % 24) + '時間 · ' +
+    esc_(p.from) + ' · &lt;a href="https://mail.google.com/mail/u/0/#all/' + p.id + '"&gt;' +
+    esc_(p.subject) + '&lt;/a&gt;&lt;/li&gt;').join('');
+  GmailApp.sendEmail(me[0], '【未返信 ' + pending.length + '件】返信待ちのメール', 
+    pending.map(p =&gt; p.from + ' / ' + p.subject).join('\n'),
+    { htmlBody: '&lt;p&gt;返信していないメールが ' + pending.length + ' 件あります（古い順）。&lt;/p&gt;&lt;ul&gt;' + rows + '&lt;/ul&gt;' });
+}
+
+// "山田 &lt;yamada@example.com&gt;" -&gt; "yamada@example.com"
+function addr_(s) {
+  const m = String(s).match(/&lt;([^&gt;]+)&gt;/);
+  return (m ? m[1] : String(s)).trim().toLowerCase();
+}
+
+// 件名・送信元は外部の文字列なので、HTMLとして解釈されないようにする
+function esc_(s) {
+  return String(s).replace(/[&amp;&lt;&gt;"']/g, c =&gt; ({ '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '"': '&amp;quot;', "'": '&amp;#39;' }[c]));
+}
+</pre>
+<p class="cap">書き換えるのは主に <code>WAIT_HOURS</code>（何時間たったら通知するか）と <code>SKIP_FROM</code>（除外したい送信元のパターン）です。ラベルが不要なら <code>MARK_LABEL = ''</code> にします。</p>
+
+<h2>4. このコードが防いでいる4つの失敗</h2>
+<ul><li><b>返信したのに「未返信」と出る：</b>スレッドの<b>最後のメールの送信元</b>で判定します。自分のアドレスに加えて、Gmailに登録したエイリアス（<code>info@</code> などの別名から送った返信）も「自分」として扱います。</li>
+<li><b>通知メールだらけで本当の返信漏れが埋もれる：</b>noreply・通知・メルマガっぽい送信元と、プロモーション/SNS/新着タブを除外します。それでも混ざるものは「返信不要」ラベルで個別に外せます。</li>
+<li><b>件名に仕込まれたHTMLが通知メールの中で動く：</b>件名と送信元は外部から届く文字列です。通知をHTMLメールで作るときは <code>&lt;</code> <code>&gt;</code> などをエスケープして、ただの文字として表示します。</li>
+<li><b>ラベルが付きっぱなしになる：</b>自分が最後に返信したスレッドからは、次の実行で「要返信」ラベルを自動で外します。</li></ul>
+
+<h2>5. よくあるつまずき</h2>
+<div class="note"><b>何も届かない：</b>未返信が0件の日は通知を送りません。確認したいときは <code>WAIT_HOURS</code> を <code>0</code> にして ▶ で実行してみてください。<br>
+<b>届いたばかりのメールまで出る／古いものが出ない：</b>対象は <code>QUERY</code> の <code>newer_than:14d</code>（14日以内）です。検索式は、先にGmailの検索窓に貼って結果を確かめると確実です。<br>
+<b>チームの共有アドレスで使いたい：</b>このコードは実行した人のGmailを見ます。共有の受信箱で使う場合は、そのアカウントでスクリプトを作ってください。<br>
+<b>「Gmailで開く」リンクが別のアカウントを開く：</b>リンクの <code>/u/0/</code> を <code>/u/1/</code> などに変えてください。</div>
+
+<h2>6. AIはどこに使う？</h2>
+<p>返信漏れの検出にAIは不要です。役立つのは次の一歩で、<b>未返信になっている問い合わせに、返信の下書きを作っておく</b>使い方です。朝の通知を見たときには下書きができていて、確認して送るだけ、という流れにできます。作り方は <a href="gmail-inquiry-ai-draft-reply.html">Gmailの問い合わせ返信をAIで下書き</a> にまとめています。AIに渡すのは必要な部分だけにし、送る前には必ず人が確認してください。</p>
+
+<div class="cta"><h3>返信漏れを見つけたら、下書きまで自動で用意したい方へ</h3>
+<p>届いた問い合わせをAIで分類し、<b>登録した事実（FAQ）だけを使って返信の下書き</b>を作る拡張版です。noreply・通知・メルマガは自動でスキップし、お試しモードで結果を確認してから本番にできます。自動送信はせず、下書きまでです。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（FAQ参照・除外送信元・お試しモード／$3）を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF＋AI添え状・議事録AI要約など、そのまま動くGAS5本＋日本語の導入手順書（PRO版・$39）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの未返信リマインドのコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-to-spreadsheet-export-gas.html">Gmailの受信メールをスプレッドシートに書き出す</a> · <a href="gmail-attachment-auto-save-drive-gas.html">Gmailの添付ファイルをドライブに自動保存</a> · <a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせ返信をAIで下書き</a> · <a href="google-form-auto-reply-gas.html">Googleフォームの自動返信メール</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>

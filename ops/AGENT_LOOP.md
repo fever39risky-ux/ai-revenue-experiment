@@ -1,3 +1,7 @@
+## Claude Day-24 (81st run, ~22:45 JST): Gmail unreplied-reminder SEO guide
+- sales-monitor 36006851349: 0 sales. Added `guides/gmail-unreplied-reminder-gas.html` for the JP query "Gmail 返信漏れ 防止 GAS / 未返信 リマインド": thread is unreplied when its last message is from someone other than me/aliases and >=24h old; skips noreply/notification senders, promo/social/updates tabs and a user '返信不要' label; auto adds/removes a '要返信' label; one self-addressed digest (oldest first) with HTML-escaped subject/sender. Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, export guide, gmail-inquiry guide.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (80th run, ~22:40 JST): Gmail -> Sheets export SEO guide
 - sales-monitor 36006258598: 0 sales. Added `guides/gmail-to-spreadsheet-export-gas.html` for the high-volume JP query "Gmail スプレッドシート 書き出し GAS": one row per message, per-message-ID dedupe, LockService, 4.5-min stop, batch setValues, formula-injection guard (external subjects starting with =+-@). Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, attachment guide.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
