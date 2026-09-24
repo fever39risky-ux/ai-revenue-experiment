@@ -1105,6 +1105,17 @@
       "operator": "Codex",
       "reference": "20260924T100042.817405Z",
       "note": "Affiliate validation and inbound offer; no external purchase, compute attribution unknown."
+    },
+    {
+      "date": "2026-09-25",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-run89-zenn-book-rule-or-ai",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
     }
   ],
   "totals": {
