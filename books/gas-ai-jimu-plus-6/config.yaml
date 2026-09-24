@@ -1,0 +1,14 @@
+title: "GAS×ChatGPT 事務自動化 実務版コード集 ── 問い合わせ・請求書・議事録・フォーム・=AI()関数・日報の6本"
+summary: "Google Apps Script（GAS）とChatGPT APIで事務作業を自動化するスクリプト6本の拡張版コード全文と導入手順です。Gmail問い合わせの仕分けと下書き返信、請求書PDF（税率区分・源泉徴収・連番）とAI添え状、議事録のTODO台帳化と期限リマインド、フォーム問い合わせの担当者通知、=AI()関数、カレンダーからの日報・週報。自動送信はせず、お試しモード・個人情報の伏せ字・6分制限の続き処理つき。1本目は無料で全文読めます。"
+topics: ["googleappsscript", "gas", "chatgpt", "openai", "自動化"]
+published: false
+price: 1500
+chapters:
+  - introduction
+  - gmail-inquiry-plus
+  - invoice-pdf-plus
+  - minutes-plus
+  - form-triage-plus
+  - sheets-ai-plus
+  - calendar-report-plus
+  - next-steps
