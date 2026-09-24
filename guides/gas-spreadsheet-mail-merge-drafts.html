@@ -1,0 +1,121 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GASでスプレッドシートから差し込みメール｜Gmail下書きを一括作成・AIで一言添える（コード全文）</title><meta name="description" content="Googleスプレッドシートの宛先リストから、Google Apps Script で差し込みメール（{{氏名}}などの置き換え）をGmailの下書きとして一括作成する方法。送信せず下書き止まりで誤送信を防ぎ、二重作成防止・送信上限・6分制限・ChatGPTで一言だけ個別に添える方法までコード全文つき。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-spreadsheet-mail-merge-drafts.html"><meta property="og:title" content="スプレッドシートから差し込みメールをGmail下書きで一括作成（GAS）"><meta property="og:description" content="送信はしない。下書きを並べて、人が確認して送る。二重作成なし・6分制限対応・AIの一言はオプション。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-spreadsheet-mail-merge-drafts.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail · 登録不要 · コード全文</p><h1>スプレッドシートから差し込みメールを、<br>「Gmailの下書き」で一括作成する。</h1>
+<p class="lead">案内・お礼・請求のお知らせなど、宛名と一部だけ違うメールを何十通も送る作業は、<b>Google Apps Script（GAS）で下書きまで自動化</b>するのが一番安全です。いきなり送信せず、Gmail の下書きフォルダに並べて、<b>人が目で確認してから送る</b>ので誤送信が起きません。</p>
+
+<h2>1. シートの形</h2>
+<table><tr><th>A: メール</th><th>B: 会社名</th><th>C: 氏名</th><th>D: メモ</th><th>E: 状態</th></tr>
+<tr><td>taro@example.com</td><td>山田商店</td><td>山田 太郎</td><td>先月初回注文</td><td class="out">（空欄）</td></tr>
+<tr><td>hanako@example.com</td><td>佐藤工務店</td><td>佐藤 花子</td><td>見積もり中</td><td class="out">（空欄）</td></tr></table>
+<p class="cap">1行目は見出し。E列「状態」が空欄の行だけ処理し、下書きを作ったら「下書き作成済」と書き込みます（二回実行しても二重に作られません）。</p>
+
+<h2>2. 本文テンプレートは別シートに</h2>
+<p>シート「テンプレート」の A1 に件名、A2 に本文を書きます。<code>{{会社名}}</code> <code>{{氏名}}</code> のように<b>1行目の見出しと同じ名前</b>を二重波かっこで囲むと、その列の値に置き換わります。</p>
+<pre>A1: 【{{会社名}}様】10月の営業日のお知らせ
+A2: {{会社名}}
+{{氏名}} 様
+
+いつもお世話になっております。
+10月の営業日をお知らせいたします。
+（以下略）</pre>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<p>スプレッドシートの「拡張機能 → Apps Script」に貼り付けて、<code>createMergeDrafts</code> を実行します。初回だけ Gmail とスプレッドシートへのアクセス許可を求められます。</p>
+<pre>const SHEET = '宛先';         // 宛先リストのシート名
+const TEMPLATE = 'テンプレート'; // A1=件名, A2=本文
+const STATUS_COL = 5;         // E列「状態」
+const LIMIT_MS = 5 * 60 * 1000; // 6分制限の手前で止める
+
+function createMergeDrafts() {
+  const start = Date.now();
+  const ss = SpreadsheetApp.getActive();
+  const sh = ss.getSheetByName(SHEET);
+  const tpl = ss.getSheetByName(TEMPLATE);
+  const subjectTpl = String(tpl.getRange('A1').getValue());
+  const bodyTpl = String(tpl.getRange('A2').getValue());
+  const values = sh.getDataRange().getValues();
+  const head = values[0].map(String);
+  let made = 0;
+
+  for (let r = 1; r &lt; values.length; r++) {
+    if (Date.now() - start &gt; LIMIT_MS) break;       // 続きは次回
+    const row = values[r];
+    if (String(row[STATUS_COL - 1]).trim() !== '') continue; // 処理済み
+    const to = String(row[0]).trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
+      sh.getRange(r + 1, STATUS_COL).setValue('ERROR: メール不正');
+      continue;
+    }
+    const fill = s =&gt; s.replace(/\{\{(.+?)\}\}/g, (m, key) =&gt; {
+      const i = head.indexOf(key.trim());
+      const v = i &gt;= 0 ? String(row[i]).trim() : '';
+      return v !== '' ? v : m; // 列が無い・空欄は差し込み漏れとして残す
+    });
+    const subject = fill(subjectTpl);
+    const body = fill(bodyTpl);
+    if (/\{\{.+?\}\}/.test(subject + body)) {    // 置き換え漏れは作らない
+      sh.getRange(r + 1, STATUS_COL).setValue('ERROR: 差し込み漏れ');
+      continue;
+    }
+    GmailApp.createDraft(to, subject, body);        // 送信はしない
+    sh.getRange(r + 1, STATUS_COL).setValue('下書き作成済 ' +
+      Utilities.formatDate(new Date(), 'Asia/Tokyo', 'MM/dd HH:mm'));
+    made++;
+  }
+  SpreadsheetApp.getActive().toast(made + '件の下書きを作成しました');
+}</pre>
+<p class="cap">ポイントは3つ：①状態列で処理済みを管理（二重作成なし・止まっても続きから）、②差し込み漏れ（列名の違い・空欄で <code>{{…}}</code> が残った）行は作らずERROR表示、③<code>createDraft</code> なので絶対に送信されない。</p>
+
+<h2>4. 送るときの注意（送信上限）</h2>
+<ul><li>下書きは Gmail 画面から1通ずつ確認して送ります。スクリプトで自動送信（<code>GmailApp.sendEmail</code>）に切り替える場合、Apps Script からの送信には<b>1日の宛先数の上限</b>があります（無料の Gmail アカウントは約100件／日、Google Workspace は約1,500件／日）。残りは <code>MailApp.getRemainingDailyQuota()</code> で確認できます。</li>
+<li>一斉送信の広告メールは特定電子メール法の対象です。<b>取引のある相手への業務連絡</b>に使い、宣伝目的の配信には同意取得と配信停止の案内を入れてください。</li>
+<li>BCCでまとめて送るより、1人1通の方が宛先の見落としや漏えいが起きにくく、返信も管理しやすくなります。</li></ul>
+
+<h2>5. オプション：ChatGPTで「一言だけ」個別に添える</h2>
+<p>本文をまるごとAIに書かせると、事実と違う約束を書いたり、毎回言い回しが変わって確認が大変になります。おすすめは<b>本文は固定テンプレート、D列「メモ」から冒頭の一言だけAIに作らせる</b>やり方です。テンプレートに <code>{{ひとこと}}</code> を置き、F列を「ひとこと」列にして、先に次の関数で埋めます（空欄の行だけ）。</p>
+<pre>// プロンプト例（askAI は下の安全な共通関数のページを参照）
+const prompt = 'あなたは日本の中小企業の事務担当です。次のメモから、' +
+  '取引先へのメール冒頭に添える自然な一文（40字以内）を1つだけ書いてください。' +
+  'メモに無い事実（日付・金額・約束）は書かないこと。\nメモ：' + memo;</pre>
+<p class="cap">APIキーの隠し方・429エラーの再試行・1日の上限つきの呼び出し関数は <a href="gas-openai-api-safe-wrapper.html">GASからChatGPT APIを安全に呼ぶ askAI()</a> にまとめています。AIが作った一言もシート上で確認・修正してから下書きを作れるのが、この2段階方式の利点です。</p>
+
+<div class="note"><b>よくあるつまずき：</b>「{{氏名}}」が置き換わらない → 見出しに余分な空白があるか、全角/半角の違いです。見出しセルをテンプレートからコピーして貼ると確実です。改行が消える → A2 セル内の改行は Alt+Enter（Mac は ⌘+Enter）で入れます。</div>
+
+<div class="cta"><h3>下書きまで作る業務スクリプトを、まとめて使いたい方へ</h3>
+<p>このページと同じ「送信せず下書きまで」の考え方で作った、<b>そのまま動く GAS 5本</b>（Gmail 問い合わせの返信下書き・請求書PDF＋送付メール下書き・議事録の要点とTODO整形 ほか）と日本語の導入手順書のセットです。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">そのまま動くGAS5本＋導入ガイド【PRO版・$39】を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/ihdjg" target="_blank" rel="noopener">請求書PDFを一括作成して送付メールを下書き・拡張版（$3）→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/kaqnpj" target="_blank" rel="noopener">決まった集計を毎朝メールで届けるGAS＋シート一括AI処理（日本語版・$19）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの差し込みメールのコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gas-invoice-pdf-ai-cover-email.html">請求書PDF＋AI添え状メール</a> · <a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせをAIで下書き返信</a> · <a href="gas-openai-api-safe-wrapper.html">GASからChatGPT APIを安全に呼ぶ</a> · <a href="google-sheets-ai-function.html">スプレッドシートに =AI() 関数を自作</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
