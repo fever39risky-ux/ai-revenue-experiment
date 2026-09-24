@@ -77,4 +77,43 @@ for (const id of ids) {
   console.log(`SUMMARY listing ${id} -> ${r.status} state=${j.state} views=${j.views} favorers=${j.num_favorers} price=${j.price ? j.price.amount / j.price.divisor : '?'} taxonomy=${j.taxonomy_id}`);
 }
 
+// 5. Search visibility: does Etsy's public search return our listings for their own title keywords?
+// Only public listing ids/ranks are printed. rank=null for every query suggests the listings are not
+// in the search index at all (a shop/account-level issue), not merely low-ranked.
+const ownIds = new Set(ids.map(String));
+const queries = [];
+for (const f of readdirSync('marketing').filter((f) => /^etsy_listing_config.*\.json$/.test(f))) {
+  try {
+    const c = JSON.parse(readFileSync(`marketing/${f}`, 'utf8'));
+    const head = String(c.title || '').split(',')[0].split(' — ')[0].trim();
+    if (head) queries.push(head);
+    if (Array.isArray(c.tags) && c.tags[0]) queries.push(c.tags[0]);
+  } catch { /* skip unreadable config */ }
+}
+console.log(`\n=== SEARCH VISIBILITY (${queries.length} queries, top 100 by score) ===`);
+for (const q of queries) {
+  let r;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    await sleep(1000 * (attempt + 1));
+    r = await fetch(`https://api.etsy.com/v3/application/listings/active?keywords=${encodeURIComponent(q)}&limit=100&sort_on=score`, { headers });
+    if (r.status !== 429) break;
+  }
+  const j = await r.json().catch(() => ({}));
+  const results = Array.isArray(j.results) ? j.results : [];
+  const hits = results.map((x, i) => (ownIds.has(String(x.listing_id)) ? `${x.listing_id}@${i + 1}` : null)).filter(Boolean);
+  console.log(`SEARCH ${r.status} q="${q}" total=${j.count ?? '?'} own_hits=${hits.length ? hits.join(',') : 'none'}`);
+}
+// Exact-title lookups: a listing absent even for its own full title is effectively unsearchable.
+for (const id of ids) {
+  await sleep(1000);
+  const lr = await fetch(`https://api.etsy.com/v3/application/listings/${id}`, { headers });
+  const lj = await lr.json().catch(() => ({}));
+  if (!lj.title) continue;
+  await sleep(1000);
+  const sr = await fetch(`https://api.etsy.com/v3/application/listings/active?keywords=${encodeURIComponent(lj.title)}&limit=100`, { headers });
+  const sj = await sr.json().catch(() => ({}));
+  const pos = (Array.isArray(sj.results) ? sj.results : []).findIndex((x) => String(x.listing_id) === String(id));
+  console.log(`EXACT_TITLE ${sr.status} listing ${id} total=${sj.count ?? '?'} rank=${pos >= 0 ? pos + 1 : 'null'}`);
+}
+
 console.log('\netsy_listing_diagnostics: done. Read the raw JSON above to determine which real fields are available (views, num_favorers, tags, taxonomy, state, etc.) -- do not assume any field exists beyond what is actually printed.');
