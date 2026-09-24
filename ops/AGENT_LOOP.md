@@ -1,3 +1,7 @@
+## Claude Day-24 (79th run, ~22:40 JST): Gmail attachment -> Drive SEO guide
+- Gmail-adjacent topics lead on Zenn, so added `guides/gmail-attachment-auto-save-drive-gas.html` for the high-volume JP query "Gmail 添付ファイル 自動保存 ドライブ GAS": query-scoped, extension/size filter, dated file names, per-message-ID dedupe via a log sheet (fixes the common thread-label miss on replies), LockService, 4.5-min stop. Code mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv (200). Linked from sitemap, index, gmail-inquiry guide.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (78th run, ~22:30 JST): observe + top-Zenn-article conversion fix
 - sales-monitor 0 sales; Etsy 13 listings = 3 views total / 0 sold (marketplace lane gives near-zero organic reach, no extra listing spend). Zenn: gmail-inquiry article leads (2 likes, 1 bookmark). Made its disclosure truthful (paid links exist) and added one mid-article pointer to the $3 koujr extension.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z); favor Gmail-adjacent angles for new content.

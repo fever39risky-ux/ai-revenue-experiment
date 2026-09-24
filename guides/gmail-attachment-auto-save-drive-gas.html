@@ -1,0 +1,127 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailの添付ファイルをGoogleドライブに自動保存する（GAS）｜請求書PDFを日付つきで保存・二重保存防止・保存ログ（コード全文）</title><meta name="description" content="Gmailに届いた請求書・見積書などの添付ファイルを、Google Apps Script で指定フォルダへ自動保存する方法。送信元や件名で絞り込み、日付つきファイル名、署名画像の除外、返信がついたスレッドの取りこぼし防止、二重保存防止、6分制限対策、保存ログのシートまで。テスト済みのコード全文つき。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-attachment-auto-save-drive-gas.html"><meta property="og:title" content="Gmailの添付ファイルをドライブに自動保存（GAS・コード全文）"><meta property="og:description" content="請求書PDFを日付つきでフォルダへ。二重保存・取りこぼし・6分制限まで対策済み。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-attachment-auto-save-drive-gas.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail×Googleドライブ · 登録不要 · コード全文</p><h1>Gmailの添付ファイルを、<br>ドライブに自動保存する（GAS）。</h1>
+<p class="lead">取引先から届く請求書・見積書・注文書のPDFを、毎回ダウンロードしてフォルダに入れ直していませんか。このページでは Google Apps Script（GAS）で、<b>Gmailの添付ファイルを指定のGoogleドライブのフォルダへ日付つきで自動保存し、保存した記録をシートに残す</b>方法を、よくある失敗（二重保存・取りこぼし・途中で止まる）の対策込みで紹介します。</p>
+
+<h2>1. できること</h2>
+<table><tr><th>項目</th><th>このページのコード</th></tr>
+<tr><td>対象のメール</td><td>Gmailの検索式で指定（送信元・件名・ラベルなど）。例：<code>from:(billing@example.com) has:attachment newer_than:3d</code></td></tr>
+<tr><td>保存するファイル</td><td>拡張子で限定（PDF・Excel・CSVなど）。5KB未満（署名のロゴ画像など）と本文埋め込み画像は保存しない</td></tr>
+<tr><td>ファイル名</td><td><code>20260924_請求書.pdf</code> のように受信日を先頭に。ドライブで使えない記号は置き換え</td></tr>
+<tr><td>記録</td><td>「保存ログ」シートに メールID・受信日・送信元・件名・保存数・ドライブのURL</td></tr></table>
+
+<h2>2. 準備</h2>
+<ol class="steps"><li>保存先にしたいGoogleドライブのフォルダを開き、URLの <code>folders/</code> の後ろの文字列（フォルダID）をコピーします。</li>
+<li>新しいスプレッドシートを作り、「拡張機能 → Apps Script」を開いて下のコードを貼り付け、<code>FOLDER_ID</code> を書き換えます。</li>
+<li>▶ で <code>saveAttachments</code> を一度実行し、Gmail・ドライブ・シートの許可を与えます。フォルダにファイルが入り「保存ログ」シートができれば成功です。</li>
+<li>左の時計アイコン「トリガー」→「トリガーを追加」→ 関数 <code>saveAttachments</code>・「時間主導型」・「1時間おき」などで保存します。</li></ol>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<pre>const QUERY = 'has:attachment newer_than:3d -in:chats'; // 例: 'from:(billing@example.com) has:attachment newer_than:3d'
+const FOLDER_ID = 'ここに保存先フォルダのID';
+const EXT_OK = ['pdf', 'xlsx', 'xls', 'csv', 'docx', 'doc', 'zip', 'jpg', 'jpeg', 'png'];
+const MIN_BYTES = 5 * 1024;          // 署名画像などの小さいファイルは保存しない
+const LOG_SHEET = '保存ログ';
+const LIMIT_MS = 4.5 * 60 * 1000;    // 6分の実行上限の手前で止める
+
+function saveAttachments() {
+  const start = Date.now();
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(10 * 1000)) return;
+  try {
+    const log = logSheet_();
+    const done = new Set(log.getLastRow() &gt; 1
+      ? log.getRange(2, 1, log.getLastRow() - 1, 1).getValues().map(r =&gt; String(r[0]))
+      : []);
+    const folder = DriveApp.getFolderById(FOLDER_ID);
+    const threads = GmailApp.search(QUERY, 0, 50);
+    for (const th of threads) {
+      for (const msg of th.getMessages()) {
+        if (Date.now() - start &gt; LIMIT_MS) return; // 残りは次回の実行で
+        const id = msg.getId();
+        if (done.has(id)) continue;             // 返信がついたスレッドでも新着分だけ処理
+        const day = Utilities.formatDate(msg.getDate(), 'Asia/Tokyo', 'yyyyMMdd');
+        const from = msg.getFrom().replace(/.*&lt;|&gt;.*/g, '').trim();
+        const saved = [];
+        for (const att of msg.getAttachments({ includeInlineImages: false })) {
+          const name = att.getName() || 'noname';
+          const ext = (name.split('.').pop() || '').toLowerCase();
+          if (!EXT_OK.includes(ext) || att.getSize() &lt; MIN_BYTES) continue;
+          const safe = (day + '_' + name).replace(/[\\/:*?"&lt;&gt;|]/g, '_').slice(0, 150);
+          const file = folder.createFile(att.copyBlob().setName(safe));
+          saved.push(file.getUrl());
+        }
+        log.appendRow([id, day, from, msg.getSubject().slice(0, 100),
+          saved.length, saved.join('\n')]);
+        done.add(id);
+      }
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function logSheet_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sh = ss.getSheetByName(LOG_SHEET);
+  if (!sh) {
+    sh = ss.insertSheet(LOG_SHEET);
+    sh.appendRow(['メールID', '受信日', '送信元', '件名', '保存数', '保存先']);
+    sh.setFrozenRows(1);
+  }
+  return sh;
+}
+</pre>
+<p class="cap">書き換えるのは主に <code>QUERY</code>（どのメールを対象にするか）と <code>FOLDER_ID</code> の2つです。検索式はGmailの検索窓と同じ書き方なので、先にGmailで検索して、狙ったメールだけが出ることを確かめてから貼るのが確実です。</p>
+
+<h2>4. このコードが防いでいる4つの失敗</h2>
+<ul><li><b>同じファイルが何個も保存される：</b>保存したメールのIDを「保存ログ」シートに記録し、次回からはスキップします。トリガーが重なっても <code>LockService</code> で同時実行を防ぎます。</li>
+<li><b>返信がついたスレッドの新しい添付を取りこぼす：</b>よくある「保存済みラベルを付けて <code>-label:保存済</code> で除外する」方法は、ラベルがスレッド単位なので、同じスレッドに後から届いた添付を見落とします。このコードは<b>メール1通ごとのID</b>で判定するため、取りこぼしません。</li>
+<li><b>署名のロゴ画像まで保存されてフォルダが散らかる：</b>本文埋め込み画像を除外し、拡張子と最小サイズでも絞っています。</li>
+<li><b>件数が多い日に途中で止まる：</b>GASの1回の実行は6分までです。4.5分で自分から止め、残りは次の実行で続きから処理します（処理済みはログで判定するので重複しません）。</li></ul>
+
+<h2>5. よくあるつまずき</h2>
+<div class="note"><b>何も保存されない：</b>まず <code>QUERY</code> をGmailの検索窓に貼って、対象メールが出るか確認してください。<code>newer_than:3d</code> は「3日以内」の意味なので、古いメールも取り込みたいときは初回だけ <code>newer_than:30d</code> などに広げます（一度に最大50スレッド）。<br>
+<b>「保存数 0」の行がある：</b>添付があっても、拡張子が <code>EXT_OK</code> に無いか5KB未満だったメールです。記録だけ残して、次回からは見に行きません。<br>
+<b>権限エラーになる：</b>フォルダIDの貼り間違いか、そのフォルダを実行するアカウントが編集できない場合です。共有ドライブのフォルダでも、編集権限があれば保存できます。</div>
+
+<h2>6. AIはどこに使う？</h2>
+<p>保存そのものにAIは不要です。便利なのはその次の段階で、<b>保存した請求書の件名・送信元から「取引先・金額・支払期日」を一覧にまとめる</b>、<b>届いた問い合わせに返信の下書きを作る</b>、といった使い方です。AIに渡すのは必要な部分だけにし、金額や期日は必ず人が原本で確認してください。問い合わせメールの下書きは <a href="gmail-inquiry-ai-draft-reply.html">Gmailの問い合わせ返信をAIで下書き</a>、こちらから送る請求書は <a href="gas-invoice-pdf-ai-cover-email.html">請求書PDFとAI添え状メールを自動で下書き</a> にまとめています。</p>
+
+<div class="cta"><h3>Gmailの定型作業を、もう一歩まとめて自動化したい方へ</h3>
+<p>届いた問い合わせをAIで分類し、<b>登録した事実（FAQ）だけを使って返信の下書き</b>を作る拡張版です。noreply・通知・メルマガは自動でスキップし、お試しモードで結果を確認してから本番にできます。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（FAQ参照・除外送信元・お試しモード／$3）を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF＋AI添え状・議事録AI要約など、そのまま動くGAS5本＋日本語の導入手順書（PRO版・$39）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの添付ファイル自動保存のコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせ返信をAIで下書き</a> · <a href="gas-invoice-pdf-ai-cover-email.html">請求書PDFとAI添え状メールを自動で下書き</a> · <a href="gas-spreadsheet-mail-merge-drafts.html">スプレッドシートから差し込みメールを下書き作成</a> · <a href="google-form-auto-reply-gas.html">Googleフォームの自動返信メール</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
