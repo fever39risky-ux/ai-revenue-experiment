@@ -1,3 +1,10 @@
+## Claude Day-25 (91st run, ~00:58 JST): book CTA price fix, IndexNow catch-up, book-404 diagnosis
+- sales-monitor 36022138216: 0 sales, 0 free downloads. The 2nd Zenn book's next-steps chapter showed both paid CTAs as empty `（）` (the `$9`/`$3` were lost when the file was written); restored. The book isn't live yet, so no reader saw it.
+- IndexNow: resubmitted all 36 sitemap URLs (200). The last submission covered 27, so the 9 new Gmail guides had never been sent.
+- Book still 404 about 1h after push. Its config, cover (500x700) and limits match the live 1st book, which deployed within seconds. Most likely cause: Zenn's rolling 24h new-post limit (the last new post went out ~12:50Z). Zenn doesn't retry, so re-push the book alone first at/after 2026-09-25T12:50Z, then the attachment article in a separate push.
+- Screened, not executed: a JPY Gumroad duplicate (price-unit risk, and with 0 traffic checkout friction isn't the constraint), more Etsy listings (13 listings, ~3 views), and a new GitHub repo/gist (outside this checkout's scope).
+- NEXT: AUTONOMY_STATE.next_action.
+
 ## Claude Day-25 (90th run, ~00:55 JST): second free Zenn book for the no-API-key Gmail segment
 - sales-monitor 36020610935: 0 sales. Pushed `books/gmail-gas-no-api-key-automation` (free, 7 chapters): converted the 4 tested owned-site Gmail guides (label/cleanup/notify/export) into chapters plus a new multi-script chapter (const collisions -> namespaced IIFE, delete only own triggers, script lock is project-wide); snippets Node-tested; $9 olrtpl CTA. New discovery surface (Zenn book listing, `gmail` topic) for readers avoiding API keys; not a chapter in the AI book.
 - Zenn book API still 404 ~8 min after push (summary shortened, re-pushed). Unverified; re-check first next run.

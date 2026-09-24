@@ -20,8 +20,8 @@ title: "次の一歩：添付ファイル保存・未返信リマインド、そ
 :::message
 **時間を省きたい方へ（有料）**
 
-- この本の4本＋添付保存・未返信リマインドの6本を1つのシートで同時に動かすセット（メニュー・定期実行ON/OFFつき、APIキー不要） → **Gmail自動化GAS 6本セット（）** [Gumroad](https://feverish50.gumroad.com/l/olrtpl)
-- 問い合わせをAIで分類し、登録したFAQの事実だけで返信の下書きを作る拡張版（OpenAIのAPIキーが必要） → **Gmail問い合わせAI下書き返信・GAS拡張版（）** [Gumroad](https://feverish50.gumroad.com/l/koujr)
+- この本の4本＋添付保存・未返信リマインドの6本を1つのシートで同時に動かすセット（メニュー・定期実行ON/OFFつき、APIキー不要） → **Gmail自動化GAS 6本セット（$9）** [Gumroad](https://feverish50.gumroad.com/l/olrtpl)
+- 問い合わせをAIで分類し、登録したFAQの事実だけで返信の下書きを作る拡張版（OpenAIのAPIキーが必要） → **Gmail問い合わせAI下書き返信・GAS拡張版（$3）** [Gumroad](https://feverish50.gumroad.com/l/koujr)
 
 Gumroadでの販売です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。
 :::

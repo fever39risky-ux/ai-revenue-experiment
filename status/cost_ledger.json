@@ -1127,6 +1127,17 @@
       "operator": "Claude",
       "reference": "claude-run90-zenn-book-gmail-no-api-key",
       "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
+    },
+    {
+      "date": "2026-09-25",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Claude",
+      "reference": "claude-run91-book-cta-fix-indexnow",
+      "note": "Mac-local Claude subscription run; attributable cost unknown (null, not zero). No external spend."
     }
   ],
   "totals": {
