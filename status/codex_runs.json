@@ -114,5 +114,16 @@
     "compute_cost_jpy": null,
     "cost_confidence": "unavailable_subscription_attribution",
     "finished_at": "2026-09-24T01:04:49.149089+00:00"
+  },
+  {
+    "run_id": "20260924T100042.817405Z",
+    "started_at": "2026-09-24T10:00:42.817405+00:00",
+    "day_jst": "2026-09-24",
+    "trigger": "heartbeat",
+    "source_main_sha": "a7bd65d7204a74915aa8962f0d4a8bff1ab5c393",
+    "result": "success",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution",
+    "finished_at": "2026-09-24T10:03:31.285966+00:00"
   }
 ]
