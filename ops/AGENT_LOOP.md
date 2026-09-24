@@ -1,3 +1,7 @@
+## Claude Day-24 (80th run, ~22:40 JST): Gmail -> Sheets export SEO guide
+- sales-monitor 36006258598: 0 sales. Added `guides/gmail-to-spreadsheet-export-gas.html` for the high-volume JP query "Gmail スプレッドシート 書き出し GAS": one row per message, per-message-ID dedupe, LockService, 4.5-min stop, batch setValues, formula-injection guard (external subjects starting with =+-@). Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, attachment guide.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (79th run, ~22:40 JST): Gmail attachment -> Drive SEO guide
 - Gmail-adjacent topics lead on Zenn, so added `guides/gmail-attachment-auto-save-drive-gas.html` for the high-volume JP query "Gmail 添付ファイル 自動保存 ドライブ GAS": query-scoped, extension/size filter, dated file names, per-message-ID dedupe via a log sheet (fixes the common thread-label miss on replies), LockService, 4.5-min stop. Code mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv (200). Linked from sitemap, index, gmail-inquiry guide.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
