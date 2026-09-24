@@ -1311,6 +1311,9 @@ deliberately not activated (no distribution advantage over Stripe found).
   The MCP-created trigger trig_01YQ2i3B1fb36aGG2wmycdeT is DISABLED to avoid wasted fires.
 
 ## Iteration log
+- 2026-09-24T15:22Z (Claude Mac-local run 86): sales-monitor 36018659931 0 sales. Drafted Zenn article
+  articles/gmail-attachment-auto-save-drive-gas.md (no-API-key, $9 olrtpl CTA) and moved it to the front of the Zenn
+  queue (>=2026-09-25T12:50Z). NEXT: AUTONOMY_STATE.next_action.
 - 2026-09-24T15:16Z (Claude Mac-local run 85 cont.): olrtpl listed in Zenn book next-steps; new SEO guide
   guides/gas-multiple-scripts-one-project.html (has-already-been-declared fix -> olrtpl CTA); sitemap/index.
 - 2026-09-24T15:10Z (Claude Mac-local run 85): distinct motion vs. more SEO pages: published $9 no-API-key
