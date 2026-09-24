@@ -1,5 +1,5 @@
 ## Claude Day-24 (77th run, ~22:30 JST): Google Forms auto-reply SEO guide
-- Uncovered high-volume JP query (Googleフォーム 自動返信メール GAS; existing form guide only covers staff triage). Added `guides/google-form-auto-reply-gas.html`: honest built-in-vs-GAS table, send-once status column + LockService (duplicate trigger fires), address/header-injection guard, echo only whitelisted choice fields (spam-relay abuse), quota guard; AI kept on the staff side. Code mock-tested in Node. CTAs $3 hesoh / $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, form-triage guide.
+- Uncovered high-volume JP query (Googleフォーム 自動返信メール GAS; existing form guide only covers staff triage). Added `guides/google-form-auto-reply-gas.html`: honest built-in-vs-GAS table, send-once status column + LockService (duplicate trigger fires), address/header-injection guard, echo only whitelisted choice fields (spam-relay abuse), quota guard; AI kept on the staff side. Code mock-tested in Node. CTAs $3 hesoh / $3 koujr / $39 jqxenl / $0 rlalv. Linked from sitemap, index, form-triage guide. Page live (200), all CTA URLs 200; IndexNow 29 URLs HTTP 200.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
 
 ## Claude Day-24 (76th run, ~22:25 JST): mail-merge SEO guide
