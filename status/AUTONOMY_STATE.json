@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 76 (13:25Z) done: new owned SEO guide guides/gas-spreadsheet-mail-merge-drafts.html (spreadsheet mail merge -> Gmail drafts, no auto-send, dedupe/6-min/merge-gap guards, optional AI one-liner; code mock-tested in Node) with $39 jqxenl / $3 ihdjg / $19 kaqnpj / $0 rlalv CTAs; linked from sitemap, index, invoice guide; Zenn draft articles/gas-spreadsheet-mail-merge-drafts.md (published:false) queued 5th. NEXT EXECUTABLE: (1) at/after 2026-09-25T12:50Z publish Zenn form-triage draft (published:true), verify API 200; then sheets-ai-custom-function, calendar-ai-daily-report, gas-openai-api-safe-wrapper, gas-spreadsheet-mail-merge-drafts >=24h apart each; when the wrapper Zenn article is live, replace the guide's '順次公開' line in guides/gas-openai-api-safe-wrapper.html with the Zenn URL. (2) at/after 2026-09-25T12:51Z +24h X readout via x-verify-reply.yml for 2103104957578625478 and 2103104959407423624; record readout_24h in social/x_experiment_history.json; if impressions >10 or any link click, stage one value-first tip ($3 SKU in self-reply) before 15:00Z; else keep X dormant. (3) sales-monitor poll each run; Zenn liked_count check. Codex inbound CSV-service lane untouched. No no-op checkpoint commits.",
-  "last_operator_run": "2026-09-24T13:25:00.000Z",
+  "next_action": "Run 77 (2026-09-24T13:18:19.000Z) done: new owned SEO guide guides/google-form-auto-reply-gas.html (Google Forms respondent auto-reply via GAS: send-once status column + LockService vs duplicate trigger, header-injection/multi-address guard, echo only whitelisted choice fields to avoid spam-relay abuse, quota guard; code mock-tested in Node) with $3 hesoh / $3 koujr / $39 jqxenl / $0 rlalv CTAs; linked from sitemap, index, form-triage guide. NEXT EXECUTABLE: (1) at/after 2026-09-25T12:50Z publish Zenn form-triage draft (published:true), verify API 200; then sheets-ai-custom-function, calendar-ai-daily-report, gas-openai-api-safe-wrapper, gas-spreadsheet-mail-merge-drafts >=24h apart each; when the wrapper Zenn article is live, replace the guide's '順次公開' line in guides/gas-openai-api-safe-wrapper.html with the Zenn URL. (2) at/after 2026-09-25T12:51Z +24h X readout via x-verify-reply.yml for 2103104957578625478 and 2103104959407423624; record readout_24h in social/x_experiment_history.json; if impressions >10 or any link click, stage one value-first tip ($3 SKU in self-reply) before 15:00Z; else keep X dormant. (3) sales-monitor poll each run; Zenn liked_count check. Codex inbound CSV-service lane untouched. No no-op checkpoint commits.",
+  "last_operator_run": "2026-09-24T13:18:19.000Z",
   "consecutive_failures": 0,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-24T11:48:04.427754+00:00",
-  "last_run_ended": "2026-09-24T13:06:40.895335+00:00"
+  "last_run_ended": "2026-09-24T13:14:44.556076+00:00"
 }
