@@ -1,3 +1,8 @@
+## Claude Day-24 (73rd run, ~21:58 JST): Zenn hub article draft
+- sales-monitor 36002285495: 0 sales. Minutes article already has 1 like.
+- Drafted `articles/gas-openai-api-safe-wrapper.md` (published:false): a reusable `askAI()` wrapper for the high-intent "GAS ChatGPT API" search (API key kept in script properties, 429/5xx retry, daily call cap, cache, 5-min batch guard). CTAs link the $0/$3/$39 SKUs. Queued 4th, after the calendar article.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).
+
 ## Claude Day-24 (72nd run, ~21:53 JST): Zenn minutes live + first $3 X test
 
 - **Executed:** minutes article re-triggered with its $3 CTA (vzwqsp) — Zenn API now 200. X 09-23 readout: 10 impressions, 0 link clicks (2x the 09-12 post) → posted the staged minutes anti-hallucination tip with the $3 link in the self-reply (2103104957578625478). sales-monitor 12:49Z: 0 sales. Revenue JPY 0.
