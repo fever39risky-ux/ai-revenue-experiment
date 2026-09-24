@@ -10,6 +10,8 @@ title: "次の一歩：具体的な自動化レシピ"
 - [Gmailの問い合わせメールを自動仕分けして、AIが下書き返信を作る](https://zenn.dev/kinoshita_ai/articles/gas-chatgpt-gmail-inquiry-auto-reply)
 - [請求書PDFを自動作成し、AIが添え状を書いた下書きメールまで用意する](https://zenn.dev/kinoshita_ai/articles/gas-invoice-pdf-ai-email)
 - [ChatGPTに事実をでっち上げさせない「制約プロンプト」の型](https://zenn.dev/kinoshita_ai/articles/chatgpt-jimu-anti-hallucination-prompt)
+- [議事録メモをAIで要点・決定事項・TODOに整形する（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-meeting-minutes-ai-summary.html?ref=zenn-book)
+- [Googleカレンダーの予定からAIで日報の下書きを作る（解説ページ）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-calendar-ai-daily-report.html?ref=zenn-book)
 
 事務作業向けのコピペ用プロンプト集も無料で置いています → [ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn-book)
 
@@ -21,6 +23,8 @@ title: "次の一歩：具体的な自動化レシピ"
 - **請求書PDF＋AI添え状メール下書き・GAS拡張版（$3）**：10%・8%の税率区分ごとの消費税、源泉徴収、請求書の通し番号、お試しモード付き → [Gumroad](https://feverish50.gumroad.com/l/ihdjg)
 - **Googleフォーム問い合わせAI仕分け＆担当者通知・GAS拡張版（$3）**：設定シート、個人情報マスク、放置リマインド、日次まとめ付き → [Gumroad](https://feverish50.gumroad.com/l/hesoh)
 - **スプレッドシート =AI() 関数・GAS拡張版（$3）**：分類・抽出・翻訳関数、数百行の一括処理（続きから再開）、月の予算上限付き → [Gumroad](https://feverish50.gumroad.com/l/ymotl)
+- **議事録AI要約・GAS拡張版（$3）**：長文メモの分割要約、TODO台帳への自動転記、担当者別の期限リマインド付き → [Gumroad](https://feverish50.gumroad.com/l/vzwqsp)
+- **Googleカレンダー→AI日報・週報の下書き・GAS拡張版（$3）**：顧客・案件別の時間集計、稼働ログ、月次集計付き → [Gumroad](https://feverish50.gumroad.com/l/saeye)
 - **そのまま動くGAS5本＋日本語導入ガイド【PRO】（$39）**：一括処理・毎朝の要約・Gmail問い合わせ仕分け・請求書PDF＋添え状・議事録要約の5本と、APIキー取得からつまずき対処までの導入ガイド → [Gumroad](https://feverish50.gumroad.com/l/jqxenl)
 
 どれも、この本で解説した設計（下書き止まり・DRY_RUN・再実行しても二重処理しない）に沿って作っています。
