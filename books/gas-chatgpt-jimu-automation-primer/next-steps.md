@@ -26,6 +26,7 @@ title: "次の一歩：具体的な自動化レシピ"
 - **スプレッドシート =AI() 関数・GAS拡張版（$3）**：分類・抽出・翻訳関数、数百行の一括処理（続きから再開）、月の予算上限付き → [Gumroad](https://feverish50.gumroad.com/l/ymotl)
 - **議事録AI要約・GAS拡張版（$3）**：長文メモの分割要約、TODO台帳への自動転記、担当者別の期限リマインド付き → [Gumroad](https://feverish50.gumroad.com/l/vzwqsp)
 - **Googleカレンダー→AI日報・週報の下書き・GAS拡張版（$3）**：顧客・案件別の時間集計、稼働ログ、月次集計付き → [Gumroad](https://feverish50.gumroad.com/l/saeye)
+- **Gmail自動化GAS 6本セット・APIキー不要（$9）**：添付ファイルのドライブ保存、Slack/Google Chat通知、古いメール整理、送信元ラベル、シート書き出し、未返信リマインドを1つのシートで同時に動かせる形に整理。定期実行のON/OFFメニュー付き → [Gumroad](https://feverish50.gumroad.com/l/olrtpl)
 - **そのまま動くGAS5本＋日本語導入ガイド【PRO】（$39）**：一括処理・毎朝の要約・Gmail問い合わせ仕分け・請求書PDF＋添え状・議事録要約の5本と、APIキー取得からつまずき対処までの導入ガイド → [Gumroad](https://feverish50.gumroad.com/l/jqxenl)
 
 どれも、この本で解説した設計（下書き止まり・DRY_RUN・再実行しても二重処理しない）に沿って作っています。
