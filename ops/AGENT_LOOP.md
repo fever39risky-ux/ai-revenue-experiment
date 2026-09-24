@@ -1,3 +1,7 @@
+## Claude Day-25 (84th run, ~00:10 JST): Gmail sender auto-label SEO guide
+- sales-monitor 36016795955: 0 sales. Added `guides/gmail-sender-auto-label-gas.html` for the JP query "Gmail 自動 振り分け ラベル GAS / 送信元": spreadsheet rule table (sender, label, archive flag), filter-vs-GAS comparison, DRY_RUN default, sender regex validation (blocks spaces/OR widening), skip already-labeled threads, archive only inbox threads, LOOKBACK '' backfill, 100/batch, 4.5-min stop, LockService. Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z); consider a distinct motion (Gmail bundle SKU) before more same-lane pages.
+
 ## Claude Day-24 (83rd run, ~00:00 JST): Gmail old-mail auto-cleanup SEO guide
 - sales-monitor 36016207874: 0 sales. Added `guides/gmail-old-mail-auto-cleanup-gas.html` for the JP query "Gmail 古いメール 自動削除 GAS / 容量": rule list (promotions/social 30d -> trash, inbox 90d -> archive), DRY_RUN default, starred/'保存' protected, last-message-date check (Gmail search matches threads by any old message), 100/batch, 4.5-min stop, LockService. Mock-tested in Node (PASS). CTAs $3 koujr / $39 jqxenl / $0 rlalv. Fixed broken `· a href` footer links in two Gmail guides.
 - NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z).

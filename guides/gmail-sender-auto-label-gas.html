@@ -1,0 +1,121 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmailを送信元ごとに自動でラベル分け（GAS）｜スプレッドシートでルール管理・過去メールにも適用（コード全文）</title><meta name="description" content="Gmailの受信メールを、取引先・ドメインなど送信元ごとに自動でラベル分けする Google Apps Script。振り分けルールはスプレッドシートで一覧管理、過去のメールにもまとめて適用、受信トレイから外すかも行ごとに指定。お試しモード・二重付与なし・100件ずつ処理で6分制限も回避。テスト済みのコード全文。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-sender-auto-label-gas.html"><meta property="og:title" content="Gmailを送信元ごとに自動でラベル分け（GAS・コード全文）"><meta property="og:description" content="振り分けルールをスプレッドシートで管理。過去メールにも一括適用、お試しモードつき。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-sender-auto-label-gas.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×Gmail · 登録不要 · コード全文</p><h1>Gmailを送信元ごとに<br>自動でラベル分けする（GAS）。</h1>
+<p class="lead">取引先ごと・サービスごとにメールをラベルで分けたい。Gmailの「フィルタ」でもできますが、取引先が数十社になると設定画面で管理しきれず、過去のメールには付け直しの手間もかかります。このページでは Google Apps Script（GAS）で、<b>スプレッドシートの一覧表に書いた「送信元 → ラベル」のとおりに自動でラベルを付ける</b>仕組みを作ります。</p>
+
+<h2>1. Gmailのフィルタとの使い分け</h2>
+<table><tr><th>こんなとき</th><th>おすすめ</th></tr>
+<tr><td>振り分けが数件で、今後届くメールだけでよい</td><td>Gmail標準のフィルタで十分です（設定 → フィルタとブロック中のアドレス）</td></tr>
+<tr><td>取引先が多く、一覧表で管理・共有したい</td><td class="out">このページのGAS</td></tr>
+<tr><td>過去のメールにもまとめて同じラベルを付けたい</td><td class="out">このページのGAS（初回だけ全期間を処理）</td></tr>
+<tr><td>付けた件数を確認してから本番にしたい</td><td class="out">このページのGAS（お試しモード）</td></tr></table>
+
+<h2>2. 手順</h2>
+<ol class="steps"><li>Googleスプレッドシートを新しく作り、シート名を「ルール」にします。1行目は見出し、2行目から下の表のように書きます。</li>
+<li>メニュー「拡張機能」→「Apps Script」を開き、下のコードを貼り付けて保存します。</li>
+<li><code>DRY_RUN = true</code> のまま ▶ で <code>sortBySender</code> を実行し、Gmailとスプレッドシートへのアクセスを許可します。実行ログに「[お試し] @a-sha.co.jp → 取引先/A社: 12件」のように出ます。</li>
+<li>過去のメールにも付けたい場合は、<code>LOOKBACK = ''</code> にして <code>DRY_RUN = false</code> で1回実行します（件数が多いと数回に分かれます）。</li>
+<li><code>LOOKBACK = 'newer_than:2d'</code> に戻して保存し、左の時計アイコン「トリガー」→ 関数 <code>sortBySender</code>・「時間主導型」・「分ベースのタイマー」・「15分おき」で保存します。</li></ol>
+<table><tr><th>送信元（A列）</th><th>ラベル（B列）</th><th>受信トレイから外す（C列）</th></tr>
+<tr><td>@a-sha.co.jp</td><td>取引先/A社</td><td>FALSE</td></tr>
+<tr><td>billing@example-cloud.com</td><td>請求</td><td>TRUE</td></tr>
+<tr><td>news.example-shop.jp</td><td>メルマガ</td><td>TRUE</td></tr></table>
+<p class="cap">送信元はメールアドレス（<code>info@…</code>）でもドメイン（<code>@a-sha.co.jp</code>）でも書けます。ラベル名に「/」を入れると「取引先」の下に「A社」がまとまります。C列を TRUE にした行は、ラベルを付けたうえで受信トレイから外します（削除はしません）。</p>
+
+<h2>3. コード全文（コピペで動きます）</h2>
+<pre>const DRY_RUN = true;                  // まずは true のまま実行し、ログで対象を確認する
+const SHEET_NAME = 'ルール';            // A列: 送信元  B列: ラベル名  C列: 受信トレイから外す(TRUE/FALSE)
+const LOOKBACK = 'newer_than:2d';      // 定期実行で見る範囲。過去のメールにも付けたい初回だけ '' にする
+const BATCH = 100;                     // GmailApp の一括操作は1回100件まで
+const TIME_LIMIT_MS = 4.5 * 60 * 1000; // 6分制限の手前で止め、続きは次回
+
+function sortBySender() {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) return;
+  const start = Date.now();
+  try {
+    const rows = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME).getDataRange().getValues().slice(1);
+    for (const [rawSender, rawLabel, rawSkip] of rows) {
+      const sender = String(rawSender).trim(), labelName = String(rawLabel).trim();
+      if (!sender || !labelName) continue;
+      // 空白や OR などが入ると検索式が広がるので、メールアドレス・ドメインの形だけ受け付ける
+      if (!/^[A-Za-z0-9._%+\-]*@?[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/.test(sender)) {
+        console.warn('送信元の書き方が不正なのでスキップ: ' + sender); continue;
+      }
+      const skipInbox = rawSkip === true || String(rawSkip).toUpperCase() === 'TRUE';
+      const q = 'from:(' + sender + ')' + (LOOKBACK ? ' ' + LOOKBACK : '');
+      const label = DRY_RUN ? null : (GmailApp.getUserLabelByName(labelName) || GmailApp.createLabel(labelName));
+      let offset = 0, labeled = 0, archived = 0;
+      while (Date.now() - start &lt; TIME_LIMIT_MS) {
+        const threads = GmailApp.search(q, offset, BATCH);
+        if (!threads.length) break;
+        offset += threads.length;   // ラベルを付けても検索結果は変わらないので、そのまま次へ進む
+        const todo = threads.filter(t =&gt; !t.getLabels().some(l =&gt; l.getName() === labelName));
+        const toArchive = skipInbox ? todo.filter(t =&gt; t.isInInbox()) : [];
+        labeled += todo.length; archived += toArchive.length;
+        if (DRY_RUN) continue;
+        if (todo.length) label.addToThreads(todo);
+        if (toArchive.length) GmailApp.moveThreadsToArchive(toArchive);
+      }
+      console.log((DRY_RUN ? '[お試し] ' : '') + sender + ' → ' + labelName + ': ' + labeled + '件' +
+        (skipInbox ? '（うち受信トレイから外す ' + archived + '件）' : ''));
+      if (Date.now() - start &gt;= TIME_LIMIT_MS) { console.log('時間切れ。続きは次回の実行で処理します'); break; }
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+</pre>
+
+<h2>4. このコードが防いでいる4つの失敗</h2>
+<ul><li><b>表の書き間違いで大量のメールに付く：</b>送信元に空白や <code>OR</code> が入ると、Gmailの検索式が意図より広くなります。このコードはメールアドレス・ドメインの形になっていない行をスキップし、ログに警告を出します。</li>
+<li><b>確認せずに本番で動かしてしまう：</b>お試しモードでは何も変更せず、ルールごとの件数だけを出します。</li>
+<li><b>同じラベルを何度も付け直す・受信トレイに戻したメールをまた外す：</b>すでにそのラベルが付いているスレッドは処理しません。自分で受信トレイに戻したメールが、次の実行でまた外されることもありません。</li>
+<li><b>過去メールが多くてエラーになる：</b>一括操作は1回100件までなので100件ずつ、実行時間は4.5分で区切り、続きは次回に回します。<code>LockService</code> で実行の重なりも防ぎます。</li></ul>
+
+<h2>5. よくあるつまずき</h2>
+<div class="note"><b>ラベルは付いたのに受信トレイに残っている：</b>C列が TRUE になっているか確認してください。セルに「はい」などと書くと FALSE 扱いです。<br>
+<b>関係ないメールまで付いた：</b><code>gmail.com</code> のように多くの人が使うドメインを書くと、その全員が対象になります。Gmailなどのフリーメールはアドレス単位で書いてください。付いたラベルはGmailでまとめて外せます。<br>
+<b>「お試し」の件数が0件：</b>送信元の表記を、実際のメールの差出人アドレスと比べてください。Gmailの検索窓に <code>from:(@a-sha.co.jp)</code> と入れて結果が出るかで確かめられます。<br>
+<b>会社のGoogle Workspaceで使う：</b>スクリプトからGmailへのアクセスが管理者に制限されている場合があります。</div>
+
+<h2>6. AIはどこに使う？</h2>
+<p>振り分けにAIは不要です。送信元で決まるものはルールのほうが速く、間違いもありません。AIが役立つのは、送信元では決まらない<b>問い合わせの中身を読んで分類し、返信の下書きを作る</b>ほうです。作り方は <a href="gmail-inquiry-ai-draft-reply.html">Gmailの問い合わせ返信をAIで下書き</a> にまとめています。</p>
+
+<div class="cta"><h3>振り分けたあとの「問い合わせ対応」も軽くしたい方へ</h3>
+<p>届いた問い合わせをAIで分類し、<b>登録した事実（FAQ）だけを使って返信の下書き</b>を作る拡張版です。noreply・通知・メルマガは自動でスキップし、お試しモードで結果を確認してから本番にできます。自動送信はせず、下書きまでです。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（FAQ参照・除外送信元・お試しモード／$3）を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">請求書PDF＋AI添え状・議事録AI要約など、そのまま動くGAS5本＋日本語の導入手順書（PRO版・$39）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページのラベル分けのコードは無料で、有料版には含まれていません。AI を使う機能には OpenAI の API キー（従量課金）が必要です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-old-mail-auto-cleanup-gas.html">Gmailの古いメールを自動で削除・アーカイブ</a> · <a href="gmail-notify-slack-google-chat-gas.html">Gmailの新着をSlack・Google Chatに通知</a> · <a href="gmail-unreplied-reminder-gas.html">Gmailの未返信メールを毎朝リマインド</a> · <a href="gmail-to-spreadsheet-export-gas.html">Gmailの受信メールをスプレッドシートに書き出す</a> · <a href="gmail-attachment-auto-save-drive-gas.html">Gmailの添付ファイルをドライブに自動保存</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
