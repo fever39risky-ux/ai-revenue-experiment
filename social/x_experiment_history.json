@@ -111,6 +111,32 @@
         "vs_2026_09_12": "10 vs 5 impressions (2x); no link clicks",
         "decision": "impressions doubled -> dispatch staged 2026-09-24 minutes tip"
       }
+    },
+    {
+      "date": "2026-09-24",
+      "post_type": "top_level",
+      "tweet_id": "2103104957578625478",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2103104957578625478",
+      "in_reply_to_tweet_id": null,
+      "text": "議事録をChatGPTに要約させると\nたまに「言ってないこと」が混ざるんよね\n\n決まってない担当者や期限を\nそれっぽく埋めてくる\n\n対策は指示に2行足すだけ\n・事実だけを使い、憶測で書かない\n・担当者と期限が無ければ「未定」と書く\n\nただ、最後は人が読み直す前提でな",
+      "reply_text": "この指示入りで、議事録を「要点・決定事項・TODO」に整形して参加者にメールするGASを置いてる\n\n長い会議の分割要約・担当者別の期限リマインド付きの拡張版（$3）\n▼\nhttps://feverish50.gumroad.com/l/vzwqsp",
+      "reply_tweet_id": "2103104959407423624",
+      "reply_error": null,
+      "topic": "VALUE-FIRST cold-reader post: one standalone anti-hallucination tip for AI meeting-minutes summaries (the fact-only + '未定' instruction lines from the live Zenn minutes article's pitfalls section). Link-free main tweet; self-reply points to the $3 Gumroad minutes extension SKU (vzwqsp, 200) -- first X test of a direct low-ticket paid link to a cold GAS/ChatGPT audience, distinct from the 09-23 free-book destination. Anti-hallucination theme matches the most-liked Zenn topics (inquiry 2, anti-hallucination 1).",
+      "register": "A/B blend -- value-first standalone tip (Register B restrained practical explanation with 'ただ〜' limit), soft paid link only in the self-reply (Register A).",
+      "posted_at": "2026-09-24T12:51:10.000Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 36001684952)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "reply_verified": true,
+      "observation_plan": "At >=2026-09-25T12:51Z read main impressions and self-reply url_link_clicks via x-verify-reply.yml (2103104957578625478 / 2103104959407423624). Compare with 2026-09-23 (10 imp, 0 clicks). First direct $3 paid-link test on X."
     }
   ]
 }
