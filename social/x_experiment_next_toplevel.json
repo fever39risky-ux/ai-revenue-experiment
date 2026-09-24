@@ -1,5 +1,4 @@
 {
-  "_doc": "STAGED, NOT QUEUED. Conditional 2026-09-24 top-level draft. Only if the +24h readout of 2102740099985498259 shows impressions materially >5 or any self-reply link click: copy this object (minus _doc) to social/x_experiment_next_toplevel.json, commit/push, dispatch x-post-toplevel.yml before 15:00Z (JST day cap 1). Otherwise leave X dormant and delete or re-date this file.",
   "date": "2026-09-24",
   "text": "議事録をChatGPTに要約させると\nたまに「言ってないこと」が混ざるんよね\n\n決まってない担当者や期限を\nそれっぽく埋めてくる\n\n対策は指示に2行足すだけ\n・事実だけを使い、憶測で書かない\n・担当者と期限が無ければ「未定」と書く\n\nただ、最後は人が読み直す前提でな",
   "reply_text": "この指示入りで、議事録を「要点・決定事項・TODO」に整形して参加者にメールするGASを置いてる\n\n長い会議の分割要約・担当者別の期限リマインド付きの拡張版（$3）\n▼\nhttps://feverish50.gumroad.com/l/vzwqsp",

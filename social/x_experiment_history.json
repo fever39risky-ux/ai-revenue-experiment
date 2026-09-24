@@ -95,7 +95,22 @@
       },
       "standalone_verified": true,
       "reply_verified": true,
-      "observation_plan": "At ~+24h read main impressions and self-reply url_link_clicks via x-verify-reply.yml (X_TWEET_ID=2102740099985498259 / 2102740101499703554). Compare with the 2026-09-12 post (5 impressions). Also check the Zenn book liked_count."
+      "observation_plan": "At ~+24h read main impressions and self-reply url_link_clicks via x-verify-reply.yml (X_TWEET_ID=2102740099985498259 / 2102740101499703554). Compare with the 2026-09-12 post (5 impressions). Also check the Zenn book liked_count.",
+      "readout_24h": {
+        "read_at": "2026-09-24T12:49Z",
+        "runs": [
+          36001479839,
+          36001484399
+        ],
+        "main_impressions": 10,
+        "main_engagements": 1,
+        "main_likes": 0,
+        "main_profile_clicks": 0,
+        "reply_impressions": 3,
+        "reply_url_link_clicks": 0,
+        "vs_2026_09_12": "10 vs 5 impressions (2x); no link clicks",
+        "decision": "impressions doubled -> dispatch staged 2026-09-24 minutes tip"
+      }
     }
   ]
 }
