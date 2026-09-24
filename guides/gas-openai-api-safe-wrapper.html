@@ -1,0 +1,85 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GASからChatGPT APIを安全に呼ぶ｜APIキーの隠し方・429リトライ・1日の課金上限・キャッシュ</title><meta name="description" content="Google Apps Script から OpenAI API を呼ぶときの実務の落とし穴（APIキー直書き・429/500で停止・課金の暴走・同じ文章の再送・6分制限）を、共通関数 askAI() 1つにまとめて防ぐ考え方。スクリプト プロパティ、Retry-After対応の再試行、1日の呼び出し上限、CacheService、5分で自主停止する一括処理。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-openai-api-safe-wrapper.html"><meta property="og:title" content="GASからChatGPT APIを安全に呼ぶ共通関数 askAI()"><meta property="og:description" content="APIキーを隠す・429で止まらない・課金が暴走しない・同じ文章に二度払わない。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-openai-api-safe-wrapper.html"><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS×AIの土台 · 登録不要</p><h1>GASからChatGPTを呼ぶなら、<br>まず「安全な共通関数」を1つ。</h1>
+<p class="lead">ネットのサンプルをそのまま業務に使うと、<b>APIキーの直書き・混雑時の429エラーで停止・トリガーの二重登録で課金が膨らむ・6分制限で途中終了</b>、のどれかに必ず当たります。呼び出しを <b>askAI("プロンプト")</b> という1つの関数に集約して、対策をまとめて効かせるのが一番ラクです。</p>
+
+<h2>1. 5つの落とし穴と対策</h2>
+<table><tr><th>落とし穴</th><th>無いとどうなるか</th><th>対策</th></tr>
+<tr><td>APIキーをコードに直書き</td><td>コードを共有・スクショした瞬間に漏れる</td><td class="out">スクリプト プロパティ</td></tr>
+<tr><td>429 / 5xx エラー</td><td>混雑した時間帯に数十行に1回止まる</td><td class="out">Retry-After→指数バックオフ</td></tr>
+<tr><td>残高不足の 429</td><td>待っても直らないのに待ち続ける</td><td class="out">insufficient_quota は即エラー</td></tr>
+<tr><td>課金の暴走</td><td>トリガー二重登録・ループで請求が増える</td><td class="out">1日の呼び出し上限</td></tr>
+<tr><td>同じ文章の再送</td><td>お金も時間も余分にかかる</td><td class="out">CacheService で6時間再利用</td></tr>
+<tr><td>GASの6分制限</td><td>途中終了し、どこまで処理したか分からない</td><td class="out">5分で自主停止→続きから</td></tr></table>
+
+<h2>2. APIキーは「スクリプト プロパティ」へ</h2>
+<ol class="steps"><li>Apps Script エディタ左の「⚙ プロジェクトの設定」を開く</li><li>一番下の「スクリプト プロパティ」→「スクリプト プロパティを追加」</li><li>プロパティ名 <code>OPENAI_API_KEY</code>、値に <code>sk-...</code> を入れて保存</li></ol>
+<p class="cap">コードにはキーが残らないので、スクリプトをコピーして人に渡しても漏れません（プロジェクトの編集権限を渡すと見える点だけ注意）。</p>
+
+<h2>3. 心臓部：再試行してよいエラーだけ再試行する</h2>
+<pre>const code = res.getResponseCode();
+const text = res.getContentText();
+// 残高不足の 429 は待っても直らないので即エラー
+const quota = text.indexOf('insufficient_quota') &gt;= 0;
+const retryable = (code === 429 &amp;&amp; !quota) || code &gt;= 500;
+if (!retryable || i === MAX_RETRIES) {
+  throw new Error('OpenAI API エラー HTTP ' + code + ': ' + text.slice(0, 300));
+}
+// Retry-After があれば従い、無ければ 1秒→2秒→4秒 ＋ゆらぎ
+const h = res.getHeaders();
+const ra = Number(h['Retry-After'] || h['retry-after']);
+const waitMs = ra &gt; 0 ? ra * 1000 : Math.pow(2, i) * 1000 + Math.floor(Math.random() * 500);
+Utilities.sleep(Math.min(waitMs, 20000));</pre>
+<p class="cap"><code>muteHttpExceptions: true</code> を付けて UrlFetchApp を呼ぶと、エラー時も例外にならずに本文（エラーの種類）を読めます。</p>
+
+<h2>4. 1日の上限は LockService で数える</h2>
+<p>時間主導トリガーが同時に動くと、単純に <code>getProperty → +1 → setProperty</code> では数え漏れが出ます。<code>LockService.getScriptLock()</code> で囲んでから数え、日付キー（例：<code>ai_calls_20260924</code>）で管理すれば、翌日には自動でリセットされます。最初の上限は <b>50〜100回</b>くらいから始めるのが安全です。</p>
+
+<h2>5. 大量の行は「5分で止まって、続きから」</h2>
+<div class="note"><b>考え方：</b>ループの先頭で経過時間を見て、5分を超えたら自分で return。結果列が埋まっている行は飛ばすので、もう一度実行すれば空いている行から再開します。エラーの行には <code>ERROR: …</code> と書いておき、消せば次回やり直し。上限に達したらその場で止めます。</div>
+
+<h2>6. 注意点</h2>
+<ul><li>JSONモード（<code>response_format: json_object</code>）を使うときは、<b>プロンプトのどこかに「JSON」という単語</b>が必要です（OpenAIの仕様）。</li><li>無料の Google アカウントでは UrlFetchApp の1日の呼び出し回数にも上限があります。大量処理は数日に分けてください。</li><li>送る文章は OpenAI の API に送信されます。個人情報を流さない・社内ルールで利用が許可されているかを先に確認してください。</li><li>お客様に送る文章をAIに書かせる場合は、<b>送信せず下書きに留めて人が確認する</b>運用をおすすめします。</li></ul>
+
+<h2>7. コード全文（無料）</h2>
+<p>キャッシュ・1日の上限・JSONモード・動作確認用関数まで入った <code>askAI()</code> の全文（約110行）と一括処理のサンプルは、Zenn の解説記事として順次公開します。GAS×ChatGPT自動化の基本は無料の Zenn 本にまとめています。</p>
+<p><a class="buy" href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer?ref=guide-safe-wrapper" target="_blank" rel="noopener">無料の本「GAS×ChatGPTで事務自動化」を読む →</a></p>
+
+<div class="cta"><h3>この土台の上に、業務用スクリプトを載せたい方へ</h3>
+<p>Gmail 問い合わせの返信下書き・請求書PDF＋送付メール・議事録の要点とTODO整形など、<b>そのまま動く GAS 5本</b>と日本語の導入手順書のセットです（どれも送信はせず下書きまで）。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/jqxenl" target="_blank" rel="noopener">そのまま動くGAS5本＋導入ガイド【PRO版・$39】を見る →</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/ymotl" target="_blank" rel="noopener">スプレッドシート =AI() 関数・一括処理つき拡張版（$3）→</a>
+<a class="alt" href="https://feverish50.gumroad.com/l/koujr" target="_blank" rel="noopener">Gmail問い合わせ AI 下書き返信・拡張版（$3）→</a>
+<p class="muted" style="margin-top:8px">手で貼って使うプロンプトだけ欲しい方へ：<a href="https://feverish50.gumroad.com/l/rlalv" target="_blank" rel="noopener">事務AIプロンプト集12種（無料・投げ銭歓迎）</a></p>
+<p class="muted">Gumroad での販売です。このページの askAI() 関数自体は無料公開予定で、有料版に同梱されているものとは別物です。必要なのは Google アカウントと OpenAI の API キー（従量課金）。AI の答えは誤りを含む可能性があります。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="google-sheets-ai-function.html">スプレッドシートに =AI() 関数を自作</a> · <a href="google-form-ai-triage-notify.html">フォーム問い合わせをAIで振り分け</a> · <a href="gmail-inquiry-ai-draft-reply.html">Gmail問い合わせをAIで下書き返信</a> · <a href="gas-invoice-pdf-ai-cover-email.html">請求書PDF＋AI添え状メール</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>

@@ -1,3 +1,7 @@
+## Claude Day-24 (74th run, ~22:08 JST): askAI() SEO guide page live
+- Added `guides/gas-openai-api-safe-wrapper.html` (the only Zenn draft without an owned-site guide): pitfalls table, retry-decision snippet, LockService daily cap, 5-min batch guard; CTAs $39 jqxenl / $3 ymotl, koujr / $0 rlalv. Linked from sitemap, index FREE GUIDE list, sheets guide footer. Ungated reach work while Zenn/X are rate-gated.
+- NEXT: unchanged gates (Zenn form-triage publish and X +24h readout at/after 2026-09-25T12:50Z); swap guide's "順次公開" line for the Zenn URL once the wrapper article is live.
+
 ## Claude Day-24 (73rd run, ~21:58 JST): Zenn hub article draft
 - sales-monitor 36002285495: 0 sales. Minutes article already has 1 like.
 - Drafted `articles/gas-openai-api-safe-wrapper.md` (published:false): a reusable `askAI()` wrapper for the high-intent "GAS ChatGPT API" search (API key kept in script properties, 429/5xx retry, daily call cap, cache, 5-min batch guard). CTAs link the $0/$3/$39 SKUs. Queued 4th, after the calendar article.
