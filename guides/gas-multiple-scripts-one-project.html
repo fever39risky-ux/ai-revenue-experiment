@@ -1,0 +1,113 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GASで「Identifier has already been declared」エラー｜複数のスクリプトを1つのプロジェクトで動かす方法</title><meta name="description" content="ネットで拾ったGoogle Apps Scriptを同じプロジェクトに2本目として貼ったら「SyntaxError: Identifier 'QUERY' has already been declared」。原因は全ファイルが1つのグローバル領域を共有していること。const/var/関数名の衝突、onOpenの上書き、トリガーの二重登録、LockServiceの取り合いまで、直し方をコード付きで解説。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-multiple-scripts-one-project.html"><meta property="og:title" content="GASの「has already been declared」エラーと、複数スクリプトの同居のさせ方"><meta property="og:description" content="定数名の衝突・onOpenの上書き・トリガーの二重登録を防ぐ。コード付き。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gas-multiple-scripts-one-project.html">
+<style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style>
+</head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">GAS · エラー解決 · コード付き</p><h1>GASで「Identifier has already been declared」。<br>複数のスクリプトを1つのプロジェクトで動かす。</h1>
+<p class="lead">ブログで見つけた Google Apps Script（GAS）を、すでに1本入っているプロジェクトに「＋」でファイルを足して貼った。保存したら、どの関数を実行しても次のエラーが出て、<b>前から動いていた1本目まで止まった</b>。このページはその原因と直し方です。</p>
+<pre>SyntaxError: Identifier 'QUERY' has already been declared</pre>
+
+<h2>1. 原因：GASのファイルは「別のファイル」ではない</h2>
+<p>Apps Script エディタではファイルが分かれて見えますが、実行時は<b>全ファイルが1つのグローバル領域に並べて読み込まれます</b>。つまり <code>コード.gs</code> と <code>添付保存.gs</code> に同じ名前の <code>const QUERY</code> があると、同じ場所で2回宣言したのと同じ扱いになり、プロジェクト全体が構文エラーで動かなくなります。</p>
+<p>ネットのコードは「単独で貼る」前提で書かれていることが多く、<code>QUERY</code>・<code>SHEET_NAME</code>・<code>DRY_RUN</code>・<code>BATCH</code> のような短い定数名はかなりの確率でぶつかります。</p>
+
+<h2>2. 何が衝突すると、何が起きるか</h2>
+<table><tr><th>衝突するもの</th><th>起きること</th></tr>
+<tr><td><code>const</code> / <code>let</code> の同名</td><td class="out">構文エラーで全ファイルが動かない（気づける）</td></tr>
+<tr><td><code>var</code> の同名</td><td>エラーにならず、あとから読み込まれた値で<b>黙って上書き</b>。1本目が別の検索条件・別のシートで動き始める</td></tr>
+<tr><td><code>function</code> の同名（<code>onOpen</code>・<code>main</code>・<code>getSheet_</code> など）</td><td>エラーにならず、どちらか一方だけが使われる。メニューが片方しか出ない、補助関数の中身が入れ替わる</td></tr>
+<tr><td>時間主導トリガー</td><td>同じ関数に2つ登録すると2回ずつ動く（二重通知・二重保存）</td></tr>
+<tr><td><code>LockService.getScriptLock()</code></td><td>ロックはプロジェクトで1つ。同時刻に動いた別の処理は <code>tryLock</code> に失敗してその回はスキップ</td></tr></table>
+<p class="cap"><code>var</code> と関数名の衝突はエラーが出ないぶん、<code>const</code> より危険です。</p>
+
+<h2>3. 直し方A：いちばん簡単なのは「別のプロジェクトに分ける」</h2>
+<p>スクリプト同士でデータを受け渡さないなら、<b>別のスプレッドシート（または別のスタンドアロンプロジェクト）に貼る</b>のが確実です。衝突は起きません。ただし本数が増えると、どのシートに何が入っているか、どのトリガーが動いているかの管理が面倒になります。</p>
+
+<h2>4. 直し方B：同じプロジェクトに同居させる</h2>
+<h3>(1) 定数に機能ごとの接頭辞を付ける</h3>
+<p>一番手軽です。ファイルの中だけで使われている名前を、機能名の接頭辞付きに置き換えます。文字列の中（<code>'label:' + DONE_LABEL</code> の <code>'label:'</code> 側など）まで置き換えないよう、エディタの置換は「単語単位」で。</p>
+<pre>// 添付保存.gs
+const ATT_QUERY = 'has:attachment newer_than:3d';
+const ATT_LIMIT_MS = 4.5 * 60 * 1000;
+
+// 通知.gs
+const NTF_QUERY = 'in:inbox newer_than:2d';</pre>
+<h3>(2) 設定を1つのオブジェクトにまとめる</h3>
+<p>接頭辞より見通しがよく、あとから本数が増えても崩れません。</p>
+<pre>const ATTACH = {
+  QUERY: 'has:attachment newer_than:3d',
+  FOLDER_ID: 'ここにフォルダID',
+  LIMIT_MS: 4.5 * 60 * 1000,
+};
+
+function saveAttachments() {
+  const threads = GmailApp.search(ATTACH.QUERY, 0, 50);
+  // ...
+}</pre>
+<h3>(3) 補助関数と onOpen を1つにする</h3>
+<p><code>sheet_()</code> や <code>esc_()</code> のような補助関数名も衝突します。中身が違うなら名前を変え、同じなら1つだけ残します。<code>onOpen</code> は1プロジェクトに1つしか持てないので、両方のメニューを<b>1つの onOpen の中で</b>作ります。</p>
+<pre>function onOpen() {
+  SpreadsheetApp.getUi().createMenu('自動化')
+    .addItem('添付を今すぐ保存', 'saveAttachments')
+    .addItem('新着を今すぐ通知', 'notifyNewMail')
+    .addToUi();
+}</pre>
+<p class="cap">メニューに指定する関数名は末尾に <code>_</code> を付けないこと。<code>_</code> で終わる関数は非公開扱いになり、メニューや「実行」から呼べません。</p>
+
+<h2>5. トリガーは「ONを2回押しても1つだけ」にする</h2>
+<p>同居させると、どの関数にトリガーが付いているか分からなくなりがちです。関数名で既存のトリガーを探し、<b>あれば消す／なければ作る</b>にしておくと、二重登録が起きません。他のスクリプトのトリガーは消さないよう、対象の関数名だけを見ます。</p>
+<pre>function toggleTrigger(fn, hours) {
+  const existing = ScriptApp.getProjectTriggers()
+    .filter(t =&gt; t.getHandlerFunction() === fn);
+  if (existing.length) {                 // 動いていれば止める
+    existing.forEach(t =&gt; ScriptApp.deleteTrigger(t));
+    return false;
+  }
+  ScriptApp.newTrigger(fn).timeBased().everyHours(hours).create();
+  return true;                           // 止まっていれば始める
+}</pre>
+
+<h2>6. ロックの取り合いは「取りこぼさない作り」で吸収する</h2>
+<p><code>LockService.getScriptLock()</code> はプロジェクト全体で1つなので、同居させた処理どうしが同時刻に動くと、片方はロックを取れずにその回をスキップします。これ自体は二重実行を防ぐ正しい動きです。困るのは<b>スキップした回のメールが永久に処理されない</b>作りのときだけなので、「処理済みラベル」「処理済みIDの記録」「最後に処理した日時」のどれかで、次の回に続きから拾えるようにしておきます。</p>
+
+<h2>7. チェックリスト</h2>
+<ul class="steps"><li>貼る前に、両方のファイルの <code>const</code> / <code>var</code> / <code>function</code> の名前を並べて重複がないか見る</li>
+<li><code>onOpen</code>・<code>doGet</code>・<code>onEdit</code> などの特別な関数は1つにまとめる</li>
+<li>保存後、エディタで何か1つ関数を実行して構文エラーが出ないか確認</li>
+<li>トリガー画面（時計アイコン）で、同じ関数に2つ付いていないか確認</li>
+<li>どうしても分からなければ、別のスプレッドシートに分ける</li></ul>
+
+<div class="cta"><h3>Gmailの定番6本を、最初から同居できる形で使いたい方へ</h3>
+<p>このサイトの無料ガイド（添付保存・Slack/Chat通知・古いメール整理・送信元ラベル・シート書き出し・未返信リマインド）は1本ずつ単独で貼る前提です。セット版は、このページの方法で<b>6本が1つのシートで同時に動くよう整理</b>し、「今すぐ実行／定期実行ON・OFF（二重登録なし）／状態確認」メニューと日本語の導入手順を付けました。APIキー不要です。</p>
+<a class="buy" href="https://feverish50.gumroad.com/l/olrtpl" target="_blank" rel="noopener">Gmail自動化GAS 6本セット（APIキー不要／$9）を見る →</a>
+<p class="muted" style="margin-top:8px">1本ずつ無料で試したい方へ：<a href="gmail-attachment-auto-save-drive-gas.html">添付ファイルをドライブに自動保存</a> · <a href="gmail-notify-slack-google-chat-gas.html">新着をSlack・Google Chatに通知</a> · <a href="gmail-unreplied-reminder-gas.html">未返信を毎朝リマインド</a></p>
+<p class="muted">Gumroad での販売です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。</p></div>
+
+<hr><p><a href="gmail-old-mail-auto-cleanup-gas.html">Gmailの古いメールを自動で削除・アーカイブ</a> · <a href="gmail-sender-auto-label-gas.html">Gmailを送信元ごとに自動でラベル分け</a> · <a href="gmail-to-spreadsheet-export-gas.html">Gmailの受信メールをスプレッドシートに書き出す</a> · <a href="gas-openai-api-safe-wrapper.html">GASからChatGPT APIを安全に呼ぶ</a> · <a href="https://zenn.dev/kinoshita_ai/books/gas-chatgpt-jimu-automation-primer" target="_blank" rel="noopener">無料本：GAS×ChatGPT事務自動化の基本</a></p><p class="meta">AI Revenue Experiment の用途解説ページです。導入実績や効果測定の結果ではありません。</p></main></body></html>
