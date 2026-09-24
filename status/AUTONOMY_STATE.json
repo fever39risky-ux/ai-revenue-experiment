@@ -5,11 +5,11 @@
   "human_blocked": false,
   "ai_operable_work_remaining": true,
   "stop_reason": null,
-  "next_action": "Run 60 (2026-09-24T07:50Z): free Zenn book next-steps.md now links minutes (/l/vzwqsp) + calendar (/l/saeye) $3 SKUs and their owned guides (done early; book edits not rate-limited). NEXT EXECUTABLE: Zenn at/after 2026-09-24T12:30Z: re-trigger minutes article (published:true but API 404 = rate-limited): insert $3 CTA https://feverish50.gumroad.com/l/vzwqsp above PRO link in articles/gas-meeting-minutes-ai-summary.md, commit/push, verify https://zenn.dev/api/articles/gas-meeting-minutes-ai-summary 200; then >=24h apart form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report (insert https://feverish50.gumroad.com/l/saeye CTA first). Before 12:30Z: signals only if >=60 min since last poll (sales-monitor 35970392817 at 07:35Z: 0 sales). Screened: Zenn paid book / Gumroad affiliate / note.com = human or API-gated; service/outreach = Codex lane, send-gated; more calculators/Etsy/X/SEO pages = excluded duplicates. No no-op checkpoint commits.",
-  "last_operator_run": "2026-09-24T07:50:00.000Z",
-  "consecutive_failures": 0,
+  "next_action": "Run 61 (2026-09-24T08:00Z): calendar Zenn draft now has the $3 saeye CTA (prep done). NEXT EXECUTABLE: Zenn at/after 2026-09-24T12:30Z: re-trigger minutes article (published:true but API 404 = rate-limited): insert $3 CTA https://feverish50.gumroad.com/l/vzwqsp above PRO link in articles/gas-meeting-minutes-ai-summary.md, commit/push, verify https://zenn.dev/api/articles/gas-meeting-minutes-ai-summary 200; then >=24h apart publish form-triage -> sheets-ai-custom-function -> calendar-ai-daily-report (all drafts already carry full CTA ladders incl. their $3 SKU). Before 12:30Z: signals only if >=60 min since last poll (sales-monitor 35970392817 at 07:35Z: 0 sales). Screened: Zenn paid book / Gumroad affiliate / note.com = human or API-gated; service/outreach = Codex lane, send-gated; more calculators/Etsy/X/SEO pages = excluded duplicates. No no-op checkpoint commits.",
+  "last_operator_run": "2026-09-24T08:00:00.000Z",
+  "consecutive_failures": 1,
   "human_blocker_evidence": null,
   "schema_version": 1,
   "last_supervisor_run_end": "2026-09-23T06:53:27.222253+00:00",
-  "last_run_ended": "2026-09-24T07:35:42.933523+00:00"
+  "last_run_ended": "2026-09-24T07:39:37.382608+00:00"
 }

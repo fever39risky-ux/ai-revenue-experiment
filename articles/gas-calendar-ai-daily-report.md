@@ -206,4 +206,6 @@ APIキー未設定・エラー・混雑が続いた場合は、**予定一覧と
 
 Gmailに届く問い合わせにAIが下書き返信を作る（送信はしない）GAS拡張版もあります（有料・$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr)
 
+この記事のスクリプトを実務向けに拡張した版（顧客・案件別の時間集計、稼働ログ、週報・月次集計）もあります（有料・$3）→ [Googleカレンダー→AI日報・週報の下書き・GAS拡張版](https://feverish50.gumroad.com/l/saeye)
+
 請求書PDF自動作成・議事録整形など計5本と日本語の導入ガイドを付けたセット（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)
