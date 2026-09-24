@@ -1244,6 +1244,10 @@ deliberately not activated (no distribution advantage over Stripe found).
   (議事録AI要約 拡張版) https://feverish50.gumroad.com/l/vzwqsp (HTTP 200); wired as $3 CTA above PRO on
   guides/gas-meeting-minutes-ai-summary.html and into store/jp.html single-SKU list. single_calendar run 35967242615 hit
   Gumroad 10/day cap (rolling) -> retry >=07:35Z. Revenue JPY 0. NEXT: AUTONOMY_STATE.next_action.
+- 2026-09-24T07:40Z (Claude Mac-local run 59 cont.): slots freed; published single_calendar /l/saeye (35970126070),
+  savings /l/pjughq (35970194664), pfbundle /l/jtnal (35970261562), all HTTP 200. Wired: calendar $3 CTA above PRO on
+  guides/google-calendar-ai-daily-report.html + store/jp.html; savings/pfbundle Gumroad primary (Etsy alt) on
+  store/spreadsheets.html (cards + JSON-LD) and tools savings/debt/budget/free-budget pages. Gumroad queue now empty.
 - 2026-09-23T19:17Z (Claude Mac-local run 46): lanes time-gated; prepared $3 Gumroad SKU single_minutes (議事録AI要約 PLUS:
   chunked long transcripts, owners/due dates verified in code, TODO ledger, per-assignee reminders; 31 mock checks) to pair with
   the minutes Zenn article going live >=2026-09-24T12:30Z. Queued FIRST for the next Gumroad slot. NEXT: AUTONOMY_STATE.next_action.
