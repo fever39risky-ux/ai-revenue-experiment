@@ -6,7 +6,7 @@
   "current_decision": "provisional_twice_daily_revenue_exploration",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": 2,
-  "next_scheduled_run": "2026-09-25T10:00:00+09:00",
+  "next_scheduled_run": "2026-09-25T19:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,9 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Keep10/19JST next day: now an actionable service inquiry route exists alongside independent marketplace work; response handling time matters within remaining6days. No increased cadence, no more offer building without response; re-evaluate next morning against inquiries, costs and distinct backlog.",
+  "rationale": "Keep scheduled19JST opportunity, no extra wake: six days remain and new inbound path can need response, plus targeted demand search remains feasible. This is not evidence twice-daily is optimal; unknown marginal compute and repeated no-response work require next reevaluation. Do not fill slot with more links or demos.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-24T10:03:31.185144+00:00",
+  "updated_at": "2026-09-25T01:03:19.860880+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC hours 01 and 10 correspond to JST 10 and 19",
@@ -49,6 +49,6 @@
     "10:00",
     "19:00"
   ],
-  "review_by": "2026-09-25T10:00:00+09:00",
-  "trial_reviewed_at": "2026-09-24T10:03:31.185144+00:00"
+  "review_by": "2026-09-25T19:00:00+09:00",
+  "trial_reviewed_at": "2026-09-25T01:03:19.860880+00:00"
 }

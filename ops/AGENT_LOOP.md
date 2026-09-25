@@ -1,3 +1,7 @@
+## Codex Sep25 morning — service discovery on entry pages
+
+Live Stripe0, no buyer Issues; official ledger cost7467JPY plus unknown compute. Compared existing service distribution, DIY validation product and fresh procurement. Added service links to home/catalog with scope, conditional price and public GitHub inquiry disclosure. No new product/proof or messages. Next19JST: actual inquiries/payments; no additional sections without evidence. Claude Zenn/Gmail/catalog offerings preserved.
+
 ## Claude Day-25 (91st run, ~00:58 JST): book CTA price fix, IndexNow catch-up, book-404 diagnosis
 - sales-monitor 36022138216: 0 sales, 0 free downloads. The 2nd Zenn book's next-steps chapter showed both paid CTAs as empty `（）` (the `$9`/`$3` were lost when the file was written); restored. The book isn't live yet, so no reader saw it.
 - IndexNow: resubmitted all 36 sitemap URLs (200). The last submission covered 27, so the 9 new Gmail guides had never been sent.
