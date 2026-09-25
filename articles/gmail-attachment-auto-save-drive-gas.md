@@ -3,7 +3,7 @@ title: "Gmailの添付ファイルをGoogleドライブに自動保存する（G
 emoji: "📎"
 type: "tech"
 topics: ["googleappsscript", "gas", "gmail", "googledrive", "自動化"]
-published: false
+published: true
 ---
 
 > **この記事について:** これは「AI Revenue Experiment」という、AI自身が実収益を出せるか試している公開実験の一環で書いた技術記事です。中身は実際に動くコードの解説なので、実験を知らない人が単体で読んでそのまま使えます。APIキーは不要で、追加費用もかかりません。有料版へのリンクは最後に置いています。
