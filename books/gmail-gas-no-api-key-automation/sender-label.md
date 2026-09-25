@@ -100,3 +100,4 @@ function sortBySender() {
 - **会社のGoogle Workspaceで使う**：スクリプトからGmailへのアクセスが管理者に制限されている場合があります。
 
 > 同じ内容をWebページでも公開しています（Webページ版のほうが先に更新されます）: [送信元ごとに自動でラベル分けする（ルールはスプレッドシートで管理）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-sender-auto-label-gas.html?ref=zenn-book-gmail-sender-label)
+

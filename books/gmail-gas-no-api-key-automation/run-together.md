@@ -82,3 +82,4 @@ function triggersOff() { ['notifyNewMail', 'sortBySender'].forEach(fn => setTrig
 
 Gumroadでの販売です。デジタル納品のため、ダウンロード後の返金はお受けできません（不具合時は誠実に対応します）。
 :::
+

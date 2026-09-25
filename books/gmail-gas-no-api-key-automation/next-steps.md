@@ -6,7 +6,7 @@ title: "次の一歩：添付ファイル保存・未返信リマインド、そ
 
 どちらもコード全文を無料で公開しています。
 
-- [Gmailの添付ファイルをGoogleドライブに自動保存する（二重保存なし・保存ログつき）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-attachment-auto-save-drive-gas.html?ref=zenn-book-gmail-next)
+- [Gmailの添付ファイルをGoogleドライブに自動保存する（二重保存なし・保存ログつき）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-attachment-auto-save-drive-gas.html?ref=zenn-book-gmail-next)（Zenn記事版：[こちら](https://zenn.dev/kinoshita_ai/articles/gmail-attachment-auto-save-drive-gas)）
 - [Gmailの未返信メールを毎朝リマインドする（「要返信」ラベルを自動で付け外し）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-unreplied-reminder-gas.html?ref=zenn-book-gmail-next)
 - [Googleフォームの自動返信メールをGASで送る](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/google-form-auto-reply-gas.html?ref=zenn-book-gmail-next)
 

@@ -94,3 +94,4 @@ function cleanupGmail() {
 - **会社のGoogle Workspaceで使う**：保存義務のあるメール（契約・請求など）は、社内ルールや管理者の保持設定を先に確認してください。
 
 > 同じ内容をWebページでも公開しています（Webページ版のほうが先に更新されます）: [古いメールを自動で削除・アーカイブする（お試しモード・スター保護）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-old-mail-auto-cleanup-gas.html?ref=zenn-book-gmail-old-mail-cleanup)
+

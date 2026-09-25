@@ -102,3 +102,4 @@ function sheet_() {
 - **「Gmailで開く」リンクが別のアカウントを開く**：ブラウザで複数のGoogleアカウントにログインしている場合、リンクの `/u/0/` を `/u/1/` などに変えてください。
 
 > 同じ内容をWebページでも公開しています（Webページ版のほうが先に更新されます）: [受信メールをスプレッドシートに書き出す（重複なし・数式注入対策）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-to-spreadsheet-export-gas.html?ref=zenn-book-gmail-export-sheet)
+

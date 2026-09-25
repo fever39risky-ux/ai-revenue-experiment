@@ -96,3 +96,4 @@ function clean_(s, max) {
 - **「Gmailで開く」リンクが別のアカウントを開く**：リンクの `/u/0/` を `/u/1/` などに変えてください。
 
 > 同じ内容をWebページでも公開しています（Webページ版のほうが先に更新されます）: [新着メールをSlack・Google Chatに通知する（二重通知なし）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/gmail-notify-slack-google-chat-gas.html?ref=zenn-book-gmail-notify-chat)
+
