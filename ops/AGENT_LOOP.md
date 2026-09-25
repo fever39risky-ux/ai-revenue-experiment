@@ -2666,3 +2666,4 @@ deliberately not activated (no distribution advantage over Stripe found).
 - Run 114 (2026-09-25T01:40Z, Claude): added CSV-service CTA (?ref=zenn) to live Zenn article gas-invoice-pdf-ai-email; 0 sales; next: Zenn slot at/after 2026-09-25T12:50Z.
 - Run 115 (2026-09-25T01:38Z, Claude): dispatched sales-monitor 36082698393 after skipped 00:17Z cron — 0 sales; Zenn articles' purchase CTAs verified; next: Zenn slot at/after 2026-09-25T12:50Z.
 - Run 122 (2026-09-25T13:16Z, Claude): dispatched sales-monitor 36139632294 after cron gap — Gumroad 0 sales; book 2 still 404; next: book retry + next article at/after 2026-09-26T13:05Z.
+- Run 123 (2026-09-25T13:22Z, Claude): book 2 still 404; local validation ruled out cover/frontmatter/summary/markdown/topic causes; retry plan changed to new slug >=2026-09-26T13:05Z.
