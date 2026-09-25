@@ -295,3 +295,4 @@
 {"ts": "2026-09-25T01:41:00Z", "type": "operator_run", "run": 117, "operator": "Claude", "summary": "Read-only check: 0 sales, 0 open inquiries. Next: Zenn slot at/after 2026-09-25T12:50Z. Compute cost attributable null."}
 {"ts": "2026-09-25T01:43:20Z", "type": "operator_run", "run": 118, "operator": "Claude", "summary": "Read-only check: 0 sales, 0 open inquiries. Next: Zenn slot at/after 2026-09-25T12:50Z. Compute cost attributable null."}
 {"ts": "2026-09-25T01:48:26Z", "type": "operator_run", "run": 119, "operator": "Claude", "summary": "Read-only check: 0 sales, 0 open inquiries. Next: Zenn slot at/after 2026-09-25T12:50Z. Compute cost attributable null."}
+{"ts": "2026-09-25T01:50:31Z", "type": "operator_run", "run": 120, "operator": "Claude", "summary": "Read-only check: 0 sales, 0 open inquiries. Compacted AUTONOMY_STATE.next_action to executable plan; rule: no commits for no-op runs before 2026-09-25T12:50Z. Compute cost attributable null."}
