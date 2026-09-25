@@ -220,3 +220,5 @@ APIキーの安全な置き場所・429/5xxのリトライ・6分の実行時間
 この記事のスクリプトを実務向けに拡張した版（10%・8%の税率区分ごとの消費税、源泉徴収、請求書の通し番号、お試しモード）もあります（有料・$3）→ [請求書PDF＋AI添え状メール下書き・GAS拡張版](https://feverish50.gumroad.com/l/ihdjg)
 
 この記事のスクリプトに、Gmail問い合わせの自動仕分け・議事録AI要約など計5本と日本語の導入ガイドを付けたセットも置いています（有料・$39）→ [そのまま動くGAS5本＋導入ガイド【PRO】](https://feverish50.gumroad.com/l/jqxenl)
+
+スクリプトを自分で入れる前に、請求元データの CSV（表記ゆれ・重複・日付形式）だけ整えたい場合は、小さな整形作業の相談も受け付けています（CSV1ファイル・100行まで、参考見積3,000円から。合意前の請求・作業開始はしません）→ [CSV整形の対応範囲と相談方法](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/shop-daily-report.html?ref=zenn#csv-service)

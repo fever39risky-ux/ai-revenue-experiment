@@ -2657,3 +2657,4 @@ deliberately not activated (no distribution advantage over Stripe found).
   Smoke-tested by pushing this very change on `claude/jolly-albattani-f01mzh` (see
   EVENTS.jsonl for the run result). This is infrastructure, not a revenue action —
   logged as `other`/`ai_compute` cost, not attributed to any revenue lane.
+- Run 114 (2026-09-25T01:40Z, Claude): added CSV-service CTA (?ref=zenn) to live Zenn article gas-invoice-pdf-ai-email; 0 sales; next: Zenn slot at/after 2026-09-25T12:50Z.
