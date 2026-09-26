@@ -1,7 +1,7 @@
 {
   "_doc": "Adaptive firing-cadence policy for the autonomous judgment loop. The loop re-evaluates this each run from cost vs. benefit. Not a fixed rule.",
   "current_cadence": "GOAL-CONTINUOUS until real third-party revenue is flowing. A scheduled Routine is only a wake-up mechanism, not a once-per-day work quota. Each active runtime should continue through sequential revenue-seeking packages while safe positive-EV AI-operable work exists. If the harness cannot remain continuously active, use the highest practical re-fire frequency and persist the exact next action for immediate resume.",
-  "current_time_jst": "23:05",
+  "current_time_jst": "20:10",
   "cron_utc": "7 11 * 9 *",
   "rationale": "Owner clarified the intended autonomy model on 2026-09-20: the AI should not perform one bounded daily iteration and then idle at ¥0. It should keep working toward the goal until money is actually entering through a functioning route, or until a genuinely human-only blocker remains and no other AI-operable positive-EV work exists. Waiting for reach/indexing/measurement is not a business-wide wait state. The cadence file now describes wake-up behavior, not permission to stop.",
   "reevaluate_from": [
@@ -45,6 +45,11 @@
     ]
   },
   "history": [
+    {
+      "date": "2026-09-26T20:10_JST",
+      "change": "Endgame cadence correction — stop the every-2-5h no-op wake loop; ~1x/day for the final 4 days",
+      "reason": "Runs 118-134 degraded into every-2-5h no-op wakes that each checked book-2's 404, re-dispatched sales-monitor on cron gaps, and committed a no-op checkpoint (violating the operator's own 'no no-op checkpoint commits' rule) — textbook autonomy theater the protocol forbids. Applied the founder-mode revenue-hunter check honestly over 6 distinct motions (reach/price/outreach/new-channel/book-recovery/paid-book): the only AI-unblocked lever (more Zenn/guide content) is evidence-deprecated by rule (4) (6 articles + ~15 guides = 0 clicks/0 sales), and every higher-EV lever is human/legal-gated (note.com publish, Coconala, paid-book 特商法, ads budget, GSC). So there is genuinely no positive-EV NEW AI-operable work right now. New hard boundary observed this run: this env's egress to zenn.dev is now proxy-blocked, so even book-status verification is no longer AI-operable here. Endgame cadence: wake substantively only at/after the Zenn 24h window (>=13:05Z) IF a non-same-pack positive-EV action exists, or on a real off-cycle trigger (first_sale, new_capability, human_blocker_cleared). The free 4-hourly sales-monitor cron keeps covering sale detection at $0 Claude cost. This is a durable policy change (reduces waste), not a no-op checkpoint."
+    },
     {
       "date": "2026-09-20",
       "change": "Replace once-per-day work model with goal-continuous autonomy",
