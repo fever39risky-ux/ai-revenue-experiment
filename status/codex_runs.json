@@ -136,5 +136,18 @@
     "compute_cost_jpy": null,
     "cost_confidence": "unavailable_subscription_attribution",
     "finished_at": "2026-09-25T01:03:19.953123+00:00"
+  },
+  {
+    "run_id": "20260925T100156.079216Z",
+    "started_at": "2026-09-25T10:01:56.079216+00:00",
+    "day_jst": "2026-09-25",
+    "trigger": "heartbeat",
+    "source_main_sha": "c0a4d3983f17f5ec5afbfbe8504b4ca0e8c60cc6",
+    "result": "failure",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution",
+    "finished_at": "2026-09-26T01:02:37.694582+00:00",
+    "failure_reason": "User-interrupted Sep25 evening turn; only begin receipt and branch creation persisted. No business artifact or external write verified. Recovered Sep26 after checking processes and diff.",
+    "recovered_at": "2026-09-26T01:02:37.733782+00:00"
   }
 ]
