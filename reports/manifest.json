@@ -1,7 +1,7 @@
 {
   "official_start": "2026-09-01",
   "official_end": "2026-09-30",
-  "latest_report": "reports/2026-09-27.html",
+  "latest_report": "reports/2026-09-28.html",
   "reports": [
     {
       "day": 1,
@@ -345,6 +345,19 @@
       "day": 27,
       "date": "2026-09-27",
       "path": "reports/2026-09-27.html",
+      "summary": "",
+      "summary_ja": "",
+      "summary_en": "",
+      "daily_revenue_jpy_equivalent": 0,
+      "daily_cost_jpy_equivalent": 0,
+      "cumulative_revenue_jpy_equivalent": 0,
+      "cumulative_cost_jpy_equivalent": 7467,
+      "cumulative_net_profit_jpy_equivalent": -7467
+    },
+    {
+      "day": 28,
+      "date": "2026-09-28",
+      "path": "reports/2026-09-28.html",
       "summary": "",
       "summary_ja": "",
       "summary_en": "",
