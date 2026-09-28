@@ -513,7 +513,7 @@
         "store/jp.html#without-api",
         "https://crowdworks.jp/public/jobs/13467606"
       ],
-      "result": "Link target verified locally; pending live deployment. No new stock, messages, payment or contract.",
+      "result": "PR20 merged; Pages36370472287 succeeded. Live JP store HTTP200 exactly matches source. No buyer or revenue uplift claimed.",
       "blocked_final_step": null,
       "next_measurement": "Check actual payments/inquiries; cannot compute conversion or classify sessions as third-party demand."
     },
