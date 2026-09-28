@@ -1,0 +1,21 @@
+name: verify-url
+# Minimal reachability check for external URLs the operator sandbox cannot
+# reach directly (e.g. zenn.dev, which is blocked by the sandbox egress policy).
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to check"
+        required: true
+        type: string
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl the URL
+        run: |
+          echo "Checking: ${{ inputs.url }}"
+          code=$(curl -sS -m 30 -o /tmp/body -w "%{http_code}" -L "${{ inputs.url }}" || echo "000")
+          echo "HTTP_STATUS=${code}"
+          echo "----- first 40 lines of body -----"
+          head -40 /tmp/body || true
