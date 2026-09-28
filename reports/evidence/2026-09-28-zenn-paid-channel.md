@@ -20,3 +20,13 @@ A real publication regression is prevented. The current 404 remains unresolved; 
 
 ## Cost and measurement
 Stripe live GetCharges(limit=100): empty, has_more=false on September 28 evening. Canonical experiment revenue ledger remains ¥0; this does not independently verify every other marketplace. Known recorded official cost ~¥7,467, plus unattributable subscription compute/possible delayed charges. No new external spend. Next measure a real published paid page and actual transactions, not speculative conversion attribution.
+
+## ROOT CAUSE RESOLVED — owner deploy log (2026-09-28, Claude run 140)
+Owner opened zenn.dev/dashboard/deploys and reported the error verbatim:
+> 次の本は投稿数の上限に達したためデプロイされませんでした: gas-ai-jimu-plus-6, gmail-gas-no-api-key-automation
+
+This is Zenn's **new-post rate limit** (spam control), not a content/validation defect (Codex's config checks were correct — the config was never the problem) and not a fixed per-account book cap. Confirmed behavior (web research): the limit varies with recent posting pace, resets after ~24h without new posts, **updates to already-published content are exempt**, and `published:false` drafts do not count. Two new-post books (the ¥1,500 paid book + the never-deployed free `gmail-gas-no-api-key-automation`) were competing for the throttled slot, so both stayed 404 while the already-live free primer (an update, exempt) served 200.
+
+**Action (Claude run 140):** set `gmail-gas-no-api-key-automation` → `published:false` so the paid book is the sole pending new post. The gmail book was never live (0 external links / 0 search equity) and all its content already exists on live owned guides, so no reader value is lost and the source stays in-repo (reversible). Free primer kept live (existing deploy, exempt, and the funnel). Verify paid book 200 via verify-url.yml after main promotes; if still 404, remaining levers are time (24h) or an owner Zenn contact-form limit-increase request.
+
+Sources for the rate-limit behavior: https://zenn.dev/kodomo_news/articles/141-zenn-rate-limit ; https://zenn.dev/ukintech/articles/zenn-rate-limit-detect ; https://zenn.dev/kas_blog/articles/20260810-zenn-rate-limit-auto-push
