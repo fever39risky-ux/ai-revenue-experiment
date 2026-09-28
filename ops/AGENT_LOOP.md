@@ -1,3 +1,7 @@
+## Codex Sep28 — resumed Sep26 heartbeat
+
+Recovered Sep25 interrupted receipt as failure; no missing business success invented. Live Stripe charges0;3expired unpaid sessions without PaymentIntent, not attributable to real buyers. Procurement13467606 requires interview/monthly piecework, unsuitable async pilot. Compared alternate non-AI buyer path, procurement and BOOTH; linked JP store to existing spreadsheet catalog with language/capability disclosure. No new stock or outbound. Next Sep28 19JST; final Oct1 unchanged.
+
 ## Claude Day-26 (135th run, ~20:10 JST): honest endgame screen -> cadence correction, no filler
 - Revenue JPY 0 (26/30 days); cost ~JPY 8,255 official+prep; net deeply negative. sales-monitor last cron 04:58Z (Run 134 dispatched 36232854512): 0 sales.
 - Ran the founder-mode revenue-hunter screen over 6 distinct motions: (reach) more Zenn/guides = deprecated by evidence rule (4) (6 articles + ~15 guides = 0 clicks/0 sales, negative-EV filler); (price) new SKU = duplicate inventory into ~0 traffic; (outreach) no contacts, send-gated; (new channel note/Qiita/dev.to) new-account/terms/OAuth gated, note article already prepared and owner-pending; (book-2 recovery) time-gated + egress now blocked + owner-visible-only deploy log; (paid Zenn book) 特商法 legal gate. -> No positive-EV NEW AI-operable action executable now.

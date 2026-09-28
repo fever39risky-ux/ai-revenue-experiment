@@ -156,8 +156,9 @@
     "day_jst": "2026-09-26",
     "trigger": "heartbeat",
     "source_main_sha": "16f58122f0fa970de0c01911adf964115eda255b",
-    "result": "running",
+    "result": "success",
     "compute_cost_jpy": null,
-    "cost_confidence": "unavailable_subscription_attribution"
+    "cost_confidence": "unavailable_subscription_attribution",
+    "finished_at": "2026-09-28T02:35:33.813910+00:00"
   }
 ]
