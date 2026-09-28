@@ -101,6 +101,104 @@
       "resumed_main_sha": "59e4304",
       "recorded_at": "2026-09-28T02:35:33.619668+00:00",
       "timing_note": "Started Sep26; Stripe authentication wait resumed Sep28. No intervening scheduled work claimed."
+    },
+    {
+      "observed": {
+        "revenue": 0,
+        "revenue_coverage_and_timestamp": "2026-09-28T10:07:35.034991+00:00 live Stripe charges empty has_more=false; canonical ledger zero. Other marketplaces not independently rechecked.",
+        "known_cost_jpy": 7467,
+        "unknown_costs": [
+          "Subscription compute allocation",
+          "Delayed API/platform fees and estimate precision"
+        ],
+        "remaining_days": 3,
+        "claude_active_lane": "Zenn paid book publication/second-book diagnosis; Coconala listing prepared after owner clearance. Codex only repairs reproducible build regression, preserves editorial assets."
+      },
+      "opportunity_screen": {
+        "higher_ticket_service": "Existing CSV pilot from ¥3000: no inquiry; fulfillment can fit closing window, discovery/outreach still uncertain.",
+        "direct_sales_outreach": "No newly authorized outbound; prepared proposal expired. New opted-in buyer discovery feasible but unproven.",
+        "japanese_paid_core": "Existing ¥1500 paid Zenn book unexpectedly404: high-value concrete availability constraint; technical repair complements Claude.",
+        "micro_product": "No new inventory: existing products reusable; another SKU has no demand evidence.",
+        "alternate_buyer_segments": "API-averse spreadsheet route already shipped this morning; further revisions before signals have weak marginal value.",
+        "jp_marketplace": "Coconala owned by Claude and prepared; BOOTH independent existing-digital-product channel remains possible but auth/terms/setup increase latency.",
+        "affiliate_referral": "Make/n8n qualification and payout timing previously examined; unlikely to realize September revenue without approved reach.",
+        "use_case_landing_pages": "Existing use-case pages have no demonstrated missing buyer route; avoid another near-duplicate.",
+        "demo_proof_assets": "CSV synthetic proof already exists; improve only against a buyer objection.",
+        "buyer_discovery_lead_sourcing": "Fresh publicly posted urgent CSV job could yield ¥3000+; available research remains valid but repeated poor-fit/expired results lower short-window confidence."
+      },
+      "candidates_minimum_3": [
+        {
+          "lane": "Paid Japanese core availability recovery",
+          "buyer": "Japanese GAS buyers",
+          "offer_or_reach_mechanism": "Restore existing ¥1500 book purchase path",
+          "claude_non_overlap": "Technical build/deploy diagnosis only; no new Claude content or marketplace listing",
+          "expected_revenue_impact_and_assumptions": "0–1 incremental sale scenario = ¥0–1500 gross before fees; not forecast. No probability estimate justified. Concrete404 means availability fix can unlock all existing reach.",
+          "time_to_revenue": "Potential same day if logs expose fix; 53h closing window",
+          "incremental_cost_and_uncertainty": "Bounded diagnosis/build check; no external spend; compute unknown",
+          "reversibility": "Local code change revertible; no publication setting changed",
+          "evidence_and_confidence": "Direct404 plus reproduced generator overwrite; high confidence defect, low sales confidence",
+          "feasible_next_action": "Diagnose source and dashboard; fix demonstrated regression",
+          "permission_boundary": "Dashboard authentication/log remains owner step",
+          "ev_assessment": "Highest relative EV: concrete defect in ready offer, reuse inventory and short implementation."
+        },
+        {
+          "lane": "Urgent CSV buyer discovery",
+          "buyer": "Small shops with explicitly posted cleanup needs",
+          "offer_or_reach_mechanism": "Find one current fixed-scope procurement opportunity for existing ¥3000 pilot",
+          "claude_non_overlap": "Different buyers from Claude note/Zenn/Coconala",
+          "expected_revenue_impact_and_assumptions": "0–1 deal scenario ¥0–3000+, no qualified current lead established; permission/time barriers reduce realization confidence, not negative EV proof",
+          "time_to_revenue": "1–3 days including response and delivery",
+          "incremental_cost_and_uncertainty": "Read-only research possible; no spend; later message authorization needed",
+          "reversibility": "Reversible private research",
+          "evidence_and_confidence": "Prior leads expired or required meetings; fresh demand unknown",
+          "feasible_next_action": "One bounded search of current explicit requirements",
+          "permission_boundary": "Do not send without explicit approval",
+          "ev_assessment": "Positive informational EV possible; below confirmed existing paid-channel defect this wake."
+        },
+        {
+          "lane": "BOOTH reuse of existing digital product",
+          "buyer": "Japanese marketplace template buyers",
+          "offer_or_reach_mechanism": "List an existing paid artifact in a distinct marketplace",
+          "claude_non_overlap": "BOOTH is distinct from Claude Coconala service and Zenn book",
+          "expected_revenue_impact_and_assumptions": "0–1 sale scenario; price not set, so no defensible revenue estimate; platform audience unvalidated",
+          "time_to_revenue": "Potential1–3days if account/terms/delivery ready",
+          "incremental_cost_and_uncertainty": "No new product; setup/auth and possible platform fees not quantified",
+          "reversibility": "Draft reversible; publication removable",
+          "evidence_and_confidence": "Marketplace path is untested; unknown demand not negative EV",
+          "feasible_next_action": "Inspect account capability and prepare existing artifact listing",
+          "permission_boundary": "New account/terms or paid action must respect confirmation limits",
+          "ev_assessment": "Credible alternative but more setup than repair of existing ¥1500 offer."
+        }
+      ],
+      "decision": {
+        "selected_lane": "Paid Japanese core availability recovery",
+        "rationale": "Prioritize concrete purchase availability over new stock. Repair reproducible publication-reset bug; cannot claim current404 solved. Other lanes not classified negative.",
+        "hold": false,
+        "hold_rejection_evidence_for_every_candidate": []
+      },
+      "execution": {
+        "actual_actions": [
+          "Verified live Stripe aggregate and HTTP availability",
+          "Inspected primary Zenn constraints and available dashboard",
+          "Fixed rebuild to preserve existing config",
+          "Ran three isolated full rebuild scenarios"
+        ],
+        "evidence": [
+          "reports/evidence/2026-09-28-zenn-paid-channel.md",
+          "scripts/build_zenn_paid_book.mjs"
+        ],
+        "result": "Build regression fixed and tested; paid URL remains404, deployment root cause needs authenticated log. No realized revenue.",
+        "blocked_final_step": "Zenn dashboard sign-in or exact failing deployment error text required.",
+        "next_measurement": "Read actual deployment log, then verify book availability and payments; do not rerun speculative publication."
+      },
+      "cadence": {
+        "next_run": "2026-09-29T10:00:00+09:00",
+        "reason_from_backlog_remaining_time_and_cost": "Keep existing10/19JST through final53hours: paid-channel owner/log unblock and buyer responses remain actionable. No additional wakes; next09-29 10JST. No repeated diagnosis without new log. Final10-01 10JST accounting only."
+      },
+      "run_id": "20260928T100123.027410Z",
+      "trigger": "heartbeat",
+      "source_main_sha": "b5e3c1bf5d9267f287fe15df69b70516a5a03423",
+      "recorded_at": "2026-09-28T10:07:35.034991+00:00"
     }
   ]
 }

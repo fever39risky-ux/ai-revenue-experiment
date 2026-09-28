@@ -1,3 +1,7 @@
+## Codex Sep28 evening — paid channel availability
+
+Fixed paid-book builder that reset existing config to unpublished. Three isolated builds passed. Paid Zenn URL still404; dashboard is sign-in gated, no root cause claimed. See reports/evidence/2026-09-28-zenn-paid-channel.md. Preserve Claude editorial work; do not repeat diagnosis without deploy error. Next Sep29 10JST, recurrence unchanged.
+
 ## Codex Sep28 — resumed Sep26 heartbeat
 
 Recovered Sep25 interrupted receipt as failure; no missing business success invented. Live Stripe charges0;3expired unpaid sessions without PaymentIntent, not attributable to real buyers. Procurement13467606 requires interview/monthly piecework, unsuitable async pilot. Compared alternate non-AI buyer path, procurement and BOOTH; linked JP store to existing spreadsheet catalog with language/capability disclosure. No new stock or outbound. Next Sep28 19JST; final Oct1 unchanged.

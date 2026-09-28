@@ -1171,6 +1171,17 @@
       "operator": "Codex",
       "reference": "20260926T010300.298825Z",
       "note": "Resumed Sep26 run and recovered Sep25 interruption; unknown subscription allocation, no external spend."
+    },
+    {
+      "date": "2026-09-28",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260928T100123.027410Z",
+      "note": "Paid-channel diagnosis/rebuild regression fix; subscription compute attribution unknown, no new external spend."
     }
   ],
   "totals": {

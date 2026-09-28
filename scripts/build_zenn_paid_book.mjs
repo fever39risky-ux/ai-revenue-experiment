@@ -1,4 +1,5 @@
-// Build the (unpublished) paid Zenn book from the shipped "Plus" deliverable ZIPs.
+// Build paid Zenn chapters from the shipped "Plus" deliverable ZIPs.
+// New books start unpublished; existing editorial/publication settings are preserved.
 // Chapter content is taken verbatim from the ZIPs, so the book never claims more than the products do.
 // Usage: node scripts/build_zenn_paid_book.mjs   (requires `unzip`)
 import { execFileSync } from 'node:child_process';
@@ -135,6 +136,11 @@ chapters:
 ${PARTS.map(p => '  - ' + p.slug).join('\n')}
   - next-steps
 `;
-writeFileSync(join(BOOK, 'config.yaml'), cfg);
+const configPath = join(BOOK, 'config.yaml');
+if (!existsSync(configPath)) {
+  writeFileSync(configPath, cfg, { flag: 'wx' });
+} else {
+  console.log('preserved existing config.yaml (publication, price, chapter order)');
+}
 if (!existsSync(join(BOOK, 'cover.png'))) console.log('NOTE: cover.png missing');
 console.log('built', BOOK);
