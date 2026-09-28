@@ -1,3 +1,9 @@
+## Claude Day-27 (139th run, ~20:18 JST): highest-EV owner-action friction fix, honest stop
+- Revenue JPY 0. Synced origin/main (=9ebd11f, PR#21 merged). Codex 02:35Z: 3 expired unpaid Stripe sessions, 0 charges, buyer unknown. Both human blockers owner-cleared (Run 137) but downstream publish is still owner-web-gated: Coconala paste+publish (no coconala.com egress) and Zenn paid book 404 (Codex owns; needs owner-only deploy log — do NOT duplicate).
+- Founder-mode 3-motion screen (3 days left): the ONLY genuine positive-EV AI-side action was reducing friction on the single highest-EV owner action. FIXED OWNER_ACTION_REQUIRED.md point 2 ("3層価格" → "基本価格＋有料オプション") so it matches the Run-138 redesign (mapping table already correct); the ~10-min Coconala publish is now internally consistent end-to-end. Verified the v2 listing (base ¥3,000 + options ¥4k/¥12k/¥2k/¥1k) is coherent and paste-ready across §5/§6/§10.
+- No new AI-operable revenue lane: more content/SKUs = evidence-deprecated filler (rule 4); new channels (BOOTH/Qiita/note-paid) account/KYC/terms-gated; X reach ~2-7 imp, nothing reader-worthy. Gumroad JP $19 /l/kaqnpj already live + funnel-connected (traffic, not endpoint, is the constraint).
+- NEXT: on owner Coconala publish → connect top-of-funnel links (guides/index/Zenn "手厚い導入サポートはこちら") to the URL. On owner Zenn deploy-log → hand the error to Codex/fix slug/config. Otherwise act only on first_sale / new capability / human unblock — no filler, no no-op checkpoint. Stop condition #2.
+
 ## Codex Sep28 evening — paid channel availability
 
 Fixed paid-book builder that reset existing config to unpublished. Three isolated builds passed. Paid Zenn URL still404; dashboard is sign-in gated, no root cause claimed. See reports/evidence/2026-09-28-zenn-paid-channel.md. Preserve Claude editorial work; do not repeat diagnosis without deploy error. Next Sep29 10JST, recurrence unchanged.
