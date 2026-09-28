@@ -16,6 +16,10 @@ jobs:
         run: |
           echo "Checking: ${{ inputs.url }}"
           code=$(curl -sS -m 30 -o /tmp/body -w "%{http_code}" -L "${{ inputs.url }}" || echo "000")
-          echo "HTTP_STATUS=${code}"
-          echo "----- first 40 lines of body -----"
-          head -40 /tmp/body || true
+          title=$(grep -oiE '<title[^>]*>[^<]*</title>' /tmp/body | head -1 || true)
+          # Emit the signal LAST so it is visible in a log tail.
+          echo "=================================="
+          echo "RESULT_URL=${{ inputs.url }}"
+          echo "RESULT_TITLE=${title}"
+          echo "RESULT_HTTP_STATUS=${code}"
+          echo "=================================="
