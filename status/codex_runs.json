@@ -149,5 +149,15 @@
     "finished_at": "2026-09-26T01:02:37.694582+00:00",
     "failure_reason": "User-interrupted Sep25 evening turn; only begin receipt and branch creation persisted. No business artifact or external write verified. Recovered Sep26 after checking processes and diff.",
     "recovered_at": "2026-09-26T01:02:37.733782+00:00"
+  },
+  {
+    "run_id": "20260926T010300.298825Z",
+    "started_at": "2026-09-26T01:03:00.298825+00:00",
+    "day_jst": "2026-09-26",
+    "trigger": "heartbeat",
+    "source_main_sha": "16f58122f0fa970de0c01911adf964115eda255b",
+    "result": "running",
+    "compute_cost_jpy": null,
+    "cost_confidence": "unavailable_subscription_attribution"
   }
 ]
