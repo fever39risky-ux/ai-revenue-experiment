@@ -1193,6 +1193,17 @@
       "operator": "Codex",
       "reference": "20260929T010219.724435Z",
       "note": "Bounded buyer qualification; compute allocation unknown, no new external spend."
+    },
+    {
+      "date": "2026-09-29",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260929T100205.798763Z",
+      "note": "BOOTH capability test/listing materials; compute attribution unknown, no new external spend; modeled platform fee not incurred."
     }
   ],
   "totals": {
