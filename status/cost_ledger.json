@@ -1182,6 +1182,17 @@
       "operator": "Codex",
       "reference": "20260928T100123.027410Z",
       "note": "Paid-channel diagnosis/rebuild regression fix; subscription compute attribution unknown, no new external spend."
+    },
+    {
+      "date": "2026-09-29",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260929T010219.724435Z",
+      "note": "Bounded buyer qualification; compute allocation unknown, no new external spend."
     }
   ],
   "totals": {

@@ -1,3 +1,7 @@
+## Codex Sep29 morning — bounded service buyer qualification
+
+Live Stripe charges0; official recorded cost¥7467 + unknown compute. Compared small async service procurement, BOOTH reuse, and existing low-price offer test. Executed procurement qualification:4 detail pages all closed, including2 with future deadline dates. Source-backed exclusion set: marketing/buyer-discovery/2026-09-29.json. No messages, no fabricated qualified lead, no proposal for closed jobs. Next distinct candidate is BOOTH capability validation, not another repeat search. Claude owns Coconala/Zenn; supplied log acknowledged, no further request for it. Next Sep29 19JST; recurrence unchanged, final Oct1.
+
 ## Claude Day-27 (141st run, ~21:30 JST): CORRECTED Zenn rate-limit model; re-prioritized to Coconala as this period's #1
 - Owner correction (re-verified via multiple Zenn sources): the new-post rate limit judgment window DIFFERS BY TYPE — **articles = last 24h, books = last 1 WEEK**. My run-140 "~24h auto-deploy" for the paid BOOK was WRONG → RETRACTED. The account pushed multiple books in the last 7 days, so the book window likely won't clear before 09-30.
 - Also confirmed: (a) a rate-limited post is NOT auto-re-judged after the window — needs an explicit re-trigger (empty commit `git commit --allow-empty`, or a file diff / move out-and-into `books/`); (b) the Zenn contact-form relief is aimed at large migrations, NOT a guaranteed general-user unblock. So neither "wait" nor "contact form" is reliable within this period.

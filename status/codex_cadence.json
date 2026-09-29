@@ -6,7 +6,7 @@
   "current_decision": "provisional_twice_daily_revenue_exploration",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
   "fixed_daily_frequency": 2,
-  "next_scheduled_run": "2026-09-29T10:00:00+09:00",
+  "next_scheduled_run": "2026-09-29T19:00:00+09:00",
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -33,9 +33,9 @@
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Keep existing10/19JST through final53hours: paid-channel owner/log unblock and buyer responses remain actionable. No additional wakes; next09-29 10JST. No repeated diagnosis without new log. Final10-01 10JST accounting only.",
+  "rationale": "Retain10/19JST for final38hours: distinct BOOTH capability validation and handling a new buyer/owner Coconala unlock remain possible. Do not repeat closed-listing research or manufacture assets. No added wakes; final accounting Oct1 remains unchanged.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-28T10:07:35.034991+00:00",
+  "updated_at": "2026-09-29T01:04:24.168655+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC hours 01 and 10 correspond to JST 10 and 19",
@@ -49,6 +49,6 @@
     "10:00",
     "19:00"
   ],
-  "review_by": "2026-09-29T10:00:00+09:00",
-  "trial_reviewed_at": "2026-09-28T10:07:35.034991+00:00"
+  "review_by": "2026-09-29T19:00:00+09:00",
+  "trial_reviewed_at": "2026-09-29T01:04:24.168655+00:00"
 }
