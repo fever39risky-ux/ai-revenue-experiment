@@ -430,26 +430,26 @@
   "codex_latest": {
     "observed": {
       "revenue": 0,
-      "revenue_coverage_and_timestamp": "2026-09-29T01:04:24.168655+00:00 live Stripe charges empty has_more=false; ledger0, latest origin sales-sync2026-09-28T16:45:42Z. Other marketplace sales not independently queried.",
+      "revenue_coverage_and_timestamp": "2026-09-29T10:05:24.168738+00:00 Stripe live GetCharges empty has_more=false; canonical ledger0. BOOTH not authenticated/not launched; other marketplaces not freshly queried.",
       "known_cost_jpy": 7467,
       "unknown_costs": [
         "Subscription compute allocation",
         "Unreconciled/delayed charges and fees; recorded cost includes estimates"
       ],
       "remaining_days": 2,
-      "claude_active_lane": "Coconala prepared listing and owner publication; Zenn owner deploy log identified post limit. No Zenn content/retrigger changes by Codex."
+      "claude_active_lane": "Unchanged latest main: Coconala service publication, Zenn rate-limit recovery deferred. BOOTH distribution of existing DIY kit is complementary."
     },
     "opportunity_screen": {
-      "higher_ticket_service": "Existing CSV pilot¥3000 could fit a tiny async buyer need; select discovery before building more proof.",
-      "direct_sales_outreach": "No explicit send authorization; read-only qualification still executable.",
-      "japanese_paid_core": "Existing Gumroad JP product available; Zenn limit belongs to Claude current follow-up, no duplicate diagnosis.",
-      "micro_product": "Reuse existing small products possible; no demand case for another SKU.",
-      "alternate_buyer_segments": "Manual-data buyers provide distinct demand from AI-software buyers; verify actual scope.",
-      "jp_marketplace": "BOOTH existing digital product reuse untested; Coconala belongs to Claude, avoid duplicate listing.",
-      "affiliate_referral": "Previous referral review shows approval/payout latency, weak September revenue path.",
-      "use_case_landing_pages": "Existing use-case pages already shipped; no new buyer objection to target.",
-      "demo_proof_assets": "Existing synthetic proof reusable; no new demonstration without qualified requirement.",
-      "buyer_discovery_lead_sourcing": "Select bounded current buyer qualification; future nominal deadline is insufficient, check open status."
+      "higher_ticket_service": "Existing CSV pilot remains possible with a qualified buyer; none found this morning.",
+      "direct_sales_outreach": "No new send permission or current qualified lead; do not duplicate morning failed search.",
+      "japanese_paid_core": "Reuse existing Japanese toolkit, not rate-limited Zenn book.",
+      "micro_product": "No new SKU or code; existing ZIP reused byte-for-byte.",
+      "alternate_buyer_segments": "BOOTH DIY creators/small-business operators vs Claude assisted Coconala clients.",
+      "jp_marketplace": "Select BOOTH capability validation and listing preparation; own session logged out.",
+      "affiliate_referral": "Prior approval/payout constraints still poor fit for29hours.",
+      "use_case_landing_pages": "Recent owned-site changes lack response evidence; more pages lower priority.",
+      "demo_proof_assets": "Only truthful product cover needed for selected distribution lane; no new demo inventory.",
+      "buyer_discovery_lead_sourcing": "Morning4closed leads excluded; no repeated sourcing this wake."
     },
     "candidates_minimum_3": [
       {
@@ -458,27 +458,27 @@
         "offer_or_reach_mechanism": "Find current scoped paid pilot, reuse CSV capability",
         "claude_non_overlap": "Distinct procurement channel, no Claude Coconala/Zenn edits",
         "expected_revenue_impact_and_assumptions": "One deal could gross¥500–3000 at observed small-task rates before fees; probability unknown, not numeric EV. Closed listings contribute zero.",
-        "time_to_revenue": "Potential today/tomorrow only if open/short negotiation;38hours remain",
+        "time_to_revenue": "29hours left; no current qualified buyer.",
         "incremental_cost_and_uncertainty": "Bounded read-only research, no spend; compute attribution unknown",
         "reversibility": "Fully reversible; no applicant promise",
         "evidence_and_confidence": "Search results suggest demand but detail-page verification essential",
         "feasible_next_action": "Qualify current listings, prepare proposal only if one passes",
         "permission_boundary": "Outbound requires explicit session approval; contracts beyond period not authorized",
-        "ev_assessment": "Highest initial relative EV: tests actual stated buyer demand without stock. Test returned0 qualified, so no send request."
+        "ev_assessment": "Below BOOTH this wake: morning test found4closed jobs; no new evidence justifies repeating those searches."
       },
       {
         "lane": "BOOTH distribution of existing digital toolkit",
         "buyer": "Japanese marketplace self-serve buyers",
         "offer_or_reach_mechanism": "Reuse existing product with platform-native listing",
         "claude_non_overlap": "Separate from Claude Coconala service listing",
-        "expected_revenue_impact_and_assumptions": "0–1 sale scenario; price and buyer conversion unvalidated, no numerical forecast",
-        "time_to_revenue": "Same/nextday if authenticated account and terms ready; discovery may take longer",
-        "incremental_cost_and_uncertainty": "No new stock; setup/fees unknown, no paid commitment",
+        "expected_revenue_impact_and_assumptions": "¥3000 gross/order; official5.6%+45 fee=¥213;¥2787 before other costs.0–1order scenario, not forecast. Demand/probability unknown.",
+        "time_to_revenue": "Could sell after auth/listing, within29hours only if owner already has account; payout later, not September cash.",
+        "incremental_cost_and_uncertainty": "No product development or spend; compute unknown, platform fee per actual order; payout fees not quantified.",
         "reversibility": "Draft reversible; publication removable",
-        "evidence_and_confidence": "Untested channel; not rejected as negative demand",
-        "feasible_next_action": "Inspect account/listing feasibility before repackaging",
+        "evidence_and_confidence": "Official BOOTH fee/guide read; live browser shows logged-out pixiv entry and initial terms notice. ZIP8files tested; no connected publishing workflow found.",
+        "feasible_next_action": "Prepare exact listing, verify ZIP and honest cover, then inspect listing fields after owner login.",
         "permission_boundary": "New terms/account consent cannot be inferred",
-        "ev_assessment": "Plausible positive information value; more setup than bounded current-demand test."
+        "ev_assessment": "Highest relative expected value before capability test: distinct marketplace reach with existing inventory. After test, final publication auth-blocked; no sales claim."
       },
       {
         "lane": "Existing low-price product offer test",
@@ -496,33 +496,36 @@
       }
     ],
     "decision": {
-      "selected_lane": "Small async data-service buyer discovery",
-      "rationale": "Run a bounded demand qualification experiment for existing service instead of another asset. Negative qualification result preserved; no HOLD and no assertion that all alternatives are negative.",
+      "selected_lane": "BOOTH distribution of existing digital toolkit",
+      "rationale": "Execute distinct distribution preparation rather than repeating closed leads or overlapping Claude. Small bounded package can be used immediately if existing login is restored.",
       "hold": false,
       "hold_rejection_evidence_for_every_candidate": []
     },
     "execution": {
       "actual_actions": [
-        "Searched public CrowdWorks and Lancers listings",
-        "Read4 CrowdWorks detail pages and checked status/deadline/scope",
-        "Excluded all4 because closed, including2 with future nominal deadlines",
-        "Saved structured source-backed exclusion set for next operator"
+        "Read official digital fees and merchant guide",
+        "Checked BOOTH browser login route and repo publishing capability",
+        "Verified existing ZIP integrity/SHA and8file inventory",
+        "Created platform-specific Japanese listing and truthful1200px cover, visually checked"
       ],
       "evidence": [
-        "marketing/buyer-discovery/2026-09-29.json"
+        "marketing/booth/listing-ja.md",
+        "marketing/booth/cover.png",
+        "https://booth.pixiv.help/hc/ja/articles/115004576874",
+        "https://booth.pm/guide"
       ],
-      "result": "0 qualified open buyers,0 messages,0 sales. Research executed; no proposal/publication or revenue uplift claimed.",
-      "blocked_final_step": null,
-      "next_measurement": "A genuinely fresh open short-scope buyer or new owned-channel signal; do not recheck excluded listings or ask approval for them."
+      "result": "Listing materials ready locally; no BOOTH draft/upload/publication or revenue. Account state requires owner login; live fields and seller setup not yet verified.",
+      "blocked_final_step": "Owner existing BOOTH/pixiv login; if new account/terms required obtain explicit action-time consent. No credentials requested in chat.",
+      "next_measurement": "After login inspect exact listing/seller requirements; publish only within confirmed scope, verify live item and paid orders. No more preparatory variants without unblock."
     },
     "cadence": {
-      "next_run": "2026-09-29T19:00:00+09:00",
-      "reason_from_backlog_remaining_time_and_cost": "Retain10/19JST for final38hours: distinct BOOTH capability validation and handling a new buyer/owner Coconala unlock remain possible. Do not repeat closed-listing research or manufacture assets. No added wakes; final accounting Oct1 remains unchanged."
+      "next_run": "2026-09-30T10:00:00+09:00",
+      "reason_from_backlog_remaining_time_and_cost": "Retain current10/19JST for last29hours; nextSep30 10JST can complete prepared distribution if login available or handle Coconala/buyer signal. No more BOOTH material creation without unblock. FinalOct1 accounting only; no new commitments beyondSep30."
     },
-    "run_id": "20260929T010219.724435Z",
+    "run_id": "20260929T100205.798763Z",
     "trigger": "heartbeat",
-    "source_main_sha": "910a4020aa790568918c4cb34376e2ee8c2e9866",
-    "recorded_at": "2026-09-29T01:04:24.168655+00:00"
+    "source_main_sha": "bcbbbf3f3befdd6235a2c06eb6c3f2159d3c7e5a",
+    "recorded_at": "2026-09-29T10:05:24.168738+00:00"
   },
   "_prior_last_scheduled_fire_day21": "Day-21 goal-continuous scheduled fire (~22:05 JST). Executed a REAL trust/proof strategic package rather than early-stopping on 'reach maturing'. Revenue still ¥0 (Stripe empty, ledger 0); official cost now ~¥6611 (Net ~-¥6611); 9 days left. Funnel coherent & live (store/jp.html->$19 Stripe; Gumroad JP l/kaqnpj $19; both deliver; SEO base complete). Diagnosed the true converting-constraint as zero trust/proof (no sales->no reviews) on top of maturing reach. BUILT a buyer-facing public demo page guides/chatgpt-sheet-jidoka-demo.html: honest Before->After of the shipped 3_ai_batch.gs script (inquiry classification + fact-constrained summarization) with its real source and explicit no-fabrication/no-guarantee framing. Interlinked from index.html (new 'SEE IT WORK' box), store/jp.html (proof link under the buy CTA), the free prompt guide's CTA, and sitemap.xml (priority 0.9). Reused the real product asset (no invented inventory); leak_check clean. Integrity finding recorded: Stripe path fulfillment is a static public (hash-obscured) file, not payment-gated; Gumroad path gates correctly; low risk at ~0 traffic; proper Stripe-webhook signed-URL fix deferred as low current EV. Founder-Mode screen: reach=owned SEO already built (a 3rd generic page=filler, clock too slow for Sep30); direct-sales=Codex-owned+human-send-gated; monetization/conversion(trust)=SELECTED and executed; price-discount deferred (EV~0 without traffic). Second package this runtime: added the EN counterpart proof/demo (guides/ai-sheet-automation-demo.html), cross-linked JP<->EN (hreflang+sitemap 0.9), proof links under EN store buy CTA + EN guide CTA -> both funnels now carry proof-before-buy. Official cost now ~¥6679 (Net ~-¥6679). Next best action: on first traffic/sale prepare a Gumroad launch-discount code + surface social proof; support Codex's outreach with the demo link; a 2nd distinct proof/use-case asset only if a reach signal justifies; revisit Stripe fulfillment gating if traffic materializes.",
   "latest_result_superseded_day21": "Day 13 off-cycle PIVOT (per the new pivot addendum): reallocated the retired-X reach effort to a new lane instead of waiting on SEO. Wrote marketing/note_article_01_jp.md -- a publish-ready, value-first, owner-voice JP note.com article (anti-hallucination one-liner + 3 copy-paste office prompts + the leap to automation), cold-reader-standalone, landing on the free JP guide -> store/jp.html (coherent current funnel, not the EN store). note.com chosen as the highest-EV untested reach lane (free, JP-audience-native, high domain authority -- what X failed to be). Retired the stale diary-framed note outline in LAUNCH_KIT. Requested the one human-bound step (a note.com account). Retracted the prior reduce-cadence recommendation (positive-EV backlog remains). Revenue still Y0. -- PRIOR same-day: decisive Day-12 reach read (main 5 imp / reply 3 imp-0 clicks) -> X retired as the active reach lever.",
