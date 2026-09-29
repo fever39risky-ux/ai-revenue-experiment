@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-09-29T01:04:24.168655+00:00",
+  "hypothesis": "At least one current small async spreadsheet/data job can become a paid pilot before September30.",
+  "method": "Bounded public search and detail-page qualification, no outbound.",
+  "acceptance": "Explicitly open on detail page, bounded deliverable, no mandatory meeting/long-term commitment, feasible agreement and delivery within remaining38hours.",
+  "results": [
+    {
+      "url": "https://crowdworks.jp/public/jobs/13482175",
+      "nominal_deadline": "2026-09-28",
+      "scope": "PDF-to-sheet transcription; ¥3000/file,7-day delivery",
+      "detail_page_status": "募集終了",
+      "decision": "Closed; no submission. Delivery period also extends beyond experiment."
+    },
+    {
+      "url": "https://crowdworks.jp/public/jobs/13423922",
+      "nominal_deadline": "2026-09-09",
+      "scope": "Manual web research/data organization",
+      "detail_page_status": "募集終了",
+      "decision": "Closed weeks ago; not a fresh lead."
+    },
+    {
+      "url": "https://crowdworks.jp/public/jobs/13445105",
+      "nominal_deadline": "2026-10-03",
+      "scope": "Initial sheet migration ¥500 excluding tax;2-day delivery",
+      "detail_page_status": "募集終了",
+      "decision": "Closed banner overrides future nominal deadline;3 contracts already shown."
+    },
+    {
+      "url": "https://crowdworks.jp/public/jobs/13468993",
+      "nominal_deadline": "2026-10-05",
+      "scope": "Spreadsheet input; actual monthly starting pay¥600",
+      "detail_page_status": "募集終了",
+      "decision": "Closed banner overrides future deadline; requested3months ongoing availability also incompatible."
+    }
+  ],
+  "additional_search": "Lancers CSV results had elapsed deadlines or October/later delivery; not counted as current qualified leads.",
+  "qualified_count": 0,
+  "sent_count": 0,
+  "revenue": 0,
+  "conclusion": "Small-job acquisition test did not yield a usable buyer. Do not repeat these4 URLs. This does not prove all service demand or all other lanes negative-EV.",
+  "next_condition": "Only reopen sourcing on genuinely fresh open listing fitting deadline, or explicit extension of operating period. No speculative proposal for closed jobs."
+}
