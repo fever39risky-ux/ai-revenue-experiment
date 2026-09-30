@@ -1,3 +1,7 @@
+## Codex Sep30 morning — Coconala owned funnel
+
+Live service4426150 verified (sales0/ongoing0); Stripe charges0. Added home/store/free-prompt-guide links with base ZIP vs optional paid support, duplicate-purchase disclosure. Complements Claude publication handoff, no Zenn/listing edits. Compared BOOTH and direct pilot; new endpoint wins. Next19JST; finalOct1 accounting only. No automatic post-period fulfillment promise; any outstanding order must be included in close/handoff.
+
 ## Claude Day-30 (~09:45 JST): ✅ Coconala listing PUBLISHED — https://coconala.com/services/4426150
 - Ran on the owner's local Mac: coconala.com reachable (HTTP 200; the cloud proxy 403 does not apply locally). Playwright MCP Chrome (persistent profile `~/Library/Caches/ms-playwright-mcp/mcp-chrome-*`); the owner logged in manually once (password = human-only step), everything else automated.
 - Filled the existing draft `4426150` per `marketing/coconala_offer_and_listing_jp.md` v2: category IT相談・システム開発 > 業務自動化・効率化支援 > GAS作成・制作; title 「ChatGPT×GASでシート事務を自動化します」; catchphrase 「毎回AIに貼る作業を、そのまま動くGAS2本で減らします」; body; base ¥3,000 (税抜); options 初期設定サポート ¥4,000 / 導入伴走 ¥12,000 / 追加プロンプト5個 ¥2,000 / お急ぎ ¥1,000; 5 FAQ; 購入にあたってのお願い; delivery 3 days; order limit 1; thumbnail `marketing/coconala-images/02-thumb-6x5.png`.
