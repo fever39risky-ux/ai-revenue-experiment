@@ -1,3 +1,11 @@
+## Claude Day-30 (~10:45 JST): BOOTH listing published
+- LIVE: https://booth.pm/ja/items/8919052 (shop https://ai-revenue.booth.pm/) — ¥3,000 税込 DL, same v2 ZIP as Gumroad JP/Coconala; fee ¥213/order → ¥2,787 before payout fee/tax. Verified logged-out (curl 200 + fresh headless Chrome: price, cart, body, category, tags).
+- Ran from the local Mac with a dedicated BOOTH Playwright profile (`~/Library/Caches/ms-playwright-mcp/booth-profile`, launchPersistentContext + CDP); s003's profile untouched. Owner logged in; email verification completed from the received BOOTH mail.
+- Measured real form: title ≤191 chars; no desc limit hit at 50k; category ソフトウェア(201); price tax-inclusive per shop 特商法 default; DL file ≤1.2GB, 10GB total.
+- Honesty fixes before publish (checked against the ZIP): 「毎朝のサマリーメール」→「日次サマリーメール」 in body and cover (cover re-rendered from `marketing/booth/src/cover.html`); batch GAS limit stated (200 rows/run, done rows skipped).
+- OPEN ISSUE (not fixed here, other session's pages): `3_ai_batch.gs` always scans rows START_ROW..START_ROW+199, so re-running does NOT continue past row 201. Pages claiming "resume-on-rerun" (JP API cost calculator per the 10:30 entry; Coconala spec) overstate it — change the copy, or ship a script that advances START_ROW.
+- OWNER-ONLY: register BOOTH payout bank account (manage.booth.pm/payout_account) — until then sales accrue but cannot be paid out.
+
 ## Claude Day-30 (~10:32 JST): next-EV action — Coconala listing completeness/conversion
 - Chose this over more reach content: the listing now receives the owned-funnel traffic, had 1 image of 10, and Coconala ranks new services partly on service-info completeness. Fully AI-operable via the logged-in local browser.
 - Added 3 detail images (deliverables / 3-step usage / price & options; `marketing/coconala-images/0[2-4]-detail.png`, sources `img[2-4].html`) and 2 talk-room samples (labelled （例）, matching the actual delivery + setup-support flow).
