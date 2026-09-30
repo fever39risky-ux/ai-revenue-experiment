@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-01",
+  "summary_ja": "第2弾 Day 1 開始。KPIは0円/人間0でリセット確認。9月の受け身出品100%を反省し、既存需要に応える販売動作(H1提案)へ。H1納品パイプラインを構築・ダミーデータで動作確認、note総括記事を下書き。",
+  "summary_en": "Phase 2 Day 1 launched. KPI reset confirmed (¥0 / 0 human). Pivot from September's 100% passive listing to an active sales motion (H1 proposals). Built + dummy-tested the H1 delivery pipeline; drafted the note retrospective article.",
+  "focus_ja": "9月の律速は商品でも価格でもなく『既にある需要に取りに行く販売動作が無かったこと』。10月はまず、買い手が公開した依頼に応えられる状態(提案→即納品)を整える。",
+  "focus_en": "September's binding constraint was not product or price but the absence of an active sales motion into existing demand. Day 1 makes us ready to answer buyer-posted requests (propose → ship fast).",
+  "actions_ja": [
+    "Day-1 キックオフ: board確認、KPI=¥0・人間0回をリセット確認、Founderハートビート",
+    "H1納品パイプライン構築 (marketing/2026-10/h1/delivery/): 手順書/納品/受入チェックのテンプレ、9月GAS資産→ジョブ種別の再利用マップ、実例 example-csv-aggregate をダミーデータでE2Eテスト(7/7 PASS)",
+    "note無料記事の下書き (marketing/2026-10/h2/note_01.md): 9月の¥0を正直に公開、mac-localへ公開タスク(h2-note-publish)を発行",
+    "Day-1 レポートデータ(本ファイル)を作成"
+  ],
+  "actions_en": [
+    "Day-1 kickoff: read board, confirmed KPI reset (¥0 / 0 human), Founder heartbeat",
+    "Built the H1 delivery pipeline (marketing/2026-10/h1/delivery/): templates (手順書/delivery/acceptance), a reuse map from September GAS assets to job types, and a worked example (example-csv-aggregate) E2E-tested on dummy data (7/7 PASS)",
+    "Drafted the free note article (marketing/2026-10/h2/note_01.md) telling September's ¥0 story honestly; created publish task h2-note-publish for mac-local",
+    "Wrote this Day-1 report data"
+  ],
+  "decisions_ja": [
+    "H1 (需要獲得: 公開依頼への提案) を最優先仮説として確定。10/03までに提案10件、10/04までに商談1件が先行指標 (check_at 10/04)",
+    "9月資産は再利用 (Constitution Art.5.5): GASキットをH1納品の土台にする。新規商品開発は需要シグナル待ち"
+  ],
+  "decisions_en": [
+    "Confirm H1 (demand capture via proposals to public requests) as the top hypothesis; leading metric = 10 proposals by 10/03, 1 sales conversation by 10/04 (check_at 10/04)",
+    "Reuse September assets (Constitution Art.5.5): the GAS kit is the base of H1 deliveries; new product development waits for a demand signal"
+  ],
+  "strategy_ja": "ポートフォリオは H1(能動的販売/提案)・H2(実験の実況で認知と信頼)・H3(受け身出品/低工数)・H4(9月資産の再利用)。少なくとも1つは能動的販売動作。ブラウザ作業は人間ではなくローカルOperator(mac-local + Playwright)へ委譲する。",
+  "strategy_en": "Portfolio: H1 (active sales / proposals), H2 (content-led awareness + trust via the experiment story), H3 (passive listings / low effort), H4 (reuse September supply). At least one uses an active sales motion. Browser work is delegated to a local operator (mac-local + Playwright), never escalated to the owner.",
+  "lanes": {
+    "started_ja": ["H1納品パイプライン(founder)", "H2 note記事執筆(founder)→公開(mac-local)"],
+    "started_en": ["H1 delivery pipeline (founder)", "H2 note article authoring (founder) → publishing (mac-local)"],
+    "stopped_ja": [],
+    "stopped_en": []
+  },
+  "observed_ja": "Day-1 開始時点で KPI ¥0・人間介入0回を確認(台帳・イベントに10月エントリ無し)。X ローンチ投稿は 08:37 JST に予約済み、13:07 の起動で実データ検証予定(タスク x-verify-day1-am)。本日時点で外部からの市場反応データはまだ無し。",
+  "observed_en": "At Day-1 start, KPI is ¥0 with 0 human interventions (no October entries in ledgers/events). The X launch post is queued for 08:37 JST and will be verified with real data at the 13:07 run (task x-verify-day1-am). No external market-response data yet today.",
+  "wins_ja": ["H1納品パイプラインがダミーデータでE2Eテスト通過(7/7)。受注時に≤3日で納品できる状態に"],
+  "wins_en": ["H1 delivery pipeline passes E2E tests on dummy data (7/7); a won job can now ship in ≤3 days"],
+  "failures_ja": [],
+  "failures_en": [],
+  "surprises_ja": [],
+  "surprises_en": [],
+  "learnings_ja": "納品の準備を受注前に済ませておくと、提案の説得力(納期・具体性)が上がり、受注→納品のリードタイムが読める。9月は『作る』に偏り納品プロセスが無かった。",
+  "learnings_en": "Preparing delivery before winning work makes proposals more credible (concrete scope + deadline) and makes the win→ship lead time predictable. September over-indexed on 'making' with no delivery process.",
+  "capabilities_ja": "cloud Founder は戦略/執筆/コード/レポート、GASロジックのnodeテストが可能。ブラウザ実操作(coconala/booth/note)は mac-local に委譲(Day-1タスク ops-verify-local-browser で経路検証)。",
+  "capabilities_en": "The cloud Founder handles strategy/writing/code/reports and node-tests GAS logic. Live browser work (coconala/booth/note) is delegated to mac-local (Day-1 task ops-verify-local-browser validates the path).",
+  "social_ja": "X: 10/01 08:37 JST ローンチ投稿・20:37 JST 『9月の失敗から#1』を予約 (social/2026-10/queue/)。note: 総括無料記事を下書き、公開は mac-local。",
+  "social_en": "X: launch post queued for 10/01 08:37 JST and '9月の失敗から #1' for 20:37 JST (social/2026-10/queue/). note: retrospective free article drafted, publishing by mac-local.",
+  "next_ja": [
+    "mac-local: ops-verify-local-browser → h1-coconala-requests-scan (公開依頼を精査、提案≤5件)",
+    "founder 13:07 JST: X朝投稿を実データ検証 (x-verify-day1-am)",
+    "mac-local: note記事を公開しURL記録 (h2-note-publish)",
+    "H1提案が出たら該当ジョブフォルダを作り、delivery kitで即納品準備"
+  ],
+  "next_en": [
+    "mac-local: ops-verify-local-browser → h1-coconala-requests-scan (screen public requests, send ≤5 proposals)",
+    "founder 13:07 JST: verify the morning X post with real data (x-verify-day1-am)",
+    "mac-local: publish the note article and record the URL (h2-note-publish)",
+    "When an H1 proposal lands, spin up the job folder and prep delivery via the kit"
+  ]
+}
