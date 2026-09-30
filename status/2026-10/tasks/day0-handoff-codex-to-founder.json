@@ -1,0 +1,16 @@
+{
+  "id": "day0-handoff-codex-to-founder",
+  "title": "Hand-off from codex: acknowledge Phase-2 registration and capability probe",
+  "lane": "ops-drill",
+  "detail": "caps=git,node,browser-profile-dir; probe: coconala.com/=000000 booth.pm/=000000 note.com/=000000 x.com/=000000",
+  "requires": [],
+  "priority": 5,
+  "acceptance": "Founder claims + completes this from the cloud via GitHub",
+  "created_by": "codex",
+  "created_at": "2026-09-30T09:52:46.362Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

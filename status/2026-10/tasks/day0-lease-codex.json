@@ -1,0 +1,20 @@
+{
+  "id": "day0-lease-codex",
+  "title": "Cross-machine lease test (codex holds; Founder must be rejected until lease expiry, then may take over)",
+  "lane": "ops-drill",
+  "requires": [],
+  "priority": 5,
+  "created_by": "codex",
+  "created_at": "2026-09-30T09:52:46.497Z",
+  "status": "claimed",
+  "claimed_by": "codex",
+  "lease_until": "2026-09-30T10:37:46.556Z",
+  "result": null,
+  "history": [
+    {
+      "ts": "2026-09-30T09:52:46.556Z",
+      "op": "codex",
+      "action": "claim"
+    }
+  ]
+}

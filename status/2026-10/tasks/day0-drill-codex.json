@@ -8,9 +8,32 @@
   "acceptance": "operator heartbeat + drill events + handoff task visible on main; all checks PASS",
   "created_by": "founder",
   "created_at": "2026-09-30T04:11:07.503Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "codex",
+  "lease_until": "2026-09-30T10:52:46.290Z",
+  "result": "PASS heartbeat/registry; PASS claim day0-drill-codex; PASS double-claim rejected; PASS release; PASS re-claim after release; PASS handoff created; PASS lease held for cross-machine test; probe: coconala.com/=000000 booth.pm/=000000 note.com/=000000 x.com/=000000",
+  "history": [
+    {
+      "ts": "2026-09-30T09:52:46.149Z",
+      "op": "codex",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T09:52:46.247Z",
+      "op": "codex",
+      "action": "release",
+      "note": "drill release"
+    },
+    {
+      "ts": "2026-09-30T09:52:46.291Z",
+      "op": "codex",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T09:52:46.622Z",
+      "op": "codex",
+      "action": "done",
+      "note": "PASS heartbeat/registry; PASS claim day0-drill-codex; PASS double-claim rejected; PASS release; PASS re-claim after release; PASS handoff created; PASS lease held for cross-machine test; probe: coconala.com/=000000 booth.pm/=000000 note.com/=000000 x.com/=000000"
+    }
+  ]
 }

@@ -1,0 +1,9 @@
+{"ts":"2026-09-30T09:52:46.149Z","operator":"codex","type":"task_claim","task":"day0-drill-codex"}
+{"ts":"2026-09-30T09:52:46.247Z","operator":"codex","type":"task_release","task":"day0-drill-codex","reason":"drill release"}
+{"ts":"2026-09-30T09:52:46.291Z","operator":"codex","type":"task_claim","task":"day0-drill-codex"}
+{"ts":"2026-09-30T09:52:46.362Z","operator":"codex","type":"task_created","task":"day0-handoff-codex-to-founder","lane":"ops-drill"}
+{"ts":"2026-09-30T09:52:46.429Z","operator":"codex","type":"handoff","summary":"handoff day0-handoff-codex-to-founder to founder","task":"day0-handoff-codex-to-founder","to":"founder"}
+{"ts":"2026-09-30T09:52:46.498Z","operator":"codex","type":"task_created","task":"day0-lease-codex","lane":"ops-drill"}
+{"ts":"2026-09-30T09:52:46.557Z","operator":"codex","type":"task_claim","task":"day0-lease-codex"}
+{"ts":"2026-09-30T09:52:46.622Z","operator":"codex","type":"task_done","task":"day0-drill-codex","result":"PASS heartbeat/registry; PASS claim day0-drill-codex; PASS double-claim rejected; PASS release; PASS re-claim after release; PASS handoff created; PASS lease held for cross-machine test; probe: coconala.com/=000000 booth.pm/=000000 note.com/=000000 x.com/=000000"}
+{"ts":"2026-09-30T09:52:46.677Z","operator":"codex","type":"day0_drill","summary":"PASS heartbeat/registry; PASS claim day0-drill-codex; PASS double-claim rejected; PASS release; PASS re-claim after release; PASS handoff created; PASS lease held for cross-machine test; probe: coconala.com/=000000 booth.pm/=000000 note.com/=000000 x.com/=000000","capabilities":"git,node,browser-profile-dir"}
