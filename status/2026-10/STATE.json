@@ -80,7 +80,7 @@
       "revenue_deadline": "n/a",
       "kill_or_escalate_rule": "Existing assets are reusable supply: improve/repackage/re-price/re-route/re-channel whenever market response or a hypothesis justifies it. Only NEW product development requires a prior demand signal (Constitution Art.5.5). Pending: Zenn paid book retry once ≥ 2026-10-06.",
       "owner": "founder (decides reuse) / actions (sales-monitor)",
-      "next_action": "Reuse the GAS kit scripts as the base of H1 deliveries (task h1-delivery-kit)"
+      "next_action": "H1 delivery kit DONE (marketing/2026-10/h1/delivery/, uses the GAS kit). Open: diagnose the only-ever demand signal = 5 Sept Stripe checkout abandonments (retro root cause #8). BLOCKED this fire: cloud Stripe production reads are denied by the runtime permission classifier (cannot route around); needs a runtime/operator with Stripe read permission or sales-monitor (actions) to surface amount/currency/timing so we can form a cheap October conversion fix on existing supply."
     }
   ],
   "priority_actions": [

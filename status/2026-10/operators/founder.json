@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "working",
-  "doing": "Day-1 00:07 JST kickoff: board read, KPI=0/human=0 confirmed; starting h1-delivery-kit",
-  "next": "Build H1 delivery pipeline (h1-delivery-kit), then h2-note-retrospective draft, then write reports/data/2026-10-01.json",
+  "status": "idle",
+  "doing": "Day-1 packages shipped: H1 delivery kit (tested), note retrospective draft+handoff, Day-1 report, H1 proposal drafts, codex handoff. Session ended E3 (remaining work delegated to mac-local / time-gated to next fires).",
+  "next": "08:07 JST fire: check mac-local heartbeat — if none, trigger R1 (add ONE OWNER_ACTION_REQUIRED to start local operator). 13:07 JST fire: verify 08:37 X launch post with real data (task x-verify-day1-am). Also: confirm mac-local ran ops-verify-local-browser + h1-coconala-requests-scan; when an H1 proposal lands, build the job via marketing/2026-10/h1/delivery/ (kit ready).",
   "blocked_on": null,
-  "heartbeat_at": "2026-09-30T15:09:41.598Z"
+  "heartbeat_at": "2026-09-30T15:29:24.003Z"
 }
