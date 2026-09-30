@@ -18,7 +18,7 @@
     "target_revenue_jpy_equivalent": 50000,
     "daily_report_required_in_official_period": true
   },
-  "updated_at": "2026-09-30T00:42:30Z",
+  "updated_at": "2026-09-30T01:27:00Z",
   "last_scheduled_fire": "Day-29 (142nd run, ~20:15 JST) goal-continuous scheduled fire, final full working day. Revenue still ¥0 (29/30). Synced origin/main (=939d89c; Codex PRs #22/#23 merged); 0 open promotion-blocked issues. Ran the founder-mode revenue-hunter screen over the full portfolio: Coconala (highest-EV) genuinely owner-web-gated with AI-side 100% complete; X top-level EMPIRICALLY FALSIFIED (2 & 10 imp / 0 clicks -> repeating forbidden); store LP already well-optimized (only JP-buyer USD friction, solved by the owner-gated JPY Coconala lane); BOOTH owner-login-gated (Codex owns), Etsy saturated, outreach send-gated. EXECUTED the one genuine positive-EV AI-operable action: final-day revenue-endpoint integrity check via verify-url.yml -> store LP HTTP 200 + Gumroad JP $19 /l/kaqnpj HTTP 200 (both live+correct), so any final-hours traffic hits a working checkout. Stop condition #2 (human-only blockers with AI-prep complete + no other positive-EV AI-operable lever). No filler, no falsified-lane repeat, no Zenn push, no no-op checkpoint.",
   "_prior_last_scheduled_fire_day20_goalcont": "Day-20 GOAL-CONTINUOUS Claude runtime (owner re-triggered continuous autonomy; canonical now goal-continuous per ops/LOOP_PROMPT.txt + cadence.json). Goal = first real ¥1+. Revenue still ¥0. Diagnosed the first-¥1 constraint as REACH, whose only fully-AI-operable channel is Zenn + slow SEO. Executed 2 positive-EV AI-operable packages: (1) published a 2nd distinct high-value Zenn article (articles/chatgpt-jimu-anti-hallucination-prompt.md, published:true -> live; anti-hallucination office-prompt angle, a different high-intent JP query funneling to the free guide -> store); (2) added an objection-handling FAQ (API key/no-code/safety/refund) to the LIVE store/jp.html to convert arriving reach. Ran the continue/stop gate: remaining high-EV levers are human-gated (Coconala/note/ads/community/GSC, all surfaced); further content = filler; higher-ticket Gumroad launch = low first-¥1 EV + outward-facing (owner should review a new deliverable first). Stopped per goal-continuous condition (b) after genuine execution + a full screen. Complements Codex, no overlap. No X post. PRIOR (Day-20 earlier): FOUNDER-MODE extraordinary fire opened the Coconala higher-ticket JP sales route + a live proof upgrade.",
   "_prior_day20_founder_fire": "Day-20 FOUNDER-MODE extraordinary Claude fire (owner-triggered, first live test of ops/FOUNDER_MODE.md). Portfolio re-diagnosis across all 7 dimensions: primary bottleneck is still REACH, but the deeper untapped lever is MONETIZATION/SALES-MOTION -- the offer is a low-ticket, zero-trust EN commodity mis-distributed for its real buyer (JP solo-operators). Screened >=3 distinct business motions (>=1 monetization-side): (reach) Qiita/SEO = reach-only, not selected; (monetization) OPEN COCONALA = JP-native marketplace with real buyer intent + trust + higher-ticket -> SELECTED; (monetization) higher-ticket offer design -> executed as the offer IP behind Coconala; (trust) live proof asset -> executed on store/jp.html; (sales) direct outreach = no owned contacts/human-gated, not selected. EXECUTED (real, not just prep): (1) designed a higher-ticket JP offer (3 tiers ¥2,980/¥7,980/¥19,800 reusing the 2 working GAS scripts; makes ¥50k = ~3-17 sales); (2) wrote the complete publish-ready Coconala listing package at marketing/coconala_offer_and_listing_jp.md; (3) shipped a LIVE, AI-operable conversion upgrade -- a concrete before/after proof section on store/jp.html (the missing trust lever, converts arriving note/Zenn reach now); (4) filed ONE narrow one-time human ask (Coconala seller account + payout only). Complements Codex (Codex=X/AI-news/payment-observation/product-file; Claude=JP marketplace sales route + conversion). No X post by Claude. Cadence HELD 1x/day (Founder-Mode gate: positive-EV monetization work still exists -> do not reduce; temporary 2nd shift acceptable). NOT an early stop. PRIOR (Day-19): revenue still ¥0; Day-18 note #01 + Zenn #01 live; Day-19 was an early stop (reach lanes too fresh to judge, every alternative lost to hold).",
@@ -243,7 +243,7 @@
   },
   "latest_result": "Day-23 (Mac-local, run 13): Etsy now 13 active listings, all shop sold_count 0 (views 0-2, most listings <1 day old). This run added 4580901732 Freelance Time Tracker & Invoice ($6), 4580903096 Small Business Spreadsheet Bundle ($12), 4580904804 Savings Goals & Sinking Funds Tracker ($5), 4580891135 Personal Finance Spreadsheet Bundle ($9). Gumroad: freelance /l/gcegkkb ($6) and business bundle /l/jspscg ($12) live; savings + personal-finance bundle blocked by Gumroad's 10-new-products-per-day cap (retry later). Gumroad 0 sales. Revenue JPY 0.",
   "latest_result_superseded": "Day-22 goal-continuous: published two distinct high-purchase-intent Zenn technical articles targeting the exact freelancer/small-shop buyer — articles/gas-chatgpt-gmail-inquiry-auto-reply.md and articles/gas-invoice-pdf-ai-email.md — expanding the only AI-operable reach lever's search footprint (2->4 articles), each funneling via a single CTA to the free JP guide (?ref=zenn) -> $19 JP store -> Stripe. Verified the funnel, on-page SEO (OG/meta/sitemap) and proof/demo pages are already mature, so did NOT churn them. Revenue still ¥0; no traffic/conversion claimed (Pages traffic AI-blind).",
-  "latest_result_ja": "2026-09-30 09:42 JST ココナラ出品を公開：https://coconala.com/services/4426150（基本¥3,000税抜＋有料オプション4件）。ローカルMacのPlaywrightでオーナーログイン済みセッションを使い入力・検証・公開。\n\n[前回] Day 13 決定的リーチ読取：Day-12の価値提供型・リンク無しトップレベル投稿は本文2098569637827141687=5imp、リンク付き自己リプライ2098569639416721518=3imp/url_link_clicks 0（+34.7h）。リンク無し・価値提供型でも到達は回復せず（5 vs Day-11の4）。2投稿で形式を変えても到達≈4-5（本人46-143比で桁違い低）＝アカウントのトップレベル到達がほぼ0。Day-9以来の『所有Xオーディエンス＝到達レバー』前提が実証的に崩壊→Xを能動的到達レバーから撤退（可逆）。律速は到達で、AI操作可能・スコープ内の実証済み低コストチャネルが無い（X死亡、SEOは種まき済だが索引化に時間、Etsy編集・円建てリンクは人手ブロック）＝ほぼ構造的。本日X投稿なし（負EV）。一時的2シフトを撤回し定時カデンスを~2-3日毎へ縮小を推奨。売上は依然¥0。",
+  "latest_result_ja": "2026-09-30 10:27 JST 所有導線をココナラ優先に再配置（store/jp・キット系ページ4本で主CTA化、日本語ガイド16本に導入相談導線、index先頭、Zenn公開記事5本）。計算ツールの虚偽記載（APIキー別保存・429再試行）を修正。\n\n[前回] 2026-09-30 09:42 JST ココナラ出品を公開：https://coconala.com/services/4426150（基本¥3,000税抜＋有料オプション4件）。ローカルMacのPlaywrightでオーナーログイン済みセッションを使い入力・検証・公開。\n\n[前回] Day 13 決定的リーチ読取：Day-12の価値提供型・リンク無しトップレベル投稿は本文2098569637827141687=5imp、リンク付き自己リプライ2098569639416721518=3imp/url_link_clicks 0（+34.7h）。リンク無し・価値提供型でも到達は回復せず（5 vs Day-11の4）。2投稿で形式を変えても到達≈4-5（本人46-143比で桁違い低）＝アカウントのトップレベル到達がほぼ0。Day-9以来の『所有Xオーディエンス＝到達レバー』前提が実証的に崩壊→Xを能動的到達レバーから撤退（可逆）。律速は到達で、AI操作可能・スコープ内の実証済み低コストチャネルが無い（X死亡、SEOは種まき済だが索引化に時間、Etsy編集・円建てリンクは人手ブロック）＝ほぼ構造的。本日X投稿なし（負EV）。一時的2シフトを撤回し定時カデンスを~2-3日毎へ縮小を推奨。売上は依然¥0。",
   "latest_result_en": "2026-09-30 Coconala listing PUBLISHED: https://coconala.com/services/4426150 (base ¥3,000 excl. tax + 4 paid options). Filled, verified and published via local-Mac Playwright using the owner's logged-in session.\n\n[previous] Day 13 decisive reach read: the Day-12 value-first link-free top-level post got 5 impressions (main 2098569637827141687); its link-carrying self-reply (2098569639416721518) got 3 impressions / 0 url_link_clicks, at ~+34.7h. Reformat did NOT recover reach (5 vs Day-11's 4); format varied, reach flat at ~4-5 vs the owner's own 46-143 -> account top-level reach is near-zero. The Day-9 owned-X-audience-as-reach-lever premise is empirically falsified -> X retired as the active reach lever (reversible). Constraint is REACH with no proven cheap AI-operable in-scope channel (X dead; SEO seeded but needs indexing; Etsy edit + JPY link human-blocked) = largely structural. No X post (negative-EV). Reverted the two-shift posture; recommended ~every-2-3-days cadence. Revenue still Y0.",
   "latest_strategy_decision": "10-DAY MID-POINT REVIEW (2026-09-11, reports/MIDPOINT_REVIEW_2026-09-11.md): reclassified the situation from a single-lane distribution problem to a SUPPLY-vs-DEMAND imbalance -- 10 days built supply (3 live channels, pipelines, automation) but almost no demand generation. ¥0 is primarily 'not being seen' (~0 qualified reach everywhere), compounded by JP-audience/EN-$19-commodity/0-review mismatch. Decision: REDESIGN on 3 axes (value-first cold-reader X acquisition; a JP-matched entry offer; owned-audience direct selling), park cold-start marketplaces, and lighten the ¥50k math with a higher-ticket or affiliate option. Execution deferred to the next Routine per owner instruction (this review is diagnosis + redesign only).",
   "latest_strategy_decision_ja": "10日中間レビュー（2026-09-11、reports/MIDPOINT_REVIEW_2026-09-11.md）: 状況を単一レーンの流通問題から『供給過多・需要不足』へ再分類。10日間は供給（3チャネル・pipeline・自動化）を作ったが需要創出はほぼ0。¥0の主因は『そもそも見られていない』（全チャネル適格リーチ≈0）＋日本語層/英語$19コモディティ/レビュー0のミスマッチ。決定: 3軸で再設計（価値提供型の冷たい読者向けX集客／日本語適合の入口オファー／所有オーディエンス直販）、cold-startマーケットプレイスはpark、¥50kの算数を高単価orアフィリエイトで軽くする。オーナー指示によりこのレビューでは実行せず（診断・再設計のみ）、次Routineが実行。",
@@ -587,5 +587,37 @@
       "Prices labelled 税抜 (Coconala shows buyers tax-inclusive)",
       "Paid options have no per-option extra-days field on Coconala; not set"
     ]
+  },
+  "coconala_funnel": {
+    "updated_at": "2026-09-30T01:27:00Z",
+    "commit": "38da35a",
+    "listing": "https://coconala.com/services/4426150",
+    "channel_roles": {
+      "coconala": "PRIMARY for JP buyers: JPY payment, marketplace trust/escrow, the only lane that sells setup support (+¥4,000) and done-with-you (+¥12,000); base ¥3,000 excl. tax, ZIP delivered in talk room",
+      "stripe_$19 / gumroad_jp_$19": "secondary: same ZIP, USD overseas charge, instant download for self-installers",
+      "gumroad_$3/$9/$39": "unchanged: single-script / Gmail-6 / PRO-5 self-serve upsells"
+    },
+    "pages": {
+      "primary_cta": [
+        "store/jp.html (new 'how to buy' chooser + bottom CTA)",
+        "guides/chatgpt-sheet-jidoka-demo.html",
+        "guides/chatgpt-jimu-jitan-prompt.html (free guide)",
+        "guides/shop-daily-report.html",
+        "tools/ai-api-cost-calculator-jp.html"
+      ],
+      "consult_line": "16 other JP guides (inside existing .cta block, after the Gumroad disclaimer)",
+      "index": "Coconala lane moved first",
+      "zenn_articles_updated": [
+        "gas-chatgpt-batch-summary-mail (Coconala primary)",
+        "chatgpt-jimu-anti-hallucination-prompt",
+        "gas-chatgpt-gmail-inquiry-auto-reply",
+        "gas-invoice-pdf-ai-email",
+        "gas-meeting-minutes-ai-summary"
+      ]
+    },
+    "honesty_fixes": [
+      "tools/ai-api-cost-calculator-jp.html claimed the $19 kit stores the API key outside code and retries on 429 — false for the shipped ZIP; replaced with the true resume-on-rerun behaviour"
+    ],
+    "verification": "Pages deploy success; 7 key pages HTTP 200 with Coconala link; real-browser click from store/jp.html opens the live listing; mobile 420px no horizontal overflow; Zenn shows the link on all 5 updated articles; leak_check 0/0, promotion_check 0."
   }
 }
