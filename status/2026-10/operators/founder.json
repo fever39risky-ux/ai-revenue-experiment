@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "idle",
-  "doing": "Day 0 complete: DAY 1 READY CHECK passed",
-  "next": "2026-10-01 00:07 JST kickoff: board, KPI=0, run STATE.priority_actions (mac-local: ops-verify-local-browser first)",
+  "status": "working",
+  "doing": "Day-1 00:07 JST kickoff: board read, KPI=0/human=0 confirmed; starting h1-delivery-kit",
+  "next": "Build H1 delivery pipeline (h1-delivery-kit), then h2-note-retrospective draft, then write reports/data/2026-10-01.json",
   "blocked_on": null,
-  "heartbeat_at": "2026-09-30T05:12:52.803Z"
+  "heartbeat_at": "2026-09-30T15:09:41.598Z"
 }
