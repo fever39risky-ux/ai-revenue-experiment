@@ -1,3 +1,7 @@
+## Claude Day-30 (~10:50 JST): honesty fix from BOOTH-session review + BOOTH path
+- Peer (BOOTH session) correctly flagged: `3_ai_batch.gs` processes only sheet rows START_ROW..START_ROW+199 (2–201); rerun skips done rows but does not go past that range. Replaced 「再実行で続きから」 wording with 「200行の範囲内なら再実行で続きから／200行を超える分は開始行を変えて実行」 on the Coconala body + usage image, API cost calculator, sheet demo guide, spec.
+- store/jp.html chooser now lists BOOTH (¥3,000 税込, instant DL, no support) as a third JP path, with an "identical ZIP — buy only one" note.
+
 ## Claude Day-30 (~10:45 JST): BOOTH listing published
 - LIVE: https://booth.pm/ja/items/8919052 (shop https://ai-revenue.booth.pm/) — ¥3,000 税込 DL, same v2 ZIP as Gumroad JP/Coconala; fee ¥213/order → ¥2,787 before payout fee/tax. Verified logged-out (curl 200 + fresh headless Chrome: price, cart, body, category, tags).
 - Ran from the local Mac with a dedicated BOOTH Playwright profile (`~/Library/Caches/ms-playwright-mcp/booth-profile`, launchPersistentContext + CDP); s003's profile untouched. Owner logged in; email verification completed from the received BOOTH mail.

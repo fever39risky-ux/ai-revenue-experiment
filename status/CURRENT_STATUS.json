@@ -593,7 +593,8 @@
       "Body claim '100行でも実行1回' made precise: max 200 rows per run, rerun resumes",
       "Prices labelled 税抜 (Coconala shows buyers tax-inclusive)",
       "Paid options have no per-option extra-days field on Coconala; not set",
-      "Daily-report description corrected: it summarizes rows dated the run day, so '毎朝' was wrong; now 'その日の分を決まった時刻に'"
+      "Daily-report description corrected: it summarizes rows dated the run day, so '毎朝' was wrong; now 'その日の分を決まった時刻に'",
+      "Batch script scope stated precisely: max 200 rows from START_ROW; rerun resumes only within that range"
     ],
     "images": [
       "02-thumb-6x5.png (main)",
@@ -611,7 +612,8 @@
     "channel_roles": {
       "coconala": "PRIMARY for JP buyers: JPY payment, marketplace trust/escrow, the only lane that sells setup support (+¥4,000) and done-with-you (+¥12,000); base ¥3,000 excl. tax, ZIP delivered in talk room",
       "stripe_$19 / gumroad_jp_$19": "secondary: same ZIP, USD overseas charge, instant download for self-installers",
-      "gumroad_$3/$9/$39": "unchanged: single-script / Gmail-6 / PRO-5 self-serve upsells"
+      "gumroad_$3/$9/$39": "unchanged: single-script / Gmail-6 / PRO-5 self-serve upsells",
+      "booth_¥3,000": "JPY instant download, no support (listing owned by the BOOTH session); linked from store/jp.html chooser"
     },
     "pages": {
       "primary_cta": [
