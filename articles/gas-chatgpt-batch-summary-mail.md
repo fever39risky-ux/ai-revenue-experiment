@@ -170,6 +170,8 @@ APIキーの安全な置き場所・429/5xxのリトライ・6分の実行時間
 
 事務作業をAIで時短する具体的なプロンプト集（コピペ用）を無料で置いています。よければどうぞ → **[ChatGPTで事務仕事を時短する実務プロンプト（無料・日本語）](https://fever39risky-ux.github.io/ai-revenue-experiment/guides/chatgpt-jimu-jitan-prompt.html?ref=zenn)**
 
-この記事の2本（一括処理・毎朝の要約メール）を、日本語の導入手順書（APIキー取得〜つまずき対処）付きでそのまま使える形にまとめたキットも置いています（有料・$19）→ [GAS2本＋日本語導入手順書](https://feverish50.gumroad.com/l/kaqnpj)
+この記事の2本（一括処理・毎朝の要約メール）を、日本語の導入手順書（APIキー取得〜つまずき対処）付きでそのまま使える形にまとめたキットを、ココナラで販売しています（3,000円・税抜〜・日本円決済）。設定を手伝ってほしい場合は初期設定サポート（＋4,000円）、実データで自動化フローを1つ一緒に作る導入伴走（＋12,000円）を任意で付けられます → [ココナラで購入・導入相談](https://coconala.com/services/4426150)
+
+自分で導入できる方は、同じキットを海外決済（$19）ですぐダウンロードすることもできます → [GAS2本＋日本語導入手順書（Gumroad）](https://feverish50.gumroad.com/l/kaqnpj)
 
 ほかに、事務AIプロンプト12種を1ファイルにまとめたテキスト版（0円〜・投げ銭歓迎）→ [事務AIプロンプト集12種](https://feverish50.gumroad.com/l/rlalv) と、Gmailの問い合わせにAIが下書き返信を作るGAS拡張版（$3）→ [Gmail問い合わせAI下書き返信・GAS拡張版](https://feverish50.gumroad.com/l/koujr) もあります。
