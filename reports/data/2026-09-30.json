@@ -186,7 +186,7 @@
           "tools/ai-api-cost-calculator-jp.html",
           "ops/AGENT_LOOP.md BOOTH publication receipt"
         ],
-        "result": "Local copy complete; deployment verification pending.",
+        "result": "PR25 merged6321078. Initial Pages36700409941 superseded by report commit; subsequent Pages36700438047 succeeded on0d87d95. Both live pages HTTP200, byte-identical to source and contain one BOOTH link. No sale/uplift claimed; BOOTH destination fresh recheck remained inaccessible.",
         "blocked_final_step": null,
         "next_measurement": "October1 final accounting: Sep30 cutoff15:00UTC; reconcile orders vs earned/settled revenue, refunds, fees, outstanding delivery and BOOTH payout setup. Fresh marketplace private sales remain unverified; never infer zero from absent ledger alone."
       },
