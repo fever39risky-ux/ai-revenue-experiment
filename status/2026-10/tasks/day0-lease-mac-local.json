@@ -6,15 +6,26 @@
   "priority": 5,
   "created_by": "mac-local",
   "created_at": "2026-09-30T04:26:46.349Z",
-  "status": "claimed",
-  "claimed_by": "mac-local",
-  "lease_until": "2026-09-30T05:11:46.402Z",
-  "result": null,
+  "status": "done",
+  "claimed_by": "founder",
+  "lease_until": "2026-09-30T06:12:52.656Z",
+  "result": "Lease expiry takeover verified on real state: mac-local's lease ended 05:11:46Z; Founder (cloud) claimed at 05:12:52Z and completed. Earlier (04:27Z) the same claim was rejected while the lease was live.",
   "history": [
     {
       "ts": "2026-09-30T04:26:46.402Z",
       "op": "mac-local",
       "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T05:12:52.656Z",
+      "op": "founder",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T05:12:52.708Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Lease expiry takeover verified on real state: mac-local's lease ended 05:11:46Z; Founder (cloud) claimed at 05:12:52Z and completed. Earlier (04:27Z) the same claim was rejected while the lease was live."
     }
   ]
 }
