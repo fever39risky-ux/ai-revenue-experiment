@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-1 packages shipped: H1 delivery kit (tested), note retrospective draft+handoff, Day-1 report, H1 proposal drafts, codex handoff. Session ended E3 (remaining work delegated to mac-local / time-gated to next fires).",
-  "next": "08:07 JST fire: check mac-local heartbeat — if none, trigger R1 (add ONE OWNER_ACTION_REQUIRED to start local operator). 13:07 JST fire: verify 08:37 X launch post with real data (task x-verify-day1-am). Also: confirm mac-local ran ops-verify-local-browser + h1-coconala-requests-scan; when an H1 proposal lands, build the job via marketing/2026-10/h1/delivery/ (kit ready).",
+  "doing": "08:07 fire done (E2): R1 owner request filed; Stripe signal verified+corrected; H1/X ready",
+  "next": "13:07 JST fire: (1) check mac-local heartbeat — if still none, re-surface R1 owner request; (2) run task x-verify-day1-am (verify 08:37 X launch w/ real data); (3) on any H1 proposal reply, build job via marketing/2026-10/h1/delivery/. Stripe demand signals now readable directly from cloud.",
   "blocked_on": null,
-  "heartbeat_at": "2026-09-30T15:29:24.003Z"
+  "heartbeat_at": "2026-09-30T23:17:45.093Z"
 }

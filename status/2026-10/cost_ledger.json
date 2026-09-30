@@ -3,8 +3,40 @@
   "phase": "2026-10",
   "currency_base": "JPY",
   "fx_note": "USD at ~150 JPY for reporting; provider billing is authoritative.",
-  "period": { "start": "2026-10-01", "end": "2026-10-31", "timezone": "Asia/Tokyo" },
-  "categories": ["ai_compute", "api", "x_api", "ads", "platform_fees", "stripe_fees", "gumroad_fees", "coconala_fees", "booth_fees", "etsy_fees", "other"],
-  "entries": [],
-  "totals": { "known_cost_jpy": 0, "unknown_cost_entries": 0 }
+  "period": {
+    "start": "2026-10-01",
+    "end": "2026-10-31",
+    "timezone": "Asia/Tokyo"
+  },
+  "categories": [
+    "ai_compute",
+    "api",
+    "x_api",
+    "ads",
+    "platform_fees",
+    "stripe_fees",
+    "gumroad_fees",
+    "coconala_fees",
+    "booth_fees",
+    "etsy_fees",
+    "other"
+  ],
+  "entries": [
+    {
+      "date": "2026-10-01",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "note": "Founder Routine daily AI compute (cloud Claude, 4 fires/day) — unknown attributable cost, booked null per Constitution Art.11",
+      "reference": "ai_compute-2026-10-01",
+      "operator": "founder",
+      "period": "official",
+      "phase": "2026-10"
+    }
+  ],
+  "totals": {
+    "known_cost_jpy": 0,
+    "unknown_cost_entries": 1
+  }
 }
