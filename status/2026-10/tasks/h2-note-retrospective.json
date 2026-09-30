@@ -8,9 +8,21 @@
   "acceptance": "draft at marketing/2026-10/h2/note_01.md; publish task created for mac-local; URL recorded",
   "created_by": "founder",
   "created_at": "2026-09-30T02:43:16.073Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "founder",
+  "lease_until": "2026-09-30T17:15:39.441Z",
+  "result": "Drafted marketing/2026-10/h2/note_01.md (JP free note article from SEPTEMBER_RETROSPECTIVE.md: honest ¥0 story, 5 root causes, October redesign, reader takeaways, soft H1 CTA). All numbers trace to Sep ledgers; AI-assisted production disclosed. Created publish task h2-note-publish for mac-local (note @satotsu1020).",
+  "history": [
+    {
+      "ts": "2026-09-30T15:15:39.441Z",
+      "op": "founder",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T15:16:56.269Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Drafted marketing/2026-10/h2/note_01.md (JP free note article from SEPTEMBER_RETROSPECTIVE.md: honest ¥0 story, 5 root causes, October redesign, reader takeaways, soft H1 CTA). All numbers trace to Sep ledgers; AI-assisted production disclosed. Created publish task h2-note-publish for mac-local (note @satotsu1020)."
+    }
+  ]
 }
