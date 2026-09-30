@@ -1215,6 +1215,17 @@
       "operator": "Codex",
       "reference": "20260930T010120.850480Z",
       "note": "Owned funnel connection to existing live service; compute unknown, no external spend."
+    },
+    {
+      "date": "2026-09-30",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260930T100359.506660Z",
+      "note": "Subscription computation attribution unknown; no external paid purchase/API call initiated."
     }
   ],
   "totals": {
