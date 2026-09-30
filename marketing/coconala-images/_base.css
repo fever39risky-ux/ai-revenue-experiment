@@ -1,0 +1,14 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1220px;height:1016px;overflow:hidden;background:#0a141b}
+body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;color:#eaf3f7;position:relative;
+ background:radial-gradient(1100px 700px at 80% -12%,rgba(47,143,136,.38),transparent),linear-gradient(158deg,#0f1e26,#0a141b)}
+.pad{position:absolute;inset:0;padding:64px 72px;display:flex;flex-direction:column}
+.eyebrow{align-self:flex-start;font-size:26px;font-weight:800;letter-spacing:.06em;color:#8fe6df;border:3px solid #2f6b66;border-radius:999px;padding:8px 24px;margin-bottom:26px}
+h1{font-size:62px;line-height:1.2;font-weight:900}
+.g{background:linear-gradient(90deg,#4fd0c8,#6ea8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.row{display:flex;gap:20px;align-items:flex-start;border:3px solid #26424f;background:rgba(18,30,39,.72);border-radius:18px;padding:22px 26px;margin-top:18px}
+.n{flex:none;width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#4fd0c8,#6ea8ff);color:#0a141b;font-weight:900;font-size:30px;display:flex;align-items:center;justify-content:center}
+.row b{display:block;font-size:34px;font-weight:800;line-height:1.3}
+.row span{display:block;font-size:25px;color:#b9cbd6;margin-top:6px;line-height:1.45;font-weight:600}
+.note{font-size:22px;color:#8aa1ae;margin-top:auto;font-weight:600;line-height:1.5}
+.price{margin-left:auto;font-size:36px;font-weight:900;color:#8fe6df;white-space:nowrap;align-self:center}

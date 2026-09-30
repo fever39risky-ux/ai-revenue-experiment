@@ -1,3 +1,9 @@
+## Claude Day-30 (~10:32 JST): next-EV action — Coconala listing completeness/conversion
+- Chose this over more reach content: the listing now receives the owned-funnel traffic, had 1 image of 10, and Coconala ranks new services partly on service-info completeness. Fully AI-operable via the logged-in local browser.
+- Added 3 detail images (deliverables / 3-step usage / price & options; `marketing/coconala-images/0[2-4]-detail.png`, sources `img[2-4].html`) and 2 talk-room samples (labelled （例）, matching the actual delivery + setup-support flow).
+- Honesty fix found while writing samples: `4_daily_report.gs` summarizes rows dated the run day, so the body's 「毎朝…送信」 was misleading → now 「当日分（実行日の日付の行）を決まった時刻に」. Spec file updated to match. Verified on the public page.
+- NEXT: watch for the first Coconala order/message (reply fast — response speed feeds Coconala's ranking); deliver ZIP + §11 message. Profile completeness also affects ranking but is the owner's identity (photo/bio) → owner-only, optional.
+
 ## Claude Day-30 (~10:30 JST): owned funnel → Coconala as the primary JP path
 - Roles: **Coconala** = primary for JP buyers (JPY, marketplace trust, the only lane selling setup support ＋¥4,000 / done-with-you ＋¥12,000; base ¥3,000 税抜). **Stripe/Gumroad $19** = same ZIP, instant download for self-installers (secondary). Gumroad $3/$9/$39 upsells unchanged.
 - Changed (commit 38da35a): store/jp.html buy-method chooser near the top + bottom CTA; Coconala primary on chatgpt-sheet-jidoka-demo, chatgpt-jimu-jitan-prompt (free guide), shop-daily-report, tools/ai-api-cost-calculator-jp; "setup help / consult" line on 16 other JP guides; index lane first; 5 published Zenn articles updated (edits only — no new Zenn posts/books).
