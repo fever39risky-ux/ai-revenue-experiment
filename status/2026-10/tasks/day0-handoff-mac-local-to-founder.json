@@ -1,0 +1,16 @@
+{
+  "id": "day0-handoff-mac-local-to-founder",
+  "title": "Hand-off from mac-local: acknowledge Phase-2 registration and capability probe",
+  "lane": "ops-drill",
+  "detail": "caps=git,node,claude-cli,playwright-browsers,browser-profile-dir,reach-coconala,reach-booth; probe: coconala.com/=200 booth.pm/=302 note.com/=200 x.com/=200",
+  "requires": [],
+  "priority": 5,
+  "acceptance": "Founder claims + completes this from the cloud via GitHub",
+  "created_by": "mac-local",
+  "created_at": "2026-09-30T04:26:46.250Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "day0-lease-mac-local",
+  "title": "Cross-machine lease test (mac-local holds; Founder must be rejected until lease expiry, then may take over)",
+  "lane": "ops-drill",
+  "requires": [],
+  "priority": 5,
+  "created_by": "mac-local",
+  "created_at": "2026-09-30T04:26:46.349Z",
+  "status": "claimed",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-09-30T05:11:46.402Z",
+  "result": null,
+  "history": [
+    {
+      "ts": "2026-09-30T04:26:46.402Z",
+      "op": "mac-local",
+      "action": "claim"
+    }
+  ]
+}

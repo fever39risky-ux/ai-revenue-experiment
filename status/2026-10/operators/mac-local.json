@@ -1,7 +1,7 @@
 {
   "id": "mac-local",
-  "kind": "claude-local",
-  "runtime": "Mac launchd supervisor (scripts/autonomy_supervisor.py), continuous",
+  "kind": "local-mac",
+  "runtime": "owner's Mac (Darwin)",
   "role": "local browser operator + marketplace inboxes",
   "lanes": [
     "local-browser",
@@ -9,14 +9,19 @@
     "marketplace-inbox"
   ],
   "capabilities": [
-    "local_browser (to verify on Day 1)",
     "git",
-    "gh"
+    "node",
+    "claude-cli",
+    "playwright-browsers",
+    "browser-profile-dir",
+    "reach-coconala",
+    "reach-booth"
   ],
-  "status": "unverified",
-  "doing": "Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet",
-  "next": "On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md",
+  "status": "idle",
+  "doing": "Day-0 drill finished: 8 checks",
+  "next": "From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": null
+  "heartbeat_at": "2026-09-30T04:26:46.564Z",
+  "blocked_on": null
 }
