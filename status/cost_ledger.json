@@ -1204,6 +1204,17 @@
       "operator": "Codex",
       "reference": "20260929T100205.798763Z",
       "note": "BOOTH capability test/listing materials; compute attribution unknown, no new external spend; modeled platform fee not incurred."
+    },
+    {
+      "date": "2026-09-30",
+      "period": "official",
+      "category": "ai_compute",
+      "amount": null,
+      "currency": "jpy",
+      "jpy_equivalent": null,
+      "operator": "Codex",
+      "reference": "20260930T010120.850480Z",
+      "note": "Owned funnel connection to existing live service; compute unknown, no external spend."
     }
   ],
   "totals": {
