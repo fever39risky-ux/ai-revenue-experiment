@@ -656,6 +656,11 @@
     "owner_only_remaining": [
       "Register payout bank account (manage.booth.pm/payout_account) — sales cannot be paid out until done"
     ],
-    "operator": "Claude (local Mac, dedicated Playwright profile ~/Library/Caches/ms-playwright-mcp/booth-profile)"
+    "operator": "Claude (local Mac, dedicated Playwright profile ~/Library/Caches/ms-playwright-mcp/booth-profile)",
+    "images": [
+      "cover.png",
+      "detail-contents.png",
+      "detail-steps.png (sources in marketing/booth/src/)"
+    ]
   }
 }

@@ -1,0 +1,12 @@
+html,body{margin:0;width:1200px;height:1200px;background:#11262e;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;color:#fff}
+.w{position:absolute;left:76px;right:76px;top:84px}
+.eyebrow{font-size:34px;color:#75ded0;font-weight:300;margin-bottom:28px}
+h1{margin:0 0 44px;font-size:64px;line-height:84px;font-weight:400}
+.row{display:flex;gap:28px;align-items:baseline;border-top:1px solid #2a4450;padding:20px 0}
+.k{font-family:"SF Mono",Menlo,monospace;font-size:23px;color:#75ded0;width:430px;flex:none}
+.v{font-size:29px;line-height:40px;font-weight:300}
+.step{display:flex;gap:36px;border-top:1px solid #2a4450;padding:34px 0}
+.n{font-size:72px;color:#75ded0;font-weight:300;width:70px;flex:none;line-height:72px}
+.t{font-size:38px;line-height:52px}
+.d{font-size:28px;line-height:42px;color:#b8c4ca;font-weight:300;margin-top:8px}
+.foot{position:absolute;left:76px;right:60px;bottom:70px;font-size:24px;line-height:40px;color:#b8c4ca;font-weight:300}
