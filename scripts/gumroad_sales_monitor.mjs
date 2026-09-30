@@ -7,7 +7,7 @@
  *
  * Detects real Gumroad sales via the official REST API v2 (GET /v2/sales,
  * `view_sales` OAuth scope), appends them to status/revenue_ledger.json
- * (preparation vs official by date) and status/EVENTS.jsonl, dedup by
+ * (routed to the period ledger of its Asia/Tokyo date, see experiment/periods.json), dedup by
  * order_id. Mirrors scripts/sales_monitor.mjs's structure and conventions.
  *
  * Spec source: GET /v2/sales (view_sales scope, after/before/page_key
@@ -30,16 +30,12 @@
  * it does NOT retry or guess. See ops/GUMROAD_API_SETUP.md's "Sales
  * detection" section for the fallback if that happens.
  */
-import { readFileSync, writeFileSync, appendFileSync } from 'fs';
+import { Books } from './lib/periods.mjs';
 
 const TOKEN = process.env.GUMROAD_ACCESS_TOKEN;
 if (!TOKEN) { console.log('gumroad_sales_monitor: no GUMROAD_ACCESS_TOKEN set — skipping (no-op).'); process.exit(0); }
 
-const OFFICIAL_START = '2026-09-01';
 const USD_TO_JPY = 150; // matches status/cost_ledger.json's fx_note; provider payout is authoritative
-const LEDGER = 'status/revenue_ledger.json';
-const COSTS = 'status/cost_ledger.json';
-const EVENTS = 'status/EVENTS.jsonl';
 const API = 'https://api.gumroad.com/v2';
 
 function tokyoDate(isoOrEpoch) {
@@ -57,15 +53,9 @@ if (!res.ok || json.success === false) {
   process.exit(0);
 }
 
-const ledger = JSON.parse(readFileSync(LEDGER, 'utf8'));
-ledger.preparation_entries ||= [];
-ledger.official_entries ||= [];
-const seen = new Set([...ledger.preparation_entries, ...ledger.official_entries].map(e => e.reference));
-
-let costs = null;
-try { costs = JSON.parse(readFileSync(COSTS, 'utf8')); } catch { costs = null; }
-if (costs) { costs.preparation_entries ||= []; costs.official_entries ||= []; costs.totals ||= {}; }
-const costSeen = costs ? new Set([...costs.preparation_entries, ...costs.official_entries].filter(e => e.reference).map(e => e.reference)) : new Set();
+const books = new Books();
+const seen = books.seenRevenue();
+const costSeen = books.seenCost();
 
 let added = 0;
 let freeDownloads = 0;
@@ -78,44 +68,33 @@ for (const sale of (json.sales || [])) {
   if (!(Number(sale.price || 0) > 0)) { freeDownloads++; continue; }
 
   const date = tokyoDate(sale.created_at);
-  const period = date >= OFFICIAL_START ? 'official' : 'preparation';
   const currency = (sale.currency || 'usd').toLowerCase();
   const gross = Number(sale.price || 0) / 100; // Gumroad returns price in cents
   const jpyEquivalent = currency === 'jpy' ? gross : Math.round(gross * USD_TO_JPY);
 
   const entry = {
-    date, period, gross, currency, jpy_equivalent: jpyEquivalent,
-    source: 'gumroad', reference, verified: true,
+    date, gross, currency, jpy_equivalent: jpyEquivalent,
+    source: 'gumroad', reference, verified: true, third_party: true, is_test: false,
   };
-  (period === 'official' ? ledger.official_entries : ledger.preparation_entries).push(entry);
-  appendFileSync(EVENTS, JSON.stringify({
-    type: 'revenue_detected', timestamp: new Date().toISOString(), period, actor: 'gumroad-sales-monitor',
+  const phase = books.bookRevenue(entry, {
+    type: 'revenue_detected', timestamp: new Date().toISOString(), actor: 'gumroad-sales-monitor',
     details: { source: 'gumroad', jpy_equivalent: jpyEquivalent, currency, reference, date },
-  }) + '\n');
+  });
+  if (!phase) continue;
 
-  if (costs && Number(sale.gumroad_fee || 0) > 0) {
+  if (Number(sale.gumroad_fee || 0) > 0) {
     const feeRef = 'fee:' + reference;
     if (!costSeen.has(feeRef)) {
       const feeGross = Number(sale.gumroad_fee) / 100;
       const feeJpy = currency === 'jpy' ? feeGross : Math.round(feeGross * USD_TO_JPY);
-      const c = { date, period, category: 'gumroad_fees', amount: feeGross, currency, jpy_equivalent: feeJpy, reference: feeRef, note: 'Gumroad fee for ' + reference };
-      (period === 'official' ? costs.official_entries : costs.preparation_entries).push(c);
+      books.bookCost({ date, category: 'gumroad_fees', amount: feeGross, currency, jpy_equivalent: feeJpy, reference: feeRef, note: 'Gumroad fee for ' + reference });
       costSeen.add(feeRef);
     }
   }
 
   added++;
-  console.log(`+ ${period} revenue ${jpyEquivalent} JPY (${reference}) on ${date}`);
+  console.log(`+ ${phase} revenue ${jpyEquivalent} JPY (${reference}) on ${date}`);
 }
 
-ledger.totals ||= {};
-ledger.totals.preparation_revenue_jpy_equivalent = ledger.preparation_entries.reduce((s, e) => s + Number(e.jpy_equivalent || 0), 0);
-ledger.totals.official_revenue_jpy_equivalent = ledger.official_entries.reduce((s, e) => s + Number(e.jpy_equivalent || 0), 0);
-writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
-
-if (costs) {
-  costs.totals.preparation_cost_jpy_equivalent = costs.preparation_entries.reduce((s, e) => s + Number(e.jpy_equivalent || 0), 0);
-  costs.totals.official_cost_jpy_equivalent = costs.official_entries.reduce((s, e) => s + Number(e.jpy_equivalent || 0), 0);
-  writeFileSync(COSTS, JSON.stringify(costs, null, 2) + '\n');
-}
-console.log(`gumroad_sales_monitor: ${added} new sale(s), ${freeDownloads} $0 download(s) in this page (signal only, not booked). official rev=${ledger.totals.official_revenue_jpy_equivalent} prep rev=${ledger.totals.preparation_revenue_jpy_equivalent} JPY`);
+books.save();
+console.log(`gumroad_sales_monitor: ${added} new sale(s), ${freeDownloads} $0 download(s) in this page (signal only, not booked). Period-routed via experiment/periods.json.`);

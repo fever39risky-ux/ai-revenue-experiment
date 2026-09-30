@@ -1,0 +1,16 @@
+{
+  "id": "h4-zenn-paid-book-retry",
+  "title": "H4: retry Zenn paid book gas-ai-jimu-plus-6 once (touch + push) on/after 2026-10-06, verify via verify-url.yml",
+  "lane": "zenn",
+  "requires": [],
+  "priority": 4,
+  "hypothesis": "H4",
+  "acceptance": "HTTP 200 on the book URL, or documented 404 + stop",
+  "created_by": "founder",
+  "created_at": "2026-09-30T02:43:16.181Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

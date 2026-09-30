@@ -66,6 +66,46 @@ if (revenue) {
   }
 }
 
+// ---- Phase 2 (October 2026) guards -----------------------------------------
+// Phase 1 ledgers are frozen history: nothing dated in October may land there.
+for (const [p, keys] of [['status/revenue_ledger.json', ['official_entries', 'preparation_entries']], ['status/cost_ledger.json', ['official_entries', 'preparation_entries']]]) {
+  const j = readJSON(p);
+  if (!j) continue;
+  for (const k of keys) for (const e of (j[k] || [])) {
+    if (e.date && e.date >= '2026-10-01') fail(`${p}: ${k} contains an entry dated ${e.date} — October entries belong in status/2026-10/ (see experiment/periods.json)`);
+  }
+}
+if (existsSync('experiment/periods.json')) {
+  readJSON('experiment/periods.json');
+  for (const p of ['status/2026-10/revenue_ledger.json', 'status/2026-10/cost_ledger.json', 'status/2026-10/STATE.json']) {
+    const j = readJSON(p);
+    if (!j) continue;
+    for (const e of (j.entries || [])) {
+      if (!e.date || e.date < '2026-10-01' || e.date > '2026-10-31') fail(`${p}: entry ${e.reference || '?'} dated ${e.date} is outside Phase 2 (2026-10-01..31)`);
+      if (p.includes('revenue') && !e.reference) fail(`${p}: revenue entry dated ${e.date} has no reference (dedup key)`);
+    }
+  }
+  // STATE.json is the Founder's working memory, not an archive: keep it small.
+  if (existsSync('status/2026-10/STATE.json')) {
+    const size = readFileSync('status/2026-10/STATE.json').length;
+    if (size > 40000) fail(`status/2026-10/STATE.json is ${size} bytes (> 40000). Move history to events/reports; STATE holds only the current picture.`);
+  }
+  for (const dir of ['status/2026-10/operators', 'status/2026-10/tasks']) {
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir)) if (f.endsWith('.json')) readJSON(`${dir}/${f}`);
+  }
+  const evDir = 'status/2026-10/events';
+  if (existsSync(evDir)) {
+    for (const f of readdirSync(evDir)) {
+      if (!f.endsWith('.jsonl')) continue;
+      readFileSync(`${evDir}/${f}`, 'utf8').split('\n').forEach((line, i) => {
+        if (!line.trim()) return;
+        try { JSON.parse(line); } catch (e) { fail(`${evDir}/${f}:${i + 1}: invalid JSON line (${e.message})`); }
+      });
+    }
+  }
+}
+
 console.log(`\npromotion_check: ${problems} problem(s) found.`);
 if (problems > 0) { console.error('BLOCK: durable state looks malformed — do not promote to main.'); process.exit(1); }
 process.exit(0);

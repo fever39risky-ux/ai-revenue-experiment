@@ -1,0 +1,20 @@
+{
+  "id": "actions",
+  "kind": "github-actions",
+  "runtime": "sales-monitor 4h, daily-report 21:00 JST, x-phase2 3x/day, promote-branch",
+  "role": "mechanical monitors/pipelines",
+  "lanes": [
+    "sales-monitor",
+    "x-pipeline",
+    "reports"
+  ],
+  "capabilities": [
+    "repo-secrets"
+  ],
+  "status": "working",
+  "doing": "Scheduled workflows; no judgment",
+  "next": "n/a",
+  "registered_by": "founder (Day 0)",
+  "registered_at": "2026-09-30T02:43:15Z",
+  "heartbeat_at": "2026-09-30T02:43:15Z"
+}

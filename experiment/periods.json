@@ -1,0 +1,53 @@
+{
+  "_doc": "Registry of experiment periods. Every script that books revenue/cost or renders reports resolves the period from the Asia/Tokyo date through this file, so September (Phase 1) and October (Phase 2) stay independently verifiable. Phase 1 files are frozen history: nothing dated >= 2026-10-01 may be written into them.",
+  "timezone": "Asia/Tokyo",
+  "periods": [
+    {
+      "id": "2026-08-prep",
+      "kind": "preparation",
+      "label": "Phase 1 preparation",
+      "start": "2026-08-26",
+      "end": "2026-08-31",
+      "revenue_ledger": "status/revenue_ledger.json",
+      "revenue_bucket": "preparation_entries",
+      "cost_ledger": "status/cost_ledger.json",
+      "cost_bucket": "preparation_entries",
+      "events": "status/EVENTS.jsonl"
+    },
+    {
+      "id": "2026-09",
+      "kind": "official",
+      "label": "Phase 1 — September 30-day verification",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "status": "closed_after_2026-09-30",
+      "revenue_ledger": "status/revenue_ledger.json",
+      "revenue_bucket": "official_entries",
+      "cost_ledger": "status/cost_ledger.json",
+      "cost_bucket": "official_entries",
+      "events": "status/EVENTS.jsonl",
+      "report_manifest": "reports/manifest.json",
+      "report_pattern": "^2026-09-\\d{2}\\.html$",
+      "retrospective": "ops/2026-10/SEPTEMBER_RETROSPECTIVE.md"
+    },
+    {
+      "id": "2026-10",
+      "kind": "official",
+      "label": "Phase 2 — October self-redesign verification",
+      "day0": "2026-09-30",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "status": "active_from_2026-10-01T00:00+09:00",
+      "revenue_ledger": "status/2026-10/revenue_ledger.json",
+      "revenue_bucket": "entries",
+      "cost_ledger": "status/2026-10/cost_ledger.json",
+      "cost_bucket": "entries",
+      "events": "status/2026-10/events/sales-monitor.jsonl",
+      "events_dir": "status/2026-10/events",
+      "state": "status/2026-10/STATE.json",
+      "report_manifest": "reports/manifest-2026-10.json",
+      "report_pattern": "^2026-10-\\d{2}\\.html$",
+      "constitution": "ops/2026-10/CONSTITUTION.md"
+    }
+  ]
+}

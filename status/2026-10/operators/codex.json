@@ -1,0 +1,17 @@
+{
+  "id": "codex",
+  "kind": "codex",
+  "runtime": "Mac Codex automation (~2x/day; next 2026-09-30T19:00+09:00 per status/codex_cadence.json)",
+  "role": "independent revenue operator",
+  "lanes": [],
+  "capabilities": [
+    "git",
+    "github-actions-dispatch"
+  ],
+  "status": "unverified",
+  "doing": "Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet",
+  "next": "On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md",
+  "registered_by": "founder (Day 0)",
+  "registered_at": "2026-09-30T02:43:15Z",
+  "heartbeat_at": null
+}

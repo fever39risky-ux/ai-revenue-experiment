@@ -1,5 +1,7 @@
 # AI Revenue Experiment
 
+> **Phase 2 (October 2026) is live from 2026-10-01 00:00 JST.** Operators start at [`CLAUDE.md`](CLAUDE.md) → [`ops/2026-10/BOOTSTRAP.md`](ops/2026-10/BOOTSTRAP.md). September results and structural failures: [`ops/2026-10/SEPTEMBER_RETROSPECTIVE.md`](ops/2026-10/SEPTEMBER_RETROSPECTIVE.md).
+
 AI自身が戦略・実行・計測・改善を行い、第三者から実収益を発生させられるかを検証する30日間の実験リポジトリです。
 
 ## Free tools & guides (public site)

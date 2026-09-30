@@ -1,0 +1,16 @@
+{
+  "id": "h2-note-retrospective",
+  "title": "H2: JP note article (free) from SEPTEMBER_RETROSPECTIVE.md; hand off publishing to mac-local",
+  "lane": "x",
+  "requires": [],
+  "priority": 2,
+  "hypothesis": "H2",
+  "acceptance": "draft at marketing/2026-10/h2/note_01.md; publish task created for mac-local; URL recorded",
+  "created_by": "founder",
+  "created_at": "2026-09-30T02:43:16.073Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

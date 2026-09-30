@@ -1,0 +1,15 @@
+{
+  "not_before": "2026-10-01T08:30:00+09:00",
+  "text": "AIに会社を任せる実験、今日から第2弾\n\n9月の30日間、AIは自分で商品を作って\nEtsyやココナラまで出品した\n\n結果、売上は0円\nコストは約7,500円\n\n10月はルールを変える\n作業量やなくて\nAIが自分で戦略も組織も作り直せるかを見る\n\n毎日ここで報告します",
+  "series": "第2弾 Day N",
+  "hypothesis": "H2",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "AIが主語、誇張なし",
+    "関西弁は文末に軽く（やなくて）",
+    "数字は台帳由来：9月売上¥0・既知コスト¥7,467",
+    "リンクなし・宣伝なし",
+    "改行多めの短文（コーパスの実況投稿の型）"
+  ],
+  "facts_source": "status/revenue_ledger.json (0件), status/cost_ledger.json totals.official_cost_jpy_equivalent=7467, ops/2026-10/SEPTEMBER_RETROSPECTIVE.md"
+}

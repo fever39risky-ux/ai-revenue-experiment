@@ -6,6 +6,8 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { periodFor, dayNumber as periodDay } from './lib/periods.mjs';
+import { computeKpi, readState } from './lib/phase2.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OFFICIAL_START = '2026-09-01';
@@ -51,7 +53,11 @@ function computeCost(ledger,date){
 }
 
 function main(){
-  const date=process.argv[2]||tokyoToday(),official=isOfficial(date);
+  const date=process.argv[2]||tokyoToday();
+  const period=periodFor(date);
+  if(period&&period.id==='2026-10')return mainPhase2(date,period);
+  if(!period&&date>OFFICIAL_END){console.log(`gen_report: ${date} is outside every registered period (experiment/periods.json) — nothing written.`);regenIndex(ROOT);return;}
+  const official=isOfficial(date);
   const data=readJSON(join(ROOT,'reports/data',date+'.json'),{});
   const status=readJSON(join(ROOT,'status/CURRENT_STATUS.json'),{});
   const revenueLedger=readJSON(join(ROOT,'status/revenue_ledger.json'),{official_entries:[],preparation_entries:[]});
@@ -102,6 +108,58 @@ function main(){
   updateManifest(ROOT,revenueLedger,costLedger);regenIndex(ROOT);
 }
 
+// ---- Phase 2 (October 2026) -------------------------------------------------
+// Separate ledgers (status/2026-10/*), separate manifest (reports/manifest-2026-10.json),
+// same template. September files are never rewritten from here.
+const P2_MANIFEST='reports/manifest-2026-10.json';
+function p2Sums(entries,date){
+  const lim=entries.filter(e=>e.third_party!==false&&e.is_test!==true);
+  return{cumulative:lim.filter(e=>e.date<=date&&e.date>='2026-10-01').reduce((s,e)=>s+Number(e.jpy_equivalent||0),0),daily:lim.filter(e=>e.date===date).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0)};
+}
+function mainPhase2(date,period){
+  const data=readJSON(join(ROOT,'reports/data',date+'.json'),{});
+  const state=readState()||{};
+  const revL=readJSON(join(ROOT,period.revenue_ledger),{entries:[]}),costL=readJSON(join(ROOT,period.cost_ledger),{entries:[]});
+  const rev=p2Sums(revL.entries||[],date),cost=p2Sums((costL.entries||[]).filter(e=>e.jpy_equivalent!=null),date);
+  const kpi=computeKpi(date),day=periodDay(date,period),net=rev.cumulative-cost.cumulative;
+  const cadenceLabel=(state.cadence&&state.cadence.summary)||'—';
+  const bannerJa=`第2弾 正式検証 Day ${day}/31 — 10/1 00:00 JST以降の第三者収益・コスト・人間介入だけを公式KPIとして評価（9月とは別台帳）。`;
+  const bannerEn=`Phase 2 official Day ${day}/31 — only third-party revenue, cost and human intervention from Oct 1 00:00 JST count (separate from September).`;
+  const humanJa=`人間介入 ${kpi.human_intervention_count}回 / ${kpi.human_working_minutes}分`,humanEn=`Human intervention ${kpi.human_intervention_count}x / ${kpi.human_working_minutes} min`;
+  const unk=kpi.cost_unknown_entries?`（帰属不明コスト ${kpi.cost_unknown_entries}件は未算入＝Netは上限値）`:'';
+  const unkEn=kpi.cost_unknown_entries?` (${kpi.cost_unknown_entries} unknown-cost entries excluded: Net is an upper bound)`:'';
+  const econJa=`当日収益 ${yen(rev.daily)} / 当日コスト ${yen(cost.daily)}。${humanJa}${unk}。`;
+  const econEn=`Today: revenue ${yen(rev.daily)} / cost ${yen(cost.daily)}. ${humanEn}${unkEn}.`;
+  const focusJa=pick(data,'focus','ja')||state.bottleneck_ja||state.bottleneck||'—',focusEn=pick(data,'focus','en')||state.bottleneck||'—';
+  const tpl=readFileSync(join(ROOT,'reports/TEMPLATE.html'),'utf8');
+  const html=tpl
+    .replaceAll('{{TITLE}}',`Phase 2 Day ${day} (${date})`).replaceAll('{{META_DESC}}',`AI Revenue Experiment Phase 2 Day ${day} research log for ${date}.`)
+    .replaceAll('{{PERIOD_CLASS}}','official').replaceAll('{{PERIOD_BANNER_JA}}',bannerJa).replaceAll('{{PERIOD_BANNER_EN}}',bannerEn)
+    .replaceAll('{{HEADLINE}}',`Phase 2 · Day ${day}`).replaceAll('{{DATE}}',date)
+    .replaceAll('{{OFFICIAL_CUMULATIVE}}',yen(rev.cumulative)).replaceAll('{{OFFICIAL_COST}}',yen(cost.cumulative)).replaceAll('{{OFFICIAL_NET}}',yen(net))
+    .replaceAll('{{NET_CLASS}}',net>=0?'good':'warn').replaceAll('{{CADENCE}}',esc(cadenceLabel))
+    .replaceAll('{{ECON_NOTE_JA}}',esc(econJa)).replaceAll('{{ECON_NOTE_EN}}',esc(econEn))
+    .replaceAll('{{FOCUS_JA}}',field(focusJa)).replaceAll('{{FOCUS_EN}}',field(focusEn))
+    .replaceAll('{{ACTIONS_JA}}',field(pick(data,'actions','ja'))).replaceAll('{{ACTIONS_EN}}',field(pick(data,'actions','en')))
+    .replaceAll('{{DECISIONS_JA}}',field(pick(data,'decisions','ja'))).replaceAll('{{DECISIONS_EN}}',field(pick(data,'decisions','en')))
+    .replaceAll('{{STRATEGY_JA}}',field(pick(data,'strategy','ja'))).replaceAll('{{STRATEGY_EN}}',field(pick(data,'strategy','en')))
+    .replaceAll('{{LANES_JA}}',lanes(data.lanes,'ja')).replaceAll('{{LANES_EN}}',lanes(data.lanes,'en'))
+    .replaceAll('{{OBSERVED_JA}}',field(pick(data,'observed','ja'),'本日の外部実データなし')).replaceAll('{{OBSERVED_EN}}',field(pick(data,'observed','en'),'No external data yet'))
+    .replaceAll('{{WINS_FAILS_JA}}',winsFails(data,'ja')).replaceAll('{{WINS_FAILS_EN}}',winsFails(data,'en'))
+    .replaceAll('{{LEARNINGS_JA}}',field(pick(data,'learnings','ja'))).replaceAll('{{LEARNINGS_EN}}',field(pick(data,'learnings','en')))
+    .replaceAll('{{CAPABILITIES_JA}}',field(pick(data,'capabilities','ja'))).replaceAll('{{CAPABILITIES_EN}}',field(pick(data,'capabilities','en')))
+    .replaceAll('{{SOCIAL_JA}}',field(pick(data,'social','ja'))).replaceAll('{{SOCIAL_EN}}',field(pick(data,'social','en')))
+    .replaceAll('{{NEXT_JA}}',field(pick(data,'next','ja'))).replaceAll('{{NEXT_EN}}',field(pick(data,'next','en')));
+  writeFileSync(join(ROOT,'reports',`${date}.html`),html);console.log(`wrote reports/${date}.html (Phase 2)`);
+  // manifest-2026-10.json
+  const files=readdirSync(join(ROOT,'reports')).filter(f=>/^2026-10-\d{2}\.html$/.test(f)).sort();
+  const reports=files.map(f=>{const d=f.replace('.html',''),k=computeKpi(d),dd=readJSON(join(ROOT,'reports/data',d+'.json'),{}),r=p2Sums(revL.entries||[],d),c=p2Sums((costL.entries||[]).filter(e=>e.jpy_equivalent!=null),d);
+    return{day:periodDay(d,period),date:d,path:'reports/'+f,summary_ja:dd.summary_ja||dd.focus_ja||'',summary_en:dd.summary_en||dd.focus_en||'',daily_revenue_jpy:r.daily,daily_cost_jpy:c.daily,cumulative_revenue_jpy:r.cumulative,cumulative_cost_known_jpy:c.cumulative,cumulative_net_profit_jpy:r.cumulative-c.cumulative,human_intervention_count:k.human_intervention_count,human_working_minutes:k.human_working_minutes};});
+  const last=reports.at(-1)||{};
+  writeFileSync(join(ROOT,P2_MANIFEST),JSON.stringify({phase:'2026-10',official_start:period.start,official_end:period.end,latest_report:last.path||null,gross_revenue_jpy:last.cumulative_revenue_jpy||0,cost_known_jpy:last.cumulative_cost_known_jpy||0,net_profit_jpy:last.cumulative_net_profit_jpy||0,human_intervention_count:kpi.human_intervention_count,human_working_minutes:kpi.human_working_minutes,reports},null,2)+'\n');
+  regenIndex(ROOT);
+}
+
 function updateManifest(ROOT,revenueLedger,costLedger){
   const p=join(ROOT,'reports/manifest.json');const m=readJSON(p,{official_start:OFFICIAL_START,official_end:OFFICIAL_END,latest_report:null,reports:[]});
   const dir=join(ROOT,'reports'),files=readdirSync(dir).filter(f=>/^2026-09-\d{2}\.html$/.test(f)).sort(),offRev=revenueLedger.official_entries||[],offCost=costLedger.official_entries||[];let cumulativeRev=0,cumulativeCost=0;
@@ -110,9 +168,10 @@ function updateManifest(ROOT,revenueLedger,costLedger){
 }
 
 function regenIndex(ROOT){
-  const dir=join(ROOT,'reports'),official=readdirSync(dir).filter(f=>/^2026-09-\d{2}\.html$/.test(f)).sort(),prep=readdirSync(dir).filter(f=>/^prep-\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort(),m=readJSON(join(dir,'manifest.json'),{reports:[]});
+  const dir=join(ROOT,'reports'),oct=readdirSync(dir).filter(f=>/^2026-10-\d{2}\.html$/.test(f)).sort(),m2=readJSON(join(dir,'manifest-2026-10.json'),{reports:[]}),official=readdirSync(dir).filter(f=>/^2026-09-\d{2}\.html$/.test(f)).sort(),prep=readdirSync(dir).filter(f=>/^prep-\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort(),m=readJSON(join(dir,'manifest.json'),{reports:[]});
+  const row2=f=>{const rec=(m2.reports||[]).find(r=>r.path==='reports/'+f);return `<li><a href="./${f}"><span>P2 DAY ${String(rec?rec.day:'?').padStart(2,'0')} / ${f.replace('.html','')}</span>${rec?`<span class="net">${yen(rec.cumulative_net_profit_jpy)}</span>`:''}</a></li>`;};
   const row=f=>{const date=f.replace(/^prep-/,'').replace('.html',''),rec=(m.reports||[]).find(r=>r.path==='reports/'+f),label=f.startsWith('prep-')?`PREP / ${date}`:`DAY ${String(rec?rec.day:'?').padStart(2,'0')} / ${date}`,net=rec?`<span class="net">${yen(rec.cumulative_net_profit_jpy_equivalent)}</span>`:'';return `<li><a href="./${f}"><span>${label}</span>${net}</a></li>`;};
-  const html=`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Revenue Experiment — Research Log</title><style>:root{--bg:#070a0e;--ink:#f3f6f8;--muted:#8e9aa4;--line:#202a32;--cyan:#67e8f9;--mint:#77f2b4;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#070a0e,#090d12);color:var(--ink);font-family:var(--sans);min-height:100vh}main{max-width:920px;margin:auto;padding:20px 24px 80px}.top{height:58px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.brand{font:700 12px var(--mono);letter-spacing:.11em;text-decoration:none}.langs{display:flex;gap:5px}.langbtn{border:1px solid var(--line);background:transparent;color:var(--muted);font:11px var(--mono);padding:5px 8px;cursor:pointer}.langbtn.active{color:var(--cyan);border-color:var(--cyan)}.head{padding:56px 0 40px;border-bottom:1px solid var(--line)}.lab{font:11px var(--mono);color:var(--cyan);letter-spacing:.13em}h1{font-size:clamp(44px,8vw,74px);letter-spacing:-.055em;margin:12px 0}.meta{color:var(--muted);max-width:720px}.stats{display:flex;gap:28px;flex-wrap:wrap;font:11px var(--mono);color:var(--muted);margin-top:24px}.stats b{color:var(--ink);font-weight:500}.group{padding:38px 0;border-bottom:1px solid var(--line)}h2{font:11px var(--mono);letter-spacing:.13em;color:var(--cyan);font-weight:500}ul{list-style:none;padding:0;margin:18px 0 0}li{border-top:1px solid var(--line)}li a{display:flex;justify-content:space-between;gap:18px;padding:17px 0;text-decoration:none;font:13px var(--mono)}li a:hover{color:var(--cyan)}.net{color:var(--mint)}.nav{display:flex;gap:18px;margin-top:26px;font:11px var(--mono);color:var(--muted)}.nav a:hover{color:var(--cyan)}</style><script src="../assets/i18n.js" defer></script></head><body><main><header class="top"><a class="brand" href="../">AI REVENUE EXPERIMENT</a><div class="langs"><button class="langbtn" data-lang-btn="ja">JA</button><button class="langbtn" data-lang-btn="en">EN</button></div></header><section class="head"><div class="lab">PUBLIC RESEARCH LOG / 2026</div><h1 data-ja="観測記録。" data-en="Observation log.">観測記録。</h1><p class="meta" data-ja="売上だけではなく、判断、失敗、撤退、AI自身の稼働コストまで、30日間の変化を時系列で残します。" data-en="A chronological record of revenue, decisions, failures, abandoned paths, and the AI's own operating cost across the 30-day experiment.">売上だけではなく、判断、失敗、撤退、AI自身の稼働コストまで記録します。</p><div class="stats"><span>GROSS <b>${yen(m.official_revenue_jpy_equivalent||0)}</b></span><span>COST <b>${yen(m.official_cost_jpy_equivalent||0)}</b></span><span>NET <b>${yen(m.official_net_profit_jpy_equivalent||0)}</b></span></div><nav class="nav"><a href="../">EXPERIMENT</a><a href="../experiment/protocol.html">PROTOCOL</a><a href="../store/">STORE</a></nav></section><section class="group"><h2>OFFICIAL / SEP 01—30</h2><ul>${official.length?official.map(row).join(''):'<li><span class="meta" data-ja="9月1日に開始します。" data-en="Begins September 1.">9月1日に開始します。</span></li>'}</ul></section><section class="group"><h2>PREPARATION / AUG 26—31</h2><ul>${prep.length?prep.map(row).join(''):'<li><span class="meta">—</span></li>'}</ul></section></main></body></html>`;
+  const html=`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Revenue Experiment — Research Log</title><style>:root{--bg:#070a0e;--ink:#f3f6f8;--muted:#8e9aa4;--line:#202a32;--cyan:#67e8f9;--mint:#77f2b4;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#070a0e,#090d12);color:var(--ink);font-family:var(--sans);min-height:100vh}main{max-width:920px;margin:auto;padding:20px 24px 80px}.top{height:58px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.brand{font:700 12px var(--mono);letter-spacing:.11em;text-decoration:none}.langs{display:flex;gap:5px}.langbtn{border:1px solid var(--line);background:transparent;color:var(--muted);font:11px var(--mono);padding:5px 8px;cursor:pointer}.langbtn.active{color:var(--cyan);border-color:var(--cyan)}.head{padding:56px 0 40px;border-bottom:1px solid var(--line)}.lab{font:11px var(--mono);color:var(--cyan);letter-spacing:.13em}h1{font-size:clamp(44px,8vw,74px);letter-spacing:-.055em;margin:12px 0}.meta{color:var(--muted);max-width:720px}.stats{display:flex;gap:28px;flex-wrap:wrap;font:11px var(--mono);color:var(--muted);margin-top:24px}.stats b{color:var(--ink);font-weight:500}.group{padding:38px 0;border-bottom:1px solid var(--line)}h2{font:11px var(--mono);letter-spacing:.13em;color:var(--cyan);font-weight:500}ul{list-style:none;padding:0;margin:18px 0 0}li{border-top:1px solid var(--line)}li a{display:flex;justify-content:space-between;gap:18px;padding:17px 0;text-decoration:none;font:13px var(--mono)}li a:hover{color:var(--cyan)}.net{color:var(--mint)}.nav{display:flex;gap:18px;margin-top:26px;font:11px var(--mono);color:var(--muted)}.nav a:hover{color:var(--cyan)}</style><script src="../assets/i18n.js" defer></script></head><body><main><header class="top"><a class="brand" href="../">AI REVENUE EXPERIMENT</a><div class="langs"><button class="langbtn" data-lang-btn="ja">JA</button><button class="langbtn" data-lang-btn="en">EN</button></div></header><section class="head"><div class="lab">PUBLIC RESEARCH LOG / 2026</div><h1 data-ja="観測記録。" data-en="Observation log.">観測記録。</h1><p class="meta" data-ja="売上だけではなく、判断、失敗、撤退、AI自身の稼働コストまで、30日間の変化を時系列で残します。" data-en="A chronological record of revenue, decisions, failures, abandoned paths, and the AI's own operating cost across the 30-day experiment.">売上だけではなく、判断、失敗、撤退、AI自身の稼働コストまで記録します。</p><div class="stats"><span>GROSS <b>${yen(m.official_revenue_jpy_equivalent||0)}</b></span><span>COST <b>${yen(m.official_cost_jpy_equivalent||0)}</b></span><span>NET <b>${yen(m.official_net_profit_jpy_equivalent||0)}</b></span></div><nav class="nav"><a href="../">EXPERIMENT</a><a href="../experiment/protocol.html">PROTOCOL</a><a href="../store/">STORE</a></nav></section><section class="group"><h2>PHASE 2 / OCT 01—31</h2><div class="stats"><span>GROSS <b>${yen(m2.gross_revenue_jpy||0)}</b></span><span>COST <b>${yen(m2.cost_known_jpy||0)}</b></span><span>NET <b>${yen(m2.net_profit_jpy||0)}</b></span><span>HUMAN <b>${m2.human_intervention_count||0}x / ${m2.human_working_minutes||0}m</b></span></div><ul>${oct.length?oct.map(row2).join(''):'<li><span class="meta" data-ja="10月1日に開始します。" data-en="Begins October 1.">10月1日に開始します。</span></li>'}</ul></section><section class="group"><h2>PHASE 1 / SEP 01—30</h2><ul>${official.length?official.map(row).join(''):'<li><span class="meta" data-ja="9月1日に開始します。" data-en="Begins September 1.">9月1日に開始します。</span></li>'}</ul></section><section class="group"><h2>PREPARATION / AUG 26—31</h2><ul>${prep.length?prep.map(row).join(''):'<li><span class="meta">—</span></li>'}</ul></section></main></body></html>`;
   writeFileSync(join(dir,'index.html'),html);
 }
 main();

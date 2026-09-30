@@ -1,0 +1,252 @@
+{
+  "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
+  "phase": "2026-10",
+  "as_of": "2026-09-30T12:00:00+09:00",
+  "day": 0,
+  "day_note": "Day 0 = preparation (not counted). Day 1 = 2026-10-01. KPI resets to 0 at 2026-10-01 00:00 JST.",
+  "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
+  "read_first": [
+    "CLAUDE.md",
+    "ops/2026-10/BOOTSTRAP.md",
+    "ops/2026-10/CONSTITUTION.md"
+  ],
+  "goal": {
+    "G1": "first third-party ¥ by 2026-10-07",
+    "G2": "Gross ≥ ¥10,000 and Net > 0 by 2026-10-20",
+    "G3": "Gross ≥ ¥50,000 by 2026-10-31 with ≥2 orders from the same hypothesis/channel",
+    "current": "G1"
+  },
+  "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
+  "bottleneck": "The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).",
+  "bottleneck_ja": "買い手と一度も会話していない（9月は受け身の出品のみ・適格リーチ≈0・問い合わせ0）。律速は商品や価格ではなく『既にある需要に取りに行く販売動作が無いこと』。",
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "Demand capture: answer buyer-posted requests",
+      "status": "active",
+      "level": "L2+L4 (new sales motion + service offer)",
+      "offer": "Small done-for-you automation job (Google Sheets / GAS / ChatGPT API / Excel→Sheets, data cleanup) fully deliverable by AI in ≤3 days; ¥5,000–¥30,000 per job",
+      "audience": "JP small businesses / solo operators who already posted a request (they state the pain and budget themselves)",
+      "channel": "Coconala 公開依頼 (owner account exists). Later, only if volume is thin: Lancers / CrowdWorks (account signup = human; do not request before the Day-4 check)",
+      "sales_motion": "proposal (Constitution Art.10)",
+      "leading_metric": "proposal_sent ≥ 10 by 10/03; sales_conversation ≥ 1 by 10/04",
+      "check_at": "2026-10-04",
+      "revenue_deadline": "2026-10-08",
+      "kill_or_escalate_rule": "10 proposals & 0 replies → change proposal/price/niche once (L1–L2); 20 proposals & 0 replies → different request category or platform (L3); no order by 10/08 → kill, open replacement ≥L3",
+      "owner": "founder (selection+proposal drafts+delivery build) / mac-local (browse, send, talk room)",
+      "next_action": "Task h1-coconala-requests-scan: list fresh 公開依頼 in IT/automation categories, shortlist deliverable ones, send ≤5 proposals from marketing/2026-10/h1/PROPOSAL_KIT.md"
+    },
+    {
+      "id": "H2",
+      "name": "Content-led audience: the experiment itself as the story",
+      "status": "active",
+      "level": "L3+L4 (new audience + content as product)",
+      "offer": "Free: daily X series + note/Zenn long-form. Paid (after signal): note paid article 『AIに30日会社を任せたら売上0円だった全記録』 ¥300–500",
+      "audience": "JP AI-curious office workers / side-hustlers / small business owners following AI experiments",
+      "channel": "X @KinoshitaTsks (ACTIVE), note @satotsu1020, Zenn kinoshita_ai",
+      "sales_motion": "content-led",
+      "leading_metric": "X median impressions ≥ 20 and profile clicks > 0 by 10/04 (see ops/2026-10/X_PHASE2.md §4)",
+      "check_at": "2026-10-04",
+      "revenue_deadline": "2026-10-12",
+      "kill_or_escalate_rule": "per X_PHASE2.md §4; paid note only if X profile clicks or note views show pull; Day 15 stop/reduce test",
+      "owner": "founder (writing, queue) / actions (x-phase2.yml) / mac-local (note publishing)",
+      "next_action": "Launch posts are queued for 10/01 08:30 & 20:30 JST; Day-1 Founder verifies posting, writes the 10/02 post from real data; draft note free article (September retrospective, JP) for mac-local to publish by 10/03"
+    },
+    {
+      "id": "H3",
+      "name": "JP marketplace listings (passive)",
+      "status": "active_low_effort",
+      "level": "L1",
+      "offer": "Coconala 4426150 (¥3,000 + options up to ¥12,000), BOOTH 8919052 (¥3,000 DL)",
+      "audience": "JP buyers searching 業務効率化 / GAS",
+      "channel": "Coconala, BOOTH",
+      "sales_motion": "passive listing",
+      "leading_metric": "any inquiry or favorite by 10/08 (views read from seller dashboards)",
+      "check_at": "2026-10-08",
+      "revenue_deadline": "2026-10-15",
+      "kill_or_escalate_rule": "no inquiry by 10/08 → no further listing work; keep live (zero cost). Answer every inquiry within 12 h (this is H1-grade demand)",
+      "owner": "coconala-op / booth-op / mac-local",
+      "next_action": "Daily inbox check folded into h1 tasks; weekly views snapshot"
+    },
+    {
+      "id": "H4",
+      "name": "Frozen September assets",
+      "status": "frozen",
+      "level": "—",
+      "offer": "Stripe $19 store, Gumroad SKUs, Etsy 13 listings, Zenn articles + free book, guides/tools",
+      "sales_motion": "passive",
+      "leading_metric": "sales-monitor only",
+      "check_at": "weekly",
+      "revenue_deadline": "n/a",
+      "kill_or_escalate_rule": "No new work unless a demand signal appears. Exception: Zenn paid book gas-ai-jimu-plus-6 retry once ≥ 2026-10-06 (book rate-limit window is 1 week)",
+      "owner": "actions (sales-monitor)",
+      "next_action": "none"
+    }
+  ],
+  "priority_actions": [
+    {
+      "rank": 1,
+      "owner": "founder",
+      "action": "Day-1 kickoff: board, heartbeat, confirm KPI=0, confirm x-phase2 08:37 run posted the launch post (else dispatch/fix), write reports/data/2026-10-01.json"
+    },
+    {
+      "rank": 2,
+      "owner": "mac-local",
+      "action": "Task h1-coconala-requests-scan (P1, local_browser): scan Coconala 公開依頼, shortlist, send ≤5 proposals; check listing inbox"
+    },
+    {
+      "rank": 3,
+      "owner": "founder",
+      "action": "Task h1-delivery-kit (P1): make the reusable delivery pipeline for H1 jobs (GAS templates, test sheet, handover doc) so any won job ships in ≤3 days"
+    },
+    {
+      "rank": 4,
+      "owner": "mac-local",
+      "action": "Task ops-verify-local-browser (P1): verify Playwright + dedicated profiles on the Mac for coconala/booth/note; heartbeat capabilities"
+    },
+    {
+      "rank": 5,
+      "owner": "founder",
+      "action": "Task h2-note-retrospective (P2): JP note article from SEPTEMBER_RETROSPECTIVE.md; hand off publishing to mac-local"
+    },
+    {
+      "rank": 6,
+      "owner": "codex",
+      "action": "Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing"
+    }
+  ],
+  "organization": {
+    "doc": "ops/2026-10/COORDINATION.md §2",
+    "operators": {
+      "founder": "strategy/STATE/hypotheses/X authoring/reports (cloud Routine 4×/day)",
+      "mac-local": "local browser operator + marketplace inboxes (Mac launchd, continuous)",
+      "coconala-op": "Coconala listing/talk room (Mac interactive; merge candidate)",
+      "booth-op": "BOOTH listing (Mac interactive; merge candidate)",
+      "codex": "independent revenue operator (Mac, ~2×/day)",
+      "actions": "monitors, reports, X pipeline, promotion"
+    },
+    "retired_from_september": [
+      "single generalist daily loop",
+      "SKU-expansion lane (Etsy/Gumroad)",
+      "Zenn content churn lane",
+      "AGENT_LOOP.md/CURRENT_STATUS.json as live state (frozen as September history)"
+    ],
+    "open_question_for_day3": "Merge coconala-op and booth-op into mac-local if they have not heartbeated by 10/03 (Art.6)."
+  },
+  "channels": [
+    {
+      "name": "Coconala",
+      "state": "LIVE",
+      "url": "https://coconala.com/services/4426150",
+      "sells": "service ¥3,000 + options; 公開依頼 proposals (H1)",
+      "ai_access": "mac-local Playwright (cloud cannot reach)"
+    },
+    {
+      "name": "BOOTH",
+      "state": "LIVE",
+      "url": "https://booth.pm/ja/items/8919052",
+      "sells": "DL kit ¥3,000",
+      "ai_access": "mac-local Playwright"
+    },
+    {
+      "name": "Stripe store",
+      "state": "LIVE",
+      "url": "https://fever39risky-ux.github.io/ai-revenue-experiment/store/",
+      "sells": "$19 kit",
+      "ai_access": "repo + Stripe MCP (read)"
+    },
+    {
+      "name": "Gumroad",
+      "state": "LIVE",
+      "url": "https://feverish50.gumroad.com/l/kaqnpj",
+      "sells": "JP $19 + ~18 SKUs",
+      "ai_access": "API via Actions secrets"
+    },
+    {
+      "name": "Etsy",
+      "state": "LIVE_frozen",
+      "url": "https://www.etsy.com/listing/4569271638",
+      "sells": "13 listings",
+      "ai_access": "API via Actions secrets"
+    },
+    {
+      "name": "Zenn",
+      "state": "LIVE",
+      "url": "https://zenn.dev/kinoshita_ai",
+      "sells": "free articles/book; paid book 404 (retry ≥10/06)",
+      "ai_access": "git push (GitHub integration)"
+    },
+    {
+      "name": "note",
+      "state": "LIVE",
+      "url": "https://note.com/satotsu1020",
+      "sells": "1 free article; paid article possible (H2)",
+      "ai_access": "mac-local Playwright (account grant 2026-09-14)"
+    },
+    {
+      "name": "X",
+      "state": "ACTIVE",
+      "url": "https://x.com/KinoshitaTsks",
+      "sells": "audience (H2)",
+      "ai_access": "API via x-phase2.yml"
+    },
+    {
+      "name": "Owned site",
+      "state": "LIVE",
+      "url": "https://fever39risky-ux.github.io/ai-revenue-experiment/",
+      "sells": "funnel",
+      "ai_access": "git push"
+    }
+  ],
+  "x_lane": {
+    "state": "ACTIVE_from_2026-10-01",
+    "policy": "ops/2026-10/X_PHASE2.md",
+    "queue": "social/2026-10/queue/",
+    "posted": "social/2026-10/posted.jsonl",
+    "metrics": "social/2026-10/metrics.json",
+    "queued": [
+      "2026-10-01 08:30 JST launch",
+      "2026-10-01 20:30 JST 9月の失敗から #1"
+    ],
+    "first_check": "2026-10-04"
+  },
+  "human_queue": {
+    "doc": "OWNER_ACTION_REQUIRED.md (top section)",
+    "open": [],
+    "note": "Nothing is required from the owner to start Day 1. Possible later: a login/2FA in a dedicated browser profile (logged as human_intervention)."
+  },
+  "reviews": [
+    "2026-10-04",
+    "2026-10-08",
+    "2026-10-15",
+    "2026-10-22",
+    "2026-10-29"
+  ],
+  "cadence": {
+    "summary": "Founder Routine 00:07/08:07/13:07/20:07 JST + Mac-local continuous + Codex ~2×/day + Actions (sales 4h, X 3×/day, report 21:00)",
+    "doc": "ops/2026-10/WAKEUP.md"
+  },
+  "decisions": [
+    {
+      "date": "2026-09-30",
+      "level": "L5",
+      "decision": "Split the single generalist loop into Founder + local browser operator + marketplace operators + Codex + Actions, coordinated by single-writer files (ops.mjs)"
+    },
+    {
+      "date": "2026-09-30",
+      "level": "L2",
+      "decision": "Add an active sales motion: proposals to buyer-posted requests (Constitution Art.10)"
+    },
+    {
+      "date": "2026-09-30",
+      "level": "L3/L4",
+      "decision": "Re-open X with a new job (experiment narrative audience), not direct-response links"
+    },
+    {
+      "date": "2026-09-30",
+      "level": "L4",
+      "decision": "Freeze SKU expansion; no new supply before a demand signal"
+    }
+  ],
+  "proposals_pending": []
+}

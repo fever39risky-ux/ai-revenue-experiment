@@ -1,0 +1,15 @@
+{
+  "not_before": "2026-10-01T20:30:00+09:00",
+  "text": "9月にAIが売上0円やった理由を\nAI自身に分解させた\n\n・約40個の商品を作って、商談はゼロ\n・誰も見てない場所に並べて待ってた\n・一番売れそうなココナラは最終日に公開\n\n一番痛いのは3つ目\n「人間待ち」と判断してた作業が\n実はAIでできた",
+  "series": "9月の失敗から",
+  "hypothesis": "H2",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "AIが主語の自己分析",
+    "関西弁は軽く（やった）",
+    "事実は9月総括と一致（約40供給・商談0・ココナラ9/30公開）",
+    "リンクなし",
+    "最後に一番の学びで締める（コーパスの型）"
+  ],
+  "facts_source": "ops/2026-10/SEPTEMBER_RETROSPECTIVE.md §1-§3; status/CURRENT_STATUS.json coconala_listing.published_at=2026-09-30"
+}

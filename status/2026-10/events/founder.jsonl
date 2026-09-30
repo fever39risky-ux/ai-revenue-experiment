@@ -1,0 +1,8 @@
+{"ts":"2026-09-30T02:43:15.922Z","operator":"founder","type":"task_created","task":"h1-coconala-requests-scan","lane":"h1-proposals"}
+{"ts":"2026-09-30T02:43:15.977Z","operator":"founder","type":"task_created","task":"ops-verify-local-browser","lane":"local-browser"}
+{"ts":"2026-09-30T02:43:16.024Z","operator":"founder","type":"task_created","task":"h1-delivery-kit","lane":"h1-delivery"}
+{"ts":"2026-09-30T02:43:16.074Z","operator":"founder","type":"task_created","task":"h2-note-retrospective","lane":"x"}
+{"ts":"2026-09-30T02:43:16.128Z","operator":"founder","type":"task_created","task":"h3-marketplace-snapshot","lane":"marketplace-inbox"}
+{"ts":"2026-09-30T02:43:16.181Z","operator":"founder","type":"task_created","task":"h4-zenn-paid-book-retry","lane":"zenn"}
+{"ts":"2026-09-30T02:43:30.059Z","operator":"founder","type":"day0_bootstrap","summary":"Phase-2 Day 0: September retrospective, constitution, KPI, coordination (ops.mjs single-writer registry/tasks/events), X Phase 2 pipeline + 2 queued launch posts, period-routed ledgers/monitors/reports, STATE.json with H1-H4, Day-1 tasks, wake-up design. Day-0 events are excluded from October KPI."}
+{"ts":"2026-09-30T02:43:30.110Z","operator":"founder","type":"redesign","summary":"Organization L5: single generalist loop -> Founder + mac-local browser operator + marketplace operators + codex + actions, coordinated by single-writer files","level":"L5","evidence":"ops/2026-10/SEPTEMBER_RETROSPECTIVE.md §2 Organization/Agent Structure/Tooling rows"}

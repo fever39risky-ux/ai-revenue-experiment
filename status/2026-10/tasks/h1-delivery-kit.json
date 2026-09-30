@@ -1,0 +1,16 @@
+{
+  "id": "h1-delivery-kit",
+  "title": "H1: reusable delivery pipeline (GAS templates, dummy-data test sheet, 手順書 template) so a won job ships in ≤3 days",
+  "lane": "h1-delivery",
+  "requires": [],
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "marketing/2026-10/h1/delivery/ with templates + a worked example tested end-to-end on dummy data",
+  "created_by": "founder",
+  "created_at": "2026-09-30T02:43:16.023Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

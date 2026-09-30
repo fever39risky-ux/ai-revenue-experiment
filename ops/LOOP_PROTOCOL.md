@@ -1,3 +1,5 @@
+> **PHASE 2 NOTE (2026-09-30):** For October 2026 the operative constitution is `ops/2026-10/CONSTITUTION.md`. The anti-passivity principles below remain in force; September's strategic conclusions do not.
+
 # Autonomous Loop Protocol — CANONICAL
 
 Official window: **2026-09-01 through 2026-09-30, Asia/Tokyo**.

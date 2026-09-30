@@ -1,0 +1,20 @@
+{
+  "_doc": "Phase 2 (October 2026) revenue ledger. Starts at ¥0 on 2026-10-01 00:00 JST. Only third-party revenue dated 2026-10-01..2026-10-31 (Asia/Tokyo) is booked here; September stays in status/revenue_ledger.json (frozen). Writers: sales monitors (Stripe/Gumroad via scripts/lib/periods.mjs) and operators for channels without an API (Coconala/BOOTH/note/Zenn/Etsy) via `node scripts/oct/ops.mjs revenue ...`. Gross Revenue = sum of jpy_equivalent over entries with third_party!=false and is_test!=true. Never book self-purchases, tests, unpaid orders or clicks.",
+  "phase": "2026-10",
+  "currency_base": "JPY",
+  "period": { "start": "2026-10-01", "end": "2026-10-31", "timezone": "Asia/Tokyo" },
+  "entries": [],
+  "totals": { "gross_revenue_jpy": 0, "verified_gross_revenue_jpy": 0, "orders": 0 },
+  "entry_schema": {
+    "date": "YYYY-MM-DD (Asia/Tokyo) of the payment",
+    "gross": "amount in original currency (what the buyer paid, before platform fee)",
+    "currency": "jpy | usd | ...",
+    "jpy_equivalent": "number (USD at 150 JPY unless provider payout says otherwise)",
+    "source": "stripe | gumroad | coconala | booth | etsy | note | zenn | ...",
+    "reference": "provider order/charge id (no PII, no secrets) — dedup key",
+    "verified": "true only when confirmed on the provider side",
+    "third_party": "true (false = self/test, excluded from KPI)",
+    "is_test": "false",
+    "hypothesis": "optional hypothesis id from STATE.json that produced it (attribution)"
+  }
+}

@@ -1,0 +1,52 @@
+name: X Phase 2 (queue post + metrics)
+# ops/2026-10/X_PHASE2.md — posts the earliest due item from social/2026-10/queue
+# (cap 2/day JST), then refreshes metrics for posts < 7 days old, and commits the log.
+on:
+  schedule:
+    - cron: '37 23 * * *'   # 08:37 JST
+    - cron: '37 3 * * *'    # 12:37 JST
+    - cron: '37 11 * * *'   # 20:37 JST
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate queue
+        run: node scripts/oct/x_phase2.mjs validate
+      - name: Post due item
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/oct/x_phase2.mjs post
+      - name: Refresh metrics
+        continue-on-error: true
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/oct/x_phase2.mjs metrics
+      - name: Commit & push if changed
+        if: always()
+        run: |
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add social/2026-10/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(x): phase2 queue/metrics $(date -u +%FT%TZ)"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no X changes"
+          fi

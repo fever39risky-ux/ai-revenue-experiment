@@ -1,0 +1,18 @@
+{
+  "id": "h3-marketplace-snapshot",
+  "title": "H3: snapshot Coconala 4426150 + BOOTH 8919052 dashboards (views, favorites, messages) as Phase-2 baseline",
+  "lane": "marketplace-inbox",
+  "requires": [
+    "local_browser"
+  ],
+  "priority": 2,
+  "hypothesis": "H3",
+  "acceptance": "numbers booked as signals qualified_reach/inquiry with evidence; baseline noted in result",
+  "created_by": "founder",
+  "created_at": "2026-09-30T02:43:16.127Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

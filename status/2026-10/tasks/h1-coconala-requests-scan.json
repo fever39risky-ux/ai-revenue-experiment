@@ -1,0 +1,20 @@
+{
+  "id": "h1-coconala-requests-scan",
+  "title": "H1: scan Coconala 公開依頼, shortlist, send ≤5 proposals, check listing inbox",
+  "lane": "h1-proposals",
+  "detail": "Follow marketing/2026-10/h1/PROPOSAL_KIT.md §1-§4. Use the dedicated Coconala browser profile. Not before 2026-10-01 JST.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "screened list (url,budget,go/no-go,reason) in result; each sent proposal logged as signal proposal_sent; any buyer message logged as inquiry/sales_conversation",
+  "created_by": "founder",
+  "created_at": "2026-09-30T02:43:15.922Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
