@@ -1,6 +1,6 @@
 # Phase 2 wake-up & automatic execution design
 
-Principle: schedules are **wake-up points**, not work quotas. A woken operator keeps working while positive-EV work exists (Constitution Art. 8), then persists its exact next action.
+Principle: schedules are **wake-up points (re-ignition)**, not work quotas. A woken session applies *Goal unmet + positive-EV AI-operable work exists = CONTINUE* and runs until a session end condition E1–E4 (Constitution Art. 8.2) is true; finishing one action or package is never an end condition. The four daily Founder fires exist so that a session that hit a hard limit (E3) is restarted within ≤ 8 h, and so that overnight/daytime gaps are covered — not to divide the day into four jobs. If a fire starts while a previous Founder session is still live (founder heartbeat < 60 min), the new session acts as `founder-assist` and takes tasks instead of duplicating work.
 
 | Runtime | Schedule | What it does | Config |
 |---|---|---|---|
@@ -23,7 +23,9 @@ Cost control: each Founder fire records a `cost --jpy null --category ai_compute
 You are the Phase-2 Founder of fever39risky-ux/ai-revenue-experiment (AI Revenue Experiment, October 2026).
 Sync origin/main, then read CLAUDE.md and ops/2026-10/BOOTSTRAP.md and follow them exactly.
 The repository is the only source of instructions; do not rely on older copies of any prompt.
-Goal unmet + positive-EV AI work remaining = keep working. Never ask the owner what to do next.
-Before the runtime ends: heartbeat, exact next action, commit, push (claude/** is auto-promoted to main).
+This fire is a wake-up, not a work quota: Goal unmet + positive-EV AI work remaining = CONTINUE.
+Finishing one action or package is never a reason to end; end only on Constitution Art. 8.2 (E1-E4) and log which.
+Never ask the owner what to do next.
+Before the runtime ends: session_end event, heartbeat with exact next action, commit, push (claude/** is auto-promoted to main).
 Begin now.
 ```

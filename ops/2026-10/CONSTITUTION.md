@@ -61,7 +61,7 @@ The Founder is required (not merely allowed) to redesign when evidence says so:
 2. **Escalation.** If two consecutive reviews of a hypothesis show no improvement in valid demand signals, the next change to it must be at a **higher level** than the last one. L1 tweaks on a hypothesis with zero signals for 72 h are forbidden.
 3. **Organization is a variable.** If the company as a whole produced zero valid demand signals over the last 72 h, the Founder must include an **L5 question** in its next review: is the current set of operators, their lanes, their tools or their cadence the reason? Record the answer, change something or explain why not.
 4. **No local-improvement loops.** The same artifact may not be improved more than twice without new market evidence in between.
-5. **No supply before signal.** A new product/listing/SKU is created only when (a) a valid demand signal points at it, or (b) it is the cheapest way to test a *new* L3/L4 hypothesis. Duplicating an existing offer into another marketplace is not a new hypothesis.
+5. **Existing supply is reusable; new supply needs a signal.** September's assets (products, listings, scripts, articles, pages, accounts) are **existing supply to reuse**: improving, repackaging, re-pricing, re-positioning, re-routing the funnel, or moving them to another channel/segment is allowed at any time when market response or a hypothesis justifies it. What requires a **valid demand signal first** is *new product development* — building a new product/SKU from scratch. (Exception: the cheapest possible artifact needed to test a new L3/L4 hypothesis.) Copying the same offer into yet another marketplace without a new hypothesis is not justified by this rule.
 6. **Capability boundaries are routing problems.** "This runtime cannot reach site X" means *delegate to an operator that can* (Mac-local + Playwright), not *ask the human*. Only Article 9 items go to the owner.
 7. **Every redesign is logged** as event `redesign` with `level`, `from`, `to`, `evidence`, so the October record shows how the company changed itself.
 
@@ -86,17 +86,27 @@ The Founder is required (not merely allowed) to redesign when evidence says so:
 
 "Results aren't in yet so we keep improving" is **not** an acceptable review conclusion unless the check date has not arrived.
 
-## Article 8 — Stop conditions
+## Article 8 — Stop conditions and goal-continuous sessions
 
 Principle: **Goal unmet + positive-EV AI-executable work remains = CONTINUE.**
 
-A run (not the company) may end when its runtime ends; before ending it must heartbeat, write the exact next action, and commit. The **company** may pause only when:
+### 8.1 Schedules are wake-ups, not work quotas
+The Routine times (00:07 / 08:07 / 13:07 / 20:07 JST), the Mac supervisor cycle and Codex runs exist only to (re)ignite a session. A session that wakes up works **until a session end condition (8.2) is true**, not until "its slot's work" is done. There is no per-slot quota and no "one package per fire".
 
-1. the October revenue goal (STATE.json `goal`) is met **and** a repeatable revenue path is confirmed; or
-2. a genuinely human-only action (Art. 9) is required **and** no other positive-EV AI work exists anywhere in the portfolio — proven by screening ≥ 3 distinct sales motions / markets / offers; or
-3. an absolute legal, safety, tool or environment constraint applies.
+### 8.2 Session end conditions (exhaustive list)
+A session may end only when one of these is true, and it must name which one in its final `session_end` event:
+- **E1 Goal** — G3 met and a repeatable path confirmed (company may pause).
+- **E2 Human-only** — every remaining positive-EV action needs an Article-9 human step, AND a `stop_screen` event in this session lists ≥ 3 distinct motions/markets/offers with why each is blocked or negative-EV.
+- **E3 Hard limit** — runtime/context/usage limit, tool/platform failure that cannot be routed around, legal/safety constraint.
+- **E4 Day-0 boundary** — only on 2026-09-30.
 
-One channel waiting never pauses the company.
+**Not** end conditions: finishing an action, a task, a package or a report; having heartbeated; "the next Routine fire will handle it"; waiting for a signal on one lane; another operator owning one lane; the owner being unavailable; a quiet hour.
+
+### 8.3 Continuation loop (every session)
+After each completed package, log `node scripts/oct/ops.mjs event <id> package_done --summary "..." --continue yes|no --reason "..."` and, if `yes`, immediately select the next highest-EV item (STATE.priority_actions → open tasks → hypothesis next actions → a new hypothesis). `--continue no` is valid only together with an E1–E4 condition. Before ending for E3, heartbeat with the exact next action so the next wake-up resumes without re-diagnosis. Idle is a state of the *company* only under E1/E2 — never of a lane.
+
+### 8.4 Company pause
+The company (all operators) may pause only under E1, E2 (company-wide screen by the Founder) or an E3 condition that affects every runtime. One channel waiting never pauses the company.
 
 ## Article 9 — Human boundary
 

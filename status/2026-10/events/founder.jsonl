@@ -9,3 +9,5 @@
 {"ts":"2026-09-30T02:47:26.416Z","operator":"founder","type":"smoke_test_reviewed","summary":"Day-0 cold-start smoke test (founder-assist, routine fire) passed; gap R1 (mac-local unverified) given a pre-registered contingency in STATE.risks; x_lane wording clarified"}
 {"ts":"2026-09-30T04:11:07.442Z","operator":"founder","type":"task_created","task":"day0-drill-mac-local","lane":"ops-drill"}
 {"ts":"2026-09-30T04:11:07.504Z","operator":"founder","type":"task_created","task":"day0-drill-codex","lane":"ops-drill"}
+{"ts":"2026-09-30T04:12:55.655Z","operator":"founder","type":"task_created","task":"x-verify-day1-am","lane":"x"}
+{"ts":"2026-09-30T04:12:55.701Z","operator":"founder","type":"task_created","task":"x-verify-day1-pm","lane":"x"}

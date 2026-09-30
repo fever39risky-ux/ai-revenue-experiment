@@ -1,7 +1,7 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-09-30T12:00:00+09:00",
+  "as_of": "2026-09-30T13:00:00+09:00",
   "day": 0,
   "day_note": "Day 0 = preparation (not counted). Day 1 = 2026-10-01. KPI resets to 0 at 2026-10-01 00:00 JST.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
@@ -70,24 +70,24 @@
     },
     {
       "id": "H4",
-      "name": "Frozen September assets",
-      "status": "frozen",
-      "level": "—",
-      "offer": "Stripe $19 store, Gumroad SKUs, Etsy 13 listings, Zenn articles + free book, guides/tools",
-      "sales_motion": "passive",
-      "leading_metric": "sales-monitor only",
-      "check_at": "weekly",
+      "name": "Existing September supply — reuse and redesign freely",
+      "status": "active_reuse",
+      "level": "L1–L4 as evidence dictates",
+      "offer": "Stripe $19 store, Gumroad SKUs, Etsy 13 listings, Coconala/BOOTH kit, Zenn articles + free book, guides/tools, scripts",
+      "sales_motion": "passive by default; may be repackaged, re-priced, re-positioned, bundled into H1 deliveries, or moved to another channel/segment",
+      "leading_metric": "sales-monitor + any listing signal",
+      "check_at": "weekly review",
       "revenue_deadline": "n/a",
-      "kill_or_escalate_rule": "No new work unless a demand signal appears. Exception: Zenn paid book gas-ai-jimu-plus-6 retry once ≥ 2026-10-06 (book rate-limit window is 1 week)",
-      "owner": "actions (sales-monitor)",
-      "next_action": "none"
+      "kill_or_escalate_rule": "Existing assets are reusable supply: improve/repackage/re-price/re-route/re-channel whenever market response or a hypothesis justifies it. Only NEW product development requires a prior demand signal (Constitution Art.5.5). Pending: Zenn paid book retry once ≥ 2026-10-06.",
+      "owner": "founder (decides reuse) / actions (sales-monitor)",
+      "next_action": "Reuse the GAS kit scripts as the base of H1 deliveries (task h1-delivery-kit)"
     }
   ],
   "priority_actions": [
     {
       "rank": 1,
       "owner": "founder",
-      "action": "Day-1 kickoff: board, heartbeat, confirm KPI=0, confirm x-phase2 08:37 run posted the launch post (else dispatch/fix), write reports/data/2026-10-01.json"
+      "action": "Day-1 kickoff: board, heartbeat, confirm KPI=0 and human=0; X morning post is verified at the 13:07 fire (task x-verify-day1-am); write reports/data/2026-10-01.json"
     },
     {
       "rank": 2,
@@ -164,7 +164,7 @@
     },
     {
       "name": "Etsy",
-      "state": "LIVE_frozen",
+      "state": "LIVE",
       "url": "https://www.etsy.com/listing/4569271638",
       "sells": "13 listings",
       "ai_access": "API via Actions secrets"
@@ -205,10 +205,15 @@
     "posted": "social/2026-10/posted.jsonl",
     "metrics": "social/2026-10/metrics.json",
     "queued": [
-      "2026-10-01 not_before 08:30 JST (posted by the 08:37 x-phase2 run) — launch",
-      "2026-10-01 not_before 20:30 JST (posted by the 20:37 run) — 9月の失敗から #1"
+      "2026-10-01 08:37 JST (not_before=08:37, cron 37 23 * * * UTC) — launch",
+      "2026-10-01 20:37 JST (not_before=20:37, cron 37 11 * * * UTC) — 9月の失敗から #1"
     ],
-    "first_check": "2026-10-04"
+    "first_check": "2026-10-04",
+    "schedule_doc": "ops/2026-10/X_PHASE2.md §5",
+    "verification": [
+      "task x-verify-day1-am (Founder 13:07 fire)",
+      "task x-verify-day1-pm (Founder 00:07 fire, 10/02)"
+    ]
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
@@ -245,7 +250,7 @@
     {
       "date": "2026-09-30",
       "level": "L4",
-      "decision": "Freeze SKU expansion; no new supply before a demand signal"
+      "decision": "Reuse September supply as existing assets (improve/repackage/re-price/re-channel on evidence); require a demand signal only for NEW product development"
     }
   ],
   "proposals_pending": [],

@@ -1,0 +1,19 @@
+{
+  "id": "x-verify-day1-pm",
+  "title": "Verify the 10/01 20:37 JST X post with real data",
+  "lane": "x",
+  "detail": "ops/2026-10/X_PHASE2.md §5",
+  "requires": [],
+  "priority": 1,
+  "hypothesis": "H2",
+  "acceptance": "20:37 run success; posted.jsonl has tweet_id for 2026-10-01-pm.json; metrics.json entry after the 10/02 08:37 run",
+  "due_at": "2026-10-02T09:30:00+09:00",
+  "not_before": "2026-10-01T21:30:00+09:00",
+  "created_by": "founder",
+  "created_at": "2026-09-30T04:12:55.700Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

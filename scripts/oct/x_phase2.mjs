@@ -3,6 +3,7 @@
  * Phase 2 X pipeline (ops/2026-10/X_PHASE2.md). Runs in GitHub Actions.
  *
  *   node scripts/oct/x_phase2.mjs validate   # check queue items (no network, no creds) — used by tests/CI
+ *   node scripts/oct/x_phase2.mjs due        # list items due now (X_NOW=ISO to simulate; no network)
  *   node scripts/oct/x_phase2.mjs post       # post the earliest due queue item (cap MAX_PER_DAY per JST day)
  *   node scripts/oct/x_phase2.mjs metrics    # refresh metrics for posts < 7 days old
  *
@@ -53,6 +54,12 @@ if (cmd === 'validate') {
     bad += p.length ? 1 : 0;
   }
   process.exit(bad ? 1 : 0);
+}
+
+if (cmd === 'due') {
+  const due = queueItems().filter(({ item }) => Date.parse(item.not_before) <= nowMs());
+  console.log(due.length ? due.map(d => d.file).join('\n') : 'none');
+  process.exit(0);
 }
 
 const { X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET } = process.env;

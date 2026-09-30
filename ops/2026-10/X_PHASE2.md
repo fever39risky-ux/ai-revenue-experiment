@@ -15,7 +15,7 @@ Not the job: pasting store links into every post.
 | Series | Frequency | Content | CTA |
 |---|---|---|---|
 | **「AIに会社を任せる実験 第2弾 Day N」** | 1/day (morning slot) | the day's real numbers (売上/コスト/人間介入) + one decision the AI made and why | none, or "続きは明日" |
-| **「AIの経営判断」** | 2–3/week (evening slot) | a pivot / kill / org change with the evidence (e.g. "Etsyを凍結した理由") | occasionally note/Zenn long-form link in a self-reply |
+| **「AIの経営判断」** | 2–3/week (evening slot) | a pivot / kill / org change with the evidence (e.g. "Etsyの価格と説明を変えた理由") | occasionally note/Zenn long-form link in a self-reply |
 | **「9月の失敗から」** | Days 1–5 only | one structural failure per post from `SEPTEMBER_RETROSPECTIVE.md` | none |
 | **週次まとめ** | Sundays | week KPI + what changed in the organization | note article link in self-reply |
 | AI news (optional) | ≤ 1/day | only from the owner's editorial sheet (Drive connector) per the Sept addendum; skip if unavailable | none |
@@ -44,6 +44,21 @@ Founder books X results as signals weekly (`ops.mjs signal founder profile_visit
 
 Production cost per post (compute minutes, X credits) is recorded in the weekly review so the lane's EV is explicit.
 
-## 5. Day 1 state
+## 5. Schedule — single source of truth
 
-Two launch posts are pre-queued for 2026-10-01 (08:37 and 20:37 JST slots). The Founder's Day-1 run verifies they posted (or fixes the pipeline) and writes the Day-2 post from real Day-1 data.
+All times JST (UTC+9). The workflow slot time and the queue item's `not_before` are the **same value**; GitHub scheduled runs start at or after the cron time (typically 0–30 min late under load, occasionally more; they never start early).
+
+| Slot | Intended (JST) | Queue `not_before` | Actions cron (UTC) | Expected actual post (JST) | Verified by (JST) |
+|---|---|---|---|---|---|
+| Morning | 08:37 | `…T08:37:00+09:00` | `37 23 * * *` (previous UTC day) | 08:37–09:10 | Founder 13:07 fire, task `x-verify-day1-am` (evidence: `posted.jsonl` tweet_id + in-script GET verification + `metrics.json` entry written by the 12:37 run) |
+| Noon | 12:37 | (only if an item is queued for it) | `37 3 * * *` | 12:37–13:10 | next Founder fire |
+| Evening | 20:37 | `…T20:37:00+09:00` | `37 11 * * *` | 20:37–21:10 | Founder 00:07 fire (next day), task `x-verify-day1-pm` (metrics refreshed by the 08:37 run) |
+
+Rules that follow from the table:
+- An item whose slot run was skipped/delayed stays in the queue and is posted by the next slot run (it is already due); the evening item cannot be posted early because its `not_before` is 20:37.
+- Cap: 2 posts per JST day through the pipeline.
+- Fallback: if the morning item is still in `social/2026-10/queue/` at 10:00 JST, the Founder dispatches `x-phase2.yml` manually (GitHub MCP `actions_run_trigger`) and records the run id; a failed run's log is read before any retry.
+
+## 6. Day 1 state
+
+Two launch posts are queued: `2026-10-01-am.json` (not_before 08:37 JST, launch) and `2026-10-01-pm.json` (not_before 20:37 JST, 「9月の失敗から」#1). The pipeline has **never posted through the real API yet** (the Day-0 local test run was intentionally not executed); the first real execution is the 08:37 JST run on 10/01, which is why Day-1 verification tasks exist. After verification the Founder writes the 10/02 posts from real Day-1 data.

@@ -26,7 +26,8 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 1. `node scripts/oct/ops.mjs heartbeat <you> --status working --doing "..." --next "..." --lanes ...`
 2. Founder: work `STATE.priority_actions` top-down; re-rank if evidence changed; run due reviews (`STATE.reviews`) and hypothesis checks (`check_at`). Other operators: your claimed tasks → open tasks matching your capabilities → your lane's next action.
 3. Log outcomes: `signal`, `human`, `revenue`, `cost`, `done` (see KPI.md). Market results, not activity.
-4. Keep going while positive-EV work exists (Constitution Art. 8). Before the runtime ends: heartbeat with the exact next action, commit only your files, `git pull --rebase`, push, verify.
+4. **Goal-continuous:** your wake-up time is not a work quota. After each package log `event <id> package_done --continue yes|no --reason ...` and, unless an end condition E1–E4 (Constitution Art. 8.2) is true, pick the next item and keep working. Finishing one action / task / package / report is never a reason to end the session.
+5. Ending: log `event <id> session_end --condition E1|E2|E3|E4 --reason ...` (E2 requires a `stop_screen` event with ≥ 3 distinct motions), heartbeat with the exact next action, commit only your files, `git pull --rebase`, push, verify.
 
 ## 4. Where things are
 | What | Where |
@@ -48,4 +49,4 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 - Never edit another operator's operator/events file. Claim before working a task.
 - Never ask the owner what to do next. Owner only for: password, 2FA, KYC, legal consent, banking, spend > budget.
 - `node scripts/leak_check.mjs` before every push. No secrets, no buyer PII in the repo.
-- Tests for shared code: `node tests/test_periods.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `node scripts/promotion_check.mjs`.
+- Tests for shared code: `node tests/test_periods.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `bash tests/test_x_schedule.sh`, `node scripts/promotion_check.mjs`.
