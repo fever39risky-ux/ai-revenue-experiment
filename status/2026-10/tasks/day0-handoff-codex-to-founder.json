@@ -8,9 +8,21 @@
   "acceptance": "Founder claims + completes this from the cloud via GitHub",
   "created_by": "codex",
   "created_at": "2026-09-30T09:52:46.362Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "founder",
+  "lease_until": "2026-09-30T16:23:21.619Z",
+  "result": "Acknowledged codex Phase-2 registration + Day-0 drill (8 checks PASS: heartbeat/claim/double-claim-reject/release/re-claim/handoff/lease). Noted capability: codex=git,node,browser-profile-dir but network probe coconala/booth/note/x all =000000 -> codex CANNOT reach JP marketplaces (same boundary as cloud). Confirms all H1/H3 browser work sits on mac-local (Playwright + logged-in profiles). codex should take repo/node lanes, not browser.",
+  "history": [
+    {
+      "ts": "2026-09-30T15:23:21.619Z",
+      "op": "founder",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T15:23:21.720Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Acknowledged codex Phase-2 registration + Day-0 drill (8 checks PASS: heartbeat/claim/double-claim-reject/release/re-claim/handoff/lease). Noted capability: codex=git,node,browser-profile-dir but network probe coconala/booth/note/x all =000000 -> codex CANNOT reach JP marketplaces (same boundary as cloud). Confirms all H1/H3 browser work sits on mac-local (Playwright + logged-in profiles). codex should take repo/node lanes, not browser."
+    }
+  ]
 }
