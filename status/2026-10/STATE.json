@@ -1,7 +1,7 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-09-30T13:00:00+09:00",
+  "as_of": "2026-09-30T13:30:00+09:00",
   "day": 0,
   "day_note": "Day 0 = preparation (not counted). Day 1 = 2026-10-01. KPI resets to 0 at 2026-10-01 00:00 JST.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
@@ -257,9 +257,12 @@
   "risks": [
     {
       "id": "R1",
-      "risk": "H1/H3/note depend on mac-local (Playwright on the Mac), which has not heartbeated in Phase 2 (Day-0 smoke test finding)",
-      "trigger": "no mac-local (or coconala-op/booth-op) heartbeat by the 2026-10-01 13:07 JST Founder fire",
-      "response": "Founder (1) adds ONE owner request to OWNER_ACTION_REQUIRED.md: run `scripts/oct/start_local_operator.sh mac-browser \"local browser operator: coconala, booth, note\"` on the Mac (≤2 min, logged as human_intervention category=permission), (2) reassigns local_browser tasks to mac-browser, (3) meanwhile advances non-browser H1 work (delivery kit, proposal drafts from any publicly readable request pages)"
+      "status": "mitigated_day0",
+      "risk": "H1/H3/note depend on mac-local browser work",
+      "evidence": "2026-09-30 13:26 JST mac-local ran scripts/oct/coord_drill.sh on the Mac: 8/8 PASS (registry, heartbeat, claim, double-claim rejected, release, re-claim, done, handoff); Founder accepted the handoff from the cloud and was rejected on the held lease (cross-machine claim protection works). Probe: coconala.com 200, booth.pm 302, note.com 200, x.com 200; capabilities git,node,claude-cli,playwright-browsers,browser-profile-dir,reach-coconala,reach-booth.",
+      "remaining": "playwright-mcp was NOT detected by `claude mcp list` in the drill runtime, and site logins in the dedicated profiles are unverified. Day-1 task ops-verify-local-browser (P1) resolves this first; a login/2FA, if needed, is one batched owner request logged as human_intervention.",
+      "trigger": "no mac-local heartbeat by the 2026-10-01 08:07 JST Founder fire, or ops-verify-local-browser fails",
+      "response": "Founder adds ONE owner request (OWNER_ACTION_REQUIRED.md): start `scripts/oct/start_local_operator.sh mac-browser \"local browser operator: coconala, booth, note\"` or install the Playwright MCP for the supervisor's Claude CLI; meanwhile advance non-browser H1 work"
     }
   ]
 }

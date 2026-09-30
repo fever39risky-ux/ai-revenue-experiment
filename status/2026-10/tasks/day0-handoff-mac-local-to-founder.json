@@ -8,9 +8,21 @@
   "acceptance": "Founder claims + completes this from the cloud via GitHub",
   "created_by": "mac-local",
   "created_at": "2026-09-30T04:26:46.250Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "founder",
+  "lease_until": "2026-09-30T05:27:19.609Z",
+  "result": "Founder (cloud) saw mac-local heartbeat (04:27Z), drill 8/8 PASS and capabilities via GitHub main af3dc95/e3437f0. Cross-machine claim on day0-lease-mac-local correctly rejected while leased. Note: playwright-mcp not detected by the drill probe; Playwright MCP for the headless worker is verified on Day 1 by task ops-verify-local-browser.",
+  "history": [
+    {
+      "ts": "2026-09-30T04:27:19.610Z",
+      "op": "founder",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-09-30T04:27:19.662Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Founder (cloud) saw mac-local heartbeat (04:27Z), drill 8/8 PASS and capabilities via GitHub main af3dc95/e3437f0. Cross-machine claim on day0-lease-mac-local correctly rejected while leased. Note: playwright-mcp not detected by the drill probe; Playwright MCP for the headless worker is verified on Day 1 by task ops-verify-local-browser."
+    }
+  ]
 }

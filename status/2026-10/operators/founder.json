@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "idle",
-  "doing": "Day 0 (2026-09-30) Phase-2 bootstrap complete; waiting for 2026-10-01 00:07 JST kickoff fire",
+  "status": "working",
+  "doing": "Day 0: Day-1 READY CHECK (mac-local drill acknowledged; waiting for lease expiry to test takeover)",
   "next": "Day-1 kickoff: board, verify KPI=0, verify X launch post at 08:37, run priority_actions top-down",
   "blocked_on": null,
-  "heartbeat_at": "2026-09-30T02:43:15.846Z"
+  "heartbeat_at": "2026-09-30T04:27:19.796Z"
 }
