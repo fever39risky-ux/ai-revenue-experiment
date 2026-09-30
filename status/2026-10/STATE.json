@@ -205,8 +205,8 @@
     "posted": "social/2026-10/posted.jsonl",
     "metrics": "social/2026-10/metrics.json",
     "queued": [
-      "2026-10-01 08:30 JST launch",
-      "2026-10-01 20:30 JST 9月の失敗から #1"
+      "2026-10-01 not_before 08:30 JST (posted by the 08:37 x-phase2 run) — launch",
+      "2026-10-01 not_before 20:30 JST (posted by the 20:37 run) — 9月の失敗から #1"
     ],
     "first_check": "2026-10-04"
   },
@@ -248,5 +248,13 @@
       "decision": "Freeze SKU expansion; no new supply before a demand signal"
     }
   ],
-  "proposals_pending": []
+  "proposals_pending": [],
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "H1/H3/note depend on mac-local (Playwright on the Mac), which has not heartbeated in Phase 2 (Day-0 smoke test finding)",
+      "trigger": "no mac-local (or coconala-op/booth-op) heartbeat by the 2026-10-01 13:07 JST Founder fire",
+      "response": "Founder (1) adds ONE owner request to OWNER_ACTION_REQUIRED.md: run `scripts/oct/start_local_operator.sh mac-browser \"local browser operator: coconala, booth, note\"` on the Mac (≤2 min, logged as human_intervention category=permission), (2) reassigns local_browser tasks to mac-browser, (3) meanwhile advances non-browser H1 work (delivery kit, proposal drafts from any publicly readable request pages)"
+    }
+  ]
 }
