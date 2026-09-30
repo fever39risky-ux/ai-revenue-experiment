@@ -19,6 +19,9 @@ Record every screened request (url, title, budget, go/no-go, reason) in the task
 
 ## 3. Proposal template (edit per request — never send it unedited)
 
+> Faster path: `marketing/2026-10/h1/PROPOSAL_DRAFTS.md` has category-ready drafts (Sheets-AI / CSV集計 / Gmail・Form) — pick the closest and edit only the `{...}` specifics.
+
+
 ```
 〇〇様
 
