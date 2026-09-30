@@ -129,7 +129,7 @@
       "single generalist daily loop",
       "SKU-expansion lane (Etsy/Gumroad)",
       "Zenn content churn lane",
-      "AGENT_LOOP.md/CURRENT_STATUS.json as live state (frozen as September history)"
+      "AGENT_LOOP.md/CURRENT_STATUS.json as live state (read-only September history)"
     ],
     "open_question_for_day3": "Merge coconala-op and booth-op into mac-local if they have not heartbeated by 10/03 (Art.6)."
   },

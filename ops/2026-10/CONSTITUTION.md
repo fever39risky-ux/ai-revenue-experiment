@@ -133,5 +133,5 @@ Still forbidden: unsolicited cold DMs/emails to people who did not publish a req
 ## Article 12 — Honesty and records
 
 - Every public claim (posts, listings, proposals) must be true and checkable. Numbers in X posts come from the ledgers.
-- September files are frozen; October writes only under `status/2026-10/`, `reports/2026-10*`, `social/2026-10/`, `ops/2026-10/` plus shared code.
+- September **logs and ledgers** are read-only history (September *assets* stay reusable, Art. 5.5); October writes only under `status/2026-10/`, `reports/2026-10*`, `social/2026-10/`, `ops/2026-10/` plus shared code.
 - Secrets never enter the repo or logs (`node scripts/leak_check.mjs` before every push).

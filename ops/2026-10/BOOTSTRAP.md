@@ -42,7 +42,7 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 | Daily report | `reports/2026-10-DD.html` ← `reports/data/2026-10-DD.json` (Founder writes narrative) |
 | Owner requests | `OWNER_ACTION_REQUIRED.md` top section |
 | Wake-ups | `ops/2026-10/WAKEUP.md` |
-| September (frozen) | `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/EVENTS.jsonl`, `status/CURRENT_STATUS.json`, `reports/2026-09-*`, `ops/AGENT_LOOP.md` |
+| September logs/ledgers (read-only history; September *assets* are reusable — Constitution Art. 5.5) | `status/revenue_ledger.json`, `status/cost_ledger.json`, `status/EVENTS.jsonl`, `status/CURRENT_STATUS.json`, `reports/2026-09-*`, `ops/AGENT_LOOP.md` |
 
 ## 5. Hard rules (short)
 - Never write October entries into September files (`promotion_check.mjs` blocks it).
