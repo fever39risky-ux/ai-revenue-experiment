@@ -1,0 +1,16 @@
+{
+  "id": "day0-drill-codex",
+  "title": "Day-0 coordination drill: run `bash scripts/oct/coord_drill.sh codex` on the Mac (no login, no posting)",
+  "lane": "ops-drill",
+  "detail": "Requested by the owner on 2026-09-30 before Day 1 READY. One command; it commits and pushes only codex's files.",
+  "requires": [],
+  "priority": 1,
+  "acceptance": "operator heartbeat + drill events + handoff task visible on main; all checks PASS",
+  "created_by": "founder",
+  "created_at": "2026-09-30T04:11:07.503Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

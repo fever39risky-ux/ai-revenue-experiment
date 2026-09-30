@@ -12,7 +12,7 @@
  *   node scripts/oct/ops.mjs human <op> --minutes N --category login|2fa|kyc|password|legal|banking|permission|decision|other --reason "..." [--avoidable true]
  *   node scripts/oct/ops.mjs revenue <op> --date YYYY-MM-DD --gross N --currency jpy --jpy N --source coconala --reference ID [--hypothesis H]
  *   node scripts/oct/ops.mjs cost <op> --date YYYY-MM-DD --category ai_compute --jpy N|null --note "..." [--reference ID]
- *   node scripts/oct/ops.mjs task-new <op> <task-id> --title "..." --lane x [--requires local_browser] [--site coconala.com] [--priority 1] [--detail "..."]
+ *   node scripts/oct/ops.mjs task-new <op> <task-id> --title "..." --lane x [--requires local_browser] [--site coconala.com] [--priority 1] [--detail "..."] [--not-before ISO] [--due ISO]
  *   node scripts/oct/ops.mjs claim <op> <task-id> [--hours 6]       # take a task (fails if another live lease holds it)
  *   node scripts/oct/ops.mjs done <op> <task-id> --result "..."      # or: release <op> <task-id> --reason "..."
  *   node scripts/oct/ops.mjs kpi [YYYY-MM-DD]
@@ -111,7 +111,7 @@ switch (cmd) {
     if (!opt.title || !opt.lane) die('--title and --lane required');
     mkdirSync(r(`${P2}/tasks`), { recursive: true });
     writeFileSync(p, JSON.stringify({ id, title: opt.title, lane: opt.lane, detail: opt.detail, requires: list(opt.requires) || [], site: opt.site,
-      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, created_by: op, created_at: now(), status: 'open',
+      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, due_at: opt.due, not_before: opt['not-before'], created_by: op, created_at: now(), status: 'open',
       claimed_by: null, lease_until: null, result: null, history: [] }, null, 2) + '\n');
     appendEvent(op, { type: 'task_created', task: id, lane: opt.lane }); console.log(`task ${id} created`); break;
   }
@@ -119,11 +119,12 @@ switch (cmd) {
     const op = opId(), id = pos[1], p = r(`${P2}/tasks/${id}.json`);
     if (!existsSync(p)) die(`no task ${id}`);
     const t = JSON.parse(readFileSync(p, 'utf8'));
-    const leaseLive = t.claimed_by && t.lease_until && Date.parse(t.lease_until) > Date.now();
+    const leaseLive = t.claimed_by && t.lease_until && Date.parse(t.lease_until) > Date.parse(now());
     if (cmd === 'claim') {
       if (t.status === 'done') die(`task ${id} already done`);
+      if (t.not_before && Date.parse(t.not_before) > Date.parse(now())) die(`task ${id} not claimable before ${t.not_before}`);
       if (leaseLive && t.claimed_by !== op) die(`task ${id} is leased by ${t.claimed_by} until ${t.lease_until}`);
-      t.claimed_by = op; t.status = 'claimed'; t.lease_until = new Date(Date.now() + Number(opt.hours || 6) * 3600e3).toISOString();
+      t.claimed_by = op; t.status = 'claimed'; t.lease_until = new Date(Date.parse(now()) + Number(opt.hours || 6) * 3600e3).toISOString();
     } else {
       if (t.claimed_by && t.claimed_by !== op && leaseLive) die(`task ${id} is leased by ${t.claimed_by}`);
       if (cmd === 'done') { if (!opt.result) die('--result required'); t.status = 'done'; t.result = opt.result; }
@@ -149,6 +150,6 @@ switch (cmd) {
     }
     const open = readTasks().filter(t => t.status !== 'done');
     console.log(`TASKS (${open.length} not done)`);
-    for (const t of open.sort((a, b) => (a.priority || 9) - (b.priority || 9))) console.log(`  P${t.priority} ${t.id.padEnd(30)} ${t.status.padEnd(8)} ${t.claimed_by || ''} [${(t.requires || []).join(',')}] ${t.title}`);
+    for (const t of open.sort((a, b) => (a.priority || 9) - (b.priority || 9))) console.log(`  P${t.priority} ${t.id.padEnd(30)} ${t.status.padEnd(8)} ${t.claimed_by || ''} [${(t.requires || []).join(',')}] ${t.title}${t.not_before ? ` (from ${t.not_before})` : ''}${t.due_at ? ` (due ${t.due_at})` : ''}`);
   }
 }

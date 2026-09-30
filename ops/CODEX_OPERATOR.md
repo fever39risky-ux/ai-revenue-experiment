@@ -1,4 +1,5 @@
 > **PHASE 2 (from 2026-10-01 00:00 JST):** Codex is Phase-2 operator `codex`. Start from `AGENTS.md` → `ops/2026-10/BOOTSTRAP.md`. Strategy, priorities and lane ownership come from `status/2026-10/STATE.json` and the task/claim system (`node scripts/oct/ops.mjs`), not from the September sections below. The per-iteration screening discipline below still applies; record it as events in `status/2026-10/events/codex.jsonl` instead of September's daily report `codex_iterations`.
+> **Day 0 (2026-09-30 JST):** before anything else, run `bash scripts/oct/coord_drill.sh codex` if `status/2026-10/tasks/day0-drill-codex.json` is not done (see `AGENTS.md`).
 
 # Codex Operator Policy — AI Revenue Experiment
 

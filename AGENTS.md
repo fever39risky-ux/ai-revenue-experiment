@@ -4,3 +4,5 @@ From 2026-10-01 00:00 JST: Phase 2 (October). Your operator id is `codex` unless
 Read `ops/2026-10/BOOTSTRAP.md` and follow its run protocol (board → heartbeat → claim → work → log → push).
 Strategy and priorities: `status/2026-10/STATE.json` (Founder-owned; propose changes via `node scripts/oct/ops.mjs event codex proposal --summary "..."`).
 Craft rules from September that still apply (honesty, leak check, cost booking): `ops/CODEX_OPERATOR.md`. Its September strategic conclusions are not inherited.
+
+**Day 0 (2026-09-30 JST) only:** if `status/2026-10/tasks/day0-drill-codex.json` is not `done`, run `bash scripts/oct/coord_drill.sh codex` first (owner-requested coordination drill; no logins, no posting, no messages; it pushes only codex's Phase-2 files).
