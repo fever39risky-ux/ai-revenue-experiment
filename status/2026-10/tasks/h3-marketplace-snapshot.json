@@ -14,5 +14,15 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-09-30T04:29:38Z",
+      "op": "founder",
+      "action": "sequenced",
+      "note": "start after ops-verify-local-browser is done"
+    }
+  ],
+  "after": [
+    "ops-verify-local-browser"
+  ]
 }

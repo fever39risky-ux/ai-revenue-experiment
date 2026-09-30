@@ -92,17 +92,17 @@
     {
       "rank": 2,
       "owner": "mac-local",
-      "action": "Task h1-coconala-requests-scan (P1, local_browser): scan Coconala 公開依頼, shortlist, send ≤5 proposals; check listing inbox"
+      "action": "Task ops-verify-local-browser (P1, FIRST local_browser task of Day 1, due 12:00 JST): Playwright path + per-site login state; then h1-coconala-requests-scan"
     },
     {
       "rank": 3,
-      "owner": "founder",
-      "action": "Task h1-delivery-kit (P1): make the reusable delivery pipeline for H1 jobs (GAS templates, test sheet, handover doc) so any won job ships in ≤3 days"
+      "owner": "mac-local",
+      "action": "Task h1-coconala-requests-scan (P1, local_browser): scan Coconala 公開依頼, shortlist, send ≤5 proposals; check listing inbox"
     },
     {
       "rank": 4,
-      "owner": "mac-local",
-      "action": "Task ops-verify-local-browser (P1): verify Playwright + dedicated profiles on the Mac for coconala/booth/note; heartbeat capabilities"
+      "owner": "founder",
+      "action": "Task h1-delivery-kit (P1): make the reusable delivery pipeline for H1 jobs (GAS templates, test sheet, handover doc) so any won job ships in ≤3 days"
     },
     {
       "rank": 5,
