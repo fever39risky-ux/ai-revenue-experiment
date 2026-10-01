@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "account": "KinoshitaTsks",
+  "initialized": true,
+  "posts": {},
+  "operations": [],
+  "observations": [],
+  "blocked_topics": [
+    "gpt6.1",
+    "gemini4"
+  ],
+  "external_posts": [
+    {
+      "lane": "news",
+      "tweet_id": "2105481450862641444",
+      "topic_key": "gpt6.1",
+      "published_at": "2026-10-01T11:14:30+09:00"
+    },
+    {
+      "lane": "news",
+      "tweet_id": "2105506748412940411",
+      "topic_key": "gemini4",
+      "published_at": "2026-10-01T12:55:01+09:00"
+    }
+  ],
+  "halt": null
+}

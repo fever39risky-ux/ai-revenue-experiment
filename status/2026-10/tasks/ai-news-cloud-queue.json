@@ -1,0 +1,27 @@
+{
+  "id": "ai-news-cloud-queue",
+  "title": "Owner-delegated AI news cloud queue draft PR",
+  "lane": "ai-news-cloud",
+  "detail": "Separate news budget JPY3000; mock only; no activation, secrets, paid calls or test posts",
+  "requires": [],
+  "priority": 3,
+  "created_by": "codex",
+  "created_at": "2026-10-01T04:07:47.667Z",
+  "status": "done",
+  "claimed_by": "codex",
+  "lease_until": "2026-10-01T10:07:47.698Z",
+  "result": "Implemented isolated AI news cloud queue; 28 mock tests pass. Draft PR only; live activation, credentials, billing and posting untouched. See ops/ai-news/README.md and VERIFICATION.md.",
+  "history": [
+    {
+      "ts": "2026-10-01T04:07:47.698Z",
+      "op": "codex",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T04:22:57.506Z",
+      "op": "codex",
+      "action": "done",
+      "note": "Implemented isolated AI news cloud queue; 28 mock tests pass. Draft PR only; live activation, credentials, billing and posting untouched. See ops/ai-news/README.md and VERIFICATION.md."
+    }
+  ]
+}

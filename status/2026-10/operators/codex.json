@@ -3,17 +3,19 @@
   "kind": "local-mac",
   "runtime": "owner's Mac (Linux)",
   "role": "independent revenue operator",
-  "lanes": [],
+  "lanes": [
+    "ai-news"
+  ],
   "capabilities": [
     "git",
     "node",
     "browser-profile-dir"
   ],
-  "status": "idle",
-  "doing": "Day-0 drill finished: 8 checks",
-  "next": "From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md",
+  "status": "waiting",
+  "doing": "AI news draft PR follow-up complete; production disabled",
+  "next": "Parent reviews PR27 and resolves upload pricing/billing evidence before activation",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-09-30T09:52:46.729Z",
+  "heartbeat_at": "2026-10-01T04:54:55.554Z",
   "blocked_on": null
 }
