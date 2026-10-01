@@ -18,10 +18,10 @@
     "reach-booth"
   ],
   "status": "blocked",
-  "doing": "Re-checked 03:18 JST: mac-local profile still logged out of coconala",
+  "doing": "Re-checked 02:20 JST: mac-local profile still logged out of coconala",
   "next": "After owner login: verify 3 sites logged_in + log human_intervention; claim h1-coconala-requests-scan, re-scan 公開依頼, send ≤5 proposals, check inbox; then h3 dashboard snapshot; h2 note publish",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:18:56.468Z",
-  "blocked_on": "coconala+booth+note login (task owner-login-mac-local-profile)"
+  "heartbeat_at": "2026-10-01T17:21:00.356Z",
+  "blocked_on": "coconala/BOOTH/note login (task owner-login-mac-local-profile)"
 }
