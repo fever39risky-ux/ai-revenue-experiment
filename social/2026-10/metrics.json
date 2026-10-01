@@ -3,25 +3,25 @@
   "posts": {
     "2105483067351507272": {
       "created_at": "2026-10-01T02:20:55.000Z",
-      "fetched_at": "2026-10-01T02:20:56.373Z",
+      "fetched_at": "2026-10-01T04:10:31.674Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 0,
+        "impression_count": 8,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
         "retweet_count": 0
       },
       "non_public_metrics": {
-        "engagements": 0,
-        "impression_count": 0,
+        "engagements": 2,
+        "impression_count": 8,
         "user_profile_clicks": 0
       }
     }
   },
   "summary": {
     "posts": 1,
-    "median_impressions": 0,
-    "updated_at": "2026-10-01T02:20:56.373Z"
+    "median_impressions": 8,
+    "updated_at": "2026-10-01T04:10:31.674Z"
   }
 }
