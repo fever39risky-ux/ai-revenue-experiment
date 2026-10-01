@@ -46,10 +46,21 @@
       "note": "02:52 delta re-scan (logged-out): 0 new GO, appended to marketing/2026-10/h1/screens/2026-10-02.md. Sending proposals + inbox check still BLOCKED on owner-login-mac-local-profile. Next re-scan >=08:00 JST."
     },
     {
+      "ts": "2026-10-01T21:01:18.871Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
       "ts": "2026-10-01T21:02:13Z",
       "op": "founder",
       "action": "blocked_by",
       "note": "waits on owner-login-mac-local-profile; excluded from mac-local eligibility until it is done (no login re-checks)"
+    },
+    {
+      "ts": "2026-10-01T21:34:56.327Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "06:34 JST delta re-scan (logged-out): 2 new requests, both out of lane, 0 GO; appended to marketing/2026-10/h1/screens/2026-10-02.md. Proposals + inbox still BLOCKED on owner-login-mac-local-profile (mypage -> /login). Next re-scan >=09:00 JST."
     }
   ],
   "after": [

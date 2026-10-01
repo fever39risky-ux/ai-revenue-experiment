@@ -16,10 +16,10 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "blocked",
-  "doing": "supervisor backoff after process_failure (failure 6)",
-  "next": "retry at 2026-10-01T19:00:06.577413Z",
+  "doing": "06:35 JST delta scan 0 GO + H3 public re-check unchanged",
+  "next": "next run >=09:00 JST: re-scan coconala /requests?sort=new; if owner logged in, send proposals per PROPOSAL_KIT + check inbox + H3 dashboards",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T18:27:59.669Z",
-  "blocked_on": "process_failure"
+  "heartbeat_at": "2026-10-01T21:35:32.095Z",
+  "blocked_on": "coconala/booth login (owner-login-mac-local-profile)"
 }

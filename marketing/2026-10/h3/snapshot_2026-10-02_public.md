@@ -8,3 +8,8 @@ Dashboard metrics (views, messages, inbox) need the seller login (owner-login-ma
 | BOOTH item 8919052 「シート事務のAI自動化キット｜GAS2本・日本語導入手順書」 | https://booth.pm/ja/items/8919052 | ¥3,000 DL | スキ count not shown (= 0), published 2026-09-30 10:43 |
 
 Still to capture after login: Coconala view count + talk-room/inbox; BOOTH 管理画面 views/likes/orders.
+
+## Re-check 06:35 JST (mac-local, logged-out)
+- Coconala 4426150: 販売実績 0件 / お気に入り（0） / 評価 - / ¥3,000 — unchanged.
+- BOOTH 8919052: no スキ count rendered (= 0) — unchanged.
+- Dashboard views/messages still BLOCKED on owner-login-mac-local-profile.
