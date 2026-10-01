@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "blocked",
-  "doing": "20:07 fire ended E2: revenue engine owner-gated (R1/mac-local, Article 9), no cloud route to any sales board (re-confirmed); X content fed through 10/02; no new Stripe signal; X launch 9 imp/0 clicks",
-  "next": "00:07 JST 10/02: (1) run x-verify-day1-pm — verify the 20:37 9月の失敗から#1 post w/ real data (~3h after post), refresh metrics; (2) check mac-local heartbeat — if STILL none, R1 unread, advance only cloud/H2; (3) write 10/03 posts from Day-2 data; (4) re-read Stripe livemode for any G1 signal; (5) when an H1 proposal lands, build job via marketing/2026-10/h1/delivery/",
+  "doing": "Day-2 00:07 fire ended E2: revenue engine owner-gated (R1/mac-local, 2nd day); cloud has no sales-board route (3x). Did real cloud work: recovered skipped X Day-1 pm post via manual dispatch (tweet 2105676937196896476), launch matured 11 imp/1 like/0 clicks, Stripe re-read = no new signal, queued 10/03 eve H2 post",
+  "next": "08:07 JST 10/02: (1) BACKSTOP dispatch x-phase2.yml so the 08:37 第2弾Day2 post isn't lost to a skipped scheduled run; re-check posted.jsonl ~09:10 JST. (2) check mac-local HB; if still none R1 unread. (3) re-read Stripe. (4) 20:07 fire: write 10/03 Day3 morning post from real 10/02 numbers. H2 Day-4 check 10/04.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-01T11:26:53.835Z"
+  "heartbeat_at": "2026-10-01T15:17:42.809Z"
 }

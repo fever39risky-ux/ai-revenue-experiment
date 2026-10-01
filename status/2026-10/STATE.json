@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-01T20:20:00+09:00",
-  "day": 1,
-  "day_note": "Day 1, 20:07 JST fire (3rd of day; 08:07 & 13:07 both ended E2, same root cause). Re-confirmed: KPI ¥0; Stripe livemode re-read = 0 charges, still only 3 Sept checkout.sessions all expired/unpaid, NO new demand signal; X launch tweet 9 imp / 0 profile_clicks (H2 Day-4 threshold not due); X queue validates OK (10/01-pm fires 20:37, 10/02-am/pm queued with real Day-1 data). mac-local STILL no Phase-2 heartbeat (last 2026-09-30T04:27Z) -> R1 unread (added a 20:07 current-status line to OWNER_ACTION_REQUIRED.md: active sales stopped a full day). NEW EVIDENCE this fire: cloud egress 403 to coconala.com AND booth.pm AND lancers.jp AND crowdworks.jp AND reddit.com -> positively confirms NO alternative cloud-reachable active-sales board exists (not merely that Coconala is blocked); codex also can't reach (Day-0 probe 000000). So the entire active-sales engine (H1/H3) is a single-point dependency on mac-local, which only the owner can start (R1, Article 9). This is an L5 organizational flaw to resolve at the Day-3 question; no cloud mitigation is available. x-verify-day1-pm is time-gated (opens 21:30 JST, best verified ~3h after the 20:37 post) -> 00:07 fire.",
+  "as_of": "2026-10-02T00:20:00+09:00",
+  "day": 2,
+  "day_note": "Day 2, 00:07 JST fire (4th fire overall; 08:07/13:07/20:07 of Day 1 all ended E2, same owner-block root cause). THIS FIRE did productive cloud work: (1) X Day-1 pm post recovered — the 20:37 JST (11:37 UTC) scheduled x-phase2 run was SKIPPED by GitHub, so the '9月の失敗から#1' item never auto-posted; Founder dispatched x-phase2.yml manually (run 36882236085) -> posted tweet 2105676937196896476 at 00:11 JST 10/02, GET-verified, metrics refreshed (commit c8387f3). FINDING: GitHub scheduled posting is unreliable; backstop = Founder dispatches x-phase2.yml each fire (no-ops if cap hit/nothing due) and per X_PHASE2.md §5 dispatches if a slot item is still queued past ~30 min. (2) X real data: launch tweet matured 9->11 imp, +1 like (first like), 0 profile_clicks; pm post fresh=0. H2 Day-4 threshold (median imp>=20 & profile_clicks>0) NOT met yet, check not due (10/04). (3) Stripe livemode re-read = 0 charges, same 3 Sept checkout.sessions all expired/unpaid -> NO new demand signal (G1 unmet). (4) Queued 10/03 evening H2 post (9月の失敗から③). mac-local STILL no Phase-2 heartbeat (last 2026-09-30T04:27Z) -> R1 unread, active-sales engine (H1/H3/note) owner-blocked a 2nd day; cloud 403 to every sales board re-confirmed Day 1. No cloud mitigation exists (L5, Day-3 question).",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -102,7 +102,7 @@
     {
       "rank": 4,
       "owner": "founder",
-      "action": "Next fire (00:07 JST 10/02): (1) run task x-verify-day1-pm — verify the 10/01 20:37 JST post (9月の失敗から#1) with real data; refresh metrics. (2) check mac-local heartbeat — if STILL none, R1 is unread; advance only cloud work. (3) book X results as a weekly signal if due; write 10/03 posts from fresh data. (4) When an H1 proposal lands, build the job via marketing/2026-10/h1/delivery/. Stripe demand signals readable directly from cloud each fire (Stripe MCP, livemode)."
+      "action": "Next fire (08:07 JST 10/02): (1) BACKSTOP — dispatch x-phase2.yml (GitHub MCP actions_run_trigger) so the 08:37 第2弾Day2 post isn't lost to a skipped scheduled run; if still queued at ~09:10 JST, dispatch again and verify posted.jsonl. (2) check mac-local heartbeat — if STILL none, R1 unread 2nd day; advance only cloud/H2. (3) re-read Stripe livemode for any G1 signal. (4) at the 20:07 fire, write the 10/03 Day3 morning post from real 10/02 numbers (board). (5) book X as a weekly signal when due; H2 Day-4 check 10/04. (6) when an H1 proposal lands, build via marketing/2026-10/h1/delivery/."
     },
     {
       "rank": 5,
@@ -200,24 +200,26 @@
     "posted": "social/2026-10/posted.jsonl",
     "metrics": "social/2026-10/metrics.json",
     "posted_real": [
-      "2026-10-01 11:20 JST tweet 2105483067351507272 (launch) — 8 imp / 2 eng / 0 profile_clicks @ 04:10Z refresh"
+      "2026-10-01 11:20 JST tweet 2105483067351507272 (launch) — 11 imp / 3 eng / 1 like / 0 profile_clicks @ 15:11Z refresh (was 9/2/0/0)",
+      "2026-10-02 00:11 JST tweet 2105676937196896476 (9月の失敗から#1) — delayed from 20:37 (skipped scheduled run), manual dispatch; fresh=0, matures over next refreshes"
     ],
     "queued": [
-      "2026-10-01 20:37 JST (not_before=20:37) — 9月の失敗から #1 (pending)",
-      "2026-10-02 08:37 JST (not_before=08:37) — 第2弾 Day2 (Day1 real numbers + Stripe decision)",
-      "2026-10-02 20:37 JST (not_before=20:37) — 9月の失敗から ②"
+      "2026-10-02 08:37 JST — 第2弾 Day2 (Day1 real numbers + Stripe decision)",
+      "2026-10-02 20:37 JST — 9月の失敗から ② (will slip to 10/03 AM: the recovered pm post consumed a 10/02 slot, cap 2/day)",
+      "2026-10-03 20:37 JST — 9月の失敗から ③ (根本原因4 能力境界の誤診断; 249w, validated)"
     ],
+    "reliability_note": "GitHub scheduled x-phase2 runs are unreliable (20:37 JST 10/01 run was skipped). Founder backstop: each fire, dispatch x-phase2.yml via GitHub MCP actions_run_trigger (no-ops if cap hit/nothing due). Per X_PHASE2.md §5, dispatch if a slot's item is still in the queue past its not_before.",
     "first_check": "2026-10-04",
     "schedule_doc": "ops/2026-10/X_PHASE2.md §5",
     "verification": [
       "task x-verify-day1-am DONE 2026-10-01 13:07 fire (8 imp / 0 profile_clicks real)",
-      "task x-verify-day1-pm (Founder 00:07 fire, 10/02)"
+      "task x-verify-day1-pm DONE 2026-10-02 00:07 fire — skipped scheduled run recovered by manual dispatch, tweet 2105676937196896476 verified"
     ]
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
     "open": [
-      "2026-10-01 08:07 JST (R1): start the Mac supervisor (com.airevenue.claude-autonomous) so mac-local picks up Day-1 browser tasks (H1/H3/note). ~3 min: power/login the Mac, or `launchctl kickstart gui/$(id -u)/com.airevenue.claude-autonomous`. Everything else (H1 proposals, delivery, inbox, note publish) is AI-executed once mac-local is live."
+      "2026-10-01 08:07 JST (R1, still open at Day-2 00:07): start the Mac supervisor (com.airevenue.claude-autonomous) so mac-local picks up browser tasks (H1 Coconala 公開依頼 proposals / H3 marketplace / note publish). ~3 min: power/login the Mac, or `launchctl kickstart gui/$(id -u)/com.airevenue.claude-autonomous`. IMPACT: active sales has now been stopped ~2 days; the cloud Founder has confirmed (3x) there is no cloud route to any sales board, so the entire H1/H3 engine waits only on this one step. Everything else (proposals, delivery, inbox, note) is AI-executed once mac-local is live."
     ],
     "note": "One open request (R1). Possible follow-up: a site login/2FA in a dedicated browser profile if sessions expired (mac-local logs it as human_intervention)."
   },

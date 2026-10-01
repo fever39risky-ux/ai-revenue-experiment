@@ -11,9 +11,16 @@
   "not_before": "2026-10-01T21:30:00+09:00",
   "created_by": "founder",
   "created_at": "2026-09-30T04:12:55.700Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "Verified: 20:37 JST pm post (9月の失敗から#1) did NOT auto-post — the 11:37 UTC scheduled x-phase2 run was skipped by GitHub. Founder dispatched x-phase2.yml manually (run 36882236085, success): posted tweet 2105676937196896476 at 00:11 JST 10/02, GET-verified standalone, metrics refreshed (c8387f3). Launch tweet matured to 11 imp/1 like/3 eng/0 profile_clicks; pm post fresh=0. Per X_PHASE2.md §5 skipped-slot fallback.",
+  "history": [
+    {
+      "ts": "2026-10-01T15:15:55.237Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Verified: 20:37 JST pm post (9月の失敗から#1) did NOT auto-post — the 11:37 UTC scheduled x-phase2 run was skipped by GitHub. Founder dispatched x-phase2.yml manually (run 36882236085, success): posted tweet 2105676937196896476 at 00:11 JST 10/02, GET-verified standalone, metrics refreshed (c8387f3). Launch tweet matured to 11 imp/1 like/3 eng/0 profile_clicks; pm post fresh=0. Per X_PHASE2.md §5 skipped-slot fallback."
+    }
+  ]
 }
