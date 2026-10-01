@@ -9,9 +9,21 @@
   "assigned_to": "mac-local",
   "created_by": "founder",
   "created_at": "2026-10-01T16:15:52.214Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-01T18:42:23.819Z",
+  "result": "bash tests/test_ops.sh PASS; node tests/test_periods.mjs PASS; node v24.15.0; claude 2.1.286 (Claude Code); started_by=mac_supervisor (env PHASE2_OPERATOR=mac-local); heartbeat updated by worker 2026-10-01T16:42:35Z",
+  "history": [
+    {
+      "ts": "2026-10-01T16:42:23.821Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T16:42:35.220Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "bash tests/test_ops.sh PASS; node tests/test_periods.mjs PASS; node v24.15.0; claude 2.1.286 (Claude Code); started_by=mac_supervisor (env PHASE2_OPERATOR=mac-local); heartbeat updated by worker 2026-10-01T16:42:35Z"
+    }
+  ]
 }

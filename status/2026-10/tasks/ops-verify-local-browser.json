@@ -10,9 +10,9 @@
   "acceptance": "mac-local heartbeat capabilities include a working browser automation path (playwright-mcp or playwright library) and per-site logged_in yes/no; result lists sites needing a one-time owner login (batched into ONE request, logged as human_intervention if performed). Day-0 drill already proved coordination + reachability (coconala 200, booth 302, note 200) and playwright-browsers present; playwright-mcp was NOT detected.",
   "created_by": "founder",
   "created_at": "2026-09-30T02:43:15.976Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
+  "status": "claimed",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-01T18:42:35.300Z",
   "result": null,
   "history": [
     {
@@ -20,6 +20,11 @@
       "op": "founder",
       "action": "reprioritized",
       "note": "made the first Day-1 local_browser task; h1-coconala-requests-scan and h3-marketplace-snapshot start after it"
+    },
+    {
+      "ts": "2026-10-01T16:42:35.300Z",
+      "op": "mac-local",
+      "action": "claim"
     }
   ],
   "not_before": "2026-10-01T00:00:00+09:00",
