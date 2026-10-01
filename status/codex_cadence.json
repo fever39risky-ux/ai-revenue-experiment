@@ -3,10 +3,10 @@
   "owner": "Codex",
   "effective_from": "2026-09-16T12:02:00+09:00",
   "mode": "adaptive_economic_control",
-  "current_decision": "final_accounting_only_next",
+  "current_decision": "september_closed_automation_deleted",
   "decision_rule": "Run again only when expected marginal benefit exceeds marginal AI/API/platform cost.",
-  "fixed_daily_frequency": 2,
-  "next_scheduled_run": "2026-10-01T10:00:00+09:00",
+  "fixed_daily_frequency": 0,
+  "next_scheduled_run": null,
   "off_cycle_triggers": [
     "first_sale",
     "meaningful_revenue_change",
@@ -29,13 +29,13 @@
     "reversibility and signal independence"
   ],
   "note": "The next Codex execution must choose its own concrete cadence (including 0/1/2 runs per day or trigger-only) and record the rationale here. The owner does not choose this strategically.",
-  "paused": false,
+  "paused": true,
   "max_business_runs_per_day": 2,
   "scheduler": "Codex desktop thread heartbeat",
   "scheduler_automation_id": "ai-revenue-experiment",
-  "rationale": "Last scheduled business wake completed. No further normal September wake; preserve existing recurrence ending Oct1 01UTC for final accounting only, then stop this automation. October repo policy does not repurpose this September heartbeat.",
+  "rationale": "September final accounting saved with explicit coverage gaps. App confirmed deletion of ai-revenue-experiment heartbeat. No October business run started; separate Phase2 operations untouched.",
   "bootstrap_complete": true,
-  "updated_at": "2026-09-30T10:05:36.610511+00:00",
+  "updated_at": "2026-10-01T01:04:07.043000+00:00",
   "final_accounting_run": "2026-10-01T10:00:00+09:00",
   "off_cycle_trigger_delivery": "Candidate triggers evaluated at scheduled wakes or explicit owner messages; no event subscriptions installed.",
   "scheduler_time_basis": "UTC hours 01 and 10 correspond to JST 10 and 19",
@@ -45,10 +45,8 @@
     "action": "Changed scheduler hour from 10 UTC to 01 UTC; next_scheduled_run remains September 19 10:00 JST",
     "verification": "Corrected schedule fired 2026-09-19T01:01:26.913Z (10:01 JST)."
   },
-  "scheduled_times_jst": [
-    "10:00",
-    "19:00"
-  ],
+  "scheduled_times_jst": [],
   "review_by": "2026-10-01T10:00:00+09:00",
-  "trial_reviewed_at": "2026-09-30T10:05:36.610511+00:00"
+  "trial_reviewed_at": "2026-09-30T10:05:36.610511+00:00",
+  "scheduler_status": "deleted"
 }

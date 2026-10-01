@@ -662,5 +662,15 @@
       "detail-contents.png",
       "detail-steps.png (sources in marketing/booth/src/)"
     ]
+  },
+  "codex_final_accounting": {
+    "report": "reports/FINAL.html",
+    "data": "reports/data/final.json",
+    "recorded_at": "2026-10-01T01:04:07.043000+00:00",
+    "revenue_recorded_jpy": 0,
+    "recorded_cost_jpy": 7467,
+    "recorded_net_jpy": -7467,
+    "reconciliation": "incomplete: marketplace close statements and unallocated compute",
+    "scheduler": "deleted"
   }
 }
