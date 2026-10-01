@@ -18,10 +18,10 @@
     "reach-booth"
   ],
   "status": "blocked",
-  "doing": "02:42 JST re-check: coconala + BOOTH still logged out in mac-local profile",
-  "next": "After owner-login-mac-local-profile: claim h1-coconala-requests-scan (re-scan + send ≤5 proposals) then h3-marketplace-snapshot; after owner-note-login-satotsu1020: h2-note-publish",
+  "doing": "02:45 JST re-check: coconala nav timed out, still blocked",
+  "next": "After owner-login-mac-local-profile: claim h1-coconala-requests-scan (scan + send ≤5 proposals) then h3-marketplace-snapshot; after owner-note-login-satotsu1020: h2-note-publish",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:42:12.656Z",
-  "blocked_on": "coconala+booth login (owner-login-mac-local-profile)"
+  "heartbeat_at": "2026-10-01T17:45:31.360Z",
+  "blocked_on": "coconala/BOOTH login (owner-login-mac-local-profile); playwright profile hung"
 }
