@@ -191,7 +191,7 @@ test('slow intent checkpoint enters existing business protection window: no POST
   };
   const result = await h.run();
   assert.equal(result.halt.reason, 'account_schedule_conflict');
-  assert.equal(h.state.posts['news-test-1'].status, 'post_intent');
+  assert.equal(h.state.posts['news-test-1'].status, 'aborted_before_post');
   assert(!h.calls.includes('create')); assert(!h.calls.includes('get'));
   h.state = clone(h.checkpoints.at(-1)); await h.run();
   assert(!h.calls.includes('create'));
@@ -253,5 +253,31 @@ test('canonical approved copy length includes source URL and does not rewrite it
   for (const size of [575, 587, 597]) {
     const text = '文'.repeat(size - '\nhttps://example.com/source'.length) + '\nhttps://example.com/source';
     assert.equal(validatePackage(pkg({ text })).text, text);
+  }
+});
+
+test('known pre-POST abort needs explicit cancellation; later news resumes with reservations intact', async () => {
+  const { resolvePrePostAbort } = await import('../scripts/ai-news/core.mjs');
+  const h = harness(), save = h.persist;
+  h.persist = async s => { await save(s); if(s.posts['news-test-1']?.status === 'post_intent') h.clock = start + 16*60000; };
+  await h.run(); const ops = clone(h.state.operations);
+  h.state.halt = null; assert.equal((await h.run()).halt.reason, 'pre_post_abort_requires_resolution');
+  h.state = resolvePrePostAbort(h.state, 'news-test-1', { action:'rescheduled', evidence:'parent reviewed no POST', at:new Date(h.clock).toISOString(), replacement_id:'news-test-2' });
+  assert.deepEqual(h.state.operations, ops);
+  h.queue = [pkg({id:'news-test-2', scheduled_at:'2026-10-02T12:00:00+09:00'})]; h.clock = Date.parse(h.queue[0].scheduled_at); h.createdAt=h.clock; h.persist=save;
+  assert.equal((await h.run()).halt,null); assert.equal(h.calls.filter(x=>x==='create').length,1);
+});
+test('failure saving pre-POST abort leaves remote intent unknown and prevents retry', async () => {
+  const h=harness(); let remote;
+  h.persist=async s=>{if(s.posts['news-test-1']?.status==='aborted_before_post') throw Error('abort save failed'); remote=clone(s); if(s.posts['news-test-1']?.status==='post_intent') h.clock=start+16*60000;};
+  await assert.rejects(h.run(),/abort save failed/); assert.equal(remote.posts['news-test-1'].status,'post_intent');
+  h.state=remote; h.persist=async()=>{}; assert.equal((await h.run()).halt.reason,'unresolved_write_intent'); assert(!h.calls.includes('create'));
+});
+test('X IDs must be digit strings; numeric API/media/inventory IDs never accepted', async()=>{
+  for(const mode of ['create','upload','inventory']) {const h=harness();
+    if(mode==='create') h.api.create=async()=>2105481450862641444;
+    if(mode==='upload') h.api.upload=async()=>({id:55,media_key:'3_55'});
+    if(mode==='inventory') h.inventory=[{lane:'news',tweet_id:2105481450862641444,published_at:'2026-10-02T01:00:00+09:00'}];
+    assert((await h.run()).halt); assert.equal(h.state.observations.length,0);
   }
 });

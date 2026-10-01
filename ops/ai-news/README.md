@@ -100,3 +100,27 @@ JPYの100分の1単位の整数で切り上げ予約する。ニュース専用�
 - [GitHub schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)：高負荷で遅延/欠落し得る。Web長文予約と混同しない。
 
 - [X Help: post types](https://help.x.com/en/using-x/types-of-posts)：長文はPremium条件があり、Web上の長文のdraft保存・後日の予約は不可。APIクラウドキューの機能とは別。
+
+## 正本とクラウド状態の変換（ネットワークなし）
+
+`scripts/ai-news/sheet-bridge.mjs` はPREFLIGHTで読取確認した既存ヘッダーへ対応する。Google API writerではなく、親が安全に受け渡すための純粋変換CLI。新しい接続・列・タブは作らない。
+
+```
+node scripts/ai-news/sheet-bridge.mjs prepare snapshot.json manifest.json prepared.json
+node scripts/ai-news/sheet-bridge.mjs project snapshot.json receipt-input.json proposal.json
+node --test tests/test_ai_news_sheet.mjs
+```
+
+snapshot: `{sheet_id,captured_at,tables:{"CODEX_投稿DB":{headers:[...],rows:[{row_number:106,values:[...]}]},...}}`。投稿DB・予約投稿キュー・メディアDB・GPT_ニュースDB・KPI・学習DBの必要範囲を親が読取取得する。KPI/学習は既存イベントIDも含めて検索し、不在を確認したものだけ新規扱い。省略した既存行を「存在しない」と誤認しない。ヘッダーは実列名をそのまま保持し、IDは文字列。snapshot/manifest/receiptは原稿等を含むため、作業用ファイルを不用意にgitへ追加しない。
+
+manifest: `{content_id,image:{path:"media/approved.png",sha256,mime:"image/png"},text_fallback:{allowed:true},handoff:{confirmed:true,evidence:"親が旧browser経路との切替境界を確認した記録"}}`。画像なしの場合は技術的/承認上の障害のreasonとevidenceが必要。ContentID→QueueID/ImageID/NewsIDの一意join、本文hash・予定・出典・画像QA/hashを検査する。既に公開済み/予約済みの行は拒否。本文は変更しない。準備結果にはapprovalを付けない。親が確定稿に対する既存承認を確認し、`acceptPrepared(prepared,{by,at,sha256:required_approval_sha256})` で承認パッケージを生成する。シートのdraft/readyだけで承認を捏造しない。
+
+receipt-input: `{state:<durable state>,run_id:<実行識別子>}`。proposalはIDベース更新/追加の差分と各セルexpected値、ヘッダーhashを持つ。`applyPlanToSnapshot`は全条件検証後に複製snapshotへ適用する**オフライン検証専用**。Google Sheets上の原子的CASを保証するものではない。親が将来反映する場合、各IDを再検索し、最新ヘッダー・対象セルとexpected値を照合し、他writerと直列化してから承認範囲内だけを書き、再読取確認する。複数タブへの部分反映も起こり得るため、durable stateを正として再生成・再照合する。書込み直前の再読取と書込みの間の競合を排除できなければ停止する。現PRに自動Google writerは含めない。
+
+内部verifiedはposted、不明結果はblocked。POST直後IDはGET失敗時も保存し、再queueしない。X native予約確認/BrowserEvidenceをAPI成功で上書きしない。既存メモの独自markerだけ更新。KPIEventID/LearningIDはContentID+tweetID+観測windowから安定生成し、同じ証拠の再出力で増殖しない。0h/24h/72h/7dの生観測のみを記録し、人の仮説/Confidence/適用状態を保持する。
+
+## 送信前中止と復旧
+
+最終guardが拒否し、createを呼んでいないと確定できる場合は`aborted_before_post`と理由・時刻をremoteへ保存する。halt解除だけでは再開不可。`resolvePrePostAbort(state,id,{action:"cancelled"|"rescheduled",evidence,at,replacement_id})`で明示的な解決済みstateを生成し、親がdurable保存して再開する。再予定は新ID・新予定・承認hashの別パッケージが必要で、元IDは二度と送らない。全費用予約は維持し、既実行uploadや不明費用を勝手に返却しない。中止保存に失敗した場合はremoteに残ったintentを不明結果として扱う。API呼出し後の不明結果はこの復旧関数で解除できない。
+
+30分ガードは送信直前時点の既知予定・公開記録に対する検査。HTTP処理中の経過時間や別writerの将来実公開を含む厳密な公開間隔30分保証ではない。実公開日時と遅延は取得後に記録し、外部browser/CLIも含む協調運用が必要。

@@ -5,7 +5,8 @@
 
 | 検証 | 結果 |
 |---|---|
-| `node --test tests/test_ai_news.mjs` | 28/28 PASS |
+| `node --test tests/test_ai_news.mjs` | 39/39 PASS |
+| `node --test tests/test_ai_news_sheet.mjs` | 8/8 PASS（正本→mock API→反映案往復） |
 | `node tests/test_periods.mjs` | PASS |
 | `bash tests/test_ops.sh` | PASS（fixtureを本番台帳から分離） |
 | `node scripts/oct/x_phase2.mjs validate` | PASS、既存20:37キュー222 weighted |

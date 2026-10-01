@@ -5,6 +5,7 @@ export const sha = x => createHash('sha256').update(x).digest('hex');
 export const jst = ms => new Date(ms + 9 * 3600000).toISOString().slice(0, 10);
 const month = ms => jst(ms).slice(0, 7);
 const iso = ms => new Date(ms).toISOString();
+const xid = value => typeof value === 'string' && /^[0-9]+$/.test(value);
 const check = (ok, reason) => { if (!ok) throw new Error(reason); };
 export const approvalHash = p => sha(JSON.stringify([p.id, p.topic_key, p.scheduled_at, p.text, p.source_urls, p.source_refs, p.image, p.text_fallback]));
 export function validatePackage(p) {
@@ -33,11 +34,12 @@ export function validateState(s) {
   check(s?.initialized === true && s.schema === 1 && s.account === 'KinoshitaTsks' && s.posts && Array.isArray(s.operations) && Array.isArray(s.observations), 'missing_or_invalid_durable_state');
   check(['gpt6.1', 'gemini4'].every(t => s.blocked_topics?.includes(t)), 'missing_repost_blocklist');
   check(Array.isArray(s.external_posts) && new Set(s.operations.map(o => o.id)).size === s.operations.length && s.operations.every(o => typeof o.id === 'string' && /^\d{4}-\d{2}$/.test(o.month) && Number.isSafeInteger(o.minor_jpy) && o.minor_jpy >= 0 && ['reserved', 'attempted_unreconciled'].includes(o.status)), 'invalid_cost_ledger');
+  check([...Object.values(s.posts), ...s.external_posts, ...s.observations].every(p => p.tweet_id == null || xid(p.tweet_id)), 'invalid_x_id');
   return s;
 }
 export function validateConfig(c, now) {
   check(c.account === 'KinoshitaTsks' && c.enabled === true, 'news_disabled');
-  check(c.capabilities?.longform === true && c.capabilities?.oauth1_write === true && c.capabilities?.account_id && c.capabilities?.evidence, 'account_eligibility_unconfirmed');
+  check(c.capabilities?.longform === true && c.capabilities?.oauth1_write === true && xid(c.capabilities?.account_id) && c.capabilities?.evidence, 'account_eligibility_unconfirmed');
   check(Date.parse(c.valid_until) > now && Date.parse(c.reviewed_at) <= now, 'configuration_expired');
   check(Number.isFinite(c.jpy_per_usd_ceiling) && c.jpy_per_usd_ceiling > 0 && Number.isFinite(c.tax_rate) && c.tax_rate >= 0 && Number.isFinite(c.margin_rate) && c.margin_rate >= 0.1, 'unknown_fx_tax_margin');
   check(Number.isFinite(c.prices?.create_usd) && c.prices.create_usd >= 0.2 && Number.isFinite(c.prices?.read_usd) && c.prices.read_usd >= 0.005 && c.pricing_evidence, 'unknown_price');
@@ -78,7 +80,7 @@ export function report(s, c, queue, now) {
   const months = [...new Set([month(now), ...s.operations.map(o => o.month)])];
   return { at: iso(now), halt: s.halt, budgets: months.map(m => { try { return budget(s, c, m); } catch { return { month: m, actual_minor_jpy: null, reason: 'unconfirmed' }; } }),
     pending: queue.filter(p => !s.posts[p.id]?.tweet_id).map(p => ({ id: p.id, scheduled_at: p.scheduled_at, status: s.posts[p.id]?.status || 'queued' })),
-    pending_observations: Object.values(s.posts).flatMap(p => (p.observation_jobs || []).filter(j => !j.done).map(j => ({ post_id: p.id, ...j }))) };
+    pending_observations: Object.values(s.posts).flatMap(p => (p.observation_jobs || []).filter(j => !j.done && !j.cancelled).map(j => ({ post_id: p.id, ...j }))) };
 }
 function fullText(t) {
   let text = t.note_tweet?.text ?? t.text;
@@ -96,7 +98,7 @@ export function verify(j, p, c) {
   return t;
 }
 function collision(p, s, inventory, now) {
-  const others = [...s.external_posts, ...inventory, ...Object.values(s.posts).filter(x => x.id !== p.id)];
+  const others = [...s.external_posts, ...inventory, ...Object.values(s.posts).filter(x => x.id !== p.id && x.status !== 'aborted_before_post')];
   check(!s.blocked_topics.includes(p.topic_key.toLowerCase()), 'already_published_topic');
   check(!others.some(x => x.topic_key?.toLowerCase() === p.topic_key.toLowerCase() || (x.text && sha(x.text) === sha(p.text))), 'duplicate_account_content');
   check(!others.some(x => {
@@ -110,6 +112,8 @@ export function newsDailyCount(s, inventory, now) {
   const seen = new Set();
   const today = jst(now);
   for (const p of Object.values(s.posts)) {
+    if (p.status === 'aborted_before_post') continue;
+    if (p.tweet_id != null) check(xid(p.tweet_id), 'invalid_x_id');
     if (jst(Date.parse(p.published_at || p.started_at)) === today)
       seen.add(p.tweet_id ? `tweet:${p.tweet_id}` : `package:${p.id}`);
   }
@@ -117,7 +121,7 @@ export function newsDailyCount(s, inventory, now) {
     if (p.lane !== 'news' || !(p.published_at || p.posted_at)) continue;
     const at = Date.parse(p.published_at || p.posted_at);
     const id = p.tweet_id || p.id;
-    check(Number.isFinite(at) && /^\d+$/.test(id || ''), 'news_receipt_identity_unconfirmed');
+    check(Number.isFinite(at) && xid(id), 'news_receipt_identity_unconfirmed');
     if (jst(at) === today) seen.add(`tweet:${id}`);
   }
   return seen.size;
@@ -132,7 +136,8 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
   try { validateConfig(c, now()); queue.forEach(validatePackage); check(new Set(queue.map(p => p.id)).size === queue.length, 'duplicate_queue_id'); }
   catch (e) { return stop(e.message); }
   // Intent survives worker cancellation / missing response / failed receipt push. Never retry writes.
-  if (Object.values(s.posts).some(p => !['posted_unverified', 'verified'].includes(p.status))) return stop('unresolved_write_intent');
+  if (Object.values(s.posts).some(p => !['posted_unverified', 'verified', 'aborted_before_post'].includes(p.status))) return stop('unresolved_write_intent');
+  if (Object.values(s.posts).some(p => p.status === 'aborted_before_post' && !p.resolution)) return stop('pre_post_abort_requires_resolution');
   for (const p of Object.values(s.posts)) {
     const q = queue.find(q => q.id === p.id);
     if (q && q.approval.sha256 !== p.approval_sha256) return stop('immutable_package_changed');
@@ -177,7 +182,7 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
     if (now() - Date.parse(q.scheduled_at) > 15 * 60000) return stop(`missed_slot:${q.id}`);
     try {
       collision(q, s, inventory, now());
-      check(!Object.values(s.posts).some(p => p.scheduled_at === q.scheduled_at), 'slot_already_consumed');
+      check(!Object.values(s.posts).some(p => p.status !== 'aborted_before_post' && p.scheduled_at === q.scheduled_at), 'slot_already_consumed');
       check(newsDailyCount(s, inventory, now()) < 3, 'news_daily_cap');
     } catch (e) { return stop(e.message); }
     let image = null, fallback = q.image ? null : q.text_fallback.reason;
@@ -215,25 +220,34 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
       }
       if (!media && !p.fallback_reason) return stop('invalid_media_response');
       if (media) {
-        if (!/^\d+$/.test(media.id || '') || !media.media_key || (media.processing_info && media.processing_info.state !== 'succeeded')) return stop('media_not_ready');
+        if (!xid(media.id) || !media.media_key || (media.processing_info && media.processing_info.state !== 'succeeded')) return stop('media_not_ready');
         p.media_id = media.id; p.media_key = media.media_key; p.status = 'media_ready'; await persist(s);
       }
     }
+    const abortBeforePost = async reason => {
+      const prior = structuredClone(p);
+      p.status = 'aborted_before_post'; p.aborted_at = iso(now()); p.abort_reason = reason;
+      for (const job of p.observation_jobs) job.cancelled = true;
+      // All cost reservations remain held, including an already executed upload.
+      try { return await stop(reason); }
+      catch (e) { s.posts[q.id] = prior; throw e; } // Remote intent remains unknown if saving fails.
+    };
     // Recheck time and account conflict after upload; don't publish into another writer's window.
     try { check(now() - Date.parse(q.scheduled_at) <= 15 * 60000, 'missed_slot_after_upload'); collision(q, s, inventory, now()); }
-    catch (e) { return stop(e.message); }
+    catch (e) { return abortBeforePost(e.message); }
     p.status = 'post_intent'; s.operations.find(o => o.id === `${q.id}:create`).status = 'attempted_unreconciled'; await persist(s);
     // Remote checkpoint acknowledgement may take seconds/minutes. Re-evaluate the
     // publication window AFTER it, with no async work between this guard and create.
-    // Keep the durable intent on rejection; manual reconciliation is required.
+    // Persist a known no-POST terminal outcome; explicit resolution is required.
     try {
       check(now() - Date.parse(q.scheduled_at) <= 15 * 60000, 'missed_slot_after_intent');
       collision(q, s, inventory, now());
-    } catch (e) { return stop(e.message); }
+      validateConfig(c, now()); check(s.operations.find(o => o.id === `${q.id}:create`).month === month(now()), 'month_changed');
+    } catch (e) { return abortBeforePost(e.message); }
     let id;
-    try { validateConfig(c, now()); check(s.operations.find(o => o.id === `${q.id}:create`).month === month(now()), 'month_changed'); id = await api.create({ text: q.text, ...(p.media_id ? { media: { media_ids: [p.media_id] } } : {}) }); }
+    try { id = await api.create({ text: q.text, ...(p.media_id ? { media: { media_ids: [p.media_id] } } : {}) }); }
     catch { return stop('post_result_unknown_or_rejected'); }
-    if (!/^\d+$/.test(id || '')) return stop('post_result_unknown');
+    if (!xid(id)) return stop('post_result_unknown');
     // FIRST operation after successful POST: durably store id, before ANY GET.
     p.tweet_id = id; p.received_at = iso(now()); p.status = 'posted_unverified';
     await persist(s);
@@ -241,4 +255,16 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
     break; // At most one new post per wake-up, never burst catch-up.
   }
   return report(s, c, queue, now());
+}
+
+/** Offline state transition: caller must durably persist before resuming. Never clears unknown writes. */
+export function resolvePrePostAbort(state, id, { action, evidence, at, replacement_id } = {}) {
+  validateState(state); const s = structuredClone(state), p = s.posts[id];
+  check(p?.status === 'aborted_before_post' && !p.tweet_id && !p.resolution, 'not_resolvable_pre_post_abort');
+  check(['cancelled', 'rescheduled'].includes(action) && typeof evidence === 'string' && evidence.trim() && Number.isFinite(Date.parse(at)), 'abort_resolution_evidence_required');
+  check(action !== 'rescheduled' || (typeof replacement_id === 'string' && replacement_id !== id && /^[a-z0-9][a-z0-9_-]{2,100}$/.test(replacement_id)), 'new_package_id_required');
+  p.resolution = { action, evidence, at, ...(replacement_id ? { replacement_id } : {}) };
+  // Never clear an unrelated halt. A replacement needs its own approval and fresh guards.
+  if ([p.abort_reason, 'pre_post_abort_requires_resolution'].includes(s.halt?.reason)) s.halt = null;
+  return s;
 }
