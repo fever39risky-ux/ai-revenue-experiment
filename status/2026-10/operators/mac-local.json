@@ -18,10 +18,10 @@
     "reach-booth"
   ],
   "status": "blocked",
-  "doing": "02:25 JST: owner appears mid-login (Google 2FA tab for coconala open in mac-local profile); waiting, not touching it",
-  "next": "When coconala /mypage is logged in: claim h1-coconala-requests-scan, scan 公開依頼, send ≤5 proposals, check inbox; then h3 snapshot",
+  "doing": "02:27 JST re-check: coconala, BOOTH, note all logged out in mac-local profile (earlier Google 2FA tab gone); browser left on coconala login page",
+  "next": "After owner login: verify 3 sites logged_in + log human; claim h1-coconala-requests-scan, scan 公開依頼, send ≤5 proposals, check inbox; then h3 snapshot; h2 note publish",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:23:50.324Z",
-  "blocked_on": "coconala login (Google 2FA in progress)"
+  "heartbeat_at": "2026-10-01T17:26:22.140Z",
+  "blocked_on": "coconala/BOOTH/note login (task owner-login-mac-local-profile)"
 }
