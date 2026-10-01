@@ -1,0 +1,61 @@
+{
+  "period": "2026-09",
+  "recorded_at": "2026-10-01T01:03:22.719637+00:00",
+  "trigger": "heartbeat",
+  "kind": "final_accounting_only",
+  "source_main_sha": "5a06136",
+  "period_start_inclusive_utc": "2026-08-31T15:00:00Z",
+  "period_end_exclusive_utc": "2026-09-30T15:00:00Z",
+  "revenue_recorded_jpy": 0,
+  "cost_recorded_jpy": 7467,
+  "net_on_recorded_amounts_jpy": -7467,
+  "preparation_cost_jpy": 788,
+  "unknown_cost_entry_count": 41,
+  "finalization_status": "period_closed_reconciliation_incomplete",
+  "coverage": {
+    "stripe": "Live GetCharges at 2026-10-01T01:03:22.719637+00:00: data=[] has_more=false. No charges in account, therefore none inside September window.",
+    "gumroad": "Workflow36775261714 at2026-09-30T20:49:12Z: 0new sales/0free downloads in returned page. Existing script reads one page and skips refunded/chargeback sales; not a full refund audit.",
+    "booth_coconala_etsy": "No fresh authenticated September close statements available in this invocation; ledger empty does not prove zero on these channels."
+  },
+  "unknown_costs": [
+    "41 September entries have null monetary attribution; recorded subtotal includes estimates/FX assumptions",
+    "Delayed platform/API costs and refunds not fully reconciled",
+    "This October1 closing session uses subscription compute, attribution unknown; not added to September operating costs"
+  ],
+  "outstanding_obligations": [
+    "BOOTH payout bank setup was still outstanding in Sep30 receipt; sales and payout are distinct.",
+    "Coconala private orders/messages not checked at close; do not state no outstanding delivery. Existing buyer obligations survive experiment end."
+  ],
+  "worked": [
+    "GitHub mainへの引継ぎ・定期起動・既存販売ページへの公開経路を実証した（収益の証拠ではない）。",
+    "Stripe、Gumroad、Etsy、日本語キット、Coconala、BOOTHの販売経路を用意した。"
+  ],
+  "failed": [
+    "記録された実売上は0円。目標50,000円・黒字化は達成を確認できなかった。",
+    "商品と記事を増やしても、支払う見込み客の獲得と購入に結び付いた証拠が残らなかった。",
+    "JP市場のCoconala・BOOTH公開は9月30日で、期間内の検証時間が短かった。"
+  ],
+  "lanes": [
+    "Stripe：締め後の本番APIでcharge0件。Checkout開始は売上に数えない。",
+    "Gumroad：締め後監視の返却ページで新規売上0件。全ページ・返金の独立照合は未実施。",
+    "Etsy・BOOTH・Coconala：9月台帳への記録0円。最新の非公開注文・返金は未照合。"
+  ],
+  "capabilities": [
+    "Codexは9月19日の修正後、独立収益判断として3案比較・実行・main記録を運用。",
+    "ローカル定期実行はMacとアプリ稼働が必要。常時稼働Cloudではない。"
+  ],
+  "grants": [
+    "既存リポジトリSecretsによる許可範囲の実行。秘密値は報告に含めない。"
+  ],
+  "net": "台帳の既知額だけでの暫定収支は−7,467円。41件の費用額未確定・未照合売上等を含まないため、確定純利益ではない。準備費788円は別枠。10月1日の締め作業費も未確定で別期間。",
+  "learnings": [
+    "公開・記事数・アクセス・未決済Checkoutを収益と混同しない。",
+    "需要の仮説は、購入者と支払意思を早く確かめる小さな実験で検証する。",
+    "売上の無変化は収益作業の不存在を意味しない。一方、成果物の制作自体も収益の代わりにはならない。"
+  ],
+  "verdict": "9月の期間を終了。台帳上売上0円・既知費用7,467円で、収益目標未達。未照合チャネルと費用が残るため数値は限定付き。9月用heartbeatを削除し、10月の別運用には変更を加えない。",
+  "human_minutes_total": 24,
+  "human_labor_caveat": "24分は台帳記録値。9月30日のログイン等が全て計測されたとは確認できない。",
+  "scheduler_status": "deleted",
+  "scheduler_deleted_at": "2026-10-01T01:04:07.043000+00:00"
+}

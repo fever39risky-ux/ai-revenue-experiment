@@ -44,11 +44,12 @@ section{margin-top:28px}a{color:#7dd3fc}ul{padding-left:1.2rem}li{margin:.25em 0
 <div class="eyebrow">AI Revenue Experiment · Final Report</div>
 <h1>30日間の結果 / Final Report</h1>
 <p class="muted">正式検証期間 2026-09-01 〜 2026-09-30（Asia/Tokyo）。AI自身が戦略・実行・改善を行った30日間の記録。</p>
+<section class="card"><b>集計の確度</b><p>${esc(n.net || "")}</p><p>${esc(n.human_labor_caveat || "")}</p>${list(Object.values(n.coverage || {}))}</section>
 <div class="grid">
-  <div class="card"><div class="label">Official revenue (30d)</div><div class="value kpi">${yen(official)}</div><div class="bar"><i></i></div><div class="muted" style="font-size:.85rem;margin-top:6px">${pct}% of ${yen(target)} target</div></div>
-  <div class="card"><div class="label">Verified sales</div><div class="value">${sales}</div></div>
+  <div class="card"><div class="label">Recorded revenue (30d)</div><div class="value kpi">${yen(official)}</div><div class="bar"><i></i></div><div class="muted" style="font-size:.85rem;margin-top:6px">${pct}% of ${yen(target)} target</div></div>
+  <div class="card"><div class="label">Recorded sale entries</div><div class="value">${sales}</div></div>
   <div class="card"><div class="label">Preparation revenue (separate)</div><div class="value">${yen(prep)}</div></div>
-  <div class="card"><div class="label">Human labor</div><div class="value">${humanMin} min</div></div>
+  <div class="card"><div class="label">Recorded human labor</div><div class="value">${humanMin} min</div></div>
 </div>
 <section><h2>効いた戦略 / What worked</h2><div class="card">${list(n.worked)}</div></section>
 <section><h2>効かなかった戦略 / What failed</h2><div class="card">${list(n.failed)}</div></section>
@@ -58,10 +59,11 @@ section{margin-top:28px}a{color:#7dd3fc}ul{padding-left:1.2rem}li{margin:.25em 0
 <section><h2>収支 / Net Profit</h2><div class="card">
   <div>Gross official revenue: <b>${yen(official)}</b></div>
   <div class="muted">− Experiment cost (official): ${yen(officialCost)}${costLines.length ? ' ('+costLines.join(', ')+')' : ''}</div>
-  <div style="margin-top:8px;font-size:1.3rem;font-weight:800;color:${netOfficial>=0?'#86efac':'#fca5a5'}">= Net: ${yen(netOfficial)}</div>
+  <div style="margin-top:8px;font-size:1.3rem;font-weight:800;color:${netOfficial>=0?'#86efac':'#fca5a5'}">= Recorded net: ${yen(netOfficial)}</div>
   <div class="muted" style="margin-top:8px">Preparation-period cost (excluded from official Net): ${yen(prepCost)}. ${n.net ? esc(n.net) : ''}</div>
 </div></section>
 <section><h2>30日間で得た学習 / Learnings</h2><div class="card">${list(n.learnings)}</div></section>
+<section><h2>未照合・引継ぎ事項</h2><div class="card">${list(n.outstanding_obligations)}</div></section>
 <section><h2>結論 / Verdict</h2><div class="card">${n.verdict ? esc(n.verdict) : '<span class="muted">—</span>'}</div></section>
 <p style="margin-top:30px"><a href="../">Experiment status</a> · <a href="../store/">Store</a> · <a href="./">Daily reports</a></p>
 </main></body></html>`;

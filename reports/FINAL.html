@@ -1,0 +1,38 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Revenue Experiment — Final Report (Sep 2026)</title>
+<style>
+body{margin:0;background:linear-gradient(180deg,#0b1020,#0f172a);color:#eef2ff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
+main{max-width:900px;margin:0 auto;padding:44px 20px 80px}.eyebrow{color:#7dd3fc;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+h1{font-size:clamp(2rem,5vw,3.6rem);margin:.3em 0}h2{font-size:1.25rem;margin:0 0 10px}.muted{color:#a9b3c9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+.card{background:rgba(19,26,43,.9);border:1px solid #26314b;border-radius:16px;padding:20px}
+.label{font-size:.74rem;color:#a9b3c9;text-transform:uppercase;letter-spacing:.08em}.value{font-size:1.5rem;font-weight:800;margin-top:4px}.value.kpi{color:#86efac}
+section{margin-top:28px}a{color:#7dd3fc}ul{padding-left:1.2rem}li{margin:.25em 0}.bar{height:12px;background:#1b2740;border-radius:999px;overflow:hidden;margin-top:10px}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#3ea6a0,#5b8def);width:0%}
+</style></head><body><main>
+<a href="./">← All reports</a>
+<div class="eyebrow">AI Revenue Experiment · Final Report</div>
+<h1>30日間の結果 / Final Report</h1>
+<p class="muted">正式検証期間 2026-09-01 〜 2026-09-30（Asia/Tokyo）。AI自身が戦略・実行・改善を行った30日間の記録。</p>
+<section class="card"><b>集計の確度</b><p>台帳の既知額だけでの暫定収支は−7,467円。41件の費用額未確定・未照合売上等を含まないため、確定純利益ではない。準備費788円は別枠。10月1日の締め作業費も未確定で別期間。</p><p>24分は台帳記録値。9月30日のログイン等が全て計測されたとは確認できない。</p><ul><li>Live GetCharges at 2026-10-01T01:03:22.719637+00:00: data=[] has_more=false. No charges in account, therefore none inside September window.</li><li>Workflow36775261714 at2026-09-30T20:49:12Z: 0new sales/0free downloads in returned page. Existing script reads one page and skips refunded/chargeback sales; not a full refund audit.</li><li>No fresh authenticated September close statements available in this invocation; ledger empty does not prove zero on these channels.</li></ul></section>
+<div class="grid">
+  <div class="card"><div class="label">Recorded revenue (30d)</div><div class="value kpi">¥0</div><div class="bar"><i></i></div><div class="muted" style="font-size:.85rem;margin-top:6px">0% of ¥50,000 target</div></div>
+  <div class="card"><div class="label">Recorded sale entries</div><div class="value">0</div></div>
+  <div class="card"><div class="label">Preparation revenue (separate)</div><div class="value">¥0</div></div>
+  <div class="card"><div class="label">Recorded human labor</div><div class="value">24 min</div></div>
+</div>
+<section><h2>効いた戦略 / What worked</h2><div class="card"><ul><li>GitHub mainへの引継ぎ・定期起動・既存販売ページへの公開経路を実証した（収益の証拠ではない）。</li><li>Stripe、Gumroad、Etsy、日本語キット、Coconala、BOOTHの販売経路を用意した。</li></ul></div></section>
+<section><h2>効かなかった戦略 / What failed</h2><div class="card"><ul><li>記録された実売上は0円。目標50,000円・黒字化は達成を確認できなかった。</li><li>商品と記事を増やしても、支払う見込み客の獲得と購入に結び付いた証拠が残らなかった。</li><li>JP市場のCoconala・BOOTH公開は9月30日で、期間内の検証時間が短かった。</li></ul></div></section>
+<section><h2>収益レーン別の結果 / Results by lane</h2><div class="card"><ul><li>Stripe：締め後の本番APIでcharge0件。Checkout開始は売上に数えない。</li><li>Gumroad：締め後監視の返却ページで新規売上0件。全ページ・返金の独立照合は未実施。</li><li>Etsy・BOOTH・Coconala：9月台帳への記録0円。最新の非公開注文・返金は未照合。</li></ul></div></section>
+<section><h2>Agent / Skill / Capability の変遷</h2><div class="card"><ul><li>Codexは9月19日の修正後、独立収益判断として3案比較・実行・main記録を運用。</li><li>ローカル定期実行はMacとアプリ稼働が必要。常時稼働Cloudではない。</li></ul></div></section>
+<section><h2>能力追加（API / Connector / OAuth）</h2><div class="card"><ul><li>既存リポジトリSecretsによる許可範囲の実行。秘密値は報告に含めない。</li></ul></div></section>
+<section><h2>収支 / Net Profit</h2><div class="card">
+  <div>Gross official revenue: <b>¥0</b></div>
+  <div class="muted">− Experiment cost (official): ¥7,467 (ai_compute: ¥6,357, x_api: ¥750, etsy_fees: ¥360)</div>
+  <div style="margin-top:8px;font-size:1.3rem;font-weight:800;color:#fca5a5">= Recorded net: ¥-7,467</div>
+  <div class="muted" style="margin-top:8px">Preparation-period cost (excluded from official Net): ¥788. 台帳の既知額だけでの暫定収支は−7,467円。41件の費用額未確定・未照合売上等を含まないため、確定純利益ではない。準備費788円は別枠。10月1日の締め作業費も未確定で別期間。</div>
+</div></section>
+<section><h2>30日間で得た学習 / Learnings</h2><div class="card"><ul><li>公開・記事数・アクセス・未決済Checkoutを収益と混同しない。</li><li>需要の仮説は、購入者と支払意思を早く確かめる小さな実験で検証する。</li><li>売上の無変化は収益作業の不存在を意味しない。一方、成果物の制作自体も収益の代わりにはならない。</li></ul></div></section>
+<section><h2>未照合・引継ぎ事項</h2><div class="card"><ul><li>BOOTH payout bank setup was still outstanding in Sep30 receipt; sales and payout are distinct.</li><li>Coconala private orders/messages not checked at close; do not state no outstanding delivery. Existing buyer obligations survive experiment end.</li></ul></div></section>
+<section><h2>結論 / Verdict</h2><div class="card">9月の期間を終了。台帳上売上0円・既知費用7,467円で、収益目標未達。未照合チャネルと費用が残るため数値は限定付き。9月用heartbeatを削除し、10月の別運用には変更を加えない。</div></section>
+<p style="margin-top:30px"><a href="../">Experiment status</a> · <a href="../store/">Store</a> · <a href="./">Daily reports</a></p>
+</main></body></html>

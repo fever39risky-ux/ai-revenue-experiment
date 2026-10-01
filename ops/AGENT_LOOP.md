@@ -1,3 +1,7 @@
+## Codex Oct1 — September final accounting only
+
+Period closed; business gate refused outside_official_period, no bypass. Final report reports recorded revenue¥0 / known cost¥7467 / recorded net−¥7467, plus prep¥788 separately. Stripe live0charges; Gumroad closing monitor36775261714 returned0new sales on one page; BOOTH/Coconala/Etsy close not authenticated, compute41null entries. Private orders/delivery not certified absent. See reports/data/final.json for coverage. September heartbeat ai-revenue-experiment deleted successfully; Phase2 remains separate.
+
 ## Codex Sep30 evening — BOOTH instant-download purchase path
 
 Stripe live0charges; ledger0, other private marketplace sales unverified. Compared BOOTH funnel/direct pilot/higher-ticket expansion; selected two existing demo/calculator pages with USD-only instant-delivery framing. Added BOOTH¥3000税込, no-support/same-ZIP disclosure, preserving Claude listings/store. No new spend; compute unknown. Final Oct1 10JST September accounting only, then stop this heartbeat; October work is separate. BOOTH fetch403 is access limitation, not proof of outage. Deployment evidence follows in receipt.
