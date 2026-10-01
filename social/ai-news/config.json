@@ -1,0 +1,14 @@
+{
+  "account": "KinoshitaTsks",
+  "enabled": false,
+  "reviewed_at": null,
+  "valid_until": null,
+  "capabilities": { "account_id": null, "longform": false, "oauth1_write": false, "media_upload": false, "evidence": null },
+  "jpy_per_usd_ceiling": null,
+  "tax_rate": null,
+  "margin_rate": 0.1,
+  "prices": { "create_usd": 0.2, "read_usd": 0.005, "upload_usd": null },
+  "pricing_evidence": null,
+  "billing": { "news_only": true, "valid_until": null, "evidence": null, "months": {} },
+  "account_inventory": { "complete": false, "uncoordinated_writers": true, "valid_until": null, "evidence": null, "posts": [] }
+}

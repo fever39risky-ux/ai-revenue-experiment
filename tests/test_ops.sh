@@ -8,7 +8,16 @@ cp -r "$REPO/scripts/lib" "$REPO/scripts/oct" "$T/scripts/"
 cp "$REPO/experiment/periods.json" "$T/experiment/"
 cp "$REPO/status/revenue_ledger.json" "$REPO/status/cost_ledger.json" "$T/status/"
 mkdir -p "$T/status/2026-10"
-cp "$REPO/status/2026-10/revenue_ledger.json" "$REPO/status/2026-10/cost_ledger.json" "$T/status/2026-10/"
+# Tests own their October ledger fixture; live unknown-cost entries otherwise break assertions.
+node --input-type=module - "$REPO" "$T" <<'JS'
+import {readFileSync, writeFileSync} from 'node:fs';
+const [repo, target] = process.argv.slice(2);
+for (const name of ['revenue_ledger.json', 'cost_ledger.json']) {
+  const ledger = JSON.parse(readFileSync(`${repo}/status/2026-10/${name}`, 'utf8'));
+  ledger.entries = []; ledger.totals = {};
+  writeFileSync(`${target}/status/2026-10/${name}`, JSON.stringify(ledger));
+}
+JS
 O="node $T/scripts/oct/ops.mjs"
 $O heartbeat founder --kind founder --lanes strategy --doing "test" --next "x" >/dev/null
 $O heartbeat coco-op --lanes coconala --doing "y" >/dev/null

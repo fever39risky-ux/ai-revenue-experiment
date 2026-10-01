@@ -3,17 +3,19 @@
   "kind": "local-mac",
   "runtime": "owner's Mac (Linux)",
   "role": "independent revenue operator",
-  "lanes": [],
+  "lanes": [
+    "ai-news-cloud"
+  ],
   "capabilities": [
     "git",
     "node",
     "browser-profile-dir"
   ],
-  "status": "idle",
-  "doing": "Day-0 drill finished: 8 checks",
-  "next": "From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md",
+  "status": "blocked",
+  "doing": "AI news cloud implementation complete; 28 mock tests passed; draft review only",
+  "next": "Parent reviews draft PR, confirms account/media pricing/account-wide inventory and approves activation separately",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-09-30T09:52:46.729Z",
-  "blocked_on": null
+  "heartbeat_at": "2026-10-01T04:22:57.598Z",
+  "blocked_on": "Owner-required pre-production review; no production enablement in this task"
 }

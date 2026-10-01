@@ -12,6 +12,10 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+# Serialize with other writers on @KinoshitaTsks, including the proposed news lane.
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
 jobs:
   post:
     runs-on: ubuntu-latest

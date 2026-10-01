@@ -1,0 +1,57 @@
+# INACTIVE TEMPLATE. Copy to .github/workflows/x-ai-news.yml ONLY after review.
+name: AI news cloud queue
+on:
+  schedule:
+    - cron: '0 23,3,11 * * *' # 08/12/20 JST; GitHub may delay/drop runs
+    - cron: '17 * * * *' # KPI/retry wake-up; missed posts stop, never catch-up bursts
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-main # same lock as phase2 and legacy social-x
+  cancel-in-progress: false
+jobs:
+  news:
+    if: vars.AI_NEWS_ENABLED == 'approved' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/checkout@v4
+        with:
+          ref: ai-news-state
+          path: news-state
+      - name: Attach state branch (checkpoint pushes must target this branch only)
+        run: git -C news-state switch ai-news-state
+      - name: Run gated news lane
+        env:
+          AI_NEWS_LIVE: approved
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/ai-news/cli.mjs live news-state /tmp/ai-news-report.json
+      - name: Report stop, costs, outstanding work
+        if: always()
+        run: |
+          echo '### AI news status' >> "$GITHUB_STEP_SUMMARY"
+          if test -f /tmp/ai-news-report.json; then
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat /tmp/ai-news-report.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Runner did not start. No news API calls; check state/config checkout.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ai-news-checkpoint-${{ github.run_id }}
+          path: |
+            /tmp/ai-news-report.json
+            news-state/state.json
+          retention-days: 30
