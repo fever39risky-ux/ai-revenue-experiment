@@ -1,0 +1,17 @@
+{
+  "id": "mac-roundtrip-1",
+  "title": "Mac supervisor roundtrip: auto-started mac-local worker claims, executes, completes and pushes (no browser)",
+  "lane": "ops-drill",
+  "detail": "Proves Founder task -> Mac supervisor detects -> mac-local auto-start -> heartbeat -> claim -> execute -> done -> push -> Founder sees result, with zero human input. Run the two test commands, record versions (node -v; claude --version) and whether PHASE2_OPERATOR is set, then done.",
+  "requires": [],
+  "priority": 1,
+  "acceptance": "result contains: bash tests/test_ops.sh PASS, node tests/test_periods.mjs PASS, node/claude versions, started_by=mac_supervisor (env PHASE2_OPERATOR=mac-local); mac-local heartbeat updated by the worker; pushed to main",
+  "assigned_to": "mac-local",
+  "created_by": "founder",
+  "created_at": "2026-10-01T16:15:52.214Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

@@ -55,7 +55,7 @@ Cloud sessions cannot reach coconala.com / booth.pm / etsy.com / note.com editin
 
 Delegation:
 1. Cloud Founder creates a task: `ops.mjs task-new founder <id> --title ... --lane coconala --requires local_browser --site coconala.com --priority 1 --detail "<exact steps + acceptance + what to record>"`.
-2. `mac-local` (or a site-specific local session) claims it, executes with Playwright using a **dedicated persistent browser profile per site**: `~/Library/Application Support/AIRevenueExperiment/browser-profiles/<site>` (never the owner's everyday profile). Logged-in sessions persist in that profile.
+2. The Mac supervisor (`ops/2026-10/MAC_SUPERVISOR.md`) detects the task on main within ~2 min and starts a `mac-local` Claude worker automatically; it claims it, executes with Playwright using a **dedicated persistent browser profile per site**: `~/Library/Application Support/AIRevenueExperiment/browser-profiles/<site>` (never the owner's everyday profile). Logged-in sessions persist in that profile.
 3. Only if the profile is logged out and login needs password/2FA: the operator opens the login page in that profile, asks the owner once (one message, ≤ 2 min task), logs `human --category login`, then continues. Everything after login is AI work.
 4. Results (screenshots summarized as text, URLs, ids) go into `done --result` and events. No PII of buyers in the repo.
 

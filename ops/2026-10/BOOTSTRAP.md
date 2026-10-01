@@ -49,4 +49,4 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 - Never edit another operator's operator/events file. Claim before working a task.
 - Never ask the owner what to do next. Owner only for: password, 2FA, KYC, legal consent, banking, spend > budget.
 - `node scripts/leak_check.mjs` before every push. No secrets, no buyer PII in the repo.
-- Tests for shared code: `node tests/test_periods.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `bash tests/test_x_schedule.sh`, `node scripts/promotion_check.mjs`.
+- Tests for shared code: `node tests/test_periods.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `bash tests/test_x_schedule.sh`, `python3 tests/test_mac_supervisor.py`, `node scripts/promotion_check.mjs`.

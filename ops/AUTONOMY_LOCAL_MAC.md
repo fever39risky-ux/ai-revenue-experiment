@@ -1,3 +1,5 @@
+> **Retired for Phase 2 (2026-10-02).** This September supervisor has been dead since 2026-09-26 (root cause: `ops/2026-10/MAC_SUPERVISOR.md` §1). Its replacement is `scripts/oct/mac_supervisor.py`.
+
 # Mac-local continuous Claude operator
 
 Dedicated checkout: `~/Library/Application Support/AIRevenueExperiment/repo`.

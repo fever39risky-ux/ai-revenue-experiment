@@ -5,7 +5,7 @@ Principle: schedules are **wake-up points (re-ignition)**, not work quotas. A wo
 | Runtime | Schedule | What it does | Config |
 |---|---|---|---|
 | **Founder Routine** (cloud Claude, fresh session per fire, pushes via `claude/**` → `promote-branch.yml`) | 00:07, 08:07, 13:07, 20:07 JST, Oct 1–31 | Founder run per `ops/2026-10/BOOTSTRAP.md`. 00:07 on 10/01 is the Phase-2 kickoff | claude.ai Routine `trig_01YQ2i3B1fb36aGG2wmycdeT` (cron `CRON_TZ=Asia/Tokyo 7 0,8,13,20 * 10 *`; prompt = the text in §1) |
-| **Mac-local supervisor** (`mac-local`) | continuous (launchd; one worker at a time; backoff when idle) | local browser tasks, marketplace inboxes | `ops/AUTONOMY_LOCAL_MAC.md`; prompt `ops/AUTONOMOUS_RUN_PROMPT.txt` (Phase-2 preamble routes it to BOOTSTRAP.md as `mac-local`) |
+| **Mac-local supervisor** (`mac-local`) | polls main every 120 s (launchd `com.airevenue.phase2.mac-local`, KeepAlive=true) | starts a Claude worker only when an eligible mac-local task is on main; claim → execute → log → done → push | `ops/2026-10/MAC_SUPERVISOR.md`; `scripts/oct/mac_supervisor.py` (the September agent `com.airevenue.claude-autonomous` is retired) |
 | **Extra local operators** | on demand (Founder decision) | dedicated site/lane operator | `scripts/oct/start_local_operator.sh <id> "<role>"` (owner runs once on the Mac) |
 | **Codex** | ~2×/day (its own automation) | independent revenue operator | `AGENTS.md` → BOOTSTRAP.md; `ops/CODEX_OPERATOR.md` (Phase-2 preamble) |
 | `sales-monitor.yml` | every 4 h | Stripe + Gumroad sales → period-routed ledgers | GitHub Actions |

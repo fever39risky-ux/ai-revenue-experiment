@@ -9,6 +9,8 @@ cp "$REPO/experiment/periods.json" "$T/experiment/"
 cp "$REPO/status/revenue_ledger.json" "$REPO/status/cost_ledger.json" "$T/status/"
 mkdir -p "$T/status/2026-10"
 cp "$REPO/status/2026-10/revenue_ledger.json" "$REPO/status/2026-10/cost_ledger.json" "$T/status/2026-10/"
+# start from zeroed October ledgers (the real ones accumulate entries during October)
+node -e 'const fs=require("fs");for(const f of process.argv.slice(1)){const d=JSON.parse(fs.readFileSync(f));d.entries=[];fs.writeFileSync(f,JSON.stringify(d,null,2))}' "$T/status/2026-10/revenue_ledger.json" "$T/status/2026-10/cost_ledger.json"
 O="node $T/scripts/oct/ops.mjs"
 $O heartbeat founder --kind founder --lanes strategy --doing "test" --next "x" >/dev/null
 $O heartbeat coco-op --lanes coconala --doing "y" >/dev/null
