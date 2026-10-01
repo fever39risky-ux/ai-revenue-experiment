@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "blocked",
-  "doing": "13:07 fire done (E2): X launch verified w/ real data (8 imp/0 clicks), 10/02 am+pm queued, Stripe no new signal, R1 still unread",
-  "next": "00:07 JST 10/02: run x-verify-day1-pm (verify 20:37 9月の失敗から#1 post w/ real data); check mac-local heartbeat; if R1 still unread advance only H2; write 10/03 posts from Day-2 data",
-  "blocked_on": "R1: owner must start mac-local (Mac supervisor); H1/H3/note blocked on it",
-  "heartbeat_at": "2026-10-01T04:16:51.832Z"
+  "doing": "20:07 fire ended E2: revenue engine owner-gated (R1/mac-local, Article 9), no cloud route to any sales board (re-confirmed); X content fed through 10/02; no new Stripe signal; X launch 9 imp/0 clicks",
+  "next": "00:07 JST 10/02: (1) run x-verify-day1-pm — verify the 20:37 9月の失敗から#1 post w/ real data (~3h after post), refresh metrics; (2) check mac-local heartbeat — if STILL none, R1 unread, advance only cloud/H2; (3) write 10/03 posts from Day-2 data; (4) re-read Stripe livemode for any G1 signal; (5) when an H1 proposal lands, build job via marketing/2026-10/h1/delivery/",
+  "blocked_on": null,
+  "heartbeat_at": "2026-10-01T11:26:53.835Z"
 }

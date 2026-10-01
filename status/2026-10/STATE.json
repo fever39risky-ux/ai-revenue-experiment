@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-01T13:20:00+09:00",
+  "as_of": "2026-10-01T20:20:00+09:00",
   "day": 1,
-  "day_note": "Day 1 live. 13:07 JST fire: X launch post VERIFIED with real data (tweet 2105483067351507272, run 36805396703 success; 8 impressions / 2 engagements / 0 profile_clicks / 0 likes-replies ~2h in) -> task x-verify-day1-am DONE; metrics refreshed via manual dispatch (run 36813863309). H2 Day-4 threshold (median>=20 imp & profile_clicks>0) NOT yet due. Queued 10/02-am (Day2 real-data report) + 10/02-pm (9月の失敗から②), both validate. Stripe livemode re-read: still only 3 Sept checkout.sessions, all expired/unpaid, NO new demand signal. mac-local STILL no Phase-2 heartbeat (last 2026-09-30) -> R1 owner request remains unread at top of OWNER_ACTION_REQUIRED.md; H1/H3/note stay blocked on it. Earlier (08:07): cloud egress to coconala.com BLOCKED; cloud Stripe livemode READ works.",
+  "day_note": "Day 1, 20:07 JST fire (3rd of day; 08:07 & 13:07 both ended E2, same root cause). Re-confirmed: KPI ¥0; Stripe livemode re-read = 0 charges, still only 3 Sept checkout.sessions all expired/unpaid, NO new demand signal; X launch tweet 9 imp / 0 profile_clicks (H2 Day-4 threshold not due); X queue validates OK (10/01-pm fires 20:37, 10/02-am/pm queued with real Day-1 data). mac-local STILL no Phase-2 heartbeat (last 2026-09-30T04:27Z) -> R1 unread (added a 20:07 current-status line to OWNER_ACTION_REQUIRED.md: active sales stopped a full day). NEW EVIDENCE this fire: cloud egress 403 to coconala.com AND booth.pm AND lancers.jp AND crowdworks.jp AND reddit.com -> positively confirms NO alternative cloud-reachable active-sales board exists (not merely that Coconala is blocked); codex also can't reach (Day-0 probe 000000). So the entire active-sales engine (H1/H3) is a single-point dependency on mac-local, which only the owner can start (R1, Article 9). This is an L5 organizational flaw to resolve at the Day-3 question; no cloud mitigation is available. x-verify-day1-pm is time-gated (opens 21:30 JST, best verified ~3h after the 20:37 post) -> 00:07 fire.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -126,7 +126,7 @@
       "Zenn content churn lane",
       "AGENT_LOOP.md/CURRENT_STATUS.json as live state (read-only September history)"
     ],
-    "open_question_for_day3": "Merge coconala-op and booth-op into mac-local if they have not heartbeated by 10/03 (Art.6)."
+    "open_question_for_day3": "Merge coconala-op and booth-op into mac-local if they have not heartbeated by 10/03 (Art.6). L5 flag (raised 10/01 20:07, 3rd owner-blocked fire): the entire active-sales engine (H1/H3) is a single-point dependency on mac-local; cloud has 403 egress to EVERY sales board tested (coconala/booth/lancers/crowdworks/reddit) and codex can't browse either, so NO cloud mitigation exists. Resolution is owner-gated (start Mac, R1) — there is no AI redesign that removes the dependency while browser-only sites are the demand source. Re-evaluate at Day-3 whether to (a) escalate R1 framing, (b) stand up a 2nd local browser operator, or (c) weight H2 (cloud-native content motion) harder until a browser operator is reliably live."
   },
   "channels": [
     {
