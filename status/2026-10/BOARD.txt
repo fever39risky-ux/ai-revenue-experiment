@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-01T17:29:39.444Z (JST 2026-10-02) ===
+=== Phase 2 board — 2026-10-01T17:32:16.680Z (JST 2026-10-02) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 2x/4min
 BOTTLENECK  The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).
 PRIORITY
@@ -8,7 +8,7 @@ PRIORITY
   - [founder] Next fire (08:07 JST 10/02): (1) BACKSTOP — dispatch x-phase2.yml (GitHub MCP actions_run_trigger) so the 08:37 第2弾Day2 post isn't lost to a skipped scheduled run; if still queued at ~09:10 JST, dispatch again and verify posted.jsonl. (2) check mac-local heartbeat — if STILL none, R1 unread 2nd day; advance only cloud/H2. (3) re-read Stripe livemode for any G1 signal. (4) at the 20:07 fire, write the 10/03 Day3 morning post from real 10/02 numbers (board). (5) book X as a weekly signal when due; H2 Day-4 check 10/04. (6) when an H1 proposal lands, build via marketing/2026-10/h1/delivery/.
   - [codex] Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing
 OPERATORS
-  actions                working   STALE 2326m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 2329m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               unverified NEVER       lanes=booth-listing
@@ -17,14 +17,14 @@ OPERATORS
   coconala-op            unverified NEVER       lanes=coconala-listing
       doing: Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet
       next:  On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md
-  codex                  idle      STALE 1897m lanes=
+  codex                  idle      STALE 1899m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                blocked   live 64m    lanes=strategy,x,h1-delivery,reporting
+  founder                blocked   live 67m    lanes=strategy,x,h1-delivery,reporting
       doing: Owner's mac-local supervisor fix is DONE on main (8c12b5a, parallel session) and I verified it correct+superior; stood down from my equivalent to avoid duplication
       next:  08:07 JST: confirm owner ran one-time install_mac_supervisor.py on the Mac (health supervisor_alive:true + first live mac-local heartbeat); backstop-dispatch x-phase2.yml for the 08:37 Day2 post; re-read Stripe
   mac-local              blocked   live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: 02:29 JST re-check: coconala still logged out in mac-local profile; recovery commit pushed
+      doing: 02:31 JST re-check: coconala still logged out in mac-local profile
       next:  After owner login: verify 3 sites logged_in + log human; claim h1-coconala-requests-scan, re-scan 公開依頼, send ≤5 proposals, check inbox; then h3 snapshot; h2 note publish
 TASKS (6 not done)
   P1 h1-coconala-requests-scan      open      [local_browser] H1: scan Coconala 公開依頼, shortlist, send ≤5 proposals, check listing inbox
