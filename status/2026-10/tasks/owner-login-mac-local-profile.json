@@ -1,0 +1,17 @@
+{
+  "id": "owner-login-mac-local-profile",
+  "title": "OWNER (~3 min, once): log in to coconala + BOOTH + note in the mac-local browser profile",
+  "lane": "local-browser",
+  "detail": "Why: all mac-local tasks (H1 proposals, H2 note publish, H3 snapshot) are blocked on logins; the dedicated profile is empty. Step: when mac-local is NOT running (board shows mac-local idle/blocked), paste in Terminal: \"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local\" https://coconala.com/login https://manage.booth.pm/users/sign_in https://note.com/login  — log in on each of the 3 tabs (do 2FA if asked; Google/pixiv SSO is fine), then quit the window (Cmd+Q). Done: run 'node scripts/oct/ops.mjs done founder owner-login-mac-local-profile --result logged-in' or just tell any session; mac-local re-checks on its next run and logs the human_intervention.",
+  "requires": [
+    "human"
+  ],
+  "priority": 1,
+  "created_by": "mac-local",
+  "created_at": "2026-10-01T16:44:29.686Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

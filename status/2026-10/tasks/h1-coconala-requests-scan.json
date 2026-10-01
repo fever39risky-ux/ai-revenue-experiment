@@ -22,6 +22,17 @@
       "op": "founder",
       "action": "sequenced",
       "note": "start after ops-verify-local-browser is done"
+    },
+    {
+      "ts": "2026-10-01T16:44:36.114Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T16:47:16.740Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "Public scan done (logged-out): ~95 open requests, 0 GO, screen in marketing/2026-10/h1/screens/2026-10-02.md (near-miss 5289140, 8d old). Sending proposals + listing inbox check BLOCKED on coconala login (task owner-login-mac-local-profile). Re-scan + send after login."
     }
   ],
   "after": [

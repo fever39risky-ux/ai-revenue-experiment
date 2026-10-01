@@ -20,6 +20,17 @@
       "op": "founder",
       "action": "sequenced",
       "note": "start after ops-verify-local-browser is done"
+    },
+    {
+      "ts": "2026-10-01T16:47:16.833Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T16:47:55.343Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "Public baseline 2026-10-02 01:47 JST: Coconala 4426150 販売実績0 / 評価0.0 / 残り1枠 / ¥3,000; BOOTH 8919052 スキ 0 (no count shown), ¥3,000, public since 09-30. No signals to book (all 0). Dashboard views/favorites/messages need coconala+booth login (task owner-login-mac-local-profile)."
     }
   ],
   "after": [

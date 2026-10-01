@@ -10,10 +10,10 @@
   "acceptance": "mac-local heartbeat capabilities include a working browser automation path (playwright-mcp or playwright library) and per-site logged_in yes/no; result lists sites needing a one-time owner login (batched into ONE request, logged as human_intervention if performed). Day-0 drill already proved coordination + reachability (coconala 200, booth 302, note 200) and playwright-browsers present; playwright-mcp was NOT detected.",
   "created_by": "founder",
   "created_at": "2026-09-30T02:43:15.976Z",
-  "status": "claimed",
+  "status": "done",
   "claimed_by": "mac-local",
   "lease_until": "2026-10-01T18:42:35.300Z",
-  "result": null,
+  "result": "Browser path WORKS: playwright-mcp @playwright/mcp@0.0.83 --browser chromium, dedicated profile browser-profiles/mac-local (installed missing chromium-1247 build via 'npx @playwright/mcp@0.0.83 install-browser chromium'). logged_in: coconala=no (redirect /login), booth=no (manage.booth.pm -> /users/sign_in), note=no (/notes/new -> /login). One batched owner login request created: task owner-login-mac-local-profile.",
   "history": [
     {
       "ts": "2026-09-30T04:29:38Z",
@@ -25,6 +25,12 @@
       "ts": "2026-10-01T16:42:35.300Z",
       "op": "mac-local",
       "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T16:44:29.570Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Browser path WORKS: playwright-mcp @playwright/mcp@0.0.83 --browser chromium, dedicated profile browser-profiles/mac-local (installed missing chromium-1247 build via 'npx @playwright/mcp@0.0.83 install-browser chromium'). logged_in: coconala=no (redirect /login), booth=no (manage.booth.pm -> /users/sign_in), note=no (/notes/new -> /login). One batched owner login request created: task owner-login-mac-local-profile."
     }
   ],
   "not_before": "2026-10-01T00:00:00+09:00",

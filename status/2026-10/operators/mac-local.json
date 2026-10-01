@@ -17,11 +17,11 @@
     "reach-coconala",
     "reach-booth"
   ],
-  "status": "working",
-  "doing": "ops-verify-local-browser",
-  "next": "h1-coconala-requests-scan",
+  "status": "blocked",
+  "doing": "Waiting for owner login in mac-local profile (task owner-login-mac-local-profile)",
+  "next": "After login: verify logged_in for 3 sites + log human_intervention; re-scan Coconala 公開依頼 and send ≤5 proposals (h1); check listing inbox; publish note_01 (h2); dashboard snapshot (h3)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T16:42:35.399Z",
-  "blocked_on": null
+  "heartbeat_at": "2026-10-01T16:47:55.667Z",
+  "blocked_on": "coconala/booth/note login"
 }
