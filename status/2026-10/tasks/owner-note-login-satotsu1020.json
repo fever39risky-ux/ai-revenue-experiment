@@ -1,0 +1,17 @@
+{
+  "id": "owner-note-login-satotsu1020",
+  "title": "OWNER (~2 min): re-login note-profile as @satotsu1020 (currently logged in as kinoshitat0904)",
+  "lane": "note",
+  "detail": "Why: h2-note-publish must go out on note.com/satotsu1020, but browser-profiles/note-profile is logged in as a different note account (urlname kinoshitat0904, 0 notes). Step: while mac-local is idle/blocked, open \"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile\" https://note.com/logout then log in at https://note.com/login with the @satotsu1020 account, then Cmd+Q. Done: tell any session or 'node scripts/oct/ops.mjs done founder owner-note-login-satotsu1020 --result logged-in'; mac-local then publishes h2.",
+  "requires": [
+    "human"
+  ],
+  "priority": 2,
+  "created_by": "mac-local",
+  "created_at": "2026-10-01T17:39:22.677Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

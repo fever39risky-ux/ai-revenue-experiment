@@ -18,10 +18,10 @@
     "reach-booth"
   ],
   "status": "blocked",
-  "doing": "02:36 JST re-check: playwright browser context closed (profile possibly in use by owner login); owner-login-mac-local-profile still open",
-  "next": "After owner completes owner-login-mac-local-profile: claim h1-coconala-requests-scan, re-scan 公開依頼, send ≤5 proposals, check inbox; then h3 dashboard snapshot",
+  "doing": "02:40 JST: coconala profile can't open tabs; note-profile is wrong account (kinoshitat0904)",
+  "next": "After owner-login-mac-local-profile: claim h1-coconala-requests-scan + h3; after owner-note-login-satotsu1020: claim h2-note-publish and publish note_01.md",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:36:20.238Z",
-  "blocked_on": "coconala login"
+  "heartbeat_at": "2026-10-01T17:39:29.879Z",
+  "blocked_on": "coconala login; note account (@satotsu1020)"
 }
