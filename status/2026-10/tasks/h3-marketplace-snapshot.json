@@ -31,6 +31,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "Public baseline 2026-10-02 01:47 JST: Coconala 4426150 販売実績0 / 評価0.0 / 残り1枠 / ¥3,000; BOOTH 8919052 スキ 0 (no count shown), ¥3,000, public since 09-30. No signals to book (all 0). Dashboard views/favorites/messages need coconala+booth login (task owner-login-mac-local-profile)."
+    },
+    {
+      "ts": "2026-10-01T17:52:39.057Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T17:53:04.778Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "Public baseline captured (marketing/2026-10/h3/snapshot_2026-10-02_public.md): coconala 4426150 sales 0, fav 0, requests 0; BOOTH 8919052 likes 0. Dashboard views/messages BLOCKED on owner-login-mac-local-profile."
     }
   ],
   "after": [

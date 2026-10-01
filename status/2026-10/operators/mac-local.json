@@ -18,10 +18,10 @@
     "reach-booth"
   ],
   "status": "blocked",
-  "doing": "02:50 JST re-check: BOOTH sign_in, coconala timeout",
-  "next": "After owner-login-mac-local-profile: claim h1-coconala-requests-scan (scan + send ≤5 proposals) then h3-marketplace-snapshot; after owner-note-login-satotsu1020: h2-note-publish",
+  "doing": "02:53 JST: coconala delta scan 0 GO; H3 public baseline captured",
+  "next": "After owner login: claim h1-coconala-requests-scan (re-scan >=08:00 JST, send <=5 proposals, check inbox) then h3-marketplace-snapshot dashboards; after owner-note-login-satotsu1020: h2-note-publish",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:50:28.238Z",
-  "blocked_on": "coconala+BOOTH login (mac-local profile)"
+  "heartbeat_at": "2026-10-01T17:53:05.121Z",
+  "blocked_on": "coconala/BOOTH/note login (owner-login-mac-local-profile)"
 }
