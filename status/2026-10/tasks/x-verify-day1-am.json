@@ -11,9 +11,21 @@
   "not_before": "2026-10-01T09:30:00+09:00",
   "created_by": "founder",
   "created_at": "2026-09-30T04:12:55.654Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "founder",
+  "lease_until": "2026-10-01T06:11:10.447Z",
+  "result": "VERIFIED: x-phase2 run 36805396703 (sched, delayed from 08:37 cron) posted launch tweet 2105483067351507272 at 2026-10-01T02:20:56Z=11:20 JST, conclusion=success; posted.jsonl has tweet_id for 2026-10-01-am.json; am queue file removed (only pm remains). Metrics refreshed via manual dispatch run 36813863309 (12:37 sched run delayed): 8 impressions, 2 engagements, 0 profile_clicks, 0 likes/replies ~2h post. H2 Day4 threshold (median>=20 imp & profile_clicks>0) not yet due.",
+  "history": [
+    {
+      "ts": "2026-10-01T04:11:10.447Z",
+      "op": "founder",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-01T04:12:03.835Z",
+      "op": "founder",
+      "action": "done",
+      "note": "VERIFIED: x-phase2 run 36805396703 (sched, delayed from 08:37 cron) posted launch tweet 2105483067351507272 at 2026-10-01T02:20:56Z=11:20 JST, conclusion=success; posted.jsonl has tweet_id for 2026-10-01-am.json; am queue file removed (only pm remains). Metrics refreshed via manual dispatch run 36813863309 (12:37 sched run delayed): 8 impressions, 2 engagements, 0 profile_clicks, 0 likes/replies ~2h post. H2 Day4 threshold (median>=20 imp & profile_clicks>0) not yet due."
+    }
+  ]
 }

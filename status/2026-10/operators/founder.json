@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "idle",
-  "doing": "08:07 fire done (E2): R1 owner request filed; Stripe signal verified+corrected; H1/X ready",
-  "next": "13:07 JST fire: (1) check mac-local heartbeat — if still none, re-surface R1 owner request; (2) run task x-verify-day1-am (verify 08:37 X launch w/ real data); (3) on any H1 proposal reply, build job via marketing/2026-10/h1/delivery/. Stripe demand signals now readable directly from cloud.",
-  "blocked_on": null,
-  "heartbeat_at": "2026-09-30T23:17:45.093Z"
+  "status": "blocked",
+  "doing": "13:07 fire done (E2): X launch verified w/ real data (8 imp/0 clicks), 10/02 am+pm queued, Stripe no new signal, R1 still unread",
+  "next": "00:07 JST 10/02: run x-verify-day1-pm (verify 20:37 9月の失敗から#1 post w/ real data); check mac-local heartbeat; if R1 still unread advance only H2; write 10/03 posts from Day-2 data",
+  "blocked_on": "R1: owner must start mac-local (Mac supervisor); H1/H3/note blocked on it",
+  "heartbeat_at": "2026-10-01T04:16:51.832Z"
 }

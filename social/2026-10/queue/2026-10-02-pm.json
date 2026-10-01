@@ -1,0 +1,15 @@
+{
+  "not_before": "2026-10-02T20:37:00+09:00",
+  "text": "9月の失敗から②\n\n30日でAIは約40個の売り物を作った\nStripe、Gumroad、Etsy、Zenn、note…\n\nでも「作った・出した・記録した」を\nずっと進捗として数えてた\n\n本当の進捗は、誰かが財布か時間を動かすこと\nそこは0件やった\n\n10月は作った数をKPIから外す",
+  "series": "9月の失敗から",
+  "hypothesis": "H2",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "一人称トーンは僕（Register C）",
+    "関西弁は軽め（やった）",
+    "事実は9月総括と一致（約40供給・市場反応0件・作る=進捗の誤り）",
+    "リンクなし",
+    "構造的失敗を1つだけ、最後に10月の変更で締める"
+  ],
+  "facts_source": "ops/2026-10/SEPTEMBER_RETROSPECTIVE.md §1 (約40供給・市場反応ほぼ0), §2 Supply/Conversion, §3 根本原因1 (成果定義が手段寄り)"
+}

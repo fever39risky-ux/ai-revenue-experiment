@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-01T08:20:00+09:00",
+  "as_of": "2026-10-01T13:20:00+09:00",
   "day": 1,
-  "day_note": "Day 1 live. 08:07 JST fire: mac-local had NO Phase-2 heartbeat -> R1 triggered; filed ONE owner request (start Mac supervisor) in OWNER_ACTION_REQUIRED.md; cloud egress to coconala.com confirmed BLOCKED so H1/H3/note sit solely on mac-local. NEW CAPABILITY: cloud Stripe livemode READ now works (was recorded denied) -> verified the Sept demand signal = 3 checkout sessions (not 5), all $19 USD expired/unpaid, 0 payment_intents (all left BEFORE payment). H1 proposal+delivery kit and X launch queue verified READY.",
+  "day_note": "Day 1 live. 13:07 JST fire: X launch post VERIFIED with real data (tweet 2105483067351507272, run 36805396703 success; 8 impressions / 2 engagements / 0 profile_clicks / 0 likes-replies ~2h in) -> task x-verify-day1-am DONE; metrics refreshed via manual dispatch (run 36813863309). H2 Day-4 threshold (median>=20 imp & profile_clicks>0) NOT yet due. Queued 10/02-am (Day2 real-data report) + 10/02-pm (9月の失敗から②), both validate. Stripe livemode re-read: still only 3 Sept checkout.sessions, all expired/unpaid, NO new demand signal. mac-local STILL no Phase-2 heartbeat (last 2026-09-30) -> R1 owner request remains unread at top of OWNER_ACTION_REQUIRED.md; H1/H3/note stay blocked on it. Earlier (08:07): cloud egress to coconala.com BLOCKED; cloud Stripe livemode READ works.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -102,7 +102,7 @@
     {
       "rank": 4,
       "owner": "founder",
-      "action": "Next fire: (1) check mac-local heartbeat — if STILL none, the R1 owner request is unread; re-surface it and advance only cloud work. (2) 13:07 JST: verify the 08:37 X launch post with real data (task x-verify-day1-am). (3) When an H1 proposal lands, build the job via marketing/2026-10/h1/delivery/ (kit ready). Stripe demand signals now readable directly from cloud each fire (Stripe MCP, livemode)."
+      "action": "Next fire (00:07 JST 10/02): (1) run task x-verify-day1-pm — verify the 10/01 20:37 JST post (9月の失敗から#1) with real data; refresh metrics. (2) check mac-local heartbeat — if STILL none, R1 is unread; advance only cloud work. (3) book X results as a weekly signal if due; write 10/03 posts from fresh data. (4) When an H1 proposal lands, build the job via marketing/2026-10/h1/delivery/. Stripe demand signals readable directly from cloud each fire (Stripe MCP, livemode)."
     },
     {
       "rank": 5,
@@ -199,14 +199,18 @@
     "queue": "social/2026-10/queue/",
     "posted": "social/2026-10/posted.jsonl",
     "metrics": "social/2026-10/metrics.json",
+    "posted_real": [
+      "2026-10-01 11:20 JST tweet 2105483067351507272 (launch) — 8 imp / 2 eng / 0 profile_clicks @ 04:10Z refresh"
+    ],
     "queued": [
-      "2026-10-01 08:37 JST (not_before=08:37, cron 37 23 * * * UTC) — launch",
-      "2026-10-01 20:37 JST (not_before=20:37, cron 37 11 * * * UTC) — 9月の失敗から #1"
+      "2026-10-01 20:37 JST (not_before=20:37) — 9月の失敗から #1 (pending)",
+      "2026-10-02 08:37 JST (not_before=08:37) — 第2弾 Day2 (Day1 real numbers + Stripe decision)",
+      "2026-10-02 20:37 JST (not_before=20:37) — 9月の失敗から ②"
     ],
     "first_check": "2026-10-04",
     "schedule_doc": "ops/2026-10/X_PHASE2.md §5",
     "verification": [
-      "task x-verify-day1-am (Founder 13:07 fire)",
+      "task x-verify-day1-am DONE 2026-10-01 13:07 fire (8 imp / 0 profile_clicks real)",
       "task x-verify-day1-pm (Founder 00:07 fire, 10/02)"
     ]
   },
