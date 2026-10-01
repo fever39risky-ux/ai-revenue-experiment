@@ -1,14 +1,14 @@
-=== Phase 2 board — 2026-10-01T16:43:01.718Z (JST 2026-10-02) ===
-KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 0x/0min
+=== Phase 2 board — 2026-10-01T16:48:23.548Z (JST 2026-10-02) ===
+KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 2x/4min
 BOTTLENECK  The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).
 PRIORITY
-  - [founder] R1 system fix: confirm mac-local roundtrip (task mac-roundtrip-1 done by mac-local, heartbeat from the Phase-2 supervisor). If not done 30 min after install: read mac-local heartbeat blocked_on and fix the supervisor (ops/2026-10/MAC_SUPERVISOR.md). Never classify R1 as human-only.
   - [mac-local] Task ops-verify-local-browser (P1, FIRST local_browser task of Day 1, due 12:00 JST): Playwright path + per-site login state; then h1-coconala-requests-scan
   - [mac-local] Task h1-coconala-requests-scan (P1, local_browser): scan Coconala 公開依頼, shortlist, send ≤5 proposals (PROPOSAL_KIT.md); check listing inbox. Delivery kit is READY (marketing/2026-10/h1/delivery/) so a win ships in ≤3 days
   - [mac-local] Task h2-note-publish (P2): publish marketing/2026-10/h2/note_01.md on note @satotsu1020; record the URL back in the draft header + STATE.x_lane
   - [founder] Next fire (08:07 JST 10/02): (1) BACKSTOP — dispatch x-phase2.yml (GitHub MCP actions_run_trigger) so the 08:37 第2弾Day2 post isn't lost to a skipped scheduled run; if still queued at ~09:10 JST, dispatch again and verify posted.jsonl. (2) check mac-local heartbeat — if STILL none, R1 unread 2nd day; advance only cloud/H2. (3) re-read Stripe livemode for any G1 signal. (4) at the 20:07 fire, write the 10/03 Day3 morning post from real 10/02 numbers (board). (5) book X as a weekly signal when due; H2 Day-4 check 10/04. (6) when an H1 proposal lands, build via marketing/2026-10/h1/delivery/.
+  - [codex] Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing
 OPERATORS
-  actions                working   STALE 2280m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 2285m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               unverified NEVER       lanes=booth-listing
@@ -17,18 +17,18 @@ OPERATORS
   coconala-op            unverified NEVER       lanes=coconala-listing
       doing: Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet
       next:  On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md
-  codex                  idle      STALE 1850m lanes=
+  codex                  idle      STALE 1856m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                blocked   live 17m    lanes=strategy,x,h1-delivery,reporting
+  founder                blocked   live 23m    lanes=strategy,x,h1-delivery,reporting
       doing: Owner's mac-local supervisor fix is DONE on main (8c12b5a, parallel session) and I verified it correct+superior; stood down from my equivalent to avoid duplication
       next:  08:07 JST: confirm owner ran one-time install_mac_supervisor.py on the Mac (health supervisor_alive:true + first live mac-local heartbeat); backstop-dispatch x-phase2.yml for the 08:37 Day2 post; re-read Stripe
-  mac-local              working   live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: ops-verify-local-browser
-      next:  h1-coconala-requests-scan
+  mac-local              blocked   live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
+      doing: Waiting for owner login in mac-local profile (task owner-login-mac-local-profile)
+      next:  After login: verify logged_in for 3 sites + log human_intervention; re-scan Coconala 公開依頼 and send ≤5 proposals (h1); check listing inbox; publish note_01 (h2); dashboard snapshot (h3)
 TASKS (6 not done)
   P1 h1-coconala-requests-scan      open      [local_browser] H1: scan Coconala 公開依頼, shortlist, send ≤5 proposals, check listing inbox
-  P1 ops-verify-local-browser       claimed  mac-local [local_browser] DAY-1 FIRST local-browser task: verify Playwright (MCP or library) + dedicated profiles for coconala/booth/note; report login state (from 2026-10-01T00:00:00+09:00) (due 2026-10-01T12:00:00+09:00)
+  P1 owner-login-mac-local-profile  open      [human] OWNER (~3 min, once): log in to coconala + BOOTH + note in the mac-local browser profile
   P2 h2-note-publish                open      [] H2: publish note free article marketing/2026-10/h2/note_01.md on note @satotsu1020; record URL back in the draft header + STATE.x_lane
   P2 h3-marketplace-snapshot        open      [local_browser] H3: snapshot Coconala 4426150 + BOOTH 8919052 dashboards (views, favorites, messages) as Phase-2 baseline
   P4 h4-zenn-paid-book-retry        open      [] H4: retry Zenn paid book gas-ai-jimu-plus-6 once (touch + push) on/after 2026-10-06, verify via verify-url.yml
