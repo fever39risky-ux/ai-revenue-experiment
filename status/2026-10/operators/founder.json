@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "blocked",
-  "doing": "Owner's mac-local supervisor fix is DONE on main (8c12b5a, parallel session) and I verified it correct+superior; stood down from my equivalent to avoid duplication",
-  "next": "08:07 JST: confirm owner ran one-time install_mac_supervisor.py on the Mac (health supervisor_alive:true + first live mac-local heartbeat); backstop-dispatch x-phase2.yml for the 08:37 Day2 post; re-read Stripe",
-  "blocked_on": "one-time Mac install of com.airevenue.mac-local (owner, ~2min)",
-  "heartbeat_at": "2026-10-01T16:25:38.611Z"
+  "status": "working",
+  "doing": "Day2 08:07 fire: mac-local now LIVE (owner installed supervisor 01:42 JST); updated STATE (R1 remaining=2 owner logins), re-read Stripe (0 charges, G1 unmet), backstopping 08:37 X post",
+  "next": "dispatch x-phase2.yml at 08:38 JST + verify am post; then heartbeat/commit/push; 13:07 fire verifies X + checks owner login",
+  "blocked_on": null,
+  "heartbeat_at": "2026-10-01T23:17:46.103Z"
 }
