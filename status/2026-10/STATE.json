@@ -86,31 +86,26 @@
   "priority_actions": [
     {
       "rank": 1,
-      "owner": "founder",
-      "action": "R1 system fix: confirm mac-local roundtrip (task mac-roundtrip-1 done by mac-local, heartbeat from the Phase-2 supervisor). If not done 30 min after install: read mac-local heartbeat blocked_on and fix the supervisor (ops/2026-10/MAC_SUPERVISOR.md). Never classify R1 as human-only."
-    },
-    {
-      "rank": 2,
       "owner": "mac-local",
       "action": "Task ops-verify-local-browser (P1, FIRST local_browser task of Day 1, due 12:00 JST): Playwright path + per-site login state; then h1-coconala-requests-scan"
     },
     {
-      "rank": 3,
+      "rank": 2,
       "owner": "mac-local",
       "action": "Task h1-coconala-requests-scan (P1, local_browser): scan Coconala 公開依頼, shortlist, send ≤5 proposals (PROPOSAL_KIT.md); check listing inbox. Delivery kit is READY (marketing/2026-10/h1/delivery/) so a win ships in ≤3 days"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "owner": "mac-local",
       "action": "Task h2-note-publish (P2): publish marketing/2026-10/h2/note_01.md on note @satotsu1020; record the URL back in the draft header + STATE.x_lane"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "owner": "founder",
       "action": "Next fire (08:07 JST 10/02): (1) BACKSTOP — dispatch x-phase2.yml (GitHub MCP actions_run_trigger) so the 08:37 第2弾Day2 post isn't lost to a skipped scheduled run; if still queued at ~09:10 JST, dispatch again and verify posted.jsonl. (2) check mac-local heartbeat — if STILL none, R1 unread 2nd day; advance only cloud/H2. (3) re-read Stripe livemode for any G1 signal. (4) at the 20:07 fire, write the 10/03 Day3 morning post from real 10/02 numbers (board). (5) book X as a weekly signal when due; H2 Day-4 check 10/04. (6) when an H1 proposal lands, build via marketing/2026-10/h1/delivery/."
     },
     {
-      "rank": 6,
+      "rank": 5,
       "owner": "codex",
       "action": "Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing"
     }
@@ -223,9 +218,7 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [
-      "2026-10-02 (R1 fix, one-time, ~2 min, category=permission): on the Mac run `git pull && python3 scripts/oct/install_mac_supervisor.py --install` in any checkout of this repo (or ask a local Claude session to run it). Installs the Phase-2 LaunchAgent com.airevenue.phase2.mac-local and retires the dead September agent. After that, mac-local tasks start automatically with no owner action. Supersedes the 10/01 `launchctl kickstart … claude-autonomous` request (that agent exits immediately; see ops/2026-10/MAC_SUPERVISOR.md §1)."
-    ],
+    "open": [],
     "note": "One open request (R1). Possible follow-up: a site login/2FA in a dedicated browser profile if sessions expired (mac-local logs it as human_intervention)."
   },
   "reviews": [
@@ -265,11 +258,11 @@
   "risks": [
     {
       "id": "R1",
-      "status": "SYSTEM DEFECT, not a human-only blocker — fix shipped 2026-10-02 (Phase-2 Mac supervisor); awaiting one-time install + zero-human roundtrip mac-roundtrip-1",
+      "status": "RESOLVED for auto-wake (2026-10-02 01:42 JST): zero-human Founder->Mac roundtrip verified (mac-roundtrip-1, commit ee7e4ac). Open part: ops-verify-local-browser (dedicated Playwright profile + site logins) — in progress by mac-local",
       "risk": "H1/H3/note depend on mac-local browser work",
       "evidence": "2026-09-30 13:26 JST mac-local ran scripts/oct/coord_drill.sh on the Mac: 8/8 PASS (registry, heartbeat, claim, double-claim rejected, release, re-claim, done, handoff); Founder accepted the handoff from the cloud and was rejected on the held lease (cross-machine claim protection works). Probe: coconala.com 200, booth.pm 302, note.com 200, x.com 200; capabilities git,node,claude-cli,playwright-browsers,browser-profile-dir,reach-coconala,reach-booth.",
       "remaining": "playwright-mcp was NOT detected by `claude mcp list` in the drill runtime, and site logins in the dedicated profiles are unverified. Day-1 task ops-verify-local-browser (P1) resolves this first; a login/2FA, if needed, is one batched owner request logged as human_intervention. NOTE (Day-1): codex's Day-0 probe returned coconala/booth/note/x = 000000 (unreachable) with caps git,node,browser-profile-dir only — codex is NOT a browser fallback; all H1/H3 browser work sits solely on mac-local.",
-      "trigger": "mac-roundtrip-1 not done within 30 min after the supervisor is installed, or ops-verify-local-browser fails",
+      "trigger": "mac-local heartbeat blocked_on set, or ops-verify-local-browser released/failed",
       "response": "read the mac-local blocked_on heartbeat + supervisor state; fix the supervisor/worker (AI work). Owner involvement only for password/2FA/KYC or the one-time LaunchAgent install (Art.9 permission)",
       "root_cause": "September supervisor dead since 2026-09-26: Run 135 wrote a free-text stop_reason into status/AUTONOMY_STATE.json -> autonomy_supervisor.validate() raises invalid_stop_reason -> 'safe stop' exits 0 -> LaunchAgent KeepAlive.SuccessfulExit=false never restarts it. Kickstarting it would exit again immediately.",
       "fix": "scripts/oct/mac_supervisor.py (task-driven, KeepAlive=true, never exits on business conditions, dedicated checkout, dedicated Playwright profile, ops.mjs protocol) + scripts/oct/install_mac_supervisor.py; design ops/2026-10/MAC_SUPERVISOR.md; tests tests/test_mac_supervisor.py"
