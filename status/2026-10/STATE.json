@@ -218,7 +218,9 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [],
+    "open": [
+      "2026-10-02 01:48 (task owner-login-mac-local-profile, ~3 min, category=login): log in to coconala + BOOTH + note once in the dedicated mac-local browser profile (command in OWNER_ACTION_REQUIRED.md). Unblocks H1 proposal sending + inbox, H3 dashboards, H2 note publish."
+    ],
     "note": "One open request (R1). Possible follow-up: a site login/2FA in a dedicated browser profile if sessions expired (mac-local logs it as human_intervention)."
   },
   "reviews": [
@@ -258,7 +260,7 @@
   "risks": [
     {
       "id": "R1",
-      "status": "RESOLVED for auto-wake (2026-10-02 01:42 JST): zero-human Founder->Mac roundtrip verified (mac-roundtrip-1, commit ee7e4ac). Open part: ops-verify-local-browser (dedicated Playwright profile + site logins) — in progress by mac-local",
+      "status": "RESOLVED for auto-wake (zero-human roundtrip ee7e4ac) and browser path (02d9888: dedicated Playwright profile works). Remaining: one owner login (Art.9 password/2FA) in the new mac-local profile — task owner-login-mac-local-profile; supervisor holds (no respawn churn) until it changes",
       "risk": "H1/H3/note depend on mac-local browser work",
       "evidence": "2026-09-30 13:26 JST mac-local ran scripts/oct/coord_drill.sh on the Mac: 8/8 PASS (registry, heartbeat, claim, double-claim rejected, release, re-claim, done, handoff); Founder accepted the handoff from the cloud and was rejected on the held lease (cross-machine claim protection works). Probe: coconala.com 200, booth.pm 302, note.com 200, x.com 200; capabilities git,node,claude-cli,playwright-browsers,browser-profile-dir,reach-coconala,reach-booth.",
       "remaining": "playwright-mcp was NOT detected by `claude mcp list` in the drill runtime, and site logins in the dedicated profiles are unverified. Day-1 task ops-verify-local-browser (P1) resolves this first; a login/2FA, if needed, is one batched owner request logged as human_intervention. NOTE (Day-1): codex's Day-0 probe returned coconala/booth/note/x = 000000 (unreachable) with caps git,node,browser-profile-dir only — codex is NOT a browser fallback; all H1/H3 browser work sits solely on mac-local.",

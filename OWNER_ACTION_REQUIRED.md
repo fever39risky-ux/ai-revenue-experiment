@@ -9,9 +9,16 @@
 
 ## 現在の依頼（10月）
 
-（なし）
+### 🔑 1件・約3分（初回のみ）：mac-local専用ブラウザで ココナラ・BOOTH・note にログイン（10/02 01:48）
 
-> 10/02 01:42 JST：Mac常駐スーパーバイザーのインストールを確認しました（人間介入1回・推定2分として記録）。以後 mac-local 向けタスクは自動で起動します。
+**なぜ**：Macの自動運用は動作確認済みです（10/02 01:42、人間操作なしでタスク往復に成功）。ただし、既存のココナラ/BOOTH用ブラウザとは混ぜないために**新しい専用プロファイル**を作ったため、中身が空（未ログイン）です。ココナラへの提案送信・受信箱確認（H1）、出品データ（H3）、note公開（H2）はこのログインだけを待っています。公開されている依頼の確認は既に実施済みです（約95件を確認、適合0件）。
+
+**やること**：Macのターミナルに貼り付け → 開いた3つのタブでそれぞれログイン（2FAが出たら対応、Google/pixivログインも可）→ ウィンドウを終了（Cmd+Q）。
+```
+"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing" --user-data-dir="$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local" https://coconala.com/login https://manage.booth.pm/users/sign_in https://note.com/login
+```
+
+**その後**：操作は不要です。mac-local が自動で再確認し、提案送信・受信箱・出品データ・note公開を進めます（ログイン作業は人間介入として記録されます）。
 
 ---
 

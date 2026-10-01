@@ -103,6 +103,16 @@ def eligible_tasks(repo, op, caps, now=None):
     return out
 
 
+def work_signature(repo, tasks):
+    """What the worker could act on: eligible (id, status) + open human tasks. Unchanged after a
+    run = no progress (e.g. every task waits on an owner login) -> hold instead of respawning."""
+    tdir = Path(repo) / P2 / 'tasks'
+    human = sorted(t.get('id') for t in (read_json(f, {}) for f in tdir.glob('*.json'))
+                   if isinstance(t, dict) and 'human' in (t.get('requires') or []) and t.get('status') != 'done') \
+        if tdir.exists() else []
+    return json.dumps([sorted((t['id'], t.get('status')) for t in tasks), human])
+
+
 def worker_prompt(op, role, tasks, recovery):
     ids = ', '.join(t['id'] for t in tasks)
     rec = ('\nRECOVERY FIRST: the checkout has uncommitted or unpushed work from a previous run. '
@@ -138,6 +148,7 @@ class Supervisor:
         self.shutdown = False
         self.caps = a.caps.split(',') if a.caps else DEFAULT_CAPS
         self.started_mtime = Path(__file__).stat().st_mtime
+        self.np_sig, self.np_count, self.np_until = None, 0, None  # no-progress hold
 
     # metadata-only log (enums/numbers/ids; never model output)
     def log(self, event, **f):
@@ -293,6 +304,10 @@ class Supervisor:
         tasks = eligible_tasks(self.repo, self.op, self.caps)
         recovery = s == 'recovery'
         self.log('poll', sync=s, eligible=len(tasks))
+        sig = work_signature(self.repo, tasks)
+        if tasks and not recovery and sig == self.np_sig and self.np_until and utcnow() < self.np_until:
+            self.log('noprogress_hold', eligible=len(tasks), until=iso(self.np_until), count=self.np_count)
+            return self.wait(self.a.poll_sec)
         if tasks or recovery:
             kind = self.run_worker(tasks, recovery)
             # make sure whatever the worker committed reaches main
@@ -303,6 +318,15 @@ class Supervisor:
                 return self.backoff(kind)
             self.failures = 0
             self.last_idle_hb = utcnow()  # the worker heartbeated itself
+            after = work_signature(self.repo, eligible_tasks(self.repo, self.op, self.caps))
+            if tasks and after == sig:  # nothing moved: hold this task set, 5 -> 60 min
+                self.np_count = self.np_count + 1 if self.np_sig == sig else 1
+                self.np_sig = sig
+                hold = min(3600, 300 * 2 ** (self.np_count - 1))
+                self.np_until = utcnow() + dt.timedelta(seconds=hold)
+                self.log('noprogress', count=self.np_count, hold_seconds=hold)
+            else:
+                self.np_sig, self.np_count, self.np_until = None, 0, None
             return self.wait(self.a.after_work_sec)
         self.failures = 0
         if not self.last_idle_hb or utcnow() - self.last_idle_hb > dt.timedelta(minutes=self.a.hb_idle_min):

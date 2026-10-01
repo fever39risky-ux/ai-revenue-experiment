@@ -26,6 +26,7 @@ Structural lesson: every "safe stop" in that design (invalid state, auth missing
 | Results to GitHub | worker commits/pushes; afterwards the supervisor rebases + pushes any commits left behind (never force); idle liveness heartbeat every 120 min |
 | Owner only for password/2FA/KYC | worker releases a task that hits a login, creates one `--requires human` task with the exact 2-minute step, heartbeats `blocked_on: "<site> login"` |
 | Browser isolation | worker gets **its own** Playwright MCP server (`@playwright/mcp@0.0.83 --browser chromium --user-data-dir ~/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local`) via `--mcp-config … --strict-mcp-config`; the Coconala/BOOTH sessions' profiles are never opened or shared |
+| No respawn churn | if a worker run leaves the same eligible task set unchanged (e.g. every task waits on an owner login), that set is **held** for 5 → 10 → … → 60 min instead of starting a new Claude worker every poll; the hold clears as soon as the set or the open `requires: human` tasks change |
 | Code updates | `--self-update`: when `mac_supervisor.py` changes on main, the process exits and launchd restarts it with the new code |
 | Privacy | metadata-only log `…/operators/mac-local/state/supervisor.log` (events, exit codes, byte counts; no model output, no secrets) |
 
@@ -51,3 +52,8 @@ Founder task on main → supervisor poll detects it → Claude worker starts →
 Then `ops-verify-local-browser` (P1, local_browser) runs the same way and proves the dedicated Playwright profile path.
 
 Tests (no Mac needed): `python3 tests/test_mac_supervisor.py` — eligibility rules, a full Founder→supervisor→worker→push→Founder round trip against a bare git remote with a protocol-faithful fake worker, and failure → backoff → `blocked` heartbeat.
+
+## 5. Real-machine results
+
+- 2026-10-02 01:42 JST — `mac-roundtrip-1`: Founder task → supervisor detected → worker auto-started (`PHASE2_OPERATOR=mac-local`) → heartbeat → claim → tests PASS → done → push (`ee7e4ac`). Zero human input after the one-time install.
+- 2026-10-02 01:44–01:48 JST — the same worker continued on its own: `ops-verify-local-browser` done (Playwright MCP + dedicated profile work; it installed the missing Chromium build itself), sites logged out → one batched owner login task; H1 public screen (~95 requests, 0 GO) and H3 public baseline recorded; ended E2 (`02d9888`).

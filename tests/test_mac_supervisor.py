@@ -151,5 +151,36 @@ class RoundTrip(unittest.TestCase):
         shutil.rmtree(tmp)
 
 
+    def test_no_progress_run_is_held_not_respawned(self):
+        """Worker that can only release (e.g. waits on an owner login) must not be respawned every poll."""
+        tmp = Path(tempfile.mkdtemp())
+        remote = bare_remote(tmp)
+        founder = tmp / 'founder'
+        run(['git', 'clone', '-q', str(remote), str(founder)], tmp)
+        run(['git', 'rm', '-q', '-r', '--ignore-unmatch', 'status/2026-10/tasks'], founder)
+        run(['node', 'scripts/oct/ops.mjs', 'task-new', 'founder', 'needs-login', '--title', 'x', '--lane', 'x', '--assign', 'mac-local'], founder)
+        run(['git', 'add', '-A'], founder)
+        run(['git', '-c', 'user.name=f', '-c', 'user.email=f@f', 'commit', '-qm', 't'], founder)
+        run(['git', 'push', '-q', 'origin', 'HEAD:main'], founder)
+        worker = tmp / 'release_worker.sh'
+        worker.write_text(FAKE_WORKER.replace('echo "executed $id" > "status/2026-10/roundtrip-$id.txt"\n  $O done "$PHASE2_OPERATOR" "$id" --result "fake execution ok" >/dev/null',
+                                              '$O release "$PHASE2_OPERATOR" "$id" --reason "login needed" >/dev/null'))
+        worker.chmod(0o755)
+        sys.path.insert(0, str(REPO / 'scripts/oct'))
+        a = ms.argparse.Namespace(operator='mac-local', role='r', caps='local_browser', repo=str(tmp / 'mac/repo'),
+                                  state_dir=str(tmp / 'mac/state'), remote=str(remote), claude='x', worker_cmd=str(worker),
+                                  poll_sec=0, after_work_sec=0, hb_idle_min=120, worker_timeout_min=5, once=True,
+                                  self_update=False, verbose=False)
+        os.environ['HOME'] = str(tmp / 'home')
+        sup = ms.Supervisor(a)
+        sup.loop_once()                      # runs the worker; it only releases -> no progress
+        sup.loop_once()                      # same task set -> held, no second worker
+        log = (tmp / 'mac/state/supervisor.log').read_text()
+        self.assertEqual(log.count('"worker_start"'), 1)
+        self.assertIn('"noprogress"', log)
+        self.assertIn('"noprogress_hold"', log)
+        shutil.rmtree(tmp)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)
