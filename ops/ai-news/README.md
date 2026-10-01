@@ -124,3 +124,11 @@ receipt-input: `{state:<durable state>,run_id:<実行識別子>}`。proposalはI
 最終guardが拒否し、createを呼んでいないと確定できる場合は`aborted_before_post`と理由・時刻をremoteへ保存する。halt解除だけでは再開不可。`resolvePrePostAbort(state,id,{action:"cancelled"|"rescheduled",evidence,at,replacement_id})`で明示的な解決済みstateを生成し、親がdurable保存して再開する。再予定は新ID・新予定・承認hashの別パッケージが必要で、元IDは二度と送らない。全費用予約は維持し、既実行uploadや不明費用を勝手に返却しない。中止保存に失敗した場合はremoteに残ったintentを不明結果として扱う。API呼出し後の不明結果はこの復旧関数で解除できない。
 
 30分ガードは送信直前時点の既知予定・公開記録に対する検査。HTTP処理中の経過時間や別writerの将来実公開を含む厳密な公開間隔30分保証ではない。実公開日時と遅延は取得後に記録し、外部browser/CLIも含む協調運用が必要。
+
+### 同じ記事の再予定：正本IDを維持する
+
+ContentID・QueueID・ImageIDを再発行しない。新しいのは内部attempt IDだけ。初回manifestは`attempt_revision:1`（省略可）。再予定は`attempt_revision:2,previous_attempt_id:"c-20261001-004"`のように指定すると、内部package.idは`c-20261001-004-r2`になる。source_refsのContentID/QueueID/ImageID/NewsIDは初回のまま保持し、previous_attemptも承認hashに含める。
+
+手順は、POST未実行と確定した旧attemptを`resolvePrePostAbort(...,{action:"rescheduled",replacement_id:"...-r2",evidence,at})`で明示解決しdurable保存→親が正本の同じ投稿/queue行の予定日時を変更しreadyへ戻す→最新snapshotからrevision付きで再準備・承認→新attemptをqueueへ入れる。本文や画像が変わる場合も新snapshot/hashに対する承認が必要。古いqueue packageはimmutableのまま保持でき、新attemptだけが送信候補になる。
+
+receipt投影はContentIDごとに明示的な後継リンクを検証する。旧attemptと後継の参照先が異なる、複数の無関係attemptが同じ記事を指す、循環する場合は停止。後継開始前の解決済み旧中止receiptは備考の履歴だけを投影し、新しい予定・ready状態を旧状態で上書きしない。後継開始後は最新attemptだけで投稿/queue/mediaの現在状態を投影し、旧attemptの時刻・中止理由・upload ID等は既存備考の各attempt markerへ保持する。旧新で同じ行を二重更新しない。旧費用予約は維持する。新列は不要で、実シートへの書込みは親の再照合手順を引き続き必要とする。

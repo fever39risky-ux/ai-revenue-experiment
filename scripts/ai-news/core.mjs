@@ -181,6 +181,15 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
   for (const q of candidates) {
     if (now() - Date.parse(q.scheduled_at) > 15 * 60000) return stop(`missed_slot:${q.id}`);
     try {
+      if (q.source_refs.previous_attempt) {
+        const prev = s.posts[q.source_refs.previous_attempt];
+        check(prev?.status === 'aborted_before_post' && !prev.tweet_id && prev.resolution?.action === 'rescheduled' && prev.resolution.replacement_id === q.id &&
+          ['post', 'queue', 'media', 'news'].every(k => prev.source_refs[k] === q.source_refs[k]), 'invalid_attempt_successor');
+      }
+      if (q.source_refs.post.startsWith('CODEX_投稿DB:')) {
+        const related = Object.values(s.posts).filter(p => p.source_refs?.post === q.source_refs.post);
+        check(!related.length || related.some(p => p.id === q.source_refs.previous_attempt), 'missing_attempt_successor');
+      }
       collision(q, s, inventory, now());
       check(!Object.values(s.posts).some(p => p.status !== 'aborted_before_post' && p.scheduled_at === q.scheduled_at), 'slot_already_consumed');
       check(newsDailyCount(s, inventory, now()) < 3, 'news_daily_cap');

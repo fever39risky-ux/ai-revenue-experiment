@@ -51,11 +51,15 @@ export function preparePackage(snapshot, manifest) {
     check(q.get('MediaType') === 'Image' && m.get('RenderStatus') === 'success' && m.get('QAStatus') === 'pass', 'image_not_approved');
     check(image.sha256 === m.get('MediaHash'), 'canonical_media_hash_mismatch');
   } else check(text_fallback?.allowed && text_fallback.evidence && ['technical', 'approval'].includes(text_fallback.reason), 'fallback_evidence_required');
-  const id = content_id.toLowerCase();
+  const revision = manifest.attempt_revision ?? 1;
+  check(Number.isSafeInteger(revision) && revision >= 1, 'invalid_attempt_revision');
+  const id = content_id.toLowerCase() + (revision === 1 ? '' : `-r${revision}`);
+  check(revision === 1 ? !manifest.previous_attempt_id : typeof manifest.previous_attempt_id === 'string' && manifest.previous_attempt_id !== id, 'previous_attempt_required');
   const pkg = { schema: 1, id, account: 'KinoshitaTsks', sheet_id: SHEET,
     topic_key: n.get('重複キー') || newsId.toLowerCase(), text, source_urls: urls,
     scheduled_at: q.get('ScheduledAt'), image: image || null, text_fallback,
     source_refs: { post: ref('post', content_id), queue: ref('queue', queueId), media: ref('media', mediaId), news: ref('news', newsId),
+      ...(manifest.previous_attempt_id ? { previous_attempt: manifest.previous_attempt_id } : {}),
       kpi: `future-event:KPI-NEWS:${id}`, learning: `future-event:L-NEWS:${id}`, handoff_evidence: handoff.evidence }
   };
   // Validate structure with an explicitly temporary, non-publishable approval, then discard it.
@@ -86,28 +90,58 @@ export function receiptPlan(snapshot, state, { run_id }) {
     }).filter(c => c.expected !== c.value);
     if (cells.length) changes.push({ sheet: TABS[kind], kind, key_header: KEY[kind], id, expect_exists: Boolean(r), row_hint: r?.row_number ?? null, headers_sha256: sha(JSON.stringify(t.headers)), cells });
   }
+  const groups = new Map();
   for (const p of Object.values(state.posts)) {
+    const id = refId(p, 'post'); if (!groups.has(id)) groups.set(id, []); groups.get(id).push(p);
+  }
+  for (const attempts of groups.values()) {
+    // Explicit successor links, not timestamps/order, determine the current attempt.
+    const incoming = new Set(attempts.map(p => p.resolution?.replacement_id).filter(Boolean));
+    const roots = attempts.filter(p => !incoming.has(p.id));
+    check(roots.length === 1, 'ambiguous_attempt_history');
+    const history = []; let p = roots[0];
+    while (p) {
+      check(!history.includes(p), 'cyclic_attempt_history'); history.push(p);
+      const nextId = p.resolution?.replacement_id;
+      if (!nextId) break;
+      check(p.status === 'aborted_before_post' && !p.tweet_id && p.resolution.action === 'rescheduled', 'unsafe_attempt_successor');
+      const next = attempts.find(x => x.id === nextId);
+      if (!next) break; // Replacement approved/queued but has not started yet.
+      check(next.source_refs.previous_attempt === p.id && ['post', 'queue', 'media', 'news'].every(k => next.source_refs[k] === p.source_refs[k]), 'attempt_source_mismatch');
+      p = next;
+    }
+    check(history.length === attempts.length, 'disconnected_attempt_history');
+    const historyOnly = p.status === 'aborted_before_post' && p.resolution?.action === 'rescheduled';
     const contentId = refId(p, 'post'), queueId = refId(p, 'queue'), mediaId = refId(p, 'media');
     const post = row(snapshot, 'post', contentId), q = row(snapshot, 'queue', queueId), m = row(snapshot, 'media', mediaId);
     check(q.get('ContentID') === contentId && m.get('紐づくContentID') === contentId, 'receipt_join_mismatch');
+    if (!historyOnly) {
     check(sha(p.text) === post.get('BodyHash') && sha(p.text) === q.get('BodyHash') && post.get('投稿文_最終版') === p.text && q.get('PostText') === p.text, 'receipt_canonical_changed');
     check(post.get('予約日時') === p.scheduled_at && q.get('ScheduledAt') === p.scheduled_at, 'receipt_schedule_changed');
     if (post.get('XPostID')) check(post.get('XPostID') === p.tweet_id, 'receipt_existing_id_conflict');
     if (post.get('PlatformPostID')) check(post.get('PlatformPostID') === p.tweet_id, 'receipt_existing_id_conflict');
+    }
     const url = p.tweet_id ? `https://x.com/KinoshitaTsks/status/${p.tweet_id}` : '';
     for (const oldUrl of [post.get('投稿URL'), q.get('PostURL')]) check(!oldUrl || oldUrl === url, 'receipt_existing_url_conflict');
     const verified = p.status === 'verified';
     check(!verified || (p.tweet_id && Number.isFinite(Date.parse(p.published_at))), 'verified_receipt_incomplete');
     const blocked = !verified && (state.halt || ['post_intent', 'upload_intent', 'posted_unverified'].includes(p.status));
     const status = p.status === 'aborted_before_post' ? (p.resolution ? 'cancelled' : 'blocked') : verified ? 'posted' : blocked ? 'blocked' : 'ready';
-    const evidence = { status: p.status, tweet_id: p.tweet_id || null, scheduled_at: p.scheduled_at, published_at: p.published_at || null, delay_seconds: p.delay_seconds ?? null, fallback_reason: p.fallback_reason || null, halt: state.halt?.reason || null, abort_reason: p.abort_reason || null, resolution: p.resolution || null };
-    update('post', contentId, { '投稿ステータス': status === 'cancelled' ? 'blocked' : status, ...(url ? { '投稿URL': url, XPostID: p.tweet_id, PlatformPostID: p.tweet_id } : {}),
-      ...(p.published_at ? { PublishedAt: p.published_at } : {}), AnalyticsState: verified ? 'verified' : 'pending', '備考': ownNote(post.get('備考'), p.id, evidence) });
-    update('queue', queueId, { Status: status, ...(url ? { PostURL: url } : {}), LastError: blocked ? state.halt?.reason || p.status : '',
+    let postNote = post.get('備考'), mediaNote = m.get('備考');
+    for (const attempt of history) {
+      postNote = ownNote(postNote, attempt.id, { status: attempt.status, tweet_id: attempt.tweet_id || null,
+        scheduled_at: attempt.scheduled_at, published_at: attempt.published_at || null, delay_seconds: attempt.delay_seconds ?? null,
+        fallback_reason: attempt.fallback_reason || null, abort_reason: attempt.abort_reason || null, resolution: attempt.resolution || null });
+      mediaNote = ownNote(mediaNote, attempt.id, { media_id: attempt.media_id || null, media_key: attempt.media_key || null, fallback_reason: attempt.fallback_reason || null });
+    }
+    update('post', contentId, { '備考': postNote, ...(!historyOnly ? {
+      '投稿ステータス': status === 'cancelled' ? 'blocked' : status, ...(url ? { '投稿URL': url, XPostID: p.tweet_id, PlatformPostID: p.tweet_id } : {}),
+      ...(p.published_at ? { PublishedAt: p.published_at } : {}), AnalyticsState: verified ? 'verified' : 'pending' } : {}) });
+    if (!historyOnly) update('queue', queueId, { Status: status, ...(url ? { PostURL: url } : {}), LastError: blocked ? state.halt?.reason || p.status : '',
       UpdatedAt: state.halt?.at || p.received_at || p.started_at });
-    update('media', mediaId, { AttachState: verified && p.media_key ? 'attached' : p.fallback_reason ? 'not_attached_fallback' : 'prepared_not_attached',
-      ...(verified && p.media_key ? { '使用状況': '使用済み（X API全文・画像確認済み）' } : {}),
-      '備考': ownNote(m.get('備考'), p.id, { media_id: p.media_id || null, media_key: p.media_key || null, fallback_reason: p.fallback_reason || null }) });
+    update('media', mediaId, { '備考': mediaNote, ...(!historyOnly ? {
+      AttachState: verified && p.media_key ? 'attached' : p.fallback_reason ? 'not_attached_fallback' : 'prepared_not_attached',
+      ...(verified && p.media_key ? { '使用状況': '使用済み（X API全文・画像確認済み）' } : {}) } : {}) });
   }
   for (const o of state.observations) {
     const p = state.posts[o.post_id]; check(p && p.tweet_id === o.tweet_id, 'observation_receipt_mismatch');

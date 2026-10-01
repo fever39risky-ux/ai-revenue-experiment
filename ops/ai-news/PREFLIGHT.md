@@ -110,3 +110,7 @@ AI側の不一致解消とConsole証拠確認後に、ユーザーが一度判�
 [upload endpoint](https://docs.x.com/x-api/media/upload-media)はbase64画像の単発`POST /2/media/upload`を示すが単価は見つからない。Media Metadata $0.005をupload費として代入しない。将来の最小確認は、プロバイダのupload単価または1回の最大請求額を非課金の証拠で確定し、ニュース予算の円換算・税・余裕を含む予約に収まると判断してから、**uploadのみ1回**、retry/POST投稿/GET/status/metadataなしで行う案。通常runはupload後createへ進むので、このprobe用途には使わない。新規Secrets/OAuth拡大/課金変更は不要と現時点で判断しており、同じ承認をユーザーに再要求する理由にはしない。最大額が不明な現在は実行しない。
 
 費用帰属にはローカル操作ID・UTC時刻・endpoint・結果・news laneを保存しConsoleの要求種類/日別実額と照合する。既存repo writerはtext-onlyだが、Consoleの同じ集計窓に外部uploadがないことも必要。残高差だけでは共有事業と分離できず、集計反映待ちを0円と扱わない。単価未確定/帰属未確定の費用予約は保持する。既存共有Console上限をニュースのために変更しない。
+
+### 再予定の正本ID保持（独立レビュー後修正）
+
+旧bridgeは同じContentIDの日時変更でreceipt_schedule_changed、旧新attemptが同じ行を参照するとduplicate_projection_recordになった。内部attempt_revisionと明示的previous_attempt/successor対応を追加し、ContentID・QueueID・ImageIDは保持する。解決済み中止attemptは履歴として既存備考にまとめ、現在状態は後継attemptだけから投影。後継未開始時は旧状態で新予定を上書きしない。実際のcore中止→同一正本行の翌日再予定→mock投稿→同一行へのreceipt反映の統合テスト、および対応不明の拒否を追加し、合計49/49 PASS。Google列変更・本番操作なし。
