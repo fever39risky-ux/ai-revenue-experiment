@@ -12,7 +12,7 @@ const start = Date.parse('2026-10-02T08:00:00+09:00');
 const picture = Buffer.from('fixture image bytes');
 function config() { return { enabled: true, account: 'KinoshitaTsks', reviewed_at: '2026-10-01T00:00:00Z', valid_until: '2026-12-01T00:00:00Z', capabilities: { longform: true, oauth1_write: true, account_id: '42', media_upload: true, evidence: 'MOCK ONLY' }, jpy_per_usd_ceiling: 150, tax_rate: 0.1, margin_rate: 0.1, prices: { create_usd: 0.2, read_usd: 0.005, upload_usd: 0.01 }, pricing_evidence: 'MOCK ONLY', billing: { news_only: true, evidence: 'MOCK ONLY', valid_until: '2026-12-01T00:00:00Z', months: { '2026-10': { actual_minor_jpy: 0, non_api_reserve_minor_jpy: 0, reconciled_operation_ids: [] }, '2026-11': { actual_minor_jpy: 0, non_api_reserve_minor_jpy: 0, reconciled_operation_ids: [] } } }, account_inventory: { complete: true, uncoordinated_writers: false, evidence: 'MOCK ONLY', valid_until: '2026-12-01T00:00:00Z' } }; }
 function pkg(overrides = {}) {
-  const p = { schema: 1, id: 'news-test-1', account: 'KinoshitaTsks', sheet_id: SHEET, topic_key: 'test-new-topic', text: 'あ'.repeat(580) + '\nhttps://example.com/source', source_urls: ['https://example.com/source'], source_refs: { post: '投稿DB:id', queue: '予約投稿キュー:id', media: 'メディアDB:id', kpi: 'KPI:id', learning: '学習DB:id' }, scheduled_at: '2026-10-02T08:00:00+09:00', image: { path: 'media/test.png', sha256: sha(picture), mime: 'image/png' }, text_fallback: { allowed: true, reason: null }, ...overrides };
+  const p = { schema: 1, id: 'news-test-1', account: 'KinoshitaTsks', sheet_id: SHEET, topic_key: 'test-new-topic', text: 'あ'.repeat(560) + '\nhttps://example.com/source', source_urls: ['https://example.com/source'], source_refs: { post: '投稿DB:id', queue: '予約投稿キュー:id', media: 'メディアDB:id', kpi: 'KPI:id', learning: '学習DB:id' }, scheduled_at: '2026-10-02T08:00:00+09:00', image: { path: 'media/test.png', sha256: sha(picture), mime: 'image/png' }, text_fallback: { allowed: true, reason: null }, ...overrides };
   p.approval = { by: 'test-parent', at: '2026-10-01T00:00:00Z', sha256: approvalHash(p) }; return p;
 }
 function harness(p = pkg()) {
@@ -29,9 +29,9 @@ test('approved long text + source URL unchanged; receipt persisted before GET; m
   assert.equal(h.state.posts['news-test-1'].status, 'verified'); assert.equal(h.state.observations.length, 1);
   await h.run(); assert.equal(h.calls.filter(x => x === 'create').length, 1);
 });
-test('575-600 body validation and immutable approval include URL, time and media', () => {
-  for (const length of [575, 600]) validatePackage(pkg({ text: '文'.repeat(length) + '\nhttps://example.com/source' }));
-  for (const length of [574, 601]) assert.throws(() => validatePackage(pkg({ text: '文'.repeat(length) + '\nhttps://example.com/source' })));
+test('575-600 full-text validation and immutable approval include URL, time and media', () => {
+  for (const length of [575, 600]) validatePackage(pkg({ text: '文'.repeat(length - '\nhttps://example.com/source'.length) + '\nhttps://example.com/source' }));
+  for (const length of [574, 601]) assert.throws(() => validatePackage(pkg({ text: '文'.repeat(length - '\nhttps://example.com/source'.length) + '\nhttps://example.com/source' })));
   const p = pkg(); p.text += '改変'; assert.throws(() => validatePackage(p), /approval/);
   assert.throws(() => validatePackage(pkg({ source_urls: ['https://example.com/missing'] })), /source/);
   assert.throws(() => validatePackage(pkg({ scheduled_at: '2026-10-02T09:00:00+09:00' })), /slot/);
@@ -74,8 +74,8 @@ test('image missing/hash failure/rejected request uses explicitly allowed identi
     assert.equal((await h.run()).halt, null); assert.deepEqual(h.body, { text: h.queue[0].text }); assert.equal(h.state.posts['news-test-1'].fallback_reason, 'technical');
   }
 });
-test('unapproved image can use allowed approval fallback; unknown upload fee cannot use budget fallback', async () => {
-  const h = harness(); h.config.capabilities.media_upload = false; await h.run(); assert.equal(h.calls.includes('upload'), false); assert.equal(h.state.posts['news-test-1'].fallback_reason, 'approval');
+test('confirmed media denial can use allowed approval fallback; unknown upload fee cannot use budget fallback', async () => {
+  const h = harness(); h.config.capabilities.media_upload = false; h.config.capabilities.media_upload_denial = {confirmed:true,evidence:'MOCK denial',checked_at:'2026-10-01T00:00:00Z',valid_until:'2026-12-01T00:00:00Z'}; await h.run(); assert.equal(h.calls.includes('upload'), false); assert.equal(h.state.posts['news-test-1'].fallback_reason, 'approval');
   const k = harness(); k.config.prices.upload_usd = null; assert.equal((await k.run()).halt.reason, 'unknown_upload_price'); assert.equal(k.calls.length, 0);
 });
 test('image timeout and disallowed fallback halt; no create', async () => {
@@ -109,7 +109,7 @@ test('actual publication time/delay retained; observations due from actual publi
 test('too-late, future and duplicate slot; no burst catchup', async () => {
   const h = harness(); h.clock += 16 * 60000; assert.match((await h.run()).halt.reason, /missed_slot/); assert.equal(h.calls.length, 0);
   const f = harness(); f.clock -= 1; await f.run(); assert.equal(f.calls.length, 0);
-  const d = harness(); d.queue.push(pkg({ id: 'news-test-2', topic_key: 'different-topic', text: 'い'.repeat(580) + '\nhttps://example.com/source' })); await d.run(); await d.run(); assert.equal(d.calls.filter(x => x === 'create').length, 1); assert(d.state.halt);
+  const d = harness(); d.queue.push(pkg({ id: 'news-test-2', topic_key: 'different-topic', text: 'い'.repeat(560) + '\nhttps://example.com/source' })); await d.run(); await d.run(); assert.equal(d.calls.filter(x => x === 'create').length, 1); assert(d.state.halt);
 });
 test('existing account duplicate/20:37 conflict and known published stories blocked', async () => {
   for (const topic of ['gpt6.1', 'GEMINI4']) { const h = harness(pkg({ topic_key: topic })); assert.equal((await h.run()).halt.reason, 'already_published_topic'); }
@@ -206,4 +206,52 @@ test('slow intent checkpoint exceeds 15 minute deadline: no POST', async () => {
   const result = await h.run();
   assert.equal(result.halt.reason, 'missed_slot_after_intent');
   assert(!h.calls.includes('create')); assert(!h.calls.includes('get'));
+});
+test('manual news from account inventory count across sources, deduplicated by tweet ID', async () => {
+  const receipt = id => ({ lane: 'news', tweet_id: id, published_at: '2026-10-02T01:00:00+09:00' });
+  const h = harness(); h.state.external_posts.push(receipt('101'));
+  h.config.account_inventory.posts = [receipt('101'), receipt('102'), receipt('103')];
+  h.inventory = h.config.account_inventory.posts; // Same forwarding as CLI.
+  assert.equal((await h.run()).halt.reason, 'news_daily_cap'); assert.equal(h.calls.length, 0);
+  const k = harness(); k.state.external_posts.push(receipt('101'));
+  k.inventory = [receipt('101'), receipt('102'), { ...receipt('999'), lane: 'business' }];
+  assert.equal((await k.run()).halt, null); assert.equal(k.calls.filter(x => x === 'create').length, 1);
+});
+test('duplicate internal and external news receipts count once; unknown identity fails closed', async () => {
+  const { newsDailyCount } = await import('../scripts/ai-news/core.mjs');
+  const s = initialState(), at = '2026-10-02T01:00:00+09:00';
+  s.posts.one = { id: 'one', tweet_id: '111', published_at: at };
+  s.external_posts.push({ lane: 'news', tweet_id: '111', published_at: at });
+  assert.equal(newsDailyCount(s, [{ lane: 'news', id: '111', posted_at: at }], start), 1);
+  assert.throws(() => newsDailyCount(s, [{ lane: 'news', published_at: at }], start), /news_receipt_identity_unconfirmed/);
+});
+test('unknown/unconfirmed/expired media permission never silently switches to text', async () => {
+  for (const value of [undefined, null, false]) {
+    const h = harness(); h.config.capabilities.media_upload = value;
+    assert.equal((await h.run()).halt.reason, 'media_permission_unconfirmed'); assert.equal(h.calls.length, 0);
+  }
+  const h = harness(); h.config.capabilities.media_upload = false;
+  h.config.capabilities.media_upload_denial = { confirmed: true, evidence: 'expired MOCK', checked_at: '2026-09-01T00:00:00Z', valid_until: '2026-10-01T00:00:00Z' };
+  assert.equal((await h.run()).halt.reason, 'media_permission_unconfirmed'); assert.equal(h.calls.length, 0);
+});
+test('config or billing expiry during GET checkpoint stops before paid read', async () => {
+  for (const kind of ['configuration', 'billing']) {
+    const h = harness(), expiry = new Date(start + 500).toISOString();
+    if (kind === 'configuration') h.config.valid_until = expiry; else h.config.billing.valid_until = expiry;
+    const save = h.persist;
+    h.persist = async s => { await save(s); if (s.operations.some(o => o.kind === 'read' && o.status === 'attempted_unreconciled')) h.clock = start + 1000; };
+    const r = await h.run();
+    assert.equal(r.halt.reason, kind === 'configuration' ? 'configuration_expired' : 'billing_attribution_unconfirmed');
+    assert.equal(h.state.posts['news-test-1'].tweet_id, '12345'); assert(!h.calls.includes('get'));
+  }
+});
+test('interrupted runner summary never claims no API calls just because report is missing', () => {
+  const wf = readFileSync('ops/ai-news/cloud.yml.template', 'utf8');
+  assert.match(wf, /Outcome unknown: final report missing/); assert.doesNotMatch(wf, /No news API calls/);
+});
+test('canonical approved copy length includes source URL and does not rewrite it', () => {
+  for (const size of [575, 587, 597]) {
+    const text = '文'.repeat(size - '\nhttps://example.com/source'.length) + '\nhttps://example.com/source';
+    assert.equal(validatePackage(pkg({ text })).text, text);
+  }
 });

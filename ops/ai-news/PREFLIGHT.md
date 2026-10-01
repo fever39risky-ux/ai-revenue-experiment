@@ -1,11 +1,11 @@
 # 本番前の読み取り検証 — 2026-10-01
 
 対象PR: https://github.com/fever39risky-ux/ai-revenue-experiment/pull/27
-読み取り対象head: 045b944 / main: 47b414b。今回許可された追加修正は末尾のcheckpoint後再検証のみ。本番設定・正本・Secrets値・課金設定は変更していない。
+読み取り対象head: 045b944 / main: 47b414b。親の追加レビューを受け、末尾のcheckpoint・日次件数・権限・報告の境界をPR内で修正。本番設定・正本・Secrets値・課金設定は変更していない。
 
 ## 判断
 
-**まだ有効化しない。** ローカルmockは30件成功したが、正本の確定原稿と入力検査の文字数定義が一致しない。これはユーザーによる原稿修正ではなく、AI側の実装修正で解消するべきもの。
+**まだ有効化しない。** ローカルmockは36件成功。発見した文字数定義の不一致は正本の全文基準へ実装修正済みで、原稿は変更していない。画像単価/適格性、共有課金からのニュース帰属、正本writebackのmapping実装と切替準備は残る。
 
 ## CIと状態
 
@@ -32,7 +32,7 @@ Google Drive/Sheetsの既存接続でmetadata・bounded range・validationをrea
 
 GPT6.1/Geminiの投稿・queueのURL、BodyHash、公開日時は整合。ANCARは引き続き親管理で、API queue未投入。この環境には親のANCAR画像パスの実ファイルがなく、文字列のパスだけでは画像を渡せない。Library等の承認済みファイルをクラウドへmaterializeしてSHA256確認する作業はAI側の準備であり、ユーザーに再アップロードさせる前提にしない。
 
-## 入力検査の不一致（修正待ち）
+## 入力検査の不一致（検出後に修正済み）
 
 正本K列の全文をコードのvalidatorへ渡す純粋関数検査。API呼出し0、queue投入0。3件ともUTF-8 SHA256は正本AG列のBodyHashと完全一致した。
 
@@ -42,7 +42,7 @@ GPT6.1/Geminiの投稿・queueのURL、BodyHash、公開日時は整合。ANCAR�
 | Gemini | 575 | 487 | 拒否 |
 | ANCAR | 597 | 537 | 拒否 |
 
-core.mjsは「URLを除いて575〜600」を要求しているため、本人向け確定稿を変更せず通せない。文字数の説明・検査・test fixtureを正本の定義へ合わせる修正が必要。既知の公開済み2件は修正後も再投入しない。
+core.mjsは「URLを除いて575〜600」を要求しているため、本人向け確定稿を変更せず通せない。文字数の説明・検査・test fixtureをURL込み575〜600へ修正済み。元の本文・URLは無改変。既知の公開済み2件は修正後も再投入しない。
 
 ## 既存列への対応（構造変更不要）
 
@@ -81,7 +81,7 @@ KPIは観測ごとのKPIEventIDを新規割当し、学習は必要時のLearnin
 
 公式pricingはURL Create $0.2、Read $0.005、MediaMetadata $0.005。90投稿+360read=$19.80で、画像upload等は別。既存短文の投稿成功は既存OAuth1で短文create/readできる証拠であって、長文・画像の適格性を証明しない。
 
-親からのConsole担当の中間報告: 認証済み、共有残高$4.18。これはニュース専用残高・月間使用額・将来必要額の証拠ではないためconfigに自動採用しない。単価/権限確認結果を待つ。
+親からのConsole担当の中間報告: 既存OAuth1は@KinoshitaTsks、read/write、既存DM権限あり（今回使用禁止）。共有PayPerUseアプリ、残高$4.18、auto recharge OFF、Sep6–Oct6請求サイクル上限$5、現支出$0.81。これはニュース専用残高・月間使用額ではなく、JST暦月3,000円とも周期が異なる。configへ自動採用せず、現在設定を維持。日別/要求種類別集計のみなので、ニュース帰属は独立操作台帳と照合する。画像単価/長文画像適格性は確認中。
 
 Console担当に必要な非秘密の証拠: 対象app/accountの対応、既存read/write権限、Premium/longform条件、media endpointと現在のOAuth方式の可否、upload課金単位/単価、ニュース分の請求帰属、税/通貨/換算根拠、既存spend limit/auto-rechargeの表示状態。設定は変えず、key/token/secretを表示・コピーしない。不明項目はnullのまま停止を維持する。
 
@@ -89,7 +89,7 @@ Console担当に必要な非秘密の証拠: 対象app/accountの対応、既存
 
 親の独立reviewで発見した「post_intentのremote push中に時刻が進む」競合を修正。ack直後、create直前に15分期限とアカウント競合を再確認し、間にawaitを置かない。
 
-回帰テスト: (1)20:06:59判定→push中2秒経過→20:37事業の保護窓へ入りPOSTゼロ、(2)予定+14分59秒→push中2秒経過→15分超過でPOSTゼロ。durable intentとhaltを保持し再起動しても自動POSTしない。合計30 tests PASS。
+回帰テスト: (1)20:06:59判定→push中2秒経過→20:37事業の保護窓へ入りPOSTゼロ、(2)予定+14分59秒→push中2秒経過→15分超過でPOSTゼロ。durable intentとhaltを保持し再起動しても自動POSTしない。この2件に加え、外部手動ニュースのID重複排除、権限unknownと証拠付きdeniedの分離、GET checkpoint後のconfig/billing期限再検証、report欠落時にAPI未実行と断言しない文言、URL込み原稿検査の回帰を追加。合計36 tests PASS。
 
 ## ユーザー本人の操作
 

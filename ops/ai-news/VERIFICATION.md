@@ -25,3 +25,7 @@ Git永続化はローカルbare remote＋別checkoutで実験。checkpointのrem
 残る開始条件はREADMEに記載。現アカウントのPremium/長文/API権限、画像upload単価とOAuth1対応、実費帰属・FX/税・API外費用、外部writerの棚卸し、Google正本の実列との対応、state branch/通知設定を未確認。既存のSecretsは参照名のみ。本番state branch・新workflow・新Secrets・OAuth権限・Console設定は作成/変更していない。
 
 提示された既存run https://github.com/fever39risky-ux/ai-revenue-experiment/actions/runs/36805396703 は既存270 weighted経路の証拠であり、本ニュース経路の長文画像適格性を証明しない。GPT6.1/Gemini4のID/時刻は親の提供情報から登録し、この作業でXへ有料照会していない。ANCARは未投入。
+
+## 追加レビュー後
+
+正本read-only照合と親からの追加指摘を反映。詳細はPREFLIGHT.md。news suiteは36/36 PASSへ更新。API呼出しは引き続き0。画像権限unknown、checkpoint中の時刻/料金期限変化、外部手動ニュースの件数、report欠落時の誤報を追加検証。正本の全文とBodyHashも純粋関数で照合し、URL込み文字数検査へ修正。

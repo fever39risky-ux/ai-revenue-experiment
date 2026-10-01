@@ -45,7 +45,7 @@ jobs:
             cat /tmp/ai-news-report.json >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           else
-            echo 'Runner did not start. No news API calls; check state/config checkout.' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Outcome unknown: final report missing. Inspect durable checkpoint, artifact and job steps; paid API requests may have occurred.' >> "$GITHUB_STEP_SUMMARY"
           fi
       - uses: actions/upload-artifact@v4
         if: always()

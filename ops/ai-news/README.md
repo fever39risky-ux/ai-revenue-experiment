@@ -8,7 +8,7 @@
 - `social/ai-news/`：無効設定、空キュー、初期状態の見本。GPT6.1/Gemini4の公開済みID・日時・topicを登録。**ANCAR原稿は未投入**。
 - `ops/ai-news/cloud.yml.template`：未有効化のActionsテンプレート。`.github/workflows` の新規workflowではない。承認後、GitHub上の `ai-news-state` ブランチが入力・費用予約・投稿結果・KPIを保持する。PCを起動しておく必要はない。
 - 既存 `x-post-toplevel.yml` に他のX投稿と同じ `publish-main` concurrencyを追加する提案のみ。dispatchの追加や実行はしない。既存20:37投稿、2件/日の判定は変更していない。
-- Google接続・正本のセル内容はこの環境で確認していない。認証をコピーせず、親が確定原稿を渡す契約を実装。既存シートの列・タブ変更や直接writebackは行わない。
+- 初回実装時はGoogle正本を未確認だったが、その後read-only照合でタブ・列・確定原稿を確認済み（PREFLIGHT.md）。認証をコピーせず、親が確定原稿を渡す契約を実装。既存シートの列・タブ変更や直接writebackは行わない。
 
 ## 入出力：親が渡すもの
 
@@ -26,7 +26,7 @@ queue JSON（`approval.sha256`は下記の関数で計算。ハッシュは内�
   sheet_id: '1BSd9jv6B81Jxjndech9UgMyINA3peGFddLy8xTNs94w',
   topic_key: 'stable-canonical-story-key', // 同じニュースには常に同じキー
   scheduled_at: '2026-10-02T08:00:00+09:00',
-  text: '承認済み本文575〜600 Unicode codepoints＋改行＋完全な出典URL',
+  text: '承認済み全文575〜600 Unicode codepoints（改行・完全な出典URL込み）',
   source_urls: ['https://actual-source.example/article'],
   source_refs: {
     post: '実在する投稿DBの行ID', queue: '実在する予約投稿キューの行ID',
@@ -39,7 +39,7 @@ queue JSON（`approval.sha256`は下記の関数で計算。ハッシュは内�
 }
 ```
 
-`approvalHash` は `scripts/ai-news/core.mjs` からimportする。入力配列順も固定する。正文の改行・空白を保存し、文字数はURLを除き外側の空白を除去した本文のみ検査する（不適合時は書換えず停止）。媒体なしで渡すときは `image: null` と `text_fallback: {allowed: true, reason: 'technical' | 'approval'}` が必要。画像権限不足・ファイル欠落・明確な画像リクエスト拒否では許可済み本文代替を使える。料金不明を安く見積もるための本文代替は行わない。アップロードの結果不明時は停止する。
+`approvalHash` は `scripts/ai-news/core.mjs` からimportする。入力配列順も固定する。正文の改行・空白を保存し、文字数は正本に合わせ、URL・改行を含む全文のcodepointsで検査する（不適合時は書換えず停止）。媒体なしで渡すときは `image: null` と `text_fallback: {allowed: true, reason: 'technical' | 'approval'}` が必要。証拠付きで確認済みの画像権限拒否・ファイル欠落・明確な画像リクエスト拒否では許可済み本文代替を使える。料金不明を安く見積もるための本文代替は行わない。アップロードの結果不明時は停止する。権限未確認も停止する。権限拒否に基づく代替は `capabilities.media_upload=false` と `media_upload_denial: {confirmed:true, evidence:"非秘密の拒否根拠", checked_at:"ISO", valid_until:"ISO"}` が必要。
 
 親は原稿の事実確認・本人文体・同一ニュースの意味上の重複を確認し、GPT6.1/Gemini4に別topicキーをつけて再投入しない。既知の投稿本文をinventoryに加えれば完全一致も検出する。意味の異なる文章が同じ話題かどうかを自動で断定する仕組みではない。
 
@@ -55,7 +55,7 @@ exportは投稿DB・予約投稿キュー・メディアDB・KPI・学習DBの�
 
 08:00 / 12:00 / 20:00 JSTの3枠。これは **APIのクラウドキュー** でありXネイティブ予約ではない。GitHub scheduleは遅延・欠落し得るので定刻保証なし。15分を超えた投稿は停止して報告、まとめて消化しない。正午前の前倒しも不可。KPIは直後、実公開から24/72/168時間後が対象で、毎時17分の起動等により遅れて取得され得る。予定日時・取得日時・実公開日時・投稿遅延秒を別記録する。
 
-既存の全月posted.jsonl/queue、旧history/稼働キュー、保存済み自分の投稿をread-onlyで照合。ニュースの公開済みtopic・本文・同じ枠を重複排除し、ニュース1日3件には既知の手動ニュースも含む。既存事業の投稿数はニュースに合算しない。他の投稿の予定／実公開の前後30分はニュース側を止める。20:00予定が20:10実行になると20:37既存投稿まで27分なので停止する。
+既存の全月posted.jsonl/queue、旧history/稼働キュー、保存済み自分の投稿をread-onlyで照合。ニュースの公開済みtopic・本文・同じ枠を重複排除し、ニュース1日3件にはstateとaccount_inventory双方の既知の手動ニュースも含み、tweet IDで重複排除する。既存事業の投稿数はニュースに合算しない。他の投稿の予定／実公開の前後30分はニュース側を止める。20:00予定が20:10実行になると20:37既存投稿まで27分なので停止する。
 
 `publish-main` はリポジトリ内の投稿workflowを直列化する。Actions concurrencyは実行順・全pending job保存を保証しない。**ブラウザ投稿、他リポジトリ、手動APIはこのロックに従わない**。開始前に親が全投稿経路を棚卸し、未調整writerがないことと手動投稿の予定/履歴を `account_inventory` に記録する。未確認・期限切れ・日時のない稼働キューがあるとニュース側を停止。既存経路のPOST後GET失敗問題はこのPRで修正していないため、既存経路に不明結果があればニュースの棚卸しを承認しない。
 

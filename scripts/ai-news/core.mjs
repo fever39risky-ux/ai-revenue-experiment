@@ -12,8 +12,7 @@ export function validatePackage(p) {
   check(p.account === 'KinoshitaTsks' && p.sheet_id === SHEET, 'wrong_canonical_source');
   check(typeof p.topic_key === 'string' && p.topic_key.length > 2, 'missing_topic');
   check(typeof p.text === 'string' && [...p.text].length <= 25000, 'invalid_text');
-  const body = p.text.replace(/https?:\/\/\S+/g, '').trim();
-  check([...body].length >= 575 && [...body].length <= 600, 'body_must_be_575_to_600_codepoints');
+  check([...p.text].length >= 575 && [...p.text].length <= 600, 'approved_text_must_be_575_to_600_codepoints_including_urls');
   check(Array.isArray(p.source_urls) && p.source_urls.length > 0 && p.source_urls.every(u => /^https:\/\//.test(u) && p.text.includes(u)), 'missing_source_url');
   check(p.source_refs && ['post', 'queue', 'media', 'kpi', 'learning'].every(k => typeof p.source_refs[k] === 'string' && p.source_refs[k]), 'missing_sheet_record_refs');
   check(/^\d{4}-\d{2}-\d{2}T(08|12|20):00:00\+09:00$/.test(p.scheduled_at) && Number.isFinite(Date.parse(p.scheduled_at)), 'invalid_jst_slot');
@@ -107,6 +106,23 @@ function collision(p, s, inventory, now) {
   check(!inventory.some(x => x.unresolved === true), 'account_writer_unresolved');
 }
 
+export function newsDailyCount(s, inventory, now) {
+  const seen = new Set();
+  const today = jst(now);
+  for (const p of Object.values(s.posts)) {
+    if (jst(Date.parse(p.published_at || p.started_at)) === today)
+      seen.add(p.tweet_id ? `tweet:${p.tweet_id}` : `package:${p.id}`);
+  }
+  for (const p of [...s.external_posts, ...inventory]) {
+    if (p.lane !== 'news' || !(p.published_at || p.posted_at)) continue;
+    const at = Date.parse(p.published_at || p.posted_at);
+    const id = p.tweet_id || p.id;
+    check(Number.isFinite(at) && /^\d+$/.test(id || ''), 'news_receipt_identity_unconfirmed');
+    if (jst(at) === today) seen.add(`tweet:${id}`);
+  }
+  return seen.size;
+}
+
 /** Persist must resolve only AFTER the remote durable commit is acknowledged.
  * A failed persist rejects out of the runner; no later paid operation may run. */
 export async function run({ state: s, config: c, queue, inventory = [], api, persist, loadImage, now = () => Date.now() }) {
@@ -134,7 +150,9 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
     job.attempts = attempt; op.status = 'attempted_unreconciled'; op.attempted_at = iso(now());
     await persist(s);
     let result;
-    try { check(op.month === month(now()), 'month_changed'); result = await api.get(p.tweet_id); }
+    try { validateConfig(c, now()); check(op.month === month(now()), 'month_changed'); }
+    catch (e) { return e.message; }
+    try { result = await api.get(p.tweet_id); }
     catch { job.last_error = 'read_failed'; job.next_attempt_at = iso(now() + 3600000); await persist(s); return attempt === 3 ? 'read_retry_limit' : null; }
     let t;
     try { t = verify(result, p, c); }
@@ -160,13 +178,23 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
     try {
       collision(q, s, inventory, now());
       check(!Object.values(s.posts).some(p => p.scheduled_at === q.scheduled_at), 'slot_already_consumed');
-      check([...Object.values(s.posts), ...s.external_posts.filter(p => p.lane === 'news')].filter(p => jst(Date.parse(p.published_at || p.started_at)) === jst(now())).length < 3, 'news_daily_cap');
+      check(newsDailyCount(s, inventory, now()) < 3, 'news_daily_cap');
     } catch (e) { return stop(e.message); }
     let image = null, fallback = q.image ? null : q.text_fallback.reason;
     if (q.image) {
       try { image = await loadImage(q.image); check(sha(image) === q.image.sha256 && image.length <= 5 * 1024 * 1024, 'image_integrity'); }
       catch { image = null; if (q.text_fallback.allowed) fallback = 'technical'; else return stop('image_unavailable'); }
-      if (image && c.capabilities.media_upload !== true) { if (q.text_fallback.allowed) { image = null; fallback = 'approval'; } else return stop('media_permission_unconfirmed'); }
+      if (image && c.capabilities.media_upload !== true) {
+        const denied = c.capabilities.media_upload === false &&
+          c.capabilities.media_upload_denial?.confirmed === true &&
+          typeof c.capabilities.media_upload_denial.evidence === 'string' &&
+          c.capabilities.media_upload_denial.evidence.trim() &&
+          Date.parse(c.capabilities.media_upload_denial.checked_at) <= now() &&
+          Date.parse(c.capabilities.media_upload_denial.valid_until) > now();
+        if (!denied) return stop('media_permission_unconfirmed');
+        if (q.text_fallback.allowed) { image = null; fallback = 'approval'; }
+        else return stop('media_permission_denied');
+      }
     }
     const jobs = [0, 24, 72, 168].map(hours => ({ hours, due_at: iso(now() + hours * 3600000), done: false }));
     try { reserve(s, c, [
