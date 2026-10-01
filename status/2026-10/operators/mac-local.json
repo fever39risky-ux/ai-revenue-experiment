@@ -15,11 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "blocked",
-  "doing": "06:35 JST delta scan 0 GO + H3 public re-check unchanged",
-  "next": "next run >=09:00 JST: re-scan coconala /requests?sort=new; if owner logged in, send proposals per PROPOSAL_KIT + check inbox + H3 dashboards",
+  "status": "idle",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T21:35:32.095Z",
-  "blocked_on": "coconala/booth login (owner-login-mac-local-profile)"
+  "heartbeat_at": "2026-10-01T21:37:19.511Z",
+  "blocked_on": null,
+  "progress": "since 2026-10-01T21:37:18.245877Z: polls=1 workers=0 browser_workers=0 chrome_for_testing_procs=0"
 }
