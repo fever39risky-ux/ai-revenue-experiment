@@ -36,6 +36,8 @@ BASE = Path.home() / 'Library/Application Support/AIRevenueExperiment'
 P2 = 'status/2026-10'
 DEFAULT_CAPS = ['local_browser']           # task.requires this operator can satisfy
 PLAYWRIGHT_MCP = '@playwright/mcp@0.0.83'  # pinned
+# Site-dedicated, owner-logged-in profiles under BASE/browser-profiles/ -> extra MCP server `playwright-<site>`.
+SITE_PROFILES = {'note': 'note-profile'}  # note.com (owner logged in 2026-10-02)
 
 
 def utcnow():
@@ -126,7 +128,7 @@ Do this, in order:
 1. Read CLAUDE.md and ops/2026-10/BOOTSTRAP.md and follow them as operator `{op}` (NOT founder).
 2. `node scripts/oct/ops.mjs heartbeat {op} --status working --doing "<task>" --next "<next>"`.
 3. For each task: `node scripts/oct/ops.mjs claim {op} <task-id> --hours 2` BEFORE working (if the claim is rejected, skip it), execute it to its acceptance criteria, log results (`signal`, `human`, `revenue`, `cost` per ops/2026-10/KPI.md), then `done {op} <task-id> --result "<evidence>"` or `release {op} <task-id> --reason "<why>"`.
-4. Browser work: use ONLY the `playwright` MCP server provided to this session (its profile is dedicated to `{op}`). Never open or reuse any other browser profile. If a site needs a password/2FA/KYC, stop that task: `release` it with the reason, create ONE task with `--requires human` describing the exact 2-minute owner step, heartbeat `--status blocked --blocked-on "<site> login"`, and continue with other tasks.
+4. Browser work: use ONLY the `playwright` MCP server provided to this session (its profile is dedicated to `{op}`). For note.com use ONLY the `playwright-note` MCP server (dedicated logged-in note profile); never use it for other sites. Never open or reuse any other browser profile. If a site needs a password/2FA/KYC, stop that task: `release` it with the reason, create ONE task with `--requires human` describing the exact 2-minute owner step, heartbeat `--status blocked --blocked-on "<site> login"`, and continue with other tasks.
 5. Goal-continuous: after each task, continue with the next eligible task (Constitution Art. 8). End only on E1-E4.
 6. Before ending: heartbeat with the exact next action; commit ONLY your files (status/2026-10/operators/{op}.json, status/2026-10/events/{op}.jsonl, tasks you touched, files your task produced); run `node scripts/leak_check.mjs && node scripts/promotion_check.mjs`; `git pull --rebase origin main`; `git push origin HEAD:main` (retry up to 4x). Never force-push.
 No cold DMs/emails; no posting outside the task's scope; no secrets or buyer PII in the repo.
@@ -242,6 +244,11 @@ class Supervisor:
         profile.mkdir(parents=True, exist_ok=True, mode=0o700)
         cfg = {'mcpServers': {'playwright': {'command': 'npx', 'args': [
             '-y', PLAYWRIGHT_MCP, '--browser', 'chromium', '--user-data-dir', str(profile)]}}}
+        for site, name in SITE_PROFILES.items():
+            sp_dir = BASE / 'browser-profiles' / name
+            if sp_dir.is_dir():  # created by the owner-login step; never auto-created
+                cfg['mcpServers'][f'playwright-{site}'] = {'command': 'npx', 'args': [
+                    '-y', PLAYWRIGHT_MCP, '--browser', 'chromium', '--user-data-dir', str(sp_dir)]}
         p = self.state_dir / 'mcp.json'
         p.write_text(json.dumps(cfg, indent=2))
         os.chmod(p, 0o600)
