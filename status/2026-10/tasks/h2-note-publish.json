@@ -24,6 +24,15 @@
       "op": "mac-local",
       "action": "release",
       "note": "note-profile is logged in as note user kinoshitat0904 (0 notes), NOT @satotsu1020 (verified via /api/v2/current_user 02:39 JST). Not publishing to the wrong account. Blocked on owner task owner-note-login-satotsu1020."
+    },
+    {
+      "ts": "2026-10-01T21:02:13Z",
+      "op": "founder",
+      "action": "blocked_by",
+      "note": "waits on owner-note-login-satotsu1020; excluded from mac-local eligibility until it is done (no login re-checks)"
     }
+  ],
+  "blocked_by": [
+    "owner-note-login-satotsu1020"
   ]
 }

@@ -18,6 +18,8 @@
 "$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing" --user-data-dir="$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local" https://coconala.com/login https://manage.booth.pm/users/sign_in https://note.com/login
 ```
 
+**完了の連絡は不要**：ウィンドウを閉じた時点でMac側が自動検知し、この依頼を完了扱いにして作業時間を記録します。ウィンドウを開いている間、AIは同じプロファイルのブラウザを起動しません。
+
 **その後**：操作は不要です。mac-local が自動で再確認し、提案送信・受信箱・出品データ・note公開を進めます（ログイン作業は人間介入として記録されます）。
 
 ---

@@ -32,6 +32,22 @@ Structural lesson: every "safe stop" in that design (invalid state, auth missing
 
 The September agent `com.airevenue.claude-autonomous` is booted out and **disabled** by the installer (reversible with `launchctl enable gui/$UID/com.airevenue.claude-autonomous`), so two supervisors never act as `mac-local`.
 
+## 2b. Browser policy (owner request 2026-10-02: no stray Chrome for Testing windows)
+
+Problem seen on the real Mac (01:19–02:47 JST 10/02): a worker started every ~2–3 min and each opened Chrome for Testing just to re-check logins. Causes: (a) Playwright artifacts in the checkout made `git status` non-empty → every poll was a "recovery" run, and recovery bypassed the no-progress hold; (b) released login-blocked tasks were immediately eligible again; (c) nothing forbade login-only checks; (d) workers collided with the owner's open login window on the same profile.
+
+| Rule | Mechanism |
+|---|---|
+| No browser for heartbeat / polling / task checks | the supervisor itself never starts a browser; a worker gets an **empty MCP config** unless one of its tasks has `requires: local_browser` (it cannot start Chrome at all) |
+| No browser just for login/session checks | worker prompt forbids it; a logged-out page → `release <task> --blocked-by <owner-login-task>`, no retry |
+| Headless by default, headed only on demand | Playwright MCP gets `--headless` unless a task sets `"browser": "headed"` (`ops.mjs task-new … --browser headed`) |
+| Logged-in sites are not re-checked | login is verified only by the next real task; no periodic checks exist |
+| Owner-login waits are not eligible | `blocked_by` tasks are skipped until the owner task is done |
+| Owner task completes itself | while the owner's window holds a dedicated profile the supervisor starts no browser worker; when the window closes it marks the owner tasks that reference `browser-profiles/<name>` done and logs a `human_intervention` with the measured minutes |
+| No rapid relaunch | ≥ 10 min between browser workers (`--browser-min-gap-sec`), no-progress hold 5 → 60 min, **persisted** in `state/hold.json` across restarts |
+| No recovery churn | dirty check ignores untracked files (`--untracked-files=no`); Playwright output goes to `state/playwright-output/` (outside the checkout); `.playwright-mcp/` is git-ignored; recovery runs never get a browser |
+| Evidence | idle heartbeats carry `progress: polls=… workers=… browser_workers=… chrome_for_testing_procs=…`; one extra heartbeat 6 min after each supervisor start |
+
 ## 3. One-time installation (Constitution Art. 9 "permission": installing a resident agent on the owner's Mac)
 
 On the Mac, from any checkout of this repo (or ask a local Claude session to run it):
@@ -57,3 +73,4 @@ Tests (no Mac needed): `python3 tests/test_mac_supervisor.py` — eligibility ru
 
 - 2026-10-02 01:42 JST — `mac-roundtrip-1`: Founder task → supervisor detected → worker auto-started (`PHASE2_OPERATOR=mac-local`) → heartbeat → claim → tests PASS → done → push (`ee7e4ac`). Zero human input after the one-time install.
 - 2026-10-02 01:44–01:48 JST — the same worker continued on its own: `ops-verify-local-browser` done (Playwright MCP + dedicated profile work; it installed the missing Chromium build itself), sites logged out → one batched owner login task; H1 public screen (~95 requests, 0 GO) and H3 public baseline recorded; ended E2 (`02d9888`).
+- 2026-10-02 (browser policy) — see §2b; real-machine 5-minute check recorded below when the self-updated supervisor reports its 6-minute heartbeat.

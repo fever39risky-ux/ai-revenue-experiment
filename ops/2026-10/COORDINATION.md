@@ -61,6 +61,8 @@ Delegation:
 
 **Starting an additional local operator** (when the Founder decides a site needs a dedicated, parallel operator): `scripts/oct/start_local_operator.sh <operator-id> "<role / lanes>"` on the Mac (first run needs the owner to execute it once → log as `human --category permission`). The script runs one headless Claude worker with the Phase-2 bootstrap and the given role, in its own checkout under `~/Library/Application Support/AIRevenueExperiment/operators/<id>/`, so it never collides with the main supervisor's checkout.
 
+Browser rules for every local operator: headless by default (`"browser": "headed"` on a task only when a visible window is truly needed); never open a browser only to check a login/session; on a logged-out page release the task with `--blocked-by <owner-login-task>`. Details: `ops/2026-10/MAC_SUPERVISOR.md` §2b.
+
 ## 6. Human queue
 
 Owner requests are tasks with `--requires human`. The Founder batches them into the **top section of `OWNER_ACTION_REQUIRED.md`** (≤ 5 min each, exact steps). When done, the operator that asked closes the task and logs the `human` event.

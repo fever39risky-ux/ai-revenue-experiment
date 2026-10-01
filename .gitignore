@@ -2,3 +2,4 @@
 /.autonomy/
 __pycache__/
 *.pyc
+/.playwright-mcp/

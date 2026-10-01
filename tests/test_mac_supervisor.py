@@ -170,7 +170,7 @@ class RoundTrip(unittest.TestCase):
         a = ms.argparse.Namespace(operator='mac-local', role='r', caps='local_browser', repo=str(tmp / 'mac/repo'),
                                   state_dir=str(tmp / 'mac/state'), remote=str(remote), claude='x', worker_cmd=str(worker),
                                   poll_sec=0, after_work_sec=0, hb_idle_min=120, worker_timeout_min=5, once=True,
-                                  self_update=False, verbose=False)
+                                  self_update=False, verbose=False, browser_min_gap_sec=0, settle_hb_min=6)
         os.environ['HOME'] = str(tmp / 'home')
         sup = ms.Supervisor(a)
         sup.loop_once()                      # runs the worker; it only releases -> no progress
@@ -180,6 +180,131 @@ class RoundTrip(unittest.TestCase):
         self.assertIn('"noprogress"', log)
         self.assertIn('"noprogress_hold"', log)
         shutil.rmtree(tmp)
+
+
+class BrowserPolicy(unittest.TestCase):
+    """Owner request 2026-10-02: no Chrome for Testing unless a real task needs a browser."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        os.environ['HOME'] = str(self.tmp / 'home')
+        ms.BASE = self.tmp / 'home/AIRE'
+        remote = bare_remote(self.tmp)
+        self.founder = self.tmp / 'founder'
+        run(['git', 'clone', '-q', str(remote), str(self.founder)], self.tmp)
+        run(['git', 'rm', '-q', '-r', '--ignore-unmatch', 'status/2026-10/tasks'], self.founder)
+        self.remote = remote
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def push_tasks(self, *specs):
+        for args in specs:
+            run(['node', 'scripts/oct/ops.mjs', 'task-new', 'founder', *args], self.founder)
+        run(['git', 'add', '-A'], self.founder)
+        run(['git', '-c', 'user.name=f', '-c', 'user.email=f@f', 'commit', '-qm', 't'], self.founder)
+        run(['git', 'push', '-q', 'origin', 'HEAD:main'], self.founder)
+
+    def sup(self, worker='/bin/true', **kw):
+        a = ms.argparse.Namespace(operator='mac-local', role='r', caps='local_browser', repo=str(self.tmp / 'mac/repo'),
+                                  state_dir=str(self.tmp / 'mac/state'), remote=str(self.remote), claude='x',
+                                  worker_cmd=worker, poll_sec=0, after_work_sec=0, hb_idle_min=0, worker_timeout_min=5,
+                                  once=True, self_update=False, verbose=False, browser_min_gap_sec=600, settle_hb_min=6)
+        for k, v in kw.items():
+            setattr(a, k, v)
+        return ms.Supervisor(a)
+
+    def log(self):
+        p = self.tmp / 'mac/state/supervisor.log'
+        return p.read_text() if p.exists() else ''
+
+    def test_mcp_config_browser_only_when_needed_and_headless_by_default(self):
+        s = self.sup()
+        self.assertEqual(json.loads(Path(s.mcp_config(False)).read_text())['mcpServers'], {})
+        args = json.loads(Path(s.mcp_config(True)).read_text())['mcpServers']['playwright']['args']
+        self.assertIn('--headless', args)
+        self.assertIn('--output-dir', args)
+        args = json.loads(Path(s.mcp_config(True, headed=True)).read_text())['mcpServers']['playwright']['args']
+        self.assertNotIn('--headless', args)
+
+    def test_no_tasks_means_no_worker_and_no_browser(self):
+        self.push_tasks(['login', '--title', 'owner login', '--lane', 'local-browser', '--requires', 'human',
+                         '--detail', 'open browser-profiles/mac-local and log in'])
+        s = self.sup(worker='/bin/false')
+        for _ in range(3):
+            s.loop_once()
+        self.assertNotIn('"worker_start"', self.log())
+
+    def test_task_blocked_by_open_owner_login_is_not_eligible_until_done(self):
+        self.push_tasks(['login', '--title', 'owner login', '--lane', 'local-browser', '--requires', 'human',
+                         '--detail', 'open browser-profiles/mac-local and log in'],
+                        ['scan', '--title', 'scan', '--lane', 'h1', '--requires', 'local_browser'])
+        t = self.founder / 'status/2026-10/tasks/scan.json'
+        d = json.loads(t.read_text()); d['blocked_by'] = ['login']; t.write_text(json.dumps(d))
+        run(['git', 'commit', '-qam', 'b'], self.founder, env={**os.environ, 'GIT_AUTHOR_NAME': 'f', 'GIT_AUTHOR_EMAIL': 'f@f',
+                                                               'GIT_COMMITTER_NAME': 'f', 'GIT_COMMITTER_EMAIL': 'f@f'})
+        run(['git', 'push', '-q', 'origin', 'HEAD:main'], self.founder)
+        s = self.sup()
+        s.loop_once()
+        self.assertEqual(ms.eligible_tasks(s.repo, 'mac-local', ['local_browser']), [])
+        self.assertNotIn('"worker_start"', self.log())
+
+    def test_untracked_playwright_artifacts_do_not_trigger_recovery_runs(self):
+        s = self.sup(worker='/bin/false')
+        s.loop_once()
+        (s.repo / '.playwright-mcp').mkdir()
+        (s.repo / '.playwright-mcp' / 'page.png').write_text('x')
+        (s.repo / 'stray.txt').write_text('x')
+        self.assertEqual(s.sync(), 'synced')
+        s.loop_once()
+        self.assertNotIn('"worker_start"', self.log())
+
+    def test_browser_min_gap_and_owner_login_window_defer_browser_workers(self):
+        self.push_tasks(['scan', '--title', 'scan', '--lane', 'h1', '--requires', 'local_browser'])
+        s = self.sup()
+        s.last_browser_start = ms.utcnow()          # a browser worker just ran
+        s.loop_once()
+        self.assertIn('"browser_deferred"', self.log())
+        self.assertNotIn('"worker_start"', self.log())
+        s.last_browser_start = None
+        orig = ms.profile_in_use
+        ms.profile_in_use = lambda p: True           # owner's login window holds the profile
+        try:
+            s.loop_once()
+        finally:
+            ms.profile_in_use = orig
+        self.assertIn('owner_login_window', self.log())
+        self.assertNotIn('"worker_start"', self.log())
+
+    def test_hold_persists_across_restart(self):
+        self.push_tasks(['scan', '--title', 'scan', '--lane', 'h1', '--requires', 'local_browser'])
+        s = self.sup(worker='/bin/true', browser_min_gap_sec=0)
+        s.loop_once()                                 # worker changes nothing -> hold
+        self.assertIn('"noprogress"', self.log())
+        s2 = self.sup(worker='/bin/true', browser_min_gap_sec=0)   # simulated launchd restart
+        s2.loop_once()
+        self.assertEqual(self.log().count('"worker_start"'), 1)
+        self.assertIn('"noprogress_hold"', self.log())
+
+    def test_owner_login_window_close_completes_owner_task_and_logs_minutes(self):
+        self.push_tasks(['owner-login-mac-local-profile', '--title', 'owner login', '--lane', 'local-browser',
+                         '--requires', 'human', '--detail', 'open browser-profiles/mac-local and log in'])
+        s = self.sup()
+        orig = ms.profile_in_use
+        try:
+            ms.profile_in_use = lambda p: str(p).endswith('browser-profiles/mac-local')
+            s.loop_once()
+            s.login_windows['mac-local'] = ms.iso(ms.utcnow() - ms.dt.timedelta(minutes=3))
+            ms.profile_in_use = lambda p: False
+            s.loop_once()
+        finally:
+            ms.profile_in_use = orig
+        run(['git', 'pull', '-q', 'origin', 'main'], self.founder)
+        t = json.loads((self.founder / 'status/2026-10/tasks/owner-login-mac-local-profile.json').read_text())
+        self.assertEqual(t['status'], 'done')
+        ev = (self.founder / 'status/2026-10/events/mac-local.jsonl').read_text()
+        self.assertIn('"human_intervention"', ev)
+        self.assertIn('"minutes":4', ev)
 
 
 if __name__ == '__main__':

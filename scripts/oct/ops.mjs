@@ -14,7 +14,7 @@
  *   node scripts/oct/ops.mjs cost <op> --date YYYY-MM-DD --category ai_compute --jpy N|null --note "..." [--reference ID]
  *   node scripts/oct/ops.mjs task-new <op> <task-id> --title "..." --lane x [--requires local_browser] [--site coconala.com] [--priority 1] [--detail "..."] [--not-before ISO] [--due ISO] [--assign <op>] [--after task1,task2]
  *   node scripts/oct/ops.mjs claim <op> <task-id> [--hours 6]       # take a task (fails if another live lease holds it)
- *   node scripts/oct/ops.mjs done <op> <task-id> --result "..."      # or: release <op> <task-id> --reason "..."
+ *   node scripts/oct/ops.mjs done <op> <task-id> --result "..."      # or: release <op> <task-id> --reason "..." [--blocked-by owner-task]
  *   node scripts/oct/ops.mjs kpi [YYYY-MM-DD]
  *
  * All timestamps UTC ISO. Commit + `git pull --rebase` + push after writing.
@@ -111,7 +111,7 @@ switch (cmd) {
     if (!opt.title || !opt.lane) die('--title and --lane required');
     mkdirSync(r(`${P2}/tasks`), { recursive: true });
     writeFileSync(p, JSON.stringify({ id, title: opt.title, lane: opt.lane, detail: opt.detail, requires: list(opt.requires) || [], site: opt.site,
-      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, due_at: opt.due, not_before: opt['not-before'], assigned_to: opt.assign, after: list(opt.after), created_by: op, created_at: now(), status: 'open',
+      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, due_at: opt.due, not_before: opt['not-before'], assigned_to: opt.assign, after: list(opt.after), browser: opt.browser, created_by: op, created_at: now(), status: 'open',
       claimed_by: null, lease_until: null, result: null, history: [] }, null, 2) + '\n');
     appendEvent(op, { type: 'task_created', task: id, lane: opt.lane }); console.log(`task ${id} created`); break;
   }
@@ -128,7 +128,7 @@ switch (cmd) {
     } else {
       if (t.claimed_by && t.claimed_by !== op && leaseLive) die(`task ${id} is leased by ${t.claimed_by}`);
       if (cmd === 'done') { if (!opt.result) die('--result required'); t.status = 'done'; t.result = opt.result; }
-      else { t.status = 'open'; t.claimed_by = null; t.lease_until = null; }
+      else { t.status = 'open'; t.claimed_by = null; t.lease_until = null; if (opt['blocked-by']) t.blocked_by = list(opt['blocked-by']); }
     }
     t.history.push({ ts: now(), op, action: cmd, note: opt.result || opt.reason });
     writeFileSync(p, JSON.stringify(t, null, 2) + '\n');

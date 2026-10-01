@@ -42,9 +42,18 @@
       "op": "mac-local",
       "action": "release",
       "note": "Public baseline captured (marketing/2026-10/h3/snapshot_2026-10-02_public.md): coconala 4426150 sales 0, fav 0, requests 0; BOOTH 8919052 likes 0. Dashboard views/messages BLOCKED on owner-login-mac-local-profile."
+    },
+    {
+      "ts": "2026-10-01T21:02:13Z",
+      "op": "founder",
+      "action": "blocked_by",
+      "note": "waits on owner-login-mac-local-profile; excluded from mac-local eligibility until it is done (no login re-checks)"
     }
   ],
   "after": [
     "ops-verify-local-browser"
+  ],
+  "blocked_by": [
+    "owner-login-mac-local-profile"
   ]
 }
