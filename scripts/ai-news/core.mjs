@@ -195,6 +195,13 @@ export async function run({ state: s, config: c, queue, inventory = [], api, per
     try { check(now() - Date.parse(q.scheduled_at) <= 15 * 60000, 'missed_slot_after_upload'); collision(q, s, inventory, now()); }
     catch (e) { return stop(e.message); }
     p.status = 'post_intent'; s.operations.find(o => o.id === `${q.id}:create`).status = 'attempted_unreconciled'; await persist(s);
+    // Remote checkpoint acknowledgement may take seconds/minutes. Re-evaluate the
+    // publication window AFTER it, with no async work between this guard and create.
+    // Keep the durable intent on rejection; manual reconciliation is required.
+    try {
+      check(now() - Date.parse(q.scheduled_at) <= 15 * 60000, 'missed_slot_after_intent');
+      collision(q, s, inventory, now());
+    } catch (e) { return stop(e.message); }
     let id;
     try { validateConfig(c, now()); check(s.operations.find(o => o.id === `${q.id}:create`).month === month(now()), 'month_changed'); id = await api.create({ text: q.text, ...(p.media_id ? { media: { media_ids: [p.media_id] } } : {}) }); }
     catch { return stop('post_result_unknown_or_rejected'); }

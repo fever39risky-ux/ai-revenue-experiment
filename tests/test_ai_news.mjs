@@ -180,3 +180,30 @@ test('missing media result cannot silently publish text; other news costs reserv
   const h = harness(); h.api.upload = async () => undefined; assert.equal((await h.run()).halt.reason, 'invalid_media_response'); assert(!h.calls.includes('create'));
   const k = harness(); k.config.billing.months['2026-10'].non_api_reserve_minor_jpy = 300000; assert.match((await k.run()).halt.reason, /budget_limit/); assert.equal(k.calls.length, 0);
 });
+test('slow intent checkpoint enters existing business protection window: no POST', async () => {
+  const h = harness(pkg({ scheduled_at: '2026-10-01T20:00:00+09:00' }));
+  h.clock = Date.parse('2026-10-01T20:06:59+09:00');
+  h.inventory = [{ not_before: '2026-10-01T20:37:00+09:00', text: 'existing business' }];
+  const save = h.persist;
+  h.persist = async s => {
+    await save(s);
+    if (s.posts['news-test-1']?.status === 'post_intent' && !s.halt) h.clock += 2000;
+  };
+  const result = await h.run();
+  assert.equal(result.halt.reason, 'account_schedule_conflict');
+  assert.equal(h.state.posts['news-test-1'].status, 'post_intent');
+  assert(!h.calls.includes('create')); assert(!h.calls.includes('get'));
+  h.state = clone(h.checkpoints.at(-1)); await h.run();
+  assert(!h.calls.includes('create'));
+});
+test('slow intent checkpoint exceeds 15 minute deadline: no POST', async () => {
+  const h = harness(); h.clock = start + 15 * 60000 - 1000;
+  const save = h.persist;
+  h.persist = async s => {
+    await save(s);
+    if (s.posts['news-test-1']?.status === 'post_intent' && !s.halt) h.clock += 2000;
+  };
+  const result = await h.run();
+  assert.equal(result.halt.reason, 'missed_slot_after_intent');
+  assert(!h.calls.includes('create')); assert(!h.calls.includes('get'));
+});
