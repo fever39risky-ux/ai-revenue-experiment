@@ -1,7 +1,7 @@
 {
   "id": "mac-local",
   "kind": "local-mac",
-  "runtime": "owner's Mac (Darwin)",
+  "runtime": "owner's Mac — launchd supervisor scripts/oct/mac_supervisor.py",
   "role": "local browser operator + marketplace inboxes",
   "lanes": [
     "local-browser",
@@ -9,19 +9,17 @@
     "marketplace-inbox"
   ],
   "capabilities": [
+    "local_browser",
     "git",
     "node",
     "claude-cli",
-    "playwright-browsers",
-    "browser-profile-dir",
-    "reach-coconala",
-    "reach-booth"
+    "playwright-mcp-dedicated-profile"
   ],
   "status": "blocked",
-  "doing": "02:53 JST: coconala delta scan 0 GO; H3 public baseline captured",
-  "next": "After owner login: claim h1-coconala-requests-scan (re-scan >=08:00 JST, send <=5 proposals, check inbox) then h3-marketplace-snapshot dashboards; after owner-note-login-satotsu1020: h2-note-publish",
+  "doing": "supervisor backoff after process_failure (failure 1)",
+  "next": "retry at 2026-10-01T17:55:52.531905Z",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-01T17:53:05.121Z",
-  "blocked_on": "coconala/BOOTH/note login (owner-login-mac-local-profile)"
+  "heartbeat_at": "2026-10-01T17:54:35.594Z",
+  "blocked_on": "process_failure"
 }
