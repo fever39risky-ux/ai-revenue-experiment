@@ -55,8 +55,21 @@
       "op": "founder",
       "action": "routed",
       "note": "profile=note (dedicated, owner-confirmed logged in); blocked_by cleared"
+    },
+    {
+      "ts": "2026-10-02T15:41:58.446Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T15:42:50.804Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "note-profile (dedicated, routed) logged in as kinoshitat0904 (0 notes), not @satotsu1020 (id 12786418, 39 notes) — verified current_user API 00:42 JST 10/03; not publishing to the wrong account"
     }
   ],
-  "blocked_by": [],
+  "blocked_by": [
+    "owner-note-switch-satotsu1020-noteprofile"
+  ],
   "profile": "note"
 }

@@ -1,0 +1,19 @@
+{
+  "id": "owner-note-switch-satotsu1020-noteprofile",
+  "title": "OWNER (note only, ~3 min): in the dedicated note-profile, log out of kinoshitat0904 and log in as @satotsu1020",
+  "lane": "note",
+  "detail": "Verified 2026-10-03 00:42 JST via /api/v2/current_user in the playwright-note server (user-data-dir=/Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile): logged-in note account = kinoshitat0904 (0 notes); target @satotsu1020 (id 12786418, 39 notes) is a different account. Steps: quit the playwright-note headless server (or wait until idle), then run: \"/Users/kinoshitatsukasa/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"/Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile\" https://note.com/logout -> then https://note.com/login and sign in as satotsu1020 -> close the window. Alternative (Founder decision, no owner action): publish H2 on kinoshitat0904 instead.",
+  "requires": [
+    "human"
+  ],
+  "site": "note",
+  "priority": 1,
+  "profile": "note",
+  "created_by": "mac-local",
+  "created_at": "2026-10-02T15:42:50.721Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

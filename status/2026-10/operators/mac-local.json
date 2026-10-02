@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "blocked",
-  "doing": "all mac-local tasks login-blocked; owner tasks filed",
-  "next": "when owner-relogin-mac-local-coconala done: send proposal to 5303405 if still open (CSV-import approach) + fresh scan, inbox, H3 dashboards; when owner-note-relogin-satotsu1020 done: publish note_01.md",
+  "doing": "h2-note-publish blocked: note-profile logged in as kinoshitat0904",
+  "next": "when owner-note-switch-satotsu1020-noteprofile done (or Founder approves publishing on kinoshitat0904): claim h2-note-publish, publish marketing/2026-10/h2/note_01.md, record URL in header + STATE.x_lane",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-02T14:47:39.779Z",
-  "blocked_on": "coconala+BOOTH login (mac-local profile), note @satotsu1020 login (note-profile)",
+  "heartbeat_at": "2026-10-02T15:42:59.253Z",
+  "blocked_on": "note login (@satotsu1020)",
   "progress": "since 2026-10-01T21:37:18.245877Z: polls=396 workers=0 browser_workers=0 chrome_for_testing_procs=0"
 }
