@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "blocked",
-  "doing": "h2-note-publish blocked: note-profile logged in as kinoshitat0904",
-  "next": "when owner-note-switch-satotsu1020-noteprofile done (or Founder approves publishing on kinoshitat0904): claim h2-note-publish, publish marketing/2026-10/h2/note_01.md, record URL in header + STATE.x_lane",
+  "status": "idle",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-02T15:42:59.253Z",
-  "blocked_on": "note login (@satotsu1020)",
-  "progress": "since 2026-10-01T21:37:18.245877Z: polls=396 workers=0 browser_workers=0 chrome_for_testing_procs=0"
+  "heartbeat_at": "2026-10-02T15:48:22.252Z",
+  "blocked_on": null,
+  "progress": "since 2026-10-02T15:41:35.134511Z: polls=4 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }
