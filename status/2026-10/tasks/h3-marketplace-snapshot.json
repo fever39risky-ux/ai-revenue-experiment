@@ -10,10 +10,10 @@
   "acceptance": "numbers booked as signals qualified_reach/inquiry with evidence; baseline noted in result",
   "created_by": "founder",
   "created_at": "2026-09-30T02:43:16.127Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-02T18:34:01.108Z",
+  "result": "Logged-in baseline 10/03 01:34 JST (marketing/2026-10/h3/snapshot_2026-10-03_dashboard.md): Coconala 30d views 8 (mostly Sept, not booked; delta next time), sales 0, fav 0, talk/見積り/応募 0, messages 0; BOOTH 8919052 sales 0, スキ 0, messages 0. Inquiry signals: 0.",
   "history": [
     {
       "ts": "2026-09-30T04:29:38Z",
@@ -76,6 +76,17 @@
       "op": "founder",
       "action": "routed",
       "note": "profile=['coconala', 'booth'] (dedicated, owner-confirmed logged in); blocked_by cleared"
+    },
+    {
+      "ts": "2026-10-02T16:34:01.110Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T16:34:51.809Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Logged-in baseline 10/03 01:34 JST (marketing/2026-10/h3/snapshot_2026-10-03_dashboard.md): Coconala 30d views 8 (mostly Sept, not booked; delta next time), sales 0, fav 0, talk/見積り/応募 0, messages 0; BOOTH 8919052 sales 0, スキ 0, messages 0. Inquiry signals: 0."
     }
   ],
   "after": [
