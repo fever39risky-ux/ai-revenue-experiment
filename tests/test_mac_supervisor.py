@@ -193,6 +193,8 @@ class BrowserPolicy(unittest.TestCase):
         self.founder = self.tmp / 'founder'
         run(['git', 'clone', '-q', str(remote), str(self.founder)], self.tmp)
         run(['git', 'rm', '-q', '-r', '--ignore-unmatch', 'status/2026-10/tasks'], self.founder)
+        run(['git', '-c', 'user.name=f', '-c', 'user.email=f@f', 'commit', '-qm', 'isolate', '--allow-empty'], self.founder)
+        run(['git', 'push', '-q', 'origin', 'HEAD:main'], self.founder)   # isolate from the real task queue
         self.remote = remote
 
     def tearDown(self):
@@ -283,6 +285,9 @@ class BrowserPolicy(unittest.TestCase):
             ms.profile_in_use = orig
         self.assertIn('"profile_in_use"', self.log())
         self.assertNotIn('"worker_start"', self.log())
+        run(['git', 'pull', '-q', 'origin', 'main'], self.founder)   # the wait is visible on main
+        op = json.loads((self.founder / 'status/2026-10/operators/mac-local.json').read_text())
+        self.assertEqual(op['blocked_on'], 'coconala profile in use')
 
     def test_no_tasks_means_no_worker_and_no_browser(self):
         self.push_tasks(['login', '--title', 'owner login', '--lane', 'local-browser', '--requires', 'human',

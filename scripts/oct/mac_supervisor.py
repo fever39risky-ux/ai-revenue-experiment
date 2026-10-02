@@ -264,6 +264,7 @@ class Supervisor:
         self.last_browser_start = parse(h.get('last_browser_start'))
         self.login_windows = h.get('login_windows') or {}  # profile -> ISO time the owner window opened
         self.stats = dict(polls=0, workers=0, browser_workers=0, since=iso())
+        self.deferral_reported = {}
         self.settled_hb_done = False  # one extra idle heartbeat settle_hb_min after start (verification evidence)
 
     # metadata-only log (enums/numbers/ids; never model output)
@@ -330,6 +331,17 @@ class Supervisor:
         if not matches:
             return None, f'no dedicated {site} profile found'
         return None, f'{len(matches)} candidate {site} profiles; pin one in state/profiles.json'
+
+    def report_deferral(self, task_id, sites):
+        """Make a profile-in-use wait visible on main (heartbeat), at most every 30 min per site set."""
+        key = ','.join(sorted(sites))
+        last = parse(self.deferral_reported.get(key))
+        if last and utcnow() - last < dt.timedelta(minutes=30):
+            return
+        self.deferral_reported[key] = iso()
+        self.heartbeat('working', f'waiting: dedicated {key} profile is open in another process (e.g. a Coconala/BOOTH '
+                       f'session or the owner\'s window); {task_id} starts automatically when it is closed',
+                       f'retry every {self.a.poll_sec}s', blocked_on=f'{key} profile in use', msg='profile wait')
 
     def profile_dir(self):
         return BASE / 'browser-profiles' / self.op
@@ -521,6 +533,7 @@ class Supervisor:
             self.shutdown = True  # exit; launchd KeepAlive restarts with the new code
             return
         self.stats['polls'] += 1
+        self.deferred_this_poll = False
         login_window = self.watch_owner_login()
         tasks = eligible_tasks(self.repo, self.op, self.caps)
         recovery = s == 'recovery'
@@ -534,6 +547,7 @@ class Supervisor:
                 (utcnow() - self.last_browser_start).total_seconds() >= self.a.browser_min_gap_sec
             if not gap_ok:
                 self.log('browser_deferred', reason='min_gap')
+                self.deferred_this_poll = True
                 tasks = [t for t in tasks if 'local_browser' not in (t.get('requires') or [])]
             else:  # skip only tasks whose dedicated profile is held by another process right now
                 keep = []
@@ -543,6 +557,8 @@ class Supervisor:
                                 if (lambda p: p is not None and profile_in_use(p))(self.site_profile(site)[0])]
                         if held:
                             self.log('browser_deferred', reason='profile_in_use', sites=held)
+                            self.report_deferral(t['id'], held)
+                            self.deferred_this_poll = True
                             continue
                     keep.append(t)
                 tasks = keep
@@ -572,6 +588,8 @@ class Supervisor:
             utcnow() - parse(self.stats['since']) >= dt.timedelta(minutes=self.a.settle_hb_min)
         if settle_due:
             self.settled_hb_done = True
+        if self.deferred_this_poll:
+            return self.wait(self.a.poll_sec)  # a deferral heartbeat (not "idle") is the current truth
         if settle_due or not self.last_idle_hb or utcnow() - self.last_idle_hb > dt.timedelta(minutes=self.a.hb_idle_min):
             st = self.stats
             self.ops('heartbeat', self.op, '--progress',

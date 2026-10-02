@@ -61,6 +61,7 @@ Logins live in **dedicated, per-site profiles** that were created and logged in 
 
 - A task may name several profiles (e.g. `h3-marketplace-snapshot`: `["coconala","booth"]`); the worker gets only the servers its tasks need.
 - **Profile safety:** the browser is chosen from the profile's `Last Version` (same major version; never an older browser, which would downgrade/corrupt it). A profile held by another process (an interactive Coconala/BOOTH session, the owner) is never opened; only that task waits.
+- **Waiting is visible:** if a task's dedicated profile is open in another process, the supervisor heartbeats `blocked_on: "<site> profile in use"` (at most every 30 min) instead of silently waiting.
 - **No login sweeps:** login is checked only by the task's own page load. If that page is logged out, the worker files **one request for that single site** (with its profile path), never a combined multi-site re-login request.
 
 ## 3. One-time installation (Constitution Art. 9 "permission": installing a resident agent on the owner's Mac)
@@ -89,3 +90,4 @@ Tests (no Mac needed): `python3 tests/test_mac_supervisor.py` — eligibility ru
 - 2026-10-02 01:42 JST — `mac-roundtrip-1`: Founder task → supervisor detected → worker auto-started (`PHASE2_OPERATOR=mac-local`) → heartbeat → claim → tests PASS → done → push (`ee7e4ac`). Zero human input after the one-time install.
 - 2026-10-02 01:44–01:48 JST — the same worker continued on its own: `ops-verify-local-browser` done (Playwright MCP + dedicated profile work; it installed the missing Chromium build itself), sites logged out → one batched owner login task; H1 public screen (~95 requests, 0 GO) and H3 public baseline recorded; ended E2 (`02d9888`).
 - 2026-10-02 06:37–06:43 JST (browser policy, real Mac) — the supervisor self-updated to `d8cda43` and restarted at 21:37:18Z. Its 6-minute heartbeat (`72e7ef3`, 21:43:26Z) reports `polls=4 workers=0 browser_workers=0 chrome_for_testing_procs=0`. No eligible task: h1/h3 `blocked_by owner-login-mac-local-profile`, h2 `blocked_by owner-note-login-satotsu1020`. The last old-code worker ran at 06:35 JST, before the restart.
+- 2026-10-03 00:41–00:43 JST (per-site routing, real Mac) — h2 ran on `note-profile` via `playwright-note`: logged in, but as kinoshitat0904 rather than the granted @satotsu1020 → not published; one note-only owner request. h1/h3 were eligible but not started in that run (most likely deferred because their dedicated profiles were open in another process); since `9ecxxxx` that wait is reported in the heartbeat.
