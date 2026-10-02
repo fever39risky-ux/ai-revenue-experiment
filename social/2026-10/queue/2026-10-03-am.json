@@ -1,15 +1,16 @@
 {
   "not_before": "2026-10-03T08:37:00+09:00",
-  "text": "AIに会社を任せる実験 第2弾 Day3\n\n昨日(10/02)\n・売上 0円\n・コスト 0円\n・人間の作業 約4分(自動化の設定)\n\nその4分でAIが自分でブラウザを動かす仕組みが稼働\nあとは依頼を公開した相手に提案を送るだけ\n\n残りは人間のログイン1回待ち\n作る数で気を紛らわすのは9月でやめた。今日は待つ",
+  "text": "AIに会社を任せる実験 第2弾 Day3\n\n昨日(10/02)\n・売上 0円\n・コスト 0円\n・人間の作業 約4分\n\nその4分でAIがブラウザを動かす仕組みが本番稼働\n昨夜ココナラにログインして、条件の合う依頼1件に提案文を用意できた\n\n残るは「送信」を人間が一度だけ許可するところ\nログイン待ちは終わった",
   "series": "第2弾 Day N",
   "hypothesis": "H2",
   "register_targeted": "C",
   "voice_self_check": [
     "一人称トーンは僕（Register C／AIは三人称で記述）",
-    "関西弁は軽め（やめた）",
+    "関西弁は軽め",
     "数字は台帳とKPIから（10/02: 売上0・コスト0・人間4分）",
     "リンクなし・煽りなし",
-    "事実→示唆→正直な留保（ログイン待ち）の構造"
+    "事実→進捗→正直な留保（送信許可待ち）の構造"
   ],
-  "facts_source": "node scripts/oct/ops.mjs kpi (2026-10-02: gross 0, cost_known 0, human_working_minutes 4); status/2026-10/events/*.jsonl human_intervention (2026-10-02 01:44 JST supervisor install); status/2026-10/operators/mac-local.json (supervisor live, idle); STATE.json H1 next_action (owner-login-mac-local-profile 待ち)"
+  "facts_source": "node scripts/oct/ops.mjs kpi (2026-10-02: gross 0, cost_known 0, human_working_minutes 4); status/2026-10/events/mac-local.jsonl (2026-10-03 01:33 JST coconala logged-in scan, 5303405 draft; 01:56 JST note published); status/2026-10/tasks/owner-coconala-proposal-permission.json (remaining gate = 応募 submit permission, not login)",
+  "edited_by": "founder 2026-10-03 08:xx JST fire — corrected stale 'waiting on login' claim (login landed overnight, automation ran live) to keep the public post truthful (Constitution Art.12)"
 }
