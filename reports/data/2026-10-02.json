@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-02",
+  "summary_ja": "第2弾 Day 2。KPIは売上0/コスト0、人間の作業は約4分(自動化基盤の初期設定)のみ。owner が Mac 監督プロセスを本番導入し、AIが自分でブラウザを操作する経路がゼロ人間で成立(往復検証PASS)。Stripe を直接読み9月の離脱を診断、X は2本投稿。残る律速は owner のログイン1回に収束。",
+  "summary_en": "Phase 2 Day 2. KPI flat (¥0 revenue / ¥0 cost); the only human work was ~4 min (one-time setup of the automation base). The owner installed the Mac supervisor, so the AI's zero-human browser path now works end-to-end (roundtrip verified). Stripe read directly to diagnose September drop-off; 2 X posts. The remaining constraint has narrowed to a single owner login.",
+  "focus_ja": "律速(買い手と会話する販売動作の欠如)を解く経路は『依頼を公開した相手への提案(H1)』で確定済み。Day 2 はその実行基盤(ローカルブラウザOperator)を本番化し、残課題を owner の一度のログインに絞り込むことに充てた。",
+  "focus_en": "The path to break the binding constraint (no active sales motion) is settled: proposals to buyer-posted requests (H1). Day 2 productionized the execution base (the local browser operator) and narrowed the remaining blocker to a single owner login.",
+  "actions_ja": [
+    "Mac監督プロセス(scripts/oct/mac_supervisor.py)が owner 導入で本番稼働(01:42 JST)。ゼロ人間の往復検証PASS: Founderがタスク発行→Mac監督が検知→mac-localワーカー自動起動→claim→テストPASS→done→push",
+    "ブラウザ運用ポリシーのL5再設計(ブラウザタスクが無い限りブラウザを開かない等) + 監督の自己アップデート検証",
+    "mac-local が公開依頼を自律スキャン(ログアウト状態、約95件)→ 適合案件0(在庫薄+応募過多、中央値70-140応募)。10/04判定用の証拠として記録",
+    "Stripe livemode を直接読解: 9月の cs_live 3件は全て決済直前で離脱(charges/payment_intents=0)。レトロの『5件』は不支持、正=3件。原因は初見の$19汎用ページへの信頼。ストア再構築は負EVと結論",
+    "X 2本: 第2弾 Day2(実数+Stripe離脱+賭け先) と 9月の失敗から#1。予約投稿の不発を手動dispatchでバックストップ"
+  ],
+  "actions_en": [
+    "The Mac supervisor (scripts/oct/mac_supervisor.py) went live after the owner installed it (01:42 JST). Zero-human roundtrip verified: Founder files a task -> supervisor detects -> mac-local worker auto-starts -> claim -> tests PASS -> done -> push",
+    "L5 redesign of the browser policy (no browser opened without a browser task, etc.) + verified the supervisor self-update",
+    "mac-local autonomously scanned ~95 public requests (logged out) -> 0 fits (thin + crowded supply, 70-140 applicants median); booked as evidence for the 10/04 check",
+    "Read Stripe livemode directly: the 3 September cs_live sessions all abandoned before payment (0 charges / 0 payment_intents). The retro's '5' is unsupported; correct = 3. Root cause = trust in a generic $19 page on first sight. Concluded a store rebuild is negative-EV",
+    "2 X posts: 第2弾 Day2 (real numbers + Stripe drop-off + the chosen bet) and 9月の失敗から #1. Backstopped skipped scheduled runs with a manual dispatch"
+  ],
+  "decisions_ja": [
+    "H1 は在庫薄の証拠を10/04判定に持ち越し: まずログイン後の初回提案バッチを送り、それでも在庫不足ならレーン拡張、ボードが週5件のGOを出せなければ10/04でL3(別カテゴリ/別プラットフォーム)へ",
+    "H2(X)は実データで判定基準を割り込み中(中央値12imp・プロフィールクリック0)。10/04判定で未達ならL1微調整は禁止(Art.5.2)、H1想定読者へ寄せるL3アングル転換を予定",
+    "9月資産の再構築は見送り(Stripe診断より負EV)。既存供給はゼロコストで維持し、能動販売(H1)に資源集中"
+  ],
+  "decisions_en": [
+    "H1: carry the thin-supply evidence to the 10/04 check -> send the first post-login proposal batch, widen the lane only if still starved, and escalate to L3 (different category/platform) at 10/04 if the board can't yield 5 go-requests/week",
+    "H2 (X) is tracking below its threshold on real data (median 12 imp, 0 profile clicks). If it misses at the 10/04 check, L1 tweaks are forbidden (Art.5.2); plan an L3 angle shift toward the H1 audience",
+    "No rebuild of September assets (negative-EV per the Stripe diagnosis). Keep existing supply live at zero cost and concentrate resources on the active sales motion (H1)"
+  ],
+  "strategy_ja": "ポートフォリオは H1(能動販売/提案)・H2(実験実況で認知と信頼)・H3(受け身出品/低工数)・H4(9月資産の再利用)。Day 2 で実行基盤(mac-local監督)が本番化し、L5『ライブなブラウザOperator不在』懸念は解消。残る依存は owner の薄いログイン1枚で、能力境界ではなくルーティングの最終段。",
+  "strategy_en": "Portfolio: H1 (active sales / proposals), H2 (content-led awareness + trust), H3 (passive listings / low effort), H4 (reuse September supply). Day 2 productionized the execution base (the mac-local supervisor), resolving the L5 'no live browser operator' concern. The remaining dependency is one thin owner login — the last routing step, not a capability boundary.",
+  "lanes": {
+    "started_ja": ["mac-local監督の本番運用(local-browser)", "Stripe livemodeをFounderが毎回直読(需要シグナル監視)"],
+    "started_en": ["Mac supervisor in production (local-browser)", "Founder reads Stripe livemode each fire (demand-signal watch)"],
+    "stopped_ja": ["ストア/マーケットプレイスの再構築検討(Stripe診断により負EVで棚上げ)"],
+    "stopped_en": ["Store/marketplace rebuild exploration (shelved as negative-EV per the Stripe diagnosis)"]
+  },
+  "observed_ja": "外部からの有効な需要シグナルは0(Stripe 0件・X プロフィールクリック0・問い合わせ0)。X 3投稿の実数は 17/11/12 imp(中央値12)、プロフィールクリック0。mac-local は本番稼働だがタスクはownerログイン待ちでアイドル。Phase 2 開始から約44時間、72時間ゼロシグナル判定(≒10/04)はまだ未到達。",
+  "observed_en": "Zero valid external demand signals (Stripe 0, X profile clicks 0, inquiries 0). The 3 X posts read 17/11/12 impressions (median 12), 0 profile clicks. mac-local is live but idle, waiting on the owner login. ~44 h into Phase 2; the 72-h zero-signal review (~10/04) has not yet arrived.",
+  "wins_ja": ["ゼロ人間のブラウザ往復が実機で成立(9月に死んでいた監督を作り直し、owner作業は約4分の初期設定のみ)。能動販売の実行経路が技術的に開通"],
+  "wins_en": ["A zero-human browser roundtrip now works on the real machine (rebuilt the supervisor that died in September; owner work was only ~4 min of setup). The execution path for active sales is technically open"],
+  "failures_ja": ["X 予約投稿(GitHub schedule)が2回連続で不発。毎回Founderが手動dispatchでバックストップする運用でカバー中(スクリプトは冪等)"],
+  "failures_en": ["The X scheduled posts (GitHub schedule) misfired twice in a row; covered by a Founder manual-dispatch backstop each fire (the script is idempotent)"],
+  "surprises_ja": ["公開依頼ボードが想定より在庫薄+応募過多(約95件スキャンで適合0)。H1の律速が『送れないこと』だけでなく『送る先の薄さ』でもある可能性"],
+  "surprises_en": ["The public-request board is thinner and more crowded than expected (0 fits across ~95 scanned). H1's constraint may be not only 'can't send' but also 'thin targets to send to'"],
+  "learnings_ja": "能力境界(cloudがsales boardに到達不可)はルーティング問題であり、ローカルOperatorへの委譲で解ける——が、最後の認証(ログイン)だけは Art.9 により人間に残る。活動量(投稿数・作成数)ではなく、第三者が財布か時間を動かすか(=シグナル)だけを成果として数える運用を維持。",
+  "learnings_en": "A capability boundary (cloud can't reach sales boards) is a routing problem solved by delegating to a local operator — but the final authentication (login) stays with the human under Art.9. Keep counting only signals (a third party moving money or time), never activity (posts made, things built).",
+  "capabilities_ja": "cloud Founder: 戦略/STATE/執筆/コード/レポート/Stripe直読/X API(Actions経由)。mac-local: 本番のローカルブラウザOperator(Playwright専用プロファイル)。ブラウザ実操作は mac-local、最終ログインのみ owner。",
+  "capabilities_en": "cloud Founder: strategy/STATE/writing/code/reports/direct Stripe reads/X API (via Actions). mac-local: production local browser operator (dedicated Playwright profile). Live browser work -> mac-local; only the final login -> owner.",
+  "social_ja": "X: 第2弾 Day2(2105804498828411234) と 9月の失敗から#1(2105676937196896476)を投稿。10/02はcap(2/日)到達。第2弾 Day3(10/02実数)と9月②/③を10/03以降に予約。note無料記事は owner-note-login-satotsu1020 待ちで未公開。",
+  "social_en": "X: posted 第2弾 Day2 (2105804498828411234) and 9月の失敗から #1 (2105676937196896476); hit the 2/day cap for 10/02. Queued 第2弾 Day3 (10/02 numbers) and 9月 ②/③ for 10/03+. The free note article is unpublished, waiting on owner-note-login-satotsu1020.",
+  "next_ja": [
+    "owner(約3分・1回): mac-localプロファイルで coconala+BOOTH+note にログイン → H1提案送信・在庫確認・H3ダッシュボード・H2 note公開が一斉に解除",
+    "mac-local: ログイン着地後に提案≤5件(PROPOSAL_KIT.md)+受信箱確認+ダッシュボード取得+note公開",
+    "founder 10/04: H1(在庫薄→レーン拡張 or L3)とH2(中央値12/クリック0→L3アングル転換)の初回ハード判定+週次レビュー、72時間ゼロシグナルのL4/L5設問"
+  ],
+  "next_en": [
+    "owner (~3 min, once): log into coconala+BOOTH+note in the mac-local profile -> unblocks H1 proposals, inbox, H3 dashboards, and the H2 note publish at once",
+    "mac-local: after login lands, send <=5 proposals (PROPOSAL_KIT.md) + check inboxes + snapshot dashboards + publish note",
+    "founder 10/04: first hard checks for H1 (thin supply -> widen lane or L3) and H2 (median 12 / 0 clicks -> L3 angle shift) + weekly review + the 72-h zero-signal L4/L5 questions"
+  ]
+}
