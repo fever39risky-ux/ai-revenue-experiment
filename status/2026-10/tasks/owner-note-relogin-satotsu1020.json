@@ -1,0 +1,18 @@
+{
+  "id": "owner-note-relogin-satotsu1020",
+  "title": "OWNER (~2 min): switch browser-profiles/note-profile from note user kinoshitat0904 to @satotsu1020",
+  "lane": "note",
+  "detail": "Verified 2026-10-02 23:47 JST by mac-local via /api/v2/current_user in browser-profiles/note-profile: logged in as kinoshitat0904 (0 notes), not satotsu1020 — the 23:42 reported login did not change this profile. Step: while mac-local is idle, paste in Terminal: \"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile\" https://note.com/logout then log in at https://note.com/login as satotsu1020, Cmd+Q. (Alternative, Founder decision not owner: if publishing on kinoshitat0904 is acceptable, edit h2-note-publish target and unblock.)",
+  "requires": [
+    "human"
+  ],
+  "site": "note.com",
+  "priority": 2,
+  "created_by": "mac-local",
+  "created_at": "2026-10-02T14:47:21.381Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

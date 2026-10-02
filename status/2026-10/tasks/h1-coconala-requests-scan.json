@@ -61,12 +61,23 @@
       "op": "mac-local",
       "action": "release",
       "note": "06:34 JST delta re-scan (logged-out): 2 new requests, both out of lane, 0 GO; appended to marketing/2026-10/h1/screens/2026-10-02.md. Proposals + inbox still BLOCKED on owner-login-mac-local-profile (mypage -> /login). Next re-scan >=09:00 JST."
+    },
+    {
+      "ts": "2026-10-02T14:44:59.619Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T14:46:44.406Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "coconala logged out in browser-profiles/mac-local (header ログイン/会員登録 at 23:45 JST, after owner's reported 23:42 login). Keyword re-scan done: 0 GO, 1 conditional GO 5303405 (CSV-import approach) appended to marketing/2026-10/h1/screens/2026-10-02.md. Proposals+inbox wait on owner-relogin-mac-local-coconala."
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
   "blocked_by": [
-    "owner-login-mac-local-profile"
+    "owner-relogin-mac-local-coconala"
   ]
 }

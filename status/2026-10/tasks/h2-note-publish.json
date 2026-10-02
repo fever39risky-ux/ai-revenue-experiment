@@ -38,9 +38,20 @@
       "op": "founder",
       "action": "requires",
       "note": "local_browser (note.com editor) so the Mac supervisor runs it with a headless browser"
+    },
+    {
+      "ts": "2026-10-02T14:46:57.729Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T14:47:21.524Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "note-profile is logged in as kinoshitat0904 (0 notes) not @satotsu1020 (current_user API 23:47 JST); not publishing to the wrong account. Waits on owner-note-relogin-satotsu1020."
     }
   ],
   "blocked_by": [
-    "owner-note-login-satotsu1020"
+    "owner-note-relogin-satotsu1020"
   ]
 }

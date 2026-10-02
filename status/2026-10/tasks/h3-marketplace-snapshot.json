@@ -59,12 +59,23 @@
       "op": "mac-local",
       "action": "release",
       "note": "06:35 JST public re-check: coconala 4426150 sales 0 / fav 0; BOOTH 8919052 likes 0 (unchanged, appended to snapshot_2026-10-02_public.md). Dashboards BLOCKED on owner-login-mac-local-profile."
+    },
+    {
+      "ts": "2026-10-02T14:46:49.401Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T14:46:57.650Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "coconala + BOOTH both logged out in browser-profiles/mac-local (BOOTH manage -> /users/sign_in 23:46 JST). Public baseline unchanged from snapshot_2026-10-02_public.md. Dashboards wait on owner-relogin-mac-local-coconala."
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
   "blocked_by": [
-    "owner-login-mac-local-profile"
+    "owner-relogin-mac-local-coconala"
   ]
 }

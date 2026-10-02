@@ -1,0 +1,18 @@
+{
+  "id": "owner-relogin-mac-local-coconala",
+  "title": "OWNER (~3 min): log in to coconala + BOOTH in the mac-local Playwright profile (10/02 23:42 login did not land there)",
+  "lane": "local-browser",
+  "detail": "Verified 2026-10-02 23:45 JST by mac-local: browser-profiles/mac-local still shows coconala ログイン/会員登録 after the owner's reported login, so that login went into a different browser/profile. Step: while mac-local is idle, paste in Terminal: \"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local\" https://coconala.com/login https://manage.booth.pm/users/sign_in — it must be THIS command (a normal Chrome window will not work). Log in on both tabs, then Cmd+Q. Done: tell any session or run done founder owner-relogin-mac-local-coconala --result logged-in.",
+  "requires": [
+    "human"
+  ],
+  "site": "coconala.com",
+  "priority": 1,
+  "created_by": "mac-local",
+  "created_at": "2026-10-02T14:46:44.312Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
