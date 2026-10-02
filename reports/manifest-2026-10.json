@@ -6,8 +6,8 @@
   "gross_revenue_jpy": 0,
   "cost_known_jpy": 0,
   "net_profit_jpy": 0,
-  "human_intervention_count": 2,
-  "human_working_minutes": 4,
+  "human_intervention_count": 3,
+  "human_working_minutes": 7,
   "reports": [
     {
       "day": 1,
@@ -34,8 +34,8 @@
       "cumulative_revenue_jpy": 0,
       "cumulative_cost_known_jpy": 0,
       "cumulative_net_profit_jpy": 0,
-      "human_intervention_count": 2,
-      "human_working_minutes": 4
+      "human_intervention_count": 3,
+      "human_working_minutes": 7
     }
   ]
 }
