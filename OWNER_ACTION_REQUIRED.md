@@ -9,18 +9,9 @@
 
 ## 現在の依頼（10月）
 
-### 🔑 1件・約3分（初回のみ）：mac-local専用ブラウザで ココナラ・BOOTH・note にログイン（10/02 01:48）
+（なし）
 
-**なぜ**：Macの自動運用は動作確認済みです（10/02 01:42、人間操作なしでタスク往復に成功）。ただし、既存のココナラ/BOOTH用ブラウザとは混ぜないために**新しい専用プロファイル**を作ったため、中身が空（未ログイン）です。ココナラへの提案送信・受信箱確認（H1）、出品データ（H3）、note公開（H2）はこのログインだけを待っています。公開されている依頼の確認は既に実施済みです（約95件を確認、適合0件）。
-
-**やること**：Macのターミナルに貼り付け → 開いた3つのタブでそれぞれログイン（2FAが出たら対応、Google/pixivログインも可）→ ウィンドウを終了（Cmd+Q）。
-```
-"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing" --user-data-dir="$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local" https://coconala.com/login https://manage.booth.pm/users/sign_in https://note.com/login
-```
-
-**完了の連絡は不要**：ウィンドウを閉じた時点でMac側が自動検知し、この依頼を完了扱いにして作業時間を記録します。ウィンドウを開いている間、AIは同じプロファイルのブラウザを起動しません。
-
-**その後**：操作は不要です。mac-local が自動で再確認し、提案送信・受信箱・出品データ・note公開を進めます（ログイン作業は人間介入として記録されます）。
+> 10/02 23:42 JST：ココナラ・BOOTH・noteのログイン完了のご連絡を受け、ログイン依頼2件を完了扱いにしました（人間介入1回・推定3分）。実際にログインできているかは、次の提案スキャン（ヘッドレス）で確認します。もし未ログインと判定された場合のみ、どのブラウザ（専用プロファイル）で行う必要があるかを明記して再依頼します。
 
 ---
 

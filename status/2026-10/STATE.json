@@ -216,9 +216,7 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [
-      "2026-10-02 01:48 (task owner-login-mac-local-profile, ~3 min, category=login): log in to coconala + BOOTH + note once in the dedicated mac-local browser profile (command in OWNER_ACTION_REQUIRED.md). Unblocks H1 proposal sending + inbox, H3 dashboards, H2 note publish."
-    ],
+    "open": [],
     "note": "One open request (R1). Possible follow-up: a site login/2FA in a dedicated browser profile if sessions expired (mac-local logs it as human_intervention)."
   },
   "reviews": [

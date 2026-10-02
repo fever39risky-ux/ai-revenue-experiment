@@ -9,9 +9,16 @@
   "priority": 2,
   "created_by": "mac-local",
   "created_at": "2026-10-01T17:39:22.677Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "Owner reported 'logged in' (2026-10-02 23:42 JST); verified by h2-note-publish (must be @satotsu1020 in browser-profiles/note-profile).",
+  "history": [
+    {
+      "ts": "2026-10-02T14:42:53.889Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Owner reported 'logged in' (2026-10-02 23:42 JST); verified by h2-note-publish (must be @satotsu1020 in browser-profiles/note-profile)."
+    }
+  ]
 }
