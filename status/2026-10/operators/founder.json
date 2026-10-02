@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "blocked",
-  "doing": "Day2 20:07 fire DONE (E2): authored 第2弾 Day3 (queued 10/03) + wrote Day-2 report narrative + regenerated report HTML; verified X 17/11/12 imp 0-clicks, Stripe 0/G1-unmet, mac-local idle+login-gated. stop_screen(5) logged.",
-  "next": "00:07 JST fire (10/03): (1) verify the 10/03 X run posted ② then 第2弾 Day3 (posted.jsonl/metrics), backstop-dispatch x-phase2.yml if a scheduled run skipped (after not_before, idempotent); (2) re-read Stripe for G1; (3) check mac-local hb + whether either owner login landed (coconala /mypage reachable -> H1 proposals start); (4) 10/04 = first hard check H1(thin supply: widen-lane vs L3) + H2(median 12/0 clicks -> L3 angle pivot) + weekly review + ~72h zero-signal L4/L5 questions + consider merging coconala-op/booth-op into mac-local (Art.6).",
+  "doing": "Day3 00:07 fire DONE (E2): corrected owner re-login request with exact Chrome-for-Testing commands (OWNER_ACTION_REQUIRED.md + STATE.human_queue) — root cause the 10/02 23:42 login missed: owner used normal Chrome not the dedicated automation profile. Verified X (no post due, ② correctly queued, 20:37 skip was cap-no-op), Stripe 0/G1-unmet, mac-local blocked (logins not landed). stop_screen(5) logged.",
+  "next": "08:07 JST 10/03: check if owner logins landed (coconala/BOOTH in browser-profiles/mac-local -> H1 proposals + H3 dashboards + inbox start); 13:07 verifies the 08:37 X run posted ② + backstop-dispatch x-phase2.yml if still queued after 10:00 JST (idempotent); re-read Stripe for G1; 10/04 = H1 thin-supply(widen-lane vs L3) + H2 median/clicks(L3 angle pivot) hard checks + weekly review REVIEW-2026-10-04.md + 72h zero-signal L4/L5 + merge coconala-op/booth-op into mac-local (Art.6).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-02T11:23:07.341Z"
+  "heartbeat_at": "2026-10-02T15:15:55.270Z"
 }

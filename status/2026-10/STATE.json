@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-02T20:25:00+09:00",
-  "day": 2,
-  "day_note": "Day 2, 20:07 JST fire (7th fire) — PRODUCTIVE: did the day's two genuine cloud-executable Founder deliverables, not a re-screen. (A) Authored the MISSING daily anchor 第2弾 Day3 (social/2026-10/queue/2026-10-03-am.json, 268w, validated) from 10/02's now-final numbers (売上0/コスト0/人間4分=supervisor install) — the series had no Day3 queued (only 9月②/③), so the 'every day report' promise had a gap; fills it for 10/03 and keeps posts flowing into the 10/04 H2 check (needs >=4). (B) Wrote the MISSING Day-2 report narrative reports/data/2026-10-02.json (only 10/01 existed) and regenerated reports/2026-10-02.html. Verifications this fire: (1) X metrics refreshed 19:01 JST = 17/11/12 imp (median 12), profile_clicks 0/0/0 -> no profile clicks on 10/02. (2) Stripe livemode re-read: 0 charges, 0 payment_intents, same 3 Sept cs_live expired/unpaid -> G1 unmet, no new signal. (3) mac-local LIVE but idle (hb 19:22 JST, polls=284, workers=0); H1/H3/note tasks still open -> neither owner login landed, engine still login-gated. (4) X cap 2/day already hit for 10/02 (00:11 #1 + 08:38 Day2 am) -> no dispatch tonight (even a 20:37 run no-ops on cap); 00:07 fire verifies 10/03. (5) No check/review due today; 10/04 = first hard check for H1 (thin supply) AND H2 (median 12, 0 clicks -> trending MISS -> L3 angle pivot per X_PHASE2 §4; L1 forbidden, Art.5.2) + weekly review + the ~72h zero-signal L4/L5 questions. After (A)+(B) every remaining positive-EV motion is owner-login-gated (Art.9) or negative-EV/not-due -> ending E2 with a fresh in-session stop_screen.",
+  "as_of": "2026-10-03T00:25:00+09:00",
+  "day": 3,
+  "day_note": "Day 3, 00:07 JST fire (8th fire) — cloud-executable deliverable this fire: CORRECTED the owner re-login request. Root cause the 10/02 23:42 owner login did NOT land: the owner used normal Chrome, but the automation uses a separate 'Google Chrome for Testing' app + dedicated profile; a normal-Chrome login never carries over. mac-local's headless re-check (23:45/23:47 JST) proved coconala/BOOTH still logged-out in browser-profiles/mac-local and note-profile on the wrong account (kinoshitat0904, 0 notes) not @satotsu1020. The two re-login tasks mac-local filed were NOT surfaced in OWNER_ACTION_REQUIRED.md (still said '（なし）') nor STATE.human_queue (still []). Fixed both: wrote the two requests with the EXACT Chrome-for-Testing Terminal commands + done-commands + why the last attempt failed (so the responsive owner succeeds on the next try — this is the rank-1 unblock, not a duplicate nag: the prior request lacked the command that caused the miss). Verifications this fire: (1) X: no post was due (next slot 08:37 JST 10/03); the 20:37 JST 10/02 scheduled run skipped per the reliability note BUT would have no-op'd on the 10/02 cap (2 posts hit) anyway, so no post lost — ② (2026-10-02-pm) is correctly still queued and sorts first for the 08:37 run; nothing to dispatch at 00:14 (midnight post is against policy; morning-item fallback is 10:00 JST, caught by the 13:07 fire). (2) Stripe livemode re-read: 0 charges, 0 payment_intents -> G1 unmet, no new signal. (3) mac-local blocked (hb 23:47 JST, polls=396, workers=0), both logins still not landed. (4) No check/review due; 10/04 = first hard check H1 (thin supply: widen-lane vs L3) + H2 (median 12, 0 clicks -> trending MISS -> L3 angle pivot, L1 forbidden Art.5.2) + weekly review + ~72h zero-signal L4/L5. After the owner-doc correction, every remaining positive-EV motion is owner-login-gated (Art.9), self-managing (X), or not-due (10/04) -> ending E2 with a fresh in-session stop_screen.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -97,7 +97,7 @@
     {
       "rank": 3,
       "owner": "founder",
-      "action": "Next fire (20:07 JST 10/02): (1) refresh metrics on the 3 posted tweets (board) — is 10/02 producing any profile_clicks? (2) re-read Stripe livemode for any G1 signal. (3) check mac-local heartbeat + whether either owner login landed (if coconala /mypage reachable -> H1 proposals start; Founder then builds deliverables via marketing/2026-10/h1/delivery/ as convos/orders appear). (4) the 20:37 scheduled run posts the overflowed ② (2026-10-02-pm) as the 10/03 AM post if cap resets — verify next fire; no new post is written tonight (cap). (5) 00:07 fire (10/03) verifies the evening run. (6) 10/04 is the first hard check for BOTH H1 (thin-supply evidence booked; widen-lane vs L3 decision) and H2 (medians 14/7/5, 0 clicks -> likely L3 angle pivot toward the H1 audience)."
+      "action": "Next fire (08:07 JST 10/03): (1) check whether either owner login landed — if coconala/BOOTH logged-in in browser-profiles/mac-local, H1 proposals + inbox + H3 dashboards start and Founder builds deliverables via marketing/2026-10/h1/delivery/ as convos appear. (2) The 08:37 JST slot run should post ② (2026-10-02-pm) then nothing more (cap 2/day, one item/run); the 08:07 fire is pre-slot so can't verify yet — the 13:07 fire verifies the 08:37 run and dispatches x-phase2.yml as backstop if ② is still queued after 10:00 JST (idempotent). (3) re-read Stripe for G1. (4) 10/04 (next day) = first hard check H1 (thin-supply: widen-lane vs L3) + H2 (median 12, 0 clicks -> L3 angle pivot per X_PHASE2 §4, L1 forbidden Art.5.2) + weekly review REVIEW-2026-10-04.md + ~72h zero-signal L4/L5 questions + consider merging coconala-op/booth-op into mac-local (Art.6)."
     },
     {
       "rank": 5,
@@ -216,8 +216,11 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [],
-    "note": "One open request (R1). Possible follow-up: a site login/2FA in a dedicated browser profile if sessions expired (mac-local logs it as human_intervention)."
+    "open": [
+      "owner-relogin-mac-local-coconala (P1, ~3min): log into coconala+BOOTH in the DEDICATED Chrome-for-Testing profile (browser-profiles/mac-local) via the exact Terminal command — the 10/02 23:42 attempt used normal Chrome and did not land. Unblocks H1 proposals + inbox + H3 dashboards.",
+      "owner-note-relogin-satotsu1020 (P2, ~2min): switch browser-profiles/note-profile from kinoshitat0904 to @satotsu1020 via the exact Terminal command. Unblocks H2 note publish."
+    ],
+    "note": "Corrected on the 10/03 00:07 fire with exact Chrome-for-Testing commands (OWNER_ACTION_REQUIRED.md top). Both logged as human_intervention when executed. mac-local auto-detects completion via headless /api checks and resumes."
   },
   "reviews": [
     "2026-10-04",

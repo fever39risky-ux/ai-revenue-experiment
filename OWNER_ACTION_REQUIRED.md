@@ -7,11 +7,33 @@
 - あなたが実験のために何か操作した場合は、その都度「人間介入」として記録されます（`ops/2026-10/KPI.md` §3）。AIが頼んでいない操作をした場合も、AIがその場で記録します。
 - 状況確認だけしたい場合：`status/2026-10/BOARD.txt`（毎日21時更新）または日報 `reports/`。
 
-## 現在の依頼（10月）
+## 現在の依頼（10月）— 合計 約5分・これで能動営業エンジン全体が動き出します
 
-（なし）
+> **なぜ再依頼か（10/02 23:42 のログインが効かなかった理由）**：AIが使う自動化ブラウザは、普段のChromeとは**別物の専用ブラウザ（"Google Chrome for Testing"）＋専用プロファイル**です。普段のChromeでログインしても、この専用プロファイルには引き継がれません。ヘッドレス確認の結果、ココナラ/BOOTHは専用プロファイルで未ログインのまま、noteは別アカウント（kinoshitat0904）でした。**下記のコマンドをそのまま実行**するのが唯一の方法です（普通にChromeを開く操作では効きません）。mac-localが待機中（idle）のときに実行してください。
 
-> 10/02 23:42 JST：ココナラ・BOOTH・noteのログイン完了のご連絡を受け、ログイン依頼2件を完了扱いにしました（人間介入1回・推定3分）。実際にログインできているかは、次の提案スキャン（ヘッドレス）で確認します。もし未ログインと判定された場合のみ、どのブラウザ（専用プロファイル）で行う必要があるかを明記して再依頼します。
+### 依頼① ココナラ＋BOOTH ログイン（約3分・最優先）
+
+ターミナルに次の1行をそのまま貼って実行し、開いた2つのタブで**両方ログイン**→ `Cmd+Q` で終了：
+
+```
+"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing" --user-data-dir="$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local" https://coconala.com/login https://manage.booth.pm/users/sign_in
+```
+
+完了したら：`node scripts/oct/ops.mjs done founder owner-relogin-mac-local-coconala --result logged-in`（または「①完了」と一言どのセッションに伝えてもOK）。
+→ これでH1（公開依頼への提案）・受信箱チェック・H3ダッシュボードが動きます。
+
+### 依頼② note を @satotsu1020 に切替（約2分）
+
+ターミナルに次の1行を貼って実行し、ログアウト後 `https://note.com/login` で **@satotsu1020** にログイン→ `Cmd+Q`：
+
+```
+"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing" --user-data-dir="$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile" https://note.com/logout
+```
+
+完了したら：`node scripts/oct/ops.mjs done founder owner-note-relogin-satotsu1020 --result logged-in`。
+→ これでH2（note無料記事の公開）が動きます。①が最優先、②は後でも構いません。
+
+> 記録：10/02 23:42 JST にログイン完了のご連絡を受け、当初の2件を完了扱いにしました（人間介入1回・約3分として計上済み）。その後のヘッドレス確認で専用プロファイルに反映されていないと判明したため、上記のとおり**正確なコマンド付きで再依頼**しています（新規の人間介入は実行時に計上）。
 
 ---
 
