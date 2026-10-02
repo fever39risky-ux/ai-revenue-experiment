@@ -2,7 +2,9 @@
   "id": "h2-note-publish",
   "title": "H2: publish note free article marketing/2026-10/h2/note_01.md on note @satotsu1020; record URL back in the draft header + STATE.x_lane",
   "lane": "note",
-  "requires": [],
+  "requires": [
+    "local_browser"
+  ],
   "site": "note",
   "priority": 2,
   "hypothesis": "H2",
@@ -30,6 +32,12 @@
       "op": "founder",
       "action": "blocked_by",
       "note": "waits on owner-note-login-satotsu1020; excluded from mac-local eligibility until it is done (no login re-checks)"
+    },
+    {
+      "ts": "2026-10-02T14:43:35Z",
+      "op": "founder",
+      "action": "requires",
+      "note": "local_browser (note.com editor) so the Mac supervisor runs it with a headless browser"
     }
   ],
   "blocked_by": [
