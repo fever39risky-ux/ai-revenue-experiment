@@ -70,12 +70,20 @@
       "op": "mac-local",
       "action": "release",
       "note": "coconala + BOOTH both logged out in browser-profiles/mac-local (BOOTH manage -> /users/sign_in 23:46 JST). Public baseline unchanged from snapshot_2026-10-02_public.md. Dashboards wait on owner-relogin-mac-local-coconala."
+    },
+    {
+      "ts": "2026-10-02T15:39:12Z",
+      "op": "founder",
+      "action": "routed",
+      "note": "profile=['coconala', 'booth'] (dedicated, owner-confirmed logged in); blocked_by cleared"
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
-  "blocked_by": [
-    "owner-relogin-mac-local-coconala"
+  "blocked_by": [],
+  "profile": [
+    "coconala",
+    "booth"
   ]
 }

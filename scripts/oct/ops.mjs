@@ -111,7 +111,7 @@ switch (cmd) {
     if (!opt.title || !opt.lane) die('--title and --lane required');
     mkdirSync(r(`${P2}/tasks`), { recursive: true });
     writeFileSync(p, JSON.stringify({ id, title: opt.title, lane: opt.lane, detail: opt.detail, requires: list(opt.requires) || [], site: opt.site,
-      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, due_at: opt.due, not_before: opt['not-before'], assigned_to: opt.assign, after: list(opt.after), browser: opt.browser, created_by: op, created_at: now(), status: 'open',
+      priority: Number(opt.priority || 3), hypothesis: opt.hypothesis, acceptance: opt.acceptance, due_at: opt.due, not_before: opt['not-before'], assigned_to: opt.assign, after: list(opt.after), browser: opt.browser, profile: opt.profile, created_by: op, created_at: now(), status: 'open',
       claimed_by: null, lease_until: null, result: null, history: [] }, null, 2) + '\n');
     appendEvent(op, { type: 'task_created', task: id, lane: opt.lane }); console.log(`task ${id} created`); break;
   }

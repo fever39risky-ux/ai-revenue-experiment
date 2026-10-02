@@ -8,7 +8,7 @@
   "site": "note",
   "priority": 2,
   "hypothesis": "H2",
-  "acceptance": "Article live on note.com/satotsu1020; URL recorded in marketing/2026-10/h2/note_01.md header; signal note_view once metrics show",
+  "acceptance": "Article live on note.com/satotsu1020; URL recorded in marketing/2026-10/h2/note_01.md header; signal note_view once metrics show | Before publishing, confirm via the note-profile session that the logged-in account is @satotsu1020; if it is another account, do not publish and file ONE note-only owner request.",
   "created_by": "founder",
   "created_at": "2026-09-30T15:16:56.173Z",
   "status": "open",
@@ -49,9 +49,14 @@
       "op": "mac-local",
       "action": "release",
       "note": "note-profile is logged in as kinoshitat0904 (0 notes) not @satotsu1020 (current_user API 23:47 JST); not publishing to the wrong account. Waits on owner-note-relogin-satotsu1020."
+    },
+    {
+      "ts": "2026-10-02T15:39:12Z",
+      "op": "founder",
+      "action": "routed",
+      "note": "profile=note (dedicated, owner-confirmed logged in); blocked_by cleared"
     }
   ],
-  "blocked_by": [
-    "owner-note-relogin-satotsu1020"
-  ]
+  "blocked_by": [],
+  "profile": "note"
 }

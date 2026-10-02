@@ -48,6 +48,21 @@ Problem seen on the real Mac (01:19–02:47 JST 10/02): a worker started every ~
 | No recovery churn | dirty check ignores untracked files (`--untracked-files=no`); Playwright output goes to `state/playwright-output/` (outside the checkout); `.playwright-mcp/` is git-ignored; recovery runs never get a browser |
 | Evidence | idle heartbeats carry `progress: polls=… workers=… browser_workers=… chrome_for_testing_procs=…`; one extra heartbeat 6 min after each supervisor start |
 
+## 2c. Per-site dedicated profiles (owner correction 2026-10-03)
+
+Logins live in **dedicated, per-site profiles** that were created and logged in when each listing was published. Tasks are routed to them and never to a shared profile:
+
+| Site | Profile (reused as-is; never merged, recreated or used for another site) | Task routing |
+|---|---|---|
+| Coconala | `~/Library/Caches/ms-playwright-mcp/mcp-chrome-*` (the profile used to publish 4426150; exactly one match, or pin it in `state/profiles.json`) | `profile: coconala`, or `site`/lane/id containing "coconala" → MCP server `playwright-coconala` |
+| BOOTH | `~/Library/Caches/ms-playwright-mcp/booth-profile` | `profile: booth` / "booth" → `playwright-booth` |
+| note | `~/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile` | `profile: note` / "note" → `playwright-note` |
+| new / generic sites | `…/browser-profiles/mac-local` | everything else → `playwright` |
+
+- A task may name several profiles (e.g. `h3-marketplace-snapshot`: `["coconala","booth"]`); the worker gets only the servers its tasks need.
+- **Profile safety:** the browser is chosen from the profile's `Last Version` (same major version; never an older browser, which would downgrade/corrupt it). A profile held by another process (an interactive Coconala/BOOTH session, the owner) is never opened; only that task waits.
+- **No login sweeps:** login is checked only by the task's own page load. If that page is logged out, the worker files **one request for that single site** (with its profile path), never a combined multi-site re-login request.
+
 ## 3. One-time installation (Constitution Art. 9 "permission": installing a resident agent on the owner's Mac)
 
 On the Mac, from any checkout of this repo (or ask a local Claude session to run it):

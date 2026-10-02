@@ -216,10 +216,7 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [
-      "owner-relogin-mac-local-coconala (P1, ~3min): log into coconala+BOOTH in the DEDICATED Chrome-for-Testing profile (browser-profiles/mac-local) via the exact Terminal command — the 10/02 23:42 attempt used normal Chrome and did not land. Unblocks H1 proposals + inbox + H3 dashboards.",
-      "owner-note-relogin-satotsu1020 (P2, ~2min): switch browser-profiles/note-profile from kinoshitat0904 to @satotsu1020 via the exact Terminal command. Unblocks H2 note publish."
-    ],
+    "open": [],
     "note": "Corrected on the 10/03 00:07 fire with exact Chrome-for-Testing commands (OWNER_ACTION_REQUIRED.md top). Both logged as human_intervention when executed. mac-local auto-detects completion via headless /api checks and resumes."
   },
   "reviews": [
@@ -259,7 +256,7 @@
   "risks": [
     {
       "id": "R1",
-      "status": "SUPERVISOR LIVE as of 01:42 JST 10/02 (owner installed LaunchAgent; mac-local heartbeating, ran 3 autonomous Coconala scans). Auto-wake + dedicated-Playwright-profile both proven on the real Mac. REMAINING = two owner logins (Art.9 password/2FA), both filed in OWNER_ACTION_REQUIRED.md: owner-login-mac-local-profile (coconala+BOOTH+note; unblocks H1 proposals+inbox, H3 dashboards) and owner-note-login-satotsu1020 (unblocks H2 note publish). mac-local auto-detects login completion and resumes; supervisor holds the profile (no respawn churn) while a login window is open. Owner is responsive (same-night supervisor install) so the ask stands as filed — no re-escalation, no duplicate nag.",
+      "status": "RESOLVED: auto-wake + per-site dedicated profile routing (Coconala mcp-chrome-*, BOOTH booth-profile, note note-profile; mac-local profile only for new/generic sites). Owner-confirmed logins reused; a single-site owner request only if that site's own profile is logged out.",
       "risk": "H1/H3/note depend on mac-local browser work; now specifically on the two owner logins (not on the supervisor, which is live)",
       "evidence": "2026-09-30 13:26 JST mac-local ran scripts/oct/coord_drill.sh on the Mac: 8/8 PASS (registry, heartbeat, claim, double-claim rejected, release, re-claim, done, handoff); Founder accepted the handoff from the cloud and was rejected on the held lease (cross-machine claim protection works). Probe: coconala.com 200, booth.pm 302, note.com 200, x.com 200; capabilities git,node,claude-cli,playwright-browsers,browser-profile-dir,reach-coconala,reach-booth.",
       "remaining": "playwright-mcp was NOT detected by `claude mcp list` in the drill runtime, and site logins in the dedicated profiles are unverified. Day-1 task ops-verify-local-browser (P1) resolves this first; a login/2FA, if needed, is one batched owner request logged as human_intervention. NOTE (Day-1): codex's Day-0 probe returned coconala/booth/note/x = 000000 (unreachable) with caps git,node,browser-profile-dir only — codex is NOT a browser fallback; all H1/H3 browser work sits solely on mac-local.",

@@ -218,14 +218,71 @@ class BrowserPolicy(unittest.TestCase):
         p = self.tmp / 'mac/state/supervisor.log'
         return p.read_text() if p.exists() else ''
 
+    def make_profiles(self):
+        """Fake dedicated profiles mirroring the Mac layout; Last Version matches a fake CfT build."""
+        home = Path(os.environ['HOME'])
+        cft = home / 'Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents'
+        cft.mkdir(parents=True)
+        import plistlib
+        (cft / 'Info.plist').write_bytes(plistlib.dumps({'CFBundleShortVersionString': '141.0.7390.37'}))
+        paths = {'coconala': home / 'Library/Caches/ms-playwright-mcp/mcp-chrome-abc123',
+                 'booth': home / 'Library/Caches/ms-playwright-mcp/booth-profile',
+                 'note': home / 'Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile'}
+        for p in paths.values():
+            p.mkdir(parents=True)
+            (p / 'Last Version').write_text('141.0.7390.37')
+        return paths
+
     def test_mcp_config_browser_only_when_needed_and_headless_by_default(self):
+        self.make_profiles()
         s = self.sup()
-        self.assertEqual(json.loads(Path(s.mcp_config(False)).read_text())['mcpServers'], {})
-        args = json.loads(Path(s.mcp_config(True)).read_text())['mcpServers']['playwright']['args']
+        self.assertEqual(json.loads(Path(s.mcp_config(())).read_text())['mcpServers'], {})
+        t = [{'id': 'scan', 'requires': ['local_browser'], 'site': 'coconala.com'}]
+        args = json.loads(Path(s.mcp_config(t)).read_text())['mcpServers']['playwright-coconala']['args']
         self.assertIn('--headless', args)
         self.assertIn('--output-dir', args)
-        args = json.loads(Path(s.mcp_config(True, headed=True)).read_text())['mcpServers']['playwright']['args']
+        args = json.loads(Path(s.mcp_config(t, headed=True)).read_text())['mcpServers']['playwright-coconala']['args']
         self.assertNotIn('--headless', args)
+
+    def test_tasks_route_to_their_dedicated_site_profiles(self):
+        paths = self.make_profiles()
+        s = self.sup()
+        tasks = [{'id': 'h1-coconala-requests-scan', 'requires': ['local_browser'], 'site': 'coconala.com'},
+                 {'id': 'h3-marketplace-snapshot', 'requires': ['local_browser'], 'profile': ['coconala', 'booth']},
+                 {'id': 'h2-note-publish', 'requires': ['local_browser'], 'lane': 'note'},
+                 {'id': 'new-site', 'requires': ['local_browser'], 'site': 'lancers.jp'}]
+        servers = json.loads(Path(s.mcp_config(tasks)).read_text())['mcpServers']
+        def udd(name):
+            a = servers[name]['args']; return a[a.index('--user-data-dir') + 1]
+        self.assertEqual(udd('playwright-coconala'), str(paths['coconala']))
+        self.assertEqual(udd('playwright-booth'), str(paths['booth']))
+        self.assertEqual(udd('playwright-note'), str(paths['note']))
+        self.assertTrue(udd('playwright').endswith('browser-profiles/mac-local'))   # generic only for new sites
+        self.assertEqual([r[0] for r in s.routing['h3-marketplace-snapshot']], ['playwright-coconala', 'playwright-booth'])
+        self.assertIn('ROUTING', ms.worker_prompt('mac-local', 'r', tasks, False, s.routing))
+        # only the needed servers are configured
+        servers = json.loads(Path(s.mcp_config(tasks[:1])).read_text())['mcpServers']
+        self.assertEqual(list(servers), ['playwright-coconala'])
+
+    def test_never_downgrades_a_profile(self):
+        paths = self.make_profiles()
+        (paths['booth'] / 'Last Version').write_text('150.0.1.1')   # written by a newer Chrome than installed
+        s = self.sup()
+        s.mcp_config([{'id': 'b', 'requires': ['local_browser'], 'site': 'booth.pm'}])
+        self.assertEqual(s.routing['b'][0][0], 'unavailable')
+
+    def test_profile_held_by_another_process_defers_only_that_task(self):
+        paths = self.make_profiles()
+        self.push_tasks(['h1-coconala-requests-scan', '--title', 's', '--lane', 'h1', '--requires', 'local_browser', '--site', 'coconala.com'])
+        s = self.sup()
+        orig = ms.profile_in_use
+        ms.profile_in_use = lambda p: str(p) == str(paths['coconala'])
+        try:
+            s.loop_once()
+        finally:
+            ms.profile_in_use = orig
+        self.assertIn('"profile_in_use"', self.log())
+        self.assertNotIn('"worker_start"', self.log())
 
     def test_no_tasks_means_no_worker_and_no_browser(self):
         self.push_tasks(['login', '--title', 'owner login', '--lane', 'local-browser', '--requires', 'human',

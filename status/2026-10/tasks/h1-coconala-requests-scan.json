@@ -72,12 +72,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "coconala logged out in browser-profiles/mac-local (header ログイン/会員登録 at 23:45 JST, after owner's reported 23:42 login). Keyword re-scan done: 0 GO, 1 conditional GO 5303405 (CSV-import approach) appended to marketing/2026-10/h1/screens/2026-10-02.md. Proposals+inbox wait on owner-relogin-mac-local-coconala."
+    },
+    {
+      "ts": "2026-10-02T15:39:12Z",
+      "op": "founder",
+      "action": "routed",
+      "note": "profile=coconala (dedicated, owner-confirmed logged in); blocked_by cleared"
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
-  "blocked_by": [
-    "owner-relogin-mac-local-coconala"
-  ]
+  "blocked_by": [],
+  "profile": "coconala"
 }

@@ -47,7 +47,14 @@ P2 = 'status/2026-10'
 DEFAULT_CAPS = ['local_browser']           # task.requires this operator can satisfy
 PLAYWRIGHT_MCP = '@playwright/mcp@0.0.83'  # pinned
 # Site-dedicated, owner-logged-in profiles under BASE/browser-profiles/ -> extra MCP server `playwright-<site>`.
-SITE_PROFILES = {'note': 'note-profile'}
+# Dedicated, already-logged-in profiles per site (owner-confirmed 2026-10-02). Never merged,
+# never re-created, never used for another site. Overrides (exact paths): state/profiles.json.
+SITE_PROFILES = {
+    'coconala': ['~/Library/Caches/ms-playwright-mcp/mcp-chrome-*'],   # profile used to publish 4426150
+    'booth': ['~/Library/Caches/ms-playwright-mcp/booth-profile'],     # BOOTH listing session profile
+    'note': ['~/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile'],
+}
+SITE_KEYWORDS = {'coconala': ('coconala',), 'booth': ('booth',), 'note': ('note.com', 'note-', '-note', 'note_')}
 BROWSER_MIN_GAP_SEC = 600  # never relaunch a browser worker sooner than this  # note.com (owner logged in 2026-10-02)
 
 
@@ -129,8 +136,66 @@ def work_signature(repo, tasks):
     return json.dumps([sorted((t['id'], t.get('status')) for t in tasks), human])
 
 
+def task_sites(t):
+    """Target profile keys for a task: explicit `profile` (str or list), else site/lane/id keywords,
+    else ['generic'] (the mac-local profile: new sites / generic browsing only)."""
+    prof = t.get('profile')
+    if prof:
+        return [prof] if isinstance(prof, str) else list(prof)
+    hay = ' '.join(str(t.get(k) or '') for k in ('site', 'lane', 'id')).lower()
+    found = [site for site, words in SITE_KEYWORDS.items() if any(w in hay for w in words)]
+    return found or ['generic']
+
+
+def task_site(t):
+    return task_sites(t)[0]
+
+
+def _major(v):
+    try:
+        return int(str(v).strip().split('.')[0])
+    except ValueError:
+        return None
+
+
+def _app_version(plist_path):
+    import plistlib
+    try:
+        return plistlib.loads(Path(plist_path).read_bytes()).get('CFBundleShortVersionString')
+    except (OSError, ValueError):
+        return None
+
+
+def browser_for_profile(profile):
+    """Pick the browser that will not damage the profile: same major version as the Chrome
+    that last wrote it (profile/'Last Version'); never an older one (downgrade)."""
+    last = _major((Path(profile) / 'Last Version').read_text() if (Path(profile) / 'Last Version').exists() else '')
+    chrome = _major(_app_version('/Applications/Google Chrome.app/Contents/Info.plist'))
+    cft = None
+    for pl in sorted(Path.home().glob('Library/Caches/ms-playwright/chromium-*/chrome-mac*/*.app/Contents/Info.plist')):
+        cft = _major(_app_version(pl)) or cft
+    if last is None:
+        return 'chrome' if 'mcp-chrome' in str(profile) and chrome else 'chromium'
+    for name, ver in (('chrome', chrome), ('chromium', cft)):
+        if ver == last:
+            return name
+    for name, ver in (('chrome', chrome), ('chromium', cft)):
+        if ver and ver > last:
+            return name
+    return None  # only older browsers available -> refuse (would downgrade the profile)
+
+
 def needs_browser(tasks):
     return any('local_browser' in (t.get('requires') or []) for t in tasks)
+
+
+def route_text(routing):
+    if not routing:
+        return ''
+    lines = '\n'.join(f'  - {tid}: ' + '; '.join(
+        (f'`{srv}` ({where})' if srv != 'unavailable' else f'UNAVAILABLE ({where}) -> do that part only if possible, else release with this reason')
+        for srv, where in routes) for tid, routes in routing.items())
+    return f'ROUTING (task -> browser server / dedicated profile):\n{lines}\n'
 
 
 def needs_headed(tasks):
@@ -156,7 +221,7 @@ def chrome_for_testing_count():
     return sum('Google Chrome for Testing' in l and 'Helper' not in l for l in out.splitlines())
 
 
-def worker_prompt(op, role, tasks, recovery):
+def worker_prompt(op, role, tasks, recovery, routing=None):
     ids = ', '.join(t['id'] for t in tasks)
     rec = ('\nRECOVERY FIRST: the checkout has uncommitted or unpushed work from a previous run. '
            'Inspect `git status`/`git log origin/main..HEAD`, keep legitimate work of this operator, '
@@ -165,12 +230,12 @@ def worker_prompt(op, role, tasks, recovery):
 Role: {role}
 Eligible tasks right now (best first): {ids}
 Work ONLY on these task ids (plus recovery if requested). {'A headless browser is available for them.' if needs_browser(tasks) else 'NO browser is available in this run (none of these tasks needs one) — do not try to open one.'}
-{rec}
+{rec}{route_text(routing)}
 Do this, in order:
 1. Read CLAUDE.md and ops/2026-10/BOOTSTRAP.md and follow them as operator `{op}` (NOT founder).
 2. `node scripts/oct/ops.mjs heartbeat {op} --status working --doing "<task>" --next "<next>"`.
 3. For each task: `node scripts/oct/ops.mjs claim {op} <task-id> --hours 2` BEFORE working (if the claim is rejected, skip it), execute it to its acceptance criteria, log results (`signal`, `human`, `revenue`, `cost` per ops/2026-10/KPI.md), then `done {op} <task-id> --result "<evidence>"` or `release {op} <task-id> --reason "<why>"`.
-4. Browser rules: open a page ONLY to perform a step of a claimed task — never just to check login/session state, never to "re-check" a site. If a page shows you are logged out: do not retry; `node scripts/oct/ops.mjs release {op} <task-id> --reason "<site> logged out" --blocked-by <owner-task-id>` (reuse the open `requires: human` login task for that profile if one exists; otherwise create one with `--requires human --site <site>` first), then continue with other tasks. Browser work: use ONLY the `playwright` MCP server provided to this session (its profile is dedicated to `{op}`). For note.com use ONLY the `playwright-note` MCP server (dedicated logged-in note profile); never use it for other sites. Never open or reuse any other browser profile. Heartbeat `--status blocked --blocked-on "<site> login"` only when every listed task is blocked.
+4. Profiles: each task's browser server is listed under ROUTING — use exactly that server for that task (its dedicated, already logged-in profile) and no other. The servers are headless; never ask for a visible window. A task marked unavailable must be released with that reason. Browser rules: open a page ONLY to perform a step of a claimed task — never just to check login/session state, never to "re-check" a site. If a page shows you are logged out: do not retry; `node scripts/oct/ops.mjs release {op} <task-id> --reason "<site> logged out" --blocked-by <owner-task-id>` (reuse the open `requires: human` login task for THAT site if one exists; otherwise create one for that single site only, with `--requires human --site <site> --profile <site>` and the exact profile path from ROUTING — never a combined multi-site request, never a request for a site whose task did not run), then continue with other tasks. Browser work: use ONLY the `playwright` MCP server provided to this session (its profile is dedicated to `{op}`). Never open or reuse any profile not listed under ROUTING. Heartbeat `--status blocked --blocked-on "<site> login"` only when every listed task is blocked.
 5. Goal-continuous: after each task, continue with the next eligible task (Constitution Art. 8). End only on E1-E4.
 6. Before ending: heartbeat with the exact next action; commit ONLY your files (status/2026-10/operators/{op}.json, status/2026-10/events/{op}.jsonl, tasks you touched, files your task produced); run `node scripts/leak_check.mjs && node scripts/promotion_check.mjs`; `git pull --rebase origin main`; `git push origin HEAD:main` (retry up to 4x). Never force-push.
 No cold DMs/emails; no posting outside the task's scope; no secrets or buyer PII in the repo.
@@ -247,19 +312,44 @@ class Supervisor:
             last_browser_start=iso(self.last_browser_start) if self.last_browser_start else None,
             login_windows=self.login_windows)))
 
+    def site_profile(self, site):
+        """-> (path, None) or (None, reason). state/profiles.json may pin exact paths."""
+        override = (read_json(self.state_dir / 'profiles.json', {}) or {}).get(site)
+        if site == 'generic':
+            return self.profile_dir(), None
+        if override:
+            p = Path(os.path.expanduser(override))
+            return (p, None) if p.is_dir() else (None, f'{site} profile {override} missing')
+        matches = []
+        for pat in SITE_PROFILES.get(site, []):
+            pat = os.path.expanduser(pat)
+            matches += [Path(m) for m in sorted(Path('/').glob(pat.lstrip('/')))] if '*' in pat else ([Path(pat)] if Path(pat).is_dir() else [])
+        matches = [m for m in matches if m.is_dir()]
+        if len(matches) == 1:
+            return matches[0], None
+        if not matches:
+            return None, f'no dedicated {site} profile found'
+        return None, f'{len(matches)} candidate {site} profiles; pin one in state/profiles.json'
+
     def profile_dir(self):
         return BASE / 'browser-profiles' / self.op
 
     def profiles(self):
-        return [self.op] + [n for n in SITE_PROFILES.values() if (BASE / 'browser-profiles' / n).is_dir()]
+        """name -> path of every dedicated profile this operator may use."""
+        out = {self.op: self.profile_dir()}
+        for site in SITE_PROFILES:
+            path, _ = self.site_profile(site)
+            if path:
+                out[site] = path
+        return out
 
     def watch_owner_login(self):
         """Detect the owner's login window on any dedicated profile. When it closes, mark the open
         owner tasks that reference that profile (browser-profiles/<name>) done and log the measured
         human minutes. Returns True while any dedicated profile is held by such a window."""
         any_open = False
-        for name in self.profiles():
-            in_use = profile_in_use(BASE / 'browser-profiles' / name)
+        for name, path in self.profiles().items():
+            in_use = profile_in_use(path)
             since = parse(self.login_windows.get(name))
             if in_use:
                 any_open = True
@@ -273,9 +363,10 @@ class Supervisor:
             for f in sorted((self.repo / P2 / 'tasks').glob('*.json')):
                 t = read_json(f, {})
                 if 'human' in (t.get('requires') or []) and t.get('status') != 'done' and \
-                        f'browser-profiles/{name}' in (t.get('detail') or ''):
+                        (str(path) in os.path.expanduser(t.get('detail') or '') or
+                         f'browser-profiles/{name}' in (t.get('detail') or '') or task_site(t) == name):
                     self.ops('done', self.op, t['id'], '--result',
-                             f'owner login window on browser-profiles/{name} used and closed ({minutes} min); '
+                             f'owner login window on the {name} profile used and closed ({minutes} min); '
                              'the login is verified by the next real task, not by a separate check')
                     closed.append(t['id']); self.git('add', str(f.relative_to(self.repo)))
             if closed:
@@ -334,23 +425,31 @@ class Supervisor:
                            f'retry at {iso(utcnow() + dt.timedelta(seconds=seconds))}', blocked_on=kind, msg='backoff')
         self.wait(seconds if not self.a.once else 0)
 
-    def mcp_config(self, browser=False, headed=False):
-        """Empty config (no browser possible) unless a task needs one; headless unless asked."""
+    def mcp_config(self, tasks=(), headed=False):
+        """One Playwright server per site the tasks need, each on that site's dedicated profile.
+        No browser task -> empty config (no browser possible). Headless unless a task asks."""
         cfg = {'mcpServers': {}}
-        if browser:
-            mode = [] if headed else ['--headless']
-            out_dir = self.state_dir / 'playwright-output'  # artifacts outside the git checkout
-            profile = self.profile_dir()
-            profile.mkdir(parents=True, exist_ok=True, mode=0o700)
-            cfg['mcpServers']['playwright'] = {'command': 'npx', 'args': [
-                '-y', PLAYWRIGHT_MCP, '--browser', 'chromium', *mode, '--output-dir', str(out_dir),
-                '--user-data-dir', str(profile)]}
-            for site, name in SITE_PROFILES.items():
-                sp_dir = BASE / 'browser-profiles' / name
-                if sp_dir.is_dir():  # created by the owner-login step; never auto-created
-                    cfg['mcpServers'][f'playwright-{site}'] = {'command': 'npx', 'args': [
-                        '-y', PLAYWRIGHT_MCP, '--browser', 'chromium', *mode, '--output-dir', str(out_dir),
-                        '--user-data-dir', str(sp_dir)]}
+        self.routing = {}
+        mode = [] if headed else ['--headless']
+        out_dir = self.state_dir / 'playwright-output'  # artifacts outside the git checkout
+        for t in tasks:
+            if 'local_browser' not in (t.get('requires') or []):
+                continue
+            routes = []
+            for site in task_sites(t):
+                path, why = self.site_profile(site)
+                if site == 'generic':
+                    path.mkdir(parents=True, exist_ok=True, mode=0o700)
+                browser = browser_for_profile(path) if path else None
+                if not path or not browser:
+                    routes.append(('unavailable', f'{site}: ' + (why or 'no non-downgrading browser for this profile')))
+                    continue
+                server = 'playwright' if site == 'generic' else f'playwright-{site}'
+                cfg['mcpServers'].setdefault(server, {'command': 'npx', 'args': [
+                    '-y', PLAYWRIGHT_MCP, '--browser', browser, *mode, '--output-dir', str(out_dir),
+                    '--user-data-dir', str(path)]})
+                routes.append((server, f'{site}: {path}'))
+            self.routing[t['id']] = routes
         p = self.state_dir / 'mcp.json'
         p.write_text(json.dumps(cfg, indent=2))
         os.chmod(p, 0o600)
@@ -359,12 +458,15 @@ class Supervisor:
     def run_worker(self, tasks, recovery):
         browser = needs_browser(tasks)
         headed = browser and needs_headed(tasks)
-        prompt = worker_prompt(self.op, self.a.role, tasks, recovery)
+        self.routing = {}
+        if browser:
+            self.mcp_config(tasks, headed)
+        prompt = worker_prompt(self.op, self.a.role, tasks, recovery, self.routing)
         if self.a.worker_cmd:  # tests
             cmd = self.a.worker_cmd.split()
         else:
             cmd = [self.a.claude, '-p', '--output-format', 'json', '--permission-mode', 'auto',
-                   '--no-session-persistence', '--mcp-config', str(self.mcp_config(browser, headed)), '--strict-mcp-config']
+                   '--no-session-persistence', '--mcp-config', str(self.mcp_config(tasks if browser else (), headed)), '--strict-mcp-config']
         env = {**os.environ, 'GIT_TERMINAL_PROMPT': '0', 'PHASE2_OPERATOR': self.op,
                'PHASE2_BROWSER': 'headed' if headed else ('headless' if browser else 'none')}
         self.log('worker_start', tasks=[t['id'] for t in tasks], recovery=recovery,
@@ -430,9 +532,20 @@ class Supervisor:
         if needs_browser(tasks):
             gap_ok = not self.last_browser_start or \
                 (utcnow() - self.last_browser_start).total_seconds() >= self.a.browser_min_gap_sec
-            if login_window or not gap_ok:
-                self.log('browser_deferred', reason='owner_login_window' if login_window else 'min_gap')
+            if not gap_ok:
+                self.log('browser_deferred', reason='min_gap')
                 tasks = [t for t in tasks if 'local_browser' not in (t.get('requires') or [])]
+            else:  # skip only tasks whose dedicated profile is held by another process right now
+                keep = []
+                for t in tasks:
+                    if 'local_browser' in (t.get('requires') or []):
+                        held = [site for site in task_sites(t)
+                                if (lambda p: p is not None and profile_in_use(p))(self.site_profile(site)[0])]
+                        if held:
+                            self.log('browser_deferred', reason='profile_in_use', sites=held)
+                            continue
+                    keep.append(t)
+                tasks = keep
         if tasks or recovery:
             kind = self.run_worker(tasks, recovery)
             # make sure whatever the worker committed reaches main
