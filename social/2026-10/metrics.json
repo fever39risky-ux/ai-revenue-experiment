@@ -3,10 +3,10 @@
   "posts": {
     "2105483067351507272": {
       "created_at": "2026-10-01T02:20:55.000Z",
-      "fetched_at": "2026-10-02T02:31:48.866Z",
+      "fetched_at": "2026-10-02T10:01:32.063Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 14,
+        "impression_count": 17,
         "like_count": 2,
         "quote_count": 0,
         "reply_count": 0,
@@ -14,16 +14,16 @@
       },
       "non_public_metrics": {
         "engagements": 4,
-        "impression_count": 14,
+        "impression_count": 17,
         "user_profile_clicks": 0
       }
     },
     "2105676937196896476": {
       "created_at": "2026-10-01T15:11:18.000Z",
-      "fetched_at": "2026-10-02T02:31:48.866Z",
+      "fetched_at": "2026-10-02T10:01:32.063Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 7,
+        "impression_count": 11,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -31,16 +31,16 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 7,
+        "impression_count": 11,
         "user_profile_clicks": 0
       }
     },
     "2105804498828411234": {
       "created_at": "2026-10-01T23:38:11.000Z",
-      "fetched_at": "2026-10-02T02:31:48.866Z",
+      "fetched_at": "2026-10-02T10:01:32.063Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 5,
+        "impression_count": 12,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -48,14 +48,14 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 5,
+        "impression_count": 12,
         "user_profile_clicks": 0
       }
     }
   },
   "summary": {
     "posts": 3,
-    "median_impressions": 7,
-    "updated_at": "2026-10-02T02:31:48.866Z"
+    "median_impressions": 12,
+    "updated_at": "2026-10-02T10:01:32.063Z"
   }
 }
