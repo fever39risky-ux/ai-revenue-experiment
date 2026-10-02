@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "idle",
-  "doing": "h1 scan + h3 logged-in baseline done (inbox 0 both sites)",
-  "next": "send 5303405 draft (marketing/2026-10/h1/screens/2026-10-02.md) once owner permits proposal submission in mac-local Claude permission settings; daily h1 re-scan; h3 delta snapshot",
+  "status": "blocked",
+  "doing": "h1/h2 blocked by auto-mode classifier",
+  "next": "after owner allows: send 5303405 draft; publish note_01 once playwright-note runs with normal Chrome UA",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-02T16:34:59.579Z",
-  "blocked_on": null,
+  "heartbeat_at": "2026-10-02T16:45:48.721Z",
+  "blocked_on": "session permissions: coconala 応募 + note headless UA",
   "progress": "since 2026-10-02T15:41:35.134511Z: polls=4 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }
