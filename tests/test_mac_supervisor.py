@@ -369,5 +369,22 @@ class BrowserPolicy(unittest.TestCase):
         self.assertIn('"minutes":4', ev)
 
 
+class ProfileInUse(unittest.TestCase):
+    def test_lock_with_live_pid_means_in_use_and_mcp_args_do_not(self):
+        d = Path(tempfile.mkdtemp())
+        self.assertFalse(ms.profile_in_use(d))                         # nothing holds it
+        os.symlink(f'host-{os.getpid()}', d / 'SingletonLock')
+        self.assertTrue(ms.profile_in_use(d))                          # live Chrome lock
+        (d / 'SingletonLock').unlink()
+        os.symlink('host-999999', d / 'SingletonLock')                 # stale lock (dead pid)
+        self.assertFalse(ms.profile_in_use(d))
+        # an MCP server / node process that merely carries the path is NOT "in use"
+        p = sp.Popen([sys.executable, '-c', 'import time; time.sleep(5)', f'--user-data-dir={d}'])
+        try:
+            self.assertFalse(ms.profile_in_use(d))
+        finally:
+            p.kill()
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

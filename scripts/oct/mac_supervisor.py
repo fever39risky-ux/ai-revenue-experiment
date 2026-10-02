@@ -203,14 +203,30 @@ def needs_headed(tasks):
 
 
 def profile_in_use(profile_dir):
-    """True if a Chrome for Testing / Chromium process is using this profile (e.g. the owner's
-    login window). Inspects command lines only for the profile path; nothing is logged."""
+    """True only if a real browser holds the profile right now: Chrome's own SingletonLock
+    (symlink '<host>-<pid>') points to a live pid, or a Chrome/Chromium executable (not an
+    MCP server or node process that merely carries the path as an argument) has it open."""
+    lock = Path(profile_dir) / 'SingletonLock'
+    try:
+        target = os.readlink(lock)
+        pid = int(target.rsplit('-', 1)[-1])
+        os.kill(pid, 0)
+        return True
+    except (OSError, ValueError):
+        pass
     try:
         out = sp.run(['/bin/ps', '-axo', 'command'], capture_output=True, text=True, timeout=10).stdout
     except (OSError, sp.TimeoutExpired):
         return False
-    return any(f'--user-data-dir={profile_dir}' in line or f'--user-data-dir {profile_dir}' in line
-               for line in out.splitlines())
+    for line in out.splitlines():
+        exe = line.split(' --', 1)[0]
+        if not any(k in exe for k in ('Chrome', 'Chromium', 'chrome')) or any(k in exe for k in ('node', 'npx', 'npm')):
+            continue
+        if 'Helper' in exe:
+            continue
+        if f'--user-data-dir={profile_dir}' in line or f'--user-data-dir {profile_dir}' in line:
+            return True
+    return False
 
 
 def chrome_for_testing_count():

@@ -66,10 +66,14 @@
       "op": "mac-local",
       "action": "release",
       "note": "note-profile (dedicated, routed) logged in as kinoshitat0904 (0 notes), not @satotsu1020 (id 12786418, 39 notes) — verified current_user API 00:42 JST 10/03; not publishing to the wrong account"
+    },
+    {
+      "ts": "2026-10-02T16:35:16Z",
+      "op": "founder",
+      "action": "unblocked",
+      "note": "owner switched note-profile to @satotsu1020; verify via current_user then publish"
     }
   ],
-  "blocked_by": [
-    "owner-note-switch-satotsu1020-noteprofile"
-  ],
+  "blocked_by": [],
   "profile": "note"
 }

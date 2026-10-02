@@ -61,6 +61,7 @@ Logins live in **dedicated, per-site profiles** that were created and logged in 
 
 - A task may name several profiles (e.g. `h3-marketplace-snapshot`: `["coconala","booth"]`); the worker gets only the servers its tasks need.
 - **Profile safety:** the browser is chosen from the profile's `Last Version` (same major version; never an older browser, which would downgrade/corrupt it). A profile held by another process (an interactive Coconala/BOOTH session, the owner) is never opened; only that task waits.
+- **In-use detection:** a profile counts as in use only if Chrome's `SingletonLock` points to a live pid, or a Chrome/Chromium executable has it open — not when an idle Playwright MCP server process merely carries the path as an argument (that false positive kept H1/H3 waiting on 10/03).
 - **Waiting is visible:** if a task's dedicated profile is open in another process, the supervisor heartbeats `blocked_on: "<site> profile in use"` (at most every 30 min) instead of silently waiting.
 - **No login sweeps:** login is checked only by the task's own page load. If that page is logged out, the worker files **one request for that single site** (with its profile path), never a combined multi-site re-login request.
 
