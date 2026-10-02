@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "working",
-  "doing": "waiting: dedicated coconala profile is open in another process (e.g. a Coconala/BOOTH session or the owner's window); h1-coconala-requests-scan starts automatically when it is closed",
+  "doing": "waiting: dedicated booth,coconala profile is open in another process (e.g. a Coconala/BOOTH session or the owner's window); h3-marketplace-snapshot starts automatically when it is closed",
   "next": "retry every 120s",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-02T16:23:02.601Z",
-  "blocked_on": "coconala profile in use",
+  "heartbeat_at": "2026-10-02T16:23:05.794Z",
+  "blocked_on": "booth,coconala profile in use",
   "progress": "since 2026-10-02T15:41:35.134511Z: polls=4 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }
