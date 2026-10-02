@@ -11,10 +11,10 @@
   "acceptance": "Article live on note.com/satotsu1020; URL recorded in marketing/2026-10/h2/note_01.md header; signal note_view once metrics show | Before publishing, confirm via the note-profile session that the logged-in account is @satotsu1020; if it is another account, do not publish and file ONE note-only owner request.",
   "created_by": "founder",
   "created_at": "2026-09-30T15:16:56.173Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-02T18:53:29.830Z",
+  "result": "Published https://note.com/satotsu1020/n/nd53510c5e65a (free, @satotsu1020 verified via current_user id 12786418 before publish; headed browser; tags #AI #AIエージェント #副業 #実験; did NOT enter the #AIとできたこと contest — requires consent + auto-follow). URL recorded in note_01.md header + STATE.x_lane.note_published. note_view signal pending metrics.",
   "history": [
     {
       "ts": "2026-10-01T17:38:35.347Z",
@@ -89,6 +89,17 @@
       "op": "founder",
       "action": "headed",
       "note": "note editor rejects headless Chrome (CORS preflight fails); real operation -> headed window for this task only; no UA spoofing"
+    },
+    {
+      "ts": "2026-10-02T16:53:29.831Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-02T16:56:53.293Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Published https://note.com/satotsu1020/n/nd53510c5e65a (free, @satotsu1020 verified via current_user id 12786418 before publish; headed browser; tags #AI #AIエージェント #副業 #実験; did NOT enter the #AIとできたこと contest — requires consent + auto-follow). URL recorded in note_01.md header + STATE.x_lane.note_published. note_view signal pending metrics."
     }
   ],
   "blocked_by": [],

@@ -212,6 +212,9 @@
       "task x-verify-day1-am DONE (8 imp / 0 profile_clicks real)",
       "task x-verify-day1-pm DONE — skipped scheduled run recovered by manual dispatch, tweet 2105676937196896476 verified",
       "2026-10-02 08:38 JST Day2 am VERIFIED via posted.jsonl (tweet 2105804498828411234, in-script GET + run success) — next: 13:07 fire refreshes its metrics"
+    ],
+    "note_published": [
+      "2026-10-03 01:55 JST note free article #1 https://note.com/satotsu1020/n/nd53510c5e65a (marketing/2026-10/h2/note_01.md; tags #AI #AIエージェント #副業 #実験; by mac-local, task h2-note-publish) — signal note_view once metrics show"
     ]
   },
   "human_queue": {

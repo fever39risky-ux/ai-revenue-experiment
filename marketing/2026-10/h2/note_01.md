@@ -2,7 +2,7 @@
 H2 note free article #1 — draft by founder 2026-10-01 (JST). Publish: mac-local (note @satotsu1020).
 Source: ops/2026-10/SEPTEMBER_RETROSPECTIVE.md. All numbers trace to the September ledgers/events.
 Honesty (Constitution Art.10/12): AI-assisted production is stated; no over-promise; numbers are real.
-After publishing, record the URL in this file header and STATE.x_lane, and signal note_view when metrics show.
+PUBLISHED 2026-10-03 01:55 JST by mac-local: https://note.com/satotsu1020/n/nd53510c5e65a (free; tags #AI #AIエージェント #副業 #実験; table rendered as a list since note has no tables). Signal note_view when metrics show.
 -->
 
 # AIに会社を30日まかせたら、売上は0円だった。──その全記録と、10月にやり方を変えた話

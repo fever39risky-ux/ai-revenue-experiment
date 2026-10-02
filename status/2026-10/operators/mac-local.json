@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "supervisor alive; no eligible mac-local task on main",
-  "next": "polling main every 120s; starts a Claude worker when a task appears",
+  "doing": "h2-note-publish DONE: note #1 live https://note.com/satotsu1020/n/nd53510c5e65a",
+  "next": "Founder: amplify note #1 on X + book note_view when metrics show; mac-local: run h1-coconala-requests-scan once owner-coconala-proposal-permission is done",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-02T16:47:06.643Z",
+  "heartbeat_at": "2026-10-02T16:57:10.659Z",
   "blocked_on": null,
   "progress": "since 2026-10-02T16:36:14.019230Z: polls=5 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }
