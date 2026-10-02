@@ -143,7 +143,8 @@ def task_sites(t):
     if prof:
         return [prof] if isinstance(prof, str) else list(prof)
     hay = ' '.join(str(t.get(k) or '') for k in ('site', 'lane', 'id')).lower()
-    found = [site for site, words in SITE_KEYWORDS.items() if any(w in hay for w in words)]
+    found = [site for site, words in SITE_KEYWORDS.items()
+             if (t.get('lane') or '').lower() == site or any(w in hay for w in words)]
     return found or ['generic']
 
 
@@ -464,6 +465,7 @@ class Supervisor:
             if 'local_browser' not in (t.get('requires') or []):
                 continue
             routes = []
+            tmode = [] if (headed and t.get('browser') == 'headed') else ['--headless']  # per task
             for site in task_sites(t):
                 path, why = self.site_profile(site)
                 if site == 'generic':
@@ -474,7 +476,7 @@ class Supervisor:
                     continue
                 server = 'playwright' if site == 'generic' else f'playwright-{site}'
                 cfg['mcpServers'].setdefault(server, {'command': 'npx', 'args': [
-                    '-y', PLAYWRIGHT_MCP, '--browser', browser, *mode, '--output-dir', str(out_dir),
+                    '-y', PLAYWRIGHT_MCP, '--browser', browser, *tmode, '--output-dir', str(out_dir),
                     '--user-data-dir', str(path)]})
                 routes.append((server, f'{site}: {path}'))
             self.routing[t['id']] = routes

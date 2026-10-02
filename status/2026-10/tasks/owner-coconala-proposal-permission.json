@@ -1,0 +1,18 @@
+{
+  "id": "owner-coconala-proposal-permission",
+  "title": "OWNER (Coconala only): allow mac-local to submit Coconala proposals, or send the ready draft for 5303405 yourself",
+  "lane": "coconala",
+  "detail": "mac-local found a fit (https://coconala.com/requests/5303405, ¥5k-10k, deadline 10/12) and the draft is ready in marketing/2026-10/h1/screens/2026-10-02.md ('Ready-to-send draft for 5303405'), but pressing 応募する on your Coconala account is blocked by the Mac's Claude auto-mode safety check (Real-World Transactions) — an owner permission boundary the AI must not bypass. Choose one: (a) send the draft yourself on coconala.com (~3 min); or (b) allow unattended Coconala proposal submission for the mac-local supervisor's Claude runs (a permission rule in the Mac's Claude Code settings) — then every future H1 proposal goes out without you. Constitution Art.10 already authorizes proposals; this is only the runtime permission.",
+  "requires": [
+    "human"
+  ],
+  "site": "coconala.com",
+  "priority": 1,
+  "created_by": "founder",
+  "created_at": "2026-10-02T16:50:18.471Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

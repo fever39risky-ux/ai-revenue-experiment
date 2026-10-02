@@ -243,7 +243,7 @@ class BrowserPolicy(unittest.TestCase):
         args = json.loads(Path(s.mcp_config(t)).read_text())['mcpServers']['playwright-coconala']['args']
         self.assertIn('--headless', args)
         self.assertIn('--output-dir', args)
-        args = json.loads(Path(s.mcp_config(t, headed=True)).read_text())['mcpServers']['playwright-coconala']['args']
+        args = json.loads(Path(s.mcp_config([{**t[0], 'browser': 'headed'}], headed=True)).read_text())['mcpServers']['playwright-coconala']['args']
         self.assertNotIn('--headless', args)
 
     def test_tasks_route_to_their_dedicated_site_profiles(self):
@@ -261,6 +261,12 @@ class BrowserPolicy(unittest.TestCase):
         self.assertEqual(udd('playwright-note'), str(paths['note']))
         self.assertTrue(udd('playwright').endswith('browser-profiles/mac-local'))   # generic only for new sites
         self.assertEqual([r[0] for r in s.routing['h3-marketplace-snapshot']], ['playwright-coconala', 'playwright-booth'])
+        # headed is per task: a headed note task does not make the coconala server headed
+        mixed = [{'id': 'n', 'requires': ['local_browser'], 'lane': 'note', 'browser': 'headed'},
+                 {'id': 'c', 'requires': ['local_browser'], 'site': 'coconala.com'}]
+        sv = json.loads(Path(s.mcp_config(mixed, headed=True)).read_text())['mcpServers']
+        self.assertNotIn('--headless', sv['playwright-note']['args'])
+        self.assertIn('--headless', sv['playwright-coconala']['args'])
         self.assertIn('ROUTING', ms.worker_prompt('mac-local', 'r', tasks, False, s.routing))
         # only the needed servers are configured
         servers = json.loads(Path(s.mcp_config(tasks[:1])).read_text())['mcpServers']

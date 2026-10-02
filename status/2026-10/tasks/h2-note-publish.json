@@ -83,8 +83,15 @@
       "op": "mac-local",
       "action": "release",
       "note": "note-profile verified @satotsu1020 (id 12786418, 39 notes) 01:43 JST 10/03, but editor.note.com/new never loads: POST note.com/api/v1/text_notes fails CORS preflight (ERR_FAILED, 2/2 tries) — likely because headless Chrome UA 'HeadlessChrome/155' is rejected. Overriding the UA in-session was denied by the auto-mode classifier (Security Weaken). Fix needed: launch playwright-note MCP with a normal Chrome --user-agent (or headed), owner/supervisor config decision. Nothing published."
+    },
+    {
+      "ts": "2026-10-02T16:50:18Z",
+      "op": "founder",
+      "action": "headed",
+      "note": "note editor rejects headless Chrome (CORS preflight fails); real operation -> headed window for this task only; no UA spoofing"
     }
   ],
   "blocked_by": [],
-  "profile": "note"
+  "profile": "note",
+  "browser": "headed"
 }
