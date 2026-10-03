@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "13:07 fire DONE (E2): 4 checks no new signal (Day3 X anchor posted 11:16 JST; coconala-permission still open; Stripe 0/0; note_view cloud-403); STATE refreshed + 10/04 H2-check framing corrected (>=L2, L3=Day8); stop_screen=5 motions",
-  "next": "20:07 JST 10/03: write Day-3 report narrative (reports/2026-10-03.html <- reports/data/2026-10-03.json after 21:00 Actions) + verify 3rd X post rolls to 10/04 am. 10/04 00:07: weekly review REVIEW-2026-10-04.md + H1 thin-supply + H2 Day-4 (>=L2) + 72h L4/L5 + coconala-op/booth-op merge",
+  "doing": "20:07 fire DONE (E2): wrote Day-3 report narrative (reports/data/2026-10-03.json + regenerated 2026-10-03.html); re-verified Stripe 0/0 (same 3 expired Sept checkouts), owner-permission still OPEN, X median 11 imp/0 clicks — no new signal; verified X ③ rolls to 10/04 under 2/day cap",
+  "next": "10/04 00:07 Day-4 hard checks: weekly review REVIEW-2026-10-04.md + H1 10/04 check (submit-gate miss vs widen/L3) + H2 Day-4 (median 11<20, 0 clicks -> >=L2) + 72h L4/L5 (Art.5.3) + merge coconala-op/booth-op into mac-local (Art.6)",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-03T04:16:02.791Z"
+  "heartbeat_at": "2026-10-03T11:14:11.539Z"
 }
