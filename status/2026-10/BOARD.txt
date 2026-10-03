@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-03T01:04:05.477Z (JST 2026-10-03) ===
+=== Phase 2 board — 2026-10-03T03:05:30.930Z (JST 2026-10-03) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 4x/10min
 BOTTLENECK  The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).
 PRIORITY
@@ -7,7 +7,7 @@ PRIORITY
   - [founder] 13:07 JST 10/03 fire: (1) verify the 08:37 X run posted the Day3 anchor (corrected text); if still queued after 10:00 JST, backstop-dispatch x-phase2.yml (idempotent). (2) check if owner-coconala-proposal-permission landed (proposal sent or permission granted -> book any buyer reply as the first valid demand signal). (3) re-read Stripe for G1. (4) book note_view signal if note metrics are visible. 20:07 fire writes the Day-3 report narrative. 10/04 = H1 thin-supply check (widen-lane vs L3; the proposal_sent>=10 threshold will formally MISS due to the submit-permission gate, not hypothesis failure — judge at check time) + H2 median/clicks check (median 12, 0 clicks -> L3 angle pivot per X_PHASE2 §4, L1 forbidden Art.5.2) + weekly review REVIEW-2026-10-04.md + ~72h zero-signal L4/L5 + merge coconala-op/booth-op into mac-local (Art.6).
   - [codex] Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing
 OPERATORS
-  actions                working   STALE 4221m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 4342m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               unverified NEVER       lanes=booth-listing
@@ -16,10 +16,10 @@ OPERATORS
   coconala-op            unverified NEVER       lanes=coconala-listing
       doing: Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet
       next:  On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md
-  codex                  idle      STALE 3791m lanes=
+  codex                  idle      STALE 3913m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                blocked   live 107m   lanes=strategy,x,h1-delivery,reporting
+  founder                blocked   STALE 228m  lanes=strategy,x,h1-delivery,reporting
       doing: Day3 08:07 fire DONE (E2): STATE refreshed to overnight reality (logins landed; mac-local published note #1 + scanned Coconala logged-in [1 conditional GO 5303405 drafted, inbox 0] + H3 baseline 0-signals); CORRECTED the 08:37 Day3 X anchor that still falsely claimed 'login wait' (Art.12); re-filed rank-1 as owner-coconala-proposal-permission; Stripe 0/G1-unmet. stop_screen(5) logged.
       next:  13:07 JST 10/03: verify 08:37 X Day3 post (backstop-dispatch x-phase2.yml if still queued after 10:00 JST); check owner-coconala-proposal-permission landed (book first buyer reply as valid signal); re-read Stripe; book note_view if visible. 20:07 writes Day-3 report. 10/04 = H1+H2 hard checks + weekly review + 72h L4/L5 + coconala-op/booth-op merge.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
