@@ -156,6 +156,38 @@
         },
         "decision": "impressions<=10 and 0 link clicks -> keep X dormant"
       }
+    },
+    {
+      "date": "2026-10-04",
+      "post_type": "top_level",
+      "tweet_id": "2106524258906337476",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2106524258906337476",
+      "in_reply_to_tweet_id": null,
+      "text": "AI研修のあと、担当する案件まで決めておく\n\nAnthropicが10月2日に発表したClaude Frontier Academyは、4日間の研修・試験に合格後、自社の実案件に12週間取り組む\n経験あるエンジニア向けの推薦制\n\n学んだあと何を進めるかまで、研修とセットにしたいね\n\nhttps://www.anthropic.com/news/claude-frontier-academy",
+      "reply_text": null,
+      "reply_tweet_id": null,
+      "reply_error": null,
+      "topic": "Claude Frontier Academy: 研修前に帰任後の実案件を決める",
+      "register": "B（ニュース解説・仕事への活用）",
+      "posted_at": "2026-10-03T23:18:15.602Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 37161321752)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "content_id": "C-20261004-001",
+      "body_sha256": "7fdad565f3cb43fa8a72435d80081217d3f5e5d9adde0313bd5d9d052c50a9bd",
+      "created_at": "2026-10-03T23:18:15.000Z",
+      "author_id": "1982353950843256832",
+      "workflow_run_url": "https://github.com/fever39risky-ux/ai-revenue-experiment/actions/runs/37161321752",
+      "workflow_job_id": 111315183152,
+      "post_http_status": 201,
+      "verification_http_status": 200
     }
   ]
 }
