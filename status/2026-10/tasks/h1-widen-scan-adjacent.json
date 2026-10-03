@@ -1,0 +1,17 @@
+{
+  "id": "h1-widen-scan-adjacent",
+  "title": "H1 widen-lane: scan adjacent Coconala request categories, deepen ready-draft shortlist to 3-5",
+  "lane": "local_browser",
+  "detail": "Day-4 review L2 redesign. In-lane GAS/Sheets supply thin+crowded (1 conditional-GO/~95). Scan adjacent less-crowded 募集中 公開依頼 phrasings: 手順書/マニュアル作成, Excel to Sheets 移行, データ整理/転記, スプレッドシート自動化, 定型作業の自動化. Shortlist 3-5 AI can fully deliver in <=3 days; draft proposals per PROPOSAL_KIT.md. DO NOT press 応募/submit (gated on owner-coconala-proposal-permission, Art.9); DO NOT pre-build delivery (Art.5.5). Goal: 3-5 deep ready-draft queue so proposals flow immediately when the gate lands.",
+  "requires": [],
+  "priority": 2,
+  "hypothesis": "H1",
+  "acceptance": "3-5 adjacent-category requests shortlisted with drafts ready (not sent); scan logged as an event",
+  "created_by": "founder",
+  "created_at": "2026-10-03T15:15:06.742Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

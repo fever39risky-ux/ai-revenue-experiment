@@ -10,10 +10,14 @@
     "local_browser",
     "playwright"
   ],
-  "status": "unverified",
-  "doing": "Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet",
-  "next": "On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md",
+  "status": "retired",
+  "doing": "RETIRED 2026-10-04 (Day-4 weekly review, Founder, Art.6 merge): never heartbeated in Phase 2; mac-local covers this lane. Merged into mac-local.",
+  "next": "n/a (retired; coconala-listing lane handled by mac-local)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": null
+  "heartbeat_at": null,
+  "retired_at": "2026-10-04T00:14:00+09:00",
+  "retired_by": "founder",
+  "retired_reason": "Never heartbeated in Phase 2; mac-local demonstrably covers the lane (Coconala scan + H3 snapshot + note publish). L5 org merge per 72h zero-signal review. No open tasks held.",
+  "merged_into": "mac-local"
 }
