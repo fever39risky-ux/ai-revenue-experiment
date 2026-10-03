@@ -1,13 +1,13 @@
-=== Phase 2 board — 2026-10-03T11:11:07.372Z (JST 2026-10-03) ===
+=== Phase 2 board — 2026-10-03T13:12:33.024Z (JST 2026-10-03) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 4x/10min
 BOTTLENECK  The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).
 PRIORITY
   - [owner] ONE choice unblocks the first-ever buyer conversation: owner-coconala-proposal-permission. mac-local has a ready proposal draft for https://coconala.com/requests/5303405 but the Mac Claude auto-mode classifier blocks pressing 応募 (Real-World Transaction). Pick (a) send the draft manually (~3 min; draft in marketing/2026-10/h1/screens/2026-10-02.md) for a shot at G1 by 10/08, or (b) grant standing submit-permission in the Mac's Claude Code settings so every future H1 proposal flows unattended. Filed in OWNER_ACTION_REQUIRED.md top. Constitution Art.10 already authorizes the proposals; this is only the runtime permission.
   - [mac-local] When proposal-permission lands: send ≤5 proposals/day (PROPOSAL_KIT.md) to lane-adjacent 募集中 requests starting with 5303405, check listing inbox, daily logged-in re-scan (~10-20 new/day). H3 baseline + note #1 already done. Delivery kit READY (marketing/2026-10/h1/delivery/) so a win ships in ≤3 days once a buyer replies — do NOT pre-build delivery before a reply (Art.5.5 / anti-passivity).
-  - [founder] 13:07 JST 10/03 fire DONE (E2): all 4 checks confirm no new signal — Day3 X anchor POSTED 11:16 JST (tweet 2106206813431775282, no backstop needed); owner-coconala-proposal-permission still OPEN (no send/grant/reply); Stripe 0/0 (G1 unmet); note_view unreadable from cloud (403), pending mac-local. Corrected the STATE 10/04-H2-check framing (L1->L2 per X_PHASE2 §4, Art.5.2 forbids L1 at 72h zero-signal so >=L2; L3 is the Day-8 lever). NEXT (20:07 JST 10/03 fire): write the Day-3 report narrative (reports/2026-10-03.html <- reports/data/2026-10-03.json after the 21:00 Actions report) and verify ③ posts / rolls correctly. 10/04 00:07 fire: H1 thin-supply check (proposal_sent>=10 formally MISSES on the submit-permission gate, not hypothesis failure — judge at check) + H2 Day-4 check (>=L2) + weekly review REVIEW-2026-10-04.md + 72h L4/L5 review + merge coconala-op/booth-op into mac-local (Art.6).
+  - [founder] 20:07 JST 10/03 fire DONE (E2): wrote the Day-3 report narrative (reports/data/2026-10-03.json + regenerated reports/2026-10-03.html) and verified ③ rolls to 10/04 (10/03 at 2/day cap). Re-read Stripe (0/0, same 3 expired Sept checkouts), owner-permission still OPEN, X median 11 imp / 0 clicks — no new signal. NEXT (10/04 00:07 fire, Day 4 — first hard checks): (a) weekly review REVIEW-2026-10-04.md (Art.7 portfolio re-rank by expected Net); (b) H1 10/04 check — proposal_sent>=10 formally MISSES on the submit-permission gate (Art.9), judge as gate-not-hypothesis-failure; thin in-lane supply (1 conditional GO/~95) -> decide widen-lane vs L3; (c) H2 Day-4 check with >=4 posts (median 11<20 AND 0 clicks -> MISS; Art.5.2 forbids L1 at 72h zero-signal, so apply >=L2: aim X at the H1 audience); (d) 72h company-wide zero-signal L4/L5 review (Art.5.3); (e) merge coconala-op/booth-op into mac-local (Art.6, never heartbeated in Phase 2). After each: log redesign events with level/from/to/evidence.
   - [codex] Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing
 OPERATORS
-  actions                working   STALE 4828m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 4949m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               unverified NEVER       lanes=booth-listing
@@ -16,12 +16,12 @@ OPERATORS
   coconala-op            unverified NEVER       lanes=coconala-listing
       doing: Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet
       next:  On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md
-  codex                  idle      STALE 4398m lanes=
+  codex                  idle      STALE 4520m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      STALE 415m  lanes=strategy,x,h1-delivery,reporting
-      doing: 13:07 fire DONE (E2): 4 checks no new signal (Day3 X anchor posted 11:16 JST; coconala-permission still open; Stripe 0/0; note_view cloud-403); STATE refreshed + 10/04 H2-check framing corrected (>=L2, L3=Day8); stop_screen=5 motions
-      next:  20:07 JST 10/03: write Day-3 report narrative (reports/2026-10-03.html <- reports/data/2026-10-03.json after 21:00 Actions) + verify 3rd X post rolls to 10/04 am. 10/04 00:07: weekly review REVIEW-2026-10-04.md + H1 thin-supply + H2 Day-4 (>=L2) + 72h L4/L5 + coconala-op/booth-op merge
+  founder                idle      live 118m   lanes=strategy,x,h1-delivery,reporting
+      doing: 20:07 fire DONE (E2): wrote Day-3 report narrative (reports/data/2026-10-03.json + regenerated 2026-10-03.html); re-verified Stripe 0/0 (same 3 expired Sept checkouts), owner-permission still OPEN, X median 11 imp/0 clicks — no new signal; verified X ③ rolls to 10/04 under 2/day cap
+      next:  10/04 00:07 Day-4 hard checks: weekly review REVIEW-2026-10-04.md + H1 10/04 check (submit-gate miss vs widen/L3) + H2 Day-4 (median 11<20, 0 clicks -> >=L2) + 72h L4/L5 (Art.5.3) + merge coconala-op/booth-op into mac-local (Art.6)
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
