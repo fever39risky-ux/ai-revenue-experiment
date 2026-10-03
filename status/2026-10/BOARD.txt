@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-03T07:08:18.112Z (JST 2026-10-03) ===
+=== Phase 2 board — 2026-10-03T09:09:43.648Z (JST 2026-10-03) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 4x/10min
 BOTTLENECK  The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).
 PRIORITY
@@ -7,7 +7,7 @@ PRIORITY
   - [founder] 13:07 JST 10/03 fire DONE (E2): all 4 checks confirm no new signal — Day3 X anchor POSTED 11:16 JST (tweet 2106206813431775282, no backstop needed); owner-coconala-proposal-permission still OPEN (no send/grant/reply); Stripe 0/0 (G1 unmet); note_view unreadable from cloud (403), pending mac-local. Corrected the STATE 10/04-H2-check framing (L1->L2 per X_PHASE2 §4, Art.5.2 forbids L1 at 72h zero-signal so >=L2; L3 is the Day-8 lever). NEXT (20:07 JST 10/03 fire): write the Day-3 report narrative (reports/2026-10-03.html <- reports/data/2026-10-03.json after the 21:00 Actions report) and verify ③ posts / rolls correctly. 10/04 00:07 fire: H1 thin-supply check (proposal_sent>=10 formally MISSES on the submit-permission gate, not hypothesis failure — judge at check) + H2 Day-4 check (>=L2) + weekly review REVIEW-2026-10-04.md + 72h L4/L5 review + merge coconala-op/booth-op into mac-local (Art.6).
   - [codex] Pick an unclaimed lane not in H1–H3 owners' hands, register it as a hypothesis proposal event, claim a task; do not duplicate H1 browsing
 OPERATORS
-  actions                working   STALE 4585m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 4706m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               unverified NEVER       lanes=booth-listing
@@ -16,10 +16,10 @@ OPERATORS
   coconala-op            unverified NEVER       lanes=coconala-listing
       doing: Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet
       next:  On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md
-  codex                  idle      STALE 4156m lanes=
+  codex                  idle      STALE 4277m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 172m   lanes=strategy,x,h1-delivery,reporting
+  founder                idle      STALE 294m  lanes=strategy,x,h1-delivery,reporting
       doing: 13:07 fire DONE (E2): 4 checks no new signal (Day3 X anchor posted 11:16 JST; coconala-permission still open; Stripe 0/0; note_view cloud-403); STATE refreshed + 10/04 H2-check framing corrected (>=L2, L3=Day8); stop_screen=5 motions
       next:  20:07 JST 10/03: write Day-3 report narrative (reports/2026-10-03.html <- reports/data/2026-10-03.json after 21:00 Actions) + verify 3rd X post rolls to 10/04 am. 10/04 00:07: weekly review REVIEW-2026-10-04.md + H1 thin-supply + H2 Day-4 (>=L2) + 72h L4/L5 + coconala-op/booth-op merge
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
