@@ -1,8 +1,8 @@
 {
   "id": "booth-op",
   "kind": "claude-local-interactive",
-  "runtime": "Mac interactive Claude session (published BOOTH 8919052 on 2026-09-30)",
-  "role": "BOOTH listing",
+  "runtime": "Mac interactive Claude session",
+  "role": "BOOTH listing 8919052",
   "lanes": [
     "booth-listing"
   ],
@@ -10,9 +10,13 @@
     "local_browser",
     "playwright"
   ],
-  "status": "unverified",
-  "doing": "Registered by founder on Day 0 from September evidence; this operator has not heartbeated in Phase 2 yet",
-  "next": "On first Phase-2 run: heartbeat (overwrites this file) and follow ops/2026-10/BOOTSTRAP.md",
+  "status": "retired",
+  "doing": "RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.",
+  "next": "n/a — booth-listing work is done by mac-local (local-browser lane).",
+  "retired_by": "founder",
+  "retired_at": "2026-10-04T00:00:00+09:00",
+  "retired_reason": "Never heartbeated in Phase 2 (registered Day-0 from September evidence, >72h stale, Art.6 >48h). mac-local covers BOOTH via the local-browser lane (it took the H3 BOOTH snapshot 10/03). Merge removes registry noise.",
+  "merged_into": "mac-local",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
   "heartbeat_at": null

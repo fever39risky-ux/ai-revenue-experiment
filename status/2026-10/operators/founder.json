@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "20:07 fire DONE (E2): wrote Day-3 report narrative (reports/data/2026-10-03.json + regenerated 2026-10-03.html); re-verified Stripe 0/0 (same 3 expired Sept checkouts), owner-permission still OPEN, X median 11 imp/0 clicks — no new signal; verified X ③ rolls to 10/04 under 2/day cap",
-  "next": "10/04 00:07 Day-4 hard checks: weekly review REVIEW-2026-10-04.md + H1 10/04 check (submit-gate miss vs widen/L3) + H2 Day-4 (median 11<20, 0 clicks -> >=L2) + 72h L4/L5 (Art.5.3) + merge coconala-op/booth-op into mac-local (Art.6)",
+  "doing": "Day-4 hard checks DONE (E2): weekly review, H1/H2 checks (both MISS->L2 redesigns), 72h L4/L5, coconala-op/booth-op retired into mac-local, X reaimed + 2 posts queued, Day-4 report written",
+  "next": "13:07 JST fire: backstop-dispatch x-phase2.yml if 2026-10-04-day4.json still queued after 12:37 JST; verify ③+Day4 in posted.jsonl; re-read Stripe+owner-permission; watch metrics.json/X mentions for first profile_click/inquiry (Art.10 signal). 10/06 Zenn retry; 10/08 Day-8 review.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-03T11:14:11.539Z"
+  "heartbeat_at": "2026-10-03T23:22:34.852Z"
 }
