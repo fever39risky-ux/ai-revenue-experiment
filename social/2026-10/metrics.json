@@ -3,7 +3,7 @@
   "posts": {
     "2105483067351507272": {
       "created_at": "2026-10-01T02:20:55.000Z",
-      "fetched_at": "2026-10-03T02:16:50.928Z",
+      "fetched_at": "2026-10-03T09:24:40.431Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 18,
@@ -20,7 +20,7 @@
     },
     "2105676937196896476": {
       "created_at": "2026-10-01T15:11:18.000Z",
-      "fetched_at": "2026-10-03T02:16:50.928Z",
+      "fetched_at": "2026-10-03T09:24:40.431Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 11,
@@ -37,10 +37,10 @@
     },
     "2105804498828411234": {
       "created_at": "2026-10-01T23:38:11.000Z",
-      "fetched_at": "2026-10-03T02:16:50.928Z",
+      "fetched_at": "2026-10-03T09:24:40.431Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 12,
+        "impression_count": 13,
         "like_count": 1,
         "quote_count": 0,
         "reply_count": 0,
@@ -48,13 +48,13 @@
       },
       "non_public_metrics": {
         "engagements": 2,
-        "impression_count": 12,
+        "impression_count": 13,
         "user_profile_clicks": 0
       }
     },
     "2106063946637611253": {
       "created_at": "2026-10-02T16:49:08.000Z",
-      "fetched_at": "2026-10-03T02:16:50.928Z",
+      "fetched_at": "2026-10-03T09:24:40.431Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 9,
@@ -71,10 +71,10 @@
     },
     "2106206813431775282": {
       "created_at": "2026-10-03T02:16:50.000Z",
-      "fetched_at": "2026-10-03T02:16:50.928Z",
+      "fetched_at": "2026-10-03T09:24:40.431Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 0,
+        "impression_count": 5,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -82,7 +82,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 0,
+        "impression_count": 5,
         "user_profile_clicks": 0
       }
     }
@@ -90,6 +90,6 @@
   "summary": {
     "posts": 5,
     "median_impressions": 11,
-    "updated_at": "2026-10-03T02:16:50.928Z"
+    "updated_at": "2026-10-03T09:24:40.431Z"
   }
 }
