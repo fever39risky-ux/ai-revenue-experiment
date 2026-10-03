@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-04",
+  "text": "AI研修のあと、担当する案件まで決めておく\n\nAnthropicが10月2日に発表したClaude Frontier Academyは、4日間の研修・試験に合格後、自社の実案件に12週間取り組む\n経験あるエンジニア向けの推薦制\n\n学んだあと何を進めるかまで、研修とセットにしたいね\n\nhttps://www.anthropic.com/news/claude-frontier-academy",
+  "register_targeted": "B（ニュース解説・仕事への活用）",
+  "topic_chosen": "Claude Frontier Academy: 研修前に帰任後の実案件を決める",
+  "referenced_corpus_examples": [
+    {
+      "id": "2092439389154501039",
+      "source": "marketing/x_voice_examples.json",
+      "reason": "一次情報の数字から仕事への示唆につなぐ。"
+    },
+    {
+      "id": "2093537875623391236",
+      "source": "marketing/x_voice_examples.json",
+      "reason": "導入時の具体的な次の行動と継続運用に着地する。"
+    }
+  ],
+  "voice_fingerprint_self_check": [
+    {
+      "item": 1,
+      "status": "not_applicable",
+      "evidence": "一人称なし。"
+    },
+    {
+      "item": 2,
+      "status": "pass",
+      "evidence": "思考単位の空行と改行を保持。"
+    },
+    {
+      "item": 3,
+      "status": "user_text_preserved",
+      "evidence": "自然な関西弁締めはない。親指定稿を優先し「したいね」を改変しない。"
+    },
+    {
+      "item": 4,
+      "status": "pass",
+      "evidence": "不自然な関西弁を追加しない。"
+    },
+    {
+      "item": 5,
+      "status": "qualified",
+      "evidence": "「ただし」の語はない。対象を経験あるエンジニア・推薦制に限定し、研修成果を一般化していない。"
+    },
+    {
+      "item": 6,
+      "status": "pass",
+      "evidence": "研修と案件をセットにしたいという個人の示唆で締める。"
+    },
+    {
+      "item": 7,
+      "status": "pass",
+      "evidence": "ハッシュタグなし。"
+    },
+    {
+      "item": 8,
+      "status": "pass",
+      "evidence": "絵文字なし。"
+    },
+    {
+      "item": 9,
+      "status": "not_applicable",
+      "evidence": "購入CTAなし。一次URLのみ。"
+    },
+    {
+      "item": 10,
+      "status": "pass",
+      "evidence": "煽り表現なし。"
+    },
+    {
+      "item": 11,
+      "status": "pass",
+      "evidence": "10月2日、4日間、12週間を一次資料で確認。"
+    },
+    {
+      "item": 12,
+      "status": "not_applicable",
+      "evidence": "売上実験の実況ではない。"
+    },
+    {
+      "item": 13,
+      "status": "pass",
+      "evidence": "定型AIコピーの結びなし。"
+    },
+    {
+      "item": 14,
+      "status": "pass",
+      "evidence": "私・俺なし。"
+    }
+  ],
+  "content_id": "C-20261004-001",
+  "scheduled_at": "2026-10-04T08:00:00+09:00",
+  "body_sha256": "7fdad565f3cb43fa8a72435d80081217d3f5e5d9adde0313bd5d9d052c50a9bd",
+  "source_urls": [
+    "https://www.anthropic.com/news/claude-frontier-academy",
+    "https://claude.com/programs/frontier-academy"
+  ],
+  "preparation_note": "ローカル準備のみ。親の最終送信判断待ち。scheduled_atは既存posterが検査しないため、08:00 JST以降の唯一担当者による1回dispatchで時刻を守る。",
+  "image_fallback_candidate": {
+    "status": "pending_parent_final_decision",
+    "reason": "既存専用経路にupload/添付機能なし。upload料金未確定。制作済み画像は親管理。",
+    "image_prepared_by_parent": true,
+    "image_hash_received": false,
+    "paid_upload_attempted": false
+  },
+  "no_retry_note": "結果不明・GET失敗でも同じ原稿を再dispatch/Rerunしない。開始記録とrun IDは親が別途永続保存する。"
+}
