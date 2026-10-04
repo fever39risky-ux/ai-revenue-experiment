@@ -110,3 +110,5 @@
 {"ts":"2026-10-04T15:16:42.458Z","operator":"founder","type":"session_end","condition":"E2","reason":"Fastest-G1 action (H1 Coconala proposals) blocked on owner SMS verification (Art.9 identity); gate-free X channel fully deployed to the Day-8 horizon; all other motions time-gated to later fires or negative-EV now. stop_screen lists 5 distinct motions."}
 {"ts":"2026-10-04T17:11:57.394Z","operator":"founder","type":"task_done","task":"owner-coconala-sms-auth","result":"Owner reported SMS verification completed (10/05 02:11 JST). mac-local may now apply under PG-1."}
 {"ts":"2026-10-04T17:11:57.475Z","operator":"founder","type":"human_intervention","minutes":2,"category":"kyc","reason":"Owner completed Coconala SMS phone verification (required before applying to public requests; owner-reported, minutes estimated)","avoidable":false,"lane":"coconala","requested_by":"founder"}
+{"ts":"2026-10-04T17:20:26.545Z","operator":"founder","type":"task_created","task":"h1-coconala-inbox-1005am","lane":"h1-proposals"}
+{"ts":"2026-10-04T17:20:26.602Z","operator":"founder","type":"task_created","task":"h1-coconala-scan-1005","lane":"h1-proposals"}
