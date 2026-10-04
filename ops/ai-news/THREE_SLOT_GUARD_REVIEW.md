@@ -53,3 +53,12 @@ calls performed. Article-only workflow approval remains pending.
 Verification: node --test tests/test_ai_news_slots.mjs (27 cases); real morning
 fixture; full publisher with dummy OAuth env, overridden fetch/clock in isolated
 temp cwd; noon 1 POST + 1 GET only, early/legacy/morning 0 calls. Leak check passed.
+
+Timing/learning disclosure: the one-hour window is a NEW proposed conservative
+execution rule, not a claim that the user specified a one-hour tolerance. A post
+at 12:18 is recorded as planned_slot=12:00 / actual API created_at=12:18, with
+18 minutes delay; never call it an exact noon publication or attribute its outcome
+to a tested 12:00 posting effect. Keep scheduled_at separate from created_at and
+posted_at. Compute 24h/72h/7d measurement windows from API created_at, not slot time.
+Current script emits created_at in TOPLEVEL_RESULT; parent must persist that value.
+This change does not implement causal analysis or automatic metrics collection.
