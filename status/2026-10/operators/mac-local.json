@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "supervisor alive; no eligible mac-local task on main",
-  "next": "polling main every 120s; starts a Claude worker when a task appears",
+  "doing": "h1 scan released: 5303405 apply needs Coconala SMS auth (owner-coconala-sms-auth)",
+  "next": "After owner SMS auth: claim h1-coconala-requests-scan, send 5303405 draft (¥8,000/3d, add CSV-import precondition) under PG-1 before 10-12, then ≤5/day",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-04T11:26:24.126Z",
+  "heartbeat_at": "2026-10-04T13:22:03.545Z",
   "blocked_on": null,
   "progress": "since 2026-10-02T16:51:11.972409Z: polls=1263 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }

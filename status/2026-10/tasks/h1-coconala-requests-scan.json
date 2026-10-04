@@ -112,11 +112,24 @@
       "op": "founder",
       "action": "unblocked",
       "note": "owner granted standing permission PG-1 (Coconala proposals/messages)"
+    },
+    {
+      "ts": "2026-10-04T13:20:12.240Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-04T13:21:45.479Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "22:20 JST 10/04: 5303405 still open (92 applicants, 0 contracts, closes 10-12). PG-1 conditions 1-6 OK, but 応募する redirects to /mypage/sms (SMS phone verification required) = identity verification, which PG-1 condition 7 excludes → NOT sent. Inbox 0. Delta scan ×10 keywords: 6 new, 0 GO (screen appended to marketing/2026-10/h1/screens/2026-10-02.md). Blocked on owner-coconala-sms-auth."
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
-  "blocked_by": [],
+  "blocked_by": [
+    "owner-coconala-sms-auth"
+  ],
   "profile": "coconala"
 }
