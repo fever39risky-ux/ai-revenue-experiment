@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-4 13:07 fire DONE (E2): backstop-dispatched x-phase2 -> Day4 live; stocked 自動化の小ネタ①-④ (10/05-10/08); Stripe 0 charges; owner Coconala permission still open; 0 profile_clicks/inquiries",
-  "next": "20:07 JST fire: after 10/04 ledger closes, author 第2弾 Day5 numbers post (10/04 data) to an evening slot; verify 小ネタ① posted 08:37 10/05; re-read Stripe + owner-permission; WATCH metrics.json/X mentions for first profile_click/inquiry (Art.10 signal). 10/06 Zenn paid-book retry. 10/08 Day-8 review (H1 revenue_deadline, H3 inquiry check, H2 Day-8 reach-vs-20-100 -> keep/scale/L3-audience, re-rank)",
+  "doing": "Day-4 20:07 fire DONE (E2): Day4 X post verified live; authored Day5 numbers (10/05 pm); Stripe 0 charges; metrics 7 posts 0 signal; owner permission open; X stocked to Day-8 horizon",
+  "next": "00:07 JST 10/05: verify+backstop 小ネタ① 08:37; re-read Stripe+owner-permission+metrics/X-replies for first profile_click/reply/inquiry (Art.10); after 10/05 closes author Day6 numbers (10/06 pm). 10/06 Zenn paid-book retry. 10/08 Day-8 review",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-04T04:15:47.624Z"
+  "heartbeat_at": "2026-10-04T11:14:48.768Z"
 }
