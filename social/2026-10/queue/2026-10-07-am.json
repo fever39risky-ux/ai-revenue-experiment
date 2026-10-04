@@ -1,0 +1,15 @@
+{
+  "not_before": "2026-10-07T08:37:00+09:00",
+  "text": "自動化の小ネタ③\n\n「毎週月曜に先週の集計をメールで送る」を手でやめる一歩\n\nGASに時間主導型のトリガーを1個つけるだけで\n決めた曜日・時刻にスクリプトが勝手に動く\n\n人がファイルを開かんでも\n集計メールが自動で飛ぶ\n\n定例の報告作業がまるごと消えることもある",
+  "reply_text": "こういう「手作業を関数やGASで消す」小さい仕事、ココナラで受けてます(AI補助で制作)\nhttps://coconala.com/services/4426150",
+  "series": "自動化の小ネタ",
+  "hypothesis": "H1",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "一人称は僕(主語省略、僕視点)",
+    "軽い関西: 〜せんでも/〜こともある",
+    "事実→含意→正直な補足(効果は断定せず『こともある』)",
+    "本文にリンクなし、オファーは自己リプのreply_textのみ、AI補助を明記"
+  ],
+  "facts_source": "H2->H1 L2 reaim (REVIEW-2026-10-04.md); offer = live Coconala listing 4426150 (STATE.channels)"
+}

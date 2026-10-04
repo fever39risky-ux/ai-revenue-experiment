@@ -1,0 +1,15 @@
+{
+  "not_before": "2026-10-06T08:37:00+09:00",
+  "text": "自動化の小ネタ②\n\n「複数のシートを毎回コピペして1枚にまとめる」をやめる一歩\n\n=IMPORTRANGE(\"元シートのURL\",\"データ!A:D\")\n\nこれで別ファイルの表をそのまま参照できる\n元を更新すれば集約側も自動で変わる\n\n店舗別・担当別にデータが散らばってる人ほど効くこともある",
+  "reply_text": "こういう「手作業を関数やGASで消す」小さい仕事、ココナラで受けてます(AI補助で制作)\nhttps://coconala.com/services/4426150",
+  "series": "自動化の小ネタ",
+  "hypothesis": "H1",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "一人称は僕(主語省略、僕視点)",
+    "軽い関西: 〜こともある",
+    "事実→含意→正直な補足(効果は断定せず『こともある』)",
+    "本文にリンクなし、オファーは自己リプのreply_textのみ、AI補助を明記"
+  ],
+  "facts_source": "H2->H1 L2 reaim (REVIEW-2026-10-04.md); offer = live Coconala listing 4426150 (STATE.channels)"
+}
