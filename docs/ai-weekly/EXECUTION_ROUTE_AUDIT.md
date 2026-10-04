@@ -127,3 +127,12 @@ all-in price ceilings, and one-run-per-stage authorization are confirmed.”
 This approval is for the new execution path; it is not consent for an unresolved
 paid upload, automatic publish, retries, replies, or other business actions.
 No approval question has been sent directly to the user by this worker.
+
+
+## Subsequent local connection update (2026-10-04)
+
+The parent has supplied explicit approval for the weekly API/dedicated existing-credential
+connection. Earlier approval-pending statements above are historical. See
+[LOCAL_CONNECTION.md](LOCAL_CONNECTION.md) for the local manual-stage workflow,
+parent Git intent/result handshake, readiness hold, and current validation limits.
+No production push/API execution is included in that update.

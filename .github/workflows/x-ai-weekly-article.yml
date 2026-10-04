@@ -1,0 +1,52 @@
+name: AI Weekly article (manual stages, currently live-held)
+on:
+  workflow_dispatch:
+    inputs:
+      week_id:
+        description: 'Approved AI-WEEKLY-YYYY-MM-DD material identity'
+        required: true
+        type: string
+      stage:
+        description: 'One stage only; no automatic follow-up'
+        required: true
+        type: choice
+        options: [upload, draft, publish, verify]
+permissions:
+  contents: read
+concurrency:
+  group: ai-weekly-article
+  cancel-in-progress: false
+jobs:
+  article:
+    if: github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ARTICLE_WEEK: ${{ inputs.week_id }}
+      ARTICLE_STAGE: ${{ inputs.stage }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check live hold and wait for parent durable intent (no X Secrets)
+        run: node scripts/ai-weekly/run.mjs gate
+      - name: Execute one authorized stage only
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/ai-weekly/run.mjs execute
+      - name: Preserve non-secret receipt for parent Git persistence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-weekly-receipts-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ai-weekly-receipts/*.intent.json
+            ${{ runner.temp }}/ai-weekly-receipts/*.result.json
+          if-no-files-found: ignore
+          retention-days: 30

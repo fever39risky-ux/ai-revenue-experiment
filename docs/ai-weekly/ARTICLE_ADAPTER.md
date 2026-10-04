@@ -122,3 +122,12 @@ mock requests; global fetch fails. Covers round-trip text/links/headings, UTF-16
 image checks, duplicates, separate stages, ambiguous results, saved draft ID,
 Git acknowledgement failures, file concurrency, restart, missing state, tampering,
 live/cost holds, expired cover and read-only Git proof. No paid APIs are called.
+
+
+## Subsequent local connection update (2026-10-04)
+
+The parent has supplied explicit approval for the weekly API/dedicated existing-credential
+connection. Earlier approval-pending statements above are historical. See
+[LOCAL_CONNECTION.md](LOCAL_CONNECTION.md) for the local manual-stage workflow,
+parent Git intent/result handshake, readiness hold, and current validation limits.
+No production push/API execution is included in that update.
