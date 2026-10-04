@@ -45,9 +45,48 @@
         }
       },
       "history_sha256": "46a2d8a1e68ee35419298b2cf15832bb8cf0cfac4f6ec3f76af7565206162d6e",
-      "status": "intent",
+      "status": "confirmed",
       "request_limit": 1,
-      "result": null
+      "result": {
+        "version": 1,
+        "content_id": "C-20261004-003",
+        "body_sha256": "26c5f32e27af3e78e6ccef7e5787975d87bc52125064100ed1ffd04663e0cacc",
+        "image_sha256": "725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd",
+        "stage": "upload",
+        "run_id": "37206115762",
+        "run_attempt": "1",
+        "code_sha": "072cd9e0b0549ecaf31f661c8adbeff2a3f188a1",
+        "intent_commit": "dd01e8bf2cd7bd9d5e7b6304a601d5aeb26f6544",
+        "intent_sha256": "a3f141f60a30619107af2d9c183021378a9bd08dbb2b2c1da9d52877d86b580c",
+        "history_sha256": "46a2d8a1e68ee35419298b2cf15832bb8cf0cfac4f6ec3f76af7565206162d6e",
+        "request_sha256": "1ab5a1c70ed28a70f8c714aedade98de89e6b09e72e6bfe2700dc37ee619dedd",
+        "request_count": 1,
+        "pricing_status": "unknown_user_authorized_measurement",
+        "actual_cost_usd": null,
+        "actual_cost_jpy": null,
+        "started_at": "2026-10-04T13:36:19.553Z",
+        "outcome": "confirmed",
+        "http_status": 200,
+        "response_summary": {
+          "http_status": 200,
+          "data": {
+            "id": "2106740200819097600",
+            "media_key": "3_2106740200819097600",
+            "expires_after_secs": 86400,
+            "size": 253479,
+            "image": {
+              "h": 1402,
+              "w": 1122
+            }
+          },
+          "error_count": null
+        },
+        "media_id": "2106740200819097600",
+        "media_key": "3_2106740200819097600",
+        "expires_after_secs": 86400,
+        "expires_at": "2026-10-05T13:36:19.553Z",
+        "finished_at": "2026-10-04T13:36:20.317Z"
+      }
     }
   ]
 }
