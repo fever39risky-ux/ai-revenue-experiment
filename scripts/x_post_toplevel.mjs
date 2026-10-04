@@ -17,7 +17,8 @@
  * that the tweet exists and is genuinely standalone (no replied_to reference),
  * capture a baseline public_metrics snapshot, record to
  * social/x_experiment_history.json, and remove the queue file. It never posts
- * more than once per Asia/Tokyo day, never replies to anyone, never DMs.
+ * more than once per Asia/Tokyo day in legacy mode. Explicit AI-news queues
+ * use one standalone text post per 08/12/20 JST hour; no AI-news self-reply.
  *
  * Prints a single machine-readable `TOPLEVEL_RESULT=<json>` line on success so
  * a caller can record the result even when this runs on a non-committing CI
@@ -31,6 +32,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'fs';
 import { createHmac, randomBytes } from 'crypto';
+import { topLevelGuard } from './ai_news_slot_guard.mjs';
 
 const { X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET } = process.env;
 if (!X_API_KEY || !X_API_KEY_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_TOKEN_SECRET) {
@@ -52,14 +54,13 @@ function todayJST() {
 }
 const today = todayJST();
 
-// 1/day cap is enforced PER POST TYPE (canon): only top-level posts block a
-// top-level post. Reply-thread commentary entries do not.
-if (history.posts.some(p => p.date === today && p.post_type === 'top_level')) {
-  console.log(`x_post_toplevel: already posted a top-level post today (${today}) -- same-day idempotency guard. No-op, queue left untouched.`);
+const queued = JSON.parse(readFileSync(QUEUE, 'utf8'));
+const publicationGuard = topLevelGuard(queued, history);
+if (!publicationGuard.allowed) {
+  console.log(`x_post_toplevel: ${publicationGuard.reason}. No-op, queue left untouched.`);
   process.exit(0);
 }
 
-const queued = JSON.parse(readFileSync(QUEUE, 'utf8'));
 if (queued.date && queued.date !== today) {
   console.log(`x_post_toplevel: queued entry is dated ${queued.date}, not today (${today}) -- stale, not posting. Review and update/remove it.`);
   process.exit(0);
@@ -198,6 +199,7 @@ if (queued.reply_text) {
 }
 
 const entry = {
+  ...publicationGuard.metadata,
   date: today,
   post_type: 'top_level',
   tweet_id: tweetId,
@@ -217,4 +219,4 @@ history.posts.push(entry);
 writeFileSync(HISTORY, JSON.stringify(history, null, 2) + '\n');
 unlinkSync(QUEUE);
 console.log(`x_post_toplevel: posted and recorded -- ${tweetUrl}${replyTweetId ? ` (+ self-reply ${replyTweetId})` : ''}`);
-console.log('TOPLEVEL_RESULT=' + JSON.stringify({ tweet_id: tweetId, tweet_url: tweetUrl, reply_tweet_id: replyTweetId, reply_error: replyError, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));
+console.log('TOPLEVEL_RESULT=' + JSON.stringify({ ...publicationGuard.metadata, tweet_id: tweetId, tweet_url: tweetUrl, reply_tweet_id: replyTweetId, reply_error: replyError, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));
