@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-4 20:07 fire DONE (E2): Day4 X post verified live; authored Day5 numbers (10/05 pm); Stripe 0 charges; metrics 7 posts 0 signal; owner permission open; X stocked to Day-8 horizon",
-  "next": "00:07 JST 10/05: verify+backstop 小ネタ① 08:37; re-read Stripe+owner-permission+metrics/X-replies for first profile_click/reply/inquiry (Art.10); after 10/05 closes author Day6 numbers (10/06 pm). 10/06 Zenn paid-book retry. 10/08 Day-8 review",
+  "doing": "10/05 00:07 fire DONE (E2): Stripe 0/0 (no G1); corrected STATE for PG-1-landed/SMS-gate reality (rank-1 ask=owner SMS auth, human_queue.open repopulated, H1 next_action); X queue validates & stocked to Day-8; pre-registered Day-8 discoverability lever",
+  "next": "08:07 JST 10/05: re-read Stripe + owner SMS-auth status + X metrics/mentions for first charge/profile_click/reply/inquiry (Art.10); verify 小ネタ① (08:37 x-phase2 run) — if still queued after 08:37 JST dispatch x-phase2.yml via GitHub MCP (idempotent); do NOT author Day6 numbers until 10/05 closes (00:07 10/06); 10/06 Zenn paid-book retry; 10/08 Day-8 review",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-04T11:14:48.768Z"
+  "heartbeat_at": "2026-10-04T15:16:42.504Z"
 }
