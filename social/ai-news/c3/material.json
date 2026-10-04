@@ -1,0 +1,22 @@
+{
+  "publication_lane": "ai_news",
+  "news_slot": "20",
+  "date": "2026-10-04",
+  "content_id": "C-20261004-003",
+  "scheduled_at": "2026-10-04T20:00:00+09:00",
+  "text": "Googleが10月2日、データ処理を外部検証できるAI学習基盤を発表\nGboardの英語・日本語の次単語予測に採用済み\n\n暗号化して送ったデータを、許可された処理だけが扱う仕組み\n実行環境には制約もある\n\nAI選びでは、説明どおりの処理か確かめる仕組みも見たいね\n\nhttps://www.research.google/blog/toward-provably-private-learning-from-federated-data/",
+  "body_sha256": "26c5f32e27af3e78e6ccef7e5787975d87bc52125064100ed1ffd04663e0cacc",
+  "image": {
+    "sha256": "725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd"
+  },
+  "image_required": true,
+  "register_targeted": "B",
+  "topic_chosen": "Google provably private learning",
+  "referenced_corpus_examples": [
+    "parent-approved C3 final copy"
+  ],
+  "voice_fingerprint_self_check": [
+    "parent-approved final body hash"
+  ],
+  "source_url": "https://www.research.google/blog/toward-provably-private-learning-from-federated-data/"
+}

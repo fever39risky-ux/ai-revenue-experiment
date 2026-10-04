@@ -11,7 +11,7 @@ try {
   if(!['gate','execute'].includes(command))throw Error('COMMAND_INVALID');
   const ctx={stage,run_id:process.env.GITHUB_RUN_ID,run_attempt:process.env.GITHUB_RUN_ATTEMPT,code_sha:process.env.GITHUB_SHA,ref:process.env.GITHUB_REF};
   if(ctx.ref!=='refs/heads/main'||ctx.run_attempt!=='1')throw Error('RUN_INVALID');
-  const git=args=>execFileSync('git',args,{stdio:['ignore','pipe','pipe']});
+  const git=args=>execFileSync('git',args,{stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024});
   const material=JSON.parse(git(['show',`${ctx.code_sha}:social/ai-weekly/materials/${week}/material.json`]));
   const image=git(['show',`${ctx.code_sha}:social/ai-weekly/materials/${week}/cover.bin`]);
   if(material.week_id!==week)throw Error('WEEK_MISMATCH');

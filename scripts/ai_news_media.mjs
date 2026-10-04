@@ -26,7 +26,7 @@ export function loadNewsMedia(queue,now=new Date()) {
   const image=queue.image;
   requireValue(/^[a-f0-9]{64}$/.test(image.sha256)&&/^[a-f0-9]{64}$/.test(image.receipt_sha256),'invalid media proof path');
   const path=`social/ai-news/media/${image.sha256}`;
-  const git=args=>execFileSync('git',args,{stdio:['ignore','pipe','pipe']});
+  const git=args=>execFileSync('git',args,{stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024});
   // The existing workflow uses a shallow checkout. Read only committed HEAD
   // blobs, bound to the queue by canonical receipt hash; no earlier object/fetch.
   const receiptBytes=git(['show',`HEAD:${path}.json`]);

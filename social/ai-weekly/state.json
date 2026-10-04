@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "budget_month": "2026-10",
+  "monthly_remaining_jpy": null,
+  "prior_unmanaged_draft_ids": [
+    "2105232311969001472"
+  ],
+  "articles": [
+    {
+      "week_id": "AI-WEEKLY-2026-10-03",
+      "body_sha256": "53f78684e77085b507f4560f27ba99494b93f6284cff5f6337fc77ad9bb77bf7",
+      "image_sha256": "942e01723fb38a040ad5f2cb449469599b5e22430f4c4a3051af62566357220a",
+      "material_sha256": "428aca8ae4a953d1297f79adbafdb1274a7c506f0df2fd32bc52f719f856e6b7",
+      "attempts": []
+    }
+  ]
+}

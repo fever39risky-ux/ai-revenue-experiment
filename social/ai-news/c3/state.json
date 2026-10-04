@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "content_id": "C-20261004-003",
+  "body_sha256": "26c5f32e27af3e78e6ccef7e5787975d87bc52125064100ed1ffd04663e0cacc",
+  "image_sha256": "725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd",
+  "material_sha256": "3c8d037c33b741d2544b825642bb12cbe2aa9c65f15cfa82ebcf9e5a1661023a",
+  "image_qa": {
+    "status": "pass",
+    "image_sha256": "725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd",
+    "evidence": "Parent supplied final image; local pixel inspection and exact byte SHA verified 2026-10-04. Google source/date, constraints and labels legible.",
+    "checked_at": "2026-10-04T12:25:18.575Z"
+  },
+  "attempts": []
+}

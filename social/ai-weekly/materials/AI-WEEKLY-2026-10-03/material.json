@@ -1,0 +1,247 @@
+{
+  "week_id": "AI-WEEKLY-2026-10-03",
+  "title": "AI Weekly｜今週のAI地図 — AIに任せる仕事は、始め方と止め方をセットにする",
+  "body_text": "AI Weekly｜今週のAI地図\nAIに任せる仕事は、始め方と止め方をセットにする\n2026年9月27日〜10月3日\n\nAIに仕事を頼んで、しばらくしてから見に行く。\nちゃんと進んでいるのか、同じことを繰り返しているのか。\n\n使う時間が長くなるほど、ここが気になるんよね。\n\n今週はOpenAIの常駐型AI、Google Cloudのデータ接続、GitHubの画面操作が並んだ。\n一方、中国のXiaomiは、AIがツール操作を繰り返してしまう問題と改善方法を公開。NVIDIAは、AIの外側から動作を制限する仕組みを発表している。\n\nこの5つをつなげて見ると、任せる仕事の設計がかなり具体的になってきた。\n\n今週の一言は、\n「AIに任せるなら、開始条件・使える情報・承認・停止・完了確認まで決めておく」。\n\nここからは、その意味を仕事と副業へ落としてみます。\n\n■ 1．常駐するAIには、担当する仕事の範囲を渡す\n\nOpenAIは9月29日に「dots」を発表した。\n専用のクラウドコンピューターを持ち、接続したアプリを使って継続的に仕事を進めるAIで、4,000超のアプリに接続できると説明している。\n\nPro、Business Premiumなどで段階的に展開され、企業の管理者設定が必要な場合もある。\n24時間使えるという説明は、何でも無制限に任せられるという意味ではない。深い作業には利用枠があり、重要な操作には行動の審査や承認の仕組みがある。\n\n例えば、毎週の競合調査を任せるなら、\n\n・どの会社を調べるか\n・何が変わったら知らせるか\n・どこまで資料を作ってよいか\n・社外へ出す前に誰が確認するか\n\nここまで決めておく。\n\n継続して動くAIほど、依頼文に「終わり」と「担当外」を書く価値が大きくなると思う。\n\n出典：OpenAI公式発表\nhttps://openai.com/index/introducing-dots/\n\n■ 2．社内データにつなぐときは、権限と費用も一緒に確認する\n\nGoogle Cloudは9月30日、「Data Agent Kit」の一般提供を発表した。\nClaude CodeやCodexなどから、MCPという接続の仕組みを通じて、15超のGoogle Data Cloudサービスを扱える。\n\n実行には利用者、または指定したサービスアカウントの権限が使われる。\nKit自体の追加料金はないけど、接続先のクラウドサービスの利用料は別やね。\n\n仕事で見るべきなのは、この接続後の動き。\n\n売上分析を頼むときも、\n「集計用の表を読む」\n「顧客の個人情報を読む」\n「元データを書き換える」\nでは、渡している権限が全然違う。\n\nまずは読む範囲を絞る。\n費用が発生する処理は、実行前に見積もりを確認する。\n提案を作る工程と、本番データを変える工程を分ける。\n\nAIをデータにつなげた後の確認まで、導入作業に含めておきたい。\n\n出典：Google Cloud公式発表\nhttps://cloud.google.com/blog/topics/developers-practitioners/data-agent-kit-is-now-ga-bring-google-data-cloud-to-any-coding-agent\n\n■ 3．画面を操作できると、古い業務にも届く\n\nGitHubは10月1日、Copilotがデスクトップアプリを操作する「computer use」を公開プレビューとして案内した。\nmacOSとWindowsのCopilot CLI、Copilot appが対象で、クリックや文字入力などを通じて、APIがないソフトの仕事も扱える。\n\n古い業務システムをすぐに作り替えられない会社にとって、検討する意味はありそう。\n\nただ、GitHub自身も、画面の変化やタイミングによって誤操作や反復が起きる可能性を説明している。\nAPIや専用ツールで直接処理できる仕事は、そちらの方が構造化された情報を扱いやすいとも案内している。\n\n例えば、経費入力を任せるなら、\n対象のアプリ、変更してよい項目、登録前の確認、登録後の照合まで決める。\n\nアプリの操作を許可することと、その中の送信・削除・支払いまで任せることは、分けて考えたい。\n承認の出方は設定にも左右されるので、「常に許可」の範囲も見なアカン。\n\n出典：GitHub公式発表・公式Docs\nhttps://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/\nhttps://docs.github.com/en/copilot/concepts/agents/computer-use\n\n■ 4．中国Xiaomiが示した、AIの「止まり方」という評価軸\n\nXiaomiは9月27日、MiMo-V2.6で起きていたツール呼び出しの反復と、その改善方法を公開した。\n\n同じような操作を繰り返し、時間や文脈の容量を消費する問題が、複数の実行環境で確認されたという。\nXiaomiは学習方法を修正し、内部評価で改善したと報告している。\n\nここは、すべての仕事で問題がなくなったと受け取らないことが大事。\n公開された測定には対象範囲があり、実行環境によっても結果が変わる。\n\n実務へ翻訳するなら、完成した答えに加えて、そこまでの動きも見るということ。\n\n・同じ操作を理由なく繰り返していないか\n・作業が進んでいるか\n・想定以上の時間や費用がかかっていないか\n・行き詰まったとき、人へ戻せるか\n\n「何分以内」「何円以内」「同じ失敗が続いたら確認」など、仕事ごとの中断条件を試しておく。\n動き続けているだけでは、進んでいるかは分からんのよね。\n\n出典：Xiaomi MiMo公式技術記事\nhttps://mimo.xiaomi.com/blog/mimo-v2-6-tool-call-repetition\n\n■ 5．AIの外側にも、止める仕組みを置く\n\nNVIDIAは9月28日、「Open Agent Safety Platform」を発表した。\n\n提供済みのOpenShellは、AIモデルの外側にある実行環境で、アクセスや動作のルールを適用する仕組み。\nあわせて、別のハードウェア上から動作を監視するSentryの参照設計も示された。\n\nOpenShellは提供済みで、SentryはBlueField-4上で動く参照設計として示されている。\n導入には実行環境の確認が必要で、速度や安全性の効果も提供元の説明として見る必要がある。\n\nそれでも、考え方は日常のAI運用にも持ち帰れる。\n\n顧客情報へ触れられる範囲を絞る。\n公開や削除の権限を分ける。\n操作履歴を残す。\n異常があれば、人がアクセスを止められるようにする。\n\n依頼文に注意事項を書くことに加えて、実際の権限設定でも境界を作っておく。\n仕事を大きく任せる前に確認したい部分やと思う。\n\n出典：NVIDIA公式発表\nhttps://nvidianews.nvidia.com/news/open-agent-safety-platform\n\n■ 仕事・副業・法人研修では、何を変えるか\n\n今週の5本をつなぐと、\n「常駐する」「データにつなぐ」「画面を動かす」「反復を見つける」「外側から止める」\nという一連の流れになる。\n\n仕事なら、繰り返している業務を一つ選び、開始から完了確認まで書き出す。\n副業なら、素材集め・制作・納品・公開を分けて、顧客情報や外部への送信が入る場所を確認する。\n法人研修なら、プロンプトを書いて成果物を作る練習に、承認・中断・検収の練習も加える。\n\n例えば「毎週のニュースから投稿案を作る」なら、こんな分け方ができる。\n\n1．決めた情報源から集める\n2．発表日と根拠を確認する\n3．本文と画像の案を作る\n4．公開条件と権限を確認してから出す\n5．実際の公開内容を照合する\n\n途中で根拠が見つからない、費用が上限に近づく、同じ処理を繰り返す。\nそんなときに、どこで止めて誰へ戻すかまで決めておく。\n\n最初から仕事を丸ごと渡す必要はない。\n一つの工程を任せて、結果と途中の動きを確認し、任せる範囲を少しずつ広げていく。\n\n今週のニュースを見ていると、AIに仕事を頼む側にも、こういう工程の見方が求められてきたんやと思う。\n\n今週試すなら、いつもの仕事を一つだけ。\n「いつ始めて、何を使って、どこで確認し、何が起きたら止めるか」を書いてみてください。\n\nそこが決まると、AIへの依頼も、出来上がった仕事の確認もしやすくなるはずです。\n\nこのアカウントでは、AIニュースを紹介するだけではなく、仕事や副業でどう使うかまで翻訳して発信しています。",
+  "body_sha256": "53f78684e77085b507f4560f27ba99494b93f6284cff5f6337fc77ad9bb77bf7",
+  "image_sha256": "942e01723fb38a040ad5f2cb449469599b5e22430f4c4a3051af62566357220a",
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "text": "AI Weekly｜今週のAI地図\nAIに任せる仕事は、始め方と止め方をセットにする\n2026年9月27日〜10月3日"
+    },
+    {
+      "kind": "paragraph",
+      "text": "AIに仕事を頼んで、しばらくしてから見に行く。\nちゃんと進んでいるのか、同じことを繰り返しているのか。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "使う時間が長くなるほど、ここが気になるんよね。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "今週はOpenAIの常駐型AI、Google Cloudのデータ接続、GitHubの画面操作が並んだ。\n一方、中国のXiaomiは、AIがツール操作を繰り返してしまう問題と改善方法を公開。NVIDIAは、AIの外側から動作を制限する仕組みを発表している。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "この5つをつなげて見ると、任せる仕事の設計がかなり具体的になってきた。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "今週の一言は、\n「AIに任せるなら、開始条件・使える情報・承認・停止・完了確認まで決めておく」。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "ここからは、その意味を仕事と副業へ落としてみます。"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 1．常駐するAIには、担当する仕事の範囲を渡す"
+    },
+    {
+      "kind": "paragraph",
+      "text": "OpenAIは9月29日に「dots」を発表した。\n専用のクラウドコンピューターを持ち、接続したアプリを使って継続的に仕事を進めるAIで、4,000超のアプリに接続できると説明している。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Pro、Business Premiumなどで段階的に展開され、企業の管理者設定が必要な場合もある。\n24時間使えるという説明は、何でも無制限に任せられるという意味ではない。深い作業には利用枠があり、重要な操作には行動の審査や承認の仕組みがある。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "例えば、毎週の競合調査を任せるなら、"
+    },
+    {
+      "kind": "paragraph",
+      "text": "・どの会社を調べるか\n・何が変わったら知らせるか\n・どこまで資料を作ってよいか\n・社外へ出す前に誰が確認するか"
+    },
+    {
+      "kind": "paragraph",
+      "text": "ここまで決めておく。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "継続して動くAIほど、依頼文に「終わり」と「担当外」を書く価値が大きくなると思う。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "出典：OpenAI公式発表\nhttps://openai.com/index/introducing-dots/"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 2．社内データにつなぐときは、権限と費用も一緒に確認する"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Google Cloudは9月30日、「Data Agent Kit」の一般提供を発表した。\nClaude CodeやCodexなどから、MCPという接続の仕組みを通じて、15超のGoogle Data Cloudサービスを扱える。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "実行には利用者、または指定したサービスアカウントの権限が使われる。\nKit自体の追加料金はないけど、接続先のクラウドサービスの利用料は別やね。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "仕事で見るべきなのは、この接続後の動き。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "売上分析を頼むときも、\n「集計用の表を読む」\n「顧客の個人情報を読む」\n「元データを書き換える」\nでは、渡している権限が全然違う。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "まずは読む範囲を絞る。\n費用が発生する処理は、実行前に見積もりを確認する。\n提案を作る工程と、本番データを変える工程を分ける。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "AIをデータにつなげた後の確認まで、導入作業に含めておきたい。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "出典：Google Cloud公式発表\nhttps://cloud.google.com/blog/topics/developers-practitioners/data-agent-kit-is-now-ga-bring-google-data-cloud-to-any-coding-agent"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 3．画面を操作できると、古い業務にも届く"
+    },
+    {
+      "kind": "paragraph",
+      "text": "GitHubは10月1日、Copilotがデスクトップアプリを操作する「computer use」を公開プレビューとして案内した。\nmacOSとWindowsのCopilot CLI、Copilot appが対象で、クリックや文字入力などを通じて、APIがないソフトの仕事も扱える。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "古い業務システムをすぐに作り替えられない会社にとって、検討する意味はありそう。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "ただ、GitHub自身も、画面の変化やタイミングによって誤操作や反復が起きる可能性を説明している。\nAPIや専用ツールで直接処理できる仕事は、そちらの方が構造化された情報を扱いやすいとも案内している。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "例えば、経費入力を任せるなら、\n対象のアプリ、変更してよい項目、登録前の確認、登録後の照合まで決める。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "アプリの操作を許可することと、その中の送信・削除・支払いまで任せることは、分けて考えたい。\n承認の出方は設定にも左右されるので、「常に許可」の範囲も見なアカン。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "出典：GitHub公式発表・公式Docs\nhttps://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/\nhttps://docs.github.com/en/copilot/concepts/agents/computer-use"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 4．中国Xiaomiが示した、AIの「止まり方」という評価軸"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Xiaomiは9月27日、MiMo-V2.6で起きていたツール呼び出しの反復と、その改善方法を公開した。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "同じような操作を繰り返し、時間や文脈の容量を消費する問題が、複数の実行環境で確認されたという。\nXiaomiは学習方法を修正し、内部評価で改善したと報告している。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "ここは、すべての仕事で問題がなくなったと受け取らないことが大事。\n公開された測定には対象範囲があり、実行環境によっても結果が変わる。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "実務へ翻訳するなら、完成した答えに加えて、そこまでの動きも見るということ。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "・同じ操作を理由なく繰り返していないか\n・作業が進んでいるか\n・想定以上の時間や費用がかかっていないか\n・行き詰まったとき、人へ戻せるか"
+    },
+    {
+      "kind": "paragraph",
+      "text": "「何分以内」「何円以内」「同じ失敗が続いたら確認」など、仕事ごとの中断条件を試しておく。\n動き続けているだけでは、進んでいるかは分からんのよね。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "出典：Xiaomi MiMo公式技術記事\nhttps://mimo.xiaomi.com/blog/mimo-v2-6-tool-call-repetition"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 5．AIの外側にも、止める仕組みを置く"
+    },
+    {
+      "kind": "paragraph",
+      "text": "NVIDIAは9月28日、「Open Agent Safety Platform」を発表した。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "提供済みのOpenShellは、AIモデルの外側にある実行環境で、アクセスや動作のルールを適用する仕組み。\nあわせて、別のハードウェア上から動作を監視するSentryの参照設計も示された。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "OpenShellは提供済みで、SentryはBlueField-4上で動く参照設計として示されている。\n導入には実行環境の確認が必要で、速度や安全性の効果も提供元の説明として見る必要がある。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "それでも、考え方は日常のAI運用にも持ち帰れる。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "顧客情報へ触れられる範囲を絞る。\n公開や削除の権限を分ける。\n操作履歴を残す。\n異常があれば、人がアクセスを止められるようにする。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "依頼文に注意事項を書くことに加えて、実際の権限設定でも境界を作っておく。\n仕事を大きく任せる前に確認したい部分やと思う。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "出典：NVIDIA公式発表\nhttps://nvidianews.nvidia.com/news/open-agent-safety-platform"
+    },
+    {
+      "kind": "heading2",
+      "text": "■ 仕事・副業・法人研修では、何を変えるか"
+    },
+    {
+      "kind": "paragraph",
+      "text": "今週の5本をつなぐと、\n「常駐する」「データにつなぐ」「画面を動かす」「反復を見つける」「外側から止める」\nという一連の流れになる。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "仕事なら、繰り返している業務を一つ選び、開始から完了確認まで書き出す。\n副業なら、素材集め・制作・納品・公開を分けて、顧客情報や外部への送信が入る場所を確認する。\n法人研修なら、プロンプトを書いて成果物を作る練習に、承認・中断・検収の練習も加える。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "例えば「毎週のニュースから投稿案を作る」なら、こんな分け方ができる。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "1．決めた情報源から集める\n2．発表日と根拠を確認する\n3．本文と画像の案を作る\n4．公開条件と権限を確認してから出す\n5．実際の公開内容を照合する"
+    },
+    {
+      "kind": "paragraph",
+      "text": "途中で根拠が見つからない、費用が上限に近づく、同じ処理を繰り返す。\nそんなときに、どこで止めて誰へ戻すかまで決めておく。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "最初から仕事を丸ごと渡す必要はない。\n一つの工程を任せて、結果と途中の動きを確認し、任せる範囲を少しずつ広げていく。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "今週のニュースを見ていると、AIに仕事を頼む側にも、こういう工程の見方が求められてきたんやと思う。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "今週試すなら、いつもの仕事を一つだけ。\n「いつ始めて、何を使って、どこで確認し、何が起きたら止めるか」を書いてみてください。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "そこが決まると、AIへの依頼も、出来上がった仕事の確認もしやすくなるはずです。"
+    },
+    {
+      "kind": "paragraph",
+      "text": "このアカウントでは、AIニュースを紹介するだけではなく、仕事や副業でどう使うかまで翻訳して発信しています。"
+    }
+  ],
+  "source_links": [
+    "https://openai.com/index/introducing-dots/",
+    "https://cloud.google.com/blog/topics/developers-practitioners/data-agent-kit-is-now-ga-bring-google-data-cloud-to-any-coding-agent",
+    "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+    "https://mimo.xiaomi.com/blog/mimo-v2-6-tool-call-repetition",
+    "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+  ],
+  "supplemental_source_links": [
+    "https://docs.github.com/en/copilot/concepts/agents/computer-use"
+  ]
+}

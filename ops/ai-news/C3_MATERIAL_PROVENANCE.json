@@ -1,0 +1,25 @@
+{
+  "source_thread_id": "01a0f1a7-76cd-7674-89d2-d719ccdaf03c",
+  "sot": "https://docs.google.com/spreadsheets/d/1BSd9jv6B81Jxjndech9UgMyINA3peGFddLy8xTNs94w/edit",
+  "weekly_sot_status": "Parent reports corrected J8 fully saved and readback verified; supplied body independently hashes identically locally.",
+  "images": [
+    {
+      "path": "social/ai-news/c3/image.bin",
+      "library_file_id": "libfile_d3dd8911c65c81919a2c1fedd37d8570",
+      "version": 0,
+      "bytes": 1763042,
+      "width": 1122,
+      "height": 1402,
+      "sha256": "725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd"
+    },
+    {
+      "path": "social/ai-weekly/materials/AI-WEEKLY-2026-10-03/cover.bin",
+      "library_file_id": "libfile_ede977343738819197e35dd5aa634a0d",
+      "version": 0,
+      "bytes": 1651875,
+      "width": 1983,
+      "height": 793,
+      "sha256": "942e01723fb38a040ad5f2cb449469599b5e22430f4c4a3051af62566357220a"
+    }
+  ]
+}

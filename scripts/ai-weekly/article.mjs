@@ -19,7 +19,11 @@ export function compile(input) {
   check(typeof input.title === 'string' && input.title.trim(), 'title required');
   check(Array.isArray(input.blocks) && input.blocks.length > 0, 'blocks required');
   check(Array.isArray(input.source_links) && input.source_links.length === 5 && new Set(input.source_links).size === 5, 'exactly five unique source links required');
-  for (const url of input.source_links) {
+  const supplemental=input.supplemental_source_links ?? [];
+  check(Array.isArray(supplemental), 'supplemental links must be an array');
+  const allLinks=[...input.source_links,...supplemental];
+  check(new Set(allLinks).size===allLinks.length,'duplicate source links');
+  for (const url of allLinks) {
     const parsed = new URL(url);
     check(parsed.protocol === 'https:' && !parsed.username && !parsed.password && !/\s/.test(url), 'HTTPS source URL required');
   }
@@ -28,7 +32,7 @@ export function compile(input) {
     check(['paragraph','heading1','heading2','heading3'].includes(block.kind), 'unsupported block kind');
     check(typeof block.text === 'string' && !block.text.includes('\r'), 'text must preserve LF line endings');
     const ranges = [];
-    for (const url of input.source_links) {
+    for (const url of allLinks) {
       let offset = block.text.indexOf(url);
       while (offset !== -1) {
         const key = entities.length;
@@ -43,7 +47,7 @@ export function compile(input) {
   });
   const text = blocks.map(b=>b.text).join('\n\n');
   check(input.body_text === text, 'body_text must exactly match block text joined by two LF');
-  for (const url of input.source_links) check(entities.some(e=>e.value.data.url===url), 'source link missing from body');
+  for (const url of allLinks) check(entities.some(e=>e.value.data.url===url), 'source link missing from body');
   const payload = {title:input.title,content_state:{blocks,entities}};
   // Require verified local image bytes; never claim an image hash from an unchecked string.
   check(hashOK(input.image_sha256), 'image_sha256 required');

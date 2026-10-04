@@ -1,24 +1,41 @@
-# C3 single catch-up: offline implementation review
+# C3 single catch-up — connected, price-held
 
-Scope: C-20261004-003 only, 2026-10-04 21:00–23:59:59 JST. The original scheduled_at remains 20:00 JST. Other dates and posts receive no exception. This module is deliberately not connected to the publisher or workflow. Existing 08/12/20 guards are unchanged. `executeLive()` always throws before credentials/network; there is no environment override.
+C-20261004-003 is fixed to the received body/image bytes. Creation is allowed only on 2026-10-04 from 21:00 through 23:59:59 JST. Readback may finish later. Original scheduled_at stays 20:00; actual created_at comes from the API. Normal 08/12/20 guards are unchanged.
 
-Pinned hashes:
-- Body: `26c5f32e27af3e78e6ccef7e5787975d87bc52125064100ed1ffd04663e0cacc`
-- Image: `725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd`
+## Materials verified
 
-`validateIntent` checks fixed identity, exact run ID, attempt 1, code SHA, history digest, maximum 15-minute claim, duplicates including unknown outcomes, known all-in costs and remaining JPY/USD limits. This is metadata validation, not proof that supplied Git data is current or cost evidence is authoritative. No returned object is an authorization to publish. Mock fee numbers are synthetic arithmetic fixtures, not actual tariffs.
+C3: 220 characters, 264 weighted (existing 270 limit), body SHA `26c5f32e27af3e78e6ccef7e5787975d87bc52125064100ed1ffd04663e0cacc`; image SHA `725e6f43e8646d9cde1854ebb7f7fa56a019754065f1fbedf8b8c57406e2efcd`, 1,763,042 bytes, 1122×1402. Both actual bytes received and independently verified; image inspected visually.
 
-`verifyMaterials` requires the actual body and image bytes to match the fixed hashes; declared hashes alone cannot pass. The real materials have not been received, so the successful material-verification path cannot yet be demonstrated. Existing media receipt/QA/expiry, 270-weighted-character and attachment checks must also run before any future connection.
+Weekly: corrected 3666-character body SHA `53f78684e77085b507f4560f27ba99494b93f6284cff5f6337fc77ad9bb77bf7`; header SHA `942e01723fb38a040ad5f2cb449469599b5e22430f4c4a3051af62566357220a`, 1,651,875 bytes, 1983×793. Material adapter preserves all text/newlines and makes all six source URLs clickable (five principal sources plus GitHub Docs). Parent reports J8 saved and fully read back. Weekly state reserves these materials; budget remains null until real fee review. The existing empty draft is not reused.
 
-`reserveMockAttempt` writes an exclusive fsynced local crash marker. Unknown POST results leave it consumed. This tests local no-retry behavior only; it does not claim to prevent duplicates across fresh CI runners. There is intentionally no live POST transport or retry/release function.
+## Connected execution
 
-Remaining integration conditions:
-1. Receive the exact C3 text/image bytes and approved upload receipt; verify against the pinned hashes and existing editorial/media checks.
-2. Establish actual image upload cost, taxes/FX/shared-app attribution, and a quantitative worst-case bound for cap/credit overshoot. Recheck available budget; unknown costs block live APIs. Nominal credit balance is not a worst-case quote.
-3. Implement and test parent-persisted Git claim for one actual run, fresh remote history revalidation immediately before POST, and durable unknown/success result reconciliation. A local crash marker alone is insufficient. Review the production wiring only after these conditions are met.
+- `scripts/ai-news/c3-bridge.mjs`: fixed material and cost validation; upload/post/verify each issues exactly one request. `LIVE_READY=false` is the sole production hold for this runner; no env/input override. The earlier standalone `ai_news_c3_catchup.mjs` remains a helper and is not a second live gate.
+- `c3-git.mjs` and `c3-parent.mjs`: parent commits/pushes claim or result to a dedicated clean checkout at fresh main, then fetches and verifies it. Ordinary non-force push provides optimistic concurrency; failure is not retried/rebased. Only C3 state and top-level history are written. Competing changes are preserved.
+- `c3-run.mjs` and `x-ai-news-c3-catchup.yml`: gate before X Secrets; bind one stage to actual run ID, attempt 1 and code SHA; wait for parent Git claim, then re-fetch/revalidate state/history immediately before HTTP. Workflow retains existing four OAuth1 Secrets and contents:read. No schedule or new credentials/scopes.
+- Local fsynced exclusive intent protects repeated invocation within a runner. Git stage claims cannot be reassigned to another run, including expired, failed or unknown stages. Rerun attempt 2 is rejected. A crash burns the claim even if no HTTP happened; no automatic release exists.
+- Parent applies upload receipt before post becomes eligible; applies POST receipt before GET becomes eligible. Unknown POST gets a durable history tombstone; returned IDs are retained even in ambiguous errors. Neither a new clone nor new run can resend it.
+- GET verifies exact post/author, standalone status, expected attachment, text (including evidence-backed t.co normalization), and plausible API created_at. Only then history becomes published_verified. Wrong or incomplete readback stays unknown and never triggers another POST. 24h/72h/7d due times derive from created_at, never scheduled_at. Due timestamps are planning records, not fabricated measurements or scheduled paid requests.
+- Fees are maximum reservations per stage, never actual cash charges. Unknown outcome retains the reservation. Parent must account for shared-app usage before issuing each claim; no root/Founder cash ledger is modified or prepaid acquisition double-booked.
 
-No queue, production history, workflow, credentials, billing configuration, Founder state, or remote branch was changed. No upload, POST, paid GET, dispatch, push or merge was performed for this package.
+## Operation after final fee verification
 
-Weekly corrected body hash was received as `53f78684e77085b507f4560f27ba99494b93f6284cff5f6337fc77ad9bb77bf7` (reported 3666 characters). Its actual body and SOT confirmation remain outstanding; this package does not publish or synthesize it.
+This package has not been pushed or dispatched. Deploying the reviewed commits remains a parent operation under the existing authorization; this document grants no new authorization. Until real all-in prices are known, keep LIVE_READY false and do not call any X endpoint.
 
-Validation: 30 new offline tests, 154 total passing with daily slots/media and weekly suites. The test fixture's successful metadata check is not a successful publication or full integration test.
+After prices are resolved and the local package is promoted, enable the source gate in a reviewed commit, then for each stage upload → post → verify:
+
+1. Dispatch that stage once. Read its actual run ID and code SHA from the gate log. Do not rerun a previous run.
+2. In a separate clean checkout at current main, create claim JSON: stage, run_id, code_sha, expires_at (within 15 minutes), cost. Cost must contain all_in_known, upload_price_confirmed, tax_fx_shared_allocation_confirmed, overshoot_bound_confirmed, shared_app_reservation_confirmed (all true); evidence; checked_at (within 15 minutes); budget_month; positive max_jpy/max_usd; and current month_remaining_jpy, credit_remaining_usd, cycle_remaining_usd covering the maximum. Mock values are forbidden. Month remaining must be ≤3000 JPY. Unknown quantitative overshoot/shared-app exposure is a blocker, not zero cost.
+3. Run `node scripts/ai-news/c3-parent.mjs claim CLAIM_JSON CLEAN_CHECKOUT`. Success means the claim was committed, pushed and read back. The waiting runner consumes only its exact claim.
+4. Read the non-secret result artifact (or intent artifact if it crashed before result), and run `node scripts/ai-news/c3-parent.mjs apply RECEIPT_JSON CLEAN_CHECKOUT`. It checks the receipt against the actual committed intent, atomically commits state/history, pushes, and verifies. A crash intent is persisted as unknown. Never synthesize a confirmed response.
+5. Continue only after confirmed result persistence. On unknown, stop and reconcile; no automatic retry/reset. Once verify is persisted, synchronize actual publication ID/time and measurement due times to SOT through the parent workflow. This package does not write the Sheet or change its columns.
+
+API schema references: [media upload](https://docs.x.com/x-api/media/upload-media), [create post](https://docs.x.com/x-api/posts/create-post). [Automation rules](https://help.x.com/en/rules-and-policies/x-automation) and [developer guidelines](https://docs.x.com/developer-guidelines) rechecked. No likes, replies, quotes, non-API browser automation, or new OAuth flow is implemented.
+
+## Validation
+
+Real local bare Git remote + parent/runner clones: claim/readback, actual material validation, mocked upload/post/GET, durable result/history, and exact 24h/72h/7d dates pass. Unknown POST persists across fresh clones and blocks resend. Stale parent checkout stops without overwriting remote work. Cost unknown, price mock/stale, over-budget, duplicate, expired claim, run mismatch, material drift, wrong body/author/image/time/reply, and live gate cases are covered.
+
+Real images exposed the default 1MiB child-process output limit; C3, existing daily media loader and weekly runner now allow 8MiB while existing image size limits remain unchanged.
+
+No real API call, workflow dispatch, live claim, real result/history mutation, push, merge, credential readout, billing change, or other-business/Founder change was performed during implementation. Mock Git pushes target only disposable local bare repositories. Only final all-in fee evidence remains an external readiness input for C3; ordinary deployment/run/claim/result steps are implemented above.
