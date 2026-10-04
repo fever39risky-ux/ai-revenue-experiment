@@ -12,10 +12,10 @@
   "acceptance": "screened list (url,budget,go/no-go,reason) in result; each sent proposal logged as signal proposal_sent; any buyer message logged as inquiry/sales_conversation",
   "created_by": "founder",
   "created_at": "2026-09-30T02:43:15.922Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-04T19:14:19.533Z",
+  "result": "02:16 JST 10/05: SENT 5303405 under PG-1 (¥8,000, 納品予定日 10/12, conditions 1-7 logged as a proposal_sent event + signal). Inbox 0. Sweep: 14 keywords + newest 2 pages, ~33 requests screened, 0 new GO (screen: marketing/2026-10/h1/screens/2026-10-02.md). Next: inbox/buyer-reply watch + daily re-scan (id > 5307946).",
   "history": [
     {
       "ts": "2026-09-30T04:29:38Z",
@@ -129,6 +129,17 @@
       "op": "founder",
       "action": "unblocked",
       "note": "owner completed Coconala SMS verification; send 5303405 under PG-1 if still open and conditions 1-7 hold"
+    },
+    {
+      "ts": "2026-10-04T17:14:19.534Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-04T17:18:18.404Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "02:16 JST 10/05: SENT 5303405 under PG-1 (¥8,000, 納品予定日 10/12, conditions 1-7 logged as a proposal_sent event + signal). Inbox 0. Sweep: 14 keywords + newest 2 pages, ~33 requests screened, 0 new GO (screen: marketing/2026-10/h1/screens/2026-10-02.md). Next: inbox/buyer-reply watch + daily re-scan (id > 5307946)."
     }
   ],
   "after": [
