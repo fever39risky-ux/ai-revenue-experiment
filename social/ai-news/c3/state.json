@@ -10,5 +10,44 @@
     "evidence": "Parent supplied final image; local pixel inspection and exact byte SHA verified 2026-10-04. Google source/date, constraints and labels legible.",
     "checked_at": "2026-10-04T12:25:18.575Z"
   },
-  "attempts": []
+  "attempts": [
+    {
+      "stage": "upload",
+      "run_id": "37206115762",
+      "run_attempt": "1",
+      "code_sha": "072cd9e0b0549ecaf31f661c8adbeff2a3f188a1",
+      "created_at": "2026-10-04T13:36:14.749Z",
+      "expires_at": "2026-10-04T13:46:14.702251+00:00",
+      "cost": {
+        "kind": "user_authorized_single_upload_measurement",
+        "authorization": {
+          "channel": "C0C698PFHPG",
+          "thread": "1791083855.285109",
+          "message": "1791120054.652269",
+          "user": "U0C695NDZHC"
+        },
+        "pricing_status": "unknown",
+        "all_in_known": false,
+        "actual_usd": null,
+        "actual_jpy": null,
+        "max_usd": null,
+        "max_jpy": null,
+        "monthly_budget_jpy": 3000,
+        "month_committed_jpy": 1000,
+        "reserved_remaining_budget_jpy": 2000,
+        "before_snapshot": {
+          "checked_at": "2026-10-04T13:23:29Z",
+          "evidence": "Parent pre-upload console readback 2026-10-04 13:23:29 UTC: credit 3.59 USD; usage 1.41; cap 5; auto-charge OFF; last30d 432 billable events / 73 calls; Oct4 Read5/PostCreate1/ContentCreate0/ContentCreateWithUrl1.",
+          "auto_charge": false,
+          "cycle_cap_usd": 5,
+          "cycle_used_usd": 1.41,
+          "credit_balance_usd": 3.59
+        }
+      },
+      "history_sha256": "46a2d8a1e68ee35419298b2cf15832bb8cf0cfac4f6ec3f76af7565206162d6e",
+      "status": "intent",
+      "request_limit": 1,
+      "result": null
+    }
+  ]
 }
