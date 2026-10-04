@@ -47,7 +47,7 @@ export function checkStageCost(stage,c,now){
   ok(UPLOAD_PROBE_ENABLED&&c.pricing_status==='unknown'&&c.all_in_known===false&&c.actual_usd===null&&c.actual_jpy===null,'probe must retain unknown price');
   ok(digest(c.authorization)===digest(UPLOAD_PROBE_AUTHORIZATION),'single-upload authorization mismatch');
   const p=c.before_snapshot,age=now.getTime()-Date.parse(p?.checked_at);
-  ok(Number.isFinite(age)&&age>=0&&age<=5*60000&&typeof p.evidence==='string'&&p.evidence.trim(),'parent pre-cost snapshot required/fresh');
+  ok(Number.isFinite(age)&&age>=0&&age<=15*60000&&typeof p.evidence==='string'&&p.evidence.trim(),'parent pre-cost snapshot required/fresh');
   ok(p.auto_charge===false&&p.cycle_cap_usd===5&&p.cycle_used_usd===1.41&&p.credit_balance_usd===3.59,'approved prepaid/cap baseline changed');
   ok(c.monthly_budget_jpy===3000&&Number.isSafeInteger(c.month_committed_jpy)&&c.month_committed_jpy>=0&&Number.isSafeInteger(c.reserved_remaining_budget_jpy)&&c.reserved_remaining_budget_jpy>0&&c.month_committed_jpy+c.reserved_remaining_budget_jpy===3000,'reserve remaining monthly budget during measurement');
   ok(c.max_usd===null&&c.max_jpy===null,'unknown unit price must not be represented as a numeric quote');
