@@ -188,6 +188,41 @@
       "workflow_job_id": 111315183152,
       "post_http_status": 201,
       "verification_http_status": 200
+    },
+    {
+      "publication_lane": "ai_news",
+      "news_slot": "12",
+      "content_id": "C-20261004-002",
+      "body_sha256": "8bf830418ffd7e6605c246a57de82e2f1bc0081e2a6dbf482333d320d68b6c64",
+      "scheduled_at": "2026-10-04T12:00:00+09:00",
+      "date": "2026-10-04",
+      "post_type": "top_level",
+      "tweet_id": "2106589719165620405",
+      "tweet_url": "https://x.com/KinoshitaTsks/status/2106589719165620405",
+      "in_reply_to_tweet_id": null,
+      "text": "AIに顧客一覧を渡す前に、担当外の行が見えないか試す\n\nSupabaseが10月2日、利用者の権限で使うアプリ向けMCPサーバーを発表\n行単位の制限は設定が前提\n\n架空の顧客A・Bを用意し、利用者を切り替えて見える範囲を確認\nつながった後の権限テストまでセットなんよね\n\nhttps://supabase.com/blog/select-2026-build-anything",
+      "reply_text": null,
+      "reply_tweet_id": null,
+      "reply_error": null,
+      "topic": "Supabaseのアプリ向けMCP：架空顧客A/Bで担当外の行を読めないか確認する認可テスト提案",
+      "register": "B（日本語自然体・work_application）",
+      "posted_at": "2026-10-04T03:38:22.571Z",
+      "created_at": "2026-10-04T03:38:22.000Z",
+      "posted_via": "scripts/x_post_toplevel.mjs (dispatched x-post-toplevel.yml run 37174632564)",
+      "baseline_public_metrics": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "standalone_verified": true,
+      "author_id": "1982353950843256832",
+      "workflow_run_url": "https://github.com/fever39risky-ux/ai-revenue-experiment/actions/runs/37174632564",
+      "workflow_job_id": 111354593481,
+      "post_http_status": 201,
+      "verification_http_status": 200
     }
   ]
 }
