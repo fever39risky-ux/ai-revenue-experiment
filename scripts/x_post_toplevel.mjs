@@ -18,7 +18,8 @@
  * capture a baseline public_metrics snapshot, record to
  * social/x_experiment_history.json, and remove the queue file. It never posts
  * more than once per Asia/Tokyo day in legacy mode. Explicit AI-news queues
- * use one standalone text post per 08/12/20 JST hour; no AI-news self-reply.
+ * use one standalone post per 08/12/20 JST hour; no AI-news self-reply.
+ * An optional image requires an independently uploaded, durable verified receipt.
  *
  * Prints a single machine-readable `TOPLEVEL_RESULT=<json>` line on success so
  * a caller can record the result even when this runs on a non-committing CI
@@ -33,6 +34,7 @@
 import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'fs';
 import { createHmac, randomBytes } from 'crypto';
 import { topLevelGuard } from './ai_news_slot_guard.mjs';
+import { loadNewsMedia, newsPostPayload, verifyNewsAttachment } from './ai_news_media.mjs';
 
 const { X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET } = process.env;
 if (!X_API_KEY || !X_API_KEY_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_TOKEN_SECRET) {
@@ -113,11 +115,18 @@ console.log('--------------------------------------------------');
 console.log(queued.text);
 console.log('--------------------------------------------------');
 
+// Validate only persisted image evidence; never upload or downgrade to text.
+let newsMedia;
+try { newsMedia = loadNewsMedia(queued); } catch {
+  console.error('x_post_toplevel: image evidence invalid/unavailable; no POST, upload, or text fallback.');
+  process.exit(1);
+}
+const postPayload = newsPostPayload(queued, newsMedia);
 const postUrl = 'https://api.twitter.com/2/tweets';
 const postRes = await fetch(postUrl, {
   method: 'POST',
   headers: { Authorization: authHeader('POST', postUrl), 'Content-Type': 'application/json' },
-  body: JSON.stringify({ text: queued.text }), // NO reply field -- standalone top-level tweet.
+  body: JSON.stringify(postPayload), // Optional verified AI-news image; no reply field.
 });
 const postBody = await postRes.json().catch(() => ({}));
 console.log(`POST /2/tweets -> ${postRes.status}`);
@@ -132,6 +141,7 @@ const tweetId = postBody.data.id;
 // standalone (no replied_to reference), plus grab a baseline metrics snapshot.
 const getPath = `/2/tweets/${tweetId}`;
 const getParams = { 'tweet.fields': 'referenced_tweets,created_at,public_metrics,author_id,conversation_id' };
+if (newsMedia) getParams['tweet.fields'] += ',attachments';
 const getUrl = `https://api.twitter.com${getPath}`;
 const qs = new URLSearchParams(getParams).toString();
 const vRes = await fetch(`${getUrl}?${qs}`, { headers: { Authorization: authHeader('GET', getUrl, getParams) } });
@@ -145,6 +155,10 @@ if (vRes.status !== 200 || vBody.data?.id !== tweetId) {
 const repliedTo = (vBody.data.referenced_tweets || []).find(r => r.type === 'replied_to');
 if (repliedTo) {
   console.error(`x_post_toplevel: PARTIAL FAILURE -- tweet ${tweetId} unexpectedly has a replied_to reference (${repliedTo.id}); it is NOT standalone. Needs review.`);
+  process.exit(1);
+}
+if (!verifyNewsAttachment(vBody, newsMedia)) {
+  console.error(`x_post_toplevel: PARTIAL FAILURE -- tweet ${tweetId} created but expected attachment not verified. No retry or follow-up post.`);
   process.exit(1);
 }
 console.log(`x_post_toplevel: CONFIRMED standalone (no replied_to reference).`);
@@ -200,6 +214,7 @@ if (queued.reply_text) {
 
 const entry = {
   ...publicationGuard.metadata,
+  ...(newsMedia ? { image_sha256: newsMedia.image_sha256, media_ids: newsMedia.media_ids, media_key: newsMedia.media_key, upload_receipt_commit: newsMedia.receipt_commit, attachment_verified: true } : {}),
   date: today,
   post_type: 'top_level',
   tweet_id: tweetId,
@@ -219,4 +234,4 @@ history.posts.push(entry);
 writeFileSync(HISTORY, JSON.stringify(history, null, 2) + '\n');
 unlinkSync(QUEUE);
 console.log(`x_post_toplevel: posted and recorded -- ${tweetUrl}${replyTweetId ? ` (+ self-reply ${replyTweetId})` : ''}`);
-console.log('TOPLEVEL_RESULT=' + JSON.stringify({ ...publicationGuard.metadata, tweet_id: tweetId, tweet_url: tweetUrl, reply_tweet_id: replyTweetId, reply_error: replyError, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));
+console.log('TOPLEVEL_RESULT=' + JSON.stringify({ ...publicationGuard.metadata, ...(newsMedia ? { image_sha256: newsMedia.image_sha256, media_ids: newsMedia.media_ids, media_key: newsMedia.media_key, upload_receipt_commit: newsMedia.receipt_commit, attachment_verified: true } : {}), tweet_id: tweetId, tweet_url: tweetUrl, reply_tweet_id: replyTweetId, reply_error: replyError, created_at: vBody.data.created_at, baseline_public_metrics: baseline, posted_at: entry.posted_at }));

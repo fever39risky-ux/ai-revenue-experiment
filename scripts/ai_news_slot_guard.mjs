@@ -15,7 +15,7 @@ export function topLevelGuard(queue, history, now = new Date()) {
   if(!slots[slot] || queue.date!==date || slot!==hour) return deny('AI news outside designated JST hour');
   if(queue.content_id!==`C-${date.replaceAll('-','')}-${slots[slot]}` || queue.scheduled_at!==`${date}T${slot}:00:00+09:00`) return deny('AI news slot identity mismatch');
   if(typeof queue.text!=='string' || queue.body_sha256!==hash(queue.text)) return deny('AI news body hash mismatch');
-  if(queue.reply_text || queue.reply || queue.quote_tweet_id || queue.media || queue.media_ids) return deny('AI news text-only standalone queue required');
+  if(queue.reply_text || queue.reply || queue.quote_tweet_id || queue.media || queue.media_ids) return deny('AI news standalone queue required; raw media fields forbidden');
   for(const p of history.posts) {
     if(p.content_id===queue.content_id || p.body_sha256===queue.body_sha256 || (typeof p.text==='string' && hash(p.text)===queue.body_sha256)) return deny('AI news duplicate content/body');
     const oldMorning=p.content_id===morning.content_id && p.tweet_id===morning.tweet_id && p.body_sha256===morning.body_sha256;
