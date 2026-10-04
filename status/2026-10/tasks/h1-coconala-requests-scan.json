@@ -2,7 +2,7 @@
   "id": "h1-coconala-requests-scan",
   "title": "H1: scan Coconala 公開依頼, shortlist, send ≤5 proposals, check listing inbox",
   "lane": "h1-proposals",
-  "detail": "Follow marketing/2026-10/h1/PROPOSAL_KIT.md §1-§4. Use the dedicated Coconala browser profile. Not before 2026-10-01 JST.",
+  "detail": "Follow marketing/2026-10/h1/PROPOSAL_KIT.md §1-§4. Use the dedicated Coconala browser profile. Not before 2026-10-01 JST. | Standing permission PG-1 (ops/2026-10/PERMISSIONS.md, owner 2026-10-04): send proposals without owner confirmation when all 7 conditions hold. First: re-check https://coconala.com/requests/5303405 (still open? scope unchanged?), evaluate the ready draft (marketing/2026-10/h1/screens/2026-10-02.md, ¥8,000 / 3 days) against conditions 1-7 and send it if all hold; then continue the normal scan. Log each send with --grant PG-1.",
   "requires": [
     "local_browser"
   ],
@@ -106,13 +106,17 @@
       "op": "founder",
       "action": "blocked_by",
       "note": "proposal submission needs the owner's runtime permission (or manual send); no retries until then"
+    },
+    {
+      "ts": "2026-10-04T13:16:18Z",
+      "op": "founder",
+      "action": "unblocked",
+      "note": "owner granted standing permission PG-1 (Coconala proposals/messages)"
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
-  "blocked_by": [
-    "owner-coconala-proposal-permission"
-  ],
+  "blocked_by": [],
   "profile": "coconala"
 }

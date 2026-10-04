@@ -238,6 +238,20 @@ def chrome_for_testing_count():
     return sum('Google Chrome for Testing' in l and 'Helper' not in l for l in out.splitlines())
 
 
+def grant_text(tasks):
+    """Owner standing grants relevant to these tasks (ops/2026-10/PERMISSIONS.md), quoted so the
+    run has the explicit owner authorization in front of it."""
+    if not any('coconala' in task_sites(t) for t in tasks):
+        return ''
+    return ('OWNER STANDING PERMISSION PG-1 (granted by the owner 2026-10-04, ops/2026-10/PERMISSIONS.md): '
+            'on the owner\'s Coconala account you may apply to public requests, write proposals, state price and '
+            'delivery date, and handle pre-order messages and quote replies WITHOUT asking the owner, only when all '
+            'hold: deliverable with current capabilities/assets; profitable after fees; delivery risk not excessive; '
+            'no false track record; Coconala terms respected; no external contact details; no spending, purchases, '
+            'legal consents or identity verification. Record the condition check per proposal (--grant PG-1). If a '
+            'condition fails, do not send.')
+
+
 def worker_prompt(op, role, tasks, recovery, routing=None):
     ids = ', '.join(t['id'] for t in tasks)
     rec = ('\nRECOVERY FIRST: the checkout has uncommitted or unpushed work from a previous run. '
@@ -256,6 +270,7 @@ Do this, in order:
 5. Goal-continuous: after each task, continue with the next eligible task (Constitution Art. 8). End only on E1-E4.
 6. Before ending: heartbeat with the exact next action; commit ONLY your files (status/2026-10/operators/{op}.json, status/2026-10/events/{op}.jsonl, tasks you touched, files your task produced); run `node scripts/leak_check.mjs && node scripts/promotion_check.mjs`; `git pull --rebase origin main`; `git push origin HEAD:main` (retry up to 4x). Never force-push.
 No cold DMs/emails; no posting outside the task's scope; no secrets or buyer PII in the repo.
+{grant_text(tasks)}
 """
 
 

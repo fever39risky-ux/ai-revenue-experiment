@@ -124,6 +124,8 @@ Within already-registered owner accounts, the company is authorized to:
 
 Still forbidden: unsolicited cold DMs/emails to people who did not publish a request, mass/templated spam, fake reviews or sockpuppets, impersonation, claims the AI cannot back, accepting work the AI cannot deliver, anything that violates platform ToS. Proposals must say that production is AI-assisted where relevant and never over-promise. The owner can revoke Article 10 at any time by editing this file.
 
+**Standing grants:** `ops/2026-10/PERMISSIONS.md`. **PG-1** (owner, 2026-10-04): mac-local may apply to Coconala public requests and handle pre-order messages and quote replies, with price and delivery date, without owner confirmation, under PG-1's seven conditions. Do not send these back to the owner per proposal.
+
 ## Article 11 — Money
 
 - October budget for new paid spend (ads, credits, tools): **¥5,000 total** without asking; each spend booked the same day in `status/2026-10/cost_ledger.json`. Above that is an owner request.

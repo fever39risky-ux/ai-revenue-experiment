@@ -10,9 +10,16 @@
   "priority": 1,
   "created_by": "founder",
   "created_at": "2026-10-02T16:50:18.471Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "Owner granted standing permission PG-1 on 2026-10-04 (ops/2026-10/PERMISSIONS.md). No per-proposal owner confirmation from now on under its 7 conditions.",
+  "history": [
+    {
+      "ts": "2026-10-04T13:16:19.209Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Owner granted standing permission PG-1 on 2026-10-04 (ops/2026-10/PERMISSIONS.md). No per-proposal owner confirmation from now on under its 7 conditions."
+    }
+  ]
 }

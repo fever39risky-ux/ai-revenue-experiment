@@ -223,15 +223,7 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [
-      {
-        "id": "owner-coconala-proposal-permission",
-        "site": "coconala.com",
-        "ask": "Send the ready proposal draft for https://coconala.com/requests/5303405 yourself (~3 min; draft in marketing/2026-10/h1/screens/2026-10-02.md), OR grant standing submit-permission for mac-local's Claude runs so future proposals flow unattended. The Mac Claude auto-mode classifier blocks the 応募 action as a Real-World Transaction; Constitution Art.10 already authorizes the proposals.",
-        "filed": "2026-10-02T16:50 UTC (OWNER_ACTION_REQUIRED.md top)",
-        "logs_as": "human_intervention on completion"
-      }
-    ],
+    "open": [],
     "note": "The two owner-login tasks are DONE. The one open ask (Coconala submit-permission) remains the FASTEST path to G1 but is NO LONGER the sole path to a buyer: the 2026-10-04 L2 reaim stood up the X-inquiry demand path, which the cloud Founder runs with no owner step. mac-local resumes H1 proposals automatically once the permission lands."
   },
   "reviews": [
@@ -265,6 +257,11 @@
       "date": "2026-09-30",
       "level": "L4",
       "decision": "Reuse September supply as existing assets (improve/repackage/re-price/re-channel on evidence); require a demand signal only for NEW product development"
+    },
+    {
+      "date": "2026-10-04",
+      "level": "L2",
+      "decision": "Owner standing permission PG-1: mac-local sends Coconala proposals / pre-order messages / quote replies without per-case confirmation under 7 conditions (ops/2026-10/PERMISSIONS.md)"
     }
   ],
   "proposals_pending": [],
