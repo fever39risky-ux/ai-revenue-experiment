@@ -39,3 +39,13 @@ Real local bare Git remote + parent/runner clones: claim/readback, actual materi
 Real images exposed the default 1MiB child-process output limit; C3, existing daily media loader and weekly runner now allow 8MiB while existing image size limits remain unchanged.
 
 No real API call, workflow dispatch, live claim, real result/history mutation, push, merge, credential readout, billing change, or other-business/Founder change was performed during implementation. Mock Git pushes target only disposable local bare repositories. Only final all-in fee evidence remains an external readiness input for C3; ordinary deployment/run/claim/result steps are implemented above.
+
+## Owner-approved one-image price measurement (supersedes price hold for upload only)
+
+Owner Slack message `1791120054.652269`, channel `C0C698PFHPG`, thread `1791083855.285109`, explicitly directs uploading one image before calculating its fee. Parent scoped this to the exact C3 image, one request, existing authentication and billing settings. `UPLOAD_PROBE_ENABLED` admits only the upload stage with that exact grant, unknown price retained, and a fresh parent-provided pre-cost snapshot. `LIVE_READY` remains false; post, verify and Weekly are not enabled.
+
+The approved baseline is $3.59 credits, $1.41 cycle usage, $5 cycle cap, auto-charge OFF. These are account snapshot values, not an upload unit-price quote. A change invalidates this specific baseline. The parent must signal that the before-cost snapshot is complete before dispatch/claim. Claim validation requires the snapshot to be at most five minutes old. The remaining monthly budget is reserved during the experiment, not represented as an estimated or actual charge. Actual USD/JPY remain null until the parent's billing reconciliation. No monthly budget increase, auto-charge change, new key or OAuth scope is permitted.
+
+Unknown response consumes the upload attempt permanently; no second upload, post or automatic retry. Persist the result/intent through the same parent Git command. A safe response summary includes returned media ID/key, TTL, dimensions/size when present and HTTP status; raw transport exceptions, authorization headers and arbitrary remote error text are excluded. This summary and the receipt preserve evidence without exposing credentials. The parent checks before/after billing; no billable pricing GET is added by the runner.
+
+Implementation validation: 205 offline tests pass, including exact one-upload exception, required pre-cost snapshot, unchanged normal post/verify hold, zero-price/changed-cap/auto-charge rejection and consumed-upload replay prevention. No actual upload had been attempted when this addendum was written.

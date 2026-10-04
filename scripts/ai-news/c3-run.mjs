@@ -1,9 +1,9 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {join} from 'node:path';
-import {LIVE_READY,validateClaim,execute,sign} from './c3-bridge.mjs';
+import {LIVE_READY,UPLOAD_PROBE_ENABLED,validateClaim,execute,sign} from './c3-bridge.mjs';
 import {readSnapshot,readMaterial} from './c3-git.mjs';
 try{
-  if(!LIVE_READY)throw Error('LIVE_HOLD_UPLOAD_PRICE'); // Before any file/env Secret/network.
+  if(!LIVE_READY&&!(UPLOAD_PROBE_ENABLED&&process.env.C3_STAGE==='upload'))throw Error('LIVE_HOLD_UPLOAD_PRICE'); // Before any file/env Secret/network.
   const command=process.argv[2];if(!['gate','execute'].includes(command))throw Error('command');
   const ctx={stage:process.env.C3_STAGE,ref:process.env.GITHUB_REF,run_id:process.env.GITHUB_RUN_ID,run_attempt:process.env.GITHUB_RUN_ATTEMPT,code_sha:process.env.GITHUB_SHA};
   if(ctx.ref!=='refs/heads/main'||ctx.run_attempt!=='1'||!['upload','post','verify'].includes(ctx.stage))throw Error('context');
@@ -25,4 +25,4 @@ try{
     }});
     console.log('C3_RECEIPT='+JSON.stringify(receipt));if(receipt.outcome!=='confirmed')process.exitCode=1;
   }
-}catch{console.error(LIVE_READY?'C3_STOPPED_NO_RETRY':'LIVE_HOLD_UPLOAD_PRICE: zero X requests');process.exitCode=1;}
+}catch{console.error((LIVE_READY||(UPLOAD_PROBE_ENABLED&&process.env.C3_STAGE==='upload'))?'C3_STOPPED_NO_RETRY':'LIVE_HOLD_UPLOAD_PRICE: zero X requests');process.exitCode=1;}
