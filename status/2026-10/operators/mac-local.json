@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "5303405 proposal sent (PG-1); scan 0 new GO; inbox 0",
-  "next": "watch the Coconala inbox and the 5303405 status; buyer reply -> sales_conversation, answer within 12h; daily re-scan for id > 5307946, max 5 proposals/day",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-04T17:18:32.556Z",
+  "heartbeat_at": "2026-10-04T19:19:11.752Z",
   "blocked_on": null,
-  "progress": "since 2026-10-04T13:19:47.762822Z: polls=64 workers=1 browser_workers=1 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-04T13:19:47.762822Z: polls=176 workers=2 browser_workers=2 chrome_for_testing_procs=0"
 }
