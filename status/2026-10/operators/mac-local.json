@@ -20,7 +20,7 @@
   "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-04T21:20:40.404Z",
+  "heartbeat_at": "2026-10-04T23:22:06.575Z",
   "blocked_on": null,
-  "progress": "since 2026-10-04T13:19:47.762822Z: polls=236 workers=2 browser_workers=2 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-04T13:19:47.762822Z: polls=296 workers=2 browser_workers=2 chrome_for_testing_procs=0"
 }
