@@ -123,13 +123,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "22:20 JST 10/04: 5303405 still open (92 applicants, 0 contracts, closes 10-12). PG-1 conditions 1-6 OK, but 応募する redirects to /mypage/sms (SMS phone verification required) = identity verification, which PG-1 condition 7 excludes → NOT sent. Inbox 0. Delta scan ×10 keywords: 6 new, 0 GO (screen appended to marketing/2026-10/h1/screens/2026-10-02.md). Blocked on owner-coconala-sms-auth."
+    },
+    {
+      "ts": "2026-10-04T17:11:57Z",
+      "op": "founder",
+      "action": "unblocked",
+      "note": "owner completed Coconala SMS verification; send 5303405 under PG-1 if still open and conditions 1-7 hold"
     }
   ],
   "after": [
     "ops-verify-local-browser"
   ],
-  "blocked_by": [
-    "owner-coconala-sms-auth"
-  ],
+  "blocked_by": [],
   "profile": "coconala"
 }
