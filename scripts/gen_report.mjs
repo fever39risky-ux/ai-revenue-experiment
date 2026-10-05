@@ -112,6 +112,12 @@ function main(){
 // Separate ledgers (status/2026-10/*), separate manifest (reports/manifest-2026-10.json),
 // same template. September files are never rewritten from here.
 const P2_MANIFEST='reports/manifest-2026-10.json';
+// Latest Founder decision report of that JST date (ops/2026-10/DECISION_REPORT.md), as an HTML list.
+function decisionBlock(date){
+  const dir=join(ROOT,'status/2026-10/decisions');let files=[];try{files=readdirSync(dir).filter(f=>f.startsWith(date)&&f.endsWith('.json')).sort();}catch{return '';}
+  if(!files.length)return '';const d=readJSON(join(dir,files.at(-1)),null);if(!d||!d.lanes)return '';
+  return `<p class="meta">${esc(d.fire||files.at(-1))}</p><ul>`+Object.entries(d.lanes).map(([l,e])=>`<li><b>${esc(l)} — ${esc(e.decision||'')}</b><br>FACT: ${esc(e.fact||'')}<br>INTERPRETATION: ${esc(e.interpretation||'')}<br>NEXT: ${esc(e.next_action||'')}<br>DEADLINE/TRIGGER: ${esc(e.deadline_trigger||'')}</li>`).join('')+'</ul>';
+}
 function p2Sums(entries,date){
   const lim=entries.filter(e=>e.third_party!==false&&e.is_test!==true);
   return{cumulative:lim.filter(e=>e.date<=date&&e.date>='2026-10-01').reduce((s,e)=>s+Number(e.jpy_equivalent||0),0),daily:lim.filter(e=>e.date===date).reduce((s,e)=>s+Number(e.jpy_equivalent||0),0)};
@@ -141,7 +147,7 @@ function mainPhase2(date,period){
     .replaceAll('{{ECON_NOTE_JA}}',esc(econJa)).replaceAll('{{ECON_NOTE_EN}}',esc(econEn))
     .replaceAll('{{FOCUS_JA}}',field(focusJa)).replaceAll('{{FOCUS_EN}}',field(focusEn))
     .replaceAll('{{ACTIONS_JA}}',field(pick(data,'actions','ja'))).replaceAll('{{ACTIONS_EN}}',field(pick(data,'actions','en')))
-    .replaceAll('{{DECISIONS_JA}}',field(pick(data,'decisions','ja'))).replaceAll('{{DECISIONS_EN}}',field(pick(data,'decisions','en')))
+    .replaceAll('{{DECISIONS_JA}}',decisionBlock(date)||field(pick(data,'decisions','ja'))).replaceAll('{{DECISIONS_EN}}',decisionBlock(date)||field(pick(data,'decisions','en')))
     .replaceAll('{{STRATEGY_JA}}',field(pick(data,'strategy','ja'))).replaceAll('{{STRATEGY_EN}}',field(pick(data,'strategy','en')))
     .replaceAll('{{LANES_JA}}',lanes(data.lanes,'ja')).replaceAll('{{LANES_EN}}',lanes(data.lanes,'en'))
     .replaceAll('{{OBSERVED_JA}}',field(pick(data,'observed','ja'),'本日の外部実データなし')).replaceAll('{{OBSERVED_EN}}',field(pick(data,'observed','en'),'No external data yet'))

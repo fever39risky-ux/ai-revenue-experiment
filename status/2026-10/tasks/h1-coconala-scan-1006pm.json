@@ -1,0 +1,21 @@
+{
+  "id": "h1-coconala-scan-1006pm",
+  "title": "H1: evening Coconala re-scan (catch requests posted today before applicants pile up); send under PG-1",
+  "lane": "h1-proposals",
+  "detail": "Same as the 10:00 scan but evening. Widened filter (decision 10/05): include ¥3,000–5,000 small jobs and 見積り requests whose scope is clear from the post; prefer requests < 24h old with < 30 applicants. On done: create the next evening scan (not_before next day 19:00 JST, id h1-coconala-scan-<MMDD>pm).",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 2,
+  "hypothesis": "H1",
+  "acceptance": "screen appended; each send logged with --grant PG-1; next evening scan task created",
+  "not_before": "2026-10-06T19:00:00+09:00",
+  "created_by": "founder",
+  "created_at": "2026-10-05T12:21:47.873Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

@@ -106,6 +106,16 @@ if (existsSync('experiment/periods.json')) {
   }
 }
 
+// Founder decision reports must be complete (ops/2026-10/DECISION_REPORT.md).
+{
+  const { check } = await import('./oct/decision_check.mjs');
+  const dd = 'status/2026-10/decisions';
+  if (existsSync(dd)) for (const f of readdirSync(dd).filter(f => f.endsWith('.json'))) {
+    const j = readJSON(`${dd}/${f}`);
+    if (j) for (const prob of check(j)) fail(`${dd}/${f}: ${prob}`);
+  }
+}
+
 console.log(`\npromotion_check: ${problems} problem(s) found.`);
 if (problems > 0) { console.error('BLOCK: durable state looks malformed — do not promote to main.'); process.exit(1); }
 process.exit(0);

@@ -281,5 +281,47 @@
   ],
   "reviews_done": [
     "2026-10-04"
+  ],
+  "decision_reports": {
+    "format": "ops/2026-10/DECISION_REPORT.md",
+    "latest": "status/2026-10/decisions/2026-10-05T2130.json",
+    "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
+  },
+  "pending_triggers": [
+    {
+      "date": "2026-10-08",
+      "lane": "x",
+      "rule": "小ネタ①–④ median imp <20 AND profile clicks 0 AND link clicks 0 → demote X to trust/log only"
+    },
+    {
+      "date": "2026-10-08",
+      "lane": "coconala_proposals",
+      "rule": "<3 proposals sent → L3 re-aim request source; ≥5 proposals & 0 replies by 10/10 → L2 offer/price change"
+    },
+    {
+      "date": "2026-10-08",
+      "lane": "coconala_listing",
+      "rule": "<5 new views & 0 inquiries since 10/03 → stop H3 work"
+    },
+    {
+      "date": "2026-10-08",
+      "lane": "note",
+      "rule": "article #1 <30 views & 0 follows/comments → no more note articles in Oct"
+    },
+    {
+      "date": "2026-10-08",
+      "lane": "company",
+      "rule": "0 valid demand signals company-wide → Art.7 redesign at ≥L3"
+    },
+    {
+      "date": "2026-10-07",
+      "lane": "zenn",
+      "rule": "paid book still 404 → stop Zenn book attempts"
+    },
+    {
+      "date": "2026-10-15",
+      "lane": "booth",
+      "rule": "still 0 スキ/sales → mark stopped"
+    }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "id": "h2-note-metrics-1006",
+  "title": "H2: read note article #1 metrics (views/likes/follows) from the note dashboard, read-only",
+  "lane": "note",
+  "detail": "https://note.com/satotsu1020/n/nd53510c5e65a — read views (ビュー), スキ, comments, new follows since 10/03 from the dashboard (note-profile, headless; no posting, no editor). Book: signal qualified_reach <views> --channel note, valid_demand_signal for any comment/inquiry.",
+  "requires": [
+    "local_browser"
+  ],
+  "priority": 2,
+  "hypothesis": "H2",
+  "acceptance": "numbers recorded in the task result + signals booked",
+  "not_before": "2026-10-06T09:30:00+09:00",
+  "profile": "note",
+  "created_by": "founder",
+  "created_at": "2026-10-05T12:21:47.982Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

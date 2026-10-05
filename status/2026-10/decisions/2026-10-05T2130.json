@@ -1,0 +1,69 @@
+{
+  "fire": "2026-10-05T21:30+09:00",
+  "author": "founder (owner-requested decision-report format, first instance)",
+  "lanes": {
+    "company": {
+      "fact": "Day 5/31: Gross ¥0, known cost ¥0 (+1 unknown compute entry), Net ≤ ¥0. Human interventions 5 / ~12 min (permission 2, login 2, kyc 1; 0 avoidable). Valid demand signals since 10/01: 0. Activity: 1 Coconala proposal sent, 9 X posts, 1 note article.",
+      "interpretation": "Weakened: G1 (first ¥ by 10/07) is now unlikely — the only live sales motion (H1) has n=1 proposal in flight and the buyer pool is thin. Strengthened: the operating system works (zero-human Mac loop, PG-1). The constraint is market contact volume, not infrastructure.",
+      "decision": "improve",
+      "next_action": "Move effort from infrastructure to market contact: H1 proposal volume (twice-daily scans, widened filter), note/X measured only where they can feed H1. Executed now: evening scan task h1-coconala-scan-1006pm, note metrics task h2-note-metrics-1006.",
+      "deadline_trigger": "10/08 Day-8 review: if valid demand signals are still 0 across all lanes, Art.7 company-wide redesign at ≥L3 (new segment/offer: e.g. a fixed-price Sheets/GAS mini-service listing priced for SMB pain, or a different marketplace)."
+    },
+    "x": {
+      "fact": "9 posts 10/01–10/05; impressions 18/12/14/11/9/18/12/7/0 (median 12, max 18); likes 3 total; profile clicks 0; link clicks 0; replies/inquiries 0. Day-4 check (median ≥20 and profile clicks >0) MISSED; series already re-aimed on 10/05 to '自動化の小ネタ' (Sheets/GAS tips aimed at H1 buyers) with one CTA in a self-reply (Coconala service URL).",
+      "interpretation": "Weakened H2: reach ~12 impressions per post means the posts are barely distributed beyond existing followers, regardless of format. The experiment-narrative angle produced no profile visits; the tips series is the last cheap test of X as a sales feeder.",
+      "decision": "improve",
+      "next_action": "Let 小ネタ②③④ (10/06–10/08 08:37) run unchanged as the test (practical tip + single CTA). No new experiment-diary posts. Founder reads metrics at each fire; no extra spend.",
+      "deadline_trigger": "10/08 20:07 JST: if 小ネタ①–④ have median impressions <20 AND profile clicks 0 AND link clicks 0 → demote X from the sales motion to trust/experiment-log only (max 1 post/day, no Founder time on X sales copy). Any inquiry/link click → keep the tips series and double its frequency."
+    },
+    "coconala_proposals": {
+      "fact": "1 proposal sent (5303405, ¥8,000 / 10/12, 92 applicants, 0 contracts) at 10/05 02:16; buyer reply 0 after ~19h. ~80 requests screened across 4 scans → 1 GO (≈1%). Inbox 0 at 09:00 and 18:00. Common NO reasons: mandatory meetings, work inside buyer's admin tools, out of lane, ToS-grey.",
+      "interpretation": "Unchanged H1 (n=1 cannot confirm or refute). Two risks emerge: fitting supply is thin (~1% GO) and competition is heavy (60–120 applicants), so win probability per proposal is low; speed-to-apply and a wider fit band matter more than proposal polish.",
+      "decision": "expand",
+      "next_action": "Add an evening scan (h1-coconala-scan-1006pm, 19:00 JST, self-renewing) next to the 10:00 scan; widen the filter to ¥3,000–5,000 jobs and clearly-scoped 見積り requests; prefer <24h-old requests with <30 applicants. Inbox watch stays 2×/day; any buyer message answered under PG-1 within the same run.",
+      "deadline_trigger": "10/08 (H1 revenue_deadline): if fewer than 3 proposals are sent (supply problem) → L3 re-aim to another request source (e.g. Lancers/CrowdWorks; account creation is an owner step, request it then). If ≥5 proposals and 0 replies by 10/10 → change offer/price (L2). Any reply → Founder answers via mac-local within 12h."
+    },
+    "coconala_listing": {
+      "fact": "Service 4426150 (¥3,000 + options): 30-day views 8 (mostly September), 0 favorites, 0 quote requests, 0 sales since publish 9/30 (snapshot 10/03 01:34, re-checked 10/04–05 inbox 0).",
+      "interpretation": "Weakened H3: passive listing with 0 reviews gets almost no search traffic; it cannot be the October revenue engine.",
+      "decision": "shrink",
+      "next_action": "No further work on the listing. Keep it live as the destination for X CTAs and H1 buyers; only the inbox watch touches it.",
+      "deadline_trigger": "10/08 H3 check: if new views since 10/03 < 5 and 0 inquiries → stop all H3 work for October (listing stays live, zero effort). Any inquiry → reply under PG-1 within 12h."
+    },
+    "booth": {
+      "fact": "Item 8919052 (¥3,000 DL): 0 sales, 0 スキ, 0 messages since 9/30 (dashboard 10/03).",
+      "interpretation": "Weakened H3: BOOTH has no inbound demand for this category without outside traffic.",
+      "decision": "shrink",
+      "next_action": "Zero effort; keep live as a JPY instant-download option linked from store/jp.html.",
+      "deadline_trigger": "10/15: if still 0 スキ/sales → mark BOOTH as stopped in STATE (listing remains). Any sale → book revenue and review."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode: 0 charges and 0 new checkout sessions in October (founder re-read 10/05 20:07); Gumroad 0 sales (sales-monitor every 4h).",
+      "interpretation": "Unchanged H4: no traffic reaches the stores; the 3 September unpaid sessions remain the only signal.",
+      "decision": "shrink",
+      "next_action": "Maintenance only: sales-monitor keeps polling; no store edits.",
+      "deadline_trigger": "Any checkout_started → investigate within 24h. Otherwise re-evaluate at the 10/15 review."
+    },
+    "note": {
+      "fact": "Article #1 published 10/03 on @satotsu1020 (https://note.com/satotsu1020/n/nd53510c5e65a); views/likes not yet measured.",
+      "interpretation": "Unchanged H2 — no data; the measurement gap itself is the problem to fix before any second article.",
+      "decision": "improve",
+      "next_action": "mac-local task h2-note-metrics-1006 (10/06 09:30, note-profile, headless, read-only dashboard) books views/likes/follows as signals.",
+      "deadline_trigger": "10/08: if article #1 has <30 views and 0 follows/comments → no further note articles in October. If ≥30 views or any comment/follow → write #2 aimed at H1 buyers (Sheets/GAS case) with the Coconala CTA."
+    },
+    "zenn": {
+      "fact": "September articles + free book live; paid book gas-ai-jimu-plus-6 still 404 (Zenn new-book rate window). October views not measured.",
+      "interpretation": "Unchanged H4: Zenn is a slow organic channel; the paid book is the only cheap open item.",
+      "decision": "continue",
+      "next_action": "Task h4-zenn-paid-book-retry runs once on/after 10/06 (touch + push, verify via verify-url.yml).",
+      "deadline_trigger": "10/07: book returns 200 → add it to the JP funnel; still 404 → stop Zenn book attempts for October."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales in October; no Etsy sales monitor (manual).",
+      "interpretation": "Weakened H4: cold-start Etsy with 0 reviews shows no pull in 5 weeks.",
+      "decision": "stop",
+      "next_action": "No work and no renewals; listings stay live until they expire.",
+      "deadline_trigger": "Only a sale notification (any date) reopens this lane; otherwise final check at the 10/29 review."
+    }
+  }
+}
