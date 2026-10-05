@@ -13,9 +13,21 @@
   "not_before": "2026-10-05T09:00:00+09:00",
   "created_by": "founder",
   "created_at": "2026-10-04T17:20:26.538Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-05T02:00:53.250Z",
+  "result": "09:01 JST 10/05: Coconala /message 0, やることリスト 0, お知らせ 0 buyer items; 5303405 offer pending (no reply). Replies: none. Next task h1-coconala-inbox-1005pm (not_before 18:00 JST) created.",
+  "history": [
+    {
+      "ts": "2026-10-05T00:00:53.250Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-05T00:02:21.706Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "09:01 JST 10/05: Coconala /message 0, やることリスト 0, お知らせ 0 buyer items; 5303405 offer pending (no reply). Replies: none. Next task h1-coconala-inbox-1005pm (not_before 18:00 JST) created."
+    }
+  ]
 }
