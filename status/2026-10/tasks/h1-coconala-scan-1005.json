@@ -13,9 +13,21 @@
   "not_before": "2026-10-05T10:00:00+09:00",
   "created_by": "founder",
   "created_at": "2026-10-04T17:20:26.601Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-05T03:00:30.166Z",
+  "result": "10:02 JST 10/05: newest list + 18-keyword sweep; only 4 ids >5307946, all NO (out of lane); 0 GO, 0 proposals. 5303405 98 applicants/0 contracts, ours pending. Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1006 (ids >5308125, 10:00 JST 10/06).",
+  "history": [
+    {
+      "ts": "2026-10-05T01:00:30.166Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-05T01:01:53.018Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:02 JST 10/05: newest list + 18-keyword sweep; only 4 ids >5307946, all NO (out of lane); 0 GO, 0 proposals. 5303405 98 applicants/0 contracts, ours pending. Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1006 (ids >5308125, 10:00 JST 10/06)."
+    }
+  ]
 }
