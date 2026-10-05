@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "08:07 fire DONE (E2): synced STATE to SMS-cleared/first-proposal-sent reality; Stripe 0/0; X 0 signals; refreshed Day5 pm post for the milestone; queue validates 5/5",
-  "next": "13:07 JST 10/05: verify 小ネタ① (08:37 run) in posted.jsonl — if still queued after 10:00 JST dispatch x-phase2.yml via GitHub MCP on ref=main (idempotent); re-read Stripe + Coconala inbox (mac-local events) + X metrics/mentions for the first reply/inquiry/charge (Art.10); confirm Day5 numbers (20:37) queued",
+  "doing": "13:07 fire DONE (E2): verified 小ネタ① posted 11:20 JST (tweet 2106932456595013675, no backstop needed); Day5 numbers confirmed queued 20:37; Stripe 0/0 (G1 unmet); Coconala inbox 0 + 0 new GO (mac-local events); X 8 posts median imp 12, 0 clicks/0 external replies; STATE refreshed",
+  "next": "20:07 JST 10/05: re-read Stripe charges/payment_intents + Coconala inbox (mac-local events) + X metrics/mentions for the first profile_click/reply/inquiry/charge (Art.10 -> act end-to-end if any); verify Day5 pm post — if the scheduled run misses it, it is queued not_before 20:37 (>20:07) so the 00:07 10/06 fire backstop-dispatches x-phase2.yml (actions_run_trigger ref=main, idempotent); do NOT author Day6 numbers yet (10/05 not closed, Art.12) — Day6 authorable at the 00:07 10/06 fire. 10/06: Zenn paid-book gas-ai-jimu-plus-6 retry (touch+push, verify-url.yml). 10/08 Day-8 review: H1 revenue_deadline + supply (L2 broaden GO vs L3 platform), H3 inquiry check, H2 median-vs-20-100 + pre-registered hashtag lever + re-rank. HOLD the hashtag lever until Day-8 (clean 小ネタ①-④ baseline).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-04T23:17:21.291Z"
+  "heartbeat_at": "2026-10-05T04:20:36.871Z"
 }
