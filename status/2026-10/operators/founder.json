@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "20:07 fire DONE (E2): no valid demand signal (Stripe 0/0, Coconala inbox 0 + 5303405 pending, X 0 clicks/0 buyer replies, G1 unmet); Day5 numbers backstop-posted 20:40 JST tweet 2107073503094546862 (20:37 cron delayed); STATE refreshed; stop_screen 5 motions",
-  "next": "00:07 JST 10/06: (1) re-read Stripe charges/PI + Coconala inbox (mac-local events) + X metrics/mentions for first profile_click/reply/inquiry/charge (Art.10 -> act end-to-end if any); (2) AUTHOR Day6 numbers from the now-closed 10/05 ledger (node ops.mjs kpi) honestly, queue not_before ~00:15, validate; (3) verify 小ネタ② (not_before 08:37 10/06) will dispatch on schedule, backstop at the 08:07/13:07 fire if still queued after 08:37; (4) 10/06 Zenn paid-book gas-ai-jimu-plus-6 retry (touch+push, verify-url.yml). HOLD H1 GO-broaden + X hashtag/L3 levers until the 10/08 Day-8 review (Art.5.2/5.4).",
+  "doing": "00:07 JST 10/06 fire DONE (E2): no valid demand signal (Stripe 0/0, Coconala inbox 0 + 5303405 pending, X 0 clicks/0 external replies, G1 unmet). Authored Day6 numbers (2026-10-06-pm.json, 20:37, 267w). Zenn paid book gas-ai-jimu-plus-6 verified LIVE (HTTP 200, verify-url run 37331481015) -> task closed + added to JP funnel (store/jp.html). STATE + decision report 2026-10-06T0025 written; leak/promotion/decision checks green. stop_screen 5 motions.",
+  "next": "08:07 JST 10/06: (1) re-read Stripe charges/PI + Coconala inbox (mac-local 09:00 h1-coconala-inbox-1006am event) + X metrics/mentions for the first profile_click/reply/inquiry/charge (Art.10 -> act end-to-end if any appears); (2) VERIFY+BACKSTOP 小ネタ② 2026-10-06-am.json (not_before 08:37) — if still queued after 08:37 JST, dispatch x-phase2.yml via actions_run_trigger run_workflow ref=main (idempotent, deduped by queue_file); (3) if mac-local h2-note-metrics-1006 (09:30) has posted note #1 views, book note_view signal and apply the note 10/08 trigger inputs. Then nothing new until the 20:07 fire authors Day7 numbers (after 10/06 closes, Art.12) and the 10/08 Day-8 review (H1 revenue_deadline + H2/H3 checks + company redesign if 0 signals). HOLD all GO-broaden/hashtag/L3 levers until Day-8.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-05T11:44:44.265Z"
+  "heartbeat_at": "2026-10-05T15:22:17.824Z"
 }

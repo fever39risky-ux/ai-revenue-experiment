@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-05T20:15:00+09:00",
-  "day": 5,
-  "day_note": "Day 5, 20:07 JST fire (re-read signals + Day5-post backstop). Fresh reads this fire: Stripe livemode 0 charges / 0 payment_intents (G1 still unmet). Coconala inbox 0 buyer messages (mac-local 18:01 JST event h1-coconala-inbox-1005pm); 5303405 offer 6460057 still pending (¥8,000 / 納品10-12, no buyer reply). X metrics fetched 18:49 JST (10:49Z): 9 posts incl 小ネタ① (imp 18/12/14/11/9/18/12/7), median low, 0 user_profile_clicks across ALL, 0 external replies (the 1 reply on 小ネタ① is our own Coconala soft-offer self-reply 2106932459023507907, not a buyer) -> no valid X demand signal (Art.10). NET: no valid demand signal anywhere; G1 unmet. Day5 numbers (2026-10-05-pm.json, honest 0/0/0 for 10/04 + first-proposal milestone) POSTED 20:40 JST via Founder backstop dispatch (tweet 2107073503094546862): the 20:37 scheduled cron run was delayed past 20:40 so this session waited in-session, confirmed origin/main had not posted it, dispatched x-phase2.yml (ref=main, actions_run_trigger), and verified posted.jsonl -> queue_file consumed. Goal-continuous: this fire did the backstop in-session rather than deferring to 00:07. Day6 numbers NOT authorable yet (10/05 ledger not closed, Art.12) -> 00:07 10/06 fire. H1 live via mac-local under PG-1 (autonomous, waiting on buyer); X stocked to Day-8; owner queue empty. --- CONTEXT (since 10/05 02:xx): the Coconala SMS gate CLEARED (owner 02:11 JST, human_intervention kyc:1) and mac-local sent the company's FIRST-EVER proposal to a buyer-posted request (5303405, 02:16 JST, ¥8,000, 納品10-12, PG-1 conditions 1-7 logged) -> first active sales motion in 9 months of passive-only listing. mac-local runs self-renewing H1 tasks (inbox 2x/day reply watch ≤12h, daily scan ≤5/day new GO under PG-1); full sweep (~33 requests) still 0 new GO beyond 5303405 (supply thin -> Day-8 watch-item). All owner gates on H1 cleared; human_queue empty.",
+  "as_of": "2026-10-06T00:25:00+09:00",
+  "day": 6,
+  "day_note": "Day 6, 00:07 JST fire (re-read signals + author Day6 numbers + Zenn retry). Fresh reads this fire: Stripe livemode 0 charges / 0 payment_intents (founder re-read 00:14 JST 10/06, GetCharges+GetPaymentIntents both empty -> G1 still unmet). Coconala inbox 0 buyer messages (latest mac-local event h1-coconala-inbox-1005pm 18:01 JST 10/05; 1006am task not_before 09:00 JST 10/06 not yet run); 5303405 offer 6460057 still pending (¥8,000 / 納品10-12, no buyer reply). X metrics (fetched 11:40Z 10/05): 9 posts, imp 18/12/14/11/9/18/12/7/0 (Day5 tweet 2107073503094546862 just posted = 0), 0 user_profile_clicks across ALL, 0 external replies (小ネタ①'s 1 reply is our own self-reply 2106932459023507907, not a buyer) -> no valid X demand signal (Art.10). NET: no valid demand signal anywhere; G1 (first ¥ by 10/07) unmet with 1 day to its target date. EXECUTED this fire: (1) authored Day6 numbers 2026-10-06-pm.json (honest 10/05 ledger: 売上0/コスト0/人間介入1回=ココナラSMS認証 02:11 JST; decision = supply thin, hold GO-broaden until Day-8), queued not_before 20:37 JST 10/06, validates 267w (pm slot mirrors the proven Day5 cadence: 小ネタ am + numbers pm, keeps 小ネタ② at its authored 08:37 slot, 2/day cap intact). (2) H4 Zenn paid-book retry h4-zenn-paid-book-retry DONE: verify-url.yml (run 37331481015, 00:16 JST) returned HTTP 200 with the matching title -> the paid book gas-ai-jimu-plus-6 is LIVE (the Sept 404 rate-window has passed); the config touch was unnecessary and was reverted (do not disturb a live paid asset). Per the pre-registered 200->funnel trigger, added the ¥1,500 book as a code option in store/jp.html footer. The 10/07 404->stop trigger is RESOLVED. 小ネタ② (2026-10-06-am.json 08:37) stays queued+valid; too early to backstop (can't dispatch before not_before) -> 08:07 fire backstops if the scheduled run is delayed past 08:37. H1 live via mac-local under PG-1 (autonomous, waiting on buyer; next tasks 09:00/10:00/19:00 JST 10/06); X stocked to Day-8; owner queue empty. --- CONTEXT (since 10/05 02:xx): the Coconala SMS gate CLEARED (owner 02:11 JST, human_intervention kyc:1) and mac-local sent the company's FIRST-EVER proposal to a buyer-posted request (5303405, 02:16 JST, ¥8,000, 納品10-12, PG-1 conditions 1-7 logged). mac-local runs self-renewing H1 tasks (inbox 2x/day reply watch ≤12h, daily scan ≤5/day new GO under PG-1); full sweep (~33+ requests) still 0 new GO beyond 5303405 (supply thin -> Day-8 watch-item). All owner gates on H1 cleared; human_queue empty.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -78,7 +78,7 @@
       "leading_metric": "sales-monitor + any listing signal",
       "check_at": "weekly review",
       "revenue_deadline": "n/a",
-      "kill_or_escalate_rule": "Existing assets are reusable supply: improve/repackage/re-price/re-route/re-channel whenever market response or a hypothesis justifies it. Only NEW product development requires a prior demand signal (Constitution Art.5.5). Pending: Zenn paid book retry once ≥ 2026-10-06.",
+      "kill_or_escalate_rule": "Existing assets are reusable supply: improve/repackage/re-price/re-route/re-channel whenever market response or a hypothesis justifies it. Only NEW product development requires a prior demand signal (Constitution Art.5.5). Zenn paid book retry DONE 2026-10-06 (touch+push gas-ai-jimu-plus-6, verify-url dispatched); 10/07 trigger decides keep/stop.",
       "owner": "founder (decides reuse) / actions (sales-monitor)",
       "next_action": "H1 delivery kit DONE. DIAGNOSED (2026-10-01, cloud Stripe livemode read now WORKS): Sept signal = 3 checkout sessions (cs_live), all $19 USD, all expired/unpaid; 0 payment_intents + 0 charges => every buyer left BEFORE the payment step. Retro's '5件/9/26頃3件' is unsupported by provider data (correct=3, JST 09-06 09:22, 09-06 11:15, 09-09 16:26). Root cause = offer/price/trust at first sight of a generic $19 USD hosted page (automatic_tax location prompt adds friction; payment methods card+cashapp are irrelevant since nobody reached that step). CONCLUSION: reinforces H1 (buyer-defined jobs) over the passive store; store stays zero-cost supply, NO rebuild for ~3 clicks/mo (negative-EV vs H1). Founder can now read Stripe demand signals directly each fire."
     }
@@ -160,7 +160,7 @@
       "name": "Zenn",
       "state": "LIVE",
       "url": "https://zenn.dev/kinoshita_ai",
-      "sells": "free articles/book; paid book 404 (retry ≥10/06)",
+      "sells": "free articles/book; paid book gas-ai-jimu-plus-6 LIVE (HTTP 200 verified 10/06, verify-url run 37331481015) — added to JP funnel (store/jp.html); 10/07 404-stop trigger RESOLVED",
       "ai_access": "git push (GitHub integration)"
     },
     {
@@ -204,10 +204,11 @@
     "medians_to_date": "10 posts (latest Day5 tweet 2107073503094546862), impressions 18/12/14/11/9/18/12/7 for the first 8 (median ~12), profile_clicks 0 / external replies 0 / inquiries 0 across ALL (fetched 10/05 10:49Z; Day5+小ネタ① metrics refresh on the next x-phase2 run). Day-4 H2 threshold (median>=20 AND clicks>0) MISSED -> L2 reaim in effect; next measurement = Day-8 (10/08)",
     "queued": [
       "2026-10-06-am.json not_before 08:37 JST 10/06 — 自動化の小ネタ②. 254w, validates",
+      "2026-10-06-pm.json not_before 20:37 JST 10/06 — 第2弾 Day6 numbers (10/05: 0/0/人間介入1回=SMS認証; decision=supply thin, hold until Day-8). 267w, validates (authored 00:07 fire from the closed 10/05 ledger, Art.12)",
       "2026-10-07-am.json not_before 08:37 JST 10/07 — 自動化の小ネタ③. 248w, validates",
       "2026-10-08-am.json not_before 08:37 JST 10/08 — 自動化の小ネタ④. 228w, validates"
     ],
-    "queued_note": "Series stocked to the Day-8 (10/08) decision horizon: 小ネタ①-④ (am 10/05-10/08) + Day5 numbers (10/05 pm). Day6/Day7 numbers CANNOT be pre-authored (Art.12 — numbers come from the closed ledger; 10/05 and 10/06 are not closed yet); the 00:07/08:07/13:07 fires author each Day-N numbers post once its prior day closes. Stocking 小ネタ past 10/08 is withheld (would pre-empt the Day-8 keep/scale/L3 decision, Art.5.2).",
+    "queued_note": "Series stocked to the Day-8 (10/08) decision horizon: 小ネタ②-④ (am 10/06-10/08) + Day6 numbers (10/06 pm, authored 00:07 fire from the closed 10/05 ledger). Day7 numbers CANNOT be pre-authored yet (Art.12 — 10/06 not closed); the 20:07 10/06 / 00:07 10/07 fire authors Day7 once 10/06 closes. Stocking 小ネタ past 10/08 is withheld (would pre-empt the Day-8 keep/scale/L3 decision, Art.5.2).",
     "reliability_note": "GitHub scheduled x-phase2 runs WERE unreliable (2 skips 10/01-10/02) but the ② post went out via a scheduled run 01:49 JST 10/03 -> scheduler currently working. Keep the Founder backstop ready: dispatch x-phase2.yml via GitHub MCP actions_run_trigger run_workflow on ref=main AT/AFTER the slot's not_before if the 13:07 fire finds an item still queued after 10:00 JST (dispatch before not_before no-ops). Script is idempotent (dedup by queue_file, cap 2/day JST), so a redundant dispatch is safe.",
     "first_check": "2026-10-04",
     "schedule_doc": "ops/2026-10/X_PHASE2.md §5",
@@ -284,7 +285,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-05T2130.json",
+    "latest": "status/2026-10/decisions/2026-10-06T0025.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -314,9 +315,9 @@
       "rule": "0 valid demand signals company-wide → Art.7 redesign at ≥L3"
     },
     {
-      "date": "2026-10-07",
+      "date": "2026-10-06",
       "lane": "zenn",
-      "rule": "paid book still 404 → stop Zenn book attempts"
+      "rule": "RESOLVED 10/06: paid book gas-ai-jimu-plus-6 returned HTTP 200 (verify-url run 37331481015) and was added to the JP funnel (store/jp.html). The 10/07 404->stop trigger no longer applies. Book stays live as zero-cost supply; revisit only on a sale or the 10/15 review."
     },
     {
       "date": "2026-10-15",
