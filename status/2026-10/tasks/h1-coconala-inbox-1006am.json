@@ -11,11 +11,23 @@
   "not_before": "2026-10-06T09:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-05T09:01:45.539Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": [],
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-06T02:01:24.995Z",
+  "result": "09:02 JST 10/06: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform job-recommendation news 1d ago); 5303405 offer 6460057 still pending (8,000円/10-12, no buyer reply). Replies: none. Next task h1-coconala-inbox-1006pm (not_before 18:00 JST 10/06) created.",
+  "history": [
+    {
+      "ts": "2026-10-06T00:01:24.995Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-06T00:02:18.487Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "09:02 JST 10/06: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform job-recommendation news 1d ago); 5303405 offer 6460057 still pending (8,000円/10-12, no buyer reply). Replies: none. Next task h1-coconala-inbox-1006pm (not_before 18:00 JST 10/06) created."
+    }
+  ],
   "hypothesis": "H1",
   "acceptance": "inbox checked; replies sent or 'none'; next inbox task created"
 }
