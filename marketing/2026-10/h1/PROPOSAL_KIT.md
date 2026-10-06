@@ -3,19 +3,22 @@
 Hypothesis H1 (`status/2026-10/STATE.json`). Authority: Constitution Art. 10 (proposals to requests buyers posted publicly; no cold DMs).
 Users: `mac-local` (browses, sends, handles talk room) and `founder` (selection review, builds deliverables).
 
+> **WIDENED LANE in force (2026-10-07 redesign).** G1 FAILED; the narrow automation-only lane was supply-starved (~67 screened, 1 GO in 7 days). The GO lane is now **any digital task the AI can honestly complete end-to-end within the deadline**, price band **¥3,000–¥50,000**. The §2 filter below reflects this. For the CrowdWorks board use `CROWDWORKS_PLAYBOOK.md` (same widened lane, board-specific).
+
 ## 1. Where to look (Coconala)
-- 公開依頼一覧 → categories: 「IT・プログラミング」内の 業務効率化・自動化 / GAS / Excel・スプレッドシート / データ入力・整理 / ChatGPT・AI活用.
-- Keywords: GAS, スプレッドシート, Googleフォーム, 自動化, Gmail, ChatGPT, API, Excel, マクロ移行, 集計, CSV, 請求書.
+- 公開依頼一覧 → categories: 「IT・プログラミング」内の 業務効率化・自動化 / GAS / Excel・スプレッドシート / データ入力・整理 / ChatGPT・AI活用, **plus** データ入力・リスト作成 / 文字起こし / 資料作成・フォーマット整形 / ライティング・記事作成 / リサーチ.
+- Keywords: GAS, スプレッドシート, Googleフォーム, 自動化, Gmail, ChatGPT, API, Excel, マクロ移行, 集計, CSV, 請求書, データ入力, 文字起こし, データ整形, フォーマット変換, リスト作成, リサーチ, 記事, 校正.
 - Only requests posted ≤ 7 days ago and still 募集中.
 
-## 2. Go / no-go filter (all must be YES)
-1. Deliverable is code/sheets/docs the AI can build and test itself (GAS, Sheets formulas, Apps Script triggers, Python/CSV transforms, prompt design, ChatGPT API via GAS).
+## 2. Go / no-go filter — WIDENED lane (all must be YES)
+1. Deliverable is something the AI can build/produce and verify itself: code/sheets/docs (GAS, Sheets formulas, Apps Script triggers, Python/CSV transforms, prompt design, ChatGPT API via GAS) **OR** data entry/cleanup, CSV/format conversion, transcription from clean audio or text, document formatting, spreadsheet/report building, light web research, drafting/writing-assist, checking/cleaning AI- or OCR-generated text.
 2. No mandatory calls/meetings, no on-site work, no access to the buyer's accounts that requires the owner's identity beyond the Coconala talk room (buyer can share a copy of a sheet).
 3. Can deliver in ≤ 3 days (≤ 5 if the buyer's deadline allows) with a test on dummy data.
-4. Budget ≥ ¥3,000 (below that only if it's a clear foot-in-the-door for a repeat buyer).
-5. Nothing illegal/ToS-grey (scraping behind login, spam tools, fake reviews, SNS automation against ToS, personal-data harvesting) → skip.
+4. **No false track record or credentials** (PG-1 cond.4): if the request demands a multi-year human work history or a qualification we don't honestly hold, it's a NO — do not fabricate. If the buyer explicitly rejects AI-centered applicants, NO.
+5. Budget ≥ ¥3,000 (below that only if it's a clear foot-in-the-door for a repeat buyer); profitable after Coconala's 22% fee.
+6. Nothing illegal/ToS-grey (scraping behind login, spam tools, fake reviews, SNS automation against ToS, personal-data harvesting) → skip.
 
-Record every screened request (url, title, budget, go/no-go, reason) in the task result so the Founder can see request volume and fit.
+Record every screened request (url, title, budget, go/no-go, reason) in the task result so the Founder can see request volume and fit. Cap: ≤5 proposals/day across Coconala+CrowdWorks combined.
 
 ## 3. Proposal template (edit per request — never send it unedited)
 

@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "working",
-  "doing": "02:55 JST 10/07 owner-directed redesign: G1=FAILED confirmed; executed portfolio redesign (broaden Coconala GO [task created], CrowdWorks KYC filed, STOP note, shrink X/stores); Zenn re-verified 200 (not stopped); note/Coconala/X triggers all actioned. Decision report 2026-10-07T0300 + REDESIGN memo written; checks green.",
-  "next": "mac-local works h1-coconala-broaden-go (widened lane, ≤5/day). Founder: track CrowdWorks KYC -> open that lane when live; each fire re-read Stripe/Coconala/X for first signal (act end-to-end); X measure 小ネタ①-④ at 10/08 + hashtag test 10/09 if flat; 10/12 Coconala proposal kill-check. 10/20 G2 verdict.",
+  "doing": "08:07 JST 10/07 fire: re-read signals (Stripe 0/0 livemode 08:10; X 0 profile_clicks; Coconala mac-local sent 2 NEW widened-lane proposals ~03:20 -> 3 total/0 replies; CrowdWorks KYC pending) = 0 valid demand signals, G1 stays FAILED. Validated the L3 CrowdWorks bet (request-board fit confirmed; prioritize judgment work over commodity data-entry) + forward-deployed CROWDWORKS_PLAYBOOK.md (DORMANT until KYC). Aligned PROPOSAL_KIT.md §1-2 to the widened lane. Decision report 2026-10-07T0815 (10 lanes); leak/promotion/decision green.",
+  "next": "13:07 fire: backstop X 小ネタ③ via actions_run_trigger IF still queued after 10:00 JST (idempotent); re-read Stripe/Coconala(mac-local events)/X for the first reply/charge/profile_click and act end-to-end (Art.10). Check if owner completed CrowdWorks KYC -> if yes, create h1-crowdworks-scan (local_browser, site:crowdworks) per CROWDWORKS_PLAYBOOK.md. 10/08 weekly review re-ranks on widened-lane results + 小ネタ①-④ baseline; 10/12 Coconala kill-check; 10/20 G2 verdict.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-06T18:07:08.440Z"
+  "heartbeat_at": "2026-10-06T23:16:18.541Z"
 }
