@@ -13,9 +13,21 @@
   "profile": "note",
   "created_by": "founder",
   "created_at": "2026-10-05T12:21:47.982Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-06T02:32:14.626Z",
+  "result": "note dashboard (agg 2026-10-06 07:46 JST) article #1 nd53510c5e65a (pub 10/03): impressions 44, page views 5, スキ 3, comments 0, sales 0. Account 28d: imp 127, PV 9, スキ 4, new followers 2 (28d window; not isolatable to since-10/03). No comments/inquiries -> no valid_demand_signal. Booked qualified_reach 5 --channel note.",
+  "history": [
+    {
+      "ts": "2026-10-06T00:32:14.626Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-06T00:32:34.093Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "note dashboard (agg 2026-10-06 07:46 JST) article #1 nd53510c5e65a (pub 10/03): impressions 44, page views 5, スキ 3, comments 0, sales 0. Account 28d: imp 127, PV 9, スキ 4, new followers 2 (28d window; not isolatable to since-10/03). No comments/inquiries -> no valid_demand_signal. Booked qualified_reach 5 --channel note."
+    }
+  ]
 }

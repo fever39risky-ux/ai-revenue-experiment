@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "h1-coconala-inbox-1006am done: inbox empty, 6460057 pending",
-  "next": "09:30 h2-note-metrics-1006, 10:00 h1-coconala-scan-1006, 18:00 h1-coconala-inbox-1006pm (supervisor starts worker)",
+  "doing": "h2-note-metrics-1006 done",
+  "next": "await supervisor; next coconala inbox 1006pm",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-06T00:02:18.827Z",
+  "heartbeat_at": "2026-10-06T00:32:39.340Z",
   "blocked_on": null,
   "progress": "since 2026-10-04T13:19:47.762822Z: polls=1001 workers=5 browser_workers=5 chrome_for_testing_procs=0"
 }
