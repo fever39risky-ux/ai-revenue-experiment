@@ -13,9 +13,21 @@
   "not_before": "2026-10-06T19:00:00+09:00",
   "created_by": "founder",
   "created_at": "2026-10-05T12:21:47.873Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-06T12:00:25.120Z",
+  "result": "19:00 JST 10/06: newest list p1, 26 ids >5310263, 2 opened (5310341 8万字 proofreading ¥30-50k: buyer publicly rejects AI-centered applicants = NO; 5310433 chemistry e-learning review = NO). 0 GO, 0 proposals. Screen appended: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1007 (ids >5311304), h1-coconala-scan-1007pm created.",
+  "history": [
+    {
+      "ts": "2026-10-06T10:00:25.120Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-06T10:01:29.226Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:00 JST 10/06: newest list p1, 26 ids >5310263, 2 opened (5310341 8万字 proofreading ¥30-50k: buyer publicly rejects AI-centered applicants = NO; 5310433 chemistry e-learning review = NO). 0 GO, 0 proposals. Screen appended: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1007 (ids >5311304), h1-coconala-scan-1007pm created."
+    }
+  ]
 }
