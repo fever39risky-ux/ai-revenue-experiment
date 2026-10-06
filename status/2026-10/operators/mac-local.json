@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "blocked",
-  "doing": "supervisor backoff after spawn_failed (failure 1)",
-  "next": "retry at 2026-10-06T18:10:04.191366Z",
+  "status": "idle",
+  "doing": "released h1-coconala-broaden-go (retagged local_browser)",
+  "next": "next browser run: claim h1-coconala-broaden-go (Coconala profile), re-screen all open 公開依頼 under widened lane, send ≤5 proposals under PG-1; plus inbox-1007am at 09:00 JST",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-06T18:08:37.277Z",
-  "blocked_on": "spawn_failed",
+  "heartbeat_at": "2026-10-06T18:10:51.737Z",
+  "blocked_on": null,
   "progress": "since 2026-10-04T13:19:47.762822Z: polls=1556 workers=10 browser_workers=10 chrome_for_testing_procs=0"
 }
