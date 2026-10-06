@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "released h1-coconala-broaden-go (retagged local_browser)",
-  "next": "next browser run: claim h1-coconala-broaden-go (Coconala profile), re-screen all open 公開依頼 under widened lane, send ≤5 proposals under PG-1; plus inbox-1007am at 09:00 JST",
+  "doing": "done h1-coconala-broaden-go: 2 PG-1 proposals sent (5311883 ¥3k, 5303494 ¥30k)",
+  "next": "09:00 JST inbox-1007am (watch replies on 5303405/5311883/5303494, answer ≤12h under PG-1); 10:00 scan-1007 on widened lane, ids > 5311966",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-06T18:10:51.737Z",
+  "heartbeat_at": "2026-10-06T18:23:18.163Z",
   "blocked_on": null,
   "progress": "since 2026-10-04T13:19:47.762822Z: polls=1556 workers=10 browser_workers=10 chrome_for_testing_procs=0"
 }

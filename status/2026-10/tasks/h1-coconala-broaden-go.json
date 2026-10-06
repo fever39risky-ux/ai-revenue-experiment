@@ -12,10 +12,10 @@
   "assigned_to": "mac-local",
   "created_by": "founder",
   "created_at": "2026-10-06T18:04:00.829Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-06T20:16:28.432Z",
+  "result": "03:20 JST 10/07: re-screened all open 公開依頼 under the widened lane (newest p1 + 54-keyword sweep, ~90 open ids, 12 opened). SENT 2 under PG-1: 5311883 (office-worker annual calendar research, ¥3,000, 10/13) and 5303494 (site conversion diagnosis + LP copy, ¥30,000, 10/20); conditions 1-7 logged in proposal_sent events + signals. 10 NO with reasons (copyright, video meetings, track record, Access, sub-floor price, delivery risk). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Widened-lane count 2/10 toward 10/12 kill-check. Next scans: ids > 5311966.",
   "history": [
     {
       "ts": "2026-10-06T18:10:51.270Z",
@@ -27,6 +27,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "Needs the logged-in Coconala browser profile (screen open 公開依頼 + send proposals), but task was tagged requires:[] so the supervisor spawned this run without a browser. Retagged requires:[local_browser], site:coconala so the next supervisor run routes the Coconala profile. No screening/proposals done this run."
+    },
+    {
+      "ts": "2026-10-06T18:16:28.434Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-06T18:23:09.002Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "03:20 JST 10/07: re-screened all open 公開依頼 under the widened lane (newest p1 + 54-keyword sweep, ~90 open ids, 12 opened). SENT 2 under PG-1: 5311883 (office-worker annual calendar research, ¥3,000, 10/13) and 5303494 (site conversion diagnosis + LP copy, ¥30,000, 10/20); conditions 1-7 logged in proposal_sent events + signals. 10 NO with reasons (copyright, video meetings, track record, Access, sub-floor price, delivery risk). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Widened-lane count 2/10 toward 10/12 kill-check. Next scans: ids > 5311966."
     }
   ],
   "site": "coconala"
