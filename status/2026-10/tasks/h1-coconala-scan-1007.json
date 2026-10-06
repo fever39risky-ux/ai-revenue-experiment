@@ -1,0 +1,21 @@
+{
+  "id": "h1-coconala-scan-1007",
+  "title": "H1: daily Coconala request re-scan (ids > last screened, 5310263 as of 10/06 am); send proposals under PG-1",
+  "lane": "h1-proposals",
+  "detail": "Scan new public requests since the last screened id, apply PROPOSAL_KIT filters, send under PG-1 when conditions 1-7 hold (log each). On done: create tomorrow's scan task (not_before next day 10:00 JST, id h1-coconala-scan-<MMDD>).",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 2,
+  "hypothesis": "H1",
+  "acceptance": "screen appended; proposals logged with --grant PG-1; next scan task created",
+  "not_before": "2026-10-07T10:00:00+09:00",
+  "created_by": "mac-local",
+  "created_at": "2026-10-06T01:01:54.433Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

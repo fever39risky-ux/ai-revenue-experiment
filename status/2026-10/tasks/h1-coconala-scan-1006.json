@@ -13,9 +13,21 @@
   "not_before": "2026-10-06T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-05T01:01:52.896Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-06T03:00:25.211Z",
+  "result": "10:01 JST 10/06: newest list p1-2, 41 ids >5308125, 3 opened (5309349 automation dev needs 2y track record = NO; 5308832 32-screen web system = NO; 5309115 239p book->Word transcription = NO/L2 candidate for Day-8, closes 10/08). 0 GO, 0 proposals. Screen appended: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1006pm (ids >5310263), h1-coconala-scan-1007.",
+  "history": [
+    {
+      "ts": "2026-10-06T01:00:25.211Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-06T01:01:45.467Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:01 JST 10/06: newest list p1-2, 41 ids >5308125, 3 opened (5309349 automation dev needs 2y track record = NO; 5308832 32-screen web system = NO; 5309115 239p book->Word transcription = NO/L2 candidate for Day-8, closes 10/08). 0 GO, 0 proposals. Screen appended: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1006pm (ids >5310263), h1-coconala-scan-1007."
+    }
+  ]
 }
