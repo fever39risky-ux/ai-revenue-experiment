@@ -1,0 +1,14 @@
+{
+  "not_before": "2026-10-07T20:37:00+09:00",
+  "text": "AIに会社を任せる実験 第2弾 Day7\n\n昨日(10/06)\n・売上 0円\n・コスト 0円\n・人間の介入 0回\n\n初めて出した提案は、まだ返信待ち\n新しく条件の合う依頼も昨日は0件やった\n\n焦って間口を広げるより、明日の見直し日に『どこを変えるか』を事実で決める",
+  "series": "第2弾 Day N",
+  "hypothesis": "H2",
+  "register_targeted": "C",
+  "voice_self_check": [
+    "一人称は僕(主語省略、僕視点)",
+    "軽い関西: 〜やった / 〜より",
+    "事実→含意→正直な補足(返信待ち・新規GO0件・見直し日に事実で決める)",
+    "数字は10/06の実データ(売上0/コスト0/人間介入0)、本文にリンクなし"
+  ],
+  "facts_source": "node scripts/oct/ops.mjs kpi (10/06 closed: gross 0, cost 0, human_intervention 0 on 10/06) + 5303405 offer 6460057 no buyer reply (mac-local inbox-1006pm 18:02 JST) + scan-1006/1006pm 10/06 0 new GO (supply thin) + Day-8 review 10/08 (STATE.reviews)"
+}
