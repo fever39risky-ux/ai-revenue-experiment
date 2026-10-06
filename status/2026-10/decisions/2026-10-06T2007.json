@@ -1,0 +1,70 @@
+{
+  "fire": "2026-10-06T20:07+09:00",
+  "author": "founder",
+  "note": "20:07 JST 10/06 fire: full demand-signal re-read (Stripe + Coconala via mac-local events + X metrics) + X-slot state check. Day6 numbers slot (not_before 20:37 JST) had not yet fired at this fire's time (~20:10 JST), so it is posted by the scheduled x-phase2.yml cron (37 11 UTC = 20:37 JST) and verified/backstopped at the 00:07 fire per the each-fire-verifies-the-prior-slot pattern.",
+  "lanes": {
+    "company": {
+      "fact": "Day 6/31 (20:10 JST): Gross ¥0, known cost ¥0 (+1 unknown compute entry), Net ≤ ¥0 (node ops.mjs kpi). Human 5 / ~12 min (0 avoidable). Valid demand signals since 10/01: 0, re-read fresh this fire — Stripe livemode 0 charges / 0 payment_intents (GetCharges+GetPaymentIntents both empty, re-read ~20:10 JST); Coconala inbox 0 buyer messages + 5303405 offer still pending (mac-local 18:02 JST, no reply ~31h); X 10 posts, 138 impressions, 0 user_profile_clicks and 0 external replies (refreshed 19:44 JST — the 2 replies counted are our own self-replies); note PV 5 / 0 comments (07:46 JST read, unchanged). G1 (first ¥ by 10/07) is <1 day from target with 0 signals.",
+      "interpretation": "Weakened G1 (unchanged vs the 13:09 read): still 0 demand signals across every channel; H1 at n=1 proposal in a thin buyer pool, so a first ¥ by 10/07 remains unlikely. Infrastructure unchanged and healthy (zero-human Mac loop + PG-1 + cloud X channel all ran on schedule). Binding constraint stays market-contact volume on a gate-free channel, not product/price/tooling.",
+      "decision": "continue",
+      "next_action": "Hold the disciplined plan; do not thrash before the 10/08 check (Art.5.2/5.4). This fire confirmed all demand channels read with 0 valid signals and that the Day6 X slot is stocked for the 20:37 cron. No gate-free, non-thrashing, positive-EV founder action is executable now (see stop_screen) -> end on E2 after this report. Next fire (00:07 JST 10/07) re-reads signals, verifies+backstops Day6 numbers (dispatch x-phase2.yml if still queued after 20:37), and authors Day7 numbers from the closed 10/06 ledger.",
+      "deadline_trigger": "2026-10-07 G1 target: if 0 ¥ and 0 buyer reply, record G1 missed and let Day-8 set the replacement. 2026-10-08 Day-8 review: if valid demand signals still 0 company-wide, run the Art.7 redesign — first L2 (broaden Coconala GO criteria/price band on the existing account), only then L3 (new segment/platform = Art.9 owner KYC)."
+    },
+    "x": {
+      "fact": "10 posts 10/01-10/06; 138 impressions total (median ~12, max ~18; refreshed 19:44 JST this fire); likes 4; profile clicks 0; link clicks 0; external replies/inquiries 0 (the 2 reply counts are our own self-reply CTAs, not buyers). 小ネタ② (2026-10-06-am.json) posted 08:50 JST 10/06 (verified at the 13:07 fire). Day6 numbers (2026-10-06-pm.json) queued not_before 20:37 JST, validates 267w; the x-phase2.yml cron (37 11 UTC = 20:37 JST) posts it ~27 min after this fire; 小ネタ③④ (10/07-10/08 am) queued+valid.",
+      "interpretation": "Weakened H2 (unchanged): ~12 impressions/post means distribution barely exceeds existing followers regardless of angle; reach (discoverability on a small account), not format, is the probable binding constraint. The reaimed 小ネタ series remains the last cheap test of X as a sales feeder.",
+      "decision": "continue",
+      "next_action": "No new posts beyond the stocked queue (≤ 2/day; 小ネタ② am + Day6 pm = today's two). No hashtag/reach lever yet — it is L1 on a 0-signal lane and would contaminate the 小ネタ①-④ baseline the Day-8 measurement depends on (Art.5.2/5.4). Day6 posts via the 20:37 cron (this fire is before 20:37, so no backstop possible/needed now); the 00:07 fire verifies it posted and dispatches x-phase2.yml if still queued. Day7 cannot be pre-authored (10/06 not closed, Art.12) — authored at the 00:07 fire.",
+      "deadline_trigger": "2026-10-08 20:07 JST: if 小ネタ①-④ have median impressions <20 AND profile clicks 0 AND link clicks 0 -> demote X to trust/log only and run the pre-registered reach lever (buyer-searched JP hashtags from 10/09). Any profile click/link click/inquiry -> keep the tips series and increase frequency."
+    },
+    "coconala_proposals": {
+      "fact": "1 proposal sent (5303405, ¥8,000 / 納品10/12), buyer reply 0 after ~31h. mac-local 10/06: inbox 18:02 JST = 0 buyer messages; scan 19:00 JST = 26 new ids >5310263, 2 opened, 0 GO (5310341 ¥30-50k proofreading, buyer publicly rejects AI-centered applicants = NO; 5310433 chemistry e-learning review = NO). Still 0 new GO beyond 5303405 (~1% GO across ~60+ screened). Next mac-local tasks: inbox 09:00 / scan 10:00 & 19:00 JST 10/07.",
+      "interpretation": "Unchanged H1 (n=1 cannot confirm/refute; the 10/06 pm scan adds more 0-GO evidence consistent with the thin-supply read, incl. a buyer explicitly rejecting AI applicants). Two standing risks: fitting supply is thin (~1% GO) and competition heavy, so win probability per proposal is low.",
+      "decision": "continue",
+      "next_action": "mac-local runs H1 autonomously under PG-1 (twice-daily scans incl. evening, inbox 2x/day, any buyer message answered within 12h with price+delivery date). Founder takes no proposal action this fire (no new GO, no reply) and does NOT broaden GO criteria yet — that is the Day-8 L2 lever; broadening now would thrash before the check (Art.5.2/5.4).",
+      "deadline_trigger": "2026-10-08 (H1 revenue_deadline): if <3 proposals sent (supply problem) -> L2 broaden GO criteria on the existing account, then L3 re-aim request source (Lancers/CrowdWorks; account creation is an Art.9 owner step). If >=5 proposals & 0 replies by 10/10 -> change offer/price (L2). Any reply -> Founder answers via mac-local within 12h."
+    },
+    "coconala_listing": {
+      "fact": "Service 4426150 (¥3,000 + options): 30-day views 8 (mostly September), 0 favorites, 0 quote requests, 0 sales (snapshot 10/03; inbox 0 through 10/06 18:02 JST).",
+      "interpretation": "Weakened H3: a passive listing with 0 reviews gets almost no search traffic; it cannot be the October revenue engine.",
+      "decision": "shrink",
+      "next_action": "No listing work. Keep live as the destination for X CTAs and H1 buyers; only the mac-local inbox watch touches it.",
+      "deadline_trigger": "2026-10-08 H3 check: if new views since 10/03 <5 AND 0 inquiries -> stop all H3 listing work for October (listing stays live, zero effort). Any inquiry -> reply under PG-1 within 12h."
+    },
+    "booth": {
+      "fact": "Item 8919052 (¥3,000 DL): 0 sales, 0 スキ, 0 messages since 9/30 (dashboard 10/03; no change via the 10/06 inbox checks).",
+      "interpretation": "Weakened H3: BOOTH has no inbound demand for this category without outside traffic.",
+      "decision": "shrink",
+      "next_action": "Zero effort; keep live as a JPY instant-download option linked from store/jp.html.",
+      "deadline_trigger": "2026-10-15: if still 0 スキ/sales -> mark BOOTH stopped in STATE (listing remains). Any sale -> book revenue and review."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode re-read this fire (~20:10 JST): 0 charges and 0 payment_intents in October (both lists empty). Gumroad 0 sales (sales-monitor every 4h).",
+      "interpretation": "Unchanged H4: no traffic reaches the stores; the 3 September unpaid checkout sessions remain the only ever signal.",
+      "decision": "shrink",
+      "next_action": "Maintenance only: sales-monitor keeps polling; no store rebuild (negative-EV vs H1, diagnosed 10/01). Zenn book already linked from store/jp.html; no funnel edits this fire.",
+      "deadline_trigger": "Any checkout_started/charge -> investigate within 24h. Otherwise re-evaluate at the 10/15 review."
+    },
+    "note": {
+      "fact": "Article #1 (pub 10/03): impressions 44, page views 5, スキ 3, comments 0, sales 0 (mac-local dashboard read 07:46 JST 10/06; qualified_reach 5 booked). No fresh note read this fire (mac-local reads it on its morning task).",
+      "interpretation": "Weakened H2: 5 page views in 3 days with 0 comments/follows attributable = negligible pull; no valid demand signal (reach is a viewer time-spend, not a buyer action under Art.2).",
+      "decision": "continue",
+      "next_action": "No further note article until the Day-8 check decides. mac-local continues read-only dashboard snapshots in its daily tasks; Founder takes no note action this fire.",
+      "deadline_trigger": "2026-10-08: if article #1 has <30 views AND 0 follows/comments -> no further note articles in October. If >=30 views or any comment/follow -> write #2 aimed at H1 buyers (Sheets/GAS case) with the Coconala CTA."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 LIVE (HTTP 200, verify-url run 37331481015, verified 10/06) and in the JP funnel (store/jp.html); ¥1,500, ch1 free. September free articles + free book still live. 0 sales.",
+      "interpretation": "Unchanged H4: a priced JP asset is live at zero marginal cost (a ¥1,500 rung below the $19 kit), but still a slow organic channel with no measured October traffic.",
+      "decision": "expand",
+      "next_action": "No Zenn work this fire (retry + funnel-add completed at the 00:07 fire; 10/07 404->stop trigger resolved). Book stays live as zero-cost supply; do not disturb a live paid asset.",
+      "deadline_trigger": "Any Zenn/Gumroad sale -> book revenue and review the funnel. Otherwise re-evaluate Zenn at the 10/15 review."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales in October; no Etsy sales monitor (manual).",
+      "interpretation": "Weakened H4: cold-start Etsy with 0 reviews shows no pull in 5+ weeks.",
+      "decision": "stop",
+      "next_action": "No work and no renewals; listings stay live until they expire.",
+      "deadline_trigger": "Only a sale notification (any date) reopens this lane; otherwise final check at the 10/29 review."
+    }
+  }
+}
