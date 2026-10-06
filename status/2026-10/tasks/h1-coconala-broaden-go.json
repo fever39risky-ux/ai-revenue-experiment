@@ -1,0 +1,18 @@
+{
+  "id": "h1-coconala-broaden-go",
+  "title": "H1: re-screen Coconala 公開依頼 under the WIDENED GO lane and send ≤5/day proposals (PG-1)",
+  "lane": "h1-proposals",
+  "detail": "REDESIGN 2026-10-07 (G1 FAILED): GO lane widened beyond automation/code to ANY digital task mac-local can honestly complete end-to-end within the deadline — Sheets/GAS/ChatGPT-API/Excel automation AND data entry, data cleanup, CSV/format conversion, transcription from clean source, document formatting, spreadsheet/report building, light web research, drafting/writing-assist — WHERE the buyer does not require a human-only deliverable or a track record we lack (PG-1 cond.4). Price band ¥3,000–¥50,000; accept small first-order jobs for velocity. Re-screen currently-open requests (not just ids > last cursor) against this widened lane; apply it to the self-renewing scan/inbox tasks from now. Send ≤5/day under PG-1 (log each proposal_sent + conditions 1-7). Still answer any reply (5303405 or new) ≤12h. Proposal COUNT is not the KPI (replies/orders are).",
+  "requires": [],
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "Open requests re-screened under the widened lane; every honestly-deliverable one proposed (≤5/day) with PG-1 conditions recorded, or a one-line reason logged if none qualify; screens appended to marketing/2026-10/h1/screens/.",
+  "assigned_to": "mac-local",
+  "created_by": "founder",
+  "created_at": "2026-10-06T18:04:00.829Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

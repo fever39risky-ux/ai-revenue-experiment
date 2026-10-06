@@ -3,8 +3,8 @@
   "phase": "2026-10",
   "as_of": "2026-10-07T00:12:00+09:00",
   "day": 7,
-  "day_note": "Day 7, 00:07 JST fire (ran ~00:12). BACKSTOP: the 20:37 JST 10/06 x-phase2 cron SKIPPED Day6 numbers (still queued at fire time) -> Founder dispatched x-phase2.yml (run 37485323620 success) -> Day6 POSTED (tweet 2107488993076203804, 00:11 JST 10/07). Fresh demand-signal re-read (all channels): Stripe livemode 0 charges / 0 payment_intents (re-read 00:11 JST; only the 3 Sept checkout sessions, expired/unpaid). Coconala inbox 0 buyer messages (mac-local inbox-1006pm 18:02 JST); 5303405 offer 6460057 still no reply ~2 days. Scans 10/06 (scan-1006 + scan-1006pm): 0 new GO across ~67 ids, supply thin. X 11 posts: median imp ~13, 0 user_profile_clicks ALL, 0 external replies (2 reply counts = our own self-reply CTAs). NET: no valid demand signal anywhere; G1 (first ¥ by 10/07) unmet at the deadline's start, <24h left. AUTHORED Day7 numbers from the CLOSED 10/06 ledger (0売上/0コスト/0人間介入, Art.12) -> queued 2026-10-07-pm.json (231w, valid, not_before 20:37 JST 10/07). NOTE on cap: Day6 posting at 00:11 used 10/07 JST slot #1, so 小ネタ③ (08:37) = #2 and Day7 (20:37) rolls to 10/08 am under the 2/day cap — series stays continuous, calendar-lagged ~1 day; the Day-8 review likely resolves the backlog. Decision report 2026-10-07T0012 written (9 lanes, decision_check green). Ended E2: no gate-free non-thrashing positive-EV founder action now (H1 waits on buyer/supply thin; X cap used + stocked to Day-8; GO-broaden/hashtag/L3 held to the pre-registered 10/08 Day-8 review per Art.5.2/5.4; store rebuild + 2nd marketplace negative-EV). CONTEXT: mac-local runs self-renewing H1 tasks (inbox/scan) under PG-1; all owner gates on H1 cleared; human_queue empty.",
-  "day_note_prev": "20:07 JST 10/06 fire: full signal re-read (Stripe 0/0, Coconala 0 + 5303405 pending ~31h + scan 0 GO, X 10 posts 0 profile-clicks/0 external replies); Day6 numbers stocked for the 20:37 cron; ended E2 (5 motions). Full note in decisions/2026-10-06T2007.json + events.",
+  "day_note": "Day 7, 02:55 JST OWNER-DIRECTED redesign fire. Owner (live) directed: formally confirm G1, and since it is unmet do NOT continue the same strategy — redesign Offer/Audience/Channel/Price/Sales-motion/Org/Agents to maximize P(G2/G3), executing stop/reallocation on the spot (no deferral to 10/08). DID: (1) G1 = FAILED confirmed (¥0/0 orders/0 valid signals by deadline; Stripe re-read 02:50 JST 0/0; full FACT/INTERP/ROOT-CAUSE/DECISION/REALLOCATION/NEXT-ACTION/DEADLINE in decisions/2026-10-07T0300.json + reports/2026-10/REDESIGN-2026-10-07.md). (2) Diagnosed binding constraint = CHANNEL/AUDIENCE FIT (Coconala 公開依頼 pool structurally wrong for honest solo-AI: ~67 screened/1 GO/0 reply; creative-dominated or AI-hostile or demands human track record) + zero owned distribution. (3) REDESIGN executed: CONCENTRATE on the active sales motion with WIDENED supply — L2 broaden Coconala GO lane NOW (task h1-coconala-broaden-go for mac-local; lane widened beyond automation to any honestly-AI-deliverable digital task, price ¥3k–50k, PG-1 cond.1-7 intact) + L3 add a higher-volume request board (CrowdWorks) via a filed owner KYC request (human_queue). SHRINK: X -> credibility/trust + 10/09 reach-test only, not a G2 revenue bet; note -> STOP new articles this month (10/08 trigger applied early: PV5<<30, 0 comments); H3 passive listings -> stop active work, keep live; stores (Stripe/Gumroad/Etsy/BOOTH) -> zero-effort, keep live. Zenn book re-verified HTTP 200 10/07 02:57 JST (run 37507527506) -> NOT stopped (404-rule did not fire), stays zero-cost supply. (4) Logged redesign events (L3 channel, L2 broaden, note stop) + G1 fail. Decision report 2026-10-07T0300 (9 lanes + extended company/G1) + REDESIGN memo written; leak/promotion/decision checks green.",
+  "day_note_prev": "00:07 JST 10/07 fire: backstopped the skipped 20:37 cron -> Day6 numbers POSTED (tweet 2107488993076203804); full signal re-read 0 valid signals; authored Day7 numbers (2026-10-07-pm.json); ended E2. Full note in decisions/2026-10-07T0012.json. [Superseded same day by the 02:55 owner-directed redesign fire above.]",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -13,35 +13,37 @@
   ],
   "goal": {
     "G1": "first third-party ¥ by 2026-10-07",
+    "G1_result": "FAILED (confirmed 2026-10-07, owner-directed). ¥0 gross, 0 orders, 0 valid demand signals company-wide by the 10/07 deadline: Stripe livemode 0 charges / 0 payment_intents (re-read 02:50 JST 10/07), Coconala 0 buyer reply (5303405 pending ~2d, 98 applicants/0 contracts), X 11 posts 0 profile_clicks / 0 external replies, note PV5/0 comments, all stores 0. No 'likely to miss' hedge — G1 is FAILED. Root cause: the company had no active sales motion into a well-fit buyer pool and no owned distribution; its one active motion (Coconala 公開依頼 proposals) is starved by a structurally wrong supply pool (see bottleneck). Response = portfolio redesign this fire (not a repeat of the same strategy).",
     "G2": "Gross ≥ ¥10,000 and Net > 0 by 2026-10-20",
     "G3": "Gross ≥ ¥50,000 by 2026-10-31 with ≥2 orders from the same hypothesis/channel",
-    "current": "G1"
+    "current": "G2",
+    "current_note": "G1 FAILED 2026-10-07. Now maximizing P(G2 by 10/20) via the redesign below: concentrate on the active sales motion (buyer-posted requests) with WIDENED supply — broaden Coconala GO now + add a higher-volume request board (owner KYC filed); shrink X/note/passive stores to low-effort. Honest read: with 7 days of 0 signals, G2/G3 remain low-probability; the redesign maximizes the probability, it does not guarantee it."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "The company has never been in a conversation with a buyer: 100% passive listings, ~0 qualified reach, 0 inquiries in September. Binding constraint = no active sales motion into existing demand (not product, not price).",
-  "bottleneck_ja": "買い手と一度も会話していない（9月は受け身の出品のみ・適格リーチ≈0・問い合わせ0）。律速は商品や価格ではなく『既にある需要に取りに行く販売動作が無いこと』。",
+  "bottleneck": "REVISED 2026-10-07 after G1 FAILED. The company now HAS an active sales motion (Coconala proposals) but it is starved by a structurally wrong supply pool: across ~67+ public requests screened in 7 days only 1 was a GO, and that got 0 reply. Coconala 公開依頼 is dominated by creative work (illustration/music/video/voice — out of an AI-automation lane), and the few in-lane requests either demand a multi-year human track record (false-claim barrier, PG-1 cond.4) or are adjacent text tasks whose buyers now EXPLICITLY reject AI-centered applicants (req 5310341). So the binding constraint is CHANNEL/AUDIENCE FIT (the request pool is wrong for an honest solo-AI provider) compounded by ZERO owned distribution (X ~tiny, 0 profile_clicks; stores 0 traffic). Fix = widen supply of well-fit buyer-posted requests (broaden Coconala GO + a higher-volume request board), not more posts or a store rebuild.",
+  "bottleneck_ja": "G1失敗(10/07確定)後に改訂。販売動作（ココナラ提案）は動いているが、供給プール（公開依頼）の構造的ミスマッチで律速。7日で~67件超を審査しGOは1件・返信0。公開依頼はイラスト/音楽/動画/声など創作が大半（自動化レーン外）、数少ない適格案件も多年の人間実績要求（虚偽禁止=PG-1条件4に抵触）かAI中心の応募を明確に拒否（依頼5310341）。律速は『チャネル/客層の適合性（公開依頼の母集団が誠実なAI単独提供者に合わない）』＋『自前の流入が皆無（X極小・プロフクリック0、ストア流入0）』。打ち手は投稿増やストア再構築ではなく、適合する公開依頼の供給拡大（ココナラGO基準の拡張＋より大量の依頼ボード追加）。",
   "hypotheses": [
     {
       "id": "H1",
-      "name": "Demand capture: answer buyer-posted requests",
+      "name": "Demand capture: answer buyer-posted requests (PRIMARY G2/G3 bet after the 10/07 redesign)",
       "status": "active",
-      "level": "L2+L4 (new sales motion + service offer)",
-      "offer": "Small done-for-you automation job (Google Sheets / GAS / ChatGPT API / Excel→Sheets, data cleanup) fully deliverable by AI in ≤3 days; ¥5,000–¥30,000 per job",
-      "audience": "JP small businesses / solo operators who already posted a request (they state the pain and budget themselves)",
-      "channel": "Coconala 公開依頼 (owner account exists). Later, only if volume is thin: Lancers / CrowdWorks (account signup = human; do not request before the Day-4 check)",
+      "level": "L2/L3 redesign 2026-10-07 (was L2+L4): broaden the GO lane + add a higher-volume request board; concentrate resources here after G1 FAILED",
+      "offer": "WIDENED 2026-10-07: any digital task the AI can honestly complete end-to-end within the deadline — Sheets/GAS/ChatGPT-API/Excel automation AND data entry, data cleanup, CSV/format conversion, transcription from clean audio/text, document formatting, spreadsheet/report building, light web research, drafting/writing-assist — where the buyer does NOT require a human-only deliverable or a track record we lack. Price ¥3,000–¥50,000 (accept small first-order jobs for velocity). AI-assist disclosed per Art.10.",
+      "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
+      "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC FILED 2026-10-07, human_queue). Lancers is the fallback if CrowdWorks KYC is declined.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "proposal_sent: 1 (5303405, 10/05 02:16) — first ever; target was ≥10 by 10/03 (gate-delayed, not falsified). Next gate that matters: ≥1 sales_conversation (buyer reply) — none yet. revenue_deadline 10/08.",
-      "check_at": "2026-10-04 DONE (next: 2026-10-08 revenue_deadline)",
+      "leading_metric": "proposals reaching a buyer = 1 (5303405, 10/05); 0 replies / 0 sales_conversation / 0 orders / ¥0. The real gate is SUPPLY of well-fit requests: ~67+ screened, 1 GO. After the redesign, track proposals_sent on the BROADENED lane + first reply.",
+      "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
-      "kill_or_escalate_rule": "10 proposals & 0 replies → change proposal/price/niche once (L1–L2); 20 proposals & 0 replies → different request category or platform (L3); no order by 10/08 → kill, open replacement ≥L3. NOTE: ladder counts proposals that reached a buyer; now at 1 (was 0, gate). Supply is the near-term binding constraint, not the gate: ~33+ requests screened, only 5303405 qualified GO.",
-      "owner": "founder (selection+proposal drafts+delivery build) / mac-local (browse, send, talk room)",
-      "next_action": "LIVE as of 2026-10-05 02:16: SMS gate cleared (owner 02:11), mac-local SENT the first proposal — 5303405 under PG-1, ¥8,000, 納品予定日 10/12 (92 applicants/0 contracts at send). This is the company's first active sales motion. H1 now waits on the BUYER'S move; mac-local runs self-renewing tasks h1-coconala-inbox-1005am (2x/day reply watch, answer any reply ≤12h under PG-1) + h1-coconala-scan-1005 (daily re-scan ids>5307946, send ≤5/day new GO). Near-term binding constraint is SUPPLY not gate: full sweep found 0 new GO beyond 5303405. HOLD on widening keywords/scope or L3 platform (Lancers/CrowdWorks) until the 10/08 Day-8 review — a second owner KYC account is premature; if post-SMS supply stays this thin AND no reply by 10/08, Day-8 decides L2 (broaden GO criteria/price) before L3 (new platform). Gate-free parallel path: reaimed X lane (H2), where an X reply/inquiry is a valid demand signal (Art.10)."
+      "kill_or_escalate_rule": "Broadened Coconala: if ≥10 proposals on the widened lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer, stop proposing there (keep the listing live). New board (CrowdWorks) once live: same ladder — ≥10 proposals & 0 replies in its first 5 days → kill that board. If BOTH boards reach 0 replies after a fair volume → the proposal sales-motion itself is falsified, pivot to L4 (productized instant-order gig or a different buyer segment). No order anywhere by 10/15 → H1 revenue bet is dead for October.",
+      "owner": "founder (GO criteria, proposal drafts, KYC request) / mac-local (browse, screen, send, talk room)",
+      "next_action": "REDESIGNED 2026-10-07 (G1 FAILED): (1) mac-local works task h1-coconala-broaden-go — re-screen open requests under the WIDENED GO lane above and send ≤5/day proposals to anything honestly deliverable (PG-1 cond.1-7 still gate each send; the self-renewing scan/inbox tasks adopt the widened lane). (2) Owner KYC for CrowdWorks is FILED (human_queue / OWNER_ACTION_REQUIRED.md); once the account exists, mac-local opens a CrowdWorks scan/proposal lane (higher request volume). (3) Keep watching 5303405 for a reply (≤12h under PG-1). Binding constraint was SUPPLY/channel-fit; the redesign attacks it directly. Concentrate Founder+mac-local attention here; X/note/stores shrunk to low-effort."
     },
     {
       "id": "H2",
-      "name": "Content-led demand-gen: practical automation value for the H1 buyer audience (reaimed 2026-10-04)",
-      "status": "active",
-      "level": "L2 reaim 2026-10-04 (was L3+L4 experiment-story); X now demand-gen for H1",
+      "name": "Content-led demand-gen: practical automation value for the H1 buyer audience (reaimed 2026-10-04; SHRUNK to low-effort 2026-10-07)",
+      "status": "active_low_effort",
+      "level": "L2 reaim 2026-10-04; SHRINK 2026-10-07 (G1 FAILED) — X is NOT a G2/G3 revenue bet (0 reach, 0 profile_clicks in 7 days); kept only as a low-effort credibility/trust log + a pre-registered 10/09 reach test. A sale via X in the remaining window is not a realistic path; resources moved to H1.",
       "offer": "Free: daily 第2弾 Day N numbers post + 自動化の小ネタ (concrete Sheets/GAS/Excel→Sheets tips) with a soft Coconala offer in self-reply. note/Zenn long-form. Paid note article only after a real pull signal.",
       "audience": "REAIMED to the H1 audience: JP small-biz / solo operators who need (and post) automation work — not the meta-experiment watchers",
       "channel": "X @KinoshitaTsks (ACTIVE, the company's only cloud-autonomous demand channel), note @satotsu1020, Zenn kinoshita_ai",
@@ -88,17 +90,17 @@
     {
       "rank": 1,
       "owner": "mac-local",
-      "action": "H1 is LIVE and now the most plausible G1 route. Watch the Coconala inbox 2x/day (h1-coconala-inbox-1005am) and answer any reply to 5303405 (or any new buyer message) within 12h under PG-1 with price+delivery date. Daily logged-in re-scan (h1-coconala-scan-1005, ids>5307946); send ≤5/day proposals to new GO requests under PG-1. Delivery kit READY (marketing/2026-10/h1/delivery/) so a win ships ≤3 days once a buyer engages — do NOT pre-build delivery before a reply (Art.5.5 / anti-passivity). Supervisor polls main ~120s and auto-starts a worker when a task comes due or a buyer reply appears. No owner step pending."
+      "action": "PRIMARY G2 bet (post-10/07-redesign): work the active sales motion on the WIDENED Coconala GO lane. Task h1-coconala-broaden-go: re-screen all open 公開依頼 under H1.offer's widened lane (any honestly-AI-deliverable digital task, ¥3k–50k, PG-1 cond.1-7 each gate the send) and send ≤5/day proposals; the self-renewing scan/inbox tasks adopt this widened lane from now. Still answer any reply (5303405 or new) ≤12h under PG-1. Goal: get proposals in front of buyers at volume so a first reply can appear. Do NOT pre-build delivery before a reply (Art.5.5)."
     },
     {
       "rank": 2,
       "owner": "founder",
-      "action": "Run the gate-free X demand channel + watch for the first valid demand signal. Each fire re-read Stripe charges/payment_intents, the Coconala inbox state (via mac-local events), and X metrics/mentions for the first reply/inquiry/profile_click/charge (Art.10). Verify+backstop each X slot (小ネタ① 08:37, Day5 numbers 20:37 10/05 — if still queued after the slot's not_before, dispatch x-phase2.yml via GitHub MCP actions_run_trigger on ref=main; script idempotent, deduped by queue_file). Author each Day-N numbers post once its prior day closes (Day6 authorable at the 00:07 10/06 fire; do NOT pre-author — Art.12). 10/06 Zenn paid-book retry (touch+push gas-ai-jimu-plus-6, verify-url.yml). 10/08 Day-8 weekly review: H1 revenue_deadline (buyer reply? supply thin -> L2 broaden GO criteria vs L3 new platform), H3 inquiry check, H2 Day-8 lever (reach: pre-registered discoverability/hashtag test) + re-rank."
+      "action": "Unblock + widen SUPPLY (the binding constraint). (a) CrowdWorks owner KYC request is FILED (human_queue / OWNER_ACTION_REQUIRED.md top); when the owner completes it, create the CrowdWorks scan/proposal lane for mac-local (higher JP request volume, expected better AI-task fit). (b) Each fire: re-read Stripe charges/PI + Coconala inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any). (c) Keep X at low-effort: verify/backstop the due slot, author Day-N numbers once the prior day closes; measure the 小ネタ①-④ baseline at 10/08 and apply the hashtag reach test from 小ネタ⑤ (10/09) only if median<20 & clicks 0."
     },
     {
       "rank": 3,
       "owner": "founder",
-      "action": "WATCH-ITEM for Day-8 (10/08), not action now: H1 supply is thin (only 5303405 qualified GO across ~33+ screened). If no buyer reply by 10/08 AND supply stays this thin, the Day-8 review must decide a redesign — first L2 (broaden the GO criteria / price band / adjacent request categories on Coconala, reusing the existing account; cheapest test), only then L3 (a second platform = a new owner KYC account, currently negative-EV). Do NOT thrash before the check date (Art.5.2/5.4). Hold."
+      "action": "SHRINK / STOP (resources moved to rank 1-2). note: STOP new articles this month (10/08 trigger applied early — PV5<<30, 0 comments); keep article #1 live. X: credibility/trust + the 10/09 reach test only, NOT a revenue bet. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy stores: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live (HTTP 200 10/07), zero-cost supply, no work until a sale. No new operator/agent (Art.6)."
     }
   ],
   "organization": {
@@ -223,12 +225,30 @@
       "2026-10-03 01:55 JST note free article #1 https://note.com/satotsu1020/n/nd53510c5e65a (marketing/2026-10/h2/note_01.md; tags #AI #AIエージェント #副業 #実験; by mac-local, task h2-note-publish) — signal note_view once metrics show"
     ],
     "reaim_note": "2026-10-04 L2 reaim: X shifts from stand-alone experiment-story to practical-automation demand-gen for the H1 buyer audience. Keep the daily 第2弾 Day N numbers post (credibility); 2nd slot = 自動化の小ネタ (Sheets/GAS/Excel tips) with any offer as a soft self-reply link only. X is the company only cloud-autonomous demand channel; an X inquiry is a valid demand signal under Art.10.",
+    "reaim_comparison_for_day8": {
+      "_doc": "Explicit before/after of the 2026-10-04 L2 re-aim, so the Day-8 (10/08) judgment is comparable. BEFORE = 9月の失敗から series (10/01-10/04, tweets 2105483067..2106597528). AFTER = 自動化の小ネタ series (from 10/05, tweets 2106932456 / 2107257024 and 小ネタ③④ queued).",
+      "who": "BEFORE: people interested in the meta-experiment (AI running a company). AFTER: JP small-biz / solo operators who do manual spreadsheet/office work (the H1 buyer audience).",
+      "pain": "BEFORE: none specific — a narrative about our own failures. AFTER: a concrete recurring chore (手作業の集計, コピペ集約) the reader feels monthly.",
+      "offered": "BEFORE: a story / transparency. AFTER: a copy-pasteable Sheets/GAS tip (QUERY, IMPORTRANGE) that removes that chore today.",
+      "cta": "BEFORE: implicit follow / watch the experiment. AFTER: a soft Coconala offer in a self-reply only (no link in the body).",
+      "measurement": "Baseline for 10/08 = 小ネタ①-④ (clean, un-hashtagged). BEFORE vs AFTER on profile_clicks is 0 vs 0 so far, impressions median ~13 both; the re-aim has not yet moved reach. If 10/08 still median<20 AND clicks 0 -> reach (not angle) is binding -> apply the pre-registered hashtag reach test from 小ネタ⑤ (10/09), keeping ①-④ as the control."
+    },
     "day8_lever_preregistered": "If Day-8 (10/08) shows the reaimed 小ネタ series still at median <20 imp AND 0 profile_clicks (i.e. reach, not angle, is binding): the binding constraint on this gate-free channel is discoverability on a small-follower account. Pre-registered L1 test = append 1-2 buyer-searched JP hashtags (e.g. #スプレッドシート / #業務効率化 / #GAS, matched to each tip's topic) to the 小ネタ posts from 10/09, trimming body only as the 270-weighted budget requires, and compare median imp vs the un-tagged 小ネタ①-④ baseline. Considered at the 10/05 00:07 fire but HELD to avoid pre-empting the Day-8 measurement / thrashing (Art.5.2/5.4). If Day-8 instead shows median 20-100 & 0 signals, the pre-registered move is the X_PHASE2 §4 L3 (different segment), not hashtags."
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [],
-    "note": "No open owner asks. ALL owner gates on H1 are now cleared: the two owner logins, the PG-1 submit-permission (10/04), and the Coconala SMS phone verification (DONE 10/05 02:11 JST, booked human_intervention kyc:1). mac-local sent the first proposal 02:16 JST and runs H1 autonomously under PG-1 from here (proposals ≤5/day, inbox replies ≤12h) with no per-case owner confirmation. Do NOT re-file any owner ask unless a NEW Art.9 step appears (e.g. a buyer wants off-platform payment, a KYC/contract step, or spend > budget)."
+    "open": [
+      {
+        "id": "owner-crowdworks-kyc-2026-10-07",
+        "filed": "2026-10-07",
+        "art9": "KYC / identity (account signup + 本人確認)",
+        "ask": "Create a CrowdWorks (crowdworks.jp) worker account on the owner's identity and complete 本人確認, then log in once in the mac-local dedicated browser profile so mac-local can propose to public tasks under PG-1. CrowdWorks has far higher JP request volume than Coconala and more AI-deliverable task-type work (data entry, Excel/Sheets, transcription, scraping, writing-assist).",
+        "why": "G1 FAILED 2026-10-07; the binding constraint is the thin, AI-hostile Coconala 公開依頼 pool (~67 screened, 1 GO, 0 reply in 7 days). A higher-volume, better-fit request board is the single highest-leverage fix for G2/G3. This is a one-time ≤~15-min owner step (Art.9 KYC); the AI runs the proposals.",
+        "pre_registered_kill": "If, once live, ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days, the board is killed — the owner's KYC time is capped to that test.",
+        "fallback": "If declined or CrowdWorks is unsuitable, Lancers is the alternative board; if both are declined, H1 stays Coconala-only on the broadened lane and the report says so."
+      }
+    ],
+    "note": "One open owner ask (CrowdWorks KYC, filed 2026-10-07 as part of the post-G1 redesign). All PRIOR H1 gates stay cleared (logins, PG-1, Coconala SMS 10/05). mac-local keeps running Coconala autonomously under PG-1 on the WIDENED lane — the KYC ask does NOT block Coconala work. Per Art.9/Art.1 this is a specific KYC request (not 'what next'); the Founder decided the strategy itself."
   },
   "reviews": [
     "2026-10-04",
@@ -266,6 +286,21 @@
       "date": "2026-10-04",
       "level": "L2",
       "decision": "Owner standing permission PG-1: mac-local sends Coconala proposals / pre-order messages / quote replies without per-case confirmation under 7 conditions (ops/2026-10/PERMISSIONS.md)"
+    },
+    {
+      "date": "2026-10-07",
+      "level": "L2",
+      "decision": "G1 FAILED -> broaden the H1 Coconala GO lane beyond automation to any honestly-AI-deliverable digital task (data entry/Excel/transcription/formatting/writing-assist), price ¥3k–50k, PG-1 cond.1-7 intact. Task h1-coconala-broaden-go for mac-local."
+    },
+    {
+      "date": "2026-10-07",
+      "level": "L3",
+      "decision": "G1 FAILED + Coconala pool structurally wrong -> add a higher-volume JP request board (CrowdWorks) as the primary supply fix; owner KYC filed (human_queue). Pre-registered kill: ≥10 proposals & 0 replies in the board's first 5 days."
+    },
+    {
+      "date": "2026-10-07",
+      "level": "L2",
+      "decision": "SHRINK the portfolio to concentrate on the active sales motion: STOP new note articles this month (10/08 trigger applied early, PV5/0 comments); demote X from revenue bet to low-effort credibility + 10/09 reach test; stop active H3 listing work; stores zero-effort. Zenn book stays live (HTTP 200 10/07)."
     }
   ],
   "proposals_pending": [],
@@ -287,7 +322,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-07T0012.json",
+    "latest": "status/2026-10/decisions/2026-10-07T0300.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -297,9 +332,14 @@
       "rule": "小ネタ①–④ median imp <20 AND profile clicks 0 AND link clicks 0 → demote X to trust/log only"
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-10-12",
       "lane": "coconala_proposals",
-      "rule": "<3 proposals sent → L3 re-aim request source; ≥5 proposals & 0 replies by 10/10 → L2 offer/price change"
+      "rule": "REVISED 2026-10-07 (broadened lane in force): ≥10 proposals on the widened GO lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer; stop proposing there (keep listing live). Earlier L2/L3 re-aim already executed 10/07."
+    },
+    {
+      "date": "2026-10-13",
+      "lane": "crowdworks_proposals",
+      "rule": "NEW 2026-10-07 (fires only once the board is live via owner KYC): ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days → kill the board. If BOTH boards hit 0 replies at fair volume → the proposal sales-motion is falsified → pivot to L4 (productized instant-order gig / new segment)."
     },
     {
       "date": "2026-10-08",
@@ -309,12 +349,12 @@
     {
       "date": "2026-10-08",
       "lane": "note",
-      "rule": "article #1 <30 views & 0 follows/comments → no more note articles in Oct"
+      "rule": "APPLIED EARLY 2026-10-07: article #1 PV 5 (<<30) & 0 comments/0 isolable follows → STOPPED new note articles for October (keep article #1 live, zero cost). Owner-directed early execution of the 10/08 trigger."
     },
     {
       "date": "2026-10-08",
       "lane": "company",
-      "rule": "0 valid demand signals company-wide → Art.7 redesign at ≥L3"
+      "rule": "FIRED EARLY 2026-10-07 (owner-directed): G1 FAILED + 0 valid demand signals company-wide for 7 days → Art.7 redesign executed at L3 (channel pivot to CrowdWorks + broadened Coconala GO) + L2 portfolio shrink. The 10/08 scheduled weekly review re-ranks and checks early results; it does not re-open the redesign unless new evidence appears."
     },
     {
       "date": "2026-10-06",

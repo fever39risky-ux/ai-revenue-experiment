@@ -1,0 +1,81 @@
+{
+  "fire": "2026-10-07T03:00+09:00",
+  "author": "founder",
+  "note": "OWNER-DIRECTED redesign fire (owner live). Executed all due triggers on the spot (no deferral): formal G1 verdict, Zenn re-verify, note reading judgment, Coconala H1 metrics, X measurement update. G1 FAILED -> full portfolio redesign with stop/reallocation executed this fire. Readable memo: reports/2026-10/REDESIGN-2026-10-07.md.",
+  "g1_verdict": {
+    "goal": "G1 — first third-party ¥ by 2026-10-07",
+    "result": "FAILED (confirmed, not 'likely to miss')",
+    "fact": "By the 2026-10-07 deadline: ¥0 gross, 0 orders, 0 valid demand signals company-wide. Stripe livemode 0 charges / 0 payment_intents (re-read 02:50 JST 10/07; only 3 Sept checkout sessions, all expired/unpaid). Coconala: 1 proposal ever (5303405), 0 replies, 0 consultations, 0 orders (98 applicants / 0 contracts on that request). X: 11 posts, median ~13 imp, 0 profile_clicks, 0 external replies. note: PV 5 / 0 comments. BOOTH/Gumroad/Etsy: 0.",
+    "interpretation": "Every hypothesis failed to produce a single valid demand signal in 7 days. H1 (proposals) is the only motion that moved at all (1 proposal) but drew 0 reply; H2 (X) 0 reach; H3/H4 (passive) 0 inquiry. The goal missed not on execution volume but on demand reaching the company at all.",
+    "root_cause": "Two stacked causes. (1) CHANNEL/AUDIENCE MISFIT: the one active sales motion routes through Coconala 公開依頼, whose pool is structurally wrong for an honest solo-AI provider — ~67+ requests screened, 1 GO; the pool is creative-dominated (illustration/music/video/voice, out of lane), and its few in-lane requests either demand a multi-year human track record (false-claim barrier, PG-1 cond.4 — e.g. req 5309349) or are adjacent text tasks whose buyers explicitly reject AI-centered applicants (req 5310341). (2) ZERO OWNED DISTRIBUTION: no channel reaches target buyers at volume (X ~tiny followers, 0 profile_clicks; stores 0 traffic; the 3 Sept store checkouts all abandoned before payment). Not a product or price problem.",
+    "decision": "G1 marked FAILED. Do NOT continue the same strategy. Execute a portfolio redesign this fire (below) to maximize P(G2 by 10/20) / P(G3 by 10/31).",
+    "resource_reallocation": "CONCENTRATE on the active sales motion (buyer-posted requests) with WIDENED supply: (a) broaden the Coconala GO lane now [L2, gate-free, task h1-coconala-broaden-go]; (b) add CrowdWorks as a higher-volume, better-fit request board [L3, owner KYC filed]. SHRINK everything else to low-effort: STOP new note articles (month); demote X to credibility + a 10/09 reach test (not a revenue bet); stop active H3 listing work (keep live); stores zero-effort (keep live). Zenn book stays live (HTTP 200 10/07) as zero-cost supply. No new operator/agent (Art.6); mac-local remains the browser executor, Founder re-ranks.",
+    "next_action": "mac-local works h1-coconala-broaden-go (re-screen + ≤5/day proposals on the widened lane); Founder tracks the CrowdWorks KYC and, once live, opens that lane; each fire re-reads Stripe/Coconala/X for the first signal and acts end-to-end (Art.10).",
+    "next_deadline": "2026-10-12 — ≥10 proposals on the widened Coconala lane with 0 replies → stop proposing on Coconala. 2026-10-13(+5d of a live CrowdWorks board) — ≥10 proposals & 0 replies → kill that board; both boards 0 at fair volume → proposal motion falsified → pivot L4. 2026-10-20 — G2 verdict (¥10,000 + net>0)."
+  },
+  "lanes": {
+    "company": {
+      "fact": "G1 FAILED (¥0 / 0 orders / 0 valid demand signals by 10/07 — see g1_verdict). KPI: gross ¥0, net ¥0, human 5x/12min. 7 consecutive days of 0 company-wide demand signals.",
+      "interpretation": "All four hypotheses weakened to the point of a mandated Art.7 company-wide redesign (fired early today on owner direction). The binding constraint is channel/audience fit + zero owned distribution, not product/price.",
+      "decision": "improve",
+      "next_action": "Portfolio redesign executed this fire: concentrate on the active sales motion with widened supply (broadened Coconala GO + CrowdWorks via owner KYC); shrink X/note/stores. Tasks/owner-ask/STATE all updated this fire.",
+      "deadline_trigger": "2026-10-20 — G2 (¥10,000 + net>0) verdict; interim 2026-10-12/13 proposal-board kill rules; 2026-10-08 scheduled weekly review re-ranks on early results."
+    },
+    "x": {
+      "fact": "11 posts through Day6 (Day6 numbers posted 00:11 JST 10/07 via backstop). Median ~13 imp, 0 profile_clicks ALL, 0 external replies (2 reply counts are our own self-reply CTAs). L2 re-aim (10/04) before/after: WHO experiment-watchers -> H1 buyer audience; PAIN none -> a concrete monthly spreadsheet chore; OFFER a story -> a copy-pasteable Sheets/GAS tip; CTA implicit follow -> a soft Coconala offer in a self-reply. Effect on reach so far: 0 profile_clicks both before and after; median unchanged ~13.",
+      "interpretation": "H2 weakened — the re-aim changed the angle but not reach; X has no distribution. Not a realistic G2/G3 revenue path in the remaining window.",
+      "decision": "shrink",
+      "next_action": "Keep X low-effort: ≤2/day (Day7 numbers queued, 小ネタ③④ queued), backstop late crons, author Day-N numbers once the prior day closes. Measure the clean 小ネタ①-④ baseline at 10/08; apply the pre-registered hashtag reach test from 小ネタ⑤ (10/09) ONLY if median<20 & clicks 0, keeping ①-④ as control.",
+      "deadline_trigger": "2026-10-08 — 小ネタ①-④ median imp <20 AND profile_clicks 0 AND link clicks 0 -> X stays trust/log only + run the 10/09 hashtag test; any profile_click/inquiry would re-open X as a lane."
+    },
+    "coconala_proposals": {
+      "fact": "Scans to date: ~67+ public requests screened over 7 days (screens: marketing/2026-10/h1/screens/). Qualified GO: 1 (5303405). Proposals sent: 1. Replies: 0. Quote consultations: 0. Orders: 0. Revenue: ¥0. (応募数 is not a result — replies/orders are.) The in-lane pool is ~1% and partly AI-hostile.",
+      "interpretation": "H1 weakened — its narrow lane is supply-starved and the Coconala channel is a poor fit (strong L2+L3 evidence). But the sales MOTION (proposals) itself is not yet falsified (it never reached a fair volume of well-fit buyers), so H1 is redesigned (wider lane + better board) rather than killed.",
+      "decision": "improve",
+      "next_action": "WIDEN the GO lane now (task h1-coconala-broaden-go, mac-local): any honestly-AI-deliverable digital task, ¥3-50k, PG-1 cond.1-7 intact; re-screen open requests and send ≤5/day. Add CrowdWorks (owner KYC filed) as a higher-volume board.",
+      "deadline_trigger": "2026-10-12 — ≥10 proposals on the widened lane with 0 replies -> stop proposing on Coconala (keep listing live)."
+    },
+    "coconala_listing": {
+      "fact": "Baseline 10/03: 30d views 8, 0 sales/fav/応募/messages. No inquiry since. 0 signal.",
+      "interpretation": "H3 unchanged — 0 inquiry; passive, zero-cost.",
+      "decision": "shrink",
+      "next_action": "Stop active listing work; keep the listing live at zero cost. mac-local reads the dashboard delta at the 10/08 check only.",
+      "deadline_trigger": "2026-10-08 — <5 new views since 10/03 AND 0 inquiries -> confirm H3 listing work stopped (already shrunk)."
+    },
+    "booth": {
+      "fact": "Baseline 10/03: 0 sales, 0 スキ, 0 messages. No change.",
+      "interpretation": "H3/H4 unchanged — 0 signal.",
+      "decision": "shrink",
+      "next_action": "No listing work; keep live. Snapshot delta at the 10/08 check.",
+      "deadline_trigger": "2026-10-15 — still 0 スキ/sales -> mark BOOTH stopped."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode re-read 02:50 JST 10/07: 0 charges, 0 payment_intents (only 3 Sept expired checkout sessions). Gumroad 0 sales.",
+      "interpretation": "H4 unchanged — dead funnel (Sept buyers abandoned before payment, diagnosed 10/01); reinforces concentrating on the active sales motion over passive stores.",
+      "decision": "shrink",
+      "next_action": "Zero-effort; keep live as supply. Founder re-reads Stripe each fire for the first charge/PI; no rebuild (negative-EV).",
+      "deadline_trigger": "2026-10-15 review — reconsider only on a charge/PI or a fresh demand signal."
+    },
+    "note": {
+      "fact": "Article #1 (pub 10/03) dashboard 10/06 07:46 JST: impressions 44, PV 5, スキ 3, comments 0, sales 0; account 28d +2 followers (not isolable to this article). 0 inquiry/comment.",
+      "interpretation": "H2 weakened — PV 5 is far under the 30-view threshold with 0 comments; note shows no pull.",
+      "decision": "stop",
+      "next_action": "STOP new note articles for October (10/08 trigger applied early on owner direction). Keep article #1 live at zero cost.",
+      "deadline_trigger": "2026-10-31 — revisit note only if a later channel change produces a pull signal; no new articles before then."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 re-verified HTTP 200 (title matches) 10/07 02:57 JST via verify-url run 37507527506. Not 404 / not rate-limited.",
+      "interpretation": "H4 unchanged — the pre-set 10/07 404->stop rule did NOT fire (book is live); asset stays as zero-cost supply; no sale yet.",
+      "decision": "continue",
+      "next_action": "Keep live, in the JP funnel (store/jp.html); no further work (do not disturb a live paid asset) until a sale.",
+      "deadline_trigger": "2026-10-15 review — revisit on a sale; otherwise the book stays live at zero cost (the 10/07 stop trigger is now closed)."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales; 0 new signal.",
+      "interpretation": "H4 unchanged — passive supply, 0 signal.",
+      "decision": "shrink",
+      "next_action": "No Etsy work (negative-EV vs the active sales motion); sales-monitor watches for any order.",
+      "deadline_trigger": "2026-10-15 review — reconsider only on a sale or a demand signal."
+    }
+  }
+}
