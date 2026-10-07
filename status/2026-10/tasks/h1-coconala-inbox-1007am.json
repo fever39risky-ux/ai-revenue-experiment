@@ -13,9 +13,21 @@
   "not_before": "2026-10-07T09:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-06T09:02:07.924Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-07T02:00:39.520Z",
+  "result": "09:01 JST 10/07: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform job-recommendation news 2d ago); applied offers all still pending, no buyer reply: 5303494 ¥30,000/10-20 (deadline 10/13), 5311883 ¥3,000/10-13 (deadline 10/12), 5303405 ¥8,000/10-12 (deadline 10/12). Replies: none. Next task h1-coconala-inbox-1007pm (not_before 18:00 JST 10/07) created.",
+  "history": [
+    {
+      "ts": "2026-10-07T00:00:39.520Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-07T00:01:44.747Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "09:01 JST 10/07: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform job-recommendation news 2d ago); applied offers all still pending, no buyer reply: 5303494 ¥30,000/10-20 (deadline 10/13), 5311883 ¥3,000/10-13 (deadline 10/12), 5303405 ¥8,000/10-12 (deadline 10/12). Replies: none. Next task h1-coconala-inbox-1007pm (not_before 18:00 JST 10/07) created."
+    }
+  ]
 }
