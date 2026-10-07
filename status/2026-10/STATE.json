@@ -94,7 +94,7 @@
     {
       "rank": 2,
       "owner": "mac-local",
-      "action": "CrowdWorks LIVE (owner KYC done 10/08): task h1-crowdworks-scan-1008 — screen + send ≤5/day combined with Coconala under PG-1 conditions, selection priority ¥10k–15k / early applicant / objective done (CROWDWORKS_PLAYBOOK §2.5). Kill check 10/13: ≥10 proposals & 0 replies in first 5 days."
+      "action": "CrowdWorks LIVE (owner KYC done 10/08): task crowdworks-profile-init (owner logs in once, headed, in the NEW dedicated crowdworks-profile) → then h1-crowdworks-scan-1008 (headless, same profile) — screen + send ≤5/day combined with Coconala under PG-1 conditions, selection priority ¥10k–15k / early applicant / objective done (CROWDWORKS_PLAYBOOK §2.5). Kill check 10/13: ≥10 proposals & 0 replies in first 5 days."
     },
     {
       "rank": 3,

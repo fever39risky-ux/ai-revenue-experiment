@@ -252,7 +252,9 @@ class BrowserPolicy(unittest.TestCase):
         tasks = [{'id': 'h1-coconala-requests-scan', 'requires': ['local_browser'], 'site': 'coconala.com'},
                  {'id': 'h3-marketplace-snapshot', 'requires': ['local_browser'], 'profile': ['coconala', 'booth']},
                  {'id': 'h2-note-publish', 'requires': ['local_browser'], 'lane': 'note'},
-                 {'id': 'new-site', 'requires': ['local_browser'], 'site': 'lancers.jp'}]
+                 {'id': 'new-site', 'requires': ['local_browser'], 'site': 'lancers.jp'},
+                 {'id': 'h1-crowdworks-scan-1008', 'requires': ['local_browser'], 'site': 'crowdworks.jp'}]
+        before = {k: sorted(os.listdir(v)) for k, v in paths.items()}
         servers = json.loads(Path(s.mcp_config(tasks)).read_text())['mcpServers']
         def udd(name):
             a = servers[name]['args']; return a[a.index('--user-data-dir') + 1]
@@ -260,6 +262,11 @@ class BrowserPolicy(unittest.TestCase):
         self.assertEqual(udd('playwright-booth'), str(paths['booth']))
         self.assertEqual(udd('playwright-note'), str(paths['note']))
         self.assertTrue(udd('playwright').endswith('browser-profiles/mac-local'))   # generic only for new sites
+        # CrowdWorks gets its own new profile, created on first use; existing profiles untouched
+        self.assertTrue(udd('playwright-crowdworks').endswith('browser-profiles/crowdworks-profile'))
+        self.assertTrue(Path(udd('playwright-crowdworks')).is_dir())
+        self.assertEqual(before, {k: sorted(os.listdir(v)) for k, v in paths.items()})
+        self.assertEqual([r[0] for r in s.routing['h1-crowdworks-scan-1008']], ['playwright-crowdworks'])
         self.assertEqual([r[0] for r in s.routing['h3-marketplace-snapshot']], ['playwright-coconala', 'playwright-booth'])
         # headed is per task: a headed note task does not make the coconala server headed
         mixed = [{'id': 'n', 'requires': ['local_browser'], 'lane': 'note', 'browser': 'headed'},

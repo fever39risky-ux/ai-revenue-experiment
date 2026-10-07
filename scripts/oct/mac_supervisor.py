@@ -53,8 +53,13 @@ SITE_PROFILES = {
     'coconala': ['~/Library/Caches/ms-playwright-mcp/mcp-chrome-*'],   # profile used to publish 4426150
     'booth': ['~/Library/Caches/ms-playwright-mcp/booth-profile'],     # BOOTH listing session profile
     'note': ['~/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile'],
+    'crowdworks': ['~/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile'],  # owner request 2026-10-08
 }
-SITE_KEYWORDS = {'coconala': ('coconala',), 'booth': ('booth',), 'note': ('note.com', 'note-', '-note', 'note_')}
+# Dedicated profiles the supervisor may CREATE (empty, 0700) the first time a task for that site runs.
+# Only new sites; the existing owner-logged-in profiles above are never created or recreated.
+CREATABLE_PROFILES = {'crowdworks'}
+SITE_KEYWORDS = {'coconala': ('coconala',), 'booth': ('booth',), 'note': ('note.com', 'note-', '-note', 'note_'),
+                 'crowdworks': ('crowdworks',)}
 BROWSER_MIN_GAP_SEC = 600  # never relaunch a browser worker sooner than this  # note.com (owner logged in 2026-10-02)
 
 
@@ -353,6 +358,10 @@ class Supervisor:
         if override:
             p = Path(os.path.expanduser(override))
             return (p, None) if p.is_dir() else (None, f'{site} profile {override} missing')
+        if site in CREATABLE_PROFILES and not override:
+            p = Path(os.path.expanduser(SITE_PROFILES[site][0]))
+            p.mkdir(parents=True, exist_ok=True, mode=0o700)
+            return p, None
         matches = []
         for pat in SITE_PROFILES.get(site, []):
             pat = os.path.expanduser(pat)
@@ -382,6 +391,8 @@ class Supervisor:
         """name -> path of every dedicated profile this operator may use."""
         out = {self.op: self.profile_dir()}
         for site in SITE_PROFILES:
+            if site in CREATABLE_PROFILES and not Path(os.path.expanduser(SITE_PROFILES[site][0])).is_dir():
+                continue  # created only when a task for that site actually runs
             path, _ = self.site_profile(site)
             if path:
                 out[site] = path

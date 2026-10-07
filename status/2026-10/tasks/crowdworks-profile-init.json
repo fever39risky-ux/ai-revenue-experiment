@@ -1,0 +1,23 @@
+{
+  "id": "crowdworks-profile-init",
+  "title": "CrowdWorks: open login page in the NEW dedicated crowdworks-profile (headed, once) and wait for the owner to log in; then only confirm dashboard/job search loads",
+  "lane": "crowdworks",
+  "detail": "Owner request 2026-10-08. Routing gives you server playwright-crowdworks on ~/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile (new, empty). Use ONLY that server; do not open any other profile (Coconala / BOOTH / note / mac-local). Steps: (1) browser_navigate https://crowdworks.jp/login and leave the window open in front. (2) Do NOT type anything into ID / password / 2FA / identity fields — the owner does all of it. (3) Wait for the owner: every ~60 s take one browser_snapshot (no reloads, no clicks) until the URL is no longer /login (or /login?...) and the page shows a logged-in header, up to 45 min. (4) Then navigate once to https://crowdworks.jp/dashboard and, if needed, https://crowdworks.jp/public/jobs/search — confirm a logged-in page loads (record final URL + page title + whether a logout/マイページ element is present; NO personal data, no account name/email into the repo). (5) browser_close. Do not scan jobs, do not propose, do not message in this task. Log: node scripts/oct/ops.mjs human mac-local --minutes <owner minutes from login-page open to logged-in> --category login --reason 'CrowdWorks first login in crowdworks-profile' ; then done with the result. If 45 min pass without login: browser_close, release with --blocked-by owner-crowdworks-login and a one-line note (single-site request only).",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "result states: profile path, login confirmed yes/no, dashboard or job-search URL reached, browser closed; human minutes logged",
+  "assigned_to": "mac-local",
+  "browser": "headed",
+  "profile": "crowdworks",
+  "created_by": "founder",
+  "created_at": "2026-10-07T19:01:22.772Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

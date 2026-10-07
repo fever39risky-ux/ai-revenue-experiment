@@ -57,12 +57,14 @@ Logins live in **dedicated, per-site profiles** that were created and logged in 
 | Coconala | `~/Library/Caches/ms-playwright-mcp/mcp-chrome-*` (the profile used to publish 4426150; exactly one match, or pin it in `state/profiles.json`) | `profile: coconala`, or `site`/lane/id containing "coconala" → MCP server `playwright-coconala` |
 | BOOTH | `~/Library/Caches/ms-playwright-mcp/booth-profile` | `profile: booth` / "booth" → `playwright-booth` |
 | note | `~/Library/Application Support/AIRevenueExperiment/browser-profiles/note-profile` | `profile: note` / "note" → `playwright-note` |
+| CrowdWorks | `~/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile` (**new 2026-10-08**, owner request; created empty, mode 0700, the first time a CrowdWorks task runs — the only profile the supervisor may create) | `profile: crowdworks` / "crowdworks" → `playwright-crowdworks` |
 | new / generic sites | `…/browser-profiles/mac-local` | everything else → `playwright` |
 
 - A task may name several profiles (e.g. `h3-marketplace-snapshot`: `["coconala","booth"]`); the worker gets only the servers its tasks need.
 - **Profile safety:** the browser is chosen from the profile's `Last Version` (same major version; never an older browser, which would downgrade/corrupt it). A profile held by another process (an interactive Coconala/BOOTH session, the owner) is never opened; only that task waits.
 - **In-use detection:** a profile counts as in use only if Chrome's `SingletonLock` points to a live pid, or a Chrome/Chromium executable has it open — not when an idle Playwright MCP server process merely carries the path as an argument (that false positive kept H1/H3 waiting on 10/03).
 - **Waiting is visible:** if a task's dedicated profile is open in another process, the supervisor heartbeats `blocked_on: "<site> profile in use"` (at most every 30 min) instead of silently waiting.
+- **CrowdWorks first login (once):** task `crowdworks-profile-init` (`browser: headed`) opens the login page in `crowdworks-profile` and waits; the owner types ID / password / 2FA. The worker never types credentials. After login it only confirms the dashboard or job-search page loads, then closes. Every later CrowdWorks task is headless on the same profile and starts only on real work (scan / proposal / messages).
 - **No login sweeps:** login is checked only by the task's own page load. If that page is logged out, the worker files **one request for that single site** (with its profile path), never a combined multi-site re-login request.
 
 ## 3. One-time installation (Constitution Art. 9 "permission": installing a resident agent on the owner's Mac)
