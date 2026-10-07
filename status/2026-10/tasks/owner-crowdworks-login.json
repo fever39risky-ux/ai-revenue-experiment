@@ -1,0 +1,19 @@
+{
+  "id": "owner-crowdworks-login",
+  "title": "OWNER (~2 min, once): log in to crowdworks.jp in the mac-local Playwright profile",
+  "lane": "h1-proposals",
+  "detail": "Verified 2026-10-08 02:04 JST by mac-local (task h1-crowdworks-scan-1008): crowdworks.jp in browser-profiles/mac-local shows ログイン/会員登録 (not logged in). The owner's 10/08 KYC login went into a different browser. Step: while mac-local is idle (board), paste in Terminal: \"$HOME/Library/Caches/ms-playwright/chromium-1247/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\" --user-data-dir=\"$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local\" https://crowdworks.jp/login — log in (it must be THIS window, a normal Chrome will not work), then Cmd+Q. Done: run 'node scripts/oct/ops.mjs done founder owner-crowdworks-login --result logged-in' or tell any session; mac-local logs the human_intervention on its next CrowdWorks run.",
+  "requires": [
+    "human"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "profile": "$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-07T17:05:19.824Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

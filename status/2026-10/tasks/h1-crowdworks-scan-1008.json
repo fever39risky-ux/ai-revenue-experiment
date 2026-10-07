@@ -19,5 +19,20 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-07T17:03:54.592Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-07T17:05:19.941Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out in mac-local profile (02:04 JST 10/08: search page shows ログイン/会員登録); no retry per rules"
+    }
+  ],
+  "blocked_by": [
+    "owner-crowdworks-login"
+  ]
 }
