@@ -13,9 +13,21 @@
   "not_before": "2026-10-07T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-06T01:01:54.433Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-07T03:01:56.805Z",
+  "result": "10:02-10:07 JST 10/07: newest p1 has only 4 ids >5311966 (CF-LP designer, large EC+DL build, Figma design, X reply ops) - all NO. Opened 2 under-screened 10/06 writing requests -> SENT 2 under PG-1: 5311537 (LP-style mail-magazine planning+HTML, ¥10,000, 10/12, 2nd applicant) and 5311570 (high-school civil-service interview question bank, ¥8,000, 10/16, 1st applicant); no-track-record + AI use disclosed, conditions 1-7 in proposal_sent events. Today 4/5. Widened-lane total 4. Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1007pm (ids >5312279), h1-coconala-scan-1008 created.",
+  "history": [
+    {
+      "ts": "2026-10-07T01:01:56.805Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-07T01:07:33.495Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:02-10:07 JST 10/07: newest p1 has only 4 ids >5311966 (CF-LP designer, large EC+DL build, Figma design, X reply ops) - all NO. Opened 2 under-screened 10/06 writing requests -> SENT 2 under PG-1: 5311537 (LP-style mail-magazine planning+HTML, ¥10,000, 10/12, 2nd applicant) and 5311570 (high-school civil-service interview question bank, ¥8,000, 10/16, 1st applicant); no-track-record + AI use disclosed, conditions 1-7 in proposal_sent events. Today 4/5. Widened-lane total 4. Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1007pm (ids >5312279), h1-coconala-scan-1008 created."
+    }
+  ]
 }
