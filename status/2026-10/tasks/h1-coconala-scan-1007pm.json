@@ -13,9 +13,21 @@
   "not_before": "2026-10-07T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-06T10:01:28.970Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-07T12:01:32.376Z",
+  "result": "19:01-19:05 JST 10/07: 23 new requests (ids >5312279, up to 5313331) screened on the widened lane, 0 GO. Opened 5312399 (character design review ¥100-150k: over band, portfolio/art-direction track record = cond.4) and 5313112 (note PR article on own account, AI text NG, 1 already contracted). The rest are creative/physical/human-experience/ToS-grey. 0 sent (today 4/5, slot unused). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1008pm created; h1-coconala-scan-1008 now starts at ids >5313331.",
+  "history": [
+    {
+      "ts": "2026-10-07T10:01:32.376Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-07T10:02:50.730Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:01-19:05 JST 10/07: 23 new requests (ids >5312279, up to 5313331) screened on the widened lane, 0 GO. Opened 5312399 (character design review ¥100-150k: over band, portfolio/art-direction track record = cond.4) and 5313112 (note PR article on own account, AI text NG, 1 already contracted). The rest are creative/physical/human-experience/ToS-grey. 0 sent (today 4/5, slot unused). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1008pm created; h1-coconala-scan-1008 now starts at ids >5313331."
+    }
+  ]
 }
