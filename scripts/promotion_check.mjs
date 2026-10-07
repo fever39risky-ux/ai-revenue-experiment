@@ -113,6 +113,9 @@ if (existsSync('experiment/periods.json')) {
   if (existsSync(dd)) for (const f of readdirSync(dd).filter(f => f.endsWith('.json'))) {
     const j = readJSON(`${dd}/${f}`);
     if (j) for (const prob of check(j)) fail(`${dd}/${f}: ${prob}`);
+    const m = f.match(/(\d{4}-\d{2}-\d{2})T20\d{2}\.json$/);
+    const rv = (readJSON('status/2026-10/STATE.json') || {}).reviews || [];
+    if (j && m && m[1] >= '2026-10-08' && rv.includes(m[1]) && !j.review) fail(`${dd}/${f}: 20:xx report on a weekly review date must set "review": true (ops/2026-10/REVIEW_SPEC.md)`);
   }
 }
 
