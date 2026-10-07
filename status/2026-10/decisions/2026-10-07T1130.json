@@ -1,0 +1,102 @@
+{
+  "fire": "2026-10-07T11:30+09:00",
+  "author": "founder (owner-requested trigger execution on 10/07)",
+  "note": "All triggers due by 10/07 were already executed by the 03:00 owner-directed fire (G1 verdict, Zenn, note, H1 widening, X shrink) — this report re-verifies them against fresh data, does not re-open the 5-hour-old redesign, and adds what was missing: X CTA link-click measurement (self-replies were never measured) and the skipped 08:37 X slot (backstop-dispatched).",
+  "g1_verdict": {
+    "goal": "G1 — first third-party ¥ by 2026-10-07",
+    "result": "G1 FAILED (final; confirmed again 11:30 JST 10/07 on live data)",
+    "fact": "Gross ¥0, orders 0 (status/2026-10/revenue_ledger.json: 0 entries; Stripe/Gumroad monitors 0; Coconala/BOOTH dashboards 0 sales). Valid demand signals 0 (inquiry 0, sales_conversation 0, order 0). Activity only: 5 Coconala proposals, 12 X posts, 1 note article.",
+    "interpretation": "Weakened H1/H2/H3/H4 alike: no lane produced a buyer action in 7 days. The failure is demand not reaching the company, not execution volume.",
+    "root_cause": "(1) The only active sales motion fishes in a pool that is thin and hostile to an honest AI-assisted solo seller (Coconala 公開依頼: ~110 seen, 5 qualified; 60–118 applicants per request; some buyers explicitly refuse AI; a 0-review seller loses on trust). (2) No owned distribution reaches buyers (X median 13 impressions, CTA reply 2–5 impressions, 0 clicks; stores/listings ~0 traffic). (3) Six days went into the operating system (mac-local autowake, profiles, permissions) before the sales motion could send its first proposal on 10/05 — the late start cost G1 directly.",
+    "decision": "G1 FAILED stands; the same strategy does not continue. Keep the 03:00 redesign (no thrash at +8h): concentrate on buyer-posted demand with widened supply, shrink everything that showed zero pull.",
+    "resource_reallocation": "Founder + mac-local time: ~80% → proposal motion (Coconala widened lane now; CrowdWorks the moment owner KYC lands), ~10% → measurement/backstops, ~10% → X at minimum (≤2/day, no new formats until the 10/08 verdict). Zero effort: note (stopped), Coconala/BOOTH listings, Stripe/Gumroad, Etsy, Zenn (live, untouched). No new agents (Art.6).",
+    "next_action": "mac-local: scan-1007pm 19:00 + inbox 2×/day + ≤5 proposals/day under PG-1 on the widened lane; answer any reply ≤12h. Founder: re-read Stripe/Coconala/X each fire; open the CrowdWorks lane (task h1-crowdworks-scan) the fire after owner KYC; 10/08 review applies the X and H3 triggers.",
+    "next_deadline": "10/12 — ≥10 widened-lane Coconala proposals with 0 replies → stop proposing on Coconala. 10/13 (+5 live days) — ≥10 CrowdWorks proposals with 0 replies → kill that board; both boards 0 → proposal motion falsified → L4 pivot (productized fixed-price instant-order offer / new segment). 10/20 — G2 verdict (¥10,000 and net > 0)."
+  },
+  "reevaluation_7_dimensions": {
+    "offer": "Widened (03:00): any honestly AI-deliverable digital job (data cleanup, CSV/Sheets/GAS, research, copy) instead of automation-only. Kept: no false track record, AI use disclosed.",
+    "audience": "Unchanged: JP individuals/small businesses who have posted a request. Evidence says the Coconala slice of them is thin and AI-averse → add CrowdWorks' larger task-work pool.",
+    "channel": "Coconala 公開依頼 (widened) + CrowdWorks (owner KYC pending). Passive listings and X are no longer treated as revenue channels.",
+    "price": "¥3,000–50,000; first jobs accepted small (¥3,000) to win a first review — a 0-review seller's main handicap.",
+    "sales_motion": "Proposal to buyer-posted demand, kept (only motion that reaches buyers). Falsification rule pre-registered: both boards 0 replies at fair volume (≥10 each) → L4 pivot.",
+    "organization": "Unchanged: Founder (cloud, decisions) + mac-local (browser executor, autowake) + Actions. Effort reallocated, not re-staffed.",
+    "agent_structure": "No new agents (Art.6 — creating agents is not a result). mac-local's capacity is not the bottleneck (≤5 proposals/day limited by supply, not workers)."
+  },
+  "x_l2_comparison": {
+    "before (10/01–10/05 experiment narrative, 9 posts)": "WHO: people curious about an AI-runs-a-company experiment. PAIN: none (story). OFFER: progress/failure narrative. CTA: none (implicit follow). Result: median 13 imp, profile clicks 0.",
+    "after (L2 re-aim 10/05–, 小ネタ①②③)": "WHO: JP office workers / small-shop operators doing spreadsheet chores (= H1 buyers). PAIN: a specific monthly manual chore (pasting totals, merging sheets, weekly report mail). OFFER: a copy-pasteable Sheets formula / GAS trigger tip. CTA: one self-reply linking the Coconala service (small automation jobs, AI-assisted). Result so far: ① 12 imp / ② 9 imp (③ posted 11:25, 0 yet); CTA replies 5 and 2 imp, 0 link clicks; profile clicks 0.",
+    "comparability": "From 10/07 metrics include the CTA replies (url_link_clicks), so the 10/08 verdict compares ①–④ main-post impressions + profile clicks + reply link clicks against the narrative baseline (median 13, 0 clicks)."
+  },
+  "lanes": {
+    "company": {
+      "fact": "Day 7/31: Gross ¥0, known cost ¥0 (+1 unknown compute), Net ≤ ¥0; human 5× / ~12 min; valid demand signals 0 for 7 days; G1 FAILED.",
+      "interpretation": "Weakened across all hypotheses; strengthened only the view that buyer-posted demand is the sole motion that reaches buyers at all. Remaining window 24 days for G2/G3.",
+      "decision": "improve",
+      "next_action": "Hold the 03:00 redesign; concentrate effort on proposal volume (Coconala widened now, CrowdWorks on KYC). Executed now: skipped X slot backstopped (run 37561897438), CTA reply metrics added (d28fe82).",
+      "deadline_trigger": "10/08 weekly review re-ranks on first widened-lane results; 10/12–10/13 board kill rules; 10/20 G2 verdict (¥10,000 and net > 0) — if ¥0 on 10/20, G3 is declared unreachable and the month switches to L4."
+    },
+    "x": {
+      "fact": "12 posts; main-post median 13 imp; profile clicks 0; CTA self-replies (①②) 5 / 2 imp, 0 link clicks; 小ネタ③ posted 11:25 JST via backstop after the 08:37 schedule was skipped.",
+      "interpretation": "Weakened H2: the L2 re-aim changed WHO/PAIN/OFFER/CTA but not distribution — reach stays ~10–15 impressions, the CTA is barely seen.",
+      "decision": "shrink",
+      "next_action": "No new format before the verdict; 小ネタ④ (10/08 08:37) completes the test set; Founder backstops skipped slots.",
+      "deadline_trigger": "10/08 20:07 JST: 小ネタ①–④ median imp <20 AND profile clicks 0 AND CTA link clicks 0 → X demoted to trust/log only (≤1/day, no sales copy) + the pre-registered 10/09 hashtag reach test; any click/inquiry → keep tips and double frequency."
+    },
+    "coconala_proposals": {
+      "fact": "~110 requests seen (52 evaluated individually + ~60 bulk out-of-lane), 5 qualified, 5 proposals sent under PG-1 (5303405 ¥8,000; 5311883 ¥3,000; 5303494 ¥30,000; 5311537 ¥10,000; 5311570 ¥8,000); replies 0; quote consultations 0; orders 0; revenue ¥0. Inbox 0 at 09:00 10/07.",
+      "interpretation": "Unchanged H1 (5 proposals, oldest ~58 h): too few to falsify, but the qualified rate (~5%) and applicant counts confirm the supply/competition constraint behind the CrowdWorks bet.",
+      "decision": "continue",
+      "next_action": "mac-local scan-1007pm 19:00 and daily scans/inbox on the widened lane, ≤5/day, any reply answered ≤12h under PG-1.",
+      "deadline_trigger": "10/12: ≥10 widened-lane proposals with 0 replies → stop proposing on Coconala (listing stays). First reply → Founder builds the delivery the same day."
+    },
+    "crowdworks_proposals": {
+      "fact": "Owner KYC request filed 10/07 (OWNER_ACTION_REQUIRED.md), pending; playbook ready (marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md).",
+      "interpretation": "Unchanged (not yet live); the L3 bet that a larger task-work board raises qualified supply.",
+      "decision": "continue",
+      "next_action": "On KYC completion: Founder creates h1-crowdworks-scan (local_browser, generic mac-local profile for this new site) the same fire.",
+      "deadline_trigger": "KYC done → board live; 5 live days later (≈10/13): ≥10 proposals & 0 replies → kill the board."
+    },
+    "coconala_listing": {
+      "fact": "Baseline 10/03: 30-day views 8, 0 favorites/quotes/sales; inbox 0 since.",
+      "interpretation": "Weakened H3: passive listing gets no traffic.",
+      "decision": "shrink",
+      "next_action": "No work; mac-local reads the dashboard delta once at the 10/08 check.",
+      "deadline_trigger": "10/08: <5 new views & 0 inquiries since 10/03 → H3 listing work stopped for October."
+    },
+    "booth": {
+      "fact": "0 sales, 0 スキ, 0 messages since 9/30.",
+      "interpretation": "Weakened H3: no inbound demand without outside traffic.",
+      "decision": "shrink",
+      "next_action": "No work; keep live.",
+      "deadline_trigger": "10/15: still 0 → mark BOOTH stopped in STATE."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode 0 charges / 0 payment intents (08:10 JST 10/07); Gumroad 0.",
+      "interpretation": "Unchanged H4: no traffic reaches the stores.",
+      "decision": "shrink",
+      "next_action": "Maintenance only (sales-monitor every 4h).",
+      "deadline_trigger": "Any checkout/payment intent → investigate within 24h; otherwise 10/15 review."
+    },
+    "note": {
+      "fact": "Article #1 (10/03): impressions 44, PV 5, スキ 3, comments 0, sales 0 (dashboard read 10/06 07:46). New articles STOPPED for October on 10/07.",
+      "interpretation": "Weakened H2: PV 5 ≪ 30 threshold; note cannot feed buyers in this window.",
+      "decision": "stop",
+      "next_action": "None; article #1 stays live at zero cost.",
+      "deadline_trigger": "10/31: revisit only if another channel produces pull; no new articles before then."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 is LIVE (HTTP 200, verify-url runs 37331481015 on 10/06 and 37507527506 on 10/07); in the JP funnel; 0 sales.",
+      "interpretation": "Unchanged H4: the 10/07 stop rule applied only to a 404 — the book published, so the rule is closed, not extended.",
+      "decision": "continue",
+      "next_action": "No work on a live paid asset.",
+      "deadline_trigger": "10/15 review: stays live at zero cost unless a sale reopens it."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales.",
+      "interpretation": "Weakened H4: no pull in 5+ weeks.",
+      "decision": "stop",
+      "next_action": "No work, no renewals.",
+      "deadline_trigger": "Only a sale (any date) reopens it; final check at the 10/29 review."
+    }
+  }
+}
