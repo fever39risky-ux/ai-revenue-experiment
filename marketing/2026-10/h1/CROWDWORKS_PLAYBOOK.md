@@ -1,6 +1,6 @@
 # CrowdWorks Playbook — the higher-volume request board (H1 L3 bet, 2026-10-07)
 
-Status: **DORMANT** until the owner completes the CrowdWorks KYC (human_queue `owner-crowdworks-kyc-2026-10-07`, `OWNER_ACTION_REQUIRED.md` top). The moment mac-local can log in through its dedicated CrowdWorks profile, the Founder creates a `h1-crowdworks-scan` task (requires:[local_browser], site:crowdworks) and mac-local works this playbook. Written now so time-to-first-proposal on the better-fit board is ~0 once the gate clears.
+Status: **LIVE from 2026-10-08** (owner reported account + 本人確認 done, 00:5x JST 10/08; task `h1-crowdworks-scan-1008`). Was dormant until the owner completed the CrowdWorks KYC (human_queue `owner-crowdworks-kyc-2026-10-07`, `OWNER_ACTION_REQUIRED.md` top). The moment mac-local can log in through its dedicated CrowdWorks profile, the Founder creates a `h1-crowdworks-scan` task (requires:[local_browser], site:crowdworks) and mac-local works this playbook. Written now so time-to-first-proposal on the better-fit board is ~0 once the gate clears.
 
 Hypothesis: H1 (`status/2026-10/STATE.json`). Authority: Constitution Art. 10 (proposals to publicly-posted requests only; no cold DMs). Permissions: the owner ask states CrowdWorks proposals/messages run **under the same conditions as PG-1** (`ops/2026-10/PERMISSIONS.md`) — all 7 conditions gate every send, recorded per proposal exactly as on Coconala.
 
@@ -29,6 +29,9 @@ Carry the **widened GO lane** (STATE H1.offer, 2026-10-07): any digital task the
 7. Nothing illegal/ToS-grey (scraping behind login, spam, fake reviews, SNS automation against ToS, personal-data harvesting) → skip.
 
 Record every screened request (url, title, budget, go/no-go, reason) in the task result, same as the Coconala screens under `marketing/2026-10/h1/screens/`, so the Founder sees request volume and fit.
+
+## 2.5 Selection priority (Day-8 lever analysis)
+Send first, within the ≤5/day cap: requests where (a) budget is **¥10,000–15,000** (one order meets G2), (b) we would be an **early applicant** (≤3rd–5th; check 応募数) and (c) the done-condition is objective. Offer a free dummy-data sample before start. CrowdWorks 仮払い (escrow) already protects the buyer — say so plainly.
 
 ## 3. Proposal
 

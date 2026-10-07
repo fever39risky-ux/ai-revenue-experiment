@@ -8,7 +8,9 @@ Start from `node scripts/oct/g2_pipeline.mjs --json` (real data + labeled assump
 - `required_pipeline`: avg order value, proposal→reply rate, reply→order rate, orders needed, proposals needed, proposals/day needed — every non-observed number marked **ASSUMPTION** with its basis
 - `current_pipeline`: proposals, replies, quote consultations, orders, revenue (observed only)
 - `gap`: shortfall vs the required sales volume; whether **current channel supply** can deliver it (qualified requests/day × days)
-- `action`: `increase` (what to add), `shrink_stop` (what to cut), `reallocate` (to which market / sales motion)
+- `scenarios`: **optimistic / base / pessimistic**, each with avg order value, proposal→reply, reply→order, proposals needed, proposals/day needed (all ASSUMPTION with basis; the calculator's `scenarios` block)
+- `lever_choice`: which of **volume / reply_rate / close_rate / price** to change, judged by P(G2 met) from the calculator's `levers` / `lever_ranking` (base + pessimistic decide; optimistic saturates). Must name `chosen`, `why`, and why the others were not chosen. **"Send the base-case proposal count" is never an automatic conclusion** — volume is one lever, scored like the others, and supply (qualified requests/day) caps it.
+- `action`: `increase` (what to add), `shrink_stop` (what to cut), `reallocate` (to which market / sales motion) — consistent with `lever_choice`
 
 ## 2. `x_verdict`
 - `sales_channel`: continue | improve | shrink | stop — applying the pre-registered trigger (STATE.pending_triggers) exactly

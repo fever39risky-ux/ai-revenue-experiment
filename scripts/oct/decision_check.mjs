@@ -30,6 +30,14 @@ export function checkReview(o) {
   for (const k of ['target', 'required_pipeline', 'current_pipeline', 'gap', 'action']) if (!g[k]) p.push(`goal_pipeline.${k} missing`);
   for (const k of ['increase', 'shrink_stop', 'reallocate']) if (g.action && !String(g.action[k] ?? '').trim()) p.push(`goal_pipeline.action.${k} empty`);
   if (g.required_pipeline && !/ASSUMPTION/.test(JSON.stringify(g.required_pipeline))) p.push('goal_pipeline.required_pipeline must label assumptions (ASSUMPTION)');
+  const sc = g.scenarios || {};
+  for (const k of ['optimistic', 'base', 'pessimistic']) {
+    if (!sc[k]) { p.push(`goal_pipeline.scenarios.${k} missing`); continue; }
+    for (const f of ['avg_order_jpy', 'proposal_to_reply', 'reply_to_order', 'proposals_needed', 'proposals_per_day_needed']) if (sc[k][f] == null) p.push(`goal_pipeline.scenarios.${k}.${f} missing`);
+  }
+  const lc = g.lever_choice || {};
+  if (!['volume', 'reply_rate', 'close_rate', 'price'].some(l => String(lc.chosen ?? '').includes(l))) p.push('goal_pipeline.lever_choice.chosen must name volume|reply_rate|close_rate|price');
+  for (const k of ['why', 'not_chosen']) if (!String(lc[k] ? JSON.stringify(lc[k]) : '').trim()) p.push(`goal_pipeline.lever_choice.${k} missing`);
   const x = o.x_verdict || {};
   if (!['continue', 'improve', 'shrink', 'stop'].includes(x.sales_channel)) p.push('x_verdict.sales_channel must be continue|improve|shrink|stop');
   if (!String(x.evidence ?? '').trim()) p.push('x_verdict.evidence empty');
