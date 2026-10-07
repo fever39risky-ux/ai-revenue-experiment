@@ -29,11 +29,15 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out in mac-local profile (02:04 JST 10/08: search page shows ログイン/会員登録); no retry per rules"
+    },
+    {
+      "ts": "2026-10-07T23:10:46.496Z",
+      "op": "founder",
+      "action": "unblock",
+      "note": "Cleared stale blocked_by owner-crowdworks-login (now done/superseded). Owner is logged in in the dedicated crowdworks-profile (crowdworks-profile-init done 10/08). Task runs headless in profile=crowdworks; eligible for mac-local now."
     }
   ],
-  "blocked_by": [
-    "owner-crowdworks-login"
-  ],
+  "blocked_by": [],
   "after": [
     "crowdworks-profile-init"
   ]
