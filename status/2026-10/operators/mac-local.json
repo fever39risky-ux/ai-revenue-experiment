@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "scan-1007pm done: 23 screened, 0 GO, 0 sent (today 4/5)",
-  "next": "09:00 JST 10/08 h1-coconala-inbox-1008am; 10:00 h1-coconala-scan-1008 (ids >5313331); 19:00 h1-coconala-scan-1008pm",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-07T10:02:58.636Z",
+  "heartbeat_at": "2026-10-07T12:03:47.287Z",
   "blocked_on": null,
-  "progress": "since 2026-10-04T13:19:47.762822Z: polls=1934 workers=15 browser_workers=13 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-04T13:19:47.762822Z: polls=2077 workers=17 browser_workers=15 chrome_for_testing_procs=0"
 }
