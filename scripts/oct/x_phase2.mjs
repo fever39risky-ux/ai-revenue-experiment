@@ -117,12 +117,16 @@ if (cmd === 'metrics') {
   const recent = posted().filter(p => nowMs() - Date.parse(p.posted_at) < 7 * 86400e3);
   const m = existsSync(METRICS) ? JSON.parse(readFileSync(METRICS, 'utf8')) : { _doc: 'Latest metrics per Phase-2 post (public + owner-only non_public). Refreshed by x-phase2.yml for posts < 7 days old.', posts: {} };
   if (!recent.length) { console.log('x_phase2: no recent posts.'); process.exit(0); }
-  const j = await getTweets(recent.map(p => p.tweet_id), 'public_metrics,non_public_metrics,created_at');
+  // Main posts AND their CTA self-replies (the link lives in the reply, so link clicks are measured there).
+  const replyOf = Object.fromEntries(recent.filter(p => p.reply_id).map(p => [p.reply_id, p.tweet_id]));
+  const ids = [...recent.map(p => p.tweet_id), ...Object.keys(replyOf)];
+  const j = await getTweets(ids, 'public_metrics,non_public_metrics,created_at');
   for (const t of j.data || []) {
-    m.posts[t.id] = { ...(m.posts[t.id] || {}), created_at: t.created_at, fetched_at: new Date().toISOString(), public_metrics: t.public_metrics, non_public_metrics: t.non_public_metrics };
+    m.posts[t.id] = { ...(m.posts[t.id] || {}), created_at: t.created_at, fetched_at: new Date().toISOString(), public_metrics: t.public_metrics, non_public_metrics: t.non_public_metrics,
+      ...(replyOf[t.id] ? { reply_of: replyOf[t.id] } : {}) };
   }
   if (j.errors) m.last_errors = j.errors.slice(0, 5);
-  const imps = Object.values(m.posts).map(p => p.public_metrics?.impression_count ?? p.non_public_metrics?.impression_count).filter(n => n != null).sort((a, b) => a - b);
+  const imps = Object.values(m.posts).filter(p => !p.reply_of).map(p => p.public_metrics?.impression_count ?? p.non_public_metrics?.impression_count).filter(n => n != null).sort((a, b) => a - b);
   m.summary = { posts: imps.length, median_impressions: imps.length ? imps[Math.floor(imps.length / 2)] : null, updated_at: new Date().toISOString() };
   writeFileSync(METRICS, JSON.stringify(m, null, 2) + '\n');
   console.log('x_phase2 metrics: ' + JSON.stringify(m.summary));
