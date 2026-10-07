@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "blocked",
-  "doing": "idle: h1-crowdworks-scan-1008 released (crowdworks logged out)",
-  "next": "after owner-crowdworks-login is done: claim h1-crowdworks-scan-1008, screen CrowdWorks per CROWDWORKS_PLAYBOOK, write screens/crowdworks-2026-10-08.md",
+  "status": "idle",
+  "doing": "crowdworks-profile-init done (logged in)",
+  "next": "next supervisor cycle: CrowdWorks scan task via playwright-crowdworks (crowdworks-profile is logged in)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-07T17:05:29.704Z",
-  "blocked_on": "crowdworks.jp login",
+  "heartbeat_at": "2026-10-07T19:06:44.949Z",
+  "blocked_on": null,
   "progress": "since 2026-10-04T13:19:47.762822Z: polls=2197 workers=17 browser_workers=15 chrome_for_testing_procs=0"
 }
