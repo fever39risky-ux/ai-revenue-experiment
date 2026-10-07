@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-06T22:25:30.026Z (JST 2026-10-07) ===
+=== Phase 2 board — 2026-10-07T00:02:05.680Z (JST 2026-10-07) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 5x/12min
 BOTTLENECK  REVISED 2026-10-07 after G1 FAILED. The company now HAS an active sales motion (Coconala proposals) but it is starved by a structurally wrong supply pool: across ~67+ public requests screened in 7 days only 1 was a GO, and that got 0 reply. Coconala 公開依頼 is dominated by creative work (illustration/music/video/voice — out of an AI-automation lane), and the few in-lane requests either demand a multi-year human track record (false-claim barrier, PG-1 cond.4) or are adjacent text tasks whose buyers now EXPLICITLY reject AI-centered applicants (req 5310341). So the binding constraint is CHANNEL/AUDIENCE FIT (the request pool is wrong for an honest solo-AI provider) compounded by ZERO owned distribution (X ~tiny, 0 profile_clicks; stores 0 traffic). Fix = widen supply of well-fit buyer-posted requests (broaden Coconala GO + a higher-volume request board), not more posts or a store rebuild.
 PRIORITY
@@ -6,7 +6,7 @@ PRIORITY
   - [founder] Unblock + widen SUPPLY (the binding constraint). (a) CrowdWorks owner KYC request is FILED (human_queue / OWNER_ACTION_REQUIRED.md top); when the owner completes it, create the CrowdWorks scan/proposal lane for mac-local (higher JP request volume, expected better AI-task fit). (b) Each fire: re-read Stripe charges/PI + Coconala inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any). (c) Keep X at low-effort: verify/backstop the due slot, author Day-N numbers once the prior day closes; measure the 小ネタ①-④ baseline at 10/08 and apply the hashtag reach test from 小ネタ⑤ (10/09) only if median<20 & clicks 0.
   - [founder] SHRINK / STOP (resources moved to rank 1-2). note: STOP new articles this month (10/08 trigger applied early — PV5<<30, 0 comments); keep article #1 live. X: credibility/trust + the 10/09 reach test only, NOT a revenue bet. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy stores: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live (HTTP 200 10/07), zero-cost supply, no work until a sale. No new operator/agent (Art.6).
 OPERATORS
-  actions                working   STALE 9822m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 9919m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -15,17 +15,17 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 9393m lanes=
+  codex                  idle      STALE 9489m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                working   STALE 258m  lanes=strategy,x,h1-delivery,reporting
-      doing: 02:55 JST 10/07 owner-directed redesign: G1=FAILED confirmed; executed portfolio redesign (broaden Coconala GO [task created], CrowdWorks KYC filed, STOP note, shrink X/stores); Zenn re-verified 200 (not stopped); note/Coconala/X triggers all actioned. Decision report 2026-10-07T0300 + REDESIGN memo written; checks green.
-      next:  mac-local works h1-coconala-broaden-go (widened lane, ≤5/day). Founder: track CrowdWorks KYC -> open that lane when live; each fire re-read Stripe/Coconala/X for first signal (act end-to-end); X measure 小ネタ①-④ at 10/08 + hashtag test 10/09 if flat; 10/12 Coconala proposal kill-check. 10/20 G2 verdict.
+  founder                working   live 46m    lanes=strategy,x,h1-delivery,reporting
+      doing: 08:07 JST 10/07 fire: re-read signals (Stripe 0/0 livemode 08:10; X 0 profile_clicks; Coconala mac-local sent 2 NEW widened-lane proposals ~03:20 -> 3 total/0 replies; CrowdWorks KYC pending) = 0 valid demand signals, G1 stays FAILED. Validated the L3 CrowdWorks bet (request-board fit confirmed; prioritize judgment work over commodity data-entry) + forward-deployed CROWDWORKS_PLAYBOOK.md (DORMANT until KYC). Aligned PROPOSAL_KIT.md §1-2 to the widened lane. Decision report 2026-10-07T0815 (10 lanes); leak/promotion/decision green.
+      next:  13:07 fire: backstop X 小ネタ③ via actions_run_trigger IF still queued after 10:00 JST (idempotent); re-read Stripe/Coconala(mac-local events)/X for the first reply/charge/profile_click and act end-to-end (Art.10). Check if owner completed CrowdWorks KYC -> if yes, create h1-crowdworks-scan (local_browser, site:crowdworks) per CROWDWORKS_PLAYBOOK.md. 10/08 weekly review re-ranks on widened-lane results + 小ネタ①-④ baseline; 10/12 Coconala kill-check; 10/20 G2 verdict.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: supervisor alive; no eligible mac-local task on main
-      next:  polling main every 120s; starts a Claude worker when a task appears
+      doing: inbox-1007am done: 0 messages, 3 proposals pending, no replies
+      next:  10:00 JST h1-coconala-scan-1007 (ids >5311304, widened lane, PG-1, <=5/day); 18:00 JST inbox-1007pm
 TASKS (4 not done)
-  P1 h1-coconala-inbox-1007am       open      [local_browser] H1: Coconala inbox / proposal replies / quote consultations (reply under PG-1) (from 2026-10-07T09:00:00+09:00)
+  P1 h1-coconala-inbox-1007pm       open      [local_browser] H1: Coconala inbox / proposal replies / quote consultations (reply under PG-1) (from 2026-10-07T18:00:00+09:00)
   P2 h1-coconala-scan-1007          open      [local_browser] H1: daily Coconala request re-scan (ids > last screened, 5310263 as of 10/06 am); send proposals under PG-1 (from 2026-10-07T10:00:00+09:00)
   P2 h1-coconala-scan-1007pm        open      [local_browser] H1: evening Coconala re-scan (ids > 5311304); send under PG-1 (from 2026-10-07T19:00:00+09:00)
   P5 day0-lease-codex               claimed  codex [] Cross-machine lease test (codex holds; Founder must be rejected until lease expiry, then may take over)
