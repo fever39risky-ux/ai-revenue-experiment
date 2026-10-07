@@ -1,0 +1,79 @@
+{
+  "fire": "2026-10-07T20:07+09:00",
+  "author": "founder (scheduled 20:07 JST Routine fire)",
+  "note": "Evening monitoring fire. Re-read all demand signals after mac-local's 18:00 inbox + 19:00 scan closed: 0 new vs the 13:07 fire. The evening Coconala pass (inbox-1007pm 18:03 JST, scan-1007pm 19:01 JST) returned 0 buyer replies (5 offers still pending) and 0 GO on 23 freshly screened requests, 0 sent. X 0 profile_clicks across all 15 posts. CrowdWorks KYC still PENDING with the owner. No new evidence -> HELD the 03:00 redesign (Art.5.4 no-thrash); the 13:07 PROPOSAL_KIT §2.5 add already operationalized the standing trust finding, so no further autonomous add is positive-EV this fire (re-running the full re-eval would be thrash). The one executable Founder action this fire is the X Day7-numbers backstop, due only after the 20:37 JST slot fires.",
+  "signals_reread": {
+    "revenue": "Gross ¥0, 0 orders (KPI: 0 revenue entries; net ≤ ¥0).",
+    "stripe": "No fresh read this fire — Stripe MCP requires OAuth and this non-interactive session cannot authorize it (confirmed again this fire). Last live read 08:10 JST 10/07 = 0 charges / 0 payment_intents (livemode). sales-monitor (Actions, every 4h) is the backstop; no revenue entry has appeared.",
+    "coconala": "5 proposals total (4 on the widened lane); 0 replies / 0 sales_conversation / 0 orders. inbox-1007pm 18:03 JST: /message 0, やることリスト 0, no new buyer お知らせ; 5 offers all pending/editable (5311570 ¥8k dl 10/11, 5311537 ¥10k dl 10/11, 5303494 ¥30k dl 10/13, 5311883 ¥3k dl 10/12, 5303405 ¥8k dl 10/12). scan-1007pm 19:01 JST: 23 new requests (ids >5312279–5313331) screened on the widened lane, 0 GO, 0 sent (today 4/5 slot unused). Next: inbox-1008am 09:00, scan-1008 10:00 (ids >5313331), scan-1008pm 19:00.",
+    "x": "15 posts; main-post median ~13 imp; profile_clicks 0 across ALL; 小ネタ③ (2107658549438394432) posted 11:25 JST via scheduler with CTA self-reply; no external reply/inquiry. Day7 numbers queued (2026-10-07-pm.json, 231w, validates) not_before 20:37 JST; 小ネタ④ queued 08:37 10/08.",
+    "crowdworks_kyc": "Owner KYC still PENDING (OWNER_ACTION_REQUIRED.md top unchanged). No board to open."
+  },
+  "g2_status": "G2 (Gross ≥ ¥10,000 and Net > 0 by 2026-10-20) unmet; 13 days left. Honest read unchanged: low probability with 7 days of 0 signals; the redesign maximizes P(G2), it does not guarantee it.",
+  "action_this_fire": "Re-read all demand channels (0 new signals). Backstop the X Day7-numbers slot (2026-10-07-pm.json) by dispatching x-phase2.yml after 20:37 JST if still queued — the 20:37 cron has skipped 3x (10/02, 10/05, 10/06) and needed a Founder backstop each time. No strategy change, no new lane, no owner ask, no new autonomous add (13:07 §2.5 stands; re-eval now = thrash).",
+  "lanes": {
+    "company": {
+      "fact": "Day 7/31, 20:07 JST: Gross ¥0, known cost ¥0 (+1 unknown compute), Net ≤ ¥0; human 5× / 12 min; valid demand signals 0 for 7 days; G1 FAILED (final), G2 current. Evening Coconala pass closed 0 replies / 0 GO.",
+      "interpretation": "Unchanged vs 13:07 — no lane produced a buyer action in the last 7 h; buyer-posted demand remains the only motion reaching buyers. 13-day window to G2.",
+      "decision": "continue",
+      "next_action": "Hold the 03:00 redesign; keep ~80% effort on the proposal motion (Coconala widened now via mac-local, CrowdWorks on owner KYC). Founder re-reads signals every fire; no new add this fire (13:07 §2.5 stands).",
+      "deadline_trigger": "2026-10-08 weekly review re-ranks on first widened-lane results + applies X/H3 triggers; 2026-10-12 Coconala kill-check; 2026-10-20 G2 verdict (if ¥0, declare G3 unreachable and switch the month to L4)."
+    },
+    "x": {
+      "fact": "15 posts, main-post median ~13 imp, profile_clicks 0; 小ネタ③ posted 11:25 JST via scheduler; Day7 numbers queued 20:37 JST (2026-10-07-pm.json, validates), 小ネタ④ queued 08:37 10/08. 20:37 pm cron has skipped 3x and needed a Founder backstop each time.",
+      "interpretation": "Weakened H2 unchanged: the L2 re-aim did not move distribution (reach ~13 imp). X stays a low-effort credibility log, not a revenue bet.",
+      "decision": "shrink",
+      "next_action": "Founder backstops the 20:37 Day7 slot this fire if still queued after it fires (dispatch x-phase2.yml, idempotent); no new format before the 10/08 verdict; 小ネタ④ completes the test set.",
+      "deadline_trigger": "2026-10-08 20:07 JST: 小ネタ①–④ median imp <20 AND profile_clicks 0 AND CTA link_clicks 0 → demote X to trust/log only (≤1/day) + the pre-registered 10/09 hashtag reach test."
+    },
+    "coconala_proposals": {
+      "fact": "5 proposals sent under PG-1 (4 on the widened lane), 0 replies / 0 quote consultations / 0 orders; inbox 0 at 18:03 JST (5 offers pending); scan-1007pm 19:01 JST 23 screened, 0 GO, 0 sent.",
+      "interpretation": "Unchanged H1 (too few proposals, oldest ~2 d, to falsify); the thin GO rate and high applicant counts keep confirming the supply/trust constraint behind the CrowdWorks bet and the 13:07 §2.5 addition.",
+      "decision": "continue",
+      "next_action": "mac-local works inbox-1008am 09:00 + scan-1008 10:00 (ids >5313331) + scan-1008pm 19:00 on the widened lane under the §2.5 first-win priority, ≤5/day; any reply answered ≤12 h under PG-1; first reply → Founder builds delivery the same day.",
+      "deadline_trigger": "2026-10-12: ≥10 widened-lane proposals with 0 replies → stop proposing on Coconala (listing stays live)."
+    },
+    "coconala_listing": {
+      "fact": "Baseline 10/03: 30-day views 8, 0 favorites/quotes/sales; 0 inbox since (inbox-1007pm 18:03 JST confirms 0).",
+      "interpretation": "Weakened H3: passive listing gets no traffic.",
+      "decision": "shrink",
+      "next_action": "No work; mac-local reads the dashboard delta once at the 10/08 check.",
+      "deadline_trigger": "2026-10-08: <5 new views & 0 inquiries since 10/03 → stop H3 listing work for October (keep live)."
+    },
+    "booth": {
+      "fact": "0 sales, 0 スキ, 0 messages since 9/30.",
+      "interpretation": "Weakened H3: no inbound demand without outside traffic.",
+      "decision": "shrink",
+      "next_action": "No work; keep the listing live at zero cost.",
+      "deadline_trigger": "2026-10-15: still 0 → mark BOOTH stopped in STATE."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode 0 charges / 0 payment_intents (last live read 08:10 JST 10/07; MCP un-authorizable this session); Gumroad 0; 0 revenue entries.",
+      "interpretation": "Unchanged H4: no traffic reaches the stores.",
+      "decision": "shrink",
+      "next_action": "Maintenance only (sales-monitor Actions every 4h); any checkout/payment_intent → investigate within 24 h.",
+      "deadline_trigger": "2026-10-15 review unless a charge/payment_intent appears first."
+    },
+    "note": {
+      "fact": "Article #1 (10/03): impressions 44, PV 5, スキ 3, comments 0, sales 0. New articles STOPPED for October (10/07).",
+      "interpretation": "Weakened H2: PV 5 ≪ 30 threshold; note cannot feed buyers in this window.",
+      "decision": "stop",
+      "next_action": "None; article #1 stays live at zero cost.",
+      "deadline_trigger": "2026-10-31: revisit only if another channel produces pull; no new articles before then."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 LIVE (HTTP 200, verify-url runs 10/06 and 10/07); in the JP funnel; 0 sales.",
+      "interpretation": "Unchanged H4: the 10/07 stop rule applied only to a 404 — the book published, so the rule is closed.",
+      "decision": "continue",
+      "next_action": "No work on a live paid asset at zero cost.",
+      "deadline_trigger": "2026-10-15 review: stays live unless a sale reopens it."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales for 5+ weeks.",
+      "interpretation": "Weakened H4: no pull.",
+      "decision": "stop",
+      "next_action": "No work, no renewals.",
+      "deadline_trigger": "2026-10-29 review (final); only a sale reopens it sooner."
+    }
+  }
+}
