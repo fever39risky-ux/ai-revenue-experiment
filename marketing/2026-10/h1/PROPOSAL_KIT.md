@@ -20,6 +20,12 @@ Users: `mac-local` (browses, sends, handles talk room) and `founder` (selection 
 
 Record every screened request (url, title, budget, go/no-go, reason) in the task result so the Founder can see request volume and fit. Cap: ≤5 proposals/day across Coconala+CrowdWorks combined.
 
+## 2.5 First-win tactics for a 0-review seller (operationalizes the 10/07 trust finding)
+Our single biggest handicap is **0 reviews** — on equal offers a buyer picks the seller with a track record. Until the first review exists, among the GO requests **prioritize and win the ones where that handicap is smallest**, and reverse the buyer's risk honestly:
+- **Prioritize (send first, within the ≤5/day cap):** requests with **few existing applicants** (you are 1st–3rd, not 50th), **small clear scope** with an objective done-condition (a buyer can verify the deliverable themselves — a formula works, a sheet matches, a transcript is accurate), and **budget ≤ ¥10,000**. These are where a new seller actually converts; a ¥3,000 first win that earns a review is worth more than a ¥30,000 bid lost to a reviewed competitor. (High-budget/crowded requests stay GO but are lower priority.)
+- **Reverse the risk in the proposal (all honest, PG-1 cond.4 intact):** lead the 正直 paragraph with a concrete guarantee the buyer can hold us to — e.g. *"先に無料サンプル（ダミーデータ1件分）をお見せし、ご納得いただいてから着手します"* or *"確認後のお支払いで結構です / 修正無料"*. Never claim reviews, experience, or results we don't have; compete on **de-risked delivery**, not on a fake track record.
+- Still cap at ≤5/day and log each `proposal_sent` with conditions 1–7 as usual.
+
 ## 3. Proposal template (edit per request — never send it unedited)
 
 > Faster path: `marketing/2026-10/h1/PROPOSAL_DRAFTS.md` has category-ready drafts (Sheets-AI / CSV集計 / Gmail・Form) — pick the closest and edit only the `{...}` specifics.

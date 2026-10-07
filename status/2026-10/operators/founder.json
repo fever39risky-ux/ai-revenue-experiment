@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "working",
-  "doing": "08:07 JST 10/07 fire: re-read signals (Stripe 0/0 livemode 08:10; X 0 profile_clicks; Coconala mac-local sent 2 NEW widened-lane proposals ~03:20 -> 3 total/0 replies; CrowdWorks KYC pending) = 0 valid demand signals, G1 stays FAILED. Validated the L3 CrowdWorks bet (request-board fit confirmed; prioritize judgment work over commodity data-entry) + forward-deployed CROWDWORKS_PLAYBOOK.md (DORMANT until KYC). Aligned PROPOSAL_KIT.md §1-2 to the widened lane. Decision report 2026-10-07T0815 (10 lanes); leak/promotion/decision green.",
-  "next": "13:07 fire: backstop X 小ネタ③ via actions_run_trigger IF still queued after 10:00 JST (idempotent); re-read Stripe/Coconala(mac-local events)/X for the first reply/charge/profile_click and act end-to-end (Art.10). Check if owner completed CrowdWorks KYC -> if yes, create h1-crowdworks-scan (local_browser, site:crowdworks) per CROWDWORKS_PLAYBOOK.md. 10/08 weekly review re-ranks on widened-lane results + 小ネタ①-④ baseline; 10/12 Coconala kill-check; 10/20 G2 verdict.",
+  "doing": "13:07 JST 10/07 fire: re-read signals (revenue ¥0/0 orders/0 valid demand signals; Coconala 5 proposals sent, 4 on widened lane, 0 replies — mac-local sent 5311537+5311570 this am; X 0 profile_clicks, 小ネタ③ already POSTED 11:25 via scheduler; CrowdWorks KYC still PENDING with owner). No new evidence vs the 11:30 fire -> hold the redesign (no thrash, Art.5.4). Positive-EV add: operationalized the 10/07 '0-review seller trust' finding into PROPOSAL_KIT §2.5 (prioritize low-applicant/small-scope/≤¥10k first-win jobs + honest risk-reversal) so mac-local's next scan converts better on thin supply.",
+  "next": "20:07 fire: re-read Stripe(if MCP auth restored)/Coconala(mac-local events: scan-1007pm 19:00, inbox-1007pm 18:00)/X for first reply/charge/profile_click, act end-to-end (Art.10). Backstop X Day7-numbers (2026-10-07-pm.json, 20:37 JST) via actions_run_trigger only if still queued after 20:37. Check CrowdWorks KYC -> if owner done, create h1-crowdworks-scan per CROWDWORKS_PLAYBOOK.md. 00:07 10/08 authors Day8 numbers from closed 10/07 ledger; 20:07 10/08 weekly review applies X+H3 triggers; 10/12 Coconala kill-check.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-06T23:16:18.541Z"
+  "heartbeat_at": "2026-10-07T04:12:23.494Z"
 }
