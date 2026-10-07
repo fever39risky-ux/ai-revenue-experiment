@@ -13,9 +13,21 @@
   "not_before": "2026-10-07T18:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-07T00:01:44.628Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-07T11:02:00.834Z",
+  "result": "18:03 JST 10/07: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform PR-feature news 7h ago); 応募管理 5 offers all still pending/editable, no buyer reply: 5311570 ¥8,000/10-16 (deadline 10/11), 5311537 ¥10,000/10-12 (deadline 10/11), 5303494 ¥30,000/10-20 (deadline 10/13), 5311883 ¥3,000/10-13 (deadline 10/12), 5303405 ¥8,000/10-12 (deadline 10/12). Replies: none. Next task h1-coconala-inbox-1008am (not_before 09:00 JST 10/08) created.",
+  "history": [
+    {
+      "ts": "2026-10-07T09:02:00.834Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-07T09:03:10.780Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "18:03 JST 10/07: Coconala /message 0, やることリスト 0, お知らせ no new buyer items (newest = platform PR-feature news 7h ago); 応募管理 5 offers all still pending/editable, no buyer reply: 5311570 ¥8,000/10-16 (deadline 10/11), 5311537 ¥10,000/10-12 (deadline 10/11), 5303494 ¥30,000/10-20 (deadline 10/13), 5311883 ¥3,000/10-13 (deadline 10/12), 5303405 ¥8,000/10-12 (deadline 10/12). Replies: none. Next task h1-coconala-inbox-1008am (not_before 09:00 JST 10/08) created."
+    }
+  ]
 }
