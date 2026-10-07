@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "scan-1007 done: 2 sent (5311537 ¥10k, 5311570 ¥8k); 5 proposals pending, 0 replies",
-  "next": "18:00 JST inbox-1007pm (reply ≤12h to any of 5 pending: 5303405/5311883/5303494/5311537/5311570); 19:00 scan-1007pm ids >5312279, 1 slot left today",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-07T01:07:41.711Z",
+  "heartbeat_at": "2026-10-07T03:08:14.115Z",
   "blocked_on": null,
-  "progress": "since 2026-10-04T13:19:47.762822Z: polls=1681 workers=13 browser_workers=11 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-04T13:19:47.762822Z: polls=1818 workers=15 browser_workers=13 chrome_for_testing_procs=0"
 }
