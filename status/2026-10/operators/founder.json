@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "working",
-  "doing": "20:07 JST 10/07 fire: re-read all demand signals (0 new), hold redesign, backstop Day7 X slot at 20:37, check CrowdWorks KYC",
-  "next": "write 20:07 decision report; backstop 2026-10-07-pm.json after 20:37 JST if still queued; session_end",
+  "status": "idle",
+  "doing": "20:07 JST 10/07 fire complete: 0 new demand signals (rev ¥0; Coconala 0 replies/5 pending, evening scan 0 GO; X 0 profile_clicks; CrowdWorks KYC pending). Held redesign (Art.5.4). Day7 X numbers verified CAP-HELD to 10/08 (dispatched run 37616007101, posted nothing by design). Decision report 2026-10-07T2007; stop_screen 5 motions; checks green.",
+  "next": "00:07 JST 10/08 fire: re-read Stripe(if MCP auth)/Coconala(mac-local inbox-1008am 09:00 + scan-1008 10:00)/X for first reply/charge/profile_click, act end-to-end (Art.10). Verify/backstop the Day7 X post (2026-10-07-pm.json) — now cap-eligible after 00:00 JST 10/08; dispatch x-phase2.yml if still queued. Author Day8 numbers from the CLOSED 10/07 ledger (Art.12) + queue 20:37 JST 10/08. 08:07 fire: verify 小ネタ④. 20:07 JST 10/08 weekly review: apply X 小ネタ①-④ trigger + H3 listing trigger; re-rank. Check CrowdWorks KYC each fire -> if owner done, create h1-crowdworks-scan per CROWDWORKS_PLAYBOOK.md.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-07T11:13:41.137Z"
+  "heartbeat_at": "2026-10-07T11:46:35.970Z"
 }

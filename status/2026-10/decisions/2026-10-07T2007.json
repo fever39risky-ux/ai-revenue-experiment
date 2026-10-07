@@ -10,7 +10,7 @@
     "crowdworks_kyc": "Owner KYC still PENDING (OWNER_ACTION_REQUIRED.md top unchanged). No board to open."
   },
   "g2_status": "G2 (Gross ≥ ¥10,000 and Net > 0 by 2026-10-20) unmet; 13 days left. Honest read unchanged: low probability with 7 days of 0 signals; the redesign maximizes P(G2), it does not guarantee it.",
-  "action_this_fire": "Re-read all demand channels (0 new signals). Backstop the X Day7-numbers slot (2026-10-07-pm.json) by dispatching x-phase2.yml after 20:37 JST if still queued — the 20:37 cron has skipped 3x (10/02, 10/05, 10/06) and needed a Founder backstop each time. No strategy change, no new lane, no owner ask, no new autonomous add (13:07 §2.5 stands; re-eval now = thrash).",
+  "action_this_fire": "Re-read all demand channels (0 new signals). Dispatched x-phase2.yml at 20:43 JST to backstop the Day7-numbers slot (run 37616007101, success): it posted NOTHING by design — 10/07 JST is already at the 2/day cap (Day6 numbers 00:11 JST + 小ネタ③ 11:25 JST), so the Day7 item (not_before 20:37 JST 10/07) is CAP-HELD, not cron-skipped, exactly as STATE.queued_note predicted ('Day7 rolls to 10/08'). The run refreshed metrics only (idempotent). Day7 numbers will post on the first eligible run after 00:00 JST 10/08 (cap resets); the 00:07 JST 10/08 fire verifies/backstops it + authors Day8 from the closed 10/07 ledger. No strategy change, no new lane, no owner ask, no new autonomous add (13:07 §2.5 stands; re-eval now = thrash).",
   "lanes": {
     "company": {
       "fact": "Day 7/31, 20:07 JST: Gross ¥0, known cost ¥0 (+1 unknown compute), Net ≤ ¥0; human 5× / 12 min; valid demand signals 0 for 7 days; G1 FAILED (final), G2 current. Evening Coconala pass closed 0 replies / 0 GO.",
@@ -20,10 +20,10 @@
       "deadline_trigger": "2026-10-08 weekly review re-ranks on first widened-lane results + applies X/H3 triggers; 2026-10-12 Coconala kill-check; 2026-10-20 G2 verdict (if ¥0, declare G3 unreachable and switch the month to L4)."
     },
     "x": {
-      "fact": "15 posts, main-post median ~13 imp, profile_clicks 0; 小ネタ③ posted 11:25 JST via scheduler; Day7 numbers queued 20:37 JST (2026-10-07-pm.json, validates), 小ネタ④ queued 08:37 10/08. 20:37 pm cron has skipped 3x and needed a Founder backstop each time.",
+      "fact": "15 posts, main-post median ~13 imp, profile_clicks 0; 小ネタ③ posted 11:25 JST via scheduler; Day7 numbers (2026-10-07-pm.json, validates) CAP-HELD — 10/07 JST already at the 2/day cap (Day6 00:11 + 小ネタ③ 11:25), so the 20:37 slot cannot post today; it rolls to the first eligible run after 00:00 JST 10/08. 小ネタ④ queued 08:37 10/08. Dispatched run 37616007101 (success) confirmed this (posted nothing, metrics refreshed).",
       "interpretation": "Weakened H2 unchanged: the L2 re-aim did not move distribution (reach ~13 imp). X stays a low-effort credibility log, not a revenue bet.",
       "decision": "shrink",
-      "next_action": "Founder backstops the 20:37 Day7 slot this fire if still queued after it fires (dispatch x-phase2.yml, idempotent); no new format before the 10/08 verdict; 小ネタ④ completes the test set.",
+      "next_action": "Day7 numbers are cap-held to 10/08 (correct, not a failure); the 00:07 JST 10/08 fire verifies/backstops the Day7 post + authors Day8 from the closed 10/07 ledger. No new format before the 10/08 verdict; 小ネタ④ completes the test set.",
       "deadline_trigger": "2026-10-08 20:07 JST: 小ネタ①–④ median imp <20 AND profile_clicks 0 AND CTA link_clicks 0 → demote X to trust/log only (≤1/day) + the pre-registered 10/09 hashtag reach test."
     },
     "coconala_proposals": {
