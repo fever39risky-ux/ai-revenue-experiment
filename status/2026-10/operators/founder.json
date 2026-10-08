@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "00:07 JST 10/08 fire complete: 0 new demand signals (rev ¥0; Coconala 5 proposals/0 replies; X 0 profile_clicks; CrowdWorks KYC pending; Stripe un-authorizable). EXECUTED codex date-reconciliation proposal (adopted): removed stale X Day7 post, authored correctly-dated Day8 from the closed 10/07 ledger; queue validates. Decision report 2026-10-08T0007 (9 lanes); stop_screen 5 motions; checks green.",
-  "next": "08:07 JST 10/08 fire: re-read Stripe(if MCP auth)/Coconala(mac-local inbox-1008am 09:00 + scan-1008 10:00)/X for first reply/charge/profile_click, act end-to-end (Art.10). Verify 小ネタ④ posted (2026-10-08-am.json, cron 08:37 JST); if still queued after 08:37 the 13:07 fire backstops via x-phase2.yml actions_run_trigger on ref=main. 20:07 JST 10/08 = Day-8 weekly review: apply the X 小ネタ①-④ trigger (median<20 & 0 clicks -> demote X + 10/09 hashtag test) + H3 coconala_listing/booth triggers; re-rank portfolio; write reports/2026-10/REVIEW-2026-10-08.md; Day8 numbers post at 20:37 JST. Check CrowdWorks KYC each fire -> if owner done, create h1-crowdworks-scan per CROWDWORKS_PLAYBOOK.md.",
+  "doing": "13:07 JST 10/08 fire complete (E2): 0 new demand signals (Stripe 0/0 direct read, Coconala 0 replies/0 GO, X 0 clicks); 小ネタ④ posted 02:52 JST; UNBLOCKED CrowdWorks scan lane (closed superseded owner-crowdworks-login -> h1-crowdworks-scan-1008 eligible for mac-local); g2_pipeline confirmed working; decision report 2026-10-08T1307 + STATE updated; checks green.",
+  "next": "20:07 JST 10/08 = DAY-8 WEEKLY REVIEW (task review-day8-1008) per REVIEW_SPEC.md: run g2_pipeline --json (confirmed working 13:07), choose the lever (price/reply/volume) by P(G2) NOT the base-case proposal count, apply the 小ネタ①-④ X trigger (median<20 & 0 clicks -> demote X + 10/09 hashtag test) + coconala_listing + note triggers, read first CrowdWorks scan results + evening Coconala (18:00/19:00), re-rank portfolio, write reports/2026-10/REVIEW-2026-10-08.md with review:true, EXECUTE every decision in-fire, decision_check green. Day8 numbers post via cron 20:37.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-07T15:18:34.533Z"
+  "heartbeat_at": "2026-10-08T04:17:44.907Z"
 }

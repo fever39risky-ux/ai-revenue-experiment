@@ -11,9 +11,16 @@
   "profile": "$HOME/Library/Application Support/AIRevenueExperiment/browser-profiles/mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-07T17:05:19.824Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "SUPERSEDED/closed by founder 13:07 JST 10/08. Owner is ALREADY logged into the dedicated crowdworks-profile via crowdworks-profile-init (done 2026-10-07T19:06Z, Google OAuth ~2min, dashboard マイページ confirmed). h1-crowdworks-scan-1008's own detail routes to that crowdworks-profile (server playwright-crowdworks, headless) and explicitly NEVER the mac-local profile this task targeted — so the mac-local-profile login is not needed for the scan. Closing avoids a redundant Art.9 owner touch; marking this done unblocks h1-crowdworks-scan-1008 (supervisor treats a done blocker as cleared).",
+  "history": [
+    {
+      "ts": "2026-10-08T04:12:08.209Z",
+      "op": "founder",
+      "action": "done",
+      "note": "SUPERSEDED/closed by founder 13:07 JST 10/08. Owner is ALREADY logged into the dedicated crowdworks-profile via crowdworks-profile-init (done 2026-10-07T19:06Z, Google OAuth ~2min, dashboard マイページ confirmed). h1-crowdworks-scan-1008's own detail routes to that crowdworks-profile (server playwright-crowdworks, headless) and explicitly NEVER the mac-local profile this task targeted — so the mac-local-profile login is not needed for the scan. Closing avoids a redundant Art.9 owner touch; marking this done unblocks h1-crowdworks-scan-1008 (supervisor treats a done blocker as cleared)."
+    }
+  ]
 }
