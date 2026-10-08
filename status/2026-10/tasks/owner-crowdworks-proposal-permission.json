@@ -1,0 +1,18 @@
+{
+  "id": "owner-crowdworks-proposal-permission",
+  "title": "OWNER (CrowdWorks only): allow mac-local to submit CrowdWorks proposals, or send the 2 ready drafts yourself",
+  "lane": "h1-proposals",
+  "detail": "First CrowdWorks scan (10/08 13:20 JST, dedicated crowdworks-profile, logged in) found 2 GO requests; drafts are ready in marketing/2026-10/h1/screens/crowdworks-2026-10-08.md (Draft A: https://crowdworks.jp/public/jobs/13513659 PDF→Word ¥15,000, deadline to apply 10/10; Draft B: https://crowdworks.jp/public/jobs/13513520 drama classification ¥8,000, apply by 10/12). Typing into the CrowdWorks 応募 form was blocked by the Mac's Claude Code auto-mode classifier ('Unrequested Commit in a Connected App') — a runtime permission boundary mac-local must not bypass (same situation as owner-coconala-proposal-permission on Coconala, 10/02). Choose one: (a) paste the 2 drafts yourself on crowdworks.jp (~5 min, price/date in the file); or (b) allow unattended CrowdWorks proposal submission for the mac-local supervisor's Claude runs (permission rule for the playwright-crowdworks MCP browser tools in the Mac's Claude Code settings, or extend PG-1 to CrowdWorks explicitly in ops/2026-10/PERMISSIONS.md) — then every future CrowdWorks proposal goes out under PG-1 conditions without you. Profile: /Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile",
+  "requires": [
+    "human"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "created_by": "mac-local",
+  "created_at": "2026-10-08T04:26:33.534Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
