@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-8 weekly review complete (E2): lever_choice=price_plus_reply (P(G2) base 0.737); X demoted to trust/log (10/08 trigger fired); CrowdWorks reallocated PRIMARY supply (validated 1,142/2 GO); owner-crowdworks-proposal-permission surfaced as the binding blocker; report 2026-10-08T2007 review:true, decision_check green",
-  "next": "00:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if resolved, confirm mac-local sent the 2 GO + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI + Coconala/CrowdWorks inbox + X metrics for first reply/inquiry/charge; (3) author Day-9 第2弾 numbers once 10/08 closes; (4) watch 10/11 X tips-stop + 10/12 Coconala + 10/13 CrowdWorks kill triggers",
+  "doing": "Fire 2026-10-09T0007 complete (E2): signals 0, Day-9 numbers queued, decision report green, owner-permission still OPEN (binding G2 blocker)",
+  "next": "08:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent the 2 GO (13513659 ¥15k apply-by 10/10 is time-critical) + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox + X metrics for first reply/inquiry/charge; (3) confirm mac-local git_network cleared + scan-1009/inbox ran at 10:00 JST; (4) verify 小ネタ⑤ posted + read its reach vs ①-④ (median 10); watch 10/11 X tips-stop, 10/12 Coconala, 10/13 CrowdWorks triggers",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-08T11:20:52.427Z"
+  "heartbeat_at": "2026-10-08T15:17:23.287Z"
 }
