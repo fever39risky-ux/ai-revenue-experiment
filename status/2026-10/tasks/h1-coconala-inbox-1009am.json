@@ -1,0 +1,22 @@
+{
+  "id": "h1-coconala-inbox-1009am",
+  "title": "H1: Coconala inbox / proposal replies / quote consultations (reply under PG-1)",
+  "lane": "h1-proposals",
+  "detail": "Check /message, /mypage/activities/notification (あなた宛), /mypage/activities/transaction and proposal status at /mypage/job_matching/applied/offers (pending: 5311570 ¥8,000 dl10/11, 5311537 ¥10,000 dl10/11, 5303494 ¥30,000 dl10/13, 5311883 ¥3,000 dl10/12, 5303405 ¥8,000 dl10/12). Reply under PG-1 when appropriate; log inquiry/sales_conversation signals. On done: create the next inbox task (not_before +9h, id h1-coconala-inbox-<MMDD><am|pm>) so the watch never lapses.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "inbox checked; replies sent or 'none'; next inbox task created",
+  "not_before": "2026-10-09T10:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-08T15:56:31.682Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

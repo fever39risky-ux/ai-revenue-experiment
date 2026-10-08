@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "blocked",
-  "doing": "supervisor backoff after git_network (failure 1)",
-  "next": "retry at 2026-10-08T10:00:35.652747Z",
+  "status": "idle",
+  "doing": "none",
+  "next": "10:00 JST 10/09: h1-coconala-inbox-1009am + h1-coconala-scan-1009 (ids >5315782)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-08T09:59:23.766Z",
-  "blocked_on": "git_network",
+  "heartbeat_at": "2026-10-08T15:57:52.064Z",
+  "blocked_on": null,
   "progress": "since 2026-10-07T19:04:25.951385Z: polls=236 workers=3 browser_workers=3 chrome_for_testing_procs=0"
 }

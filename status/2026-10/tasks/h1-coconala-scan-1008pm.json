@@ -13,9 +13,21 @@
   "not_before": "2026-10-08T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-07T10:02:50.476Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-08T17:56:36.505Z",
+  "result": "00:57 JST 10/09 (run late): 31 new requests (ids >5314166, up to 5315782) screened on the widened lane, 0 GO. Opened 2: 5315306 (PPT narration→MP4, 3h total, ¥10-30k; human calm voice + past results, untested TTS license/toolchain, 11 applicants), 5314410 (Instagram 1-month coaching, ¥30-50k; web meetings + growth track record). The rest are creative/voice/physical/qualification/ToS-grey or below the floor. 0 sent (10/09 0/5). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next scan h1-coconala-scan-1009 (10:00) starts at ids >5315782; h1-coconala-scan-1009pm created.",
+  "history": [
+    {
+      "ts": "2026-10-08T15:56:36.506Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-08T15:57:44.021Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "00:57 JST 10/09 (run late): 31 new requests (ids >5314166, up to 5315782) screened on the widened lane, 0 GO. Opened 2: 5315306 (PPT narration→MP4, 3h total, ¥10-30k; human calm voice + past results, untested TTS license/toolchain, 11 applicants), 5314410 (Instagram 1-month coaching, ¥30-50k; web meetings + growth track record). The rest are creative/voice/physical/qualification/ToS-grey or below the floor. 0 sent (10/09 0/5). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next scan h1-coconala-scan-1009 (10:00) starts at ids >5315782; h1-coconala-scan-1009pm created."
+    }
+  ]
 }
