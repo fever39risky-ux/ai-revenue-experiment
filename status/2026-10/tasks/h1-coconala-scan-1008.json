@@ -13,9 +13,21 @@
   "not_before": "2026-10-08T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-07T01:08:00.000Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-08T03:01:32.980Z",
+  "result": "10:01-10:05 JST 10/08: 25 new requests (ids >5313331, up to 5314166) screened on the widened lane, 0 GO. Opened 5: 5313983 (SaaS idea call, <¥5k, 28 applicants, wants real-industry experience), 5313800 (new-business plan+operation ¥5-10k, asks for actual 1-month results = cond.4, ¥1M/mo outcome), 5314144 (illustration resize, requires commercial illustration-edit experience = cond.4), 5313959 (STL shape edits due 10/09, no dims/3D toolchain = delivery risk), 5313737 (care HR consulting, calls + in-person + HR experience). The rest are creative/physical/experience-only/ToS-grey. 0 sent (today 0/5). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1008pm (19:00) now starts at ids >5314166; h1-coconala-scan-1009 created.",
+  "history": [
+    {
+      "ts": "2026-10-08T01:01:32.980Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-08T01:02:53.150Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:01-10:05 JST 10/08: 25 new requests (ids >5313331, up to 5314166) screened on the widened lane, 0 GO. Opened 5: 5313983 (SaaS idea call, <¥5k, 28 applicants, wants real-industry experience), 5313800 (new-business plan+operation ¥5-10k, asks for actual 1-month results = cond.4, ¥1M/mo outcome), 5314144 (illustration resize, requires commercial illustration-edit experience = cond.4), 5313959 (STL shape edits due 10/09, no dims/3D toolchain = delivery risk), 5313737 (care HR consulting, calls + in-person + HR experience). The rest are creative/physical/experience-only/ToS-grey. 0 sent (today 0/5). Screen: marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1008pm (19:00) now starts at ids >5314166; h1-coconala-scan-1009 created."
+    }
+  ]
 }
