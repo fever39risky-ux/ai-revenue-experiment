@@ -1,0 +1,179 @@
+{
+  "fire": "2026-10-08T20:07+09:00",
+  "author": "founder",
+  "review": true,
+  "summary": "Day-8 weekly review. ¥0/0 orders/0 replies company-wide (Stripe 0 charges+0 PI direct livemode read; Coconala 0 reply on 5 proposals; X 0 signals). G2 back-calc chooses the price_plus_reply lever (base P(G2) 0.737, pessimistic 0.298 on top of cap volume) over volume (base 0.2) — one ¥10–15k early-applicant order with a free sample meets G2, so orders_needed collapses to 1. X 10/08 trigger FIRES exactly (小ネタ①–④ median imp 10<20, profile_clicks 0, link clicks 0) -> X demoted from sales to trust/log + the pre-registered 10/09 hashtag reach test. CrowdWorks L3 supply bet VALIDATED (1,142 listings / 2 GO day-1 vs Coconala ~67/1 in 7d) but sends are blocked by the Mac's Claude auto-mode classifier -> binding constraint MOVED from channel/supply-fit to a runtime-permission block (owner task filed) + an unproven reply rate. Reallocate to CrowdWorks as the primary supply engine under the price_plus_reply selection rule.",
+  "goal_pipeline": {
+    "target": {
+      "gross_jpy": 10000,
+      "net_condition": "> 0",
+      "deadline": "2026-10-20",
+      "days_left": 13,
+      "gross_still_needed_jpy": 10000
+    },
+    "required_pipeline": {
+      "_basis": "node scripts/oct/g2_pipeline.mjs --json, base case",
+      "avg_order_jpy": "8000 ASSUMPTION = median of our 5 proposal prices (3k/8k/8k/10k/30k)",
+      "proposal_to_reply": "0.05 ASSUMPTION (0/5 observed; 0-review seller vs 60-118 applicants/request)",
+      "reply_to_order": "0.3 ASSUMPTION (no replies observed)",
+      "platform_fee": "0.22 (Coconala seller fee, booked at completion)",
+      "orders_needed": 2,
+      "replies_needed": 7,
+      "proposals_needed": 140,
+      "proposals_per_day_needed": 14,
+      "net_per_order_jpy_after_fee": 6240,
+      "note": "Base case needs orders_needed=2 (¥8k avg). The chosen price_plus_reply lever lifts avg order to ¥10-15k so orders_needed=1, which is what makes G2 reachable at a feasible proposal count."
+    },
+    "current_pipeline": {
+      "proposals_sent": 5,
+      "replies": 0,
+      "quote_consultations": 0,
+      "orders": 0,
+      "gross_revenue_jpy": 0,
+      "known_cost_jpy": 0,
+      "proposals_per_day_observed": 1.33,
+      "channel": "all 5 Coconala; CrowdWorks 2 GO drafted, 0 sent (send-blocked)"
+    },
+    "gap": {
+      "proposals_short_base": 135,
+      "rate": "14/day needed (base) vs 1.33/day observed",
+      "achievable_at_current_rate": false,
+      "supply_read": "Coconala 公開依頼 supplies ~1 well-fit GO per several days -> cannot deliver 14/day or even the chosen lever's volume alone. CrowdWorks scan (10/08 13:26 JST) pulled 1,142 listings, ~25 fit, 2 GO on day 1 -> it CAN supply well-fit ¥10-15k requests at the 5/day cap. The supply gap is therefore closable ONLY via CrowdWorks, which is currently send-blocked by the Mac runtime classifier. The gap is now gated by that runtime-permission block, not by channel/audience fit."
+    },
+    "scenarios": {
+      "optimistic": {
+        "avg_order_jpy": 12000,
+        "proposal_to_reply": 0.15,
+        "reply_to_order": 0.5,
+        "orders_needed": 1,
+        "proposals_needed": 14,
+        "proposals_per_day_needed": 0.9,
+        "basis": "ASSUMPTION: ¥10-15k project jobs (CrowdWorks; our ¥10k/¥30k bids); low-competition requests answered early; risk-reversal close"
+      },
+      "base": {
+        "avg_order_jpy": 8000,
+        "proposal_to_reply": 0.05,
+        "reply_to_order": 0.3,
+        "orders_needed": 2,
+        "proposals_needed": 140,
+        "proposals_per_day_needed": 13.5,
+        "basis": "ASSUMPTION: median of our bids; 5% reply for a 0-review seller; 30% close"
+      },
+      "pessimistic": {
+        "avg_order_jpy": 5000,
+        "proposal_to_reply": 0.02,
+        "reply_to_order": 0.2,
+        "orders_needed": 2,
+        "proposals_needed": 500,
+        "proposals_per_day_needed": 49.5,
+        "basis": "ASSUMPTION: small first-win jobs (<=¥10k, our ¥3k bid); crowded requests (60-118 applicants) reply 2%; 20% close"
+      }
+    },
+    "lever_choice": {
+      "chosen": "price_plus_reply (price AND reply_rate as one selection rule) run on top of cap volume (5/day)",
+      "p_g2_source": "g2_pipeline levers / lever_ranking (base + pessimistic decide; optimistic saturates near 1 for every lever)",
+      "why": "price_plus_reply is the top lever on BOTH deciding cases: base P(G2) 0.737 and pessimistic 0.298 on top of cap volume (mean 0.678) — materially above every alternative. The mechanism: selecting ¥10-15k small-scope requests lifts the average order so ONE order meets G2 (orders_needed 2->1), which removes the binomial penalty of needing two independent wins; being an early applicant (<=3rd-5th) + a free dummy-data sample up front roughly doubles the reply rate. It is a single selection rule, not two separate campaigns, so it costs no extra proposals. Cap volume (5/day well-fit) is the substrate we still maximize, but it is not itself the chosen lever.",
+      "not_chosen": {
+        "volume": "LOWEST: base P(G2) 0.2, pessimistic 0.021. Pushing to the 5/day cap alone still leaves orders_needed=2 at the base ¥8k avg, and supply (well-fit requests/day) caps how far volume can go. We do NOT default to the base-case 140 proposals / 14/day — supply cannot deliver it and it is the weakest lever by P(G2).",
+        "reply_rate": "base 0.494 but pessimistic only 0.072 — fragile; the early-applicant + free-sample tactic is already folded INTO price_plus_reply.",
+        "price": "base 0.485, pessimistic 0.162 — strong, but leaving reply at 5% wastes the same selection effort; price_plus_reply dominates it on both cases.",
+        "close_rate": "base 0.352, pessimistic 0.043 — needs replies first, of which we have 0; closing tactics (sample-before-start, pay-on-acceptance) are adopted anyway but cannot be the primary lever with 0 replies."
+      }
+    },
+    "action": {
+      "increase": "CrowdWorks well-fit proposals to the 5/day cap under the price_plus_reply selection rule: prioritise ¥10-15k small-scope objective-done jobs where we are an early applicant (<=3rd-5th), and offer a free dummy-data sample up front in the proposal. The 2 drafted GO (13513659 PDF->Word ¥15k apply-by 10/10; 13513520 drama classification ¥8k) go out first once the runtime block clears.",
+      "shrink_stop": "STOP X as a G2 revenue bet (10/08 trigger fired). Keep: new note articles STOPPED (10/07), H3 active listing work STOPPED, Stripe/Gumroad/Etsy zero-effort, Zenn book live zero-cost. Do not widen into new product build (Art.5.5).",
+      "reallocate": "Make CrowdWorks the PRIMARY supply engine for H1 (validated 1,142 listings / 2 GO day-1); Coconala continues the widened lane but is supply-thin. Founder+mac-local attention concentrates on getting price_plus_reply-selected proposals in front of buyers at volume. Binding blocker to resolve: owner runtime-permission for CrowdWorks sends (owner-crowdworks-proposal-permission)."
+    }
+  },
+  "x_verdict": {
+    "sales_channel": "stop",
+    "trigger_applied": "STATE.pending_triggers 2026-10-08 lane x: 小ネタ①–④ median imp <20 AND profile clicks 0 AND link clicks 0 -> demote X to trust/log only. FIRED exactly.",
+    "evidence": "小ネタ①–④ (clean un-hashtagged control): impressions 12/9/11/7 -> median 10 (<20); user_profile_clicks 0 on all four; CTA link clicks 0 (the 1 reply on each is our own self-reply CTA, not external); inquiries 0. Across all 13 Phase-2 posts: 0 profile_clicks, 0 external replies, 0 inquiries in 8 days. The 10/04 L2 re-aim (story -> practical automation) did not move profile_clicks (0 before, 0 after); impressions median ~13 both. Conclusion: reach, not angle, is binding on this small-follower account.",
+    "sales_decision": "X is NOT a G2/G3 sales channel. A sale via X in the remaining window is not a realistic path; no resources allocated to X as a revenue bet.",
+    "other_roles": {
+      "trust_experiment_log": "KEEP (low-effort). The daily 第2弾 Day N numbers post is the company's public honesty record (Art.12) and runs at ~0 marginal cost via x-phase2.yml. Value is credibility, not reach.",
+      "automation_tips": "KEEP low-effort + run the pre-registered 10/09 hashtag reach test. Since median<20 AND clicks 0 => reach is binding, apply the L1 discoverability test (append 1-2 buyer-searched JP hashtags from 小ネタ⑤, keeping ①-④ as control). This is the final read on whether even the trust/log role has any reach; if 小ネタ⑤-⑥ with hashtags still median<20, stop the tips series too and keep only the Day-N numbers post.",
+      "ai_news": "NONE — not an active role; not opened (no evidence it would reach the H1 buyer audience)."
+    }
+  },
+  "coconala_gap": "5 proposals sent (all Coconala), 0 replies, 0 consultations. Under the chosen price_plus_reply lever G2 needs ~14 well-fit ¥10-15k early-applicant proposals in the optimistic case and up to the 55-by-deadline cap in base — i.e. volume of WELL-FIT requests, not raw volume. Coconala 公開依頼 supplies ~1 such GO per several days (67+ screened/1 GO in 7 days), so Coconala ALONE cannot close the gap regardless of lever. CrowdWorks supplies 2 GO from day 1 (25 fit of 1,142) and is where the price_plus_reply volume must come from. Therefore 'N proposals sent on Coconala' is not the result and not the plan; the plan is CrowdWorks well-fit volume, and the gap is currently gated by the CrowdWorks send-block (owner runtime-permission), not by Coconala request supply.",
+  "lanes": {
+    "company": {
+      "fact": "Day 8/31. Gross ¥0, cost ¥0, net ¥0, 0 orders, 0 replies company-wide. Stripe livemode 0 charges / 0 payment_intents (direct MCP read this fire). Coconala 0 buyer reply on 5 proposals (last inbox 09:03 JST; evening 18:00/19:00 scans not yet run by mac-local). X 0 profile_clicks/0 inquiries. G2 (¥10k gross + net>0 by 10/20) 13 days out.",
+      "interpretation": "G2 gap unchanged on market response (still 0 revenue signals). But H1's L3 CrowdWorks bet STRENGTHENED on the supply dimension (1,142 listings / 2 GO day-1 vs Coconala ~67/1 over 7 days) — the request-board model fits the proposal motion far better than Coconala 公開依頼. The binding constraint MOVED from channel/audience-fit (now largely resolved by CrowdWorks) to a runtime-permission block on sends plus an unproven reply rate.",
+      "decision": "continue",
+      "next_action": "Reallocate to CrowdWorks as the primary supply engine under the price_plus_reply selection rule (STATE updated this fire). Unblock CrowdWorks sends via owner-crowdworks-proposal-permission (surfaced to OWNER_ACTION_REQUIRED top this fire). mac-local sends the 2 GO drafts first, then scans daily selecting ¥10-15k early-applicant jobs + free sample.",
+      "deadline_trigger": "2026-10-13: >=10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days -> kill the board. 2026-10-15: no order anywhere -> H1 revenue bet dead for October. 2026-10-20: G2 deadline."
+    },
+    "x": {
+      "fact": "小ネタ①–④ median imp 10 (12/9/11/7), profile_clicks 0, CTA link clicks 0, inquiries 0; all 13 posts 0 profile_clicks / 0 external replies in 8 days.",
+      "interpretation": "H2 WEAKENED to falsified as a revenue hypothesis: the 10/04 re-aim did not move profile_clicks (0->0); reach (not angle) is binding on a small-follower account. The pre-registered 10/08 X trigger fired exactly.",
+      "decision": "stop",
+      "next_action": "Demote X from revenue bet to trust/log only (STATE x_lane + hypotheses H2 updated). Keep the daily Day-N numbers post (credibility, cron, ~0 cost). Author+queue 小ネタ⑤ for 10/09 WITH 1-2 buyer-searched JP hashtags (pre-registered reach test; ①-④ as control) — executed this fire.",
+      "deadline_trigger": "2026-10-11: if 小ネタ⑤-⑥ (hashtagged) still median imp <20 -> stop the automation-tips series too, keep only the Day-N numbers post."
+    },
+    "coconala_proposals": {
+      "fact": "5 proposals sent (3k/8k/8k/10k/30k), 0 replies, 0 consultations; request 5303405 still pending. Supply ~1 well-fit GO per several days (67+ screened, 1 GO in 7 days).",
+      "interpretation": "H1 unchanged on reply signal (still 0) but Coconala's structural supply weakness CONFIRMED — the pool is too thin and creative/anti-AI-skewed to supply the price_plus_reply volume G2 needs.",
+      "decision": "continue",
+      "next_action": "Keep the widened Coconala lane at <=5/day combined with CrowdWorks, now under the price_plus_reply selection (¥10-15k, early applicant, free sample). Answer any reply <=12h under PG-1. Do not pre-build delivery before a reply (Art.5.5).",
+      "deadline_trigger": "2026-10-12: >=10 proposals on the widened Coconala lane reach buyers with 0 replies -> stop proposing on Coconala (keep listing live)."
+    },
+    "coconala_listing": {
+      "fact": "H3 passive listing: 0 inquiries, 0 favorites, 0 messages since the 10/03 logged-in baseline (30d views 8, mostly Sept). No fresh snapshot this fire (mac-local evening scan not yet run).",
+      "interpretation": "H3 unchanged (weak): passive listing produces no demand signal; the 10/08 trigger (<5 new views & 0 inquiries since 10/03) is met on the inquiry side.",
+      "decision": "shrink",
+      "next_action": "Stop active H3 listing work (already shrunk); keep the listing live at zero cost. Any inquiry is answered <=12h (H1-grade demand).",
+      "deadline_trigger": "2026-10-15: H3 revenue_deadline — still 0 inquiry -> no further listing work at all; keep live."
+    },
+    "booth": {
+      "fact": "BOOTH 8919052: 0 sales, 0 スキ, 0 messages (10/03 baseline, no change).",
+      "interpretation": "H3/H4 unchanged (weak): passive BOOTH listing produces no signal.",
+      "decision": "shrink",
+      "next_action": "Keep live, zero effort; no listing work.",
+      "deadline_trigger": "2026-10-15: still 0 スキ/sales -> mark stopped."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode 0 charges / 0 payment_intents (direct read this fire). Gumroad 0 sales. Sept diagnosis stands: 3 checkout sessions, all expired/unpaid, 0 payment_intents -> every buyer left before payment.",
+      "interpretation": "H4 unchanged (weak): generic $19 hosted store is a dead funnel; a rebuild is negative-EV vs H1.",
+      "decision": "shrink",
+      "next_action": "Keep live, zero effort; no rebuild. Founder re-reads Stripe each fire for the first charge (Art.10).",
+      "deadline_trigger": "2026-10-31: any charge/PI appears -> act end-to-end immediately (Art.10); else leave as zero-cost supply."
+    },
+    "note": {
+      "fact": "note article #1 PV 5 (<<30), 0 comments, 0 isolable follows. New articles STOPPED 2026-10-07 (trigger applied early).",
+      "interpretation": "H2 weakened: long-form note does not pull the H1 buyer audience at this reach.",
+      "decision": "stop",
+      "next_action": "No new note articles in October; keep article #1 live (zero cost).",
+      "deadline_trigger": "2026-10-31: revisit only if an X/note reach signal appears (none expected)."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 HTTP 200 (verify-url run 37331481015), in JP funnel (store/jp.html). 0 sales. Free articles live.",
+      "interpretation": "H4 unchanged: zero-cost supply, no pull yet.",
+      "decision": "continue",
+      "next_action": "Keep live as zero-cost supply; no work until a sale.",
+      "deadline_trigger": "2026-10-15: review at the next weekly review, or act immediately on any sale."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings, 0 orders, 0 signals.",
+      "interpretation": "H4 unchanged (weak): passive listings, no demand signal.",
+      "decision": "shrink",
+      "next_action": "Keep live, zero effort; no listing work.",
+      "deadline_trigger": "2026-10-31: any order -> act; else leave as zero-cost supply."
+    },
+    "crowdworks_proposals": {
+      "fact": "First CrowdWorks scan (10/08 13:26 JST, dedicated profile, logged in): 1,142 listings pulled, ~25 fit, 11 read, 2 GO (13513659 PDF->Word ¥15k apply-by 10/10; 13513520 drama classification ¥8k apply-by 10/12). 0 sent — the Mac's Claude Code auto-mode classifier blocked typing into the 応募 form ('Unrequested Commit in a Connected App'), a runtime boundary mac-local must not bypass. owner-crowdworks-proposal-permission filed.",
+      "interpretation": "H1's L3 CrowdWorks bet VALIDATED on supply (far better fit/volume than Coconala). The binding constraint is now a runtime-permission block on sends, not supply — exactly the kind of capability boundary Art.5.6 routes, here genuinely to the owner (their Mac Claude settings).",
+      "decision": "expand",
+      "next_action": "Primary supply engine for H1. Surface owner-crowdworks-proposal-permission to OWNER_ACTION_REQUIRED top (done this fire): owner either pastes the 2 drafts (~5 min) or whitelists unattended CrowdWorks submission (then every future proposal goes out under PG-1 conditions). On unblock, mac-local sends the 2 GO then scans daily under the price_plus_reply selection.",
+      "deadline_trigger": "2026-10-13: >=10 CrowdWorks proposals reach buyers with 0 replies in the first 5 days -> kill the board; if BOTH boards hit 0 replies at fair volume -> proposal motion falsified, pivot L4."
+    }
+  },
+  "executed": [
+    "STATE.json: recorded lever_choice=price_plus_reply with P(G2) basis; re-framed bottleneck (channel/supply-fit largely resolved by CrowdWorks; new binding = runtime-permission send-block + unproven reply rate); demoted X from revenue bet to trust/log (H2 status, x_lane); logged CrowdWorks supply validation (1,142/2 GO) and the send-block; updated H1 offer/next_action with the price_plus_reply selection rule (¥10-15k, early applicant <=3rd-5th, free dummy-data sample up front); re-ranked priority_actions; moved owner-crowdworks-proposal-permission into human_queue.open; updated pending_triggers (X trigger resolved->demoted; added 10/11 tips-stop trigger; recorded 10/09 hashtag test).",
+    "OWNER_ACTION_REQUIRED.md: added the single CrowdWorks proposal-permission ask to the top (1 item, <=5 min, 2 options a/b).",
+    "social/2026-10/queue/2026-10-09-am.json: authored+queued 小ネタ⑤ WITH buyer-searched JP hashtags (#スプレッドシート #業務効率化) as the pre-registered 10/09 reach test (not_before 08:37 JST 10/09); validated.",
+    "Task review-day8-1008 marked done; founder heartbeat updated with the exact next action."
+  ]
+}

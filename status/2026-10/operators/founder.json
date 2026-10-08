@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "13:07 JST 10/08 fire complete (E2): 0 new demand signals (Stripe 0/0 direct read, Coconala 0 replies/0 GO, X 0 clicks); 小ネタ④ posted 02:52 JST; UNBLOCKED CrowdWorks scan lane (closed superseded owner-crowdworks-login -> h1-crowdworks-scan-1008 eligible for mac-local); g2_pipeline confirmed working; decision report 2026-10-08T1307 + STATE updated; checks green.",
-  "next": "20:07 JST 10/08 = DAY-8 WEEKLY REVIEW (task review-day8-1008) per REVIEW_SPEC.md: run g2_pipeline --json (confirmed working 13:07), choose the lever (price/reply/volume) by P(G2) NOT the base-case proposal count, apply the 小ネタ①-④ X trigger (median<20 & 0 clicks -> demote X + 10/09 hashtag test) + coconala_listing + note triggers, read first CrowdWorks scan results + evening Coconala (18:00/19:00), re-rank portfolio, write reports/2026-10/REVIEW-2026-10-08.md with review:true, EXECUTE every decision in-fire, decision_check green. Day8 numbers post via cron 20:37.",
+  "doing": "Day-8 weekly review complete (E2): lever_choice=price_plus_reply (P(G2) base 0.737); X demoted to trust/log (10/08 trigger fired); CrowdWorks reallocated PRIMARY supply (validated 1,142/2 GO); owner-crowdworks-proposal-permission surfaced as the binding blocker; report 2026-10-08T2007 review:true, decision_check green",
+  "next": "00:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if resolved, confirm mac-local sent the 2 GO + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI + Coconala/CrowdWorks inbox + X metrics for first reply/inquiry/charge; (3) author Day-9 第2弾 numbers once 10/08 closes; (4) watch 10/11 X tips-stop + 10/12 Coconala + 10/13 CrowdWorks kill triggers",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-08T04:17:44.907Z"
+  "heartbeat_at": "2026-10-08T11:20:52.427Z"
 }

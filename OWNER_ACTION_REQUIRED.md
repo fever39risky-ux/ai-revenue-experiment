@@ -9,9 +9,20 @@
 
 ## 現在の依頼（10月）
 
-**現在、オーナーへの依頼はありません。**
+### 🥇 1件・5分以内：CrowdWorks の提案送信の許可（提案文は準備済み）
 
-- ✅ CrowdWorks アカウント作成＋本人確認：完了（2026-10-08 オーナー報告）。以後の提案・メッセージ対応は PG-1 と同条件でAIが代行します（task `h1-crowdworks-scan-1008`）。
+CrowdWorks の初回スキャンで**条件の合う依頼が2件**見つかり、提案文も用意できました。ただし送信時に **Mac の Claude Code の自動モード判定**（"Unrequested Commit in a Connected App"）がフォーム入力をブロックしており、AIは勝手に回避しません（ココナラ 10/02 と同じ種類の運用上の権限境界です）。
+
+**次のどちらか1つ**を選んでください：
+
+- **(a) ご自身で2件貼り付け（約5分）** — 下書きは `marketing/2026-10/h1/screens/crowdworks-2026-10-08.md` にあります：
+  - Draft A: https://crowdworks.jp/public/jobs/13513659 （PDF→Word、¥15,000、**応募期限 10/10**）
+  - Draft B: https://crowdworks.jp/public/jobs/13513520 （ドラマ分類、¥8,000、応募期限 10/12）
+- **(b) 無人送信を許可** — Mac の Claude Code 設定で `playwright-crowdworks` の MCP ブラウザツールを許可、または `ops/2026-10/PERMISSIONS.md` に PG-1 を CrowdWorks まで明示拡張。以後の CrowdWorks 提案は **PG-1 の7条件のもと**、オーナー操作なしで自動送信されます。
+
+これは G2（10/20 までに売上¥10,000）に向けた**主力の供給レーン**の律速です。どちらを選んでも、以後の提案文・価格・納期の判断はAIが代行します（task `owner-crowdworks-proposal-permission`）。
+
+- ✅ CrowdWorks アカウント作成＋本人確認：完了（2026-10-08 オーナー報告）。
 
 ---
 

@@ -11,9 +11,16 @@
   "assigned_to": "founder",
   "created_by": "founder",
   "created_at": "2026-10-07T15:25:22.071Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "Day-8 weekly review complete: g2 back-calc + lever_choice=price_plus_reply + X stop verdict + CrowdWorks reallocation, all executed in-fire (STATE, OWNER_ACTION_REQUIRED, X queue 10/09, pending_triggers). Report status/2026-10/decisions/2026-10-08T2007.json (review:true), decision_check green.",
+  "history": [
+    {
+      "ts": "2026-10-08T11:20:07.464Z",
+      "op": "founder",
+      "action": "done",
+      "note": "Day-8 weekly review complete: g2 back-calc + lever_choice=price_plus_reply + X stop verdict + CrowdWorks reallocation, all executed in-fire (STATE, OWNER_ACTION_REQUIRED, X queue 10/09, pending_triggers). Report status/2026-10/decisions/2026-10-08T2007.json (review:true), decision_check green."
+    }
+  ]
 }
