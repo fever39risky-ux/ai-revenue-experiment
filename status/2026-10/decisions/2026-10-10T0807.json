@@ -1,0 +1,76 @@
+{
+  "fire": "2026-10-10T08:07+09:00",
+  "author": "founder",
+  "lanes": {
+    "company": {
+      "fact": "Day 10. 10/09 JST CLOSED: gross ¥0 / cost ¥0 / 0 orders / 0 human_intervention (ops.mjs kpi as_of 2026-10-10; cumulative human 7 = login 3 + kyc 2 + permission 2, all <=10/08). Stripe livemode direct read this fire: 0 charges / 0 payment_intents. Coconala 5 proposals -> 0 replies (mac-local inbox-1009am + 1009pm both 0). CrowdWorks 2 GO still unsent. 0 valid demand signals company-wide, now 9 days.",
+      "interpretation": "G2 (¥10k gross + net>0 by 10/20) unchanged and low-probability: no revenue, no order, no reply on any channel. H1 (demand capture) neither strengthened nor weakened this fire — the primary CrowdWorks supply lane is still gated shut at the send step, so it has produced no new evidence since the Day-8 validation (1,142/2 GO). The binding constraint is unchanged: a runtime-permission send-block (owner) + an unproven reply rate.",
+      "decision": "continue",
+      "next_action": "Hold the Day-8 portfolio (CrowdWorks primary once unblocked, Coconala thin secondary, X trust/log, stores zero-effort). Each fire: re-check owner-crowdworks-proposal-permission + read Stripe/inbox/X for the first signal (Art.10 act end-to-end). No strategy change without new evidence.",
+      "deadline_trigger": "2026-10-13 crowdworks kill (>=10 proposals & 0 replies in the board's first 5 days once live) / 2026-10-15 no order anywhere -> H1 revenue bet dead for October / 2026-10-20 G2 verdict."
+    },
+    "crowdworks_proposals": {
+      "fact": "owner-crowdworks-proposal-permission still OPEN (filed 10/08, not acted in ~2 days). 2 drafted GO unsent: 13513659 (PDF->Word, ¥15k, apply-by 10/10 = TODAY) and 13513520 (drama classification, ¥8k, apply-by 10/12). 0 sent -> 0 replies. mac-local idle (supervisor live 39m), daily scan tasks scheduled (h1-crowdworks-scan-1010 from 10/10 10:00 JST).",
+      "interpretation": "H1 primary lever blocked at an Article-9 human gate (Mac auto-mode classifier blocks the 応募 form). No AI path around it. The ¥15k GO (highest-value draft) will likely lapse today unpasted; the ¥8k GO (apply-by 10/12) + fresh daily-scan GO remain the fallback. Hypothesis unchanged (blocked, not tested).",
+      "decision": "continue",
+      "next_action": "Owner gate held open and surfaced (OWNER_ACTION_REQUIRED top + human_queue). Founder cannot send (cloud, no browser) — each fire re-check the task; the moment sends resume, read the first CrowdWorks reply (Art.10). mac-local: once unblocked send 13513520 (¥8k, still open) + fresh daily GO under the price_plus_reply selection_rule, <=5/day combined.",
+      "deadline_trigger": "2026-10-10 the ¥15k apply-by expires today if unpasted; 2026-10-13 board kill if >=10 proposals & 0 replies in the first 5 live days."
+    },
+    "x": {
+      "fact": "小ネタ⑤ (hashtag reach test, posted 10/09) imp 5 partial / pc 0 (metrics fetched 2026-10-09T17:32, ~7h post). All 20 Phase-2 posts: profile_clicks 0. Day-9 numbers post live (2108576320963920101). Queue was EMPTY this fire -> authored 2 items: 小ネタ⑥ (hashtagged, am slot 10/10, the reach test's 2nd post) + Day-10 numbers (pm slot 10/10). Both validate (224w / 258w).",
+      "interpretation": "H2 unchanged (remains weakened/demoted to trust/log since Day-8). ⑤'s partial 5 imp keeps reach < 20, consistent with 'reach not angle is binding on a small-follower account' — the revenue-hypothesis read on H2 stays falsified. ⑥ supplies the second data point so the 10/11 trigger can be read cleanly.",
+      "decision": "continue",
+      "next_action": "小ネタ⑥ (2026-10-10-am.json) posts ~08:37 JST via x-phase2.yml 23:37 UTC cron (~29 min out); if still queued at 10:00 JST, Founder dispatches x-phase2.yml manually. Day-10 numbers (2026-10-10-pm.json) posts ~20:37 JST. Next fire: refresh metrics, read ⑤+⑥ median.",
+      "deadline_trigger": "2026-10-11: if 小ネタ⑤-⑥ median imp still <20 -> stop the 自動化の小ネタ tips series, keep only the daily 第2弾 Day N numbers post."
+    },
+    "coconala_proposals": {
+      "fact": "5 proposals sent (last 10/05), 0 replies. 10/09 scans (scan-1009 + scan-1009pm) found 0 new GO. Widened-lane cumulative still well under the 10-proposal kill threshold. mac-local inbox-1010am + scan-1010 scheduled from 10/10 10:00 JST.",
+      "interpretation": "H1 secondary lane: unproven reply rate persists (0/5). Not yet at the 10/12 kill (>=10 widened-lane proposals & 0 replies). Hypothesis unchanged — thin supply (few GO per scan) is the limiter, as expected for this pool.",
+      "decision": "continue",
+      "next_action": "mac-local: re-screen open 公開依頼 under price_plus_reply selection_rule, send <=5/day combined with CrowdWorks; answer any reply <=12h under PG-1; do NOT pre-build before a reply (Art.5.5).",
+      "deadline_trigger": "2026-10-12: >=10 widened-lane proposals reach buyers with 0 replies -> stop proposing on Coconala (keep listing live)."
+    },
+    "coconala_listing": {
+      "fact": "Passive listing 4426150 live; 0 inquiries / 0 favorites (last dashboard snapshot 10/03 baseline: 30d views 8, mostly Sept). Inbox check folded into h1 tasks: 0 messages.",
+      "interpretation": "H3 unchanged (0 pull). Active listing work already stopped (Day-8). Keep live at zero cost.",
+      "decision": "continue",
+      "next_action": "No active work. Answer any inquiry <=12h (H1-grade demand) via mac-local.",
+      "deadline_trigger": "2026-10-15 revenue_deadline: still 0 inquiry -> remains stopped/live."
+    },
+    "booth": {
+      "fact": "BOOTH 8919052 live; 0 スキ / 0 sales / 0 messages (10/03 snapshot).",
+      "interpretation": "H3 unchanged, no pull. Zero-cost supply.",
+      "decision": "continue",
+      "next_action": "No work; keep live.",
+      "deadline_trigger": "2026-10-15: still 0 スキ/sales -> mark stopped."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode direct read this fire: 0 charges / 0 payment_intents. Gumroad/store funnel: no sales (sales-monitor, no new signal).",
+      "interpretation": "H4 unchanged. Dead funnel; rebuild negative-EV vs H1 (Day-1 diagnosis: Sept buyers left before the payment step). Zero-effort supply.",
+      "decision": "continue",
+      "next_action": "Keep live, zero effort. Founder reads Stripe each fire for the first charge (Art.10).",
+      "deadline_trigger": "Weekly review 2026-10-15 / any charge -> act end-to-end immediately."
+    },
+    "note": {
+      "fact": "note article #1 live (PV 5, 0 comments). New articles STOPPED (Day-7/8, owner-directed early trigger).",
+      "interpretation": "H2 content lane unchanged; no pull. Keep article #1 live at zero cost.",
+      "decision": "continue",
+      "next_action": "No new articles. No work unless a note_view/inquiry signal appears.",
+      "deadline_trigger": "Weekly review 2026-10-15 / any inquiry from note -> reconsider."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 live (HTTP 200 verified 10/06), in the JP funnel. 0 sales.",
+      "interpretation": "H4 unchanged; zero-cost supply. 10/07 404->stop trigger resolved.",
+      "decision": "continue",
+      "next_action": "No work until a sale or the 10/15 review.",
+      "deadline_trigger": "2026-10-15 review / any sale."
+    },
+    "etsy": {
+      "fact": "13 Etsy listings live; 0 sales / no new signal (sales-monitor).",
+      "interpretation": "H4 unchanged; dead funnel, zero-effort supply. Rebuild negative-EV vs H1.",
+      "decision": "continue",
+      "next_action": "Keep live, zero effort.",
+      "deadline_trigger": "Weekly review 2026-10-15 / any sale -> act."
+    }
+  }
+}

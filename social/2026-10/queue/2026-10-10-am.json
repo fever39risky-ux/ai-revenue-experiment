@@ -1,0 +1,16 @@
+{
+  "not_before": "2026-10-10T08:37:00+09:00",
+  "text": "自動化の小ネタ⑥\n\n「行を足すたびに数式を下までコピペ」をやめる一歩\n\n=ARRAYFORMULA(IF(A2:A=\"\",\"\",B2:B*C2:C))\n\n1行目に一回書くだけで、下の行は勝手に計算される\n行が増えても数式のコピペはもう要らん\n\n#スプレッドシート #業務効率化",
+  "series": "自動化の小ネタ",
+  "hypothesis": "H2",
+  "register_targeted": "C",
+  "reach_test": "Second data point of the pre-registered Day-8 hashtag reach test (STATE x_lane.day8_lever_preregistered + decisions 2026-10-08 L2). 小ネタ⑤ (10/09) + ⑥ (10/10) carry the same 2 buyer-searched hashtags (#スプレッドシート #業務効率化); 小ネタ①-④ (median imp 10, un-tagged) are the control. The 2026-10-11 X trigger reads median imp of ⑤-⑥: if still <20 -> stop the 自動化の小ネタ tips series, keep only the daily 第2弾 Day N numbers post.",
+  "voice_self_check": [
+    "一人称は僕(主語省略、僕視点)",
+    "軽い関西: 〜をやめる一歩 / もう要らん",
+    "具体的なコピペ可能なTips(ARRAYFORMULA+IFで空行ガード、列全体に自動適用)、本文にリンクなし",
+    "ハッシュタグは⑤と同一の2個(到達テストの第2点、本文のトピックに一致)",
+    "270加重バジェット内に収まるよう本文をトリム"
+  ],
+  "facts_source": "Day-8 weekly review 2026-10-08T2007 (X demoted to trust/log; hashtag reach test pre-registered, 小ネタ⑤ posted 10/09 imp partial 5). ⑥ queued 2026-10-10 00:07/08:07 founder fire as the test's second post so the 2026-10-11 trigger has 小ネタ⑤-⑥ to read."
+}
