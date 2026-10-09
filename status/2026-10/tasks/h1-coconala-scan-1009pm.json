@@ -13,9 +13,21 @@
   "not_before": "2026-10-09T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-08T15:57:43.931Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-09T12:03:09.613Z",
+  "result": "19:04 JST 10/09: 25 new requests (ids >5316038, up to 5317091) screened on the widened lane, 0 GO, 0 sent. Only build-fit post 5316878 (Google Sites 5p ¥80-100k) had 71 applicants within ~2h, is above the band, and needs work inside the buyer's Workspace plus a portfolio. The rest are experience/license/ToS-grey/creative. 5th straight 0-GO scan. Next h1-coconala-scan-1010pm (19:00 JST 10/10) created; scan-1010 (10:00) should use id > 5317091.",
+  "history": [
+    {
+      "ts": "2026-10-09T10:03:09.613Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-09T10:04:12.508Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:04 JST 10/09: 25 new requests (ids >5316038, up to 5317091) screened on the widened lane, 0 GO, 0 sent. Only build-fit post 5316878 (Google Sites 5p ¥80-100k) had 71 applicants within ~2h, is above the band, and needs work inside the buyer's Workspace plus a portfolio. The rest are experience/license/ToS-grey/creative. 5th straight 0-GO scan. Next h1-coconala-scan-1010pm (19:00 JST 10/10) created; scan-1010 (10:00) should use id > 5317091."
+    }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "id": "h1-coconala-scan-1010pm",
+  "title": "H1: evening Coconala re-scan (ids > last screened, 5317091 as of 10/09 19:04); send under PG-1 (widened lane, ≤5/day)",
+  "lane": "h1-proposals",
+  "detail": "Same as the 10:00 scan but evening. Widened lane (PROPOSAL_KIT §2/§2.5): any honestly-AI-deliverable digital task ¥3k–50k; prefer < 24h old, few applicants, ≤¥10k clear scope. On done: create the next evening scan (not_before next day 19:00 JST, id h1-coconala-scan-<MMDD>pm).",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 2,
+  "hypothesis": "H1",
+  "acceptance": "screen appended; each send logged with --grant PG-1; next evening scan task created",
+  "not_before": "2026-10-10T19:00:00+09:00",
+  "created_by": "mac-local",
+  "created_at": "2026-10-09T10:04:12.250Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
