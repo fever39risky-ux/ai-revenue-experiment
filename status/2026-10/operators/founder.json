@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Fire 2026-10-09T0807 complete (E2): signals 0 (Stripe direct 0/0, inbox 0, X nothing due), owner-crowdworks-proposal-permission still OPEN (binding G2 blocker; 13513659 ¥15k apply-by 10/10 time-critical), decision report green",
-  "next": "13:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent the 2 GO (13513659 FIRST) + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for first reply/inquiry/charge; (3) confirm mac-local scan-1009/inbox-1009am ran at 10:00 JST (0 GO? any reply?); (4) verify 小ネタ⑤ POSTED (08:37) + read its reach vs ①-④ (median ~10); watch 10/10 ¥15k apply-by, 10/11 X tips-stop (⑤-⑥ median<20), 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/20 G2 verdict",
+  "doing": "Fire 2026-10-09T1307 complete (E2): 0 new signals (Stripe 0/0, inbox 0, CW 0 new GO/1928, Coconala 0 GO/12, X ⑤ posted 12:03 reach unreadable). owner-crowdworks-proposal-permission OPEN (13513659 ¥15k apply-by 10/10 critical). Decision report green, stop_screen 5 motions.",
+  "next": "20:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent the 2 GO (13513659 FIRST, time-critical) + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X for first reply/inquiry/charge; (3) confirm mac-local scan-1009pm/inbox-1009pm ran at 19:00 JST (0 GO? any reply?); (4) read 小ネタ⑤ reach vs ①-④ control (median ~10); verify Day-9 numbers posted 20:37. Watch 10/10 ¥15k apply-by expiry, 10/11 X tips-stop (⑤-⑥ median<20), 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/20 G2 verdict",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-08T23:14:28.948Z"
+  "heartbeat_at": "2026-10-09T04:14:25.820Z"
 }
