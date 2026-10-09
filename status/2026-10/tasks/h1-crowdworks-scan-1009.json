@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-08T04:26:33.766Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-09T03:03:13.509Z",
+  "result": "10:03-10:10 JST 10/09: 1,928 listings pulled (1,029 released since 10/08 13:20), 36 passed pre-filter, 8 read, 0 new GO (lure-pattern PDF→Word ¥5k/file, ongoing staff posts with off-platform interview, track-record-gated rewrite, ¥30-50k over-scope bundle). FLAG: 13515088 is a word-for-word copy of Draft A's 13513659 from a different unverified account → lure/repost risk. Standing GO still open (13513659 32/3 apply-by 10/10; 13513520 30/7 apply-by 10/12), 0 sent: owner-crowdworks-proposal-permission still open. Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-09.md. Next: h1-crowdworks-scan-1010 created.",
+  "history": [
+    {
+      "ts": "2026-10-09T01:03:13.509Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-09T01:05:32.589Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:03-10:10 JST 10/09: 1,928 listings pulled (1,029 released since 10/08 13:20), 36 passed pre-filter, 8 read, 0 new GO (lure-pattern PDF→Word ¥5k/file, ongoing staff posts with off-platform interview, track-record-gated rewrite, ¥30-50k over-scope bundle). FLAG: 13515088 is a word-for-word copy of Draft A's 13513659 from a different unverified account → lure/repost risk. Standing GO still open (13513659 32/3 apply-by 10/10; 13513520 30/7 apply-by 10/12), 0 sent: owner-crowdworks-proposal-permission still open. Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-09.md. Next: h1-crowdworks-scan-1010 created."
+    }
+  ]
 }

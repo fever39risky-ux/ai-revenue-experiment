@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-08T15:56:31.682Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-09T03:02:15.263Z",
+  "result": "10:03 JST 10/09: Coconala /message 0, やることリスト 0, お知らせ no buyer items (newest = auto RPA job-intro mail 17h ago). 応募管理: 5 offers all still pending/editable, no buyer reply: 5311570 ¥8,000, 5311537 ¥10,000, 5303494 ¥30,000, 5311883 ¥3,000, 5303405 ¥8,000. Replies: none. Next h1-coconala-inbox-1009pm (not_before 19:00 JST 10/09) created.",
+  "history": [
+    {
+      "ts": "2026-10-09T01:02:15.263Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-09T01:03:13.405Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:03 JST 10/09: Coconala /message 0, やることリスト 0, お知らせ no buyer items (newest = auto RPA job-intro mail 17h ago). 応募管理: 5 offers all still pending/editable, no buyer reply: 5311570 ¥8,000, 5311537 ¥10,000, 5303494 ¥30,000, 5311883 ¥3,000, 5303405 ¥8,000. Replies: none. Next h1-coconala-inbox-1009pm (not_before 19:00 JST 10/09) created."
+    }
+  ]
 }

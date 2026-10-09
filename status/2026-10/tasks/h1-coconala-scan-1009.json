@@ -11,11 +11,23 @@
   "not_before": "2026-10-09T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-08T01:02:53.003Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": [],
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-09T03:05:32.695Z",
+  "result": "10:07 JST 10/09: 12 new requests (ids >5315782, up to 5316038) screened on the widened lane, 0 GO. Read 5: 5315997 (JobPosting JSON-LD ¥15k, but needs live-site implementation, the category min is ¥20k > budget, 19 applicants), 5315831 (rewrite/UI, 2y design + 'no AI-only designers'), 5316038 (AI chatbot ¥10-30k, 47 applicants, ongoing fees/integration), 5315970 (health-critical JA→DE letter + on-call), 5315822 (trial balance needs freee/弥生). Rest creative/ToS-grey. 0 sent (10/09 0/5). Screen appended to marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1010 created (scan-1009pm already exists for 19:00).",
+  "history": [
+    {
+      "ts": "2026-10-09T01:05:32.696Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-09T01:06:35.939Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:07 JST 10/09: 12 new requests (ids >5315782, up to 5316038) screened on the widened lane, 0 GO. Read 5: 5315997 (JobPosting JSON-LD ¥15k, but needs live-site implementation, the category min is ¥20k > budget, 19 applicants), 5315831 (rewrite/UI, 2y design + 'no AI-only designers'), 5316038 (AI chatbot ¥10-30k, 47 applicants, ongoing fees/integration), 5315970 (health-critical JA→DE letter + on-call), 5315822 (trial balance needs freee/弥生). Rest creative/ToS-grey. 0 sent (10/09 0/5). Screen appended to marketing/2026-10/h1/screens/2026-10-02.md. Next: h1-coconala-scan-1010 created (scan-1009pm already exists for 19:00)."
+    }
+  ],
   "hypothesis": "H1",
   "acceptance": "screen appended; proposals logged with --grant PG-1; next scan task created"
 }

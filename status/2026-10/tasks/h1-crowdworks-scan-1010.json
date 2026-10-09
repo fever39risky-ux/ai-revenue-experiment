@@ -1,0 +1,22 @@
+{
+  "id": "h1-crowdworks-scan-1010",
+  "title": "H1: daily CrowdWorks screen + proposals under PG-1 (≤5/day combined with Coconala)",
+  "lane": "h1-proposals",
+  "detail": "Same as h1-crowdworks-scan-1009 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-09T10:00 JST; first send any still-open GO from marketing/2026-10/h1/screens/crowdworks-2026-10-08.md (13513659 apply-by 10/10 — note 13515088 is a word-for-word duplicate from another account, lure risk; 13513520 apply-by 10/12) if owner-crowdworks-proposal-permission is resolved. Method: fetch /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] in-page and parse #vue-container data JSON (searchResult.job_offers; payment.fixed_price_payment.{min,max}_budget; entry.project_entry.num_application_conditions). Record in marketing/2026-10/h1/screens/crowdworks-2026-10-10.md. Profile: dedicated crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day 10:00 JST.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "screen file written; GO sent if permission exists; next scan task created",
+  "not_before": "2026-10-10T10:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-09T01:05:24.037Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
