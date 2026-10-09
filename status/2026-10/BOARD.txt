@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-09T03:08:19.202Z (JST 2026-10-09) ===
+=== Phase 2 board — 2026-10-09T05:09:54.053Z (JST 2026-10-09) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 7x/29min
 BOTTLENECK  RE-FRAMED 2026-10-08 (Day-8 review). The earlier binding constraint (channel/audience fit — Coconala 公開依頼's pool wrong for an honest solo-AI provider) is now LARGELY RESOLVED: the first CrowdWorks scan (10/08 13:26 JST) pulled 1,142 listings / ~25 fit / 2 GO on day 1 vs Coconala's ~67 screened / 1 GO over 7 days — the request-board model fits the proposal motion. The binding constraint has MOVED to two things: (1) a RUNTIME-PERMISSION send-block — the Mac's Claude auto-mode classifier blocks typing into the CrowdWorks 応募 form, so 0 of 2 GO drafts went out (owner-crowdworks-proposal-permission filed; owner must paste the drafts or whitelist unattended submission); and (2) an UNPROVEN REPLY RATE for a 0-review seller (5 Coconala proposals -> 0 replies). The fix is to clear the send-block and run CrowdWorks at the 5/day cap under the price_plus_reply selection (¥10-15k early-applicant jobs + free sample), the lever with the highest P(G2). X and passive stores stay low-effort/zero-effort; they are not the constraint.
 PRIORITY
@@ -8,7 +8,7 @@ PRIORITY
   - [founder] Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X is DEMOTED to trust/log: keep the daily Day-N numbers post (cron); the 10/09 hashtag reach test (小ネタ⑤, queued) is the final read — if 小ネタ⑤-⑥ still median<20 by 10/11, stop the tips series too.
   - [founder] SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5).
 OPERATORS
-  actions                working   STALE 12985m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 13107m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -17,12 +17,12 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 12556m lanes=
+  codex                  idle      STALE 12677m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      STALE 234m  lanes=strategy,x,h1-delivery,reporting
-      doing: Fire 2026-10-09T0807 complete (E2): signals 0 (Stripe direct 0/0, inbox 0, X nothing due), owner-crowdworks-proposal-permission still OPEN (binding G2 blocker; 13513659 ¥15k apply-by 10/10 time-critical), decision report green
-      next:  13:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent the 2 GO (13513659 FIRST) + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for first reply/inquiry/charge; (3) confirm mac-local scan-1009/inbox-1009am ran at 10:00 JST (0 GO? any reply?); (4) verify 小ネタ⑤ POSTED (08:37) + read its reach vs ①-④ (median ~10); watch 10/10 ¥15k apply-by, 10/11 X tips-stop (⑤-⑥ median<20), 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/20 G2 verdict
+  founder                idle      live 55m    lanes=strategy,x,h1-delivery,reporting
+      doing: Fire 2026-10-09T1307 complete (E2): 0 new signals (Stripe 0/0, inbox 0, CW 0 new GO/1928, Coconala 0 GO/12, X ⑤ posted 12:03 reach unreadable). owner-crowdworks-proposal-permission OPEN (13513659 ¥15k apply-by 10/10 critical). Decision report green, stop_screen 5 motions.
+      next:  20:07 JST 10/09 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent the 2 GO (13513659 FIRST, time-critical) + read first CrowdWorks reply (Art.10 act end-to-end); (2) re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X for first reply/inquiry/charge; (3) confirm mac-local scan-1009pm/inbox-1009pm ran at 19:00 JST (0 GO? any reply?); (4) read 小ネタ⑤ reach vs ①-④ control (median ~10); verify Day-9 numbers posted 20:37. Watch 10/10 ¥15k apply-by expiry, 10/11 X tips-stop (⑤-⑥ median<20), 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/20 G2 verdict
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
