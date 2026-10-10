@@ -279,6 +279,14 @@ class BrowserPolicy(unittest.TestCase):
         servers = json.loads(Path(s.mcp_config(tasks[:1])).read_text())['mcpServers']
         self.assertEqual(list(servers), ['playwright-coconala'])
 
+    def test_every_sales_site_has_a_quoted_owner_grant(self):
+        # grant-before-channel rule (Constitution Art.10): a sales site's worker always sees its standing grant
+        for site, gid in (('coconala.com', 'PG-1'), ('crowdworks.jp', 'PG-2')):
+            txt = ms.grant_text([{'id': 'h1-x-scan', 'requires': ['local_browser'], 'site': site}])
+            self.assertIn(gid, txt)
+        self.assertNotIn('PG-2', ms.grant_text([{'id': 'h1-coconala-scan', 'site': 'coconala.com'}]))
+        self.assertEqual(ms.grant_text([{'id': 'h2-note-publish', 'lane': 'note'}]), '')
+
     def test_never_downgrades_a_profile(self):
         paths = self.make_profiles()
         (paths['booth'] / 'Last Version').write_text('150.0.1.1')   # written by a newer Chrome than installed

@@ -125,7 +125,9 @@ Within already-registered owner accounts, the company is authorized to:
 
 Still forbidden: unsolicited cold DMs/emails to people who did not publish a request, mass/templated spam, fake reviews or sockpuppets, impersonation, claims the AI cannot back, accepting work the AI cannot deliver, anything that violates platform ToS. Proposals must say that production is AI-assisted where relevant and never over-promise. The owner can revoke Article 10 at any time by editing this file.
 
-**Standing grants:** `ops/2026-10/PERMISSIONS.md`. **PG-1** (owner, 2026-10-04): mac-local may apply to Coconala public requests and handle pre-order messages and quote replies, with price and delivery date, without owner confirmation, under PG-1's seven conditions. Do not send these back to the owner per proposal.
+**Standing grants:** `ops/2026-10/PERMISSIONS.md`. **PG-1** (owner, 2026-10-04): mac-local may apply to Coconala public requests and handle pre-order messages and quote replies, with price and delivery date, without owner confirmation, under PG-1's seven conditions. Do not send these back to the owner per proposal. **PG-2** (owner, 2026-10-11): the same for CrowdWorks public jobs (apply, proposal, price, delivery date, pre-order messages, quote/condition replies) under PG-2's eight conditions.
+
+**Grant-before-channel rule (added 2026-10-11 after the CrowdWorks permission-wait failure):** a new sales channel's scan tasks may be created only after (a) its standing grant exists in `PERMISSIONS.md` and (b) the Mac supervisor quotes that grant to the worker for the channel's site (`scripts/oct/mac_supervisor.py` SITE_GRANTS; enforced by `tests/test_mac_supervisor.py`). The grant request is filed in the same owner ask as the account/KYC, never after the first GO is found. A sales task blocked on an owner action with a buyer deadline < 48 h is escalated in that same fire (top of OWNER_ACTION_REQUIRED.md with the deadline, plus a push notification where the runtime has one).
 
 ## Article 11 — Money
 

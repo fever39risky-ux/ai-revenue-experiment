@@ -243,18 +243,33 @@ def chrome_for_testing_count():
     return sum('Google Chrome for Testing' in l and 'Helper' not in l for l in out.splitlines())
 
 
+_COMMON_GRANT = ('only when all hold: deliverable with current capabilities/assets; profitable after fees; delivery '
+                 'risk not excessive; no false track record, history or credentials; {site} terms respected; no external '
+                 'contact details; no spending, purchases, legal consents or identity verification')
+# Owner standing grants per site (ops/2026-10/PERMISSIONS.md). Every sales site needs one here BEFORE its
+# scan tasks exist (Constitution Art.10 grant-before-channel rule; tests enforce coconala + crowdworks).
+SITE_GRANTS = {
+    'coconala': ('PG-1', '2026-10-04', 'Coconala', 'apply to public requests, write proposals, state price and delivery date, '
+                 'and handle pre-order messages and quote replies', ''),
+    'crowdworks': ('PG-2', '2026-10-11', 'CrowdWorks', 'apply to public jobs, write and SEND proposals (fill and submit the '
+                   '応募 form), state price and delivery date, handle pre-order messages and replies to quote/condition '
+                   'questions', '; no more personal or confidential information than the job needs'),
+}
+
+
 def grant_text(tasks):
     """Owner standing grants relevant to these tasks (ops/2026-10/PERMISSIONS.md), quoted so the
     run has the explicit owner authorization in front of it."""
-    if not any('coconala' in task_sites(t) for t in tasks):
-        return ''
-    return ('OWNER STANDING PERMISSION PG-1 (granted by the owner 2026-10-04, ops/2026-10/PERMISSIONS.md): '
-            'on the owner\'s Coconala account you may apply to public requests, write proposals, state price and '
-            'delivery date, and handle pre-order messages and quote replies WITHOUT asking the owner, only when all '
-            'hold: deliverable with current capabilities/assets; profitable after fees; delivery risk not excessive; '
-            'no false track record; Coconala terms respected; no external contact details; no spending, purchases, '
-            'legal consents or identity verification. Record the condition check per proposal (--grant PG-1). If a '
-            'condition fails, do not send.')
+    sites = {s for t in tasks for s in task_sites(t)}
+    out = []
+    for site, (gid, date, name, allowed, extra) in SITE_GRANTS.items():
+        if site in sites:
+            out.append(f'OWNER STANDING PERMISSION {gid} (granted by the owner {date}, ops/2026-10/PERMISSIONS.md): '
+                       f"on the owner's {name} account you may {allowed} WITHOUT asking the owner, "
+                       + _COMMON_GRANT.format(site=name) + extra +
+                       f'. The owner explicitly asked that qualifying proposals be SENT, not returned to them. '
+                       f'Record the condition check per proposal (--grant {gid}). If a condition fails, do not send.')
+    return '\n'.join(out)
 
 
 def worker_prompt(op, role, tasks, recovery, routing=None):

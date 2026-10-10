@@ -2,7 +2,7 @@
 
 Status: **LIVE from 2026-10-08** (owner reported account + 本人確認 done, 00:5x JST 10/08; task `h1-crowdworks-scan-1008`). Browser: dedicated `crowdworks-profile` only (first login via `crowdworks-profile-init`, then headless). Was dormant until the owner completed the CrowdWorks KYC (human_queue `owner-crowdworks-kyc-2026-10-07`, `OWNER_ACTION_REQUIRED.md` top). The moment mac-local can log in through its dedicated CrowdWorks profile, the Founder creates a `h1-crowdworks-scan` task (requires:[local_browser], site:crowdworks) and mac-local works this playbook. Written now so time-to-first-proposal on the better-fit board is ~0 once the gate clears.
 
-Hypothesis: H1 (`status/2026-10/STATE.json`). Authority: Constitution Art. 10 (proposals to publicly-posted requests only; no cold DMs). Permissions: the owner ask states CrowdWorks proposals/messages run **under the same conditions as PG-1** (`ops/2026-10/PERMISSIONS.md`) — all 7 conditions gate every send, recorded per proposal exactly as on Coconala.
+Hypothesis: H1 (`status/2026-10/STATE.json`). Authority: Constitution Art. 10 (proposals to publicly-posted requests only; no cold DMs). Permissions: **PG-2** (owner, 2026-10-11, `ops/2026-10/PERMISSIONS.md`) — apply, propose, price, delivery date, pre-order messages and quote/condition replies without owner confirmation; all 8 PG-2 conditions gate every send (`--grant PG-2`). (Until 10/11 this file wrongly assumed PG-1 covered CrowdWorks; it did not — see the ops_failure event of 2026-10-11.)
 
 ## 0. Why CrowdWorks (the L3 bet, validated 2026-10-07)
 
@@ -39,7 +39,7 @@ Reuse the honest template in `PROPOSAL_KIT.md` §3 and the category drafts in `P
 
 ## 4. After sending / measurement
 
-- `node scripts/oct/ops.mjs event mac-local proposal_sent --grant PG-1 --request <url> --price <yen> --days <n> --conditions "1..7 ok: <one line each>"` + `signal mac-local proposal_sent 1 --channel crowdworks --evidence "<url>" --hypothesis H1`.
+- `node scripts/oct/ops.mjs event mac-local proposal_sent --grant PG-2 --request <url> --price <yen> --days <n> --conditions "1..8 ok: <one line each>"` + `signal mac-local proposal_sent 1 --channel crowdworks --evidence "<url>" --hypothesis H1`.
 - Buyer reply/question → `signal ... sales_conversation`, answer ≤12 h (draft technical replies with Founder).
 - Order → build via `PROPOSAL_KIT.md` §5; book revenue with the CrowdWorks order id only when payment is confirmed; fee booked as `crowdworks_fees`.
 - The number of proposals is **not** a KPI (PG-1): what counts is replies / consultations / orders / revenue.

@@ -89,26 +89,31 @@
   "priority_actions": [
     {
       "rank": 1,
+      "owner": "mac-local",
+      "action": "CrowdWorks under PG-2 (granted 10/11): crowdworks-profile-relogin (owner logs in, headed, once) → crowdworks-send-go-1011 sends 13521885 (apply-by 10/11) and 13513520 (apply-by 10/12) after re-checking each job; no owner confirmation per proposal."
+    },
+    {
+      "rank": 2,
       "owner": "founder+owner",
       "action": "UNBLOCK the CrowdWorks send-block (the binding constraint, Day-8 review). owner-crowdworks-proposal-permission is surfaced to OWNER_ACTION_REQUIRED top + human_queue: owner either pastes the 2 drafted GO on crowdworks.jp (~5 min; 13513659 ¥15k apply-by 10/10, 13513520 ¥8k apply-by 10/12) OR whitelists unattended CrowdWorks submission (then every future proposal goes out under PG-1 conditions). Founder: each fire re-check the task + read the first CrowdWorks/Coconala reply the moment sends resume (Art.10 -> act end-to-end)."
     },
     {
-      "rank": 2,
+      "rank": 3,
       "owner": "mac-local",
       "action": "PRIMARY G2 bet: CrowdWorks as the supply engine (validated 1,142 listings / 2 GO day-1). Once unblocked, send the 2 drafted GO FIRST, then scan daily (h1-crowdworks-scan-1009 10:00 JST) under the price_plus_reply SELECTION RULE — ¥10-15k small-scope objective-done jobs, early applicant (<=3rd-5th), free dummy-data sample up front — <=5/day combined with Coconala under PG-1. Kill check 10/13: >=10 proposals & 0 replies in the board's first 5 days."
     },
     {
-      "rank": 3,
+      "rank": 4,
       "owner": "mac-local",
       "action": "Coconala widened lane (secondary supply, thin): re-screen open 公開依頼 under the same price_plus_reply selection_rule and send <=5/day combined; answer any reply (5303405 or new) <=12h under PG-1. Do NOT pre-build delivery before a reply (Art.5.5). Trigger 10/12: >=10 widened-lane proposals reach buyers with 0 replies -> stop proposing on Coconala (keep listing live)."
     },
     {
-      "rank": 4,
+      "rank": 5,
       "owner": "founder",
       "action": "Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X is DEMOTED to trust/log: keep the daily Day-N numbers post (cron); the 10/09 hashtag reach test (小ネタ⑤, queued) is the final read — if 小ネタ⑤-⑥ still median<20 by 10/11, stop the tips series too."
     },
     {
-      "rank": 5,
+      "rank": 6,
       "owner": "founder",
       "action": "SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5)."
     }
@@ -369,5 +374,12 @@
     }
   ],
   "review_spec": "ops/2026-10/REVIEW_SPEC.md (weekly reviews 10/08, 10/15, 10/22, 10/29 at the 20:07 fire)",
-  "archive": "status/2026-10/STATE_ARCHIVE.jsonl (moved history; append-only, Founder-owned)"
+  "archive": "status/2026-10/STATE_ARCHIVE.jsonl (moved history; append-only, Founder-owned)",
+  "lessons": [
+    {
+      "date": "2026-10-11",
+      "id": "permission-wait-loss",
+      "lesson": "A sales channel was opened before its standing grant existed; a GO with a 48h apply-by lapsed while waiting on owner permission (13513659). Rule now: grant-before-channel (Constitution Art.10; SITE_GRANTS + test) and <48h-deadline owner asks are escalated in the same fire. PG-2 granted 10/11."
+    }
+  ]
 }

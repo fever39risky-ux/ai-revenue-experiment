@@ -1,0 +1,25 @@
+{
+  "id": "crowdworks-send-go-1011",
+  "title": "CrowdWorks: send still-open GO proposals NOW under PG-2 (13521885 apply-by 10/11, 13513520 apply-by 10/12) after re-checking each job",
+  "lane": "h1-proposals",
+  "detail": "Owner granted PG-2 (ops/2026-10/PERMISSIONS.md) on 2026-10-11: send qualifying CrowdWorks proposals WITHOUT owner confirmation. Headless, dedicated crowdworks-profile only. For each job, in deadline order: 13521885 (取扱説明書 PDF/紙→Word, ¥8,000/件, apply-by 10/11 — screen marketing/2026-10/h1/screens/crowdworks-2026-10-10.md; write the proposal from PROPOSAL_KIT §3 + the Draft A wording in crowdworks-2026-10-08.md, adapted: scans→OCR+manual check, 1 page sample first), then 13513520 (ドラマ情報のデータ分類 500件, ¥8,000, apply-by 10/12 — Draft B in crowdworks-2026-10-08.md). RE-CHECK FIRST on the job page: still 募集中, apply-by not passed, budget/scope/deadline/conditions unchanged vs the screen, applicant count, no new 'AI不可'/track-record/external-contact requirement. Then check PG-2 conditions 1-8; if all hold, fill and SUBMIT the 応募 form (price incl. tax as in the draft, 完了予定日 with ≥2 days buffer). Also re-check any other GO in crowdworks-2026-10-09.md still open. Do NOT send 13513659/13521406 (re-posted ¥15k PDF→Word text, lure pattern). Log each: event proposal_sent --grant PG-2 --request <url> --price <yen> --days <n> --conditions '1..8 ok: ...' + signal proposal_sent 1 --channel crowdworks. If a job closed or changed: log one line why not sent. If the auto-mode classifier still blocks submission despite PG-2 in your prompt: do NOT work around it; release --blocked-by owner-crowdworks-classifier-allow and say exactly which tool call was blocked.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "each listed job: sent (with PG-2 record) or a one-line reason; still-open GO count recorded in the screen file",
+  "assigned_to": "mac-local",
+  "after": [
+    "crowdworks-profile-relogin"
+  ],
+  "profile": "crowdworks",
+  "created_by": "founder",
+  "created_at": "2026-10-10T15:12:27.931Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

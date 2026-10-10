@@ -2,7 +2,7 @@
   "id": "h1-crowdworks-scan-1011",
   "title": "H1: daily CrowdWorks screen + proposals under PG-1 (≤5/day combined with Coconala)",
   "lane": "h1-proposals",
-  "detail": "Same as h1-crowdworks-scan-1010 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-10T22:30 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container data JSON). Public screening works while logged out. Sending needs owner-crowdworks-relogin-profile AND owner-crowdworks-proposal-permission; if both are done, send 13513520 Draft B (apply-by 10/12) first and check 13521885 (¥8k manual→Word, apply-by 10/11). Record in marketing/2026-10/h1/screens/crowdworks-2026-10-11.md. Profile: dedicated crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day 10:00 JST.",
+  "detail": "Same as h1-crowdworks-scan-1010 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-10T22:30 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container data JSON). Public screening works while logged out. PG-2 GRANTED 2026-10-11: send qualifying jobs WITHOUT owner confirmation (PG-2 conditions 1-8, --grant PG-2). Sending needs only the logged-in profile (crowdworks-profile-relogin). 13521885/13513520 are handled by crowdworks-send-go-1011. Record in marketing/2026-10/h1/screens/crowdworks-2026-10-11.md. Profile: dedicated crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day 10:00 JST.",
   "requires": [
     "local_browser"
   ],
