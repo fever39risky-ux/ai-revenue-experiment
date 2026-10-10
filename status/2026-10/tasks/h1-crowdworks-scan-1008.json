@@ -40,10 +40,21 @@
       "op": "mac-local",
       "action": "release",
       "note": "Screen DONE (1,142 listings pulled, ~25 fit, 11 read, 2 GO: 13513659 ¥15k, 13513520 ¥8k; marketing/2026-10/h1/screens/crowdworks-2026-10-08.md with drafts). 0 sent: proposal-form input blocked by local Claude auto-mode classifier (Unrequested Commit in a Connected App); not bypassed."
+    },
+    {
+      "ts": "2026-10-10T16:03:50.454Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-10T16:03:50.531Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out (confirmed this session 00:16-01:03 JST 10/11); screen for 10/08 already done; remaining sends are covered by crowdworks-send-go-1011 under PG-2 once logged in; browser not reopened"
     }
   ],
   "blocked_by": [
-    "owner-crowdworks-proposal-permission"
+    "owner-crowdworks-relogin-profile"
   ],
   "after": [
     "crowdworks-profile-init"

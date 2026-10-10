@@ -19,5 +19,20 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-10T15:15:48.496Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-10T16:03:50.370Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out: login page open 00:16-01:03 JST 10/11 (47 min, 'ログイン状態を保存する（30日間）' pre-ticked), owner did not log in; browser closed"
+    }
+  ],
+  "blocked_by": [
+    "owner-crowdworks-relogin-profile"
+  ]
 }
