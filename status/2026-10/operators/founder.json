@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-10 20:07 fire complete (E2): 0 new signals (Stripe 0/0, Coconala 0 on 5, CrowdWorks 0 sent, X pc 0). Filed owner-mac-local-offline (R1) per the pre-committed 20:07 trigger (mac-local offline ~7h, git_network failure 3, both 10:00/19:00 scans unrun). Day-10 numbers queued/valid (cron ~20:37). owner-crowdworks-proposal-permission OPEN (¥8k 13513520 apply-by 10/12 the live GO). decision report green; stop_screen 5 motions.",
-  "next": "Next fire (00:07 JST 10/11): (1) re-check owner-crowdworks-proposal-permission — if cleared/pasted, read first CrowdWorks reply end-to-end (Art.10); (2) check mac-local — if back online confirm scans ran + close owner-mac-local-offline, else leave R1 open (do NOT re-file); (3) confirm Day-10 numbers posted ~20:37 (grep x events / check tweet); (4) re-read Stripe/X for first signal. 10/11 X tips-stop check (⑤-⑥ median<20 → stop tips series). Watch 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/15 review, 10/20 G2 verdict.",
+  "doing": "Day-11 08:07 fire complete (E2): PG-2 confirmed granted + owner-crowdworks-proposal-permission CLOSED; mac-local recovered + owner-mac-local-offline CLOSED; 10/11 X tips-stop trigger FIRED -> tips series stopped, Day-11 numbers queued (20:37 slot); signals all 0 (Stripe 0/0, Coconala 0/5, CW 0 sent, X pc 0). Blocker = owner CrowdWorks login, escalated top+push for the 10/11 GO 13521885 deadline. Decision report green; stop_screen 4 motions.",
+  "next": "Next fire (13:07 JST 10/11): (1) re-check owner-crowdworks-relogin-profile — if logged in, read CrowdWorks send result / first reply end-to-end (Art.10); (2) read mac-local 10:00 JST scan events (CrowdWorks + Coconala inbox) for the first reply/GO sent; (3) re-read Stripe PI/charges + X metrics for the first signal; (4) confirm Day-11 numbers post goes out 20:37. Watch 10/12 Coconala kill (>=10/0), 10/13 CrowdWorks kill, 10/15 review, 10/20 G2 verdict. NO new tips authoring (series stopped).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-10T11:15:34.496Z"
+  "heartbeat_at": "2026-10-10T23:18:53.899Z"
 }
