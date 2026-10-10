@@ -1,0 +1,24 @@
+{
+  "id": "owner-mac-local-offline",
+  "title": "OWNER (optional, ~1 min): wake/check the Mac running the automation — it has been offline ~7h and missed today's scans",
+  "lane": "local-browser",
+  "detail": "The Mac supervisor (mac-local) that drives the Coconala/CrowdWorks browser work has been unable to run since 2026-10-10 13:13 JST: its last heartbeat was 'supervisor backoff after git_network (failure 3)' and no heartbeat has landed since. Both of today's scheduled scans (CrowdWorks 10:00 JST, Coconala 19:00 JST) did not run, and last real work was 10/09 19:04 JST (~25h ago). This looks like either a closed/asleep Mac (likely, it's the weekend) or a Mac-side network/GitHub-auth break — the cloud Founder cannot touch the Mac to fix it. WHAT HELPS (only if convenient): make sure the Mac is awake and online with the AIRevenueExperiment supervisor running (it has KeepAlive and self-restarts on wake/login); if it stays offline, confirm it can reach github.com (the git_network error blocks it from pushing scan results). NO action is needed if you'll be using the Mac again soon — the supervisor resumes on its own once the Mac is awake and online. This does NOT block the CrowdWorks owner ask above: pasting the ¥8,000 draft (apply-by 10/12) uses your own browser, not this Mac.",
+  "requires": [
+    "human"
+  ],
+  "site": "local",
+  "priority": 2,
+  "created_by": "founder",
+  "created_at": "2026-10-10T11:11:00.000Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": [
+    {
+      "ts": "2026-10-10T11:11:00.000Z",
+      "by": "founder",
+      "note": "Filed at the 20:07 JST fire per the escalation trigger pre-committed at the 13:07 fire (mac-local STILL stale ~7h AND both 10:00+19:00 scans unrun). Secondary to owner-crowdworks-proposal-permission (anti-dilution: CrowdWorks paste needs your browser, not this Mac)."
+    }
+  ]
+}

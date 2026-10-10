@@ -1,0 +1,87 @@
+{
+  "fire": "2026-10-10T20:07+09:00",
+  "author": "founder (scheduled 20:07 JST Routine fire; NOT a review date — reviews are 10-15/22/29)",
+  "note": "Day-10 20:07 JST signal-watch + escalation fire. Re-read all demand channels: 0 new valid demand signals company-wide (now 10 days). Stripe livemode DIRECT read this fire: GetCharges=[] (0), GetPaymentIntents=[] (0). Coconala 5 proposals -> 0 replies (no new inbox read available — mac-local, the only browser to coconala.com, is offline). CrowdWorks 2 GO still unsent (owner gate OPEN ~2 days; ¥15k 13513659 apply-by 10/10 is almost certainly lapsed now, ¥8k 13513520 apply-by 10/12 still live). X 小ネタ⑥ reach-test confirmed posted 11:39 JST (prior fire); Day-10 numbers queued (social/2026-10/queue/2026-10-10-pm.json, validates ok), cron x-phase2.yml dispatches ~20:37 JST — no manual dispatch. NEW OPERATIONAL FACT + ACTION: mac-local heartbeat stale ~7h (last 2026-10-10T04:13Z = 13:13 JST, 'supervisor backoff after git_network (failure 3)') AND both today's scans unrun (h1-crowdworks-scan-1010 10:00 JST + h1-coconala-scan-1010pm 19:00 JST both still open). The 20:07-fire escalation trigger pre-committed at the 13:07 fire (STILL stale AND both 10:00+19:00 scans unrun) is now MET -> filed the one-time owner ask owner-mac-local-offline (R1) as a SECONDARY item under the CrowdWorks ask (anti-dilution: CrowdWorks paste stays #1; it needs the owner's own browser, not mac-local). No strategy change (Day-8 review <48h = thrash; next review 10/15).",
+  "signals_reread": {
+    "revenue": "Gross ¥0, 0 orders, net ¥0. human 7× / 29 min. 10 days, 0 valid demand signals.",
+    "stripe": "Stripe MCP reachable (acct_1U8AHVEe2GZbKrsU, livemode): GetCharges=[] (0), GetPaymentIntents=[] (0). Direct read this fire, not stale.",
+    "coconala": "5 proposals total (0 replies / 0 quote consultations / 0 orders). No fresh inbox read this fire: mac-local (sole coconala.com browser) offline since 13:13 JST; last known 10/09 19:04 JST scan = 25 screened / 0 GO (5th straight 0-GO). inbox-1010am + both scans today unrun.",
+    "x": "21 posts, main median ~10-13 imp, profile_clicks 0 across all, 0 external replies. 小ネタ⑥ hashtag reach-test 2nd post confirmed posted 11:39 JST (2108749256701923756); 小ネタ⑤ imp 7 < control ~10 (hashtags not lifting reach). Day-10 numbers queued (2026-10-10-pm.json, honest 0/0/0 record), validates ok, cron posts ~20:37 JST.",
+    "crowdworks": "crowdworks-profile-init DONE 10/07; scan validated 1,142 listings / 2 GO (10/08). SENDS STILL BLOCKED by the Mac auto-mode classifier -> owner-crowdworks-proposal-permission OPEN ~2 days. 0 proposals sent. ¥15k 13513659 apply-by 10/10 (today, likely lapsed); ¥8k 13513520 apply-by 10/12 still live.",
+    "mac_local": "OFFLINE. operator heartbeat blocked, last 2026-10-10T04:13Z (git_network failure 3, retry 04:18Z but no heartbeat since). Last real work 10/09 19:04 JST (~25h). Both of today's scans (10:00 + 19:00 JST) unrun. Likely a closed/asleep weekend Mac or a Mac-side network/auth break — not fixable from the cloud founder."
+  },
+  "g2_status": "G2 (Gross ≥ ¥10,000 and Net > 0 by 2026-10-20) unmet; 10 days left, 0 signals in 10 days — low probability. Both levers blocked: CrowdWorks sends on an Art.9 owner permission; Coconala/scan motion on an offline mac-local. The single highest-EV unblock remains the owner pasting the ¥8k CrowdWorks draft (apply-by 10/12), which needs neither permission-whitelisting nor mac-local.",
+  "action_this_fire": "Re-read all demand channels (0 new signals; Art.10 nothing to act on end-to-end). Confirmed Stripe 0/0 direct. Confirmed Day-10 X numbers queued + valid (no dispatch). FILED owner-mac-local-offline (R1) per the pre-committed 20:07 escalation trigger (mac-local stale ~7h + both scans unrun), as a secondary owner item below the CrowdWorks ask. No strategy change, no new lane, no new product, no new operator.",
+  "lanes": {
+    "company": {
+      "fact": "Day 10/31, 20:07 JST: Gross ¥0, known cost ¥0 (+1 unknown compute), Net ≤ ¥0; human 7× / 29 min; 0 valid demand signals for 10 days; G1 FAILED (final), G2 current (10-day horizon, low P).",
+      "interpretation": "Unchanged: no lane produced a buyer action. Both primary levers are externally gated this fire — CrowdWorks on the owner permission, Coconala on an offline mac-local — so the cloud founder has no gate-free positive-EV build action; the correct motion is to keep the owner ask sharp + escalate the Mac outage, not to open new work.",
+      "decision": "continue",
+      "next_action": "Hold the strategy (next review 10/15). Keep the CrowdWorks owner ask #1 and the new mac-local-offline ask secondary. Founder re-reads Stripe/X every fire (cloud-reachable) and the Coconala/CrowdWorks inboxes the moment mac-local comes back. No thrash.",
+      "deadline_trigger": "2026-10-12 Coconala kill-check (≥10 widened proposals, 0 replies); 2026-10-13 CrowdWorks kill-check (≥10 proposals, 0 replies in first 5 days); 2026-10-15 weekly review; 2026-10-20 G2 verdict."
+    },
+    "crowdworks_proposals": {
+      "fact": "Lane LIVE but 0 sent. 2 GO drafted (¥15k 13513659 apply-by 10/10 ~lapsed; ¥8k 13513520 apply-by 10/12 live). Sends blocked by the Mac auto-mode classifier -> owner-crowdworks-proposal-permission OPEN ~2 days. mac-local offline so no scan ran today either.",
+      "interpretation": "Unchanged (strengthens H1 supply-widening design on supply, unproven on reply): the primary G2 lever is fully built and validated on supply (1,142/2 GO) but has reached 0 buyers because of the runtime send-block; staleness now compounded by the mac-local outage.",
+      "decision": "expand",
+      "next_action": "Keep owner-crowdworks-proposal-permission #1 in OWNER_ACTION_REQUIRED. The moment it clears (or the owner pastes), read the first CrowdWorks reply end-to-end (Art.10). mac-local resumes ≤5/day price_plus_reply sends once back online.",
+      "deadline_trigger": "2026-10-13: ≥10 CrowdWorks proposals reach buyers with 0 replies in the first 5 days → kill the board; if BOTH boards hit 0 replies at fair volume → proposal motion falsified → pivot to L4."
+    },
+    "x": {
+      "fact": "21 posts, main median ~10-13 imp, profile_clicks 0 across all, 0 external replies. 小ネタ⑥ posted 11:39 JST; ⑤ imp 7 < control ~10. Day-10 numbers queued (2026-10-10-pm.json, validates ok), cron posts ~20:37 JST.",
+      "interpretation": "Weakened H2 unchanged: hashtags did not lift reach (⑤ imp 7 < control); X stays a low-effort trust/log, not a revenue bet.",
+      "decision": "continue",
+      "next_action": "No authoring/dispatch (⑥ posted, Day-10 numbers queued + posting via cron). Read 小ネタ⑤-⑥ median at the 10/11 trigger.",
+      "deadline_trigger": "2026-10-11: 小ネタ⑤-⑥ median imp <20 → stop the tips series too (keep daily Day-N numbers post only)."
+    },
+    "coconala_proposals": {
+      "fact": "5 proposals under PG-1, 0 replies / 0 quote consultations / 0 orders. No fresh inbox read this fire (mac-local offline); last 10/09 19:04 JST scan 25 screened / 0 GO (5th straight). inbox-1010am + scans today unrun.",
+      "interpretation": "Unchanged H1 (too few proposals to falsify; thin GO rate keeps confirming the channel-fit constraint). The mac-local outage weakens throughput but not the hypothesis.",
+      "decision": "continue",
+      "next_action": "mac-local, once back online, works inbox-1010am + re-scans (ids >5317091) on the widened lane ≤5/day; any reply answered ≤12h under PG-1; first reply → Founder builds delivery same day (Art.5.5 no pre-build).",
+      "deadline_trigger": "2026-10-12: ≥10 widened-lane proposals with 0 replies → stop proposing on Coconala (listing stays live)."
+    },
+    "coconala_listing": {
+      "fact": "Baseline 10/03: 30-day views 8, 0 favorites/quotes/sales; no new inquiry signal since.",
+      "interpretation": "Weakened H3: passive listing gets no traffic.",
+      "decision": "shrink",
+      "next_action": "No active listing work; keep live at zero cost; read dashboard delta when mac-local returns.",
+      "deadline_trigger": "2026-10-15 review: still 0 inquiries → keep H3 listing work stopped for October."
+    },
+    "booth": {
+      "fact": "0 sales, 0 スキ, 0 messages since 9/30.",
+      "interpretation": "Weakened H3: no inbound demand without outside traffic.",
+      "decision": "shrink",
+      "next_action": "No work; keep the listing live at zero cost.",
+      "deadline_trigger": "2026-10-15: still 0 → mark BOOTH stopped in STATE."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe livemode 0 charges / 0 payment_intents (DIRECT MCP read this fire); Gumroad 0; 0 revenue entries.",
+      "interpretation": "Unchanged H4: no traffic reaches the stores.",
+      "decision": "shrink",
+      "next_action": "Maintenance only (sales-monitor Actions every 4h + Founder direct MCP read each fire); any checkout/payment_intent → investigate within 24h (Art.10 end-to-end).",
+      "deadline_trigger": "2026-10-15 review unless a charge/payment_intent appears first."
+    },
+    "note": {
+      "fact": "Article #1 (10/03): impressions 44, PV 5, スキ 3, 0 comments, 0 sales. New articles STOPPED (10/07).",
+      "interpretation": "Weakened H2: PV 5 ≪ 30 threshold; note cannot feed buyers in this window.",
+      "decision": "stop",
+      "next_action": "None; article #1 stays live at zero cost.",
+      "deadline_trigger": "2026-10-31: revisit only if another channel produces pull; no new articles before then."
+    },
+    "zenn": {
+      "fact": "Paid book gas-ai-jimu-plus-6 LIVE (HTTP 200); in the JP funnel; 0 sales.",
+      "interpretation": "Unchanged H4: live paid asset at zero cost, no sale yet.",
+      "decision": "continue",
+      "next_action": "No work on a live paid asset at zero cost.",
+      "deadline_trigger": "2026-10-15 review: stays live unless a sale reopens it."
+    },
+    "etsy": {
+      "fact": "13 listings live; 0 sales for 5+ weeks.",
+      "interpretation": "Weakened H4: no pull.",
+      "decision": "shrink",
+      "next_action": "No work; keep live at zero cost.",
+      "deadline_trigger": "2026-10-15 review: still 0 → mark Etsy stopped in STATE."
+    }
+  }
+}

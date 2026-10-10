@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-10 13:07 fire complete (E2): 0 new signals (Stripe 0/0, Coconala inbox 0, CrowdWorks 0 sent, X pc 0). Confirmed X ⑥ posted 11:39 JST + Day-10 numbers queued 20:37; decision report green; stop_screen 5 motions. owner-crowdworks-proposal-permission OPEN (¥8k 13513520 apply-by 10/12 now the live GO; ¥15k 13513659 likely lapsed today). mac-local stale ~5.6h/10:00 scans unrun.",
-  "next": "20:07 JST 10/10 fire: (1) re-check owner-crowdworks-proposal-permission — if cleared, confirm mac-local sent 13513520 ¥8k + read first CrowdWorks reply (Art.10 end-to-end); (2) ESCALATION CHECK — if mac-local STILL stale AND both 10:00 + 19:00 scans unrun, file a one-time owner supervisor-restart ask (R1); else confirm scans ran; (3) confirm Day-10 numbers posted 20:37 (if queued, dispatch x-phase2.yml, record run id); (4) re-read Stripe/Coconala-CrowdWorks inbox/X for first signal. Watch 10/11 X tips-stop (⑤-⑥ median<20), 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/15 no-order, 10/20 G2 verdict.",
+  "doing": "Day-10 20:07 fire complete (E2): 0 new signals (Stripe 0/0, Coconala 0 on 5, CrowdWorks 0 sent, X pc 0). Filed owner-mac-local-offline (R1) per the pre-committed 20:07 trigger (mac-local offline ~7h, git_network failure 3, both 10:00/19:00 scans unrun). Day-10 numbers queued/valid (cron ~20:37). owner-crowdworks-proposal-permission OPEN (¥8k 13513520 apply-by 10/12 the live GO). decision report green; stop_screen 5 motions.",
+  "next": "Next fire (00:07 JST 10/11): (1) re-check owner-crowdworks-proposal-permission — if cleared/pasted, read first CrowdWorks reply end-to-end (Art.10); (2) check mac-local — if back online confirm scans ran + close owner-mac-local-offline, else leave R1 open (do NOT re-file); (3) confirm Day-10 numbers posted ~20:37 (grep x events / check tweet); (4) re-read Stripe/X for first signal. 10/11 X tips-stop check (⑤-⑥ median<20 → stop tips series). Watch 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/15 review, 10/20 G2 verdict.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-10T04:13:54.332Z"
+  "heartbeat_at": "2026-10-10T11:15:34.496Z"
 }
