@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-10T20:07:00+09:00",
-  "day": 10,
-  "day_note": "Day 10, 20:07 JST signal-watch fire (NOT a review — next review 10/15): 0 new valid demand signals company-wide (now 10 days). Stripe livemode DIRECT 0 charges/0 PI. Coconala 5 proposals -> 0 replies (no fresh inbox read — mac-local offline). CrowdWorks 2 GO still unsent (owner gate OPEN ~2 days; ¥15k 13513659 apply-by 10/10 ~lapsed, ¥8k 13513520 apply-by 10/12 live). X 小ネタ⑥ posted 11:39 JST, ⑤ imp 7<control; Day-10 numbers queued (2026-10-10-pm.json, validates ok, cron ~20:37). ESCALATION EXECUTED: mac-local stale ~7h (last heartbeat 04:13Z, git_network failure 3) AND both 10:00+19:00 JST scans unrun -> the 20:07 trigger pre-committed at 13:07 is MET -> filed owner-mac-local-offline (R1) as a SECONDARY owner item below the CrowdWorks ask (CrowdWorks paste needs the owner browser, not the Mac). No strategy change (Day-8 review <48h = thrash). Decision report 2026-10-10T2007 green.",
+  "as_of": "2026-10-11T00:07:00+09:00",
+  "day": 11,
+  "day_note": "Day 11, 00:07 JST signal-watch fire (NOT a review — next review 10/15): 0 new valid demand signals company-wide (now 11 days). Stripe livemode DIRECT 0 charges/0 PI (read this fire). Coconala 5 proposals -> 0 replies (mac-local 22:30 JST 10/10 inbox 0). CrowdWorks 2 GO still unsent — gate now DOUBLE: owner-crowdworks-proposal-permission OPEN + crowdworks-profile LOGGED OUT (owner-crowdworks-relogin-profile, filed by mac-local 10/10). Draft A ¥15k 13513659 LAPSED (apply-by 10/10 passed); only Draft B ¥8k 13513520 (apply-by 10/12) still live. mac-local BACK ONLINE — ran 22:30 JST 10/10 after the weekend outage and heartbeated live -> owner-mac-local-offline CLOSED (R1 self-resolved via KeepAlive, no owner action). X 10/11 tips-stop trigger FIRED: 小ネタ⑤(hashtagged) imp7 / ⑥ imp4 -> median 5.5 <20, pc 0 -> STOPPED the 自動化の小ネタ tips series (redesign L1); keep only the daily Day-N numbers post. Replaced the cap-delayed Day10 queue item (昨日 10/09 — would post stale on 10/11, Art.12) with an accurate Day11 (昨日 10/10, validates 242w). No strategy pivot (no new demand evidence; Day-8 L3 bet still in its first 5-day window, kill 10/13). Decision report 2026-10-11T0007.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -105,7 +105,7 @@
     {
       "rank": 4,
       "owner": "founder",
-      "action": "Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X is DEMOTED to trust/log: keep the daily Day-N numbers post (cron); the 10/09 hashtag reach test (小ネタ⑤, queued) is the final read — if 小ネタ⑤-⑥ still median<20 by 10/11, stop the tips series too."
+      "action": "Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X is DEMOTED to trust/log, and as of 10/11 the 自動化の小ネタ tips series is STOPPED (10/11 trigger fired, median 5.5<20) — keep ONLY the daily Day-N numbers post via cron. No X sales resources."
     },
     {
       "rank": 5,
@@ -206,9 +206,10 @@
     "metrics": "social/2026-10/metrics.json",
     "medians_to_date": "13 posts through Day8. 小ネタ①-④ (the clean un-hashtagged AFTER-reaim control) impressions 12/9/11/7 -> median 10 (<20); profile_clicks 0 / external replies 0 / inquiries 0 across ALL 13 posts (fetched 10:54Z 10/08). Day-8 H2 threshold (median>=20 AND clicks>0) MISSED -> 10/08 X trigger FIRED -> X DEMOTED to trust/log (see day8_verdict). Reach (not angle) is binding; 10/09 hashtag reach test queued.",
     "day8_verdict": "2026-10-08 Day-8 review: sales_channel = STOP (X not a G2/G3 revenue bet). KEEP low-effort: daily 第2弾 Day N numbers (honesty record). KEEP + test: 自動化の小ネタ series with the pre-registered 10/09 hashtag reach test (小ネタ⑤ queued, #スプレッドシート #業務効率化; ①-④ median 10 as control). If 小ネタ⑤-⑥ still median<20 by 10/11 -> stop the tips series too, keep only Day-N numbers.",
+    "day11_verdict": "2026-10-11 00:07 fire: the pre-registered 10/11 tips-stop trigger FIRED. 小ネタ⑤(10/09, hashtagged #スプレッドシート #業務効率化) imp 7, 小ネタ⑥(10/10) imp 4 -> median 5.5 <20; profile_clicks 0 on both. The hashtag L1 reach test did NOT beat the un-hashtagged ①-④ baseline (median 10). DECISION: STOP the 自動化の小ネタ tips series (redesign L1 logged). Keep ONLY the daily 第2弾 Day N numbers post (honesty record, Art.12, ~0 cost via cron). No X sales resources; reach on a small-follower account is confirmed binding and un-moved by angle (10/04 reaim) or discoverability (10/09 hashtags).",
     "queued": [
-      "2026-10-08-pm.json not_before 20:37 JST 10/08 — 第2弾 Day8 numbers (10/07 CLOSED: 0売上/0コスト/0人間介入; 提案累計5件・返信0・今日が見直し日). 211w, validates",
-      "2026-10-09-am.json not_before 08:37 JST 10/09 — 自動化の小ネタ⑤ (QUERY複数範囲結合) WITH hashtags #スプレッドシート #業務効率化 — the pre-registered Day-8 reach test (①-④ median 10 as control). 251w, validates"
+      "2026-10-11-am.json not_before 08:37 JST 10/11 — 第2弾 Day11 numbers (10/10 CLOSED: 0売上/0コスト/0人間介入; CrowdWorks許可待ち＋ログイン切れで未送信, ココナラ5件返信0). 242w, validates. REPLACED the cap-delayed 2026-10-10-pm.json (Day10, 昨日10/09) which the 2/day JST cap held past its date -> would have posted stale on 10/11 (Art.12).",
+      "(tips series 自動化の小ネタ: STOPPED 2026-10-11 — no more queued; see day11_verdict)"
     ],
     "posted_small_series": "小ネタ① 2106932456595013675 / ② 2107257024505344354 / ③ 2107658549438394432 / ④ 2108027645510160720 (all posted; ④ 02:52 JST 10/08).",
     "first_check": "2026-10-04",
@@ -245,15 +246,15 @@
         "surfaced_to_top": "2026-10-08 Day-8 review"
       },
       {
-        "id": "owner-mac-local-offline",
-        "filed": "2026-10-10T20:07 JST (founder, R1 escalation)",
-        "category": "infra/ops (optional)",
-        "ask": "The automation Mac (mac-local) has been offline since 13:13 JST (git_network backoff, no heartbeat since) and missed both of today's scans (CrowdWorks 10:00 + Coconala 19:00 JST). Likely a closed weekend Mac. Owner (only if convenient): wake/online the Mac — the KeepAlive supervisor self-restarts; if it stays offline, confirm it can reach github.com. No urgent action; resumes on its own. Does NOT block the CrowdWorks paste (your own browser).",
-        "why_owner": "A Mac-side outage the cloud Founder cannot fix; the Mac is the sole browser to coconala.com/crowdworks.jp. Secondary to owner-crowdworks-proposal-permission (anti-dilution).",
-        "surfaced_to_top": "2026-10-10 20:07 fire"
+        "id": "owner-crowdworks-relogin-profile",
+        "filed": "2026-10-10T22:30 JST (mac-local, during h1-crowdworks-scan-1010)",
+        "category": "login (CrowdWorks only, ~2 min)",
+        "ask": "The dedicated crowdworks-profile (Google OAuth) is LOGGED OUT (header shows ログイン/会員登録). Public listings still read, but NO proposal can be sent from a logged-out profile. ONLY needed if the owner chooses option (b) unattended submission; option (a) self-paste uses the owner's own browser. Re-login at crowdworks.jp in the crowdworks-profile until the header shows マイページ.",
+        "why_owner": "A session login the cloud Founder and an operator cannot perform (Google OAuth, Art.9). Pairs with owner-crowdworks-proposal-permission — both are needed before unattended CrowdWorks sends."
       }
     ],
-    "note": "CrowdWorks KYC DONE (owner, 2026-10-08 ~00:50 JST); owner logged into the dedicated crowdworks-profile. The scan ran (1,142 listings / 2 GO) but SENDS are blocked by the Mac runtime classifier -> owner-crowdworks-proposal-permission is the one open owner ask (the binding blocker on the primary supply lane). owner-crowdworks-login remains CLOSED (superseded)."
+    "closed_this_fire": "owner-mac-local-offline CLOSED 2026-10-11 00:14 JST: mac-local back online (ran 22:30 JST 10/10, heartbeat live) — R1 self-resolved via KeepAlive, no owner action taken (not counted as a human intervention).",
+    "note": "CrowdWorks KYC DONE (owner, 2026-10-08). The primary supply lane now has a DOUBLE gate: owner-crowdworks-proposal-permission (Mac runtime classifier blocks the 応募 form) + owner-crowdworks-relogin-profile (profile logged out 10/10). Draft A ¥15k 13513659 LAPSED (apply-by 10/10); only Draft B ¥8k 13513520 (apply-by 10/12) is paste-able. Option (a) self-paste needs NEITHER gate cleared; option (b) unattended needs BOTH. owner-crowdworks-login remains CLOSED (superseded)."
   },
   "reviews": [
     "2026-10-04",
@@ -267,6 +268,11 @@
     "doc": "ops/2026-10/WAKEUP.md"
   },
   "decisions": [
+    {
+      "date": "2026-10-11",
+      "level": "L1",
+      "decision": "10/11 tips-stop trigger FIRED (小ネタ⑤ imp7 / ⑥ imp4 -> median 5.5 <20, pc 0; hashtag test did not beat the un-hashtagged median-10 baseline). STOP the 自動化の小ネタ X tips series; keep ONLY the daily 第2弾 Day N numbers post (honesty record). Reach on a small-follower account is confirmed binding and un-moved by angle or hashtags. X stays trust/log only. owner-mac-local-offline closed (mac-local self-recovered)."
+    },
     {
       "date": "2026-10-08",
       "level": "L1/L2",
@@ -318,7 +324,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-10T1307.json",
+    "latest": "status/2026-10/decisions/2026-10-11T0007.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -330,7 +336,7 @@
     {
       "date": "2026-10-11",
       "lane": "x",
-      "rule": "NEW 2026-10-08: if 小ネタ⑤-⑥ (hashtagged, from 10/09) still show median imp <20 -> stop the 自動化の小ネタ tips series too; keep ONLY the daily 第2弾 Day N numbers post (honesty record)."
+      "rule": "RESOLVED 2026-10-11 (00:07 fire): FIRED — 小ネタ⑤ imp 7 / ⑥ imp 4 -> median 5.5 <20, pc 0 -> STOPPED the 自動化の小ネタ tips series (redesign L1). Keep ONLY the daily 第2弾 Day N numbers post. No further X tips triggers; X is trust/log only."
     },
     {
       "date": "2026-10-12",

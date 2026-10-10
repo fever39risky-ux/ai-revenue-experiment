@@ -15,24 +15,23 @@ CrowdWorks の初回スキャンで**条件の合う依頼が2件**見つかり�
 
 **次のどちらか1つ**を選んでください：
 
-- **(a) ご自身で2件貼り付け（約5分）** — 下書きは `marketing/2026-10/h1/screens/crowdworks-2026-10-08.md` にあります：
-  - Draft A: https://crowdworks.jp/public/jobs/13513659 （PDF→Word、¥15,000、**応募期限 10/10**）
-  - Draft B: https://crowdworks.jp/public/jobs/13513520 （ドラマ分類、¥8,000、応募期限 10/12）
-- **(b) 無人送信を許可** — Mac の Claude Code 設定で `playwright-crowdworks` の MCP ブラウザツールを許可、または `ops/2026-10/PERMISSIONS.md` に PG-1 を CrowdWorks まで明示拡張。以後の CrowdWorks 提案は **PG-1 の7条件のもと**、オーナー操作なしで自動送信されます。
+- **(a) ご自身で貼り付け（約3分・ご自身のブラウザ）** — 下書きは `marketing/2026-10/h1/screens/crowdworks-2026-10-08.md` にあります：
+  - Draft B: https://crowdworks.jp/public/jobs/13513520 （ドラマ分類、¥8,000、**応募期限 10/12 ＝ 残り1日・いま貼れる唯一の案件**）
+  - ~~Draft A: 13513659（PDF→Word、¥15,000、応募期限 10/10）~~ → **10/10で締切超過・応募不可**。
+- **(b) 無人送信を許可** — Mac の Claude Code 設定で `playwright-crowdworks` の MCP ブラウザツールを許可、または `ops/2026-10/PERMISSIONS.md` に PG-1 を CrowdWorks まで明示拡張。**加えて、下記の再ログイン**も必要です（2つ揃って初めて無人送信が成立）。以後の CrowdWorks 提案は **PG-1 の7条件のもと**、オーナー操作なしで自動送信されます。
 
 これは G2（10/20 までに売上¥10,000）に向けた**主力の供給レーン**の律速です。どちらを選んでも、以後の提案文・価格・納期の判断はAIが代行します（task `owner-crowdworks-proposal-permission`）。
 
 - ✅ CrowdWorks アカウント作成＋本人確認：完了（2026-10-08 オーナー報告）。
 
-### ℹ️ 任意・約1分：自動化用 Mac がオフライン（今日のスキャン未実行）
+### 🥈 任意・約2分：CrowdWorks に再ログイン（無人送信=上記(b)を選ぶ場合のみ必要）
 
-自動化を動かしている Mac（mac-local）が **2026-10-10 13:13 JST 以降オフライン**で、今日の2回のスキャン（CrowdWorks 10:00 / ココナラ 19:00 JST）が実行されませんでした（最後のハートビートは `git_network` エラーでの待機）。週末で Mac が閉じているだけの可能性が高いです。
+10/10 22:30 JST のスキャンで、CrowdWorks 専用プロファイル（`crowdworks-profile`、Google OAuth）が**ログアウト状態**になっていることが分かりました（ヘッダーが「ログイン/会員登録」表示）。公開依頼の閲覧はできますが、**ログアウト状態では提案送信ができません**。
 
-- **都合がよければ**：Mac を起動しオンラインにしてください。監視プロセスは KeepAlive で**自動復帰**します。オフラインが続く場合のみ github.com に到達できるかご確認を。
-- **急ぎの操作は不要**：Mac を次に使えば自動で再開します。
-- これは上の CrowdWorks の依頼を**ブロックしません**（¥8,000 の下書き貼り付けはご自身のブラウザで可能・応募期限 10/12）。
+- **上記(a)（ご自身で貼り付け）を選ぶ場合は不要**です。
+- 上記(b)（無人送信を許可）を選ぶ場合のみ、専用プロファイルで crowdworks.jp に再ログインしてください（ヘッダーが「マイページ」表示になれば完了）。プロファイルパス：`.../AIRevenueExperiment/browser-profiles/crowdworks-profile`。
 
-task `owner-mac-local-offline`。
+task `owner-crowdworks-relogin-profile`。
 
 ---
 

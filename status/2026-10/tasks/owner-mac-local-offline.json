@@ -10,15 +10,21 @@
   "priority": 2,
   "created_by": "founder",
   "created_at": "2026-10-10T11:11:00.000Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
+  "result": "RESOLVED 2026-10-11 00:14 JST: mac-local back online — ran 22:30 JST 10/10 (Coconala 0 GO/56, CrowdWorks 0 sendable/1232, inbox 0 replies) and heartbeated live ~100m ago. No owner action needed; the KeepAlive supervisor self-recovered (weekend-asleep Mac woke).",
   "history": [
     {
       "ts": "2026-10-10T11:11:00.000Z",
       "by": "founder",
       "note": "Filed at the 20:07 JST fire per the escalation trigger pre-committed at the 13:07 fire (mac-local STILL stale ~7h AND both 10:00+19:00 scans unrun). Secondary to owner-crowdworks-proposal-permission (anti-dilution: CrowdWorks paste needs your browser, not this Mac)."
+    },
+    {
+      "ts": "2026-10-10T15:13:43.400Z",
+      "op": "founder",
+      "action": "done",
+      "note": "RESOLVED 2026-10-11 00:14 JST: mac-local back online — ran 22:30 JST 10/10 (Coconala 0 GO/56, CrowdWorks 0 sendable/1232, inbox 0 replies) and heartbeated live ~100m ago. No owner action needed; the KeepAlive supervisor self-recovered (weekend-asleep Mac woke)."
     }
   ]
 }
