@@ -13,9 +13,21 @@
   "not_before": "2026-10-10T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-09T10:04:12.250Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-10T14:28:34.702Z",
+  "result": "Covered by the combined 22:25 JST scan recorded under h1-coconala-scan-1010 (ids up to 5318673, 0 GO). Next h1-coconala-scan-1011pm created.",
+  "history": [
+    {
+      "ts": "2026-10-10T13:28:34.702Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-10T13:28:35.192Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Covered by the combined 22:25 JST scan recorded under h1-coconala-scan-1010 (ids up to 5318673, 0 GO). Next h1-coconala-scan-1011pm created."
+    }
+  ]
 }

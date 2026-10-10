@@ -1,0 +1,21 @@
+{
+  "id": "h1-coconala-scan-1011",
+  "title": "H1: daily Coconala request re-scan (ids > 5318673 as of 10/10 22:25); send under PG-1 (widened lane, ≤5/day)",
+  "lane": "h1-proposals",
+  "detail": "Scan new public requests (https://coconala.com/requests?recruiting=true&sort=new) since the last screened id (5318673 as of 10/10 22:25) under the WIDENED lane (PROPOSAL_KIT §2/§2.5): any honestly-AI-deliverable digital task ¥3k–50k; prefer few applicants, ¥10k–15k, objective done-condition, free-sample risk reversal. Send under PG-1 when conditions 1-7 hold (log each). Cap ≤5/day combined with CrowdWorks. Tip: fetch /requests/<id> in-page (DOMParser) instead of navigating; navigations hung ~1h twice on 10/10. On done: create tomorrow's scan task (not_before next day 10:00 JST, id h1-coconala-scan-<MMDD>).",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 2,
+  "hypothesis": "H1",
+  "acceptance": "screen appended; proposals logged with --grant PG-1; next scan task created",
+  "not_before": "2026-10-11T10:00:00+09:00",
+  "created_by": "mac-local",
+  "created_at": "2026-10-10T13:28:34.808Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

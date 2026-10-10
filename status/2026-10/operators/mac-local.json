@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "working",
-  "doing": "h1-coconala-scan-1010 (list screened ids 5317120-5318673; reading candidates; coconala browser hanging ~1h per nav)",
-  "next": "finish scan-1010 + scan-1010pm, then h1-crowdworks-scan-1010",
+  "status": "idle",
+  "doing": "Run done 22:35 JST 10/10: inbox 0 replies, Coconala 0 GO/~56 (id>5318673 next), CrowdWorks 0 sendable/1232; crowdworks-profile logged out (owner-crowdworks-relogin-profile filed)",
+  "next": "10:00 JST 10/11: h1-coconala-inbox-1011am, h1-coconala-scan-1011 (id>5318673), h1-crowdworks-scan-1011; 19:00 scan-1011pm",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-10T13:22:24.404Z",
+  "heartbeat_at": "2026-10-10T13:30:40.297Z",
   "blocked_on": null,
   "progress": "since 2026-10-07T19:04:25.951385Z: polls=1215 workers=7 browser_workers=7 chrome_for_testing_procs=0"
 }

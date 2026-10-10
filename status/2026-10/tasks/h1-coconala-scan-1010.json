@@ -13,15 +13,26 @@
   "not_before": "2026-10-10T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-09T01:06:35.742Z",
-  "status": "claimed",
+  "status": "done",
   "claimed_by": "mac-local",
-  "lease_until": "2026-10-10T14:21:26.008Z",
-  "result": null,
+  "lease_until": "2026-10-10T15:22:39.091Z",
+  "result": "22:25 JST 10/10 (combined with the evening scan, both run late by supervisor): ~56 new requests (ids 5317092-5318673) screened on the widened lane, 6 read, 0 GO, 0 sent. 5318668 bans AI, 5317978 ¥1.5k, 5317953 security expertise, 5317142 SNS consult (21 applicants), 5318460 Studio (65 applicants). 6th straight 0-GO scan. Next scan-1011 (10:00) and scan-1011pm (19:00) created, id > 5318673.",
   "history": [
     {
       "ts": "2026-10-10T12:21:26.008Z",
       "op": "mac-local",
       "action": "claim"
+    },
+    {
+      "ts": "2026-10-10T13:22:39.091Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-10T13:28:35.097Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "22:25 JST 10/10 (combined with the evening scan, both run late by supervisor): ~56 new requests (ids 5317092-5318673) screened on the widened lane, 6 read, 0 GO, 0 sent. 5318668 bans AI, 5317978 ¥1.5k, 5317953 security expertise, 5317142 SNS consult (21 applicants), 5318460 Studio (65 applicants). 6th straight 0-GO scan. Next scan-1011 (10:00) and scan-1011pm (19:00) created, id > 5318673."
     }
   ]
 }
