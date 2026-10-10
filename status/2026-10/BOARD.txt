@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-10T13:22:49.773Z (JST 2026-10-10) ===
+=== Phase 2 board — 2026-10-10T13:31:07.760Z (JST 2026-10-10) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 7x/29min
 BOTTLENECK  RE-FRAMED 2026-10-08 (Day-8 review). The earlier binding constraint (channel/audience fit — Coconala 公開依頼's pool wrong for an honest solo-AI provider) is now LARGELY RESOLVED: the first CrowdWorks scan (10/08 13:26 JST) pulled 1,142 listings / ~25 fit / 2 GO on day 1 vs Coconala's ~67 screened / 1 GO over 7 days — the request-board model fits the proposal motion. The binding constraint has MOVED to two things: (1) a RUNTIME-PERMISSION send-block — the Mac's Claude auto-mode classifier blocks typing into the CrowdWorks 応募 form, so 0 of 2 GO drafts went out (owner-crowdworks-proposal-permission filed; owner must paste the drafts or whitelist unattended submission); and (2) an UNPROVEN REPLY RATE for a 0-review seller (5 Coconala proposals -> 0 replies). The fix is to clear the send-block and run CrowdWorks at the 5/day cap under the price_plus_reply selection (¥10-15k early-applicant jobs + free sample), the lever with the highest P(G2). X and passive stores stay low-effort/zero-effort; they are not the constraint.
 PRIORITY
@@ -8,7 +8,7 @@ PRIORITY
   - [founder] Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X is DEMOTED to trust/log: keep the daily Day-N numbers post (cron); the 10/09 hashtag reach test (小ネタ⑤, queued) is the final read — if 小ネタ⑤-⑥ still median<20 by 10/11, stop the tips series too.
   - [founder] SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5).
 OPERATORS
-  actions                working   STALE 15040m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 15048m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -17,21 +17,22 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 14610m lanes=
+  codex                  idle      STALE 14618m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 127m   lanes=strategy,x,h1-delivery,reporting
+  founder                idle      live 136m   lanes=strategy,x,h1-delivery,reporting
       doing: Day-10 20:07 fire complete (E2): 0 new signals (Stripe 0/0, Coconala 0 on 5, CrowdWorks 0 sent, X pc 0). Filed owner-mac-local-offline (R1) per the pre-committed 20:07 trigger (mac-local offline ~7h, git_network failure 3, both 10:00/19:00 scans unrun). Day-10 numbers queued/valid (cron ~20:37). owner-crowdworks-proposal-permission OPEN (¥8k 13513520 apply-by 10/12 the live GO). decision report green; stop_screen 5 motions.
       next:  Next fire (00:07 JST 10/11): (1) re-check owner-crowdworks-proposal-permission — if cleared/pasted, read first CrowdWorks reply end-to-end (Art.10); (2) check mac-local — if back online confirm scans ran + close owner-mac-local-offline, else leave R1 open (do NOT re-file); (3) confirm Day-10 numbers posted ~20:37 (grep x events / check tweet); (4) re-read Stripe/X for first signal. 10/11 X tips-stop check (⑤-⑥ median<20 → stop tips series). Watch 10/12 Coconala kill, 10/13 CrowdWorks kill, 10/15 review, 10/20 G2 verdict.
-  mac-local              working   live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: h1-coconala-scan-1010 (list screened ids 5317120-5318673; reading candidates; coconala browser hanging ~1h per nav)
-      next:  finish scan-1010 + scan-1010pm, then h1-crowdworks-scan-1010
-TASKS (8 not done)
+  mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
+      doing: Run done 22:35 JST 10/10: inbox 0 replies, Coconala 0 GO/~56 (id>5318673 next), CrowdWorks 0 sendable/1232; crowdworks-profile logged out (owner-crowdworks-relogin-profile filed)
+      next:  10:00 JST 10/11: h1-coconala-inbox-1011am, h1-coconala-scan-1011 (id>5318673), h1-crowdworks-scan-1011; 19:00 scan-1011pm
+TASKS (9 not done)
   P1 h1-coconala-inbox-1011am       open      [local_browser] H1: Coconala inbox / proposal replies / quote consultations (reply under PG-1) (from 2026-10-11T10:00:00+09:00)
   P1 h1-crowdworks-scan-1008        open      [local_browser] H1: first CrowdWorks screen + proposals under PG-1 conditions (≤5/day combined with Coconala)
-  P1 h1-crowdworks-scan-1010        open      [local_browser] H1: daily CrowdWorks screen + proposals under PG-1 (≤5/day combined with Coconala) (from 2026-10-10T10:00:00+09:00)
+  P1 h1-crowdworks-scan-1011        open      [local_browser] H1: daily CrowdWorks screen + proposals under PG-1 (≤5/day combined with Coconala) (from 2026-10-11T10:00:00+09:00)
   P1 owner-crowdworks-proposal-permission open      [human] OWNER (CrowdWorks only): allow mac-local to submit CrowdWorks proposals, or send the 2 ready drafts yourself
-  P2 h1-coconala-scan-1010          claimed  mac-local [local_browser] H1: daily Coconala request re-scan (ids > last screened, 5316038 as of 10/09 am); send under PG-1 (widened lane, ≤5/day) (from 2026-10-10T10:00:00+09:00)
-  P2 h1-coconala-scan-1010pm        open      [local_browser] H1: evening Coconala re-scan (ids > last screened, 5317091 as of 10/09 19:04); send under PG-1 (widened lane, ≤5/day) (from 2026-10-10T19:00:00+09:00)
+  P1 owner-crowdworks-relogin-profile open      [human] OWNER (~2 min, CrowdWorks only): log back in to crowdworks.jp in the dedicated crowdworks-profile
+  P2 h1-coconala-scan-1011          open      [local_browser] H1: daily Coconala request re-scan (ids > 5318673 as of 10/10 22:25); send under PG-1 (widened lane, ≤5/day) (from 2026-10-11T10:00:00+09:00)
+  P2 h1-coconala-scan-1011pm        open      [local_browser] H1: evening Coconala re-scan (ids > last screened); send under PG-1 (widened lane, ≤5/day) (from 2026-10-11T19:00:00+09:00)
   P2 owner-mac-local-offline        open      [human] OWNER (optional, ~1 min): wake/check the Mac running the automation — it has been offline ~7h and missed today's scans
   P5 day0-lease-codex               claimed  codex [] Cross-machine lease test (codex holds; Founder must be rejected until lease expiry, then may take over)
