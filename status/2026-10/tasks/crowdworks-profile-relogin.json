@@ -15,10 +15,10 @@
   "profile": "crowdworks",
   "created_by": "founder",
   "created_at": "2026-10-10T15:12:27.883Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T10:44:42.407Z",
+  "result": "login confirmed yes 17:45 JST 10/11; dashboard reached: https://crowdworks.jp/dashboard title 'マイページ【クラウドワークス】'; browser closed; human 1x/2min (login) logged",
   "history": [
     {
       "ts": "2026-10-10T15:15:48.496Z",
@@ -74,6 +74,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out: daytime login window open 16:17-17:02 JST 10/11 (45 min, polled every ~30 s, no clicks/typing), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime cycle. Human minutes: 0. 5th unattended window today (00:16, 13:21, 14:12, 15:09, 16:17); desktop push notification was suppressed (terminal active) and in-session message got no response."
+    },
+    {
+      "ts": "2026-10-11T08:44:42.409Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T08:45:49.455Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "login confirmed yes 17:45 JST 10/11; dashboard reached: https://crowdworks.jp/dashboard title 'マイページ【クラウドワークス】'; browser closed; human 1x/2min (login) logged"
     }
   ],
   "blocked_by": [],

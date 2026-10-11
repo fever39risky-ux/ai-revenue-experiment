@@ -13,9 +13,16 @@
   "profile": "/Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile",
   "created_by": "mac-local",
   "created_at": "2026-10-10T13:30:39.693Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "owner re-logged in via crowdworks-profile-relogin",
+  "history": [
+    {
+      "ts": "2026-10-11T08:45:49.348Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "owner re-logged in via crowdworks-profile-relogin"
+    }
+  ]
 }
