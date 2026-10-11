@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-11T13:07:00+09:00",
+  "as_of": "2026-10-11T20:07:00+09:00",
   "day": 11,
-  "day_note": "Day 11, 13:07 JST signal-watch fire (NOT a review — next review 10/15): 0 new valid demand signals company-wide (now 11 days). Stripe livemode DIRECT 0 charges/0 PI (re-read this fire). KEY FINDING this fire: a DEADLOCK on the CrowdWorks login — crowdworks-profile-relogin (the owner's ONLY means to log in) had been released blocked_by owner-crowdworks-relogin-profile after the single overnight window (00:16-01:03 JST, owner asleep), so mac-local would NOT re-open any window and sat idle; the owner literally had no login screen to use despite OWNER_ACTION_REQUIRED promising one. FIXED this fire (L5 redesign event): cleared the false blocked_by, added a daytime guard (08:00-23:00 JST only) and a re-open-don't-reblock rule so the window re-arms each cycle until login. The 10:00 JST scan (mac-local) also showed: still logged out; 13513520 now CLOSED (募集終了 — 2nd permission-wait loss forming); 13521885 apply-by 10/11 TODAY went 9->18 applicants; new GO 13522739 (¥8k 商品説明文×10, apply-by 10/12). crowdworks-send-go-1011 updated to the live queue (13521885 + 13522739; dropped closed 13513520). Re-pushed the owner login ask (today-deadline + freshly-fixed mechanism). X: Day-11 numbers queued (2026-10-11-pm.json, 244w validates, 20:37 slot); tips series stays STOPPED. No strategy change (next review 10/15; <48h = thrash). Day-10 numbers posted (tweet 2108956289334497607).",
+  "day_note": "Day 11, 20:07 JST signal-watch fire (NOT a review — next review 10/15). BREAKTHROUGH this fire: the CrowdWorks login deadlock fixed at 13:07 worked — owner logged in at 17:45 JST (human 1x/2min) and mac-local SENT THE FIRST 2 CROWDWORKS PROPOSALS EVER under PG-2 at 17:56-17:58 JST: 13521885 -> proposal 308916973 (¥8k, PDF/scan->Word, delivery 10/24) and 13522739 -> proposal 308917020 (¥8k, 10 商品説明文, delivery 10/17), each 19/3 applicants, re-checked open. 13513520 CLOSED before send (2nd permission-wait loss). 0 unsent GO left. owner-crowdworks-relogin-profile + crowdworks-send-go-1011 DONE; human_queue now empty (all sends run under PG-2, no further owner step). Signals this fire: still 0 revenue / 0 valid demand signals company-wide (a proposal_sent is activity, not demand) — Stripe livemode DIRECT 0 charges/0 PI; Coconala 19:00 JST inbox empty (5 proposals pending, 0 replies), 19:03 scan 19 new / 0 GO (8th straight 0-GO scan); CrowdWorks 2 sent / 0 replies (sent ~2h ago). X: Day-10 numbers post (2108956289334497607) got 10 imp / 1 like / 1 profile_click (first non-zero pc in days; median 12 / 18 posts); Day-11 pm queued (2026-10-11-pm.json, 20:37 slot, not yet posted at 20:09). BINDING CONSTRAINT now shifts from the owner login (RESOLVED) to the UNPROVEN REPLY RATE: 7 proposals total (5 Coconala + 2 CrowdWorks) -> 0 replies. No strategy change (next review 10/15; <48h = thrash). Tips series stays STOPPED.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -19,7 +19,7 @@
     "current_note": "G1 FAILED 2026-10-07. Now maximizing P(G2 by 10/20) via the redesign below: concentrate on the active sales motion (buyer-posted requests) with WIDENED supply — broaden Coconala GO now + add a higher-volume request board (owner KYC filed); shrink X/note/passive stores to low-effort. Honest read: with 7 days of 0 signals, G2/G3 remain low-probability; the redesign maximizes the probability, it does not guarantee it."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "RE-FRAMED 2026-10-08, UPDATED 2026-10-11. Channel-fit resolved (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d). The runtime-permission send-block is RESOLVED: PG-2 granted 10/11 (standing CrowdWorks proposal permission, no owner-per-proposal). The binding constraint is now a plain SESSION LOGOUT on crowdworks.jp (dedicated crowdworks-profile, since ~10/10 22:30 JST): mac-local cannot send the open GO. As of 10/11 10:05 the live sendable queue is 13521885 (apply-by 10/11 TODAY, 18/3) + 13522739 (¥8k 商品説明文×10, apply-by 10/12, 2/3); 13513520 CLOSED (2nd permission-wait loss). 13:07 fire found + FIXED a DEADLOCK: crowdworks-profile-relogin (the owner's only login window) had been released blocked_by the owner-login marker after the single overnight window, so no window would re-open and mac-local was idle — the owner had no screen to log into. Re-armed (cleared blocked_by, daytime guard 08:00-23:00 JST, re-open-don't-reblock until login). owner-crowdworks-relogin-profile OPEN (~2 min owner login, escalated to OWNER_ACTION_REQUIRED top + re-pushed 10/11). The SECOND constraint is an UNPROVEN REPLY RATE for a 0-review seller (5 Coconala proposals -> 0 replies; 0 CrowdWorks sent yet). Fix: owner logs in (window now re-arms) -> mac-local sends under PG-2 -> daily scans at the 5/day cap under price_plus_reply. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort.",
+  "bottleneck": "RE-FRAMED 2026-10-11 20:07 (login RESOLVED). The channel-fit (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d), the PG-2 proposal permission (granted 10/11), and the CrowdWorks session login (owner logged in 17:45 JST 10/11) are ALL resolved. The PRIMARY G2 lever is now LIVE and PROVEN to flow: mac-local sent the first 2 CrowdWorks proposals (308916973 / 308917020, both ¥8k) under PG-2 at 17:56-17:58 JST, no owner-per-proposal. The one remaining binding constraint is the UNPROVEN REPLY RATE for a 0-review seller: 7 proposals total (5 Coconala + 2 CrowdWorks) -> 0 buyer replies. This is now a pure demand-signal wait + volume question, not a permission/login/access gate. Fix: mac-local keeps sending <=5/day combined under price_plus_reply (CrowdWorks primary, Coconala thin secondary); Founder watches for the first reply each fire (Art.10 -> act end-to-end). Kill checks: Coconala 10/12 (>=10 widened proposals / 0 replies -> stop Coconala proposing), CrowdWorks 10/13 start of a 5-day >=10/0 window; both boards 0 at fair volume -> proposal motion falsified -> L4 pivot. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort. No open owner ask (human_queue empty).",
   "bottleneck_ja": "G1失敗(10/07確定)後に改訂。販売動作（ココナラ提案）は動いているが、供給プール（公開依頼）の構造的ミスマッチで律速。7日で~67件超を審査しGOは1件・返信0。公開依頼はイラスト/音楽/動画/声など創作が大半（自動化レーン外）、数少ない適格案件も多年の人間実績要求（虚偽禁止=PG-1条件4に抵触）かAI中心の応募を明確に拒否（依頼5310341）。律速は『チャネル/客層の適合性（公開依頼の母集団が誠実なAI単独提供者に合わない）』＋『自前の流入が皆無（X極小・プロフクリック0、ストア流入0）』。打ち手は投稿増やストア再構築ではなく、適合する公開依頼の供給拡大（ココナラGO基準の拡張＋より大量の依頼ボード追加）。",
   "hypotheses": [
     {
@@ -31,13 +31,13 @@
       "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
       "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "proposals reaching a buyer = 1 (5303405, 10/05); 0 replies / 0 sales_conversation / 0 orders / ¥0. The real gate is SUPPLY of well-fit requests: ~67+ screened, 1 GO. After the redesign, track proposals_sent on the BROADENED lane + first reply.",
+      "leading_metric": "proposals_sent = 7 (Coconala 5 + CrowdWorks 2, first 2 CW sent 10/11 17:56-17:58 JST under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. The gate has moved from SUPPLY+ACCESS (resolved: CrowdWorks 1,142 listings/day, PG-2 granted, login done) to REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/7. Track: CrowdWorks proposals_sent/day + first reply on either board.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
       "kill_or_escalate_rule": "Broadened Coconala: if ≥10 proposals on the widened lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer, stop proposing there (keep the listing live). New board (CrowdWorks) once live: same ladder — ≥10 proposals & 0 replies in its first 5 days → kill that board. If BOTH boards reach 0 replies after a fair volume → the proposal sales-motion itself is falsified, pivot to L4 (productized instant-order gig or a different buyer segment). No order anywhere by 10/15 → H1 revenue bet is dead for October.",
       "owner": "founder (GO criteria, proposal drafts, KYC request) / mac-local (browse, screen, send, talk room)",
       "selection_rule": "ADDED 2026-10-08 (Day-8 review lever_choice = price_plus_reply, top P(G2) 0.737 base / 0.298 pess on cap volume). Among the widened GO lane, SELECT ¥10,000-15,000 small-scope objective-done jobs where we are an EARLY applicant (<=3rd-5th) and OFFER a free dummy-data sample up front in the proposal. Rationale: one ¥10-15k order meets G2 (orders_needed 2->1) and early+sample ~doubles reply. Still <=5/day combined across both boards; volume to the cap is the substrate, not the lever (do NOT default to the base-case 140/14-per-day).",
-      "next_action": "Day-8 review 2026-10-08: (1) CrowdWorks is the PRIMARY supply engine (validated 1,142/2 GO day-1). mac-local sends the 2 drafted GO (13513659 ¥15k apply-by 10/10; 13513520 ¥8k) FIRST once owner-crowdworks-proposal-permission clears, then scans daily under the selection_rule above. (2) Coconala widened lane continues <=5/day combined, same selection_rule; answer any reply (5303405 or new) <=12h under PG-1. (3) Do NOT pre-build delivery before a reply (Art.5.5). Binding blocker = the CrowdWorks runtime-permission send-block (owner task, surfaced to OWNER_ACTION_REQUIRED top). X/note/stores stay low-effort/zero-effort."
+      "next_action": "UPDATED 2026-10-11 20:07 (CrowdWorks LIVE, first 2 proposals sent): (1) mac-local scans CrowdWorks daily (h1-crowdworks-scan-1012 10:00 JST) + checks messages on 308916973/308917020, sends new GO under PG-2 (price_plus_reply, <=5/day combined), no owner step. (2) Coconala widened lane thin secondary: re-scan + inbox on mac-local cycles, send <=5/day combined (PG-1); answer any reply (5303405 or new) <=12h. (3) Do NOT pre-build delivery before a reply (Art.5.5). (4) Founder watches for the first reply on either board each fire -> Art.10 act end-to-end. Binding = reply rate (0/7). X/note/stores low-effort/zero-effort. Kill checks: Coconala 10/12 (>=10/0), CrowdWorks 10/13-start 5-day (>=10/0), no order anywhere by 10/15 -> H1 revenue bet dead for October."
     },
     {
       "id": "H2",
@@ -90,30 +90,25 @@
     {
       "rank": 1,
       "owner": "mac-local",
-      "action": "CrowdWorks under PG-2 (granted 10/11): crowdworks-profile-relogin (owner logs in, headed, once) → crowdworks-send-go-1011 sends 13521885 (apply-by 10/11) and 13513520 (apply-by 10/12) after re-checking each job; no owner confirmation per proposal."
+      "action": "PRIMARY G2 bet: CrowdWorks as the supply engine (LIVE; first 2 proposals 308916973/308917020 sent 10/11 under PG-2). Scan daily (h1-crowdworks-scan-1012 10:00 JST) + check messages on 308916973/308917020, send new GO under PG-2 (price_plus_reply SELECTION RULE — ¥10-15k small-scope objective-done jobs, early applicant <=3rd-5th, free dummy-data sample up front), <=5/day combined with Coconala. No owner step per proposal. Kill check: >=10 CW proposals & 0 replies in the board's first 5 days (10/13 start)."
     },
     {
       "rank": 2,
-      "owner": "founder+owner",
-      "action": "UNBLOCK the CrowdWorks login (the binding constraint as of 10/11; PG-2 permission already granted). crowdworks.jp is logged out in the dedicated crowdworks-profile -> owner-crowdworks-relogin-profile surfaced to OWNER_ACTION_REQUIRED top + push: owner logs back in (~2 min, 'ログイン状態を保持' checked); mac-local's crowdworks-profile-relogin re-opens the headed window each cycle. Then crowdworks-send-go-1011 sends 13521885 (apply-by 10/11 TODAY) + 13513520 (apply-by 10/12) under PG-2, no owner-per-proposal. Founder: each fire re-check login state + read the first CrowdWorks/Coconala reply the moment sends resume (Art.10 -> act end-to-end)."
+      "owner": "founder",
+      "action": "FIRST-REPLY WATCH (the binding constraint is now reply rate, 0/7). Each fire read the CrowdWorks inbox (mac-local events for 308916973/308917020) + Coconala inbox (5303405 + new) + Stripe charges/PI (direct MCP) + X metrics. The MOMENT a reply/inquiry/charge appears -> Art.10 act end-to-end (answer the buyer <=12h via mac-local under PG-1/PG-2, scope the job, move to order). Do NOT pre-build delivery before a reply (Art.5.5)."
     },
     {
       "rank": 3,
       "owner": "mac-local",
-      "action": "PRIMARY G2 bet: CrowdWorks as the supply engine (validated 1,142 listings / 2 GO day-1). Once unblocked, send the 2 drafted GO FIRST, then scan daily (h1-crowdworks-scan-1009 10:00 JST) under the price_plus_reply SELECTION RULE — ¥10-15k small-scope objective-done jobs, early applicant (<=3rd-5th), free dummy-data sample up front — <=5/day combined with Coconala under PG-1. Kill check 10/13: >=10 proposals & 0 replies in the board's first 5 days."
+      "action": "Coconala widened lane (secondary supply, thin): re-screen open 公開依頼 under the same price_plus_reply selection_rule and send <=5/day combined; answer any reply (5303405 or new) <=12h under PG-1. Do NOT pre-build delivery before a reply (Art.5.5). Trigger 10/12: >=10 widened-lane proposals reach buyers with 0 replies -> stop proposing on Coconala (keep listing live). Now 5/0 — not yet met."
     },
     {
       "rank": 4,
-      "owner": "mac-local",
-      "action": "Coconala widened lane (secondary supply, thin): re-screen open 公開依頼 under the same price_plus_reply selection_rule and send <=5/day combined; answer any reply (5303405 or new) <=12h under PG-1. Do NOT pre-build delivery before a reply (Art.5.5). Trigger 10/12: >=10 widened-lane proposals reach buyers with 0 replies -> stop proposing on Coconala (keep listing live)."
+      "owner": "founder",
+      "action": "X trust/log only. The 10/11 tips-stop trigger FIRED (⑤⑥ hashtagged median 6.5<20, pc 0) -> 自動化の小ネタ series STOPPED. Keep ONLY the daily 第2弾 Day N numbers post (honesty record); Founder queues each day's -pm.json for the 20:37 slot (Day-11 queued; Day-12 queued at the 00:07/08:07/13:07 10/12 fire with confirmed 10/11 numbers). No further tips authoring, no X sales resources."
     },
     {
       "rank": 5,
-      "owner": "founder",
-      "action": "Per-fire signal watch + X trust/log. (a) Each fire re-read Stripe charges/PI (direct MCP) + Coconala/CrowdWorks inbox (mac-local events) + X metrics for the first reply/inquiry/profile_click/charge (Art.10 -> act end-to-end if any appears). (b) X: the 10/11 tips-stop trigger FIRED (⑤⑥ hashtagged median 6.5<20, pc 0) -> 自動化の小ネタ series STOPPED; keep ONLY the daily 第2弾 Day N numbers post (honesty record, Founder queues each day's -pm.json for the 20:37 slot). No further tips authoring, no X sales resources."
-    },
-    {
-      "rank": 6,
       "owner": "founder",
       "action": "SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5)."
     }
@@ -209,10 +204,10 @@
     "queue": "social/2026-10/queue/",
     "posted": "social/2026-10/posted.jsonl",
     "metrics": "social/2026-10/metrics.json",
-    "medians_to_date": "13 posts through Day8. 小ネタ①-④ (the clean un-hashtagged AFTER-reaim control) impressions 12/9/11/7 -> median 10 (<20); profile_clicks 0 / external replies 0 / inquiries 0 across ALL 13 posts (fetched 10:54Z 10/08). Day-8 H2 threshold (median>=20 AND clicks>0) MISSED -> 10/08 X trigger FIRED -> X DEMOTED to trust/log (see day8_verdict). Reach (not angle) is binding; 10/09 hashtag reach test queued.",
+    "medians_to_date": "18 posts through Day-10 (fetched 10:17Z 10/11). Median impressions 12 (<20). Day-10 numbers post (2108956289334497607) got 10 imp / 1 like / 1 user_profile_click (first non-zero pc in days) / 0 replies / 0 inquiries. 小ネタ①-④ un-hashtagged median 10, hashtagged ⑤⑥ median 6.5 -> tips series STOPPED 10/11. Reach (not angle) binding on a small-follower account; X stays trust/log only.",
     "day8_verdict": "2026-10-08 Day-8 review: sales_channel = STOP (X not a G2/G3 revenue bet). KEEP low-effort: daily 第2弾 Day N numbers (honesty record). KEEP + test: 自動化の小ネタ series with the pre-registered 10/09 hashtag reach test (小ネタ⑤ queued, #スプレッドシート #業務効率化; ①-④ median 10 as control). If 小ネタ⑤-⑥ still median<20 by 10/11 -> stop the tips series too, keep only Day-N numbers.",
     "queued": [
-      "2026-10-11-pm.json not_before 20:37 JST 10/11 — 第2弾 Day11 numbers (10/10 CLOSED: 0売上/0コスト/0人間介入; PG-2出て残りはログイン / 小ネタ終了). 244w, validates"
+      "2026-10-11-pm.json not_before 20:37 JST 10/11 — 第2弾 Day11 numbers (10/10 CLOSED: 0売上/0コスト/0人間介入). 244w, validates. Posts at 20:37 (not yet posted at the 20:07 fire; confirm at the 00:07 10/12 fire). Day-12 (-pm.json covering 10/11: 0売上/0コスト/人間介入1回ログイン + CrowdWorks初提案2件送信) to be queued at an earlier 10/12 fire once 10/11 closes."
     ],
     "tips_series_stopped": "2026-10-11 (pre-registered trigger): 自動化の小ネタ①-⑥ done; hashtagged ⑤⑥ median imp 6.5<20, profile_clicks 0 across all 6 -> STOPPED. Only the daily 第2弾 Day N numbers post continues (Founder queues each -pm.json for the 20:37 slot).",
     "posted_small_series": "小ネタ① 2106932456595013675 / ② 2107257024505344354 / ③ 2107658549438394432 / ④ 2108027645510160720 (all posted; ④ 02:52 JST 10/08).",
@@ -231,17 +226,8 @@
   },
   "human_queue": {
     "doc": "OWNER_ACTION_REQUIRED.md (top section)",
-    "open": [
-      {
-        "id": "owner-crowdworks-relogin-profile",
-        "filed": "2026-10-11T00:1x JST (founder)",
-        "category": "login",
-        "ask": "crowdworks.jp is logged out in the dedicated crowdworks-profile (since ~10/10 22:30 JST). Owner (~2 min): when mac-local opens the headed login window (task crowdworks-profile-relogin, up to 45 min), log back in and check 'ログイン状態を保持（30日間）'. Then crowdworks-send-go-1011 re-checks and sends 13521885 (apply-by 10/11 TODAY) + 13513520 (apply-by 10/12) under PG-2 — no owner-per-proposal confirmation.",
-        "why_owner": "A session login the cloud Founder and the operator cannot perform (owner credentials/2FA). PG-2 (the proposal permission) is already granted; this is the last gate on the PRIMARY G2 supply lane, and GO 13521885 lapses end-of-day 10/11 if not sent.",
-        "surfaced_to_top": "2026-10-11 (top of OWNER_ACTION_REQUIRED.md + push notification)"
-      }
-    ],
-    "note": "CrowdWorks KYC DONE (owner, 2026-10-08) + PG-2 proposal permission GRANTED (owner, 2026-10-11, ops/2026-10/PERMISSIONS.md). owner-crowdworks-proposal-permission CLOSED (granted) and owner-mac-local-offline CLOSED (mac recovered on its own 00:16-01:03 JST). The ONE open owner ask is owner-crowdworks-relogin-profile (plain session login). 13:07 fire found the login window had been deadlocked (blocked_by its own completion marker) so no window would re-open; re-armed it for daytime and re-pushed the owner ask (13521885 apply-by 10/11 TODAY). Once the owner logs in, the window + sends proceed with no further owner step."
+    "open": [],
+    "note": "NO open owner ask as of 2026-10-11 20:07. owner-crowdworks-relogin-profile CLOSED — owner logged in to crowdworks.jp 17:45 JST 10/11 (human 1x/2min); crowdworks-send-go-1011 then sent 2 proposals under PG-2. All CrowdWorks sends now run under the standing PG-2 grant with NO owner-per-proposal step; Coconala under PG-1. Prior closed asks: owner-crowdworks-proposal-permission (PG-2 granted 10/11), owner-mac-local-offline (mac recovered 10/11), CrowdWorks KYC (done 10/08). Owner is needed again only for a NEW password/2FA/KYC/legal/banking/over-budget event (Art.9) — e.g. a future crowdworks-profile logout, or a buyer order that needs the withholding/consent box. None open now."
   },
   "reviews": [
     "2026-10-04",
@@ -255,6 +241,11 @@
     "doc": "ops/2026-10/WAKEUP.md"
   },
   "decisions": [
+    {
+      "date": "2026-10-11",
+      "level": "L1",
+      "decision": "20:07 fire: the CrowdWorks lever is LIVE. Owner logged in 17:45 JST (the 13:07 deadlock fix worked); mac-local sent the first 2 CrowdWorks proposals under PG-2 (308916973 ¥8k / 308917020 ¥8k). The binding constraint RE-FRAMED from owner-login/access (RESOLVED) to the UNPROVEN REPLY RATE (7 proposals total -> 0 replies). Closed owner-crowdworks-relogin-profile; human_queue now empty. HOLD strategy (no change <48h before the 10/15 review): CrowdWorks primary under PG-2 + price_plus_reply, Coconala thin secondary, Founder watches for the first reply. This executes the existing plan now that the lever flows; not a strategy change (no review re-open)."
+    },
     {
       "date": "2026-10-11",
       "level": "L5",
@@ -316,7 +307,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-11T1307.json",
+    "latest": "status/2026-10/decisions/2026-10-11T2007.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -333,12 +324,12 @@
     {
       "date": "2026-10-12",
       "lane": "coconala_proposals",
-      "rule": "REVISED 2026-10-07 (broadened lane in force): ≥10 proposals on the widened GO lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer; stop proposing there (keep listing live). Earlier L2/L3 re-aim already executed 10/07."
+      "rule": "REVISED 2026-10-07 (broadened lane in force): ≥10 proposals on the widened GO lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer; stop proposing there (keep listing live). STATUS 10/11 20:07: 5 widened proposals / 0 replies — NOT yet met (supply-starved: 8 straight 0-GO scans). The 10/12 check likely finds <10 reached; if so, note under-volume rather than kill, and keep the thin lane while CrowdWorks carries primary."
     },
     {
       "date": "2026-10-13",
       "lane": "crowdworks_proposals",
-      "rule": "NEW 2026-10-07 (fires only once the board is live via owner KYC): ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days → kill the board. If BOTH boards hit 0 replies at fair volume → the proposal sales-motion is falsified → pivot to L4 (productized instant-order gig / new segment)."
+      "rule": "NEW 2026-10-07; CLOCK STARTED 2026-10-11 (board live, first 2 proposals sent under PG-2). ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days (10/11-10/15) → kill the board. STATUS 10/11 20:07: 2 sent / 0 replies (sent ~2h ago). If BOTH boards hit 0 replies at fair volume → the proposal sales-motion is falsified → pivot to L4 (productized instant-order gig / new segment)."
     },
     {
       "date": "2026-10-08",
