@@ -63,6 +63,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out: daytime login window open 15:09-15:55 JST 10/11 (45 min, polled every ~30 s, no clicks/typing), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime cycle. Human minutes: 0. 4th unattended window today (00:16, 13:21, 14:12, 15:09) — owner may not be aware the window is open."
+    },
+    {
+      "ts": "2026-10-11T07:17:00.260Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T08:02:29.654Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out: daytime login window open 16:17-17:02 JST 10/11 (45 min, polled every ~30 s, no clicks/typing), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime cycle. Human minutes: 0. 5th unattended window today (00:16, 13:21, 14:12, 15:09, 16:17); desktop push notification was suppressed (terminal active) and in-session message got no response."
     }
   ],
   "blocked_by": [],
