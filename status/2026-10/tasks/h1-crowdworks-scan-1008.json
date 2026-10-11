@@ -14,10 +14,10 @@
   "profile": "crowdworks",
   "created_by": "founder",
   "created_at": "2026-10-07T17:01:57.073Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T10:59:03.702Z",
+  "result": "Closed out: 10/08 screen done (1,142 listings, 2 GO; marketing/2026-10/h1/screens/crowdworks-2026-10-08.md). Its GO: 13513520 CLOSED before send (permission/login wait), 13513659 excluded as re-posted lure. Successor daily scans ran (10/11 screen) and the send queue was delivered via crowdworks-send-go-1011 (2 sent under PG-2). Next-day scan exists: h1-crowdworks-scan-1012 (10:00 JST).",
   "history": [
     {
       "ts": "2026-10-07T17:03:54.592Z",
@@ -51,6 +51,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out (confirmed this session 00:16-01:03 JST 10/11); screen for 10/08 already done; remaining sends are covered by crowdworks-send-go-1011 under PG-2 once logged in; browser not reopened"
+    },
+    {
+      "ts": "2026-10-11T08:59:03.704Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T08:59:03.799Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Closed out: 10/08 screen done (1,142 listings, 2 GO; marketing/2026-10/h1/screens/crowdworks-2026-10-08.md). Its GO: 13513520 CLOSED before send (permission/login wait), 13513659 excluded as re-posted lure. Successor daily scans ran (10/11 screen) and the send queue was delivered via crowdworks-send-go-1011 (2 sent under PG-2). Next-day scan exists: h1-crowdworks-scan-1012 (10:00 JST)."
     }
   ],
   "blocked_by": [

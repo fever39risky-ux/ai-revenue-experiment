@@ -17,9 +17,21 @@
   "profile": "crowdworks",
   "created_by": "founder",
   "created_at": "2026-10-10T15:12:27.931Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T10:55:38.796Z",
+  "result": "SENT 2/2 under PG-2 at 17:56-17:58 JST: 13521885 -> proposal 308916973 (¥8,000, done 10/24); 13522739 -> proposal 308917020 (¥8,000, done 10/17). Both re-checked open/unchanged (19/3 applicants each). 13513520 closed. 0 unsent GO left. Screen file updated.",
+  "history": [
+    {
+      "ts": "2026-10-11T08:55:38.798Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T08:58:52.989Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "SENT 2/2 under PG-2 at 17:56-17:58 JST: 13521885 -> proposal 308916973 (¥8,000, done 10/24); 13522739 -> proposal 308917020 (¥8,000, done 10/17). Both re-checked open/unchanged (19/3 applicants each). 13513520 closed. 0 unsent GO left. Screen file updated."
+    }
+  ]
 }

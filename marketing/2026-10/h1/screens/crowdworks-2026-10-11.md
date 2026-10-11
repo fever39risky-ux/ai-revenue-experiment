@@ -28,3 +28,17 @@ Rejected at title level (12-hit list): 13522702 (SNS staff), 13522687 (on-site K
 ## Sends
 
 **0 sent.** The profile is logged out. 10/11 combined count: 0/5. The sendable queue after login is 13521885 (only if still open on 10/11) and 13522739 (apply-by 10/12).
+
+## Sends — 17:56–17:58 JST (crowdworks-send-go-1011, PG-2, after the owner's 17:45 relogin)
+
+Before sending, each job page was re-checked while logged in. Both were still 募集中, with budget, scope and conditions unchanged and no AI-不可, track-record or external-contact requirement.
+
+| id | status at re-check | sent | proposal | price / 完了予定 |
+|---|---|---|---|---|
+| [13521885](https://crowdworks.jp/public/jobs/13521885) | open, apply-by 10/11, **19 / 3** applicants | **SENT** | 308916973 | ¥8,000 税込 (net ¥6,240) / 10/24, free 1-page sample first |
+| [13522739](https://crowdworks.jp/public/jobs/13522739) | open, apply-by 10/12, **19 / 3** applicants (was 2 at 10:05) | **SENT** | 308917020 | ¥8,000 税込 (net ¥6,240) / 10/17, 1 sample description first |
+
+- 13513520 was CLOSED (see above) and was not sent. 13513659 and 13521406 are not sent because they match the lure pattern.
+- Still-open GO count after these sends: 0 unsent.
+- The 源泉徴収 box was unchecked on both, so the owner's real name and address are not disclosed to unverified 0-review clients.
+- 10/11 combined count: 2/5. Lesson: the applicant count climbs fast. 13522739 went from 2 to 19 applicants in about 8 h while we were blocked on login, so the "early applicant" edge disappears within hours.

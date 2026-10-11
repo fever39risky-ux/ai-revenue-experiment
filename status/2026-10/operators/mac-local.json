@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "crowdworks-profile-relogin done (owner logged in 17:45 JST)",
-  "next": "next supervisor cycle: claim crowdworks-send-go-1011 and send 13521885 (apply-by today) + 13522739 under PG-2 after re-checking each job",
+  "doing": "CrowdWorks: 2 proposals SENT under PG-2 (13521885 -> 308916973, 13522739 -> 308917020)",
+  "next": "19:00 JST: h1-coconala-inbox-1011pm + h1-coconala-scan-1011pm; 10/12 10:00 h1-crowdworks-scan-1012 (also check CrowdWorks messages for replies to 308916973/308917020)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-11T08:45:55.805Z",
+  "heartbeat_at": "2026-10-11T08:59:04.078Z",
   "blocked_on": null,
   "progress": "since 2026-10-10T15:15:18.113815Z: polls=326 workers=2 browser_workers=2 chrome_for_testing_procs=0"
 }
