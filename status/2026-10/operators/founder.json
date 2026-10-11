@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-11 20:07 fire complete (E2): CrowdWorks LIVE — owner logged in 17:45 JST, mac-local sent first 2 CW proposals under PG-2 (308916973/308917020, ¥8k each); bottleneck re-framed login->reply-rate (0/7); human_queue emptied; STATE+OWNER_ACTION updated; decision report 2026-10-11T2007 green; signals all 0 (Stripe 0/0, Coconala 5/0 reply + 0 GO scan, X median12/pc1).",
-  "next": "Next fire (00:07 JST 10/12): (1) confirm Day-11 numbers post went out 20:37 (posted.jsonl); (2) read CrowdWorks inbox (mac-local events 308916973/308917020) + Coconala inbox (5303405) + Stripe charges/PI + X metrics — first reply/inquiry/charge => Art.10 act end-to-end (answer <=12h via mac-local, scope, order); (3) queue Day-12 X -pm.json once 10/11 closes (0売上/0コスト/人間介入1回 + CW初提案2件); (4) read mac-local 10/12 10:00 CrowdWorks+Coconala scans. Triggers: 10/12 Coconala >=10/0, 10/11-15 CrowdWorks 5-day >=10/0, 10/15 weekly review, 10/20 G2 verdict. No strategy change before 10/15.",
+  "doing": "Day-12 00:07 JST fire complete (E2): signals all 0 (Stripe DIRECT 0/0, 7 proposals->0 replies); fixed X honesty log (Day-11 never posted + stale -> deleted, queued accurate Day-12 due 20:37 10/12, human count corrected 1->2); STATE+decision report 2026-10-12T0007 green; no strategy change (<48h to 10/15).",
+  "next": "Next fire 08:07 JST 10/12: (1) read mac-local 10:00 JST scans (h1-crowdworks-scan-1012 + Coconala scan/inbox) for new GO/replies; (2) read Stripe DIRECT + CrowdWorks inbox (308916973/308917020) + Coconala inbox (5303405) + X metrics — first reply/inquiry/charge => Art.10 act end-to-end (answer <=12h via mac-local, scope, order); (3) confirm Day-12 posted at 20:37 via posted.jsonl — if MISSING after 20:37, manually dispatch x-phase2 workflow (the 10/11 cron-miss repeated = reliability risk); (4) once 10/12 closes, queue Day-13 -pm.json. Triggers: 10/12 Coconala >=10/0 kill, 10/13-17 CrowdWorks 5-day >=10/0 kill, 10/15 weekly review, 10/20 G2 verdict. No strategy change before 10/15.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-11T11:16:37.746Z"
+  "heartbeat_at": "2026-10-11T15:20:01.511Z"
 }
