@@ -52,6 +52,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out: daytime login window open 14:12-14:58 JST 10/11 (45 min, polled every ~30 s, no clicks/typing; 'ログイン状態を保存する（30日間）' checkbox present), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime cycle. Human minutes: 0."
+    },
+    {
+      "ts": "2026-10-11T06:09:43.435Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T06:55:03.222Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out: daytime login window open 15:09-15:55 JST 10/11 (45 min, polled every ~30 s, no clicks/typing), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime cycle. Human minutes: 0. 4th unattended window today (00:16, 13:21, 14:12, 15:09) — owner may not be aware the window is open."
     }
   ],
   "blocked_by": [],
