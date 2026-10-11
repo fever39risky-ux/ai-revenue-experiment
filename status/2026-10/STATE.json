@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-12T00:07:00+09:00",
+  "as_of": "2026-10-12T08:07:00+09:00",
   "day": 12,
-  "day_note": "Day 12, 00:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT 0 charges / 0 payment_intents; KPI gross 0 / cost 0 / 0 orders; 7 proposals (Coconala 5 + CrowdWorks 2) -> 0 buyer replies; no new mac-local session since 19:03 JST 10/11 (next scans 10:00 JST 10/12), so no new inbox evidence; X Day-10 was the last numbered post (median 12 / 18 posts, tips STOPPED). No first-reply/charge -> no Art.10 trigger. X FIX this fire: the Day-11 pm post NEVER posted in its 20:37 10/11 slot (no x-phase2 schedule run hit the 11:37Z cron; posted.jsonl has no Day11) and its queued narrative had gone stale (written 08:10 JST 10/11, said \"just need login / aiming for 1 request\" — but login + 2 sends happened 17:45-17:58 JST). Posting it on 10/12 would mis-date 昨日(10/10). So deleted 2026-10-11-pm.json and queued an accurate 2026-10-12-pm.json (Day12, 昨日=10/11: 0売上/0コスト/人間介入2回 [00:11 JST PG-2許可 + 17:45 JST ログイン, events re-counted] + CrowdWorks初提案2件/返信0), not_before 20:37 JST 10/12, 262w validates. Day-11 label intentionally skipped (recorded here + decision report). 10/11 human count corrected 1->2 vs the prior heartbeat note. BINDING CONSTRAINT unchanged: unproven reply rate 0/7. No strategy change (<48h to 10/15 review = thrash).",
+  "day_note": "Day 12, 08:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders; 7 proposals (Coconala 5 + CrowdWorks 2 [308916973/308917020]) -> 0 buyer replies; no new mac-local session since 19:03 JST 10/11 (next scans 10:00 JST 10/12 — not yet at 08:07), so no new inbox evidence. No first-reply/charge -> no Art.10 trigger. X Day-12 numbers post already queued (2026-10-12-pm.json, not_before 20:37 JST, correctly dated 昨日=10/11, validates, not yet due). X ROOT-CAUSE CORRECTION this fire: the Day-11 miss was NOT a cron skip — GitHub scheduled x-phase2 runs land 2-6h off their nominal crons (run44 10:17Z, run45 16:45Z 10/11); Day-11 was due 11:37Z 10/11 and the only scheduled run between its due time and the 00:07 JST 10/12 fire (15:07Z, which deleted it as stale) was run45 at 16:45Z = AFTER deletion. So it was a delayed-cron gap over the due window + the Founder's own deletion racing it, not a skipped cron. MITIGATION: at the first Founder fire strictly AFTER a post's not_before (Day-12 -> the 00:07 JST 10/13 fire; the 20:07 fire at 11:07Z is 30min early), if the correctly-dated post is still queued & unposted, MANUALLY DISPATCH x-phase2 — do NOT delete. BINDING CONSTRAINT unchanged: unproven reply rate 0/7. No strategy change (<48h to 10/15 review = thrash).",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -307,7 +307,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-11T2007.json",
+    "latest": "status/2026-10/decisions/2026-10-12T0807.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [

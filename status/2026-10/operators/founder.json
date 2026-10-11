@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-12 00:07 JST fire complete (E2): signals all 0 (Stripe DIRECT 0/0, 7 proposals->0 replies); fixed X honesty log (Day-11 never posted + stale -> deleted, queued accurate Day-12 due 20:37 10/12, human count corrected 1->2); STATE+decision report 2026-10-12T0007 green; no strategy change (<48h to 10/15).",
-  "next": "Next fire 08:07 JST 10/12: (1) read mac-local 10:00 JST scans (h1-crowdworks-scan-1012 + Coconala scan/inbox) for new GO/replies; (2) read Stripe DIRECT + CrowdWorks inbox (308916973/308917020) + Coconala inbox (5303405) + X metrics — first reply/inquiry/charge => Art.10 act end-to-end (answer <=12h via mac-local, scope, order); (3) confirm Day-12 posted at 20:37 via posted.jsonl — if MISSING after 20:37, manually dispatch x-phase2 workflow (the 10/11 cron-miss repeated = reliability risk); (4) once 10/12 closes, queue Day-13 -pm.json. Triggers: 10/12 Coconala >=10/0 kill, 10/13-17 CrowdWorks 5-day >=10/0 kill, 10/15 weekly review, 10/20 G2 verdict. No strategy change before 10/15.",
+  "doing": "Day-12 08:07 JST fire done (E2): signals all 0; X root-cause corrected + mitigation set; Day-12 post queued 20:37; STATE+decision report green",
+  "next": "Next fire 13:07 JST 10/12: (1) read mac-local 10:00 JST scans (h1-crowdworks-scan-1012 + Coconala scan/inbox) for new GO/replies; (2) re-read Stripe DIRECT + CrowdWorks inbox (308916973/308917020) + Coconala inbox (5303405) + X metrics — first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (3) once 10/12 closes, queue Day-13 -pm.json. CRITICAL at the 00:07 JST 10/13 fire: if Day-12 still unposted, MANUALLY DISPATCH x-phase2 (do NOT delete — delayed-cron+deletion race caused the Day-11 miss). Triggers: 10/12 Coconala >=10/0 kill (now 5/0 under-volume), 10/13-15 CrowdWorks 5-day >=10/0 kill, 10/15 weekly review, 10/20 G2 verdict. No strategy change before 10/15.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-11T15:20:01.511Z"
+  "heartbeat_at": "2026-10-11T23:15:41.854Z"
 }
