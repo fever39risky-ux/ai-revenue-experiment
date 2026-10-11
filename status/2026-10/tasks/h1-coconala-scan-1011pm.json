@@ -13,9 +13,21 @@
   "not_before": "2026-10-11T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-10T13:28:34.920Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T12:02:38.162Z",
+  "result": "19:03 JST 10/11: 19 new requests (ids 5319220-5320062) screened on the widened lane, 0 GO, 0 sent. 5319626 (novel edit, ¥30-50k) NO: requires real editor experience + meetings. 5319516 (medical figure redraw) NO: explicitly human-hand/no-AI. Rest creative/SNS-ops/coaching/outbound. 8th straight 0-GO scan. Day count 2/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1012 (10:00, id > 5320062) + h1-coconala-scan-1012pm created.",
+  "history": [
+    {
+      "ts": "2026-10-11T10:02:38.162Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T10:03:23.858Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:03 JST 10/11: 19 new requests (ids 5319220-5320062) screened on the widened lane, 0 GO, 0 sent. 5319626 (novel edit, ¥30-50k) NO: requires real editor experience + meetings. 5319516 (medical figure redraw) NO: explicitly human-hand/no-AI. Rest creative/SNS-ops/coaching/outbound. 8th straight 0-GO scan. Day count 2/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1012 (10:00, id > 5320062) + h1-coconala-scan-1012pm created."
+    }
+  ]
 }

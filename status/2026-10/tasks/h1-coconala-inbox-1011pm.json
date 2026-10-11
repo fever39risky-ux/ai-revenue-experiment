@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-11T01:01:21.757Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T12:01:32.058Z",
+  "result": "19:02 JST 10/11: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 only platform news, applied/offers 5 pending unchanged (no reply/adoption/rejection). Replies: none (nothing to answer). Next: h1-coconala-inbox-1012am (10:00 JST 10/12).",
+  "history": [
+    {
+      "ts": "2026-10-11T10:01:32.058Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T10:02:37.983Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:02 JST 10/11: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 only platform news, applied/offers 5 pending unchanged (no reply/adoption/rejection). Replies: none (nothing to answer). Next: h1-coconala-inbox-1012am (10:00 JST 10/12)."
+    }
+  ]
 }
