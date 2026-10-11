@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-11 08:07 fire complete (E2): PG-2 confirmed granted + owner-crowdworks-proposal-permission CLOSED; mac-local recovered + owner-mac-local-offline CLOSED; 10/11 X tips-stop trigger FIRED -> tips series stopped, Day-11 numbers queued (20:37 slot); signals all 0 (Stripe 0/0, Coconala 0/5, CW 0 sent, X pc 0). Blocker = owner CrowdWorks login, escalated top+push for the 10/11 GO 13521885 deadline. Decision report green; stop_screen 4 motions.",
-  "next": "Next fire (13:07 JST 10/11): (1) re-check owner-crowdworks-relogin-profile — if logged in, read CrowdWorks send result / first reply end-to-end (Art.10); (2) read mac-local 10:00 JST scan events (CrowdWorks + Coconala inbox) for the first reply/GO sent; (3) re-read Stripe PI/charges + X metrics for the first signal; (4) confirm Day-11 numbers post goes out 20:37. Watch 10/12 Coconala kill (>=10/0), 10/13 CrowdWorks kill, 10/15 review, 10/20 G2 verdict. NO new tips authoring (series stopped).",
+  "doing": "Day-11 13:07 fire complete (E2): fixed CrowdWorks login deadlock (window re-armed daytime, self-re-arming); send queue = 13521885 (apply-by 10/11) + 13522739 (apply-by 10/12), dropped closed 13513520; owner login re-pushed; signals all 0; Day-11 X numbers queued 20:37.",
+  "next": "Next fire (20:07 JST 10/11, weekly-review eve): (1) re-check owner-crowdworks-relogin-profile — if logged in, read the CrowdWorks send result + first reply end-to-end (Art.10); confirm the daytime window actually re-opened (mac-local events); (2) read mac-local 19:00 JST Coconala re-scan + inbox for the first reply/GO; (3) re-read Stripe PI/charges + X metrics; (4) confirm the Day-11 numbers post went out 20:37, queue Day-12. Watch 10/12 Coconala kill (>=10/0), 10/13 CrowdWorks kill, 10/15 weekly review, 10/20 G2 verdict. NO new tips authoring (series stopped); no strategy change before 10/15.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-10T23:18:53.899Z"
+  "heartbeat_at": "2026-10-11T04:18:58.869Z"
 }

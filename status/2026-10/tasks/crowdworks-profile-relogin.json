@@ -2,7 +2,7 @@
   "id": "crowdworks-profile-relogin",
   "title": "CrowdWorks: re-login in the dedicated crowdworks-profile (headed, owner logs in) — then confirm dashboard only",
   "lane": "crowdworks",
-  "detail": "Same procedure as crowdworks-profile-init (10/07). The profile showed ログイン/会員登録 at 22:30 JST 10/10. Use ONLY server playwright-crowdworks. (1) browser_navigate https://crowdworks.jp/login, leave the window in front. (2) Never type into ID/password/2FA fields — the owner logs in. If the login form has a 'ログインしたままにする'/'ログイン状態を保持' checkbox, the owner should tick it (the 10/07 session did not persist). (3) One browser_snapshot every ~60 s, no reloads/clicks, up to 45 min, until logged in. (4) Navigate once to https://crowdworks.jp/dashboard and confirm マイページ loads (record URL + title; no personal data). (5) browser_close. Log human minutes (category login). Then mark owner-crowdworks-relogin-profile done too (node scripts/oct/ops.mjs done mac-local owner-crowdworks-relogin-profile --result 'owner re-logged in via crowdworks-profile-relogin'). If 45 min pass with no login: browser_close, release --blocked-by owner-crowdworks-relogin-profile.",
+  "detail": "RE-ARMED by founder 2026-10-11 13:07 JST (deadlock fix): this window task must NOT be blocked_by owner-crowdworks-relogin-profile — it is the owner's ONLY means to log in, so it cannot depend on the login having happened. The one overnight window (00:16-01:03 JST 10/11) ran while the owner was asleep; re-open it during owner daytime. Same procedure as crowdworks-profile-init (10/07). Use ONLY server playwright-crowdworks. DAYTIME GUARD: only open a window during 08:00-23:00 JST; if claimed outside that range, release (status open, no --blocked-by) without opening. (1) browser_navigate https://crowdworks.jp/login, leave the window in front. (2) Never type into ID/password/2FA fields — the owner logs in. If the login form has a 'ログインしたままにする'/'ログイン状態を保持' checkbox, the owner should tick it (the 10/07 session did not persist). (3) One browser_snapshot every ~60 s, no reloads/clicks, up to 45 min, until logged in. (4) On login: navigate once to https://crowdworks.jp/dashboard and confirm マイページ loads (record URL + title; no personal data). (5) browser_close. Log human minutes (category login). Mark owner-crowdworks-relogin-profile done (node scripts/oct/ops.mjs done mac-local owner-crowdworks-relogin-profile --result 'owner re-logged in via crowdworks-profile-relogin'), then mark THIS task done so crowdworks-send-go-1011 (after this) fires. (6) IF 45 min pass with NO login: browser_close and `release` WITHOUT --blocked-by (status stays open) so the window re-opens next supervisor cycle during daytime — do NOT set blocked_by (that deadlocks the owner's only login path). Keep re-arming daytime until login is confirmed; GO 13521885 lapses end-of-day 10/11.",
   "requires": [
     "local_browser"
   ],
@@ -32,7 +32,6 @@
       "note": "crowdworks.jp logged out: login page open 00:16-01:03 JST 10/11 (47 min, 'ログイン状態を保存する（30日間）' pre-ticked), owner did not log in; browser closed"
     }
   ],
-  "blocked_by": [
-    "owner-crowdworks-relogin-profile"
-  ]
+  "blocked_by": [],
+  "history_note": "2026-10-11T13:07 JST founder re-armed: cleared false blocked_by (deadlock — window task cannot depend on the login it provides), added daytime guard + re-open-don't-reblock behavior. Overnight window missed the owner; re-open daytime for the 13521885 apply-by 10/11 deadline."
 }

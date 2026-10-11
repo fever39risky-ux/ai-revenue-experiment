@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-11T08:07:00+09:00",
+  "as_of": "2026-10-11T13:07:00+09:00",
   "day": 11,
-  "day_note": "Day 11, 08:07 JST signal-watch fire (NOT a review — next review 10/15): 0 new valid demand signals company-wide (now 11 days). Stripe livemode DIRECT 0 charges/0 PI (re-read this fire). TWO developments since the 20:07 fire: (1) PG-2 GRANTED by the owner 10/11 00:1x JST (CrowdWorks standing proposal permission, 8 conditions, ops/2026-10/PERMISSIONS.md) -> owner-crowdworks-proposal-permission CLOSED; the binding blocker MOVED from permission to a plain crowdworks.jp LOGOUT (owner-crowdworks-relogin-profile OPEN — mac-local opened a headed login window 00:16-01:03 JST 10/11 but the owner was absent 47 min, so still logged out). GO 13521885 apply-by 10/11 (TODAY) at risk; 13513520 apply-by 10/12. Escalated to OWNER_ACTION_REQUIRED top + push. (2) mac-local RECOVERED on its own (ran a full session 00:16-01:03 JST, supervisor live ~65m) -> owner-mac-local-offline CLOSED. X: 10/11 pre-registered tips-stop trigger FIRED (hashtagged 小ネタ⑤imp8 ⑥imp5 median 6.5<20, pc 0) -> STOP the 自動化の小ネタ series, keep only the daily Day-N numbers; Day-11 numbers queued (2026-10-11-pm.json, validates 244w, evening slot). No strategy change (Day-8 review <48h = thrash). Day-10 numbers posted (tweet 2108956289334497607, 01:22 JST).",
+  "day_note": "Day 11, 13:07 JST signal-watch fire (NOT a review — next review 10/15): 0 new valid demand signals company-wide (now 11 days). Stripe livemode DIRECT 0 charges/0 PI (re-read this fire). KEY FINDING this fire: a DEADLOCK on the CrowdWorks login — crowdworks-profile-relogin (the owner's ONLY means to log in) had been released blocked_by owner-crowdworks-relogin-profile after the single overnight window (00:16-01:03 JST, owner asleep), so mac-local would NOT re-open any window and sat idle; the owner literally had no login screen to use despite OWNER_ACTION_REQUIRED promising one. FIXED this fire (L5 redesign event): cleared the false blocked_by, added a daytime guard (08:00-23:00 JST only) and a re-open-don't-reblock rule so the window re-arms each cycle until login. The 10:00 JST scan (mac-local) also showed: still logged out; 13513520 now CLOSED (募集終了 — 2nd permission-wait loss forming); 13521885 apply-by 10/11 TODAY went 9->18 applicants; new GO 13522739 (¥8k 商品説明文×10, apply-by 10/12). crowdworks-send-go-1011 updated to the live queue (13521885 + 13522739; dropped closed 13513520). Re-pushed the owner login ask (today-deadline + freshly-fixed mechanism). X: Day-11 numbers queued (2026-10-11-pm.json, 244w validates, 20:37 slot); tips series stays STOPPED. No strategy change (next review 10/15; <48h = thrash). Day-10 numbers posted (tweet 2108956289334497607).",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -19,7 +19,7 @@
     "current_note": "G1 FAILED 2026-10-07. Now maximizing P(G2 by 10/20) via the redesign below: concentrate on the active sales motion (buyer-posted requests) with WIDENED supply — broaden Coconala GO now + add a higher-volume request board (owner KYC filed); shrink X/note/passive stores to low-effort. Honest read: with 7 days of 0 signals, G2/G3 remain low-probability; the redesign maximizes the probability, it does not guarantee it."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "RE-FRAMED 2026-10-08, UPDATED 2026-10-11. Channel-fit resolved (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d). The runtime-permission send-block is RESOLVED: PG-2 granted 10/11 (standing CrowdWorks proposal permission, no owner-per-proposal). The binding constraint is now a plain SESSION LOGOUT: crowdworks.jp is logged out in the dedicated crowdworks-profile (since ~10/10 22:30 JST), so mac-local cannot send the 2 drafted GO (13521885 apply-by 10/11 TODAY, 13513520 apply-by 10/12). mac-local opened a 47-min headed login window 00:16-01:03 JST 10/11 but the owner was absent -> owner-crowdworks-relogin-profile OPEN (~2 min owner login, escalated to OWNER_ACTION_REQUIRED top + push). The SECOND constraint is an UNPROVEN REPLY RATE for a 0-review seller (5 Coconala proposals -> 0 replies; 0 CrowdWorks sent yet). Fix: owner logs in -> mac-local sends the 2 GO under PG-2 -> daily scans at the 5/day cap under price_plus_reply. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort.",
+  "bottleneck": "RE-FRAMED 2026-10-08, UPDATED 2026-10-11. Channel-fit resolved (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d). The runtime-permission send-block is RESOLVED: PG-2 granted 10/11 (standing CrowdWorks proposal permission, no owner-per-proposal). The binding constraint is now a plain SESSION LOGOUT on crowdworks.jp (dedicated crowdworks-profile, since ~10/10 22:30 JST): mac-local cannot send the open GO. As of 10/11 10:05 the live sendable queue is 13521885 (apply-by 10/11 TODAY, 18/3) + 13522739 (¥8k 商品説明文×10, apply-by 10/12, 2/3); 13513520 CLOSED (2nd permission-wait loss). 13:07 fire found + FIXED a DEADLOCK: crowdworks-profile-relogin (the owner's only login window) had been released blocked_by the owner-login marker after the single overnight window, so no window would re-open and mac-local was idle — the owner had no screen to log into. Re-armed (cleared blocked_by, daytime guard 08:00-23:00 JST, re-open-don't-reblock until login). owner-crowdworks-relogin-profile OPEN (~2 min owner login, escalated to OWNER_ACTION_REQUIRED top + re-pushed 10/11). The SECOND constraint is an UNPROVEN REPLY RATE for a 0-review seller (5 Coconala proposals -> 0 replies; 0 CrowdWorks sent yet). Fix: owner logs in (window now re-arms) -> mac-local sends under PG-2 -> daily scans at the 5/day cap under price_plus_reply. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort.",
   "bottleneck_ja": "G1失敗(10/07確定)後に改訂。販売動作（ココナラ提案）は動いているが、供給プール（公開依頼）の構造的ミスマッチで律速。7日で~67件超を審査しGOは1件・返信0。公開依頼はイラスト/音楽/動画/声など創作が大半（自動化レーン外）、数少ない適格案件も多年の人間実績要求（虚偽禁止=PG-1条件4に抵触）かAI中心の応募を明確に拒否（依頼5310341）。律速は『チャネル/客層の適合性（公開依頼の母集団が誠実なAI単独提供者に合わない）』＋『自前の流入が皆無（X極小・プロフクリック0、ストア流入0）』。打ち手は投稿増やストア再構築ではなく、適合する公開依頼の供給拡大（ココナラGO基準の拡張＋より大量の依頼ボード追加）。",
   "hypotheses": [
     {
@@ -227,15 +227,6 @@
       "2026-10-03 01:55 JST note free article #1 https://note.com/satotsu1020/n/nd53510c5e65a (marketing/2026-10/h2/note_01.md; tags #AI #AIエージェント #副業 #実験; by mac-local, task h2-note-publish) — signal note_view once metrics show"
     ],
     "reaim_note": "2026-10-04 L2 reaim: X shifts from stand-alone experiment-story to practical-automation demand-gen for the H1 buyer audience. Keep the daily 第2弾 Day N numbers post (credibility); 2nd slot = 自動化の小ネタ (Sheets/GAS/Excel tips) with any offer as a soft self-reply link only. X is the company only cloud-autonomous demand channel; an X inquiry is a valid demand signal under Art.10.",
-    "reaim_comparison_for_day8": {
-      "_doc": "Explicit before/after of the 2026-10-04 L2 re-aim, so the Day-8 (10/08) judgment is comparable. BEFORE = 9月の失敗から series (10/01-10/04, tweets 2105483067..2106597528). AFTER = 自動化の小ネタ series (from 10/05, tweets 2106932456 / 2107257024 and 小ネタ③④ queued).",
-      "who": "BEFORE: people interested in the meta-experiment (AI running a company). AFTER: JP small-biz / solo operators who do manual spreadsheet/office work (the H1 buyer audience).",
-      "pain": "BEFORE: none specific — a narrative about our own failures. AFTER: a concrete recurring chore (手作業の集計, コピペ集約) the reader feels monthly.",
-      "offered": "BEFORE: a story / transparency. AFTER: a copy-pasteable Sheets/GAS tip (QUERY, IMPORTRANGE) that removes that chore today.",
-      "cta": "BEFORE: implicit follow / watch the experiment. AFTER: a soft Coconala offer in a self-reply only (no link in the body).",
-      "measurement": "Baseline for 10/08 = 小ネタ①-④ (clean, un-hashtagged). BEFORE vs AFTER on profile_clicks is 0 vs 0 so far, impressions median ~13 both; the re-aim has not yet moved reach. If 10/08 still median<20 AND clicks 0 -> reach (not angle) is binding -> apply the pre-registered hashtag reach test from 小ネタ⑤ (10/09), keeping ①-④ as the control."
-    },
-    "day8_lever_preregistered": "If Day-8 (10/08) shows the reaimed 小ネタ series still at median <20 imp AND 0 profile_clicks (i.e. reach, not angle, is binding): the binding constraint on this gate-free channel is discoverability on a small-follower account. Pre-registered L1 test = append 1-2 buyer-searched JP hashtags (e.g. #スプレッドシート / #業務効率化 / #GAS, matched to each tip's topic) to the 小ネタ posts from 10/09, trimming body only as the 270-weighted budget requires, and compare median imp vs the un-tagged 小ネタ①-④ baseline. Considered at the 10/05 00:07 fire but HELD to avoid pre-empting the Day-8 measurement / thrashing (Art.5.2/5.4). If Day-8 instead shows median 20-100 & 0 signals, the pre-registered move is the X_PHASE2 §4 L3 (different segment), not hashtags.",
     "posted_log": "social/2026-10/posted.jsonl (authoritative; posted_real moved to STATE_ARCHIVE.jsonl)"
   },
   "human_queue": {
@@ -250,7 +241,7 @@
         "surfaced_to_top": "2026-10-11 (top of OWNER_ACTION_REQUIRED.md + push notification)"
       }
     ],
-    "note": "CrowdWorks KYC DONE (owner, 2026-10-08) + PG-2 proposal permission GRANTED (owner, 2026-10-11, ops/2026-10/PERMISSIONS.md). owner-crowdworks-proposal-permission CLOSED (granted) and owner-mac-local-offline CLOSED (mac recovered on its own 00:16-01:03 JST). The ONE open owner ask is owner-crowdworks-relogin-profile (plain session login); the headed window on 10/11 00:16-01:03 JST closed with the owner absent, so a morning re-ask + push was issued for the 10/11 GO deadline."
+    "note": "CrowdWorks KYC DONE (owner, 2026-10-08) + PG-2 proposal permission GRANTED (owner, 2026-10-11, ops/2026-10/PERMISSIONS.md). owner-crowdworks-proposal-permission CLOSED (granted) and owner-mac-local-offline CLOSED (mac recovered on its own 00:16-01:03 JST). The ONE open owner ask is owner-crowdworks-relogin-profile (plain session login). 13:07 fire found the login window had been deadlocked (blocked_by its own completion marker) so no window would re-open; re-armed it for daytime and re-pushed the owner ask (13521885 apply-by 10/11 TODAY). Once the owner logs in, the window + sends proceed with no further owner step."
   },
   "reviews": [
     "2026-10-04",
@@ -264,6 +255,11 @@
     "doc": "ops/2026-10/WAKEUP.md"
   },
   "decisions": [
+    {
+      "date": "2026-10-11",
+      "level": "L5",
+      "decision": "13:07 fire: fixed a DEADLOCK on the CrowdWorks login. crowdworks-profile-relogin (the owner's only login window) had been released blocked_by owner-crowdworks-relogin-profile, so mac-local would never re-open it and sat idle; the owner had no screen to log into despite the open ask. Re-armed: cleared blocked_by, daytime guard (08:00-23:00 JST), re-open-don't-reblock until login. Updated crowdworks-send-go-1011 to the live queue (13521885 apply-by 10/11 + 13522739 apply-by 10/12; dropped closed 13513520). Logged as a redesign event. This is a mechanism/tooling fix (unblocks the PRIMARY G2 lever), not a strategy change (no review re-open; next review 10/15)."
+    },
     {
       "date": "2026-10-11",
       "level": "L1",
@@ -320,7 +316,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-11T0807.json",
+    "latest": "status/2026-10/decisions/2026-10-11T1307.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -377,6 +373,11 @@
       "date": "2026-10-11",
       "id": "permission-wait-loss",
       "lesson": "A sales channel was opened before its standing grant existed; a GO with a 48h apply-by lapsed while waiting on owner permission (13513659). Rule now: grant-before-channel (Constitution Art.10; SITE_GRANTS + test) and <48h-deadline owner asks are escalated in the same fire. PG-2 granted 10/11."
+    },
+    {
+      "date": "2026-10-11",
+      "id": "login-window-deadlock",
+      "lesson": "The owner's login window (crowdworks-profile-relogin) was released blocked_by its own completion marker (owner-crowdworks-relogin-profile), so after one overnight miss no window would ever re-open and a 2nd GO (13513520) lapsed. A task that PROVIDES a human step must never be blocked_by that step's completion. Rule now: owner-enabling window tasks are time-guarded and self-re-arming (re-open, do not re-block), and a <48h-deadline owner login window is verified claimable every fire, not just escalated once."
     }
   ]
 }
