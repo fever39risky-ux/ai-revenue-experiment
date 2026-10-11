@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "10:10 JST run done: inbox 0, CW 1 GO unsendable (logged out), Coconala 0 GO/10",
-  "next": "After owner relogs CrowdWorks: crowdworks-send-go-1011 sends 13521885 (if still open 10/11) + 13522739 (apply-by 10/12) under PG-2; 19:00 JST h1-coconala-inbox-1011pm + h1-coconala-scan-1011pm (id > 5319219)",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-11T01:03:20.089Z",
+  "heartbeat_at": "2026-10-11T03:03:56.312Z",
   "blocked_on": null,
-  "progress": "since 2026-10-10T15:15:18.113815Z: polls=242 workers=1 browser_workers=1 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-10T15:15:18.113815Z: polls=326 workers=2 browser_workers=2 chrome_for_testing_procs=0"
 }
