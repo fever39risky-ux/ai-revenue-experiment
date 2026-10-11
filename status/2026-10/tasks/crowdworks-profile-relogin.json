@@ -30,6 +30,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "crowdworks.jp logged out: login page open 00:16-01:03 JST 10/11 (47 min, 'ログイン状態を保存する（30日間）' pre-ticked), owner did not log in; browser closed"
+    },
+    {
+      "ts": "2026-10-11T04:21:17.257Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T05:07:06.887Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out: daytime login window open 13:21-14:06 JST 10/11 (45 min, 46 snapshots, no clicks/typing), owner did not log in; browser closed. Released WITHOUT blocked_by per task detail so the window re-opens next daytime supervisor cycle. Human minutes: 0 (no owner action)."
     }
   ],
   "blocked_by": [],

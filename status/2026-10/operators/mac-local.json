@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "supervisor alive; no eligible mac-local task on main",
-  "next": "polling main every 120s; starts a Claude worker when a task appears",
+  "doing": "crowdworks-profile-relogin window 13:21-14:06 JST: no owner login; released open (re-arms next daytime cycle)",
+  "next": "next supervisor cycle (08:00-23:00 JST): re-open https://crowdworks.jp/login in crowdworks-profile for owner login; on login confirm dashboard, mark owner-crowdworks-relogin-profile + relogin done, then crowdworks-send-go-1011 (13521885 apply-by today, 13522739 apply-by 10/12)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-11T03:03:56.312Z",
+  "heartbeat_at": "2026-10-11T05:07:07.129Z",
   "blocked_on": null,
   "progress": "since 2026-10-10T15:15:18.113815Z: polls=326 workers=2 browser_workers=2 chrome_for_testing_procs=0"
 }
