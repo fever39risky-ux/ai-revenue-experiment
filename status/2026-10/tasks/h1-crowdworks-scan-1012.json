@@ -1,0 +1,22 @@
+{
+  "id": "h1-crowdworks-scan-1012",
+  "title": "H1: daily CrowdWorks screen + proposals under PG-2 (≤5/day combined with Coconala)",
+  "lane": "h1-proposals",
+  "detail": "Same as h1-crowdworks-scan-1011 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-11T10:00 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container data JSON); job pages via in-page fetch of /public/jobs/<id>. PG-2 granted: send qualifying jobs without owner confirmation (--grant PG-2). If logged in, first send 13522739 (商品説明文×10 ¥8k, apply-by 10/12) after re-checking it. Record in marketing/2026-10/h1/screens/crowdworks-2026-10-12.md. Profile: crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "screen file written; GO sent if login exists; next scan task created",
+  "not_before": "2026-10-12T10:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-11T01:02:33.035Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

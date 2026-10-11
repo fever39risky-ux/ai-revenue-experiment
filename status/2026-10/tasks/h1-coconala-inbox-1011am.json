@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-10T12:21:25.780Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T03:00:24.721Z",
+  "result": "10:01 JST 10/11: /message 'メッセージはありません', transaction '取引の通知はありません', あなた宛 = platform notices only (no buyer). 5 offers unchanged, no reply (5311883 募集終了). 0 replies sent, 0 signals. Next h1-coconala-inbox-1011pm (19:00 JST) created.",
+  "history": [
+    {
+      "ts": "2026-10-11T01:00:24.721Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T01:01:21.849Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:01 JST 10/11: /message 'メッセージはありません', transaction '取引の通知はありません', あなた宛 = platform notices only (no buyer). 5 offers unchanged, no reply (5311883 募集終了). 0 replies sent, 0 signals. Next h1-coconala-inbox-1011pm (19:00 JST) created."
+    }
+  ]
 }

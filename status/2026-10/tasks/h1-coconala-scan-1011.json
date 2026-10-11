@@ -13,9 +13,21 @@
   "not_before": "2026-10-11T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-10T13:28:34.808Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-11T03:02:36.802Z",
+  "result": "10:10 JST 10/11: 10 new requests (ids 5318674-5319219) screened on the widened lane, 0 GO, 0 sent. 5318825 (Mercari new-listing scraper) is NO because it's ToS-grey; the rest are sales/creative/physical. 7th straight 0-GO scan. Appended to screens/2026-10-02.md. Next h1-coconala-scan-1012 created (scan-1011pm at 19:00 should use id > 5319219).",
+  "history": [
+    {
+      "ts": "2026-10-11T01:02:36.802Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-11T01:03:07.199Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:10 JST 10/11: 10 new requests (ids 5318674-5319219) screened on the widened lane, 0 GO, 0 sent. 5318825 (Mercari new-listing scraper) is NO because it's ToS-grey; the rest are sales/creative/physical. 7th straight 0-GO scan. Appended to screens/2026-10-02.md. Next h1-coconala-scan-1012 created (scan-1011pm at 19:00 should use id > 5319219)."
+    }
+  ]
 }
