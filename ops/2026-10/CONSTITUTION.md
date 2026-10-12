@@ -115,6 +115,8 @@ Return to the owner only for: passwords, 2FA, KYC / identity, legal consent / te
 
 Every owner touch is logged as a human intervention (`ops/2026-10/KPI.md` §3), including "avoidable" ones. Requests to the owner are batched, one-time, and written so that they take ≤ 5 minutes.
 
+**Deadline-based owner priority (owner, 2026-10-12).** A login / re-login (or any Art.9) request that blocks a sale with an apply-by deadline carries that deadline: **URGENT** ≤ 24 h, **HIGH** ≤ 48 h, **NORMAL** otherwise (`scripts/lib/owner_queue.mjs`; jobs attached with `ops.mjs opportunity`). URGENT / HIGH requests are placed at the top of `OWNER_ACTION_REQUIRED.md` with the job, the deadline time and the opportunity that would be lost, and are escalated as a GitHub issue (`.github/workflows/owner-queue.yml`, every 30 min and on every task change). A logged-out session is a human-only blocker, but while a deadline-bearing job depends on it, it is never a "normal wait": a Founder fire may not end E2 on it without that escalation in place, and a job that lapses while waiting is logged as `ops_failure`.
+
 ## Article 10 — Sales authority (new in October)
 
 Within already-registered owner accounts, the company is authorized to:

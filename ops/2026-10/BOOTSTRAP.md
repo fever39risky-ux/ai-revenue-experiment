@@ -28,6 +28,7 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 3. Log outcomes: `signal`, `human`, `revenue`, `cost`, `done` (see KPI.md). Market results, not activity.
 4. **Goal-continuous:** your wake-up time is not a work quota. After each package log `event <id> package_done --continue yes|no --reason ...` and, unless an end condition E1–E4 (Constitution Art. 8.2) is true, pick the next item and keep working. Finishing one action / task / package / report is never a reason to end the session.
 5. Founder only — on a weekly review date (STATE.reviews) the 20:07 fire is a **review**: follow `ops/2026-10/REVIEW_SPEC.md` (goal back-calculation via `node scripts/oct/g2_pipeline.mjs`, channel verdicts, reallocation executed in-fire, `"review": true`). Before ending any fire: write the fire's decision report `status/2026-10/decisions/<YYYY-MM-DDTHHMM>.json` per `ops/2026-10/DECISION_REPORT.md` (every lane: FACT / INTERPRETATION / DECISION / NEXT ACTION / DEADLINE-TRIGGER), execute what it decides, and check it with `node scripts/oct/decision_check.mjs`.
+5b. Founder — every fire: `node scripts/oct/owner_queue.mjs`. For each URGENT / HIGH item: confirm it is at the top of OWNER_ACTION_REQUIRED.md (`owner_queue.mjs render`) and that the GitHub issue exists; name it in the decision report (job, deadline, opportunity at risk). Any listed LAPSED job → `event founder ops_failure`.
 6. Ending: log `event <id> session_end --condition E1|E2|E3|E4 --reason ...` (E2 requires a `stop_screen` event with ≥ 3 distinct motions), heartbeat with the exact next action, commit only your files, `git pull --rebase`, push, verify.
 
 ## 4. Where things are
@@ -50,4 +51,4 @@ Do **not** load `ops/AGENT_LOOP.md` or `status/CURRENT_STATUS.json` for decision
 - Never edit another operator's operator/events file. Claim before working a task.
 - Never ask the owner what to do next. Owner only for: password, 2FA, KYC, legal consent, banking, spend > budget.
 - `node scripts/leak_check.mjs` before every push. No secrets, no buyer PII in the repo.
-- Tests for shared code: `node tests/test_periods.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `bash tests/test_x_schedule.sh`, `python3 tests/test_mac_supervisor.py`, `node scripts/promotion_check.mjs`.
+- Tests for shared code: `node tests/test_periods.mjs`, `node tests/test_owner_queue.mjs`, `bash tests/test_ops.sh`, `node scripts/oct/x_phase2.mjs validate`, `bash tests/test_x_schedule.sh`, `python3 tests/test_mac_supervisor.py`, `node scripts/promotion_check.mjs`.

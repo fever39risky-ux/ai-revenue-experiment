@@ -14,6 +14,7 @@
  *   node scripts/oct/ops.mjs cost <op> --date YYYY-MM-DD --category ai_compute --jpy N|null --note "..." [--reference ID]
  *   node scripts/oct/ops.mjs task-new <op> <task-id> --title "..." --lane x [--requires local_browser] [--site coconala.com] [--priority 1] [--detail "..."] [--not-before ISO] [--due ISO] [--assign <op>] [--after task1,task2]
  *   node scripts/oct/ops.mjs claim <op> <task-id> [--hours 6]       # take a task (fails if another live lease holds it)
+ *   node scripts/oct/ops.mjs opportunity <op> <task-id> --url U --apply-by ISO [--title T] [--budget N] [--lost "..."]  # deadline-bearing sale on a task (owner queue priority)
  *   node scripts/oct/ops.mjs done <op> <task-id> --result "..."      # or: release <op> <task-id> --reason "..." [--blocked-by owner-task]
  *   node scripts/oct/ops.mjs kpi [YYYY-MM-DD]
  *
@@ -24,6 +25,7 @@ import { join } from 'path';
 import { ROOT, tokyoDate } from '../lib/periods.mjs';
 import { P2, computeKpi, readOperators, readTasks, readState, SIGNAL_METRICS } from '../lib/phase2.mjs';
 import { Books } from '../lib/periods.mjs';
+import { ownerQueue } from '../lib/owner_queue.mjs';
 
 const r = p => join(ROOT, p);
 // OPS_NOW (ISO) overrides the clock — tests only; never set it in real runs.
@@ -115,6 +117,16 @@ switch (cmd) {
       claimed_by: null, lease_until: null, result: null, history: [] }, null, 2) + '\n');
     appendEvent(op, { type: 'task_created', task: id, lane: opt.lane }); console.log(`task ${id} created`); break;
   }
+  case 'opportunity': {
+    const op = opId(), id = pos[1], p = r(`${P2}/tasks/${id}.json`);
+    if (!existsSync(p)) die(`no task ${id}`);
+    if (!opt.url || !opt['apply-by'] || isNaN(Date.parse(opt['apply-by']))) die('--url and an ISO --apply-by are required');
+    const t = JSON.parse(readFileSync(p, 'utf8'));
+    t.opportunities = (t.opportunities || []).filter(x => x.url !== opt.url);
+    t.opportunities.push({ url: opt.url, title: opt.title, budget_jpy: opt.budget != null ? Number(opt.budget) : undefined, apply_by: opt['apply-by'], lost_if_missed: opt.lost, added_by: op, added_at: now() });
+    writeFileSync(p, JSON.stringify(t, null, 2) + '\n');
+    appendEvent(op, { type: 'opportunity', task: id, url: opt.url, apply_by: opt['apply-by'] }); console.log(`opportunity added to ${id}`); break;
+  }
   case 'claim': case 'done': case 'release': {
     const op = opId(), id = pos[1], p = r(`${P2}/tasks/${id}.json`);
     if (!existsSync(p)) die(`no task ${id}`);
@@ -142,6 +154,8 @@ switch (cmd) {
     console.log(`KPI  gross ¥${k.gross_revenue_jpy}  cost ¥${k.cost_known_jpy} (+${k.cost_unknown_entries} unknown)  net ¥${k.net_profit_jpy}  human ${k.human_intervention_count}x/${k.human_working_minutes}min`);
     if (s.bottleneck) console.log(`BOTTLENECK  ${s.bottleneck}`);
     if (s.priority_actions) { console.log('PRIORITY'); for (const a of s.priority_actions.slice(0, 5)) console.log(`  - [${a.owner || '?'}] ${a.action}`); }
+    const oq = ownerQueue(readTasks(), Date.parse(now()));
+    if (oq.length) { console.log('OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)'); for (const q of oq) console.log(`  ${q.priority.padEnd(6)} ${q.id}${q.hours_left != null ? ` ${q.hours_left}h left` : ''}${q.blocks.length ? ` blocks ${q.blocks.join(',')}` : ''}${q.opportunities.length ? ` — ${q.opportunities.map(x => x.url).join(' ')}` : ''}`); }
     console.log('OPERATORS');
     for (const o of readOperators().sort((a, b) => String(a.id).localeCompare(b.id))) {
       const age = o.heartbeat_at ? Math.round((Date.now() - Date.parse(o.heartbeat_at)) / 60000) : null;

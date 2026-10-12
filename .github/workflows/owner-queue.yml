@@ -1,0 +1,43 @@
+name: Owner queue (deadline priority)
+# URGENT (<=24h) / HIGH (<=48h) owner actions go to the top of OWNER_ACTION_REQUIRED.md and become a GitHub issue.
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'status/2026-10/tasks/**'
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Show queue
+        run: node scripts/oct/owner_queue.mjs
+      - name: Escalate URGENT/HIGH as issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/oct/owner_queue_issues.mjs
+      - name: Render top of OWNER_ACTION_REQUIRED.md and push if changed
+        run: |
+          node scripts/oct/owner_queue.mjs render
+          git config user.name "ai-revenue-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add OWNER_ACTION_REQUIRED.md
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(owner-queue): deadline priority $(TZ=Asia/Tokyo date '+%F %H:%M')"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "no change"
+          fi
