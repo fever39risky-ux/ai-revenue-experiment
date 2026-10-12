@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-11T10:02:33.230Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-12T03:05:30.108Z",
+  "result": "10:06 JST 10/12: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 nothing new (platform news only), applied/offers: 公務員面接対策 + LP風メルマガ now 募集終了 without adoption, 5303494 (dl10/13) and 5303405 (dl10/12) pending, 5311883 ended. Replies: none (nothing to answer). Coconala 0 replies / 5 proposals. Next: h1-coconala-inbox-1012pm (19:00 JST).",
+  "history": [
+    {
+      "ts": "2026-10-12T01:05:30.108Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-12T01:06:31.356Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:06 JST 10/12: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 nothing new (platform news only), applied/offers: 公務員面接対策 + LP風メルマガ now 募集終了 without adoption, 5303494 (dl10/13) and 5303405 (dl10/12) pending, 5311883 ended. Replies: none (nothing to answer). Coconala 0 replies / 5 proposals. Next: h1-coconala-inbox-1012pm (19:00 JST)."
+    }
+  ]
 }

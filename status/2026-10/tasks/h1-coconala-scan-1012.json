@@ -13,9 +13,21 @@
   "not_before": "2026-10-12T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-11T01:03:07.107Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-12T03:06:34.929Z",
+  "result": "10:07 JST 10/12: 17 new requests (ids 5320084-5320704) screened on the widened lane, 0 GO, 0 sent. Only fit 5320084 (pathology PDF->Excel system) NO: 98 applicants, asks dev track record, patient PII/medical data + EMR integration. Rest creative/video/physical/on-site/士業. 9th straight 0-GO Coconala scan; Coconala 5 proposals/0 replies (>=10/0 kill not reachable at this supply). Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1012pm (19:00, id > 5320704); h1-coconala-scan-1013 created.",
+  "history": [
+    {
+      "ts": "2026-10-12T01:06:34.929Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-12T01:07:06.227Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:07 JST 10/12: 17 new requests (ids 5320084-5320704) screened on the widened lane, 0 GO, 0 sent. Only fit 5320084 (pathology PDF->Excel system) NO: 98 applicants, asks dev track record, patient PII/medical data + EMR integration. Rest creative/video/physical/on-site/士業. 9th straight 0-GO Coconala scan; Coconala 5 proposals/0 replies (>=10/0 kill not reachable at this supply). Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1012pm (19:00, id > 5320704); h1-coconala-scan-1013 created."
+    }
+  ]
 }

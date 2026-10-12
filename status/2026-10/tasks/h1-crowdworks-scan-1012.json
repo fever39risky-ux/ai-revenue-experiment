@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-11T01:02:33.035Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-12T03:02:15.292Z",
+  "result": "10:03 JST logged in: 1,387 listings pulled, 450 released since 10/11 10:00, 14 read in full, 1 GO SENT under PG-2: 13522766 (ハロウィン告知文×3) -> proposal 308944942 ¥10,000 incl tax (net ¥7,800), done 10/17. Rest NO (PDF議事録/マニュアル→Word lure re-posts, duplicate Excel紙資料 posts, PII roster, ongoing/hourly, sub-floor transcription). 308916973/308917020 still 'client reviewing', 0 replies. Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-12.md. Next: h1-crowdworks-scan-1013.",
+  "history": [
+    {
+      "ts": "2026-10-12T01:02:15.292Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-12T01:05:25.666Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:03 JST logged in: 1,387 listings pulled, 450 released since 10/11 10:00, 14 read in full, 1 GO SENT under PG-2: 13522766 (ハロウィン告知文×3) -> proposal 308944942 ¥10,000 incl tax (net ¥7,800), done 10/17. Rest NO (PDF議事録/マニュアル→Word lure re-posts, duplicate Excel紙資料 posts, PII roster, ongoing/hourly, sub-floor transcription). 308916973/308917020 still 'client reviewing', 0 replies. Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-12.md. Next: h1-crowdworks-scan-1013."
+    }
+  ]
 }
