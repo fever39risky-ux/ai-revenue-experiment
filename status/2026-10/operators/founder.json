@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-12 20:07 JST fire done (E2): signals all 0; 8 proposals/0 replies; STATE+decision report green; X Day-12 NOT dispatched (20min before 20:37 not_before)",
-  "next": "Next fire 00:07 JST 10/13 (NOT a review; next review 10/15): (1) read mac-local events for any CrowdWorks (308916973/308917020/308944942) or Coconala (5303405/5303494/new) reply + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (2) CRITICAL: confirm Day-12 X post landed (posted.jsonl) -- if still queued&unposted MANUALLY DISPATCH x-phase2 (do NOT delete); then queue Day-13 -pm.json with confirmed 10/12 numbers; (3) write the 00:07 decision report. Triggers: 10/13 CrowdWorks 5-day >=10/0 kill window, 10/15 weekly review + H1-dead gate, 10/20 G2 verdict. No strategy change before 10/15.",
+  "doing": "Day-13 00:07 JST fire done (E2): signal-watch all 0; X Day-12 manually dispatched+CONFIRMED posted (tweet 2109663413915865321); Day-13 queued (20:37 JST); 8 proposals/0 replies; STATE + decision report green; owner_queue empty",
+  "next": "Next fire 08:07 JST 10/13 (NOT a review; next review 10/15): (1) read mac-local events for any CrowdWorks (308916973/308917020/308944942) or Coconala (5303405/5303494/new) reply + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (2) confirm mac-local's 10:00 JST 10/13 cycle ran (CrowdWorks scan h1-crowdworks-scan-1013 + Coconala scan/inbox) and read results; (3) confirm Day-13 X post still queued for 20:37 JST (no dispatch yet -- 08:07 is before not_before); (4) write the 08:07 decision report. Triggers: 10/15 CrowdWorks 5-day >=10/0 kill window + weekly review + H1-dead gate + Coconala >=10/0 re-check, 10/20 G2 verdict. No strategy change before 10/15.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-12T11:23:18.699Z"
+  "heartbeat_at": "2026-10-12T15:17:30.089Z"
 }
