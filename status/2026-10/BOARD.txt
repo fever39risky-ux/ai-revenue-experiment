@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-12T16:09:10.174Z (JST 2026-10-13) ===
+=== Phase 2 board — 2026-10-12T18:10:43.808Z (JST 2026-10-13) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  RE-FRAMED 2026-10-11 20:07 (login RESOLVED). The channel-fit (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d), the PG-2 proposal permission (granted 10/11), and the CrowdWorks session login (owner logged in 17:45 JST 10/11) are ALL resolved. The PRIMARY G2 lever is now LIVE and PROVEN to flow: mac-local sent the first 2 CrowdWorks proposals (308916973 / 308917020, both ¥8k) under PG-2 at 17:56-17:58 JST, no owner-per-proposal. The one remaining binding constraint is the UNPROVEN REPLY RATE for a 0-review seller: 7 proposals total (5 Coconala + 2 CrowdWorks) -> 0 buyer replies. This is now a pure demand-signal wait + volume question, not a permission/login/access gate. Fix: mac-local keeps sending <=5/day combined under price_plus_reply (CrowdWorks primary, Coconala thin secondary); Founder watches for the first reply each fire (Art.10 -> act end-to-end). Kill checks: Coconala 10/12 (>=10 widened proposals / 0 replies -> stop Coconala proposing), CrowdWorks 10/13 start of a 5-day >=10/0 window; both boards 0 at fair volume -> proposal motion falsified -> L4 pivot. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort. No open owner ask (human_queue empty).
 PRIORITY
@@ -8,7 +8,7 @@ PRIORITY
   - [founder] X trust/log only. The 10/11 tips-stop trigger FIRED (⑤⑥ hashtagged median 6.5<20, pc 0) -> 自動化の小ネタ series STOPPED. Keep ONLY the daily 第2弾 Day N numbers post (honesty record); Founder queues each day's -pm.json for the 20:37 slot (Day-11 queued; Day-12 queued at the 00:07/08:07/13:07 10/12 fire with confirmed 10/11 numbers). No further tips authoring, no X sales resources.
   - [founder] SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5).
 OPERATORS
-  actions                working   STALE 18086m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 18207m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -17,10 +17,10 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 17656m lanes=
+  codex                  idle      STALE 17778m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 52m    lanes=strategy,x,h1-delivery,reporting
+  founder                idle      live 173m   lanes=strategy,x,h1-delivery,reporting
       doing: Day-13 00:07 JST fire done (E2): signal-watch all 0; X Day-12 manually dispatched+CONFIRMED posted (tweet 2109663413915865321); Day-13 queued (20:37 JST); 8 proposals/0 replies; STATE + decision report green; owner_queue empty
       next:  Next fire 08:07 JST 10/13 (NOT a review; next review 10/15): (1) read mac-local events for any CrowdWorks (308916973/308917020/308944942) or Coconala (5303405/5303494/new) reply + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (2) confirm mac-local's 10:00 JST 10/13 cycle ran (CrowdWorks scan h1-crowdworks-scan-1013 + Coconala scan/inbox) and read results; (3) confirm Day-13 X post still queued for 20:37 JST (no dispatch yet -- 08:07 is before not_before); (4) write the 08:07 decision report. Triggers: 10/15 CrowdWorks 5-day >=10/0 kill window + weekly review + H1-dead gate + Coconala >=10/0 re-check, 10/20 G2 verdict. No strategy change before 10/15.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
