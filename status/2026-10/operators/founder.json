@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-13 00:07 JST fire done (E2): signal-watch all 0; X Day-12 manually dispatched+CONFIRMED posted (tweet 2109663413915865321); Day-13 queued (20:37 JST); 8 proposals/0 replies; STATE + decision report green; owner_queue empty",
-  "next": "Next fire 08:07 JST 10/13 (NOT a review; next review 10/15): (1) read mac-local events for any CrowdWorks (308916973/308917020/308944942) or Coconala (5303405/5303494/new) reply + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (2) confirm mac-local's 10:00 JST 10/13 cycle ran (CrowdWorks scan h1-crowdworks-scan-1013 + Coconala scan/inbox) and read results; (3) confirm Day-13 X post still queued for 20:37 JST (no dispatch yet -- 08:07 is before not_before); (4) write the 08:07 decision report. Triggers: 10/15 CrowdWorks 5-day >=10/0 kill window + weekly review + H1-dead gate + Coconala >=10/0 re-check, 10/20 G2 verdict. No strategy change before 10/15.",
+  "doing": "Day-13 08:07 JST fire done (E2): signal-watch all 0 (Stripe []/[], KPI 0/0/0, 8 proposals/0 replies, X median 12<20); X Day-13 queued (20:37 JST), before not_before -> no dispatch; STATE + decision report 2026-10-13T0807 green; owner_queue empty; corrected an E1 mislog to E2 (stop_screen 6 motions)",
+  "next": "Next fire 13:07 JST 10/13 (NOT a review; next review 10/15): (1) read mac-local events for any CrowdWorks (308916973/308917020/308944942) or Coconala (5303405/5303494/new) reply + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order); (2) confirm mac-local's 10:00 JST 10/13 cycle ran (CrowdWorks scan h1-crowdworks-scan-1013 + Coconala scan/inbox) and read results; (3) confirm Day-13 X post still queued for 20:37 JST (13:07 is before not_before -> no dispatch); (4) write the 13:07 decision report. Triggers: 10/15 CrowdWorks 5-day >=10/0 kill window + weekly review + H1-dead gate + Coconala >=10/0 re-check, 10/20 G2 verdict. No strategy change before 10/15.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-12T15:17:30.089Z"
+  "heartbeat_at": "2026-10-12T23:12:41.914Z"
 }

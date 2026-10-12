@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-13T00:07:00+09:00",
+  "as_of": "2026-10-13T08:07:00+09:00",
   "day": 13,
-  "day_note": "Day 13, 00:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders / human 9x33min (0 new on 10/12). Still 8 proposals (Coconala 5 + CrowdWorks 3) -> 0 buyer replies. No new mac-local activity since the 19:04 JST 10/12 cycle (inbox empty, evening scan 0 GO = 10th straight); next mac-local tasks 10/13 10:00 JST. owner_queue empty. No first-reply/charge -> no Art.10 trigger. EXECUTED this fire (the 10/13 00:07 X mitigation trigger): Day-12 numbers post was still queued at 00:07 (the 20:37 JST cron ran 20min early at 11:17Z, before not_before) -> manually dispatched x-phase2 (run #48, success) -> CONFIRMED posted (tweet 2109663413915865321, 00:12 JST 10/13, queue cleared, origin/main 348e208). Then queued Day-13 -pm.json (not_before 20:37 JST 10/13, 昨日=10/12: 0/0/人間0回/提案8件返信0, validates 265w). BINDING CONSTRAINT unchanged: unproven reply rate 0/8. No strategy change (<60h to 10/15 review = thrash).",
+  "day_note": "Day 13, 08:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders / human 9x33min (0 new on 10/12). Still 8 proposals (Coconala 5 + CrowdWorks 3) -> 0 buyer replies. No new mac-local activity since the 19:05 JST 10/12 evening cycle (inbox empty, evening scan 22 reqs 0 GO = 10th straight); next mac-local tasks 10/13 10:00 JST (~2h out). X Day-13 -pm.json queued & intact (not_before 20:37 JST 10/13); 08:07 is before not_before -> no dispatch. X metrics unchanged (median imp 12<20, Day-12 post 2 imp/0 pc/0 replies). owner_queue empty. No first-reply/charge -> no Art.10 trigger. BINDING CONSTRAINT unchanged: unproven reply rate 0/8. No strategy change (<48h to 10/15 review = thrash); pre-registered triggers carry the decisions.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -244,6 +244,11 @@
     {
       "date": "2026-10-13",
       "level": "L1",
+      "decision": "08:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents []; KPI 0/0/0 orders; 8 proposals (Coconala 5 + CW 3) / 0 replies; no new mac-local activity since the 19:05 JST 10/12 cycle (next tasks 10/13 10:00 JST, ~2h out); X Day-13 -pm.json queued & intact (not_before 20:37 JST, 08:07 is before not_before -> no dispatch); X metrics unchanged (median imp 12<20); owner_queue empty; no reply/charge -> no Art.10 trigger. HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <48h before the 10/15 review. Pure signal watch + execution of the standing plan; no new data since the 00:07 fire (next buyer-facing cycle is mac-local 10:00 JST). Not a strategy change (no review re-open; next review 10/15)."
+    },
+    {
+      "date": "2026-10-13",
+      "level": "L1",
       "decision": "00:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents []; KPI 0/0/0 orders; 8 proposals (Coconala 5 + CW 3) / 0 replies; no new mac-local activity since the 19:04 JST 10/12 cycle (next tasks 10/13 10:00 JST); owner_queue empty; no reply/charge -> no Art.10 trigger. EXECUTED the pre-registered 10/13 00:07 X mitigation: Day-12 numbers post was still queued (the 20:37 JST cron run #47 fired 20min early at 11:17Z, before not_before, skipping it) -> manually dispatched x-phase2 (workflow_dispatch run #48, success) -> CONFIRMED posted (tweet 2109663413915865321, 00:12 JST 10/13, queue cleared). Queued Day-13 -pm.json (not_before 20:37 JST 10/13, 昨日=10/12 numbers 0/0/0 + 提案8件返信0, 265w). HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <60h before the 10/15 review. Execution of the standing plan + a pre-registered mitigation trigger + signal watch, not a strategy change (no review re-open; next review 10/15)."
     },
     {
@@ -270,21 +275,6 @@
       "date": "2026-10-11",
       "level": "L1",
       "decision": "08:07 fire: the pre-registered 10/11 X tips-stop trigger FIRED (hashtagged 小ネタ⑤imp8 ⑥imp5 median 6.5<20, pc 0; hashtags did not beat the un-hashtagged ①-④ median ~11). STOP the 自動化の小ネタ series; keep ONLY the daily 第2弾 Day N numbers post. This is execution of a pre-registered trigger, not a new strategy change (no review re-open; next review 10/15). Also closed owner-crowdworks-proposal-permission (PG-2 granted) and owner-mac-local-offline (mac recovered); blocker now = owner CrowdWorks login (escalated, GO 13521885 apply-by 10/11)."
-    },
-    {
-      "date": "2026-10-08",
-      "level": "L1/L2",
-      "decision": "Day-8 review lever_choice = price_plus_reply (g2_pipeline P(G2) base 0.737 / pess 0.298 on cap volume; beats volume base 0.2). SELECT ¥10-15k early-applicant (<=3rd-5th) small-scope jobs + free dummy-data sample up front; one order meets G2 (orders_needed 2->1). Applied to BOTH boards. Do NOT default to the base-case 140/14-per-day."
-    },
-    {
-      "date": "2026-10-08",
-      "level": "L2",
-      "decision": "Day-8 review: 10/08 X trigger fired -> DEMOTE X from revenue bet to trust/log. Keep daily Day-N numbers (honesty); run the pre-registered 10/09 hashtag reach test; stop the tips series if 小ネタ⑤-⑥ still median<20 by 10/11."
-    },
-    {
-      "date": "2026-10-08",
-      "level": "L3",
-      "decision": "Day-8 review: CrowdWorks L3 bet VALIDATED on supply (1,142 listings / 2 GO day-1 vs Coconala ~67/1 in 7d) -> reallocate CrowdWorks as the PRIMARY supply engine for H1; Coconala continues as thin secondary. Bottleneck re-framed: channel-fit resolved; new binding = CrowdWorks runtime-permission send-block + unproven reply rate."
     }
   ],
   "decisions_note": "10/07 redesign decisions (L2 broaden Coconala GO / L3 add CrowdWorks / L2 portfolio shrink) archived to STATE_ARCHIVE.jsonl 2026-10-13 to keep STATE<40KB; full text in decisions/2026-10-07T0300.json + reports/2026-10/REDESIGN-2026-10-07.md.",
@@ -308,7 +298,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-13T0007.json",
+    "latest": "status/2026-10/decisions/2026-10-13T0807.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
