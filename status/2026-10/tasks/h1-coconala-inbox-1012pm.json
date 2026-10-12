@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-12T01:06:31.236Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-12T12:02:00.402Z",
+  "result": "19:03 JST 10/12: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 nothing new (platform news only), applied/offers unchanged (3 募集終了 w/o adoption; 5303494 dl10/13 + 5303405 dl10/12 still pending, no client message). Replies: none. Coconala 0 replies / 5 proposals. Next: h1-coconala-inbox-1013am (10:00 JST).",
+  "history": [
+    {
+      "ts": "2026-10-12T10:02:00.402Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-12T10:03:32.722Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:03 JST 10/12: /message empty ('現在、メッセージはありません'), transaction none, notification あなた宛 nothing new (platform news only), applied/offers unchanged (3 募集終了 w/o adoption; 5303494 dl10/13 + 5303405 dl10/12 still pending, no client message). Replies: none. Coconala 0 replies / 5 proposals. Next: h1-coconala-inbox-1013am (10:00 JST)."
+    }
+  ]
 }

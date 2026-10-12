@@ -13,9 +13,21 @@
   "not_before": "2026-10-12T19:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-11T10:03:23.770Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-12T12:03:32.834Z",
+  "result": "19:05 JST 10/12: 22 new requests (ids 5320782-5321673) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5320996 note農業記事 NO (36 applicants, ¥800/article bulk ongoing, portfolio asked); 5321056 生物学添削 NO (degree+experience req); 5321058 SNS multi-account proxy NO (ToS manipulation); 5321334 Android app test NO (device, ¥1k). Rest creative/video/design/ops. 10th straight 0-GO Coconala scan; Coconala 5 proposals/0 replies. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1013 (10:00, id > 5321673); h1-coconala-scan-1013pm created.",
+  "history": [
+    {
+      "ts": "2026-10-12T10:03:32.834Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-12T10:04:37.346Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:05 JST 10/12: 22 new requests (ids 5320782-5321673) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5320996 note農業記事 NO (36 applicants, ¥800/article bulk ongoing, portfolio asked); 5321056 生物学添削 NO (degree+experience req); 5321058 SNS multi-account proxy NO (ToS manipulation); 5321334 Android app test NO (device, ¥1k). Rest creative/video/design/ops. 10th straight 0-GO Coconala scan; Coconala 5 proposals/0 replies. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1013 (10:00, id > 5321673); h1-coconala-scan-1013pm created."
+    }
+  ]
 }
