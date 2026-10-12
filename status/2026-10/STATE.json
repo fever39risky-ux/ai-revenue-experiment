@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-12T08:07:00+09:00",
+  "as_of": "2026-10-12T13:07:00+09:00",
   "day": 12,
-  "day_note": "Day 12, 08:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders; 7 proposals (Coconala 5 + CrowdWorks 2 [308916973/308917020]) -> 0 buyer replies; no new mac-local session since 19:03 JST 10/11 (next scans 10:00 JST 10/12 — not yet at 08:07), so no new inbox evidence. No first-reply/charge -> no Art.10 trigger. X Day-12 numbers post already queued (2026-10-12-pm.json, not_before 20:37 JST, correctly dated 昨日=10/11, validates, not yet due). X ROOT-CAUSE CORRECTION this fire: the Day-11 miss was NOT a cron skip — GitHub scheduled x-phase2 runs land 2-6h off their nominal crons (run44 10:17Z, run45 16:45Z 10/11); Day-11 was due 11:37Z 10/11 and the only scheduled run between its due time and the 00:07 JST 10/12 fire (15:07Z, which deleted it as stale) was run45 at 16:45Z = AFTER deletion. So it was a delayed-cron gap over the due window + the Founder's own deletion racing it, not a skipped cron. MITIGATION: at the first Founder fire strictly AFTER a post's not_before (Day-12 -> the 00:07 JST 10/13 fire; the 20:07 fire at 11:07Z is 30min early), if the correctly-dated post is still queued & unposted, MANUALLY DISPATCH x-phase2 — do NOT delete. BINDING CONSTRAINT unchanged: unproven reply rate 0/7. No strategy change (<48h to 10/15 review = thrash).",
+  "day_note": "Day 12, 13:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders. NEW since 08:07: mac-local's 10:00 JST scan ran and sent a 3rd CrowdWorks proposal (308944942, job 13522766 ハロウィン告知文×3, ¥10,000 incl tax / net ¥7,800, done 10/17, 24 prior applicants/3 slots) under PG-2; 308916973/308917020 still 'client reviewing' 0 replies; Coconala 17 reqs screened 0 GO (9th straight 0-GO scan), inbox empty. Now 8 proposals (Coconala 5 + CrowdWorks 3) -> 0 buyer replies. No first-reply/charge -> no Art.10 trigger. 10/12 Coconala kill-trigger RESOLVED this fire as UNDER-VOLUME (only 5 widened proposals reached buyers at 0 replies, not >=10; the pool is supply-starved — 9 straight 0-GO scans — not a channel-wrong verdict) -> do NOT kill, keep the thin lane while CrowdWorks carries primary. X Day-12 numbers post queued (2026-10-12-pm.json, not_before 20:37 JST, 昨日=10/11, validates, not yet due); no new X post since Day-10. Day-13 -pm.json is queued only once 10/12 closes with confirmed numbers (earliest the 00:07 JST 10/13 fire). BINDING CONSTRAINT unchanged: unproven reply rate 0/8. No strategy change (<72h to 10/15 review = thrash).",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -31,7 +31,7 @@
       "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
       "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "proposals_sent = 7 (Coconala 5 + CrowdWorks 2, first 2 CW sent 10/11 17:56-17:58 JST under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. The gate has moved from SUPPLY+ACCESS (resolved: CrowdWorks 1,142 listings/day, PG-2 granted, login done) to REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/7. Track: CrowdWorks proposals_sent/day + first reply on either board.",
+      "leading_metric": "proposals_sent = 8 (Coconala 5 + CrowdWorks 3; CW: 308916973/308917020 ¥8k 10/11, 308944942 ¥10k 10/12 under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. The gate has moved from SUPPLY+ACCESS (resolved: CrowdWorks 1,142+ listings/day, PG-2 granted, login done) to REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/8. Track: CrowdWorks proposals_sent/day + first reply on either board.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
       "kill_or_escalate_rule": "Broadened Coconala: if ≥10 proposals on the widened lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer, stop proposing there (keep the listing live). New board (CrowdWorks) once live: same ladder — ≥10 proposals & 0 replies in its first 5 days → kill that board. If BOTH boards reach 0 replies after a fair volume → the proposal sales-motion itself is falsified, pivot to L4 (productized instant-order gig or a different buyer segment). No order anywhere by 10/15 → H1 revenue bet is dead for October.",
@@ -242,6 +242,11 @@
   },
   "decisions": [
     {
+      "date": "2026-10-12",
+      "level": "L1",
+      "decision": "13:07 fire: resolved the pre-registered 10/12 Coconala kill-trigger as UNDER-VOLUME, not a kill. Only 5 widened proposals reached buyers at 0 replies (threshold was >=10/0); the pool is supply-starved (9 straight 0-GO Coconala scans through 10/12 10:07), so buyers never saw 10 and ignored them — the channel-wrong verdict is not supported. Keep the thin Coconala lane live while CrowdWorks carries primary; re-check at 10/15. Also noted mac-local sent a 3rd CrowdWorks proposal (308944942 ¥10k, job 13522766) at the 10:00 JST scan -> 8 proposals / 0 replies. Execution of a pre-registered trigger + signal watch, not a strategy change (no review re-open; next review 10/15)."
+    },
+    {
       "date": "2026-10-11",
       "level": "L1",
       "decision": "20:07 fire: the CrowdWorks lever is LIVE. Owner logged in 17:45 JST (the 13:07 deadlock fix worked); mac-local sent the first 2 CrowdWorks proposals under PG-2 (308916973 ¥8k / 308917020 ¥8k). The binding constraint RE-FRAMED from owner-login/access (RESOLVED) to the UNPROVEN REPLY RATE (7 proposals total -> 0 replies). Closed owner-crowdworks-relogin-profile; human_queue now empty. HOLD strategy (no change <48h before the 10/15 review): CrowdWorks primary under PG-2 + price_plus_reply, Coconala thin secondary, Founder watches for the first reply. This executes the existing plan now that the lever flows; not a strategy change (no review re-open)."
@@ -307,7 +312,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-12T0807.json",
+    "latest": "status/2026-10/decisions/2026-10-12T1307.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
@@ -324,12 +329,12 @@
     {
       "date": "2026-10-12",
       "lane": "coconala_proposals",
-      "rule": "REVISED 2026-10-07 (broadened lane in force): ≥10 proposals on the widened GO lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer; stop proposing there (keep listing live). STATUS 10/11 20:07: 5 widened proposals / 0 replies — NOT yet met (supply-starved: 8 straight 0-GO scans). The 10/12 check likely finds <10 reached; if so, note under-volume rather than kill, and keep the thin lane while CrowdWorks carries primary."
+      "rule": "RESOLVED 2026-10-12 13:07 as UNDER-VOLUME: only 5 widened proposals reached buyers at 0 replies (not >=10); the pool is supply-starved (9 straight 0-GO scans through 10/12 10:07), so the >=10/0 kill condition was never reachable — this is NOT a channel-wrong verdict. DO NOT kill; keep the thin Coconala lane live while CrowdWorks carries primary. Re-check at the 10/15 review: if Coconala reaches >=10 widened proposals at 0 replies by then, stop proposing (keep listing live)."
     },
     {
       "date": "2026-10-13",
       "lane": "crowdworks_proposals",
-      "rule": "NEW 2026-10-07; CLOCK STARTED 2026-10-11 (board live, first 2 proposals sent under PG-2). ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days (10/11-10/15) → kill the board. STATUS 10/11 20:07: 2 sent / 0 replies (sent ~2h ago). If BOTH boards hit 0 replies at fair volume → the proposal sales-motion is falsified → pivot to L4 (productized instant-order gig / new segment)."
+      "rule": "NEW 2026-10-07; CLOCK STARTED 2026-10-11 (board live, first 2 proposals sent under PG-2). ≥10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days (10/11-10/15) → kill the board. STATUS 10/12 13:07: 3 sent / 0 replies (308916973/308917020 10/11 'client reviewing'; 308944942 ¥10k sent 10/12 10:00 JST). If BOTH boards hit 0 replies at fair volume → the proposal sales-motion is falsified → pivot to L4 (productized instant-order gig / new segment)."
     },
     {
       "date": "2026-10-08",
