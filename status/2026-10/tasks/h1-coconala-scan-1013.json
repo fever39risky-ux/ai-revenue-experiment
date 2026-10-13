@@ -13,9 +13,21 @@
   "not_before": "2026-10-13T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-12T01:07:14.051Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-13T03:06:19.093Z",
+  "result": "10:08 JST 10/13: 15 new requests (ids 5321709-5322481) screened on the widened lane, 2 read in full, 0 GO, 0 sent. 5322342 PowerPoint seminar deck NO (requires prior PPT work experience + meetings, 25 applicants); 5322057 short-video scripts NO (explicit no-AI rule, ¥1.5k/piece). Rest design/video/participant/buyer-login. 11th straight 0-GO Coconala scan. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1013pm (19:00, id > 5322481); h1-coconala-scan-1014 created.",
+  "history": [
+    {
+      "ts": "2026-10-13T01:06:19.093Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-13T01:06:57.956Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:08 JST 10/13: 15 new requests (ids 5321709-5322481) screened on the widened lane, 2 read in full, 0 GO, 0 sent. 5322342 PowerPoint seminar deck NO (requires prior PPT work experience + meetings, 25 applicants); 5322057 short-video scripts NO (explicit no-AI rule, ¥1.5k/piece). Rest design/video/participant/buyer-login. 11th straight 0-GO Coconala scan. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1013pm (19:00, id > 5322481); h1-coconala-scan-1014 created."
+    }
+  ]
 }

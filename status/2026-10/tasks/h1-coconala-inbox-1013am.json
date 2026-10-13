@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-12T10:03:32.632Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-13T03:04:56.201Z",
+  "result": "10:06 JST 10/13: /message has 1 thread, direct_message/10281068 (hidemasa0122, req 5303494 アクセス解析 ¥30k). It holds only an OUTBOUND question from our account at 09:39 JST, not logged by any operator (likely owner), with no buyer reply. Transaction: none. Notifications あなた宛: nothing new. applied/offers: 5303405 EC自動化, 公務員, メルマガ and 市場調査 all 募集終了 without adoption; 5303494 still open. Replies needed: none. Coconala 0 buyer replies. Next: h1-coconala-inbox-1013pm (19:00).",
+  "history": [
+    {
+      "ts": "2026-10-13T01:04:56.201Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-13T01:06:18.870Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:06 JST 10/13: /message has 1 thread, direct_message/10281068 (hidemasa0122, req 5303494 アクセス解析 ¥30k). It holds only an OUTBOUND question from our account at 09:39 JST, not logged by any operator (likely owner), with no buyer reply. Transaction: none. Notifications あなた宛: nothing new. applied/offers: 5303405 EC自動化, 公務員, メルマガ and 市場調査 all 募集終了 without adoption; 5303494 still open. Replies needed: none. Coconala 0 buyer replies. Next: h1-coconala-inbox-1013pm (19:00)."
+    }
+  ]
 }

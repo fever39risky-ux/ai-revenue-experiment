@@ -1,0 +1,20 @@
+{
+  "id": "h1-crowdworks-scan-1014",
+  "title": "H1: daily CrowdWorks screen + proposals under PG-2 (≤5/day combined with Coconala)",
+  "lane": "h1-proposals",
+  "detail": "Same as h1-crowdworks-scan-1013 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-13T10:00 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container 'data' attribute JSON); job pages via in-page fetch of /public/jobs/<id>. Skip known lure templates (PDF議事録/マニュアル→Word re-posts now 6x, identical posts from multiple accounts, sub-floor per-item lists). Check proposals 308916973 / 308917020 / 308944942 / 309019001 (eBay→Sheets GAS, ¥10k) via in-page fetch /proposals/<id> for client replies -> sales_conversation + answer <=12h under PG-2. Kill window day 2 (>=10/0 by 10/17). Record in marketing/2026-10/h1/screens/crowdworks-2026-10-14.md. Profile: crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "not_before": "2026-10-14T10:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-13T01:04:55.818Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
