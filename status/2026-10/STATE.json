@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-13T13:07:00+09:00",
+  "as_of": "2026-10-13T20:07:00+09:00",
   "day": 13,
-  "day_note": "Day 13, 13:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty); KPI gross 0 / cost 0 / 0 orders / human 9x33min (0 new 10/13). Proposals now 9 (Coconala 5 + CrowdWorks 4) -> 0 buyer replies. mac-local's 10:00 JST 10/13 cycle RAN: CrowdWorks 5th proposal 309019001 (¥10k eBay->Sheets, del 10/18) sent under standing PG-2 no owner step; Coconala am inbox = 1 thread (direct_message/10281068, req 5303494 アクセス解析 ¥30k) with ONLY an outbound owner question at 09:39 JST (no buyer reply = not a signal, watch at 19:00); Coconala scan 15 reqs 0 GO (11th straight). Evening Coconala tasks (inbox-1013pm + scan-1013pm) not_before 19:00 JST; next CrowdWorks scan 10/14 10:00 JST. X Day-13 -pm.json queued & intact (not_before 20:37 JST 10/13; 13:07 is before not_before -> no dispatch). X metrics unchanged (median imp 12<20). owner_queue empty. No first-reply/charge -> no Art.10 trigger. BINDING CONSTRAINT unchanged: unproven reply rate 0/9. No strategy change (<48h to 10/15 review = thrash); pre-registered triggers carry the decisions.",
+  "day_note": "Day 13, 20:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty, acct_1U8AHVEe2GZbKrsU); KPI gross 0 / cost 0 / 0 orders / human 9x33min (0 new 10/13). Proposals 9 (Coconala 5 + CrowdWorks 4) -> 0 buyer replies. mac-local's 19:00 JST 10/13 evening cycle RAN (10:02-10:04Z): Coconala inbox thread 10281068 (req 5303494 ¥30k) — our 09:39 outbound question now 開封済み (READ by buyer) but still NO reply (read receipt != sales_conversation, Art.2); evening scan 23 reqs (5322524-5323492) 0 GO (12th straight 0-GO). No CrowdWorks evening task (next CW scan 10/14 10:00 JST). X Day-13 -pm.json queued & intact (not_before 20:37 JST 10/13; 20:07 is 30min before not_before -> no dispatch; 00:07 JST 10/14 fire is the backstop). X metrics unchanged (median imp 12<20). owner_queue empty. No first-reply/charge -> no Art.10 trigger. BINDING CONSTRAINT unchanged: unproven reply rate 0/9. No strategy change (<48h to 10/15 review = thrash); pre-registered triggers carry the decisions.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -244,6 +244,11 @@
     {
       "date": "2026-10-13",
       "level": "L1",
+      "decision": "20:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents [] (all-time empty); KPI 0/0/0 orders; 9 proposals (Coconala 5 + CrowdWorks 4) / 0 replies; human 9x/33min (0 new 10/13). Read mac-local's 19:00 JST 10/13 evening cycle: Coconala inbox thread 10281068 (req 5303494 ¥30k) — our 09:39 outbound question now 開封済み (READ) but still NO buyer reply (read receipt != signal, Art.2); evening scan 23 reqs 0 GO (12th straight 0-GO). No CrowdWorks evening task (next 10/14 10:00 JST), still 4 CW / 0 replies. X Day-13 -pm.json queued & intact (not_before 20:37 JST; 20:07 is 30min before -> no dispatch; 00:07 JST 10/14 is the post-not_before backstop). owner_queue empty. No reply/charge -> no Art.10 trigger. HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <48h before the 10/15 review. Decision report status/2026-10/decisions/2026-10-13T2007.json. Execution of the standing plan + signal watch, not a strategy change (no review re-open; next review 10/15)."
+    },
+    {
+      "date": "2026-10-13",
+      "level": "L1",
       "decision": "13:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents [] (all-time empty); KPI 0/0/0 orders; 9 proposals (Coconala 5 + CrowdWorks 4) / 0 replies; human 9x/33min (0 new 10/13). CONFIRMED mac-local's 10:00 JST 10/13 cycle ran (01:02-01:08Z): CrowdWorks 5th proposal SENT under standing PG-2 (309019001 ¥10k, job 13522731 eBay新規出品->Sheets GAS+Browse API, del 10/18) -> CW 4 sent/0 replies; Coconala am inbox = 1 thread direct_message/10281068 (req 5303494 アクセス解析 ¥30k) with ONLY an outbound owner question (09:39 JST, no repo operator, no buyer reply -> NOT a signal, watch at 19:00); Coconala scan 15 new reqs 0 GO (11th straight). X Day-13 -pm.json queued & intact (not_before 20:37 JST, 13:07 is before not_before -> no dispatch). owner_queue empty. No reply/charge -> no Art.10 trigger. HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <48h before the 10/15 review. Execution of the standing plan + signal watch, not a strategy change (no review re-open; next review 10/15)."
     },
     {
@@ -255,16 +260,6 @@
       "date": "2026-10-13",
       "level": "L1",
       "decision": "00:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents []; KPI 0/0/0 orders; 8 proposals (Coconala 5 + CW 3) / 0 replies; no new mac-local activity since the 19:04 JST 10/12 cycle (next tasks 10/13 10:00 JST); owner_queue empty; no reply/charge -> no Art.10 trigger. EXECUTED the pre-registered 10/13 00:07 X mitigation: Day-12 numbers post was still queued (the 20:37 JST cron run #47 fired 20min early at 11:17Z, before not_before, skipping it) -> manually dispatched x-phase2 (workflow_dispatch run #48, success) -> CONFIRMED posted (tweet 2109663413915865321, 00:12 JST 10/13, queue cleared). Queued Day-13 -pm.json (not_before 20:37 JST 10/13, 昨日=10/12 numbers 0/0/0 + 提案8件返信0, 265w). HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <60h before the 10/15 review. Execution of the standing plan + a pre-registered mitigation trigger + signal watch, not a strategy change (no review re-open; next review 10/15)."
-    },
-    {
-      "date": "2026-10-12",
-      "level": "L1",
-      "decision": "20:07 fire (NOT a review): signal-watch, all 0. Stripe DIRECT GetCharges []/GetPaymentIntents []; KPI 0/0/0 orders; read mac-local's 19:00 JST cycle -> Coconala inbox empty (0 replies), evening scan 22 reqs 0 GO (10th straight 0-GO); no new CrowdWorks activity (scan is 10:00 JST); still 8 proposals (Coconala 5 + CW 3) / 0 replies; no reply/charge -> no Art.10 trigger. HOLD strategy (CrowdWorks primary + price_plus_reply; Coconala thin secondary); no change <72h before the 10/15 review. X: Day-12 post NOT dispatched (20:17 JST is 20min before the 20:37 not_before); manual dispatch at the 00:07 JST 10/13 fire if still unposted. Execution of the standing plan + signal watch, not a strategy change (no review re-open; next review 10/15)."
-    },
-    {
-      "date": "2026-10-12",
-      "level": "L1",
-      "decision": "13:07 fire: resolved the pre-registered 10/12 Coconala kill-trigger as UNDER-VOLUME, not a kill. Only 5 widened proposals reached buyers at 0 replies (threshold was >=10/0); the pool is supply-starved (9 straight 0-GO Coconala scans through 10/12 10:07), so buyers never saw 10 and ignored them — the channel-wrong verdict is not supported. Keep the thin Coconala lane live while CrowdWorks carries primary; re-check at 10/15. Also noted mac-local sent a 3rd CrowdWorks proposal (308944942 ¥10k, job 13522766) at the 10:00 JST scan -> 8 proposals / 0 replies. Execution of a pre-registered trigger + signal watch, not a strategy change (no review re-open; next review 10/15)."
     }
   ],
   "decisions_note": "10/07 redesign decisions (L2 broaden Coconala GO / L3 add CrowdWorks / L2 portfolio shrink) archived to STATE_ARCHIVE.jsonl 2026-10-13 to keep STATE<40KB; full text in decisions/2026-10-07T0300.json + reports/2026-10/REDESIGN-2026-10-07.md.",
@@ -288,7 +283,7 @@
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-13T1307.json",
+    "latest": "status/2026-10/decisions/2026-10-13T2007.json",
     "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
   },
   "pending_triggers": [
