@@ -14,9 +14,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-12T10:04:37.245Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-13T12:03:17.118Z",
+  "result": "19:04 JST 10/13: 23 new requests (ids 5322524-5323492) screened on the widened lane. 2 read in full, 0 GO, 0 sent. 5323286 cocoon search-bug fix NO: the buyer asks 0-review sellers not to apply; it also needs buyer WP access and has 27 applicants. 5323292 JUST.DB invoice system NO: the build is inside the client's paid tenant, hands-on experience is required, and it has 34 applicants. The rest were creative/licensed/on-site/manipulation/sub-floor. 12th straight 0-GO Coconala scan; 10/13 sends 1/5 (CW). Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1014 (10:00, id > 5323492); h1-coconala-scan-1014pm created.",
+  "history": [
+    {
+      "ts": "2026-10-13T10:03:17.118Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-13T10:03:51.233Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:04 JST 10/13: 23 new requests (ids 5322524-5323492) screened on the widened lane. 2 read in full, 0 GO, 0 sent. 5323286 cocoon search-bug fix NO: the buyer asks 0-review sellers not to apply; it also needs buyer WP access and has 27 applicants. 5323292 JUST.DB invoice system NO: the build is inside the client's paid tenant, hands-on experience is required, and it has 34 applicants. The rest were creative/licensed/on-site/manipulation/sub-floor. 12th straight 0-GO Coconala scan; 10/13 sends 1/5 (CW). Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1014 (10:00, id > 5323492); h1-coconala-scan-1014pm created."
+    }
+  ]
 }
