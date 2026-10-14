@@ -1,7 +1,7 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-14T13:07:00+09:00",
+  "as_of": "2026-10-14T20:07:00+09:00",
   "day": 14,
   "day_note": "Day 14, 08:07 JST signal-watch fire (NOT a review — next review 10/15). Signals re-read, all 0: Stripe livemode DIRECT GetCharges [] / GetPaymentIntents [] (all-time empty, acct_1U8AHVEe2GZbKrsU); KPI gross 0 / cost 0 / 0 orders / human 9x33min (0 new 10/13; latest HI 2026-10-11). Proposals 9 (Coconala 5 + CrowdWorks 4) -> 0 buyer replies. No new mac-local activity since the 19:04 JST 10/13 evening cycle (last mac-local event 2026-10-13T10:04Z); mac-local's next buyer-facing cycle is the 10/14 10:00 JST tasks (~2h out at this fire), so no new buyer data since 00:07. X Day-13 CONFIRMED posted (tweet 2110025814674702680, 00:12 JST 10/14); Day-14 -pm.json queued+valid (270w, not_before 20:37 JST 10/14) — 08:07 is before not_before, NO dispatch this fire (the 00:07 JST 10/15 fire is its backstop). X metrics unchanged (median imp 12<20, 20 posts). owner_queue empty. No first-reply/charge -> no Art.10 trigger. BINDING CONSTRAINT unchanged: unproven reply rate 0/9. No strategy change (<48h to 10/15 review = thrash); pre-registered triggers carry the decisions. Decision report 2026-10-14T0807 written.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",

@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-14 13:07 JST fire done (E2): signal-watch all 0 (Stripe DIRECT []/[], KPI 0/0/0, 9 proposals/0 replies, X median 12<20, owner_queue empty); mac-local 10:00 cycle read (CW 0 GO/4 reviewing/0 reply, Coconala 5 募集終了/0 reply, scan 24/0 GO=13th); decision report 2026-10-14T1307 + STATE 13:07 written; checks green; X Day-14 queued before not_before (no dispatch)",
-  "next": "Next fire 20:07 JST 10/14 (NOT a review; next review 10/15): (1) read mac-local events for the 19:00 JST 10/14 cycle (h1-coconala-inbox-1014pm + scan-1014pm) + check CrowdWorks 308916973/308917020/308944942/309019001 + Coconala thread 10281068 + Stripe DIRECT charges/PI + X metrics -> first reply/inquiry/charge => Art.10 act end-to-end (<=12h via mac-local, scope, order; Art.5.5 no pre-build before a reply); (2) X Day-14 still queued for 20:37 JST (20:07 before not_before -> no dispatch; 00:07 JST 10/15 is its backstop); (3) write the 20:07 decision report. Triggers: 10/15 CrowdWorks 5-day >=10/0 kill window + weekly review (g2_pipeline) + H1-dead gate + Coconala >=10/0 re-check; 10/20 G2 verdict. No strategy change before 10/15.",
+  "doing": "Day-14 20:07 JST fire done (E2): signal-watch all 0 (Stripe DIRECT []/[], KPI 0/0/0, 9 proposals/0 replies, X median 12<20, owner_queue empty); mac-local 19:00 cycle read (Coconala inbox 0 reply/all 5 募集終了, scan 29/0 GO=14th; CW 4/0 unchanged); decision report 2026-10-14T2007 + STATE 20:07 written; checks green; X Day-14 queued (20:07 before not_before, no dispatch)",
+  "next": "Next fire 00:07 JST 10/15 (X Day-14 backstop + first fire strictly after 20:37 not_before): (1) if Day-14 still queued/unposted -> manually dispatch x-phase2, then queue Day-15 with confirmed 10/14 numbers; (2) full signal-watch (Stripe DIRECT charges/PI + mac-local CW 308916973/308917020/308944942/309019001 + Coconala thread 10281068 + X metrics) -> first reply/inquiry/charge => Art.10 act end-to-end <=12h via mac-local; (3) write 00:07 decision report. 10/15 is the weekly REVIEW (g2_pipeline) + H1-dead-for-October gate + CrowdWorks 5-day >=10/0 kill window + Coconala >=10/0 re-check; 10/20 G2 verdict. No strategy change before 10/15 review.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-14T04:13:09.275Z"
+  "heartbeat_at": "2026-10-14T11:12:15.065Z"
 }
