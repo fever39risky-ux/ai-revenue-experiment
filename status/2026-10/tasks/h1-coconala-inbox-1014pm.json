@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-14T01:05:05.013Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-14T12:00:51.529Z",
+  "result": "19:15 JST 10/14: /message still has only 1 thread, 10281068 (hidemasa0122). Our 10/13 09:39 question is 開封済み with no buyer reply after about 34h. applied/offers: all 5 proposals 募集終了 unadopted (¥8k/¥10k/¥30k/¥3k/¥8k), none recruiting. Notifications あなた宛: nothing new (only a ココナラくじ coupon promo). Replies needed: none. Coconala stands at 0 buyer replies / 5 proposals. Next: h1-coconala-inbox-1015am (10:00).",
+  "history": [
+    {
+      "ts": "2026-10-14T10:00:51.529Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-14T10:17:39.981Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:15 JST 10/14: /message still has only 1 thread, 10281068 (hidemasa0122). Our 10/13 09:39 question is 開封済み with no buyer reply after about 34h. applied/offers: all 5 proposals 募集終了 unadopted (¥8k/¥10k/¥30k/¥3k/¥8k), none recruiting. Notifications あなた宛: nothing new (only a ココナラくじ coupon promo). Replies needed: none. Coconala stands at 0 buyer replies / 5 proposals. Next: h1-coconala-inbox-1015am (10:00)."
+    }
+  ]
 }

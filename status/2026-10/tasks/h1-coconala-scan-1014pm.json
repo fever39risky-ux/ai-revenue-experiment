@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-13T10:03:51.098Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-14T12:17:40.589Z",
+  "result": "19:20 JST 10/14: 29 new requests (ids 5324396-5325484) screened on the widened lane, 1 read in full, 0 GO, 0 sent. 5324821 map+inventory MVP quote NO: a full web-service build with barcode scanning and real-time stock, it asks for similar paid track record, and it drew 60 applicants within hours. The rest were video/narration/model lessons/hearing panels/BUYMA/sales/experience articles/SNS comment ops/sewing/repair/drawings/3D. 14th straight 0-GO Coconala scan; 10/14 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1015 (10:00, id > 5325484), then h1-coconala-scan-1015pm (19:00).",
+  "history": [
+    {
+      "ts": "2026-10-14T10:17:40.589Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-14T10:18:26.848Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:20 JST 10/14: 29 new requests (ids 5324396-5325484) screened on the widened lane, 1 read in full, 0 GO, 0 sent. 5324821 map+inventory MVP quote NO: a full web-service build with barcode scanning and real-time stock, it asks for similar paid track record, and it drew 60 applicants within hours. The rest were video/narration/model lessons/hearing panels/BUYMA/sales/experience articles/SNS comment ops/sewing/repair/drawings/3D. 14th straight 0-GO Coconala scan; 10/14 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1015 (10:00, id > 5325484), then h1-coconala-scan-1015pm (19:00)."
+    }
+  ]
 }
