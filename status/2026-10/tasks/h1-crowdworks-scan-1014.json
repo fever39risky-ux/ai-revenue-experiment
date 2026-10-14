@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-13T01:04:55.818Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-14T03:02:04.783Z",
+  "result": "10:03 JST 10/14 logged in: 1,659 listings pulled, 996 released since 10/13 10:00, 116 after filters, 10 read in full, 0 GO, 0 sent. NO: adult-AI-site UI check needing sign-up/credit purchase (13530474, 45 applicants); 7th PDF→Word lure (13532179) + sibling PDF→list/PDF→Sheets lures (13532176, 13531868); hourly staff role (13531524); contact-list harvesting (13532083 ¥1k, 13532087 2,000件 Maps); clinic-closure plan needing medical-management experience (13257814); 250-applicant ongoing role (13419176). No small GAS/automation build job in the window. 308916973/308917020/308944942/309019001 still 'client reviewing', no messages (CW 4 sent/0 replies; kill window day 2). Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-14.md. Next: h1-crowdworks-scan-1015 created.",
+  "history": [
+    {
+      "ts": "2026-10-14T01:02:04.784Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-14T01:03:53.348Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:03 JST 10/14 logged in: 1,659 listings pulled, 996 released since 10/13 10:00, 116 after filters, 10 read in full, 0 GO, 0 sent. NO: adult-AI-site UI check needing sign-up/credit purchase (13530474, 45 applicants); 7th PDF→Word lure (13532179) + sibling PDF→list/PDF→Sheets lures (13532176, 13531868); hourly staff role (13531524); contact-list harvesting (13532083 ¥1k, 13532087 2,000件 Maps); clinic-closure plan needing medical-management experience (13257814); 250-applicant ongoing role (13419176). No small GAS/automation build job in the window. 308916973/308917020/308944942/309019001 still 'client reviewing', no messages (CW 4 sent/0 replies; kill window day 2). Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-14.md. Next: h1-crowdworks-scan-1015 created."
+    }
+  ]
 }

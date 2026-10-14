@@ -11,9 +11,21 @@
   "not_before": "2026-10-14T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-13T01:06:57.828Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-14T03:05:05.415Z",
+  "result": "10:06 JST 10/14: 24 new requests (ids 5323532-5324359) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5324092 ai→PDF NO (tiny job, 41 applicants); 5323946 social-insurance closure filings NO (社労士 license territory); 5323532 Jimdo SEO + Google Ads NO (ad-account operation, 24 applicants); 5323559 Amazon page + ads NO (Seller Central operation, experience required, sub-floor). The rest were creative/on-site/live/large builds. 13th straight 0-GO Coconala scan. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1014pm (19:00, id > 5324359); h1-coconala-scan-1015 created.",
+  "history": [
+    {
+      "ts": "2026-10-14T01:05:05.415Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-14T01:05:42.688Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:06 JST 10/14: 24 new requests (ids 5323532-5324359) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5324092 ai→PDF NO (tiny job, 41 applicants); 5323946 social-insurance closure filings NO (社労士 license territory); 5323532 Jimdo SEO + Google Ads NO (ad-account operation, 24 applicants); 5323559 Amazon page + ads NO (Seller Central operation, experience required, sub-floor). The rest were creative/on-site/live/large builds. 13th straight 0-GO Coconala scan. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1014pm (19:00, id > 5324359); h1-coconala-scan-1015 created."
+    }
+  ]
 }
