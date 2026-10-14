@@ -15,12 +15,12 @@
     "claude-cli",
     "playwright-mcp-dedicated-profile"
   ],
-  "status": "idle",
-  "doing": "supervisor alive; no eligible mac-local task on main",
-  "next": "polling main every 120s; starts a Claude worker when a task appears",
+  "status": "blocked",
+  "doing": "supervisor backoff after git_network (failure 1)",
+  "next": "retry at 2026-10-14T06:52:49.672877Z",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-14T05:08:06.881Z",
-  "blocked_on": null,
+  "heartbeat_at": "2026-10-14T06:51:43.792Z",
+  "blocked_on": "git_network",
   "progress": "since 2026-10-13T17:57:53.691769Z: polls=330 workers=1 browser_workers=1 chrome_for_testing_procs=0"
 }
