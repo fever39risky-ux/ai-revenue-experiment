@@ -2,7 +2,7 @@
   "id": "h1-crowdworks-scan-1016",
   "title": "H1: daily CrowdWorks screen + proposals under PG-2 (≤5/day combined with Coconala)",
   "lane": "h1-proposals",
-  "detail": "Same as h1-crowdworks-scan-1015 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-15T10:00 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container 'data' JSON); job pages via in-page fetch of /public/jobs/<id>. Skip known lure templates (PDF→Word / PDF→Sheets / PDF→list 学生不可 20-59; ¥50 trial + hourly 'fixed' bands; contact-list harvesting; sub-floor per-item lists); audio transcription = NO (no ASR toolchain). Check proposals 308916973 / 308917020 / 308944942 / 309019001 via in-page fetch /proposals/<id> for client replies -> sales_conversation + answer <=12h under PG-2. Kill window day 4 (>=10/0 by 10/17). Record in marketing/2026-10/h1/screens/crowdworks-2026-10-16.md. Profile: crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day.",
+  "detail": "FIRST-WIN OVERRIDE (founder 2026-10-16T08:07 JST, per STATE H1.selection_rule rewritten in the Day-15 20:07 review; supersedes the pre-review rule): apply the L2 first-win motion — DROP the ≤3rd-5th early-applicant gate (it starved volume to 0 GO/day); among the widened GO lane pick the SMALLEST, fastest, objective-done jobs (clear done-condition, deliverable with existing capability/assets) at ¥5,000-10,000 PG-profitable (PG cond.2 'profitable after fees' MUST hold — never free/loss-leader), and lead the proposal with a free dummy-data sample + explicit done-definition; aim = the FIRST order→first review; target ≥3-5/day off zero, still ≤5/day combined cap, honest AI-assist disclosure. The old 'Kill window day 4 (>=10/0 by 10/17)' below is REPLACED by the 10/18 falsification checkpoint. Scan mechanics below still apply. Same as h1-crowdworks-scan-1015 (CROWDWORKS_PLAYBOOK §1-2.5). Re-screen listings released after 2026-10-15T10:00 JST via in-page fetch of /public/jobs/search?order=new&hide_expired=true[&page=N][&search[keywords]=..] (#vue-container 'data' JSON); job pages via in-page fetch of /public/jobs/<id>. Skip known lure templates (PDF→Word / PDF→Sheets / PDF→list 学生不可 20-59; ¥50 trial + hourly 'fixed' bands; contact-list harvesting; sub-floor per-item lists); audio transcription = NO (no ASR toolchain). Check proposals 308916973 / 308917020 / 308944942 / 309019001 via in-page fetch /proposals/<id> for client replies -> sales_conversation + answer <=12h under PG-2. Kill window day 4 (>=10/0 by 10/17). Record in marketing/2026-10/h1/screens/crowdworks-2026-10-16.md. Profile: crowdworks-profile (playwright-crowdworks) only. On done: create h1-crowdworks-scan-<MMDD> for the next day.",
   "requires": [
     "local_browser"
   ],
@@ -16,5 +16,12 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-16T08:07:00+09:00",
+      "by": "founder",
+      "action": "detail_override",
+      "note": "Prepended the L2 first-win selection_rule; this task was created pre-review (10/15) and carried the superseded early-applicant-gate rule + old kill window. Completes the Day-15 20:07 review's in-fire reallocation."
+    }
+  ]
 }

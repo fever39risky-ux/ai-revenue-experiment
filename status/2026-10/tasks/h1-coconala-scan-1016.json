@@ -2,7 +2,7 @@
   "id": "h1-coconala-scan-1016",
   "title": "H1: daily Coconala request re-scan (ids > last screened, 5326482 as of 10/15 10:05); send under PG-1 (widened lane, ≤5/day)",
   "lane": "h1-proposals",
-  "detail": "Scan https://coconala.com/requests?recruiting=true&sort=new via in-page fetch (pages 1-3) for ids > the last screened (5326482 as of 10/15 10:05, or later if scan-1015pm ran). Widened lane (PROPOSAL_KIT §2/§2.5). Send under PG-1 when conditions 1-7 hold (log each). Cap ≤5/day combined with CrowdWorks. Fetch /requests/<id> in-page instead of navigating. On done: create the next day's scan task.",
+  "detail": "FIRST-WIN OVERRIDE (founder 2026-10-16T08:07 JST, per STATE H1.selection_rule, Day-15 20:07 review): apply the L2 first-win motion — among the widened GO lane pick the SMALLEST, fastest, objective-done jobs (clear done-condition, deliverable with existing capability/assets) at ¥5,000-10,000 PG-profitable (PG-1 cond.2 'profitable after fees' MUST hold — never free/loss-leader), lead the proposal with a free dummy-data sample + explicit done-definition; aim = the FIRST order→first review; target ≥3-5/day off zero, ≤5/day combined cap, honest AI-assist disclosure. Scan mechanics below still apply. Scan https://coconala.com/requests?recruiting=true&sort=new via in-page fetch (pages 1-3) for ids > the last screened (5326482 as of 10/15 10:05, or later if scan-1015pm ran). Widened lane (PROPOSAL_KIT §2/§2.5). Send under PG-1 when conditions 1-7 hold (log each). Cap ≤5/day combined with CrowdWorks. Fetch /requests/<id> in-page instead of navigating. On done: create the next day's scan task.",
   "requires": [
     "local_browser"
   ],
@@ -15,5 +15,12 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-16T08:07:00+09:00",
+      "by": "founder",
+      "action": "detail_override",
+      "note": "Prepended the L2 first-win selection_rule; task created pre-review (10/15). Completes the Day-15 20:07 review's in-fire reallocation."
+    }
+  ]
 }
