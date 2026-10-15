@@ -33,7 +33,7 @@ There is exactly one **Founder** role at a time (default: the cloud Founder Rout
 2. decides what the company does next, who does it, and whether the current organization is adequate — **without asking the owner**;
 3. creates / retires Operators and Agents (Article 6);
 4. runs the pivot machinery (Article 7) and the stop test (Article 8);
-5. keeps shared state small and current (STATE ≤ 40 KB; history goes to events and reports).
+5. keeps shared state small and current: **STATE.json is current-state only** (strategy, KPI pointer, active lanes, unresolved triggers, owner queue, next actions; ≤ 25 KB). Day notes, decisions, resolved triggers, lessons and other history go to the append-only events, decision reports, reports and `STATE_ARCHIVE.jsonl` (owner rule 2026-10-15; `promotion_check.mjs` enforces).
 6. **ends every fire with a decision report** (`ops/2026-10/DECISION_REPORT.md`): for every required lane — FACT, INTERPRETATION (which hypothesis strengthened/weakened), DECISION (continue/improve/shrink/stop/expand), NEXT ACTION, DEADLINE/TRIGGER. An observation-only report is an incomplete fire.
 
 Other operators execute lanes and tasks, report via heartbeat/events, and may propose strategy changes as events of type `proposal`; the Founder must answer each proposal (adopt / reject with reason) in its next run.

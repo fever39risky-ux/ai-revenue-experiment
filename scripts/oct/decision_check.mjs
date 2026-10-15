@@ -23,6 +23,34 @@ export function check(obj) {
   if (obj.review) p.push(...checkReview(obj));
   return p;
 }
+// 10/18 falsification checkpoint (ops/2026-10/CHECKPOINT_1018.md)
+export const CHECKPOINT_OPTIONS = ['buyer_segment', 'offer', 'price', 'job_selection', 'channel', 'other_sales_motion'];
+export function checkCheckpoint(c, taskExists = () => true) {
+  const p = [];
+  if (!c || typeof c !== 'object') return ['checkpoint_1018 block missing (ops/2026-10/CHECKPOINT_1018.md)'];
+  if (typeof c.replies_observed !== 'number') p.push('checkpoint_1018.replies_observed must be a number');
+  const o = c.options || {};
+  for (const k of CHECKPOINT_OPTIONS) {
+    if (!o[k]) { p.push(`checkpoint_1018.options.${k} missing`); continue; }
+    for (const f of ['option', 'expected_effect', 'cost', 'evidence']) if (!String(o[k][f] ?? '').trim()) p.push(`checkpoint_1018.options.${k}.${f} empty`);
+  }
+  const chosen = [].concat(c.chosen || []);
+  if (!chosen.length || !chosen.every(k => CHECKPOINT_OPTIONS.includes(k))) p.push('checkpoint_1018.chosen must list option keys');
+  if (!String(c.why ?? '').trim()) p.push('checkpoint_1018.why empty');
+  if (c.replies_observed === 0) {
+    if (!['L4', 'L5'].includes(c.level)) p.push('replies 0 → checkpoint_1018.level must be L4 or L5');
+    if (c.verdict !== 'redesign') p.push('replies 0 → checkpoint_1018.verdict must be "redesign"');
+    if (/提案数が少な|件数が少な|母数が少な|under-?volume|low volume|too few proposals|not enough (data|volume)/i.test(JSON.stringify({ v: c.verdict, why: c.why })))
+      p.push('replies 0 → "continue because proposals are few" is forbidden (CHECKPOINT_1018.md)');
+  }
+  const ex = c.executed || {};
+  if (c.replies_observed === 0 && ![].concat(ex.stopped_tasks || []).length) p.push('checkpoint_1018.executed.stopped_tasks empty');
+  const nt = [].concat(ex.new_tasks || []);
+  if (!nt.length) p.push('checkpoint_1018.executed.new_tasks empty');
+  for (const t of nt) if (!taskExists(t)) p.push(`checkpoint_1018.executed.new_tasks: no task ${t}`);
+  if (!String(ex.reallocation ?? '').trim()) p.push('checkpoint_1018.executed.reallocation empty');
+  return p;
+}
 // Weekly review blocks (ops/2026-10/REVIEW_SPEC.md)
 export function checkReview(o) {
   const p = [];
@@ -60,6 +88,11 @@ if (isMain) {
     let reviews = [];
     try { reviews = JSON.parse(readFileSync('status/2026-10/STATE.json', 'utf8')).reviews || []; } catch {}
     if (m && reviews.includes(m[1]) && m[2] === '20' && m[1] >= '2026-10-08' && !obj.review) p.push('20:xx report on a weekly review date must set "review": true (ops/2026-10/REVIEW_SPEC.md)');
+    // the earliest report dated 2026-10-18 must carry the falsification checkpoint
+    if (m && m[1] === '2026-10-18') {
+      const first = readdirSync(dir).filter(x => x.startsWith('2026-10-18T') && x.endsWith('.json')).sort()[0];
+      if (f.endsWith(first) || obj.checkpoint_1018) p.push(...checkCheckpoint(obj.checkpoint_1018, id => existsSync(join('status/2026-10/tasks', `${id}.json`))));
+    }
     console.log(p.length ? `FAIL ${f}: ${p.join('; ')}` : `ok   ${f}`);
     bad += p.length ? 1 : 0;
   }

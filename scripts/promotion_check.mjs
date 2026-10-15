@@ -88,7 +88,13 @@ if (existsSync('experiment/periods.json')) {
   // STATE.json is the Founder's working memory, not an archive: keep it small.
   if (existsSync('status/2026-10/STATE.json')) {
     const size = readFileSync('status/2026-10/STATE.json').length;
-    if (size > 40000) fail(`status/2026-10/STATE.json is ${size} bytes (> 40000). Move history to events/reports; STATE holds only the current picture.`);
+    if (size > 25000) fail(`status/2026-10/STATE.json is ${size} bytes (> 25000). Move history to events/reports/STATE_ARCHIVE.jsonl; STATE holds only the current picture.`);
+    // current-state only (owner rule 2026-10-15): no history keys, no resolved triggers
+    const st = readJSON('status/2026-10/STATE.json') || {};
+    for (const k of ['day_note', 'decisions', 'decisions_note', 'reviews_done', 'decision_reports', 'lessons', 'history', 'human_queue'])
+      if (k in st) fail(`STATE.json must not hold history key "${k}" — append it to events/decisions/STATE_ARCHIVE.jsonl instead`);
+    for (const t of st.pending_triggers || [])
+      if (/^(RESOLVED|APPLIED|FIRED)/.test(String(t.rule || ''))) fail(`STATE.pending_triggers holds a resolved trigger (${t.date} ${t.lane}) — move it to STATE_ARCHIVE.jsonl`);
   }
   for (const dir of ['status/2026-10/operators', 'status/2026-10/tasks']) {
     if (!existsSync(dir)) continue;

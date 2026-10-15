@@ -50,14 +50,14 @@ All times JST (UTC+9). The workflow slot time and the queue item's `not_before` 
 
 | Slot | Intended (JST) | Queue `not_before` | Actions cron (UTC) | Expected actual post (JST) | Verified by (JST) |
 |---|---|---|---|---|---|
-| Morning | 08:37 | `…T08:37:00+09:00` | `37 23 * * *` (previous UTC day) | 08:37–09:10 | Founder 13:07 fire, task `x-verify-day1-am` (evidence: `posted.jsonl` tweet_id + in-script GET verification + `metrics.json` entry written by the 12:37 run) |
-| Noon | 12:37 | (only if an item is queued for it) | `37 3 * * *` | 12:37–13:10 | next Founder fire |
-| Evening | 20:37 | `…T20:37:00+09:00` | `37 11 * * *` | 20:37–21:10 | Founder 00:07 fire (next day), task `x-verify-day1-pm` (metrics refreshed by the 08:37 run) |
+| Morning | 08:37 | `…T08:37:00+09:00` | `37 23 * * *` (previous UTC day) | 08:37–09:10 | x-watchdog (every 10 min) |
+| Noon | 12:37 | (only if an item is queued for it) | `37 3 * * *` | 12:37–13:10 | x-watchdog |
+| Evening | 20:37 | `…T20:37:00+09:00` | `37 11 * * *` | 20:37–21:10 | x-watchdog |
 
 Rules that follow from the table:
 - An item whose slot run was skipped/delayed stays in the queue and is posted by the next slot run (it is already due); the evening item cannot be posted early because its `not_before` is 20:37.
 - Cap: 2 posts per JST day through the pipeline.
-- Fallback: if the morning item is still in `social/2026-10/queue/` at 10:00 JST, the Founder dispatches `x-phase2.yml` manually (GitHub MCP `actions_run_trigger`) and records the run id; a failed run's log is read before any retry.
+- **Backstop = `x-watchdog.yml` (owner rule 2026-10-15), not the Founder.** Every 10 min it runs `scripts/oct/x_watchdog.mjs`: a queue item due > 5 min and still unposted (posted items leave the queue) with today < cap → dispatch `x-phase2.yml`, unless a run is already active. After 3 dispatches in 2 h without a post it stops and opens an `x-watchdog` issue (auto-closed when nothing is overdue). The Founder no longer verifies slots or dispatches; it only authors the day's item and judges X's market response / continuation.
 
 ## 6. Day 1 state
 

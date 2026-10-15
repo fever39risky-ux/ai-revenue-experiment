@@ -1,0 +1,47 @@
+name: X watchdog (due-queue backstop)
+# Every 10 min: if a queue item is due and unposted (scheduled x-phase2 run dropped/late), dispatch x-phase2.yml.
+# Owner rule 2026-10-15: the cron backstop is not the Founder's job. Safe against duplicates: x_phase2.mjs removes
+# posted items from the queue, caps 2/day, and both workflows share the publish-main concurrency group.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+  issues: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Decide and dispatch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          d=$(node scripts/oct/x_watchdog.mjs); echo "$d"
+          if [ "$(echo "$d" | jq -r .dispatch)" != "true" ]; then
+            # nothing overdue -> any earlier watchdog alarm is resolved
+            if [ "$(echo "$d" | jq -r .reason)" = "nothing overdue" ]; then
+              for n in $(gh issue list --repo "$REPO" --label x-watchdog --state open --json number --jq '.[].number' 2>/dev/null); do gh issue close "$n" --repo "$REPO" --comment "Queue has no overdue item — resolved."; done
+            fi
+            exit 0
+          fi
+          active=$(gh api "repos/$REPO/actions/workflows/x-phase2.yml/runs?per_page=10" --jq '[.workflow_runs[]|select(.status=="queued" or .status=="in_progress" or .status=="waiting" or .status=="pending")]|length')
+          if [ "$active" != "0" ]; then echo "x-phase2 run already active ($active) — no dispatch"; exit 0; fi
+          since=$(date -u -d '-2 hours' +%FT%TZ)
+          recent=$(gh api "repos/$REPO/actions/workflows/x-phase2.yml/runs?event=workflow_dispatch&per_page=20&created=%3E$since" --jq '.workflow_runs|length')
+          if [ "$recent" -ge 3 ]; then
+            title="[x-watchdog] due X post still unposted after $recent dispatches"
+            gh label create x-watchdog --color D93F0B --force >/dev/null 2>&1 || true
+            if [ -z "$(gh issue list --repo "$REPO" --label x-watchdog --state open --json number --jq '.[0].number')" ]; then
+              gh issue create --repo "$REPO" --label x-watchdog --title "$title" --body "Watchdog decision: $d. x-phase2 was dispatched $recent times in 2h without posting — read the latest x-phase2 run log (credentials / API error / validation). Dispatching paused until a run succeeds or this issue is closed."
+            fi
+            exit 0
+          fi
+          gh workflow run x-phase2.yml --repo "$REPO" --ref main
+          echo "dispatched x-phase2.yml"

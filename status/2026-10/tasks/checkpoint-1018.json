@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-1018",
+  "title": "10/18 falsification checkpoint: replies 0 → redesign the Sales Motion at L4+ and execute it in the same fire",
+  "lane": "strategy",
+  "detail": "Follow ops/2026-10/CHECKPOINT_1018.md. Count buyer replies on all channels (CrowdWorks + Coconala + any). If 0: the public-job application motion is falsified → redesign at L4+. FORBIDDEN: 'continue because the proposal count is low'. Compare all six (buyer_segment / offer / price / job_selection / channel / other_sales_motion — a motion other than applying to public jobs) with option, expected_effect, cost, evidence, score; choose; then in the SAME fire stop the replaced tasks (scan/proposal tasks), create the new tasks for the chosen motion (mac-local / founder), reallocate capacity, log a redesign event (--level L4|L5), update STATE hypotheses + priority_actions. Write checkpoint_1018 in the earliest 10/18 decision report (decision_check enforces). G2 deadline is 10/20 — choose motions that can produce a buyer response within days.",
+  "requires": [],
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "earliest 2026-10-18 decision report passes decision_check with checkpoint_1018; stopped/new tasks exist; redesign event logged",
+  "not_before": "2026-10-18T00:00:00+09:00",
+  "assigned_to": "founder",
+  "created_by": "founder",
+  "created_at": "2026-10-15T19:29:37.640Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
