@@ -1,0 +1,20 @@
+{
+  "id": "h1-coconala-inbox-1016am",
+  "title": "H1: Coconala inbox / proposal replies / quote consultations (reply under PG-1)",
+  "lane": "h1-proposals",
+  "detail": "Check https://coconala.com/message (only thread 10281068 hidemasa0122: our 10/13 09:39 question, no reply as of 10/15 19:01 (~58h); req closed — log if the buyer answers), /mypage/activities/notification (あなた宛; 10/15 only platform news + a job-matching RPA hourly-job recommendation), /mypage/activities/transaction and /mypage/job_matching/applied/offers (all 5 Coconala proposals 募集終了 unadopted as of 10/15 19:01). Reply under PG-1 when appropriate; log inquiry/sales_conversation signals. On done: create the next inbox task (h1-coconala-inbox-<MMDD><am|pm>). Tip: /message is client-rendered and slow (navigate, wait ~10s); notification/transaction are client-rendered too (navigate + wait 5s); offers page can be fetched in-page.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 1,
+  "not_before": "2026-10-16T10:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-15T10:01:39.835Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

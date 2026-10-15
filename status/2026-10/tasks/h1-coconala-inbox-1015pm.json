@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-15T01:03:46.901Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-15T12:00:21.217Z",
+  "result": "19:01 JST: /message only thread hidemasa0122 (our 10/13 question, still no buyer reply ~58h); あなた宛 notifications: only platform news plus an automatic job-matching recommendation (RPA hourly job, not a buyer contact); transactions: 現在、取引の通知はありません; applied offers: 5/5 募集終了, none adopted. 0 inquiries/replies (Coconala 5/0). Next: h1-coconala-inbox-1016am.",
+  "history": [
+    {
+      "ts": "2026-10-15T10:00:21.217Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-15T10:01:39.965Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:01 JST: /message only thread hidemasa0122 (our 10/13 question, still no buyer reply ~58h); あなた宛 notifications: only platform news plus an automatic job-matching recommendation (RPA hourly job, not a buyer contact); transactions: 現在、取引の通知はありません; applied offers: 5/5 募集終了, none adopted. 0 inquiries/replies (Coconala 5/0). Next: h1-coconala-inbox-1016am."
+    }
+  ]
 }

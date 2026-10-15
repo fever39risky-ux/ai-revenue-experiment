@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-14T10:18:26.722Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-15T12:00:21.343Z",
+  "result": "19:03 JST 10/15: screened 25 new requests (ids 5326571-5327444) on the widened lane and read 2 in full. 0 GO, 0 sent. 5327204 interview coaching NO (18 applicants in about 3h, no budget, no objective done-condition); 5327342 AI-agent architecture role NO (requires professional dev experience and meetings, cond.2/4, 25 applicants); 5327153 stealth-marketing posts NO (cond.6); 5326571 form sending and 5326606 ASMR script NO (both explicitly AI不可); 5326648 tax review NO (licensed). The rest were design, video, audio, CAD or site builds. 16th straight 0-GO Coconala scan; 10/15 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1016 (10:00, id > 5327444); h1-coconala-scan-1016pm created.",
+  "history": [
+    {
+      "ts": "2026-10-15T10:00:21.343Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-15T10:02:25.382Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:03 JST 10/15: screened 25 new requests (ids 5326571-5327444) on the widened lane and read 2 in full. 0 GO, 0 sent. 5327204 interview coaching NO (18 applicants in about 3h, no budget, no objective done-condition); 5327342 AI-agent architecture role NO (requires professional dev experience and meetings, cond.2/4, 25 applicants); 5327153 stealth-marketing posts NO (cond.6); 5326571 form sending and 5326606 ASMR script NO (both explicitly AI不可); 5326648 tax review NO (licensed). The rest were design, video, audio, CAD or site builds. 16th straight 0-GO Coconala scan; 10/15 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1016 (10:00, id > 5327444); h1-coconala-scan-1016pm created."
+    }
+  ]
 }
