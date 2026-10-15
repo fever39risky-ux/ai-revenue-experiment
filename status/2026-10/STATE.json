@@ -1,9 +1,9 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-15T20:07:00+09:00",
-  "day": 15,
-  "day_note": "Day 15. 13:07 JST signal-watch. All signals 0 (KPI 0/0/0, revenue_ledger []; 9 proposals Coconala5+CW4 / 0 replies; human 9x33min; X median 12<20; owner_queue empty). 10:00 JST mac-local cycle ran: CW scan 0 GO / 4 proposals 条件確認中 0 msgs, Coconala inbox 0 replies, Coconala scan 15th straight 0-GO. Stripe DIRECT auth-blocked (Art.9 owner OAuth) -> ledger/sales-monitor = 0. No Art.10 trigger. No strategy change before the 20:07 weekly review.",
+  "as_of": "2026-10-16T00:07:00+09:00",
+  "day": 16,
+  "day_note": "Day 16. 00:07 JST first-reply/signal-watch (first fire after the 10/15 L2 first-win review). All signals 0 (KPI 0/0/0, ledger []; 9 proposals / 0 replies = 15 days/0; human 9x33min, 0 new since 10/11; X median 12<20; owner_queue empty). No mac-local cycle in-window (next 10:00 JST 10/16 under the rewritten first-win rule). Stripe DIRECT auth-blocked (Art.9). No reply/charge/inquiry -> no Art.10. X: 20:37 scheduled run dropped by GitHub -> backstop-dispatched run #60 -> Day-15 confirmed (tweet 2110750778008744049); Day-16 queued. Next: 10/16 10:00 JST first-win cycle; 10/18 checkpoint -> L4; G2 10/20.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",

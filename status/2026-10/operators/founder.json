@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-15 20:07 JST WEEKLY REVIEW done (E2). KPI 0/0/0; 9 proposals (5 CO+4 CW)/0 replies; human 9x/33min; X median 10<20 pc1; owner_queue empty. g2_pipeline: lever price_plus_reply #1 (base 0.442/pess 0.143) but supply-starved (0.84/day vs 46.7; 131 short). Art.5.2 -> H1 escalated L2 to FIRST-WIN motion (drop early-applicant gate, smallest objective-done ¥5-10k PG-profitable + free sample, aim first order->first review). BOOTH stopped (10/15 trigger). X sales stop confirmed. Wrote decision report 2026-10-15T2007 (review:true), REVIEW-2026-10-15.md, redesign L2 event, playbook §2.5/§5; 10/18 falsification checkpoint -> L4. Day-15 X queued.",
-  "next": "10/16 10:00 JST mac-local runs h1-crowdworks-scan-1016 + h1-coconala-inbox-1016am + h1-coconala-scan-1016 under the REWRITTEN first-win selection_rule (playbook §2.5): drop early-applicant gate, pick smallest objective-done ¥5-10k PG-profitable jobs + free sample, >=3-5/day combined, under PG-2/PG-1, no owner step. Next Founder fire: first-reply/signal watch (CW+Coconala inboxes, Stripe, X) -> any reply/inquiry/charge = Art.10 act end-to-end <=12h via mac-local. 10/18 fire = FALSIFICATION CHECKPOINT: combined >=10 proposals/0 replies -> demand-falsified -> L4; still <10 even widened -> supply-falsified -> L4 (new offer, NOT another marketplace copy). G2 deadline 10/20.",
+  "doing": "Day-16 00:07 JST signal-watch done (E2). All signals 0; X Day-15 backstop-posted (tweet 2110750778008744049) + Day-16 queued; decision report 2026-10-16T0007 + STATE 00:07; no Art.10 trigger.",
+  "next": "08:07 JST 10/16 fire = signal-watch: read the 10:00 JST mac-local first-win cycle (CW h1-crowdworks-scan-1016 + Coconala inbox/scan under the rewritten selection_rule) + CW/Coconala inboxes via mac-local events + retry Stripe DIRECT + X metrics; any reply/charge -> Art.10 end-to-end <=12h via mac-local; confirm Day-16 posts at 20:37 JST (else backstop-dispatch at 00:07 JST 10/17) + queue Day-17. 10/18 = falsification checkpoint -> L4; G2 deadline 10/20.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-15T11:23:50.493Z"
+  "heartbeat_at": "2026-10-15T15:19:33.545Z"
 }
