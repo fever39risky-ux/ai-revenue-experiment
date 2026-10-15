@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-15T14:05:13.429Z (JST 2026-10-15) ===
+=== Phase 2 board — 2026-10-15T16:06:55.213Z (JST 2026-10-16) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  RE-FRAMED 2026-10-15 20:07 (Day-15 weekly review). The 10/11 "unproven reply rate" frame is now resolved into TWO structural gates that the week of data exposed: (1) SUPPLY — the price_plus_reply selection rule (¥10-15k objective-done + EARLY ≤3rd-5th applicant + free sample) rejects all ~86 daily post-filter CrowdWorks candidates (15 straight 0-GO scans 10/01-10/15; today 1,679→811→328→86→0 GO). Observed 0.84 proposals/day vs 46.7/day needed (base). The ≤10/0 kill windows for BOTH boards (CW 10/11-10/15 closed at 4/0; Coconala 5/0) were never reachable because volume never reached 10 — this is UNDER-VOLUME, not a demand verdict. (2) COLD-START — as a 0-review seller against 60-118 applicants/request, proposal→reply is 0/9. Calculator (g2_pipeline.mjs) still ranks price_plus_reply #1 (base P(G2) 0.442 / pess 0.143) BUT only on cap volume (24 proposals by 10/20), which supply starves; gap.achievable_at_current_rate=false, 131 proposals short. L5 check: org (mac-local daily scans) is ADEQUATE — the gate is the selection rule + cold-start positioning, not operators/cadence/tooling. Art.5.2 escalation (two reviews 10/08+10/15, 0 improvement, last change L1): the next H1 change is ≥L2 → sales-motion repositioned to a FIRST-WIN / first-review motion (see H1.selection_rule). Falsification checkpoint 10/18: combined ≥10 proposals & 0 replies → demand-falsified → L4; still <10 even widened → supply-falsified → L4. Passive listings (Coconala gig 4426150, BOOTH, Gumroad, Etsy, Stripe, Zenn, note) all 0 signals in 15 days — no new listing (Art.5.5 forbids copying the offer again). X stopped as sales (median imp 10<20, pc 1, 0 inquiries), keep daily numbers post. owner_queue empty.
 PRIORITY
@@ -8,7 +8,7 @@ PRIORITY
   - [founder] X trust/log only (sales STOPPED 10/08, tips STOPPED 10/11; median imp 10<20, pc 1, 0 inquiries). Keep ONLY the daily 第2弾 Day N numbers post (honesty record); queue each day -pm.json for the 20:37 slot. Day-15 queued (social/2026-10/queue/2026-10-15-pm.json). No tips authoring, no X sales resources.
   - [founder] SHRINK/STOP. BOOTH STOPPED 10/15 (0 スキ/sales trigger fired; listing kept live). Coconala passive gig 4426150, Gumroad, Etsy, Stripe, Zenn, note #1 all 0 signals → kept live zero-effort, NO new listings/articles (Art.5.5 forbids copying the offer again). No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5).
 OPERATORS
-  actions                working   STALE 22282m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 22404m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -17,12 +17,12 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 21852m lanes=
+  codex                  idle      STALE 21974m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 161m   lanes=strategy,x,h1-delivery,reporting
-      doing: Day-15 20:07 JST WEEKLY REVIEW done (E2). KPI 0/0/0; 9 proposals (5 CO+4 CW)/0 replies; human 9x/33min; X median 10<20 pc1; owner_queue empty. g2_pipeline: lever price_plus_reply #1 (base 0.442/pess 0.143) but supply-starved (0.84/day vs 46.7; 131 short). Art.5.2 -> H1 escalated L2 to FIRST-WIN motion (drop early-applicant gate, smallest objective-done ¥5-10k PG-profitable + free sample, aim first order->first review). BOOTH stopped (10/15 trigger). X sales stop confirmed. Wrote decision report 2026-10-15T2007 (review:true), REVIEW-2026-10-15.md, redesign L2 event, playbook §2.5/§5; 10/18 falsification checkpoint -> L4. Day-15 X queued.
-      next:  10/16 10:00 JST mac-local runs h1-crowdworks-scan-1016 + h1-coconala-inbox-1016am + h1-coconala-scan-1016 under the REWRITTEN first-win selection_rule (playbook §2.5): drop early-applicant gate, pick smallest objective-done ¥5-10k PG-profitable jobs + free sample, >=3-5/day combined, under PG-2/PG-1, no owner step. Next Founder fire: first-reply/signal watch (CW+Coconala inboxes, Stripe, X) -> any reply/inquiry/charge = Art.10 act end-to-end <=12h via mac-local. 10/18 fire = FALSIFICATION CHECKPOINT: combined >=10 proposals/0 replies -> demand-falsified -> L4; still <10 even widened -> supply-falsified -> L4 (new offer, NOT another marketplace copy). G2 deadline 10/20.
+  founder                idle      live 47m    lanes=strategy,x,h1-delivery,reporting
+      doing: Day-16 00:07 JST signal-watch done (E2). All signals 0; X Day-15 backstop-posted (tweet 2110750778008744049) + Day-16 queued; decision report 2026-10-16T0007 + STATE 00:07; no Art.10 trigger.
+      next:  08:07 JST 10/16 fire = signal-watch: read the 10:00 JST mac-local first-win cycle (CW h1-crowdworks-scan-1016 + Coconala inbox/scan under the rewritten selection_rule) + CW/Coconala inboxes via mac-local events + retry Stripe DIRECT + X metrics; any reply/charge -> Art.10 end-to-end <=12h via mac-local; confirm Day-16 posts at 20:37 JST (else backstop-dispatch at 00:07 JST 10/17) + queue Day-17. 10/18 = falsification checkpoint -> L4; G2 deadline 10/20.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
