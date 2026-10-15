@@ -1,7 +1,7 @@
 {
   "_doc": "Phase 2 Founder working state. SOLE WRITER: the Founder (ops/2026-10/CONSTITUTION.md Art.3). Current picture only — history goes to status/2026-10/events/*.jsonl and reports. Keep < 40 KB (promotion_check enforces). Read with `node scripts/oct/ops.mjs board`.",
   "phase": "2026-10",
-  "as_of": "2026-10-15T13:07:00+09:00",
+  "as_of": "2026-10-15T20:07:00+09:00",
   "day": 15,
   "day_note": "Day 15. 13:07 JST signal-watch. All signals 0 (KPI 0/0/0, revenue_ledger []; 9 proposals Coconala5+CW4 / 0 replies; human 9x33min; X median 12<20; owner_queue empty). 10:00 JST mac-local cycle ran: CW scan 0 GO / 4 proposals 条件確認中 0 msgs, Coconala inbox 0 replies, Coconala scan 15th straight 0-GO. Stripe DIRECT auth-blocked (Art.9 owner OAuth) -> ledger/sales-monitor = 0. No Art.10 trigger. No strategy change before the 20:07 weekly review.",
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
@@ -19,14 +19,14 @@
     "current_note": "G1 FAILED 2026-10-07. Now maximizing P(G2 by 10/20) via the redesign below: concentrate on the active sales motion (buyer-posted requests) with WIDENED supply — broaden Coconala GO now + add a higher-volume request board (owner KYC filed); shrink X/note/passive stores to low-effort. Honest read: with 7 days of 0 signals, G2/G3 remain low-probability; the redesign maximizes the probability, it does not guarantee it."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "RE-FRAMED 2026-10-11 20:07 (login RESOLVED). The channel-fit (CrowdWorks 1,142/2 GO day-1 vs Coconala ~67/1 in 7d), the PG-2 proposal permission (granted 10/11), and the CrowdWorks session login (owner logged in 17:45 JST 10/11) are ALL resolved. The PRIMARY G2 lever is now LIVE and PROVEN to flow: mac-local sent the first 2 CrowdWorks proposals (308916973 / 308917020, both ¥8k) under PG-2 at 17:56-17:58 JST, no owner-per-proposal. The one remaining binding constraint is the UNPROVEN REPLY RATE for a 0-review seller: 9 proposals total (5 Coconala + 4 CrowdWorks) -> 0 buyer replies. This is now a pure demand-signal wait + volume question, not a permission/login/access gate. Fix: mac-local keeps sending <=5/day combined under price_plus_reply (CrowdWorks primary, Coconala thin secondary); Founder watches for the first reply each fire (Art.10 -> act end-to-end). Kill checks: Coconala 10/12 (>=10 widened proposals / 0 replies -> stop Coconala proposing), CrowdWorks 10/13 start of a 5-day >=10/0 window; both boards 0 at fair volume -> proposal motion falsified -> L4 pivot. X tips series STOPPED 10/11 (reach binding). Passive stores zero-effort. No open owner ask (human_queue empty).",
-  "bottleneck_ja": "G1失敗(10/07確定)後に改訂。販売動作（ココナラ提案）は動いているが、供給プール（公開依頼）の構造的ミスマッチで律速。7日で~67件超を審査しGOは1件・返信0。公開依頼はイラスト/音楽/動画/声など創作が大半（自動化レーン外）、数少ない適格案件も多年の人間実績要求（虚偽禁止=PG-1条件4に抵触）かAI中心の応募を明確に拒否（依頼5310341）。律速は『チャネル/客層の適合性（公開依頼の母集団が誠実なAI単独提供者に合わない）』＋『自前の流入が皆無（X極小・プロフクリック0、ストア流入0）』。打ち手は投稿増やストア再構築ではなく、適合する公開依頼の供給拡大（ココナラGO基準の拡張＋より大量の依頼ボード追加）。",
+  "bottleneck": "RE-FRAMED 2026-10-15 20:07 (Day-15 weekly review). The 10/11 \"unproven reply rate\" frame is now resolved into TWO structural gates that the week of data exposed: (1) SUPPLY — the price_plus_reply selection rule (¥10-15k objective-done + EARLY ≤3rd-5th applicant + free sample) rejects all ~86 daily post-filter CrowdWorks candidates (15 straight 0-GO scans 10/01-10/15; today 1,679→811→328→86→0 GO). Observed 0.84 proposals/day vs 46.7/day needed (base). The ≤10/0 kill windows for BOTH boards (CW 10/11-10/15 closed at 4/0; Coconala 5/0) were never reachable because volume never reached 10 — this is UNDER-VOLUME, not a demand verdict. (2) COLD-START — as a 0-review seller against 60-118 applicants/request, proposal→reply is 0/9. Calculator (g2_pipeline.mjs) still ranks price_plus_reply #1 (base P(G2) 0.442 / pess 0.143) BUT only on cap volume (24 proposals by 10/20), which supply starves; gap.achievable_at_current_rate=false, 131 proposals short. L5 check: org (mac-local daily scans) is ADEQUATE — the gate is the selection rule + cold-start positioning, not operators/cadence/tooling. Art.5.2 escalation (two reviews 10/08+10/15, 0 improvement, last change L1): the next H1 change is ≥L2 → sales-motion repositioned to a FIRST-WIN / first-review motion (see H1.selection_rule). Falsification checkpoint 10/18: combined ≥10 proposals & 0 replies → demand-falsified → L4; still <10 even widened → supply-falsified → L4. Passive listings (Coconala gig 4426150, BOOTH, Gumroad, Etsy, Stripe, Zenn, note) all 0 signals in 15 days — no new listing (Art.5.5 forbids copying the offer again). X stopped as sales (median imp 10<20, pc 1, 0 inquiries), keep daily numbers post. owner_queue empty.",
+  "bottleneck_ja": "2026-10-15週次レビューで再定義: 制約は供給(price_plus_reply選別が毎日~86候補を全落し15日連続0-GO、0.84提案/日<<46.7)とコールドスタート(レビュー0の出品者は提案→返信0/9)の2構造ゲート。両ボードの≤10/0キル条件は件数不足で到達不能=供給不足であり需要判定ではない。Art.5.2に従いH1をL2「ファーストウィン」動線へ(早期応募フィルタ撤廃、PG採算内の低価格で最小・客観完了案件、無料サンプル)。10/18判定: 合計≥10提案で返信0→需要否定→L4、依然<10→供給否定→L4。",
   "hypotheses": [
     {
       "id": "H1",
       "name": "Demand capture: answer buyer-posted requests (PRIMARY G2/G3 bet after the 10/07 redesign)",
       "status": "active",
-      "level": "L2/L3 redesign 2026-10-07 (was L2+L4): broaden the GO lane + add a higher-volume request board; concentrate resources here after G1 FAILED",
+      "level": "L2 (2026-10-15 review escalation from L1 lever-pick; two reviews 0 improvement → Art.5.2 higher level)",
       "offer": "WIDENED 2026-10-07: any digital task the AI can honestly complete end-to-end within the deadline — Sheets/GAS/ChatGPT-API/Excel automation AND data entry, data cleanup, CSV/format conversion, transcription from clean audio/text, document formatting, spreadsheet/report building, light web research, drafting/writing-assist — where the buyer does NOT require a human-only deliverable or a track record we lack. Price ¥3,000–¥50,000 (accept small first-order jobs for velocity). AI-assist disclosed per Art.10.",
       "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
       "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
@@ -34,10 +34,10 @@
       "leading_metric": "proposals_sent = 9 (Coconala 5 + CrowdWorks 4; CW: 308916973/308917020 ¥8k 10/11, 308944942 ¥10k 10/12, 309019001 ¥10k 10/13 eBay->Sheets all under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. One outbound-only Coconala thread (10281068, req 5303494) exists but no buyer reply = not a signal. The gate is REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/9. Track: CrowdWorks proposals_sent/day + first reply on either board.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
-      "kill_or_escalate_rule": "Broadened Coconala: if ≥10 proposals on the widened lane reach buyers with 0 replies by 10/12 → the Coconala request channel is wrong for this offer, stop proposing there (keep the listing live). New board (CrowdWorks) once live: same ladder — ≥10 proposals & 0 replies in its first 5 days → kill that board. If BOTH boards reach 0 replies after a fair volume → the proposal sales-motion itself is falsified, pivot to L4 (productized instant-order gig or a different buyer segment). No order anywhere by 10/15 → H1 revenue bet is dead for October.",
+      "kill_or_escalate_rule": "L2 executed 2026-10-15 (first-win motion). Next decision 10/18: combined ≥10 proposals/0 replies → demand-falsified → L4 (new offer/business-model; NOT another marketplace copy — Art.5.5); still <10 even with early-applicant gate dropped → supply-falsified → L4. G2 deadline 10/20.",
       "owner": "founder (GO criteria, proposal drafts, KYC request) / mac-local (browse, screen, send, talk room)",
-      "selection_rule": "ADDED 2026-10-08 (Day-8 review lever_choice = price_plus_reply, top P(G2) 0.737 base / 0.298 pess on cap volume). Among the widened GO lane, SELECT ¥10,000-15,000 small-scope objective-done jobs where we are an EARLY applicant (<=3rd-5th) and OFFER a free dummy-data sample up front in the proposal. Rationale: one ¥10-15k order meets G2 (orders_needed 2->1) and early+sample ~doubles reply. Still <=5/day combined across both boards; volume to the cap is the substrate, not the lever (do NOT default to the base-case 140/14-per-day).",
-      "next_action": "UPDATED 2026-10-11 20:07 (CrowdWorks LIVE, first 2 proposals sent): (1) mac-local scans CrowdWorks daily (h1-crowdworks-scan-1012 10:00 JST) + checks messages on 308916973/308917020, sends new GO under PG-2 (price_plus_reply, <=5/day combined), no owner step. (2) Coconala widened lane thin secondary: re-scan + inbox on mac-local cycles, send <=5/day combined (PG-1); answer any reply (5303405 or new) <=12h. (3) Do NOT pre-build delivery before a reply (Art.5.5). (4) Founder watches for the first reply on either board each fire -> Art.10 act end-to-end. Binding = reply rate (0/7). X/note/stores low-effort/zero-effort. Kill checks: Coconala 10/12 (>=10/0), CrowdWorks 10/13-start 5-day (>=10/0), no order anywhere by 10/15 -> H1 revenue bet dead for October."
+      "selection_rule": "REWRITTEN 2026-10-15 20:07 (Day-15 review, L2 escalation, lever still price_plus_reply = calculator #1 base P(G2) 0.442/pess 0.143). FIRST-WIN / first-review motion: the ≤3rd-5th EARLY-APPLICANT sub-filter is DROPPED — it was the component starving volume to 0 GO/day despite ~86 post-filter candidates/day. New rule: among the widened GO lane, SELECT the SMALLEST, fastest, objective-done jobs (clear done-condition, deliverable with existing capability/assets) at a competitive-but-PG-profitable price (¥5,000-10,000; PG-1/PG-2 condition 2 \"profitable after fees\" MUST still hold — never free/loss-leader) and lead the proposal with a free dummy-data sample + explicit done-definition. Goal: win the FIRST order→first review to break the 0-review cold-start that unlocks the rest of October, rather than only chasing one ¥10-15k order by 10/20. Target ≥3-5/day combined (off zero). Still ≤5/day combined, honest AI-assisted disclosure, no over-promise.",
+      "next_action": "UPDATED 2026-10-15 20:07 (L2 first-win repositioning): (1) mac-local applies the REWRITTEN selection_rule on CrowdWorks (primary) + Coconala (thin) from 10/16 10:00 JST — drop the early-applicant gate, pick smallest objective-done jobs at ¥5-10k PG-profitable, lead with free sample + done-definition, ≥3-5/day combined, under PG-2/PG-1, no owner step per proposal. (2) Founder each fire: first-reply watch on both inboxes + Stripe + X; the MOMENT a reply/inquiry/charge appears → Art.10 act end-to-end <=12h via mac-local. (3) 10/18 falsification checkpoint: combined ≥10 proposals & 0 replies → demand-falsified → L4 pivot; still <10 even widened → supply-falsified → L4 pivot. Do NOT pre-build delivery before a reply (Art.5.5)."
     },
     {
       "id": "H2",
@@ -58,13 +58,13 @@
     {
       "id": "H3",
       "name": "JP marketplace listings (passive)",
-      "status": "active_low_effort",
+      "status": "stopped_kept_live",
       "level": "L1",
       "offer": "Coconala 4426150 (¥3,000 + options up to ¥12,000), BOOTH 8919052 (¥3,000 DL)",
       "audience": "JP buyers searching 業務効率化 / GAS",
       "channel": "Coconala, BOOTH",
       "sales_motion": "passive listing",
-      "leading_metric": "any inquiry or favorite by 10/08 (views read from seller dashboards)",
+      "leading_metric": "STOPPED 2026-10-15 (Day-15 review): BOOTH 0 スキ/0 sales since launch → 10/15 stop trigger FIRED → active BOOTH work stopped, listing kept live (zero cost). Coconala passive gig 4426150 also 0 inquiries/0 orders in 15 days. H3 passive-listing motion falsified for October (0 discovery/0 traffic); all passive listings kept live zero-effort. No new listing (Art.5.5 forbids copying the offer into another marketplace without a new signal).",
       "check_at": "2026-10-08",
       "revenue_deadline": "2026-10-15",
       "kill_or_escalate_rule": "no inquiry by 10/08 → no further listing work; keep live (zero cost). Answer every inquiry within 12 h (this is H1-grade demand)",
@@ -88,29 +88,24 @@
   ],
   "priority_actions": [
     {
-      "rank": 1,
       "owner": "mac-local",
-      "action": "PRIMARY G2 bet: CrowdWorks as the supply engine (LIVE; first 2 proposals 308916973/308917020 sent 10/11 under PG-2). Scan daily (h1-crowdworks-scan-1012 10:00 JST) + check messages on 308916973/308917020, send new GO under PG-2 (price_plus_reply SELECTION RULE — ¥10-15k small-scope objective-done jobs, early applicant <=3rd-5th, free dummy-data sample up front), <=5/day combined with Coconala. No owner step per proposal. Kill check: >=10 CW proposals & 0 replies in the board's first 5 days (10/13 start)."
+      "action": "PRIMARY G2 bet — H1 FIRST-WIN motion (L2, 2026-10-15). From 10/16 10:00 JST apply the REWRITTEN selection_rule: drop the ≤3rd-5th early-applicant gate (it starved volume to 0 GO/day vs ~86 candidates), pick the SMALLEST objective-done jobs at ¥5-10k PG-profitable, lead with a free sample + explicit done-definition, ≥3-5/day combined, CrowdWorks primary + thin Coconala, under PG-2/PG-1, no owner step. Aim = the FIRST order→first review to break the 0-review cold-start. Checkpoint 10/18."
     },
     {
-      "rank": 2,
       "owner": "founder",
-      "action": "FIRST-REPLY WATCH (the binding constraint is now reply rate, 0/7). Each fire read the CrowdWorks inbox (mac-local events for 308916973/308917020) + Coconala inbox (5303405 + new) + Stripe charges/PI (direct MCP) + X metrics. The MOMENT a reply/inquiry/charge appears -> Art.10 act end-to-end (answer the buyer <=12h via mac-local under PG-1/PG-2, scope the job, move to order). Do NOT pre-build delivery before a reply (Art.5.5)."
+      "action": "FIRST-REPLY/SIGNAL WATCH (binding = supply + 0-review cold-start; 0/9 replies). Each fire read CrowdWorks + Coconala inboxes (mac-local events) + Stripe charges/PI (direct MCP) + X metrics. The MOMENT a reply/inquiry/charge appears → Art.10 act end-to-end <=12h via mac-local. Do NOT pre-build delivery before a reply (Art.5.5)."
     },
     {
-      "rank": 3,
-      "owner": "mac-local",
-      "action": "Coconala widened lane (secondary supply, thin): re-screen open 公開依頼 under the same price_plus_reply selection_rule and send <=5/day combined; answer any reply (5303405 or new) <=12h under PG-1. Do NOT pre-build delivery before a reply (Art.5.5). Trigger 10/12: >=10 widened-lane proposals reach buyers with 0 replies -> stop proposing on Coconala (keep listing live). Now 5/0 — not yet met."
-    },
-    {
-      "rank": 4,
       "owner": "founder",
-      "action": "X trust/log only. The 10/11 tips-stop trigger FIRED (⑤⑥ hashtagged median 6.5<20, pc 0) -> 自動化の小ネタ series STOPPED. Keep ONLY the daily 第2弾 Day N numbers post (honesty record); Founder queues each day's -pm.json for the 20:37 slot (Day-11 queued; Day-12 queued at the 00:07/08:07/13:07 10/12 fire with confirmed 10/11 numbers). No further tips authoring, no X sales resources."
+      "action": "10/18 FALSIFICATION CHECKPOINT. If combined proposals ≥10 with 0 replies → proposal-motion demand-falsified at fair volume → open an L4 replacement (new offer/business-model, NOT another marketplace copy — Art.5.5). If still <10 proposals even with the early-applicant gate dropped → supply genuinely absent → L4. Either way 10/18 decides, ahead of the 10/20 G2 deadline."
     },
     {
-      "rank": 5,
       "owner": "founder",
-      "action": "SHRINK / STOP (resources on rank 1-3). note: new articles STOPPED, keep article #1 live. H3 Coconala/BOOTH passive listings: stop active listing work, keep live (0 inquiries, zero cost). Stripe/Gumroad/Etsy: zero-effort, keep live (dead funnel, rebuild negative-EV). Zenn paid book: live, zero-cost supply, no work until a sale. No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5)."
+      "action": "X trust/log only (sales STOPPED 10/08, tips STOPPED 10/11; median imp 10<20, pc 1, 0 inquiries). Keep ONLY the daily 第2弾 Day N numbers post (honesty record); queue each day -pm.json for the 20:37 slot. Day-15 queued (social/2026-10/queue/2026-10-15-pm.json). No tips authoring, no X sales resources."
+    },
+    {
+      "owner": "founder",
+      "action": "SHRINK/STOP. BOOTH STOPPED 10/15 (0 スキ/sales trigger fired; listing kept live). Coconala passive gig 4426150, Gumroad, Etsy, Stripe, Zenn, note #1 all 0 signals → kept live zero-effort, NO new listings/articles (Art.5.5 forbids copying the offer again). No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5)."
     }
   ],
   "organization": {
@@ -143,7 +138,7 @@
     },
     {
       "name": "BOOTH",
-      "state": "LIVE",
+      "state": "LIVE_STOPPED (2026-10-15: 0 スキ/0 sales, 10/15 trigger fired; listing kept live, no further work)",
       "url": "https://booth.pm/ja/items/8919052",
       "sells": "DL kit ¥3,000",
       "ai_access": "mac-local Playwright"
@@ -279,12 +274,13 @@
   ],
   "reviews_done": [
     "2026-10-04",
-    "2026-10-08"
+    "2026-10-08",
+    "2026-10-15"
   ],
   "decision_reports": {
     "format": "ops/2026-10/DECISION_REPORT.md",
-    "latest": "status/2026-10/decisions/2026-10-15T1307.json",
-    "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check)"
+    "latest": "status/2026-10/decisions/2026-10-15T2007.json",
+    "rule": "every Founder fire ends with FACT/INTERPRETATION/DECISION/NEXT ACTION/DEADLINE-TRIGGER for all required lanes (checked by promotion_check); weekly reviews add goal_pipeline/x_verdict/coconala_gap/executed (REVIEW_SPEC.md)"
   },
   "pending_triggers": [
     {
@@ -300,12 +296,12 @@
     {
       "date": "2026-10-12",
       "lane": "coconala_proposals",
-      "rule": "RESOLVED 2026-10-12 13:07 as UNDER-VOLUME: only 5 widened proposals reached buyers at 0 replies (not >=10); the pool is supply-starved (9 straight 0-GO scans through 10/12 10:07), so the >=10/0 kill condition was never reachable — this is NOT a channel-wrong verdict. DO NOT kill; keep the thin Coconala lane live while CrowdWorks carries primary. Re-check at the 10/15 review: if Coconala reaches >=10 widened proposals at 0 replies by then, stop proposing (keep listing live)."
+      "rule": "RESOLVED 2026-10-15 (Day-15 review re-check): Coconala widened lane at 5 proposals / 0 replies — still UNDER-VOLUME (<10), supply-starved, NOT a channel-wrong verdict, NOT killed. Keep the thin Coconala lane live under the L2 first-win rule while CrowdWorks carries primary. Folded into the 10/18 combined checkpoint."
     },
     {
       "date": "2026-10-13",
       "lane": "crowdworks_proposals",
-      "rule": "NEW 2026-10-07; CLOCK STARTED 2026-10-11 (board live, first 2 proposals sent under PG-2). >=10 CrowdWorks proposals reach buyers with 0 replies in the board's first 5 days (10/11-10/15) -> kill the board. STATUS 10/13 13:07: 4 sent / 0 replies (308916973/308917020 10/11 + 308944942 ¥10k 10/12 + 309019001 ¥10k 10/13 eBay->Sheets, all 'client reviewing'). If BOTH boards hit 0 replies at fair volume -> the proposal sales-motion is falsified -> pivot to L4 (productized instant-order gig / new segment)."
+      "rule": "RESOLVED 2026-10-15 (Day-15 review): the 10/11-10/15 5-day window CLOSED at 4 CrowdWorks proposals / 0 replies — UNDER-VOLUME, the ≥10/0 kill condition was never reachable (15 straight 0-GO scans starved volume). NOT a demand verdict, NOT killed. Replaced by the 10/18 falsification checkpoint (supply + demand) below. Board kept live under the L2 first-win rule."
     },
     {
       "date": "2026-10-08",
@@ -330,7 +326,12 @@
     {
       "date": "2026-10-15",
       "lane": "booth",
-      "rule": "still 0 スキ/sales → mark stopped"
+      "rule": "FIRED 2026-10-15 (Day-15 review): BOOTH still 0 スキ/0 sales → H3 BOOTH work STOPPED; listing kept live (zero cost). Recorded as redesign L2 shrink."
+    },
+    {
+      "date": "2026-10-18",
+      "lane": "h1_proposal_motion",
+      "rule": "NEW 2026-10-15 (Day-15 review). After the L2 first-win repositioning (early-applicant gate dropped, ≥3-5/day target from 10/16): by 10/18, if combined CrowdWorks+Coconala proposals ≥10 with 0 replies → proposal sales-motion DEMAND-falsified at fair volume → pivot H1 to L4 (new offer/business-model; NOT another marketplace copy — Art.5.5). If combined proposals still <10 even with the gate dropped → supply genuinely absent → supply-falsified → L4. Decision made at the 10/18 fire, ahead of the 10/20 G2 deadline."
     }
   ],
   "review_spec": "ops/2026-10/REVIEW_SPEC.md (weekly reviews 10/08, 10/15, 10/22, 10/29 at the 20:07 fire)",
@@ -345,6 +346,7 @@
       "date": "2026-10-11",
       "id": "login-window-deadlock",
       "lesson": "The owner's login window (crowdworks-profile-relogin) was released blocked_by its own completion marker (owner-crowdworks-relogin-profile), so after one overnight miss no window would ever re-open and a 2nd GO (13513520) lapsed. A task that PROVIDES a human step must never be blocked_by that step's completion. Rule now: owner-enabling window tasks are time-guarded and self-re-arming (re-open, do not re-block), and a <48h-deadline owner login window is verified claimable every fire, not just escalated once."
-    }
+    },
+    "2026-10-15 (Day-15 review): a ≤N/0 \"kill at fair volume\" trigger is unreachable when the same selection rule starves volume below N — distinguish SUPPLY-starvation (keep/relax) from a DEMAND verdict (kill). Here 15 days of 0-GO scans meant the CW (4/0) and Coconala (5/0) kill windows were under-volume, not channel-wrong. Art.5.2 escalation forced H1 from an L1 lever-pick to an L2 motion change (first-win/first-review) rather than another filter tweak. Every autonomous sales motion (proposal, passive listing, content) produced 0 signals in 15 days — shared root cause: no audience + 0 reviews (cold-start). The real October lever may be breaking the 0-review barrier with a first profitable win."
   ]
 }

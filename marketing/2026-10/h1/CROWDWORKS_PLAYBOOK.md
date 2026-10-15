@@ -30,8 +30,15 @@ Carry the **widened GO lane** (STATE H1.offer, 2026-10-07): any digital task the
 
 Record every screened request (url, title, budget, go/no-go, reason) in the task result, same as the Coconala screens under `marketing/2026-10/h1/screens/`, so the Founder sees request volume and fit.
 
-## 2.5 Selection priority (Day-8 lever analysis)
-Send first, within the ≤5/day cap: requests where (a) budget is **¥10,000–15,000** (one order meets G2), (b) we would be an **early applicant** (≤3rd–5th; check 応募数) and (c) the done-condition is objective. Offer a free dummy-data sample before start. CrowdWorks 仮払い (escrow) already protects the buyer — say so plainly.
+## 2.5 Selection priority — FIRST-WIN motion (Day-15 review, L2 escalation; supersedes the Day-8 rule)
+
+The Day-8 rule (send ¥10–15k jobs **only** where we are an early ≤3rd–5th applicant) **starved volume to 0 GO/day** — 15 straight 0-GO scans while ~86 candidates/day pass the §2 filter. As a 0-review seller the binding wall is the first review, not the single ¥10–15k order. So from **2026-10-16** the rule changes:
+
+- **DROP** the "≤3rd–5th applicant" gate. Apply early when we can, but do **not** skip an otherwise-good job just because 応募数 is higher.
+- **SELECT the smallest, fastest, objective-done jobs** (clear, binary done-condition; deliverable with existing capability/assets; tested on dummy data) at a **competitive-but-profitable ¥5,000–10,000** price. PG-2 condition 2 ("profitable after fees") **must still hold — never free / never below the ¥3,000 floor.**
+- **Lead** every proposal with a free dummy-data sample + an explicit done-definition; state CrowdWorks 仮払い (escrow) protects the buyer.
+- **Goal:** win the **first order → first review** to break the 0-review cold-start that unlocks the rest of October.
+- **Volume:** aim **≥3–5/day combined** (off zero), still within the ≤5/day cap.
 
 ## 3. Proposal
 
@@ -44,6 +51,11 @@ Reuse the honest template in `PROPOSAL_KIT.md` §3 and the category drafts in `P
 - Order → build via `PROPOSAL_KIT.md` §5; book revenue with the CrowdWorks order id only when payment is confirmed; fee booked as `crowdworks_fees`.
 - The number of proposals is **not** a KPI (PG-1): what counts is replies / consultations / orders / revenue.
 
-## 5. Pre-registered kill (STATE pending_triggers, 2026-10-13 lane crowdworks_proposals)
+## 5. Pre-registered checkpoint (STATE pending_triggers, 2026-10-18 lane h1_proposal_motion)
 
-If ≥10 CrowdWorks proposals reach buyers with **0 replies in the board's first 5 days**, the board is killed (the owner's KYC time is capped to that test). If **both** CrowdWorks and the broadened Coconala lane hit 0 replies at fair volume, the proposal sales-motion itself is falsified → pivot to L4 (productized instant-order gig / a different buyer segment), not a third board. Lancers is the fallback only if CrowdWorks KYC is declined.
+The Day-8 "≥10/0 in the first 5 days" kill closed **under-volume** (CW 4/0, Coconala 5/0) because the old selection rule starved volume below 10 — that was supply-starvation, not a demand verdict, so the boards were **not** killed. Replaced by the **2026-10-18 combined-boards checkpoint** after the first-win repositioning (§2.5):
+
+- Combined CrowdWorks+Coconala **≥10 proposals with 0 replies** → proposal motion **demand-falsified at fair volume** → pivot to **L4** (new offer/business-model — **not** another marketplace copy, Art.5.5).
+- Still **<10 proposals** even with the early-applicant gate dropped → supply **genuinely absent** → **L4**.
+
+Lancers is the fallback only if CrowdWorks KYC is declined.

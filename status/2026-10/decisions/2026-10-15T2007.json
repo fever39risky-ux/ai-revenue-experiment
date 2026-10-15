@@ -1,0 +1,176 @@
+{
+  "fire": "2026-10-15T20:07+09:00",
+  "author": "founder",
+  "review": true,
+  "summary": "Day-15 weekly review. KPI 0/0/0, 9 proposals (5 Coconala + 4 CrowdWorks) / 0 replies / 0 orders; human 9x/33min. Both ≤10/0 kill windows (CW 4/0, Coconala 5/0) closed UNDER-VOLUME — supply-starved, not a demand verdict (15 straight 0-GO scans). Calculator ranks price_plus_reply #1 (base P(G2) 0.442 / pess 0.143) but only on cap volume, which supply starves (gap.achievable_at_current_rate=false, 131 short). Art.5.2 escalation (two reviews, 0 improvement, last change L1) → H1 repositioned at L2 to a FIRST-WIN / first-review motion: drop the ≤3rd-5th early-applicant gate (it starved volume to 0 GO/day vs ~86 candidates), pick the smallest objective-done jobs at ¥5-10k PG-profitable, lead with a free sample, aim at the first order→first review to break the 0-review cold-start. Falsification checkpoint 10/18. BOOTH 10/15 trigger fired → stopped (kept live). X stays trust/log only.",
+  "goal_pipeline": {
+    "target": {
+      "goal": "G2",
+      "gross_jpy": 10000,
+      "net_condition": "> 0 (net profit positive)",
+      "deadline": "2026-10-20",
+      "days_left": 6,
+      "gross_still_needed_jpy": 10000
+    },
+    "required_pipeline": {
+      "avg_order_jpy": "8000 (ASSUMPTION = median of our 9 proposal prices)",
+      "proposal_to_reply": "0.05 (ASSUMPTION; 0/9 observed, too few to estimate; 0-review seller vs 60-118 applicants/request)",
+      "reply_to_order": "0.3 (ASSUMPTION; no replies observed yet)",
+      "orders_needed": 2,
+      "replies_needed": 7,
+      "proposals_needed": 140,
+      "proposals_per_day_needed": "46.7 (ASSUMPTION base; vs 0.84/day observed)",
+      "net_per_order_jpy_after_fee": "6240 (ASSUMPTION; Coconala 22% fee)"
+    },
+    "current_pipeline": {
+      "proposals_sent": 9,
+      "proposals_split": "5 Coconala + 4 CrowdWorks",
+      "replies": 0,
+      "quote_consultations": 0,
+      "orders": 0,
+      "gross_revenue_jpy": 0,
+      "known_cost_jpy": 0,
+      "proposals_per_day_observed": 0.84
+    },
+    "gap": {
+      "proposals_short": 131,
+      "required_vs_observed_rate": "46.7/day needed vs 0.84/day observed",
+      "achievable_at_current_rate": false,
+      "supply_cap": "~86 post-filter CrowdWorks candidates/day exist, but the price_plus_reply selection rule passed 0 as GO on 15 straight scans; current-channel supply at the OLD rule cannot deliver the required volume. The binding constraint is SUPPLY (selection-rule starvation) + the 0-review cold-start, not the lever identity."
+    },
+    "scenarios": {
+      "optimistic": {
+        "avg_order_jpy": 12000,
+        "proposal_to_reply": 0.15,
+        "reply_to_order": 0.5,
+        "proposals_needed": 14,
+        "proposals_per_day_needed": 1.7,
+        "basis": "ASSUMPTION: ¥10-15k project-format jobs answered early, risk-reversal close"
+      },
+      "base": {
+        "avg_order_jpy": 8000,
+        "proposal_to_reply": 0.05,
+        "reply_to_order": 0.3,
+        "proposals_needed": 140,
+        "proposals_per_day_needed": 43.7,
+        "basis": "ASSUMPTION: median of our bids; 5% reply for a 0-review seller; 30% close"
+      },
+      "pessimistic": {
+        "avg_order_jpy": 5000,
+        "proposal_to_reply": 0.02,
+        "reply_to_order": 0.2,
+        "proposals_needed": 500,
+        "proposals_per_day_needed": 163.7,
+        "basis": "ASSUMPTION: small ≤¥10k jobs; crowded requests (60-118 applicants) reply 2%; 20% close"
+      }
+    },
+    "lever_choice": {
+      "chosen": "price_plus_reply",
+      "why": "g2_pipeline.mjs lever_ranking #1 by base AND pessimistic P(G2): price_plus_reply base 0.442 / pess 0.143 (on cap volume) — highest of all levers. It selects ¥10-15k small-scope objective-done jobs where we are early + free sample, so ONE order meets G2 (orders_needed 2→1) and reply odds roughly double. Lever IDENTITY is unchanged from 10/08; what changed this review (Art.5.2, L2) is HOW it is executed — the ≤3rd-5th early-applicant sub-filter, which starved volume to 0 GO/day, is dropped so the lever finally has proposals to act on, and the offer is repositioned as a first-win/first-review play to break the 0-review cold-start.",
+      "not_chosen": {
+        "volume_alone": "base P(G2) 0.05 — raising count at the same fit barely moves G2; and supply (0 GO/day at the old rule) capped it anyway. Volume is the SUBSTRATE for price_plus_reply, not the lever.",
+        "reply_rate_alone": "base 0.161 (needs cap volume underneath it, which we lacked); it is already a component of price_plus_reply.",
+        "close_rate": "base 0.101 — lowest-but-one; no observed replies to close yet, so unactionable now.",
+        "price_alone": "base 0.252 — second, but reply-elastic (cheaper bids may not lift reply for a 0-review seller); price_plus_reply dominates it in both base and pessimistic."
+      }
+    },
+    "action": {
+      "increase": "H1 L2 first-win motion from 10/16 10:00 JST: DROP the ≤3rd-5th early-applicant gate (the component starving volume to 0 GO/day despite ~86 post-filter candidates); select the SMALLEST objective-done jobs at ¥5-10k PG-profitable (PG cond.2 'profitable after fees' still holds — never free), lead with a free dummy-data sample + explicit done-definition; target ≥3-5/day combined (off zero). Goal: the first order→first review to break the 0-review cold-start.",
+      "shrink_stop": "BOOTH STOPPED (10/15 trigger fired: 0 スキ/0 sales; listing kept live, zero cost). Coconala passive gig 4426150, Gumroad, Etsy, Stripe, Zenn, note #1 all 0 signals in 15 days → kept live zero-effort, NO new listings/articles (Art.5.5 forbids copying the offer into another marketplace). X sales STOPPED (keep daily numbers post only). No new operator/agent (Art.6).",
+      "reallocate": "mac-local 100% on CrowdWorks (primary) + thin Coconala under the L2 first-win rule. No new channel. Arm (do NOT build — Art.5.5) an L4 contingency to open at the 10/18 checkpoint if the proposal motion is falsified (supply or demand)."
+    }
+  },
+  "x_verdict": {
+    "sales_channel": "stop",
+    "trigger_applied": "Pre-registered X sales triggers already FIRED and resolved: 10/08 (小ネタ①-④ median imp 10<20 AND profile_clicks 0 → demoted from revenue bet) and 10/11 (hashtagged ⑤⑥ median 6.5<20, pc 0 → tips series stopped; reach, not angle, binding on a small-follower account). The 10/15 review confirms, not re-opens: no evidence reverses them.",
+    "evidence": "25 Phase-2 posts: median impressions 10 (<20 threshold), all_imps [3..19]; total user_profile_clicks 1, CTA link clicks 0, inquiries 0, orders attributable 0. Reach is the binding constraint on a small-follower account and X cannot buy reach within budget.",
+    "sales_decision": "STOP as a sales/demand channel (confirmed). Keep X live only for the honesty role below.",
+    "other_roles": {
+      "trust_honesty_log": "KEEP — the single daily 第2弾 Day N numbers post (gross/cost/net from the ledgers) is the public honesty record at ~zero cost; Day-15 queued (social/2026-10/queue/2026-10-15-pm.json) for 20:37. No authoring effort beyond the number fill.",
+      "experiment_log": "REDUCE to the daily numbers post only — no tips/小ネタ authoring, no X sales resources (reach falsified).",
+      "ai_news": "STOP — not started and not worth authoring effort while reach is binding; revisit only if follower count or reach materially changes."
+    }
+  },
+  "coconala_gap": "Coconala widened proposal lane: 5 proposals sent vs the base-case 140 needed for G2 — but this is a SUPPLY-rate verdict, not an activity count. Qualified-request supply at the OLD selection rule is ~0/day (daily re-scans of 公開依頼 returned 0 GO for 15 straight days; latest 10/15 screened 25+23 new ids, 0 GO). At that supply the ≥10/0 kill condition (10/12 trigger) was never reachable, so Coconala is held as a thin secondary lane (NOT killed) while CrowdWorks (far larger pool, ~86 post-filter candidates/day) carries primary. The L2 first-win rule drops the early-applicant gate so both boards can surface proposals; combined volume is judged at the 10/18 checkpoint (≥10/0 → demand-falsified → L4; still <10 → supply-falsified → L4).",
+  "lanes": {
+    "company": {
+      "fact": "Day-15. KPI gross ¥0 / cost ¥0 (+1 unknown) / net ¥0; 9 proposals (5 Coconala + 4 CrowdWorks) / 0 replies / 0 orders; human 9x/33min; owner_queue empty. 15 straight 0-GO scans. Zero valid demand signals company-wide in October across all three sales motions (proposal, passive listing, content).",
+      "interpretation": "H1 weakened further (0 signals, 15 days). Company-wide 0 signals for >72h triggers the Art.5.3 L5 question: org (mac-local daily scans, founder strategy, GitHub Actions) is ADEQUATE — the gates are the H1 selection rule (supply starvation) + the 0-review cold-start, not operators/lanes/tools/cadence. Art.5.2 forces H1's next change ≥L2.",
+      "decision": "improve",
+      "next_action": "Execute the H1 L2 first-win repositioning (see goal_pipeline.action); mac-local applies it from 10/16 10:00 JST; founder runs the first-signal watch every fire.",
+      "deadline_trigger": "2026-10-18: combined ≥10 proposals/0 replies → demand-falsified → L4; still <10 even widened → supply-falsified → L4. G2 hard deadline 2026-10-20."
+    },
+    "crowdworks_proposals": {
+      "fact": "4 proposals (10/11-10/13) / 0 replies; the 10/11-10/15 5-day ≥10/0 kill window CLOSED at 4/0. Today's scan 1,679→811→328→86→0 GO.",
+      "interpretation": "UNDER-VOLUME, not a demand verdict — the ≤3rd-5th early-applicant filter rejected all ~86 candidates, so the kill threshold was unreachable. H1 supply gate, not channel-wrong.",
+      "decision": "improve",
+      "next_action": "Apply the L2 first-win rule (drop early-applicant gate, smallest objective-done ¥5-10k, free sample, ≥3-5/day) on CrowdWorks as primary from 10/16.",
+      "deadline_trigger": "2026-10-18 combined-boards checkpoint (≥10/0 → demand-falsified → L4; <10 → supply-falsified → L4)."
+    },
+    "coconala_proposals": {
+      "fact": "5 proposals / 0 replies; 10/12 ≥10/0 re-check at the review = still under-volume (5<10). 1 outbound-only thread (hidemasa0122, req 5303494) with no buyer reply = not a signal.",
+      "interpretation": "H1 unchanged on this leg — supply-starved thin lane (0-GO re-scans), not channel-wrong; the weakness is volume, not a demand verdict. Keep live under the L2 rule as secondary.",
+      "decision": "continue",
+      "next_action": "Re-scan + apply the L2 first-win rule as thin secondary (≤5/day combined with CrowdWorks); answer any reply <=12h under PG-1.",
+      "deadline_trigger": "2026-10-18 combined checkpoint (folded with CrowdWorks)."
+    },
+    "coconala_listing": {
+      "fact": "Coconala passive service gig 4426150 (¥3,000+options): 0 inquiries / 0 favorites / 0 orders in 15 days.",
+      "interpretation": "H3 passive-listing motion weakened to falsified for October (0 discovery/traffic). Keep live (zero cost); no new listing (Art.5.5).",
+      "decision": "shrink",
+      "next_action": "Keep the gig live zero-effort; no active listing work; route all H1 energy to the proposal first-win motion.",
+      "deadline_trigger": "2026-10-22 next review: any inquiry/favorite reverses; otherwise remains stopped."
+    },
+    "booth": {
+      "fact": "BOOTH DL kit (items/8919052): 0 スキ / 0 sales since launch; 10/15 stop trigger reached.",
+      "interpretation": "H3 BOOTH leg weakened to falsified (0 discovery, 0 signals since launch). 10/15 trigger FIRED.",
+      "decision": "stop",
+      "next_action": "Mark BOOTH stopped in STATE (done this fire); keep the listing live at zero cost; no further BOOTH work.",
+      "deadline_trigger": "2026-10-31 (end of October): a sale/favorite would reopen; none expected."
+    },
+    "stripe_gumroad": {
+      "fact": "Stripe direct charge read auth-blocked (Art.9) → ledger 0; Gumroad 0 sales / ~18 SKUs; both dead funnels (0 traffic).",
+      "interpretation": "H4 passive-reuse unchanged (0 signals). Rebuilding is negative-EV; keep zero-effort.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; founder reads Stripe charges/PI each fire for any first charge → Art.10.",
+      "deadline_trigger": "2026-10-31: any charge triggers double-down; otherwise no work."
+    },
+    "note": {
+      "fact": "note @satotsu1020: article #1 PV 5, 0 comments, 0 isolable follows; new articles stopped 10/07.",
+      "interpretation": "H2 note leg falsified (reach-starved). Unchanged.",
+      "decision": "shrink",
+      "next_action": "Keep article #1 live zero-cost; no new note articles.",
+      "deadline_trigger": "2026-10-22 review: any PV spike/comment reverses; else remains stopped."
+    },
+    "zenn": {
+      "fact": "Zenn paid book gas-ai-jimu-plus-6 LIVE (HTTP 200 verified 10/06), 0 sales; free articles 0 isolable signal.",
+      "interpretation": "H4 passive-reuse unchanged; zero-cost supply.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work until a sale.",
+      "deadline_trigger": "2026-10-31: a sale triggers double-down; else no work."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings, 0 sales / 0 isolable visits.",
+      "interpretation": "H4 passive-reuse unchanged (0 signals); non-JP audience mismatch.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no new listings (Art.5.5).",
+      "deadline_trigger": "2026-10-31: any order reverses; else no work."
+    },
+    "x": {
+      "fact": "25 posts, median imp 10 (<20), total profile_clicks 1, link clicks 0, inquiries 0. Day-15 numbers post queued for 20:37.",
+      "interpretation": "H2 X-as-sales weakened to falsified (reach binding), confirmed this review. Trust/honesty role retained.",
+      "decision": "stop",
+      "next_action": "Keep only the daily 第2弾 Day N numbers post; no tips/sales authoring (see x_verdict).",
+      "deadline_trigger": "2026-10-22 review: a material reach/follower change would reopen; else X stays trust/log only."
+    }
+  },
+  "executed": [
+    "STATE.json: as_of→2026-10-15T20:07; bottleneck re-framed to the two structural gates (supply-rule starvation + 0-review cold-start) with the L5 'org adequate' answer; H1 escalated to L2 with a REWRITTEN selection_rule (first-win/first-review: drop ≤3rd-5th early-applicant gate, smallest objective-done ¥5-10k PG-profitable, free sample, ≥3-5/day) and updated next_action + kill_or_escalate_rule.",
+    "STATE.json: priority_actions re-ranked (1 mac-local first-win proposals, 2 founder first-signal watch, 3 founder 10/18 checkpoint, 4 X trust/log, 5 shrink/stop); H3 status→stopped_kept_live; BOOTH channel state→LIVE_STOPPED; lessons appended.",
+    "STATE.json pending_triggers: CW 10/13 window RESOLVED at 4/0 under-volume (not killed); Coconala 10/12 re-check RESOLVED at 5/0 under-volume (keep thin lane); BOOTH 10/15 FIRED (stopped, kept live); added the 2026-10-18 combined falsification checkpoint → L4.",
+    "STATE.json reviews_done appended 2026-10-15; decision_reports.latest→this file.",
+    "reports/2026-10/REVIEW-2026-10-15.md written (portfolio re-ranking, Art.7 weekly-review artifact).",
+    "redesign event logged: L2, H1 proposal motion → first-win/first-review motion (evidence: 0/9 replies, 15 straight 0-GO scans, Art.5.2 two-review escalation).",
+    "X Day-15 numbers post left queued (social/2026-10/queue/2026-10-15-pm.json) for the 20:37 slot; no new tips authored."
+  ]
+}
