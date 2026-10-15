@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-14T01:03:53.229Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-15T03:01:05.131Z",
+  "result": "10:05 JST: 1,679 listings / 811 in window / 328 fixed ¥5-50k / 86 after title filter / 6 read in full -> 0 GO (hourly-in-disguise, lures, sub-floor, PII cleansing, audio needing ASR). 4 standing proposals all still 条件確認中, 0 messages (CW 4/0). Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-15.md. Next: h1-crowdworks-scan-1016.",
+  "history": [
+    {
+      "ts": "2026-10-15T01:01:05.131Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-15T01:02:35.137Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:05 JST: 1,679 listings / 811 in window / 328 fixed ¥5-50k / 86 after title filter / 6 read in full -> 0 GO (hourly-in-disguise, lures, sub-floor, PII cleansing, audio needing ASR). 4 standing proposals all still 条件確認中, 0 messages (CW 4/0). Screen: marketing/2026-10/h1/screens/crowdworks-2026-10-15.md. Next: h1-crowdworks-scan-1016."
+    }
+  ]
 }

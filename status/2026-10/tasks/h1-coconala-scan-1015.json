@@ -11,9 +11,21 @@
   "not_before": "2026-10-15T10:00:00+09:00",
   "created_by": "mac-local",
   "created_at": "2026-10-14T01:05:42.585Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-15T03:03:47.269Z",
+  "result": "10:05 JST 10/15: 23 new requests (ids 5325550-5326482) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5326479 LINE添削 ¥1,500 below the floor; 5325913 Coconala sales consulting NO (it would imply a track record we lack, cond.4); 5325550 billing-system selection NO (needs implementation experience, 20 applicants); 5325901 Meta-ads gap analysis NO (needs ad-account access, 22 applicants). The rest were video/illustration/MIX/voice/physical/design. 15th straight 0-GO Coconala scan; 10/15 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1015pm (19:00, id > 5326482); h1-coconala-scan-1016 created.",
+  "history": [
+    {
+      "ts": "2026-10-15T01:03:47.269Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-15T01:04:27.861Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:05 JST 10/15: 23 new requests (ids 5325550-5326482) screened on the widened lane, 4 read in full, 0 GO, 0 sent. 5326479 LINE添削 ¥1,500 below the floor; 5325913 Coconala sales consulting NO (it would imply a track record we lack, cond.4); 5325550 billing-system selection NO (needs implementation experience, 20 applicants); 5325901 Meta-ads gap analysis NO (needs ad-account access, 22 applicants). The rest were video/illustration/MIX/voice/physical/design. 15th straight 0-GO Coconala scan; 10/15 sends 0/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1015pm (19:00, id > 5326482); h1-coconala-scan-1016 created."
+    }
+  ]
 }
