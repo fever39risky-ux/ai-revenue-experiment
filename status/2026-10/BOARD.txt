@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-16T18:12:31.237Z (JST 2026-10-17) ===
+=== Phase 2 board — 2026-10-16T20:14:02.882Z (JST 2026-10-17) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  RE-FRAMED 2026-10-15 20:07 (Day-15 weekly review). The 10/11 "unproven reply rate" frame is now resolved into TWO structural gates that the week of data exposed: (1) SUPPLY — the price_plus_reply selection rule (¥10-15k objective-done + EARLY ≤3rd-5th applicant + free sample) rejects all ~86 daily post-filter CrowdWorks candidates (15 straight 0-GO scans 10/01-10/15; today 1,679→811→328→86→0 GO). Observed 0.84 proposals/day vs 46.7/day needed (base). The ≤10/0 kill windows for BOTH boards (CW 10/11-10/15 closed at 4/0; Coconala 5/0) were never reachable because volume never reached 10 — this is UNDER-VOLUME, not a demand verdict. (2) COLD-START — as a 0-review seller against 60-118 applicants/request, proposal→reply is 0/9. Calculator (g2_pipeline.mjs) still ranks price_plus_reply #1 (base P(G2) 0.442 / pess 0.143) BUT only on cap volume (24 proposals by 10/20), which supply starves; gap.achievable_at_current_rate=false, 131 proposals short. L5 check: org (mac-local daily scans) is ADEQUATE — the gate is the selection rule + cold-start positioning, not operators/cadence/tooling. Art.5.2 escalation (two reviews 10/08+10/15, 0 improvement, last change L1): the next H1 change is ≥L2 → sales-motion repositioned to a FIRST-WIN / first-review motion (see H1.selection_rule). Falsification checkpoint 10/18: combined ≥10 proposals & 0 replies → demand-falsified → L4; still <10 even widened → supply-falsified → L4. Passive listings (Coconala gig 4426150, BOOTH, Gumroad, Etsy, Stripe, Zenn, note) all 0 signals in 15 days — no new listing (Art.5.5 forbids copying the offer again). X stopped as sales (median imp 10<20, pc 1, 0 inquiries), keep daily numbers post. owner_queue empty.
 PRIORITY
@@ -10,7 +10,7 @@ PRIORITY
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
   NORMAL owner-crowdworks-relogin-1016 blocks h1-crowdworks-scan-1016
 OPERATORS
-  actions                working   STALE 23969m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 24091m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -19,10 +19,10 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 23540m lanes=
+  codex                  idle      STALE 23661m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 173m   lanes=strategy,x,h1-delivery,reporting
+  founder                idle      STALE 294m  lanes=strategy,x,h1-delivery,reporting
       doing: Day-17 00:07 JST signal-watch done: all 0 (0/11 replies, 0 charges); Day-16 X confirmed posted (watchdog), Day-17 queued (260w); decision report 2026-10-17T0007 + STATE refresh; checks green
       next:  08:07 JST 10/17 signal-watch: CW back online? + any 10:00 JST first-win send/reply on 5328251/5329177 + Stripe + X; any reply/charge -> Art.10 <=12h via mac-local. 10/18 falsification checkpoint; G2 deadline 10/20
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
