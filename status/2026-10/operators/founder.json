@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-16 08:07 JST signal-watch done (E2). 0 signals; first-win override applied to 10/16 CW+Coconala scan tasks (completes Day-15 reallocation); decision report 2026-10-16T0807; stop_screen 8 motions.",
-  "next": "13:07 JST 10/16 fire = signal-watch: read the 10:00 JST mac-local first-win cycle (GO count + sends off zero under the override; CW h1-crowdworks-scan-1016 + Coconala scan/inbox) + CW/Coconala inboxes via mac-local events + retry Stripe DIRECT + X metrics; any reply/charge -> Art.10 end-to-end <=12h via mac-local; confirm Day-16 X post at 20:37 JST (else backstop 00:07 JST 10/17) + queue Day-17. 10/18 = falsification checkpoint -> L4+; G2 deadline 10/20.",
+  "doing": "Day-16 13:07 JST signal-watch done (E2). First-win motion first send landed (Coconala 5328251 ¥8k, ends 16-scan 0-GO streak; proposals 10/0 replies); CW logged out -> owner-crowdworks-relogin-1016; decision report 2026-10-16T1307; stop_screen 6 motions.",
+  "next": "20:07 JST 10/16 signal-watch: read 19:00 JST mac-local Coconala first-win re-scan + inbox (sends/replies on 5328251) + whether CW came back online + Stripe retry + X; any reply/charge -> Art.10 <=12h via mac-local; confirm Day-16 X post at 00:07 JST 10/17 + queue Day-17. 10/18 falsification checkpoint -> weigh first-win reply data; G2 deadline 10/20.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-15T23:19:57.990Z"
+  "heartbeat_at": "2026-10-16T04:13:04.903Z"
 }

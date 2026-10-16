@@ -1,7 +1,7 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-16T08:07:00+09:00",
+  "as_of": "2026-10-16T13:07:00+09:00",
   "day": 16,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
@@ -28,7 +28,7 @@
       "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
       "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "proposals_sent = 9 (Coconala 5 + CrowdWorks 4; CW: 308916973/308917020 ¥8k 10/11, 308944942 ¥10k 10/12, 309019001 ¥10k 10/13 eBay->Sheets all under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. One outbound-only Coconala thread (10281068, req 5303494) exists but no buyer reply = not a signal. The gate is REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/9. Track: CrowdWorks proposals_sent/day + first reply on either board.",
+      "leading_metric": "proposals_sent = 10 (Coconala 6 + CrowdWorks 4; 10/16 first-win send: Coconala 5328251 ¥8k 納品10/22 10th applicant, ended the 16-scan 0-GO streak; CW: 308916973/308917020 ¥8k 10/11, 308944942 ¥10k 10/12, 309019001 ¥10k 10/13 eBay->Sheets all under PG-2); replies 0 / sales_conversation 0 / orders 0 / ¥0. One outbound-only Coconala thread (10281068, req 5303494) exists but no buyer reply = not a signal. The gate is REPLY RATE — a 0-review seller's proposal->reply conversion is unproven at 0/9. Track: CrowdWorks proposals_sent/day + first reply on either board.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
       "kill_or_escalate_rule": "L2 executed 2026-10-15 (first-win motion). Next decision 10/18: combined ≥10 proposals/0 replies → demand-falsified → L4 (new offer/business-model; NOT another marketplace copy — Art.5.5); still <10 even with early-applicant gate dropped → supply-falsified → L4. G2 deadline 10/20.",
@@ -212,7 +212,7 @@
   "archive": "status/2026-10/STATE_ARCHIVE.jsonl (moved history; append-only, Founder-owned)",
   "owner_queue": {
     "source": "derived from tasks by scripts/oct/owner_queue.mjs (URGENT ≤24h / HIGH ≤48h at top of OWNER_ACTION_REQUIRED.md + GitHub issue)",
-    "open": []
+    "open": ["owner-crowdworks-relogin-1016 (NORMAL, opps=0): relogin crowdworks.jp in crowdworks-profile; blocks h1-crowdworks-scan-1016 (CW logged out 11:03 JST 10/16)"]
   },
   "day_status": "see latest status/2026-10/decisions/*.json (per-fire FACT/DECISION); STATE keeps no day notes"
 }
