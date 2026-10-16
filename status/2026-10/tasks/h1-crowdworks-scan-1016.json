@@ -22,6 +22,20 @@
       "by": "founder",
       "action": "detail_override",
       "note": "Prepended the L2 first-win selection_rule; this task was created pre-review (10/15) and carried the superseded early-applicant-gate rule + old kill window. Completes the Day-15 20:07 review's in-fire reallocation."
+    },
+    {
+      "ts": "2026-10-16T02:02:37.037Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-16T02:03:20.459Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "crowdworks.jp logged out (header shows ログイン/会員登録 at 11:03 JST); no sends possible"
     }
+  ],
+  "blocked_by": [
+    "owner-crowdworks-relogin-1016"
   ]
 }

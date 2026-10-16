@@ -1,0 +1,21 @@
+{
+  "id": "owner-crowdworks-relogin-1016",
+  "title": "OWNER (~2 min, CrowdWorks only): log back in to crowdworks.jp in the dedicated crowdworks-profile",
+  "lane": "h1-proposals",
+  "detail": "Found 11:03 JST 10/16 at the start of h1-crowdworks-scan-1016 (first-win motion day 1): the crowdworks-profile header (server playwright-crowdworks) shows ログイン / 会員登録, so the session has expired again (last re-login 10/11). With the profile logged out, no PG-2 proposal can be sent and the standing proposals can't be checked. Profile path: /Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile (Google OAuth, same as crowdworks-profile-relogin on 10/11). This blocks the 10/16 first-win sends (≥3-5/day target) ahead of the 10/18 checkpoint.",
+  "requires": [
+    "human"
+  ],
+  "site": "crowdworks.jp",
+  "priority": 1,
+  "hypothesis": "H1",
+  "acceptance": "crowdworks.jp header shows マイページ (not ログイン/会員登録) in the crowdworks-profile",
+  "profile": "/Users/kinoshitatsukasa/Library/Application Support/AIRevenueExperiment/browser-profiles/crowdworks-profile",
+  "created_by": "mac-local",
+  "created_at": "2026-10-16T02:03:20.337Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

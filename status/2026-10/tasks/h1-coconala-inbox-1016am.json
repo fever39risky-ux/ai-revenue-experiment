@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-15T10:01:39.835Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-16T04:03:24.891Z",
+  "result": "11:04 JST: /message has only the hidemasa0122 thread (our 10/13 question, no buyer reply in ~74h). あなた宛 notifications are a coupon lottery and the RPA hourly job-matching recommendation; nothing addressed to us. Transactions: 現在、取引の通知はありません. Applied offers: 5/5 募集終了. 0 inquiries/replies (Coconala 5/0). Next: h1-coconala-inbox-1016pm.",
+  "history": [
+    {
+      "ts": "2026-10-16T02:03:24.891Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-16T02:04:25.702Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "11:04 JST: /message has only the hidemasa0122 thread (our 10/13 question, no buyer reply in ~74h). あなた宛 notifications are a coupon lottery and the RPA hourly job-matching recommendation; nothing addressed to us. Transactions: 現在、取引の通知はありません. Applied offers: 5/5 募集終了. 0 inquiries/replies (Coconala 5/0). Next: h1-coconala-inbox-1016pm."
+    }
+  ]
 }
