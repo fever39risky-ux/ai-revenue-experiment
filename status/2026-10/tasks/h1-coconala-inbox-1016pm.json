@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-16T02:04:25.576Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-16T12:00:54.948Z",
+  "result": "19:02 JST 10/16: 0 signals. /message: only hidemasa0122 thread, our 10/13 question still last (~81h, no reply). Notifications: only job-matching RPA recommendation + coupon lottery. Transactions: none. Offers: 5328251 (meyusa closet layout, ¥8,000, 納品10/22, 期限10/26) pending/no message; other proposals 募集終了 unadopted. Next: h1-coconala-inbox-1017am.",
+  "history": [
+    {
+      "ts": "2026-10-16T10:00:54.948Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-16T10:02:22.161Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:02 JST 10/16: 0 signals. /message: only hidemasa0122 thread, our 10/13 question still last (~81h, no reply). Notifications: only job-matching RPA recommendation + coupon lottery. Transactions: none. Offers: 5328251 (meyusa closet layout, ¥8,000, 納品10/22, 期限10/26) pending/no message; other proposals 募集終了 unadopted. Next: h1-coconala-inbox-1017am."
+    }
+  ]
 }

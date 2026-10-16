@@ -12,16 +12,27 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-15T10:02:25.262Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-16T12:00:55.050Z",
+  "result": "19:06 JST 10/16: screened 25 new requests (5328470-5329355), read 6 in full. 1 GO, 1 SENT under PG-1: 5329177 radio-style voice script (OP/ED + 5 letters + 2 mini corners, ~15 min), ¥8,000, 納品予定日 10/28, 15th applicant, with a free sample letter, AI use disclosed and no track record claimed; conditions logged. NO: 5328691 (AI forbidden), 5328539 (physical stickers/spend), 5329241 (quality-first video), 5328470 (large/92 applicants), 5329262 (SELECTTYPE experience required), plus 20 sub-floor/creative/identity at title level. 10/16 combined sends 2/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1017 (10:00, id > 5329355), h1-coconala-scan-1017pm created.",
   "history": [
     {
       "ts": "2026-10-16T08:07:00+09:00",
       "by": "founder",
       "action": "detail_override",
       "note": "Prepended the L2 first-win selection_rule; task created pre-review (10/15). Completes the Day-15 20:07 review's in-fire reallocation."
+    },
+    {
+      "ts": "2026-10-16T10:00:55.050Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-16T10:06:53.609Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:06 JST 10/16: screened 25 new requests (5328470-5329355), read 6 in full. 1 GO, 1 SENT under PG-1: 5329177 radio-style voice script (OP/ED + 5 letters + 2 mini corners, ~15 min), ¥8,000, 納品予定日 10/28, 15th applicant, with a free sample letter, AI use disclosed and no track record claimed; conditions logged. NO: 5328691 (AI forbidden), 5328539 (physical stickers/spend), 5329241 (quality-first video), 5328470 (large/92 applicants), 5329262 (SELECTTYPE experience required), plus 20 sub-floor/creative/identity at title level. 10/16 combined sends 2/5. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1017 (10:00, id > 5329355), h1-coconala-scan-1017pm created."
     }
   ]
 }
