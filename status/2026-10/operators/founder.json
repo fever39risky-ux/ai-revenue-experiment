@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-17 00:07 JST signal-watch done: all 0 (0/11 replies, 0 charges); Day-16 X confirmed posted (watchdog), Day-17 queued (260w); decision report 2026-10-17T0007 + STATE refresh; checks green",
-  "next": "08:07 JST 10/17 signal-watch: CW back online? + any 10:00 JST first-win send/reply on 5328251/5329177 + Stripe + X; any reply/charge -> Art.10 <=12h via mac-local. 10/18 falsification checkpoint; G2 deadline 10/20",
+  "doing": "Day-17 08:07 JST signal-watch done: all 0 (0/11 replies, 0 charges); no mac-local run since 19:06 JST 10/16; Day-16 X confirmed, Day-17 queued; decision report 2026-10-17T0807 + CHECKPOINT_1018_PREP.md drafted; checks green",
+  "next": "13:07 JST 10/17 signal-watch: did mac-local 10:00 scan run? any send/reply on 5328251/5329177 + new GO + Stripe + X; CW back online? any reply/charge -> Art.10 <=12h via mac-local. 10/18 FALSIFICATION CHECKPOINT (use CHECKPOINT_1018_PREP.md); G2 deadline 10/20",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-16T15:19:42.060Z"
+  "heartbeat_at": "2026-10-16T23:14:40.204Z"
 }
