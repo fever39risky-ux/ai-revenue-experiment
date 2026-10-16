@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-16 13:07 JST signal-watch done (E2). First-win motion first send landed (Coconala 5328251 ¥8k, ends 16-scan 0-GO streak; proposals 10/0 replies); CW logged out -> owner-crowdworks-relogin-1016; decision report 2026-10-16T1307; stop_screen 6 motions.",
-  "next": "20:07 JST 10/16 signal-watch: read 19:00 JST mac-local Coconala first-win re-scan + inbox (sends/replies on 5328251) + whether CW came back online + Stripe retry + X; any reply/charge -> Art.10 <=12h via mac-local; confirm Day-16 X post at 00:07 JST 10/17 + queue Day-17. 10/18 falsification checkpoint -> weigh first-win reply data; G2 deadline 10/20.",
+  "doing": "Day-16 20:07 JST signal-watch done. 19:00 JST mac-local cycle: Coconala 2nd first-win send (5329177 radio voice script ¥8k 納品10/28, 15th applicant); inbox 0 signals; CW still logged out (owner relogin pending). proposals 11/0 replies. Decision report 2026-10-16T2007 + STATE refresh; checks green.",
+  "next": "00:07 JST 10/17 signal-watch: confirm Day-16 X posted (else watchdog) + author/queue Day-17; read overnight replies on 5328251/5329177 + CW online? + Stripe + X; any reply/charge -> Art.10 <=12h via mac-local. 10/18 falsification checkpoint; G2 deadline 10/20.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-16T04:13:04.903Z"
+  "heartbeat_at": "2026-10-16T11:13:45.625Z"
 }

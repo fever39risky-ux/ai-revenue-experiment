@@ -1,0 +1,77 @@
+{
+  "fire": "2026-10-16T20:07+09:00",
+  "author": "founder",
+  "review": false,
+  "lanes": {
+    "company": {
+      "fact": "Day 16, 20:07 JST first-reply/signal-watch fire (not a review date; reviews = 10/22, 10/29). Gross ¥0 / cost ¥0 / net ¥0, 0 orders, revenue_ledger.json entries [] (ops.mjs kpi as_of 2026-10-16). NEW since 13:07: mac-local ran its 19:00 JST first-win cycle. Coconala — 1 MORE proposal SENT under PG-1 (req 5329177, ~15-min radio-style voice script, ¥8,000, 納品予定日 10/28, 15th applicant, free sample letter + honest AI-use/no-track-record disclosure) → cumulative proposals_sent now 11 (Coconala 7 + CrowdWorks 4), replies still 0 (0/11); first-win-motion sends to date = 2 (5328251 + 5329177, both Coconala ¥8k). Inbox (19:02 JST): 0 signals — /message only the 10/13 hidemasa0122 outbound thread (our question still last, ~81h no reply), notifications coupon/RPA-recommendation only, 取引通知なし, 5328251 pending/no message, other proposals 募集終了 unadopted. CrowdWorks — STILL logged out (owner-crowdworks-relogin-1016 open, NORMAL, owner_queue opps=0, top of OWNER_ACTION_REQUIRED.md); 0 CW sends today. Stripe MCP DIRECT read UNAVAILABLE this session (no stripe tools exposed; connector needs owner OAuth re-auth, Art.9) → revenue verified authoritatively via revenue_ledger.json [] + automated sales-monitor (0 charges). human 9x/33min, 0 new (latest 2026-10-11T08:45:49Z). No reply/inquiry/charge → no Art.10 trigger.",
+      "interpretation": "H1 supply-side FURTHER STRENGTHENED on the thin Coconala board, demand-side UNCHANGED. The first-win selection_rule produced a 2nd GO+send today (5329177) — 2 sends on its first full day vs 0 GO on 16 straight scans under the superseded early-applicant gate, confirming the Day-15 review diagnosis. Demand (reply rate) still untested under the new motion (now 2 sends, 0 replies). TENSION FOR 10/18 unchanged: cumulative 11 ≥ the checkpoint's '≥10 & 0 replies' count, but 9 of 11 were sent under the superseded motion and only 2 under the first-win L2 motion, and both of those are <48h old (5328251 since 11:06 JST 10/16, 5329177 since 19:06 JST 10/16) → a literal 'demand-falsified' verdict on 10/18 would read a 2-send, <48h sample; the checkpoint must weigh first-win reply data, not just the count. CrowdWorks (primary volume board) remains owner-gated offline, so 10/16-17 first-win volume comes only from the thin Coconala lane until the owner relogs in.",
+      "decision": "continue",
+      "next_action": "No stop/pivot is due this fire (10/18 is the falsification checkpoint; next review 10/22). The one would-be founder action — getting CrowdWorks back online — is owner-only (Art.9 login), already queued as owner-crowdworks-relogin-1016 at the top of OWNER_ACTION_REQUIRED.md; the cloud Founder cannot relogin and must not manufacture false urgency (owner_queue opps=0, no apply-by deadline). This fire: confirmed the Day-16 X post is queued (20:37 JST, 270w validated) + wrote this decision report + STATE refresh. Next cloud fire 00:07 JST 10/17 = signal-watch: confirm Day-16 posted (else watchdog backstop) and author/queue Day-17 -pm.json (10/16 numbers final after end of day); read any overnight reply on 5328251/5329177 + Stripe + X; any reply/inquiry/charge → Art.10 end-to-end ≤12h via mac-local.",
+      "deadline_trigger": "2026-10-18 falsification checkpoint (task checkpoint-1018): compare 6 dimensions, weigh first-win reply data (2 sends, not just the ≥10 count). G2 deadline 2026-10-20. If CrowdWorks still logged out at the 00:07 JST fire → owner-crowdworks-relogin-1016 stays top of the owner queue (NORMAL, no apply-by)."
+    },
+    "crowdworks_proposals": {
+      "fact": "4 proposals (308916973/308917020 ¥8k, 308944942 ¥10k, 309019001 ¥10k), 0 replies. STILL BLOCKED: crowdworks.jp logged out since 11:03 JST 10/16 → h1-crowdworks-scan-1016 released, owner-crowdworks-relogin-1016 open (NORMAL). 0 CW sends on 10/16.",
+      "interpretation": "H1 unchanged (0 replies). Primary G2 volume board offline pending an owner relogin — the first-win motion cannot be tested on its primary channel until then. Same login gate that fired on 10/11 (owner resolved in ~2 min). Owner-only (Art.9), not a Founder action.",
+      "decision": "continue",
+      "next_action": "Owner: relogin to crowdworks.jp in crowdworks-profile (owner-crowdworks-relogin-1016, ~2 min, top of OWNER_ACTION_REQUIRED.md). Once online, mac-local resumes first-win scans + checks the 4 live proposals for replies. Founder 00:07 JST 10/17: read whether CW is back + any send/reply.",
+      "deadline_trigger": "2026-10-18 falsification checkpoint; G2 deadline 2026-10-20. If still logged out next fire, relogin stays top of the owner queue (no escalation — NORMAL, no specific apply-by deadline)."
+    },
+    "coconala_proposals": {
+      "fact": "7 proposals, 0 replies (Coconala 7/0). NEW 10/16 19:06 JST: 1 SENT under PG-1 — req 5329177 (~15-min radio-style voice script, OP/ED + 5 letters + 2 mini corners, ~4,000-4,500 chars), ¥8,000, 納品予定日 10/28, 15th applicant, with a free sample letter + honest AI-use disclosure + no-track-record statement + 2 free revisions; all PG-1 conditions logged. 2nd first-win-motion send (after 5328251 at 11:06 JST). Inbox (19:02 JST): 0 signals — 5328251 pending/no message, 10/13 outbound thread ~81h no reply, other proposals 募集終了.",
+      "interpretation": "H1 supply-side strengthened again on this (secondary) board: 2 GO+sends today off 16 straight 0-GO scans — the early-applicant gate was the binding volume constraint, as the Day-15 review hypothesized. Demand untested under the new motion (2 sends, 0 replies). Pool still skews creative/anti-AI, so CrowdWorks remains the primary volume board once back online.",
+      "decision": "continue",
+      "next_action": "mac-local 10/17 10:00 JST: h1-coconala-inbox-1017am (watch 5328251/5329177 replies) + h1-coconala-scan-1017 (ids > 5329355) under PG-1, first-win rule, ≤5/day combined; 19:00 JST h1-coconala-scan-1017pm. Founder 00:07 JST: read any overnight reply on 5328251/5329177 + send count.",
+      "deadline_trigger": "2026-10-18 falsification checkpoint; G2 deadline 2026-10-20. Any buyer reply on 5328251/5329177 or any thread → Art.10 end-to-end ≤12h via mac-local."
+    },
+    "x": {
+      "fact": "Day-16 -pm.json queued (not_before 20:37 JST, 270w validated; reports 10/15 numbers + the L2 first-win pivot, voice/facts self-checks present). Day-15 post confirmed on X 2026-10-15T15:12:56Z (tweet 2110750778008744049). Medians flat (imp ~12 <20, 0 inquiries/profile pull). Role = trust/log only.",
+      "interpretation": "H2 unchanged (falsified as a revenue bet at Day-8; reach, not angle, binds on a small-follower account). Kept as a zero-cost honesty record (Art.12). Posting guaranteed by x-phase2 cron + x-watchdog.yml (every 10 min), not the Founder.",
+      "decision": "continue",
+      "next_action": "Founder 00:07 JST 10/17: confirm Day-16 posted (else the watchdog backstop handles it) and author/queue Day-17 -pm.json (10/16 numbers final after end of day). Judge X market response only.",
+      "deadline_trigger": "2026-10-17 00:07 JST: Day-16 not posted → confirm the watchdog dispatched it; queue Day-17."
+    },
+    "coconala_listing": {
+      "fact": "Passive gig 4426150: 0 inquiry signals in 16 days (views 8 mostly Sept, 0 fav/応募/messages; inbox folded into h1 tasks, still 0 at 19:02 JST).",
+      "interpretation": "H3 unchanged (stopped_kept_live); passive listing has produced nothing. Copying the offer into a new listing is forbidden (Art.5.5).",
+      "decision": "shrink",
+      "next_action": "Inbox check folded into h1-coconala-inbox-1017am (10/17 10:00 JST). No active work; no new listing.",
+      "deadline_trigger": "Through 2026-10-31: still 0 inquiries → keep live/zero-effort; any message → Art.10."
+    },
+    "booth": {
+      "fact": "BOOTH STOPPED 2026-10-15 (0 スキ / 0 sales trigger fired). Listing kept live (booth.pm/ja/items/8919052). 0 messages.",
+      "interpretation": "H3 unchanged (stopped); passive, no demand. Listing left live at zero cost.",
+      "decision": "stop",
+      "next_action": "None. No scan/inbox task; any order/message → Art.10.",
+      "deadline_trigger": "Through 2026-10-31: kept live/zero-effort; any order/message → Art.10."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger.json entries [] (¥0, 0 orders). Automated sales-monitor is the authoritative revenue path → 0 charges. Stripe MCP DIRECT read unavailable this session (no stripe tools exposed; connector needs owner OAuth re-auth, Art.9). Sept diagnosis stands: 3 expired/unpaid cs_live checkouts, 0 charges.",
+      "interpretation": "H4 unchanged (passive store, ~0 demand); the missing MCP read is a redundant path, not a blocker (sales-monitor books any charge automatically). No rebuild (negative-EV vs H1, Art.5.5). The MCP re-auth is a non-blocking Art.9 owner step → not escalated.",
+      "decision": "continue",
+      "next_action": "Retry Stripe MCP DIRECT at the next fire (secondary); sales-monitor continues to book any charge automatically.",
+      "deadline_trigger": "Through 2026-10-31: still 0 → keep zero-effort; any charge → auto-booked + double-down (Art.7)."
+    },
+    "note": {
+      "fact": "1 free article live (note.com/satotsu1020). 0 signals. Paid article only after a real pull signal.",
+      "interpretation": "H2 unchanged; no pull signal, so no new article justified (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new article.",
+      "deadline_trigger": "Through 2026-10-31: no pull signal → keep as-is."
+    },
+    "zenn": {
+      "fact": "Free articles + free book live; paid book gas-ai-jimu-plus-6 live (HTTP 200 verified 10/06). 0 signals.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new article (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new content.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is."
+    },
+    "etsy": {
+      "fact": "13 listings live (API via Actions secrets). 0 signals.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new listing (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new listing.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is."
+    }
+  }
+}
