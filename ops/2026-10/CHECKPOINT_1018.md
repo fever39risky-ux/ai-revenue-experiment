@@ -2,12 +2,32 @@
 
 Runs in the **first Founder fire dated 2026-10-18 JST** (task `checkpoint-1018`). Its decision report must carry a `checkpoint_1018` block; `decision_check.mjs` rejects the earliest 10/18 report without it.
 
+## 0. Central question (owner rule 2026-10-17): how do we actually win a customer?
+The checkpoint redesigns **customer acquisition**, not just "which Sales Motion". **Do not pick a channel first.** "Search CrowdWorks", "post on X", "list on Coconala" are means of execution, not an acquisition strategy. Decide **WHO / PAIN / OFFER / TRUST / REACH first**, then pick the channel from where that customer actually is.
+
+Answer these for every hypothesis:
+1. **WHO** — industry, role, company size, the task they do, their situation (concrete enough to find 10 of them)
+2. **PAIN** — the problem they would pay to fix *now*
+3. **TRIGGER** — the moment the pain surfaces (month-end totals, inquiry spikes, hiring season, the weekly report, a CSV hand-off, a manual-entry mistake …)
+4. **OFFER** — what exactly, at what price, and where the scope ends
+5. **WHY NOW** — why it is not postponed
+6. **TRUST** — what a no-name, zero-track-record seller shows to be believed (demo, sample, Before/After, free diagnosis, deliverable up front …)
+7. **WHERE** — where this customer actually gathers (reverse-engineered from the customer, not from our accounts)
+8. **HOW TO REACH** — compare: replying to posted jobs, search inflow, communities, referral, direct proposal to a public request, partners, existing network …
+9. **FIRST CONVERSION** — the low-risk first offer for customer #1 (ignore the normal price/product if needed)
+10. **REPEATABILITY** — can #1 be repeated with the same customer profile?
+
+### Required comparison: ≥ 3 different acquisition hypotheses (`checkpoint_1018.acquisition_hypotheses[]`)
+Each: `id`, `who`, `pain`, `trigger`, `offer` (what/price/scope), `why_now`, `trust`, `where`, `how_to_reach`, `first_conversion`, `repeatability`, `steps_to_first_close` (the expected steps to the first deal), `first_market_test` (what we put in front of real customers), `signal_48h` (the signal we want within 48 h, observable and countable), and only then `channel`. The `who` values must be genuinely different customers.
+
+Pick **one** (`checkpoint_1018.chosen_hypothesis`, with `why`) and **put it in front of the market inside the same fire** (`executed.market_test`: `{hypothesis, action, evidence, at}` — evidence = a live URL, post/tweet id, sent proposal/message id, or a published listing; prefer a cloud-executable test so it does not wait for another runtime, and add a P1 mac-local task in the same fire only for the browser-only part). A plan to test later is not a market test.
+
 ## Rule
 - If buyer replies across CrowdWorks + Coconala (+ any channel) are still **0** → the current Sales Motion (applying to public jobs/requests) is falsified for October. **Redesign at L4 or higher is mandatory.**
 - **Forbidden conclusion:** "continue because the proposal count is low / under-volume / not enough data". Low volume is itself evidence that the motion cannot be fed — it is a reason to redesign, not to wait. (decision_check rejects that wording when replies are 0.)
 - If ≥ 1 reply exists → work it end-to-end first (Art.10); the block still records the comparison and why the motion stays.
 
-## Required comparison (`checkpoint_1018.options`, all six)
+## Required 6-dimension comparison (`checkpoint_1018.options`, all six — fill it from the hypotheses above)
 | key | question |
 |---|---|
 | `buyer_segment` | a different buyer (e.g. small agencies / tax-accountant offices / EC sellers / existing September buyers) |

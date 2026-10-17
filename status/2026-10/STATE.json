@@ -85,7 +85,7 @@
     },
     {
       "owner": "founder",
-      "action": "10/18 FALSIFICATION CHECKPOINT (task checkpoint-1018, ops/2026-10/CHECKPOINT_1018.md): replies 0 → L4+ Sales Motion redesign is mandatory; 'continue because proposals are few' is forbidden. Compare 6 dimensions (segment / offer / price / job selection / channel / non-application motion), execute stops + new tasks + reallocation in the same fire."
+      "action": "10/18 CHECKPOINT (task checkpoint-1018, ops/2026-10/CHECKPOINT_1018.md): central question = how do we actually win a customer. WHO/PAIN/OFFER/TRUST/REACH before any channel; ≥3 distinct acquisition hypotheses compared; pick one and put it in front of the market IN THE SAME FIRE. Replies 0 → L4+ redesign, 'continue because proposals are few' forbidden; stops + new tasks + reallocation executed in-fire."
     },
     {
       "owner": "founder",
@@ -212,7 +212,9 @@
   "archive": "status/2026-10/STATE_ARCHIVE.jsonl (moved history; append-only, Founder-owned)",
   "owner_queue": {
     "source": "derived from tasks by scripts/oct/owner_queue.mjs (URGENT ≤24h / HIGH ≤48h at top of OWNER_ACTION_REQUIRED.md + GitHub issue)",
-    "open": ["owner-crowdworks-relogin-1016 (NORMAL, opps=0): relogin crowdworks.jp in crowdworks-profile; blocks h1-crowdworks-scan-1016 (CW logged out 11:03 JST 10/16)"]
+    "open": [
+      "owner-crowdworks-relogin-1016 (NORMAL, opps=0): relogin crowdworks.jp in crowdworks-profile; blocks h1-crowdworks-scan-1016 (CW logged out 11:03 JST 10/16)"
+    ]
   },
   "day_status": "see latest status/2026-10/decisions/*.json (per-fire FACT/DECISION); STATE keeps no day notes"
 }

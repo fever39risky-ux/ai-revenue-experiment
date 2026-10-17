@@ -25,6 +25,7 @@ export function check(obj) {
 }
 // 10/18 falsification checkpoint (ops/2026-10/CHECKPOINT_1018.md)
 export const CHECKPOINT_OPTIONS = ['buyer_segment', 'offer', 'price', 'job_selection', 'channel', 'other_sales_motion'];
+export const ACQ_FIELDS = ['id', 'who', 'pain', 'trigger', 'offer', 'why_now', 'trust', 'where', 'how_to_reach', 'first_conversion', 'repeatability', 'steps_to_first_close', 'first_market_test', 'signal_48h', 'channel'];
 export function checkCheckpoint(c, taskExists = () => true) {
   const p = [];
   if (!c || typeof c !== 'object') return ['checkpoint_1018 block missing (ops/2026-10/CHECKPOINT_1018.md)'];
@@ -43,7 +44,18 @@ export function checkCheckpoint(c, taskExists = () => true) {
     if (/提案数が少な|件数が少な|母数が少な|under-?volume|low volume|too few proposals|not enough (data|volume)/i.test(JSON.stringify({ v: c.verdict, why: c.why })))
       p.push('replies 0 → "continue because proposals are few" is forbidden (CHECKPOINT_1018.md)');
   }
+  // customer acquisition first (owner rule 2026-10-17): >=3 distinct hypotheses, WHO/PAIN/OFFER/TRUST/REACH before channel
+  const H = [].concat(c.acquisition_hypotheses || []);
+  if (H.length < 3) p.push('checkpoint_1018.acquisition_hypotheses needs >= 3 different customer-acquisition hypotheses');
+  for (const [i, h] of H.entries()) {
+    for (const f of ACQ_FIELDS) if (!String(h?.[f] ? JSON.stringify(h[f]) : '').trim()) p.push(`checkpoint_1018.acquisition_hypotheses[${i}].${f} empty`);
+    if (/^\W*(coconala|crowdworks|lancers|x|twitter|ココナラ|クラウドワークス|ランサーズ)\b/i.test(String(h?.who ?? ''))) p.push(`checkpoint_1018.acquisition_hypotheses[${i}].who is a channel, not a customer — define the customer first`);
+  }
+  if (new Set(H.map(h => String(h?.who ?? '').trim())).size < H.length) p.push('checkpoint_1018.acquisition_hypotheses: who must differ per hypothesis');
+  if (!H.some(h => h?.id === c.chosen_hypothesis)) p.push('checkpoint_1018.chosen_hypothesis must be one of acquisition_hypotheses[].id');
   const ex = c.executed || {};
+  const mt = ex.market_test || {};
+  for (const f of ['hypothesis', 'action', 'evidence', 'at']) if (!String(mt[f] ?? '').trim()) p.push(`checkpoint_1018.executed.market_test.${f} empty (the chosen hypothesis must hit the market in this fire)`);
   if (c.replies_observed === 0 && ![].concat(ex.stopped_tasks || []).length) p.push('checkpoint_1018.executed.stopped_tasks empty');
   const nt = [].concat(ex.new_tasks || []);
   if (!nt.length) p.push('checkpoint_1018.executed.new_tasks empty');
