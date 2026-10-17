@@ -145,7 +145,7 @@ const FIELDS=[
   {key:"last",  label:"姓（別列の場合）", hints:["姓","氏","苗字","last","family","lastname","sei"]},
   {key:"first", label:"名（別列の場合）", hints:["名（","名(","first","given","firstname","mei"]},
   {key:"company",label:"会社名", hints:["会社","法人","company","組織"]},
-  {key:"pref",  label:"都道府県（別列の場合）", hints:["都道府県","県名","prefecture"]},
+  {key:"pref",  label:"都道府県（別列の場合）", hints:["都道府県","県名","prefecture","province"]},
   {key:"addr",  label:"住所", hints:["住所","address","addr","届け先","お届け先"]},
   {key:"addr2", label:"住所2（建物等）", hints:["住所2","住所２","建物","マンション","番地2","address2","addr2","アパート"]},
   {key:"tel",   label:"電話番号", hints:["電話","tel","phone","携帯","連絡先"]},
@@ -158,8 +158,8 @@ const $=id=>document.getElementById(id);
 // Prefer 配送先/お届け先 (shipping) columns over 請求先/注文者 (billing) ones for the address/name fields,
 // so split carts like BASE/STORES (which export both billing and shipping blocks) auto-map to the shipping address.
 function autoMap(h){ const low=h.map(x=>String(x).toLowerCase().trim());
-  const SHIP=["配送先","お届け先","送付先","届け先","発送先"];
-  const BILL=["請求先","注文者","購入者","ご注文者"];
+  const SHIP=["配送先","お届け先","送付先","届け先","発送先","shipping","ship to","deliver"];
+  const BILL=["請求先","注文者","購入者","ご注文者","billing","bill to"];
   const shipFields=new Set(["zip","name","last","first","pref","addr","addr2","tel"]);
   const used=new Set(); const m={};
   for(const f of FIELDS){
@@ -169,8 +169,8 @@ function autoMap(h){ const low=h.map(x=>String(x).toLowerCase().trim());
     let idx=-1;
     if(cands.length){
       if(shipFields.has(f.key)){
-        const ship=cands.find(j=>SHIP.some(s=>String(h[j]||"").includes(s)));
-        const neutral=cands.find(j=>!BILL.some(b=>String(h[j]||"").includes(b)));
+        const ship=cands.find(j=>SHIP.some(s=>low[j].includes(s)));
+        const neutral=cands.find(j=>!BILL.some(b=>low[j].includes(b)));
         idx=(ship!=null?ship:(neutral!=null?neutral:cands[0]));
       } else idx=cands[0];
     }
