@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "idle",
-  "doing": "Day-17 20:07 JST signal-watch done: all 0 (0/11 replies, 0 charges, revenue_ledger []); mac-local 19:00 pm cycle RAN = 0 GO of 22 (last id 5330859) + 0 new sends, offers 5328251/5329177 pending no message, today both passes 0 GO of 35; CW owner-gated offline ~33h; Day-16 X confirmed, Day-17 queued 20:37 JST; decision report 2026-10-17T2007; ended E2; checks green",
-  "next": "00:07 JST 10/18 = FALSIFICATION CHECKPOINT (task checkpoint-1018, ops/2026-10/CHECKPOINT_1018.md, use CHECKPOINT_1018_PREP.md): refresh reply count (CW+Coconala inboxes via mac-local events + Stripe + X); if >=1 reply -> Art.10 end-to-end <=12h first, keep motion, still record comparison; if replies still 0 -> write checkpoint_1018 block (6 options + chosen L4 productized instant-buy gig + why + rejected) into the earliest 10/18 report, stop replaced scan tasks, create productized-gig tasks for mac-local, reallocate, log redesign event, update STATE, run decision_check. G2 verdict 10/20.",
+  "status": "working",
+  "doing": "10/18 falsification checkpoint (checkpoint-1018): refresh replies then redesign customer acquisition",
+  "next": "read checkpoint docs + refresh reply/charge counts",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-17T11:13:51.974Z"
+  "heartbeat_at": "2026-10-17T15:09:16.006Z"
 }

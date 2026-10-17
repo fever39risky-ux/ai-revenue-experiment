@@ -1,0 +1,194 @@
+{
+  "fire": "2026-10-18T00:07+09:00",
+  "author": "founder",
+  "lanes": {
+    "company": {
+      "fact": "KPI 2026-10-18 (node scripts/oct/ops.mjs kpi): gross ¥0, net ¥0, orders 0, human 9x/33min. revenue_ledger.entries=[] (0 charges). 17 days, 0 valid demand signals company-wide: proposals 11 (Coconala 7 + CrowdWorks 4) → buyer replies 0; Stripe/Gumroad 0 charges; X 0 inquiries; all passive listings 0 signals. G2 (gross ≥¥10k by 10/20) deadline in 2 days.",
+      "interpretation": "The public-job proposal motion is FALSIFIED (checkpoint-1018 rule: replies still 0 → redesign mandatory). H1 weakened to falsified as a motion. Low proposal volume is itself evidence the motion cannot be fed, not a reason to wait. This is an L4 moment: change WHAT/HOW we sell, not another selection tweak.",
+      "decision": "improve",
+      "next_action": "Executed an L4 redesign this fire: stop the public-job scan motion; launch H5 (free self-serve productized EC CSV→送り状 converter + content-led demand for EC sellers). Market test live this fire (tool URL + Day-18 X post). See checkpoint_1018 block.",
+      "deadline_trigger": "2026-10-20: G2 deadline + H5 48h signal check (task h5-ec-signal-watch-1020). If H5 shows 0 signal by the 2026-10-22 weekly review, that review carries the mandated L5/E2 analysis (is any AI-reachable buyer channel left?)."
+    },
+    "x": {
+      "fact": "Day-17 numbers post 2111433643046678883 posted 2026-10-17 (2 imp). metrics.json summary: 24 posts, median impressions 12 (<20). 0 profile-click→inquiry since Day-10. Day-18 post authored + queued this fire (2026-10-18-pm.json, 259w, validate ok) — it folds the H5 tool announcement into the daily experiment log (link in reply_text).",
+      "interpretation": "H2 unchanged (X reach-bound on a small-follower account; confirmed not a standalone sales channel). But X is now the cheapest in-fire channel to put the H5 test in front of EC sellers, so the daily post carries the H5 market test — H5 (new) launching.",
+      "decision": "continue",
+      "next_action": "Dispatch x-phase2.yml this fire to post the Day-18 item (tool announcement); keep daily numbers posts via x-watchdog. Measure the H5 post's engagement/profile-clicks in the 10/20 signal check.",
+      "deadline_trigger": "2026-10-20: if the Day-18 H5 post yields 0 engaged impressions / 0 profile-click→contact, X stays trust/log only and H5 relies on the owned-site + note funnel."
+    },
+    "coconala_proposals": {
+      "fact": "H1 Coconala proposals 7, CrowdWorks 4 = 11 total; buyer replies 0 (17 days). 2 Coconala offers pending (5328251, 5329177) with no buyer message; hidemasa0122 thread no reply 4 days. CrowdWorks offline since 10/16 (owner relogin gate), ~33h.",
+      "interpretation": "H1 proposal motion weakened to FALSIFIED for October: a 0-review seller against 60-118 applicants/request converts proposal→reply at 0/11. Two prior escalations (10/08 L1, 10/15 L2 first-win) did not move it.",
+      "decision": "stop",
+      "next_action": "STOPPED this fire: h1-coconala-scan-1018, h1-coconala-scan-1018pm, h1-crowdworks-scan-1016 marked done (motion replaced). owner-crowdworks-relogin-1016 CANCELLED (owner freed — the CW scan it gated is stopped). Keep h1-coconala-inbox-1018am as pure signal-watch for the 2 pending offers (Art.10), NOT as the proposal motion.",
+      "deadline_trigger": "2026-10-26: if either pending Coconala offer (期限 10/26 / 10/23) draws a buyer message, Art.10 act end-to-end <=12h; otherwise they lapse with no action."
+    },
+    "coconala_listing": {
+      "fact": "Coconala passive gig 4426150 live; 0 views-to-inquiry signals in 17 days (baseline 10/03: 30d views 8, 0 fav/応募/messages).",
+      "interpretation": "H3 unchanged (passive listing 0 signals). The gig is now re-purposed as the paid-path CTA target for H5 (ongoing custom setup), at zero new effort.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; linked as the paid CTA from the H5 free tool. No rebuild, no new listing (Art.5.5).",
+      "deadline_trigger": "2026-10-22 weekly review: if still 0 signals and H5 also 0, include in the L5/E2 channel-exhaustion analysis."
+    },
+    "booth": {
+      "fact": "BOOTH item 8919052 STOPPED 2026-10-15 (0 スキ / 0 sales trigger fired); listing kept live, no further work. Still 0 signals.",
+      "interpretation": "H3 unchanged (0 demand). No change this fire.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work. Not part of the H5 motion.",
+      "deadline_trigger": "2026-10-31: close-out in the FINAL report unless a signal appears (none expected)."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger.entries=[] → 0 October charges (sales-monitor cron books Stripe/Gumroad automatically). Stripe MCP unreadable this fire (OAuth gate) but the empty ledger is sufficient evidence of 0 charges. Sept diagnosis: 3/3 checkout sessions abandoned before payment.",
+      "interpretation": "H4 unchanged (passive store 0 charges). The existing Stripe/Gumroad rail stays available as a future instant-buy path for a productized H5 SKU once a demand signal exists (Art.5.5 forbids building it first).",
+      "decision": "continue",
+      "next_action": "Zero-effort supply; no rebuild. Reserved as the monetization rail for H5 after a signal.",
+      "deadline_trigger": "2026-10-20: if any H5 inquiry asks to buy, stand up a minimal Gumroad SKU then (not before)."
+    },
+    "note": {
+      "fact": "note @satotsu1020: 1 free article live; 0 signals. No new article since the H2 shrink.",
+      "interpretation": "H2 unchanged as meta-content, but note is now re-tasked for H5: an EC-seller-facing article that points to the free tool. Supports H5 (new).",
+      "decision": "expand",
+      "next_action": "Created task h5-ec-csv-tool-note-1018 (mac-local, P1): publish one honest EC-seller note article linking the free converter + the free-setup offer, owned account only, no spam.",
+      "deadline_trigger": "2026-10-20: read whether the note article drew any response in the H5 48h signal check."
+    },
+    "zenn": {
+      "fact": "Zenn kinoshita_ai: free articles + paid book gas-ai-jimu-plus-6 live (HTTP 200 verified 10/06); 0 sales signals in 17 days.",
+      "interpretation": "H4 unchanged (0 signals). Not part of the H5 first test (Zenn audience is developers, not EC sellers); kept live.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort. Candidate later for a developer-facing writeup of the tool if H5 shows pull.",
+      "deadline_trigger": "2026-10-22 weekly review: reconsider only if H5 shows a developer-adjacent signal."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings live; 0 October signals.",
+      "interpretation": "H4 unchanged (0 signals; US/English craft audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work. Not part of H5.",
+      "deadline_trigger": "2026-10-31: close-out in FINAL report."
+    }
+  },
+  "checkpoint_1018": {
+    "replies_observed": 0,
+    "verdict": "redesign",
+    "level": "L4",
+    "central_question": "How do we actually win a customer? Decide WHO/PAIN/TRIGGER/OFFER/TRUST/REACH first, then the channel.",
+    "signals_refreshed_at": "2026-10-18T00:20+09:00 — Coconala inbox 0 (mac-local 19:05 JST 10/17), CrowdWorks offline (owner gate), Stripe/Gumroad revenue_ledger empty=0 charges, X 0 inquiries (metrics.json). Total buyer replies 0/11, 17 days.",
+    "acquisition_hypotheses": [
+      {
+        "id": "A-ec-order-csv",
+        "who": "EC事業者（BASE/STORES/メルカリShops で月商10万〜200万、エンジニア不在で自分で発送作業をする個人〜数名のネットショップ運営者）",
+        "pain": "発送のたびにカートの注文エクスポートCSVを、送り状サービス（クリックポスト/ヤマトB2）が求める列・形式へ手で整形する（列並べ替え、郵便番号/電話の全半角、姓名結合、様付け）。1バッチ30〜60分、誤出荷リスク。",
+        "trigger": "毎回の発送日・注文バッチ。セール/お中元お歳暮など注文増で悪化。",
+        "offer": "まず無料のブラウザ内CSV変換ツール（登録不要・送信なし）。有料は『あなたのカート×送り状サービス専用のマッピング/GAS自動ワンクリック変換』の設定（¥3,000雛形〜¥8,000個別設定）。先着は実績作りのため無料セットアップ。",
+        "why_now": "出荷は毎週発生し先送り不可。無料ツールが今すぐ痛みを一部解消するので接点になる。",
+        "trust": "ログイン不要・データはブラウザ内だけで処理（個人情報を預けない）という設計そのものが、無名0レビューの売り手でも信用できる根拠。サンプルで即その場で動く実演（before/after）。",
+        "where": "X(#BASE #STORES #ネットショップ運営 #発送)、note、EC運営者コミュニティ、自サイトのツール検索流入。",
+        "how_to_reach": "公開求人への入札ではなく、役立つ無料ツール＋デモ記事で引き寄せる（content-led/inbound）。公開投稿への返信対応は可、コールドDMはしない（Art.10）。",
+        "first_conversion": "無料ツール利用→『自分のショップ専用に設定してほしい』の1件の問い合わせ（先着無料セットアップで0レビューの壁を壊す）。",
+        "repeatability": "高い。どのBASE/STORES出店者も同じ export→送り状 のギャップを持つので、1つの設定パターンが横展開できる。",
+        "steps_to_first_close": "無料ツール公開→EC運営者の目に触れる(X/note)→試用→専用設定の問い合わせ→無料or少額で1件納品→レビュー/実績→有料テンプレ/設定を反復販売。",
+        "first_market_test": "自サイトに無料CSV変換ツールを公開し、Day-18のX投稿とnote記事でEC運営者に提示。",
+        "signal_48h": "ツールに関する問い合わせ/返信1件以上、またはX投稿のprofile-click→接触、または無料ツール告知ポストが中央値12impを超える反応。",
+        "channel": "owned-site tool (GitHub Pages) + X + note（いずれもcloudからgit/API実行可、新規オーナーゲートなし）"
+      },
+      {
+        "id": "B-bookkeeping-bank-csv",
+        "who": "小規模税理士事務所・記帳代行業者（職員1〜10名）で、顧問先ごとに様式の違う銀行/カードのCSVを会計ソフト（freee/マネーフォワード/弥生）の取込形式へ毎月手作業で整形する担当者",
+        "pain": "口座ごとにレイアウトが違うCSVを、日付・金額(貸借符号)・摘要を手で正規化して会計ソフトの取込テンプレへ整える。顧問先×毎月で時間がかかり転記ミスも出る。",
+        "trigger": "月次締め・記帳代行の納期、確定申告期(1〜3月)にピーク。",
+        "offer": "任意の銀行CSV→会計ソフト取込CSVへ正規化するSheets/GAS。¥15,000/銀行様式の設定、または¥5,000の汎用テンプレ。",
+        "why_now": "月次処理が毎月必ず発生する。",
+        "trust": "サンプル銀行CSVでのbefore/after実演、AI活用の明示、成果物の事前提示。会計データは機微なのでローカル処理である点を強調。",
+        "where": "税理士・記帳代行コミュニティ、X(#税理士 #記帳代行)、note。",
+        "how_to_reach": "content-led＋公開相談への返信。コンプラ保守的な層のため信頼構築に時間。",
+        "first_conversion": "¥5,000の汎用テンプレ、または1様式の無料設定サンプル。",
+        "repeatability": "高いが銀行様式が断片化しており1件ごとの設定コストが大きい。",
+        "steps_to_first_close": "デモ記事→事務所担当の目に触れる→サンプル正規化を提示→1様式設定→反復。",
+        "first_market_test": "（本命ではないため今プァイアでは未実行。採用時はB向けデモ記事を別途公開）",
+        "signal_48h": "税理士/記帳代行者からのサンプル依頼・問い合わせ1件以上。",
+        "channel": "note + X（ただし到達は狭く信頼構築に時間がかかる）"
+      },
+      {
+        "id": "C-reseller-profit-calc",
+        "who": "せどり・物販の個人事業主（Amazon/メルカリ/ヤフオク転売）で、リサーチした商品データ(JAN/ASIN・仕入値・相場)を手で仕入れ管理シートに集計し手数料込みの利益率を計算している層",
+        "pain": "リサーチツールやフリマから商品データを手でコピペし、手数料・送料込みの利益率を再計算、重複を除外する。毎日のリサーチで反復。",
+        "trigger": "日次/週次の仕入れリサーチ。",
+        "offer": "仕入れ管理・利益計算のSheetsテンプレ（手数料/送料込み利益率の自動計算・重複排除）¥3,000、または手数料体系の個別設定¥8,000。",
+        "why_now": "毎日リサーチするため痛みが継続的。",
+        "trust": "貼り付けたサンプルから利益率をその場で計算する実演。",
+        "where": "X(#せどり #物販)、note、せどりコミュニティ。",
+        "how_to_reach": "content-led テンプレ配布。Xに大規模な活発コミュニティ。",
+        "first_conversion": "¥3,000テンプレ。",
+        "repeatability": "高い（同じ計算が全出品者に通用）が、無料テンプレが飽和し価格感度が高く有料化が難しい。",
+        "steps_to_first_close": "無料テンプレ/デモ→せどり層の目に触れる→有料個別設定の問い合わせ→納品→反復。",
+        "first_market_test": "（本命ではないため今プァイアでは未実行。採用時はC向け利益計算ツール/テンプレを別途公開）",
+        "signal_48h": "せどり層からのテンプレ入手/個別設定の問い合わせ1件以上。",
+        "channel": "X + note（コミュニティは活発だが有料転換が弱い）"
+      }
+    ],
+    "chosen_hypothesis": "A-ec-order-csv",
+    "options": {
+      "buyer_segment": {
+        "option": "『求人を出した人なら誰でも』から、名前のある反復業務を持つEC事業者(BASE/STORES/メルカリShops運営)へ絞る（acquisition_hypothesis A のWHO）",
+        "expected_effect": "マッチ精度が上がり、無料ツールという具体物で接点を作れる。ただしセグメント単体では到達とコールドスタートは解決しない。",
+        "cost": "低（既存Xアカウント/note/自サイトで到達）",
+        "evidence": "0/11の返信は広いプールからで、セグメント別データはない。EC運営者はCSV整形という明確で反復する痛みを持つ。",
+        "score": 6
+      },
+      "offer": {
+        "option": "個別提案ではなく、具体的でデモ可能な製品化オファー（無料のブラウザ内CSV変換ツール＋専用設定の有料/無料先着セットアップ）に変える。9月資産のGAS/Sheets知見を再利用(Art.5.5)。",
+        "expected_effect": "売りを『0レビューで100人の応札に勝つ』から『具体的なデモが売る』へ転換。コールドスタートを直撃。",
+        "cost": "中（無料ツール1枚を自作して公開＝今プァイアで実施済み）",
+        "evidence": "0レビューの提案は0返信、汎用の受け身リスティングも0。欠けているのは具体的・特定・実演可能な成果物。",
+        "score": 9
+      },
+      "price": {
+        "option": "¥8-10kの提案チケットではなく、無料の第一接点＋¥3,000雛形/先着無料セットアップで信用障壁を下げる",
+        "expected_effect": "0レビューの売り手の信用障壁を下げ、1件目のレビュー獲得を margin より優先。",
+        "cost": "低",
+        "evidence": "9月Stripe: 3/3が$19汎用ページで決済前に離脱→初見の価格/信用が壁。",
+        "score": 7
+      },
+      "job_selection": {
+        "option": "公開求人の選定ルールをさらに調整する",
+        "expected_effect": "REJECT — 既に falsified な提案モーション内のL1調整。Art.5.2で禁止(2回のレビューで改善0・72h signals 0)。",
+        "cost": "n/a",
+        "evidence": "早期応札ゲートを10/15に外しても0。モーション自体が壁。",
+        "score": 1
+      },
+      "channel": {
+        "option": "既に認証済みの自社資産上で売る：自サイトの無料ツール funnel（既存toolsディレクトリを再利用）＋X＋note。別マーケットプレイスへのコピーはしない（Art.5.5、Lancersは3つ目のオーナーゲート追加のため却下）。",
+        "expected_effect": "cloudからgit/APIで実行可、新規オーナーゲートなし。EC運営者に無料ツールで到達。",
+        "cost": "低",
+        "evidence": "既存 tools/ に無料計算ツール funnel が稼働中（再利用=Art.5.5で許容）。別マーケ追加は負EV。",
+        "score": 8
+      },
+      "other_sales_motion": {
+        "option": "公開求人への入札に代わり、製品化した無料セルフサーブツール＋content-led/inbound を主モーションにする",
+        "expected_effect": "『100人の応札＋0レビュー』の力学を除去。検索/紹介で来た買い手がレビュー不要で具体物を試せる。",
+        "cost": "中",
+        "evidence": "0/11を生んだのが提案モーション。別モーションが L4 の必須対応。",
+        "score": 9
+      }
+    },
+    "chosen": ["other_sales_motion", "offer", "channel", "price"],
+    "why": "0/11（17日）の返信ゼロは、0レビューの売り手が公開求人で100人超の応札に勝つ『提案モーション』を October では falsified と確定させた。必須のL4対応は選定ルールの再調整ではなく、別モーションへの転換である。選んだ一手＝EC事業者(A)の『発送CSVを送り状形式へ毎回手整形する』という名前のある反復痛みに対し、ログイン不要・ブラウザ内処理の無料セルフサーブ変換ツール（＝具体的なデモが売る）を自社funnelに公開し、先着無料セットアップで1件目の実績/レビューを取ってコールドスタートを壊す。これは(a)コールドスタートの根因を直撃し、(b)既存供給と既存tools funnelを新オーナーゲートなしで再利用し(Art.5.5/5.6)、(c)cloudから今プァイアで市場投入できる唯一の候補。B(税理士)は到達が狭く信頼構築に時間、C(せどり)は有料転換が弱いため、今回はパラメータ/控えとして保持。job_selectionはArt.5.2で禁止、別マーケ(Lancers)はArt.5.5＋オーナーゲート増で却下。",
+    "rejected": {
+      "job_selection": "falsified なモーション内のL1調整（Art.5.2で禁止）",
+      "buyer_segment_alone": "セグメント単体では到達/コールドスタートを解決しないため、選んだオファーのパラメータとしてのみ採用",
+      "hypothesis_B": "税理士/記帳代行は到達が狭くコンプラ保守的で48h signalに遠い",
+      "hypothesis_C": "せどりは活発だが無料テンプレ飽和・価格感度が高く有料転換が弱い",
+      "channel_lancers": "別マーケへのオファー複製はArt.5.5違反＋3つ目のオーナーゲート"
+    },
+    "executed": {
+      "market_test": {
+        "hypothesis": "A-ec-order-csv",
+        "action": "EC事業者向けの無料・登録不要・ブラウザ内処理の『注文CSV→送り状CSV 変換ツール』を自社サイトに公開（既存tools funnel再利用）。JP funnel(ai-api-cost-calculator-jp)から導線を追加。Day-18のX投稿(2026-10-18-pm.json, link in reply_text)でEC運営者に提示し x-phase2.yml を dispatch。mac-local に note記事タスク(h5-ec-csv-tool-note-1018)を作成して到達を広げる。",
+        "evidence": "https://fever39risky-ux.github.io/ai-revenue-experiment/tools/order-csv-converter-jp.html （本プァイアで git push → GitHub Pages 公開。コアロジックはNodeでスモークテスト済：CSVパース/全半角/郵便番号ハイフン/引用符フィールド）＋ 投稿キュー social/2026-10/queue/2026-10-18-pm.json（validate ok, 259w）",
+        "at": "2026-10-18T00:30+09:00"
+      },
+      "stopped_tasks": ["h1-coconala-scan-1018", "h1-coconala-scan-1018pm", "h1-crowdworks-scan-1016", "owner-crowdworks-relogin-1016"],
+      "new_tasks": ["h5-ec-csv-tool-note-1018", "h5-ec-signal-watch-1020"],
+      "reallocation": "mac-local: 毎日の公開求人スキャン/提案 → H5の到達拡大（note記事）＋ Coconala inbox の signal-watch のみ（既出2提案の返信待ち）。founder: first-reply watch を H5 の48h signal 計測＋ツール改善へ。X: 日次numbers postにH5告知を同梱。owner: CW relogin を解除し拘束を解放。"
+    }
+  }
+}

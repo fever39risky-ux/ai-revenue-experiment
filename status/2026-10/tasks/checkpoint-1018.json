@@ -11,9 +11,16 @@
   "assigned_to": "founder",
   "created_by": "founder",
   "created_at": "2026-10-15T19:29:37.640Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "DONE 2026-10-18T0007: refreshed signals = 0 replies (17d) → L4 redesign executed. Stopped public-job proposal motion; launched H5 (free self-serve 注文CSV→送り状 converter + content-led for EC sellers). Market test live: tool URL published + Day-18 X post queued/dispatched + mac-local note task. Full checkpoint_1018 block in decision 2026-10-18T0007 (decision_check ok).",
+  "history": [
+    {
+      "ts": "2026-10-17T15:25:10.857Z",
+      "op": "founder",
+      "action": "done",
+      "note": "DONE 2026-10-18T0007: refreshed signals = 0 replies (17d) → L4 redesign executed. Stopped public-job proposal motion; launched H5 (free self-serve 注文CSV→送り状 converter + content-led for EC sellers). Market test live: tool URL published + Day-18 X post queued/dispatched + mac-local note task. Full checkpoint_1018 block in decision 2026-10-18T0007 (decision_check ok)."
+    }
+  ]
 }

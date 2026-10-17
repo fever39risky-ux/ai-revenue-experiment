@@ -13,9 +13,16 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-17T01:03:27.053Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "STOPPED 2026-10-18 checkpoint-1018 (L4 redesign): public-job proposal motion falsified — 0 buyer replies in 17 days (0/11). Replaced by H5 (productized self-serve EC CSV converter + content-led demand). No further public-job scans.",
+  "history": [
+    {
+      "ts": "2026-10-17T15:18:40.027Z",
+      "op": "founder",
+      "action": "done",
+      "note": "STOPPED 2026-10-18 checkpoint-1018 (L4 redesign): public-job proposal motion falsified — 0 buyer replies in 17 days (0/11). Replaced by H5 (productized self-serve EC CSV converter + content-led demand). No further public-job scans."
+    }
+  ]
 }
