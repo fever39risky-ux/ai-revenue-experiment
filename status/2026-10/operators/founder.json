@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-17 13:07 JST signal-watch done: all 0 (0/11 replies, 0 charges, ledger []); mac-local 10:00 scan RAN = 0 GO of 13 + 0 new Coconala sends, offers 5328251/5329177 pending no message; CW still owner-gated offline ~26h; Day-16 X confirmed, Day-17 queued 20:37 JST; decision report 2026-10-17T1307; checks green",
-  "next": "20:07 JST 10/17 signal-watch: did mac-local 19:00 scan run? any send/reply on 5328251/5329177 + new GO (ids>5330082) + Stripe + X Day-17 posted; CW back online? any reply/charge -> Art.10 <=12h via mac-local. Then 10/18 00:07 FALSIFICATION CHECKPOINT (use CHECKPOINT_1018_PREP.md). G2 deadline 10/20",
+  "doing": "Day-17 20:07 JST signal-watch done: all 0 (0/11 replies, 0 charges, revenue_ledger []); mac-local 19:00 pm cycle RAN = 0 GO of 22 (last id 5330859) + 0 new sends, offers 5328251/5329177 pending no message, today both passes 0 GO of 35; CW owner-gated offline ~33h; Day-16 X confirmed, Day-17 queued 20:37 JST; decision report 2026-10-17T2007; ended E2; checks green",
+  "next": "00:07 JST 10/18 = FALSIFICATION CHECKPOINT (task checkpoint-1018, ops/2026-10/CHECKPOINT_1018.md, use CHECKPOINT_1018_PREP.md): refresh reply count (CW+Coconala inboxes via mac-local events + Stripe + X); if >=1 reply -> Art.10 end-to-end <=12h first, keep motion, still record comparison; if replies still 0 -> write checkpoint_1018 block (6 options + chosen L4 productized instant-buy gig + why + rejected) into the earliest 10/18 report, stop replaced scan tasks, create productized-gig tasks for mac-local, reallocate, log redesign event, update STATE, run decision_check. G2 verdict 10/20.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-17T04:11:37.918Z"
+  "heartbeat_at": "2026-10-17T11:13:51.974Z"
 }
