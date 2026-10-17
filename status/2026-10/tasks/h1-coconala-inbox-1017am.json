@@ -12,9 +12,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-16T10:02:22.033Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-17T03:01:30.549Z",
+  "result": "10:02 JST 10/17: 0 signals. /message: only hidemasa0122 thread, our 10/13 question still last (4 days, no reply). Notifications: only RPA job-matching recommendation + coupon lottery. Transactions: none. Offers: 5328251 (meyusa, ¥8,000, 期限10/26) and 5329177 (双葉つゆ voice script, ¥8,000, 期限10/23) pending, no buyer message; others 募集終了 unadopted. Next: h1-coconala-inbox-1017pm.",
+  "history": [
+    {
+      "ts": "2026-10-17T01:01:30.549Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-17T01:02:40.092Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10:02 JST 10/17: 0 signals. /message: only hidemasa0122 thread, our 10/13 question still last (4 days, no reply). Notifications: only RPA job-matching recommendation + coupon lottery. Transactions: none. Offers: 5328251 (meyusa, ¥8,000, 期限10/26) and 5329177 (双葉つゆ voice script, ¥8,000, 期限10/23) pending, no buyer message; others 募集終了 unadopted. Next: h1-coconala-inbox-1017pm."
+    }
+  ]
 }
