@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-17T03:04:25.610Z (JST 2026-10-17) ===
+=== Phase 2 board — 2026-10-17T05:05:52.276Z (JST 2026-10-17) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  RE-FRAMED 2026-10-15 20:07 (Day-15 weekly review). The 10/11 "unproven reply rate" frame is now resolved into TWO structural gates that the week of data exposed: (1) SUPPLY — the price_plus_reply selection rule (¥10-15k objective-done + EARLY ≤3rd-5th applicant + free sample) rejects all ~86 daily post-filter CrowdWorks candidates (15 straight 0-GO scans 10/01-10/15; today 1,679→811→328→86→0 GO). Observed 0.84 proposals/day vs 46.7/day needed (base). The ≤10/0 kill windows for BOTH boards (CW 10/11-10/15 closed at 4/0; Coconala 5/0) were never reachable because volume never reached 10 — this is UNDER-VOLUME, not a demand verdict. (2) COLD-START — as a 0-review seller against 60-118 applicants/request, proposal→reply is 0/9. Calculator (g2_pipeline.mjs) still ranks price_plus_reply #1 (base P(G2) 0.442 / pess 0.143) BUT only on cap volume (24 proposals by 10/20), which supply starves; gap.achievable_at_current_rate=false, 131 proposals short. L5 check: org (mac-local daily scans) is ADEQUATE — the gate is the selection rule + cold-start positioning, not operators/cadence/tooling. Art.5.2 escalation (two reviews 10/08+10/15, 0 improvement, last change L1): the next H1 change is ≥L2 → sales-motion repositioned to a FIRST-WIN / first-review motion (see H1.selection_rule). Falsification checkpoint 10/18: combined ≥10 proposals & 0 replies → demand-falsified → L4; still <10 even widened → supply-falsified → L4. Passive listings (Coconala gig 4426150, BOOTH, Gumroad, Etsy, Stripe, Zenn, note) all 0 signals in 15 days — no new listing (Art.5.5 forbids copying the offer again). X stopped as sales (median imp 10<20, pc 1, 0 inquiries), keep daily numbers post. owner_queue empty.
 PRIORITY
@@ -10,7 +10,7 @@ PRIORITY
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
   NORMAL owner-crowdworks-relogin-1016 blocks h1-crowdworks-scan-1016
 OPERATORS
-  actions                working   STALE 24501m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 24623m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -19,12 +19,12 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 24072m lanes=
+  codex                  idle      STALE 24193m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      STALE 230m  lanes=strategy,x,h1-delivery,reporting
-      doing: Day-17 08:07 JST signal-watch done: all 0 (0/11 replies, 0 charges); no mac-local run since 19:06 JST 10/16; Day-16 X confirmed, Day-17 queued; decision report 2026-10-17T0807 + CHECKPOINT_1018_PREP.md drafted; checks green
-      next:  13:07 JST 10/17 signal-watch: did mac-local 10:00 scan run? any send/reply on 5328251/5329177 + new GO + Stripe + X; CW back online? any reply/charge -> Art.10 <=12h via mac-local. 10/18 FALSIFICATION CHECKPOINT (use CHECKPOINT_1018_PREP.md); G2 deadline 10/20
+  founder                idle      live 54m    lanes=strategy,x,h1-delivery,reporting
+      doing: Day-17 13:07 JST signal-watch done: all 0 (0/11 replies, 0 charges, ledger []); mac-local 10:00 scan RAN = 0 GO of 13 + 0 new Coconala sends, offers 5328251/5329177 pending no message; CW still owner-gated offline ~26h; Day-16 X confirmed, Day-17 queued 20:37 JST; decision report 2026-10-17T1307; checks green
+      next:  20:07 JST 10/17 signal-watch: did mac-local 19:00 scan run? any send/reply on 5328251/5329177 + new GO (ids>5330082) + Stripe + X Day-17 posted; CW back online? any reply/charge -> Art.10 <=12h via mac-local. Then 10/18 00:07 FALSIFICATION CHECKPOINT (use CHECKPOINT_1018_PREP.md). G2 deadline 10/20
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
