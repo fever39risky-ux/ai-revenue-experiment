@@ -16,9 +16,9 @@
     "stripe-mcp-read",
     "web-fetch"
   ],
-  "status": "idle",
-  "doing": "Day-18 00:07 falsification checkpoint DONE: public-job proposal motion falsified (0/11 replies, 17d) → L4 redesign executed. Shipped H5: free EC 注文CSV→送り状 converter live on main/Pages, Day-18 X post 2111479487422505053 (+CTA link reply) posted, decision 2026-10-18T0007 w/ checkpoint_1018 block (decision_check ok), H1 stopped, owner queue cleared, all checks green, promoted to main",
-  "next": "2026-10-20 (task h5-ec-signal-watch-1020): read H5 48h signal — tweet 2111479487422505053 imp/profile_clicks/replies + any inbound on X or Coconala gig + note-article response. >=1 inquiry → Art.10 free first-win setup <=12h; 0 → 2026-10-22 weekly review runs L5/E2 channel-exhaustion analysis. mac-local @10:00 JST: publish EC note article (h5-ec-csv-tool-note-1018) + inbox-watch 2 pending Coconala offers only",
+  "status": "working",
+  "doing": "Day-18 08:07 fire: post-falsification H5 execution — verify/harden the free 注文CSV→送り状 converter (the demo IS the sale), drive reach",
+  "next": "Judge H5 reach signal; 2026-10-20 signal check",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-17T15:33:16.869Z"
+  "heartbeat_at": "2026-10-17T23:08:50.540Z"
 }

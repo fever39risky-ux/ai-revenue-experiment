@@ -31,7 +31,7 @@ footer{margin-top:36px;color:#5a6b78;font-size:.85rem}a{color:#1f7f7a}
 </style>
 </head>
 <body><div class="wrap">
-<p class="muted"><a href="../">Home</a> · <a href="ai-api-cost-calculator-jp.html">AI API料金計算</a> · <a href="../store/spreadsheets.html">スプレッドシート雛形</a></p>
+<p class="muted"><a href="../">Home</a> · <a href="../guides/order-csv-shipping-label-convert.html">使い方ガイド</a> · <a href="ai-api-cost-calculator-jp.html">AI API料金計算</a> · <a href="../store/spreadsheets.html">スプレッドシート雛形</a></p>
 <h1>注文CSV → 宛名・送り状CSV 変換ツール <span class="pill">無料</span></h1>
 <p class="lead">ネットショップ（BASE・STORES・メルカリShops・Shopify など）の<strong>注文CSVを、宛名ラベルや送り状用のCSVに整形</strong>します。毎回の手作業——列の並べ替え、郵便番号・電話番号の全角→半角、姓と名の結合、「様」の付与——をまとめて自動化。<strong>ファイルはブラウザの中だけで処理</strong>し、どこにも送信しません。登録不要・インストール不要。</p>
 
@@ -86,7 +86,8 @@ footer{margin-top:36px;color:#5a6b78;font-size:.85rem}a{color:#1f7f7a}
 <h2>うまく動かない／自分のショップ専用に設定してほしい</h2>
 <p>このツールは「自分で列を選んで整形する」汎用版です。<strong>あなたのカートと送り状サービスの組み合わせ専用に、列マッピングや自動化（Google スプレッドシート＋GAS でワンクリック変換）を設定してほしい</strong>というご相談を受け付けています。</p>
 <p><strong>実績づくりのため、先着数名は無料でセットアップ</strong>します。使っているカート（BASE／STORES／メルカリShops など）と送り状サービス（クリックポスト／ヤマトB2 など）を、X（旧Twitter）のリプライ・DMで教えてください。制作はAIを活用して行います（過不足なくお作りできる範囲でお受けします）。</p>
-<p><a class="btn" href="https://x.com/KinoshitaTsks" rel="noopener" target="_blank">Xで相談する @KinoshitaTsks</a>
+<p><a class="btn" href="https://x.com/intent/tweet?text=%40KinoshitaTsks%20%E6%B3%A8%E6%96%87CSV%E2%86%92%E9%80%81%E3%82%8A%E7%8A%B6%E3%81%AE%E5%A4%89%E6%8F%9B%E3%81%AE%E4%BB%B6%E3%81%A7%E7%9B%B8%E8%AB%87%E3%81%A7%E3%81%99%E3%80%82%0A%E3%82%AB%E3%83%BC%E3%83%88%EF%BC%88BASE%2FSTORES%2F%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AAShops%E7%AD%89%EF%BC%89%3A%20%0A%E9%80%81%E3%82%8A%E7%8A%B6%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%EF%BC%88%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9D%E3%82%B9%E3%83%88%2F%E3%83%A4%E3%83%9E%E3%83%88B2%E7%AD%89%EF%BC%89%3A%20" rel="noopener" target="_blank">Xで相談する（カート・送り状を下書きした状態で開きます）</a>
+<a class="btn alt" href="https://x.com/KinoshitaTsks" rel="noopener" target="_blank">Xを見る / DMで相談 @KinoshitaTsks</a>
 <a class="btn alt" href="https://coconala.com/services/4426150" rel="noopener" target="_blank">ココナラの出品を見る</a></p>
 <p class="muted">※このページが役に立ったら、その旨をひとことリプライいただけると今後の改善の励みになります。</p>
 </div>
@@ -141,11 +142,12 @@ const zenHan=s=>s.replace(/[！-～]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x
 const FIELDS=[
   {key:"zip",   label:"郵便番号", hints:["郵便番号","〒","zip","postal","post_code","postcode"]},
   {key:"name",  label:"氏名（姓名）", hints:["氏名","名前","お名前","宛名","name","顧客名","購入者"]},
-  {key:"last",  label:"姓（別列の場合）", hints:["姓","苗字","last","family","lastname","sei"]},
-  {key:"first", label:"名（別列の場合）", hints:["名","first","given","firstname","mei"]},
+  {key:"last",  label:"姓（別列の場合）", hints:["姓","氏","苗字","last","family","lastname","sei"]},
+  {key:"first", label:"名（別列の場合）", hints:["名（","名(","first","given","firstname","mei"]},
   {key:"company",label:"会社名", hints:["会社","法人","company","組織"]},
+  {key:"pref",  label:"都道府県（別列の場合）", hints:["都道府県","県名","prefecture"]},
   {key:"addr",  label:"住所", hints:["住所","address","addr","届け先","お届け先"]},
-  {key:"addr2", label:"住所2（建物等）", hints:["建物","マンション","番地2","address2","addr2","アパート"]},
+  {key:"addr2", label:"住所2（建物等）", hints:["住所2","住所２","建物","マンション","番地2","address2","addr2","アパート"]},
   {key:"tel",   label:"電話番号", hints:["電話","tel","phone","携帯","連絡先"]},
   {key:"item",  label:"内容品／商品名", hints:["商品","品名","内容","item","product","注文商品"]},
   {key:"order", label:"注文番号", hints:["注文番号","受注番号","order","注文id","伝票"]}
@@ -153,12 +155,25 @@ const FIELDS=[
 let HEADERS=[], DATA=[];
 const $=id=>document.getElementById(id);
 
+// Prefer 配送先/お届け先 (shipping) columns over 請求先/注文者 (billing) ones for the address/name fields,
+// so split carts like BASE/STORES (which export both billing and shipping blocks) auto-map to the shipping address.
 function autoMap(h){ const low=h.map(x=>String(x).toLowerCase().trim());
+  const SHIP=["配送先","お届け先","送付先","届け先","発送先"];
+  const BILL=["請求先","注文者","購入者","ご注文者"];
+  const shipFields=new Set(["zip","name","last","first","pref","addr","addr2","tel"]);
   const used=new Set(); const m={};
-  for(const f of FIELDS){ let idx=-1;
-    for(const hint of f.hints){ const hl=hint.toLowerCase();
-      for(let j=0;j<low.length;j++){ if(used.has(j))continue; if(low[j]===hl||low[j].includes(hl)){idx=j;break;} }
-      if(idx>=0)break; }
+  for(const f of FIELDS){
+    const cands=[];
+    for(let j=0;j<low.length;j++){ if(used.has(j))continue;
+      for(const hint of f.hints){ const hl=hint.toLowerCase(); if(low[j]===hl||low[j].includes(hl)){cands.push(j);break;} } }
+    let idx=-1;
+    if(cands.length){
+      if(shipFields.has(f.key)){
+        const ship=cands.find(j=>SHIP.some(s=>String(h[j]||"").includes(s)));
+        const neutral=cands.find(j=>!BILL.some(b=>String(h[j]||"").includes(b)));
+        idx=(ship!=null?ship:(neutral!=null?neutral:cands[0]));
+      } else idx=cands[0];
+    }
     if(idx>=0){m[f.key]=idx;used.add(idx);} else m[f.key]=-1; }
   return m;
 }
@@ -211,7 +226,8 @@ function val(rec,key){
   if(key==="tel"){ let t=tx(g("tel")); if(han)t=zenHan(t); return t; }
   if(key==="name"){ let nm=tx(g("name")); if(!nm){const l=tx(g("last")),f=tx(g("first")); nm=(l+" "+f).trim();} if(keisho&&nm)nm=nm+" 様"; return nm; }
   if(key==="company")return tx(g("company"));
-  if(key==="addr")return tx(g("addr"));
+  if(key==="pref")return tx(g("pref"));
+  if(key==="addr"){ const p=tx(g("pref")), a=tx(g("addr")); return (p&&!a.startsWith(p))?(p+a):a; }
   if(key==="addr2")return tx(g("addr2"));
   if(key==="item")return tx(g("item"));
   if(key==="order")return tx(g("order"));
@@ -247,7 +263,17 @@ function download(){
 async function copy(){ try{await navigator.clipboard.writeText(toCSV(OUT,false)); $("genMsg").textContent="クリップボードにコピーしました。";}catch(e){$("genMsg").innerHTML='<span class="warn">コピーできませんでした。ダウンロードをお使いください。</span>';} }
 const SAMPLE='注文番号,購入者氏名,郵便番号,住所,電話番号,商品名\n1001,山田　太郎,１５００００１,東京都渋谷区神宮前1-1-1 ○○マンション101,０９０１２３４５６７８,コットンTシャツ 1点\n1002,佐藤 花子,1600022,東京都新宿区新宿3-2-1,08098765432,トートバッグ 2点';
 // wiring
-$("file").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>loadRows(parseCSV(String(r.result)));r.readAsText(f,"utf-8");});
+// Decode bytes as UTF-8, falling back to Shift_JIS (CP932) when the bytes are not valid UTF-8.
+// Many Japanese carts / Excel export order CSVs in Shift_JIS; reading those as UTF-8 would garble them.
+function decodeBytes(buf){
+  const bytes=new Uint8Array(buf);
+  try{ return new TextDecoder("utf-8",{fatal:true}).decode(bytes); }
+  catch(e){
+    try{ return new TextDecoder("shift_jis").decode(bytes); }
+    catch(e2){ return new TextDecoder("utf-8").decode(bytes); }
+  }
+}
+$("file").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>loadRows(parseCSV(decodeBytes(r.result)));r.readAsArrayBuffer(f);});
 $("loadBtn").addEventListener("click",()=>loadRows(parseCSV($("paste").value)));
 $("sampleBtn").addEventListener("click",()=>{$("paste").value=SAMPLE;loadRows(parseCSV(SAMPLE));});
 $("preset").addEventListener("change",applyPreset);

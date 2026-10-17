@@ -1,0 +1,76 @@
+{
+  "fire": "2026-10-18T08:07+09:00",
+  "author": "founder",
+  "lanes": {
+    "company": {
+      "fact": "KPI 2026-10-18 08:08 JST (node scripts/oct/ops.mjs kpi/board): gross ¥0, cost ¥0 (+1 unknown), net ¥0, orders 0, human 9x/33min. revenue_ledger.entries=[]. H5 is now the sole active primary bet (L4 redesign executed at the 00:07 fire). No new buyer signal since 00:07. G2 (gross ≥¥10k by 10/20) deadline in 2 days.",
+      "interpretation": "H5 unchanged at the signal level (no new buyer signal yet; time-gated to 10/20) but strengthened in execution readiness this fire; H1 remains falsified/stopped. The binding constraint remains cold-start reach for the free tool. This fire's leverage is to maximize H5 reach/conversion readiness ahead of the signal window, not to open a new motion (Art.5.5 forbids pre-building the paid SKU before a signal).",
+      "decision": "improve",
+      "next_action": "Executed an H5 reach+hardening package this fire (see h5_tool / note lanes): closed the tool's discoverability gap (sitemap priority 1.0 + homepage), shipped an owned-site SEO guide, fixed a Shift_JIS decode bug in the demo, drafted the note article for mac-local. No new owner gate, no new SKU.",
+      "deadline_trigger": "2026-10-20: G2 deadline + H5 48h signal check (task h5-ec-signal-watch-1020). ≥1 real inquiry → Art.10 free first-win setup <=12h; 0 → the 2026-10-22 weekly review runs the mandated L5/E2 channel-exhaustion analysis."
+    },
+    "h5_tool": {
+      "fact": "The free 注文CSV→送り状CSV converter (tools/order-csv-converter-jp.html) was live from the 00:07 fire but was NOT in sitemap.xml and NOT linked from index.html, while every other tool was — a discoverability gap for a content-led/inbound bet. Core logic re-verified this fire (parseCSV / 全半角 zenHan / zip-hyphen / name-join / quoted-comma / empty-input all correct on sample + edge cases). The file upload path read bytes as UTF-8 only, so Shift_JIS/CP932 CSVs (common from JP carts and Excel) would silently garble — a real conversion-killer for the target market.",
+      "interpretation": "H5 strengthened in execution readiness. For a demo-sells-it motion, discoverability and 'it just works on my real CSV' are the binding levers before any paid SKU. Both were gaps; both are now fixed. This is reach/robustness for an already-shipped free tool, not new product development (Art.5.5-compliant).",
+      "decision": "improve",
+      "next_action": "Added the tool to sitemap.xml (changefreq weekly, priority 1.0) and to index.html (FREE TOOL / EC). Wrote owned-site SEO guide guides/order-csv-shipping-label-convert.html (HowTo schema, honest before→after, free-setup + Coconala CTA), added to sitemap + homepage, cross-linked tool<->guide both ways. Added TextDecoder UTF-8→shift_jis auto-fallback to the upload path (verified both encodings decode correctly). Verified CTA/funnel intact (X reply/DM free first-win + Coconala 4426150). All in-repo, pushed to claude/** (auto-promoted).",
+      "deadline_trigger": "2026-10-20: read whether owned-site/tool-page response + the Day-18 X post show any engagement/profile-click→contact in the H5 48h signal check; if a buyer uploads a Shift_JIS CSV and it works, that is now a non-blocker."
+    },
+    "x": {
+      "fact": "Day-18 H5 tool-announcement post is LIVE: tweet 2111479487422505053 (posted 2026-10-17T15:28Z = 00:28 JST 10/18) with the tool link in the reply 2111479489179881659 (queue 2026-10-18-pm.json). metrics.json summary: 25 posts, median impressions 12; the Day-18 post's engagement is not yet fetched (too recent — the metrics cron lags), so no actionable signal this fire. No inbound inquiry recorded.",
+      "interpretation": "H2 unchanged (X reach-bound on a small-follower account); X now carries the H5 reach test. ~8h after posting is too early to judge — consistent with the 10/20 gate, not a miss.",
+      "decision": "continue",
+      "next_action": "Daily numbers post continues via x-watchdog.yml (not the Founder). Judge the Day-18 post's engagement/profile-clicks as the H5 reach signal at the 10/20 check; nothing to post or change this fire.",
+      "deadline_trigger": "2026-10-20: if the Day-18 H5 post yields 0 engaged impressions / 0 profile-click→contact, X stays trust/log only and H5 relies on the owned-site + note funnel."
+    },
+    "coconala_proposals": {
+      "fact": "H1 proposal motion STOPPED 2026-10-18 (falsified, 0/11 replies over 17 days). 2 Coconala offers remain pending (5328251 期限 10/26, 5329177 期限 10/23) with no buyer message. No new proposals sent (motion stopped). Task h1-coconala-inbox-1018am kept as pure signal-watch (from 10:00 JST, mac-local).",
+      "interpretation": "H1 falsified as a motion (unchanged since 00:07). The only residual value is a buyer message on the 2 already-sent offers.",
+      "decision": "stop",
+      "next_action": "No new public-job proposals. mac-local keeps h1-coconala-inbox-1018am as signal-watch only; if either pending offer draws a buyer message, Art.10 act end-to-end <=12h.",
+      "deadline_trigger": "2026-10-23 / 2026-10-26: if either pending offer draws a buyer message by its 期限, Art.10 act <=12h; otherwise they lapse with no action."
+    },
+    "coconala_listing": {
+      "fact": "Coconala passive gig 4426150 live; 0 views-to-inquiry signals in 17 days. Now re-purposed as the paid-path CTA target for H5 (ongoing custom setup) — linked from both the free tool and the new SEO guide this fire.",
+      "interpretation": "H3 unchanged (passive 0 signals); its value is as the H5 paid CTA at zero new effort.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; it is the paid CTA from the H5 free tool + guide. No rebuild, no new listing (Art.5.5).",
+      "deadline_trigger": "2026-10-22 weekly review: if still 0 signals and H5 also 0, include in the L5/E2 channel-exhaustion analysis."
+    },
+    "booth": {
+      "fact": "BOOTH item 8919052 STOPPED 2026-10-15; listing kept live, 0 signals. No change this fire.",
+      "interpretation": "H3 unchanged (0 demand). Not part of the H5 motion.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in the FINAL report unless a signal appears (none expected)."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger.entries=[] → 0 October charges (sales-monitor cron books Stripe/Gumroad automatically). No change this fire.",
+      "interpretation": "H4 unchanged (passive store 0 charges). The Stripe/Gumroad rail stays available as the instant-buy path for a productized H5 SKU once a demand signal exists (Art.5.5 forbids building it first).",
+      "decision": "continue",
+      "next_action": "Zero-effort supply; no rebuild. Reserved as the monetization rail for H5 after a signal.",
+      "deadline_trigger": "2026-10-20: if any H5 inquiry asks to buy, stand up a minimal Gumroad SKU then (not before)."
+    },
+    "note": {
+      "fact": "note @satotsu1020: 1 free article live, 0 signals. Task h5-ec-csv-tool-note-1018 (mac-local, P1, from 10:00 JST) was open with no content yet. This fire the Founder DRAFTED the full article (marketing/2026-10/h5/note_01.md) and pointed the task at it, so mac-local only has to publish.",
+      "interpretation": "H5 strengthened (reach readiness); H2 unchanged as meta-content. Removing authoring load from the bottleneck operator (mac-local does browser publishing) raises the chance the article ships today and is honest/on-message. note PUBLISH stays mac-local's (login-gated); AUTHORING is the Founder's role.",
+      "decision": "expand",
+      "next_action": "Drafted marketing/2026-10/h5/note_01.md (honest, tool+guide links, before/after, free-setup CTA, AI-assist disclosed, no spam) and referenced it in task h5-ec-csv-tool-note-1018 with the tags + signal/done events to log on publish.",
+      "deadline_trigger": "2026-10-20: read whether the note article drew any response in the H5 48h signal check; if mac-local has not published by the 13:07 fire, re-confirm the task is unblocked."
+    },
+    "zenn": {
+      "fact": "Zenn kinoshita_ai: free articles + paid book gas-ai-jimu-plus-6 live; 0 sales signals in 17 days. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; developer audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort. Candidate later for a developer-facing writeup of the tool only if H5 shows pull.",
+      "deadline_trigger": "2026-10-22 weekly review: reconsider only if H5 shows a developer-adjacent signal."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings live; 0 October signals. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; US/English craft audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in FINAL report."
+    }
+  }
+}

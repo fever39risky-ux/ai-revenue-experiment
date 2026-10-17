@@ -1,0 +1,77 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>注文CSVを送り状CSVに変換する手順｜BASE・STORES・メルカリShops（無料ツールあり）</title><meta name="description" content="ネットショップの注文CSVを、送り状・宛名ラベル用のCSVに整える手順。郵便番号・電話番号の全角→半角、姓名の結合、敬称「様」の付与、列の並べ替えを、登録不要・ブラウザ内処理の無料ツールで自動化する方法。"><link rel="canonical" href="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/order-csv-shipping-label-convert.html"><meta property="og:title" content="注文CSVを送り状CSVに変換する手順（無料ツールあり）"><meta property="og:description" content="発送のたびの列並べ替え・全角半角・「様」付けを自動化。ブラウザ内処理・登録不要。"><meta property="og:type" content="article"><meta property="og:url" content="https://fever39risky-ux.github.io/ai-revenue-experiment/guides/order-csv-shipping-label-convert.html"><script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"注文CSVを送り状CSVに変換する","step":[{"@type":"HowToStep","name":"注文CSVを書き出す","text":"カート管理画面から注文データをCSVで書き出します。"},{"@type":"HowToStep","name":"列を対応づける","text":"どの列が郵便番号・氏名・住所・電話番号かを指定します。"},{"@type":"HowToStep","name":"整形して書き出す","text":"全角→半角、姓名の結合、敬称付与、列並べ替えを適用し、送り状用CSVとして書き出します。"}]}</script><style>
+:root{--bg:#0f1720;--bg2:#0b1118;--card:#161f2a;--ink:#eaf1f7;--sub:#9fb2c0;--accent:#3ea6a0;--accent2:#5b8def;--line:#243140;--soft:#18242f;--warn:#d9a06b;--good:#4fbf87}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--bg2:#eef2f7;--card:#fff;--ink:#17232e;--sub:#5a6b78;--accent:#1f8a84;--accent2:#3567c9;--line:#e3e9f0;--soft:#eef3f8;--good:#1f8a5a}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);line-height:1.85}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+a{color:var(--accent2)}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:.2em 0 .5em;letter-spacing:-.01em}
+h2{margin-top:40px;font-size:20px;line-height:1.4;border-left:3px solid var(--accent);padding-left:12px}
+h3{margin-top:26px;font-size:16px}
+.lead{font-size:17px;color:var(--sub)}
+.meta{font-size:13px;color:var(--sub);margin:0 0 6px}
+.top{font-size:13px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--sub);margin:22px 0}
+.note b{color:var(--ink)}
+pre{background:#0c141c;color:#cfe6e4;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) pre{background:#0f1a24;color:#cfe6e4}}
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700;font-size:13px}
+td.out{color:var(--good);font-weight:700;white-space:nowrap}
+.cap{font-size:12.5px;color:var(--sub);margin:2px 0 0}
+.steps{padding-left:20px}.steps li{margin:8px 0}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 26px;margin:38px 0 0;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta h3{margin-top:0;font-size:19px}
+.buy{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:12px;margin-top:8px}
+.alt{display:block;margin-top:12px;font-size:14px}
+.muted{color:var(--sub);font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul{padding-left:20px}li{margin:6px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+</style></head><body><main class="wrap"><a href="../">実験トップ</a><p class="meta">ネットショップ発送の実務 · 登録不要</p><h1>注文CSVを、<br>送り状CSVに整える手順。</h1>
+<p class="lead">BASE・STORES・メルカリShops などで注文が入るたびに、注文CSVを開いて列を並べ替え、郵便番号や電話番号の全角を半角に直し、姓と名をつないで「様」を付けて——発送のたびのこの手作業、地味に時間を取られます。本記事では、その整形を<b>登録不要・ブラウザ内処理の無料ツール</b>でまとめて片付ける手順をまとめます。</p>
+
+<h2>1. なぜ注文CSVはそのまま送り状に使えないのか</h2>
+<p>送り状サービス（クリックポスト、ヤマトB2 など）の取込フォーマットは、カートが書き出す注文CSVとは<b>列名も並び順も違います</b>。よくある手直しは次のとおりです。</p>
+<ul>
+<li><b>列の並べ替え・削除</b>：送り状側は「お届け先郵便番号／氏名／住所…」の決まった順。注文CSVには注文日や決済方法など不要な列も多い。</li>
+<li><b>全角→半角</b>：郵便番号「１５００００１」や電話「０９０…」が全角のままだと弾かれることがある。</li>
+<li><b>姓名の結合・敬称</b>：姓・名が別列だったり、「様」を手で付けたい。</li>
+<li><b>郵便番号のハイフン</b>：サービスによって「150-0001」か「1500001」か指定が分かれる。</li>
+</ul>
+
+<h2>2. 手順（3ステップ・無料ツール）</h2>
+<ol class="steps">
+<li>カート管理画面から<b>注文データをCSVで書き出す</b>（ヘッダー行のあるCSVであればOK）。</li>
+<li><a href="../tools/order-csv-converter-jp.html">注文CSV→送り状CSV 変換ツール</a>でCSVを読み込み、<b>どの列が郵便番号・氏名・住所・電話番号か</b>を指定（列名が一般的なら自動で割り当てを試みます）。</li>
+<li>全角→半角・姓名の結合・「様」付与・ハイフンの有無・列の並べ替えを指定して、<b>送り状用CSVとして書き出す</b>。プレビューで中身を確認してからダウンロードできます。</li>
+</ol>
+<div class="note"><b>ファイルは外部に送信しません。</b>CSVの読み込みも変換も、すべてお使いのブラウザの中だけで行います。注文データや個人情報がサーバーに送られることはなく、ページを閉じれば残りません。</div>
+
+<h2>3. 変換の例（Before → After）</h2>
+<table>
+<tr><th>項目</th><th>注文CSV（例）</th><th>送り状CSV（整形後）</th></tr>
+<tr><td>郵便番号</td><td>１５００００１</td><td class="out">150-0001</td></tr>
+<tr><td>氏名</td><td>姓「山田」／名「太郎」が別列</td><td class="out">山田 太郎 様</td></tr>
+<tr><td>電話番号</td><td>０９０１２３４５６７８</td><td class="out">09012345678</td></tr>
+<tr><td>列の順番</td><td>注文日・決済・氏名・住所…</td><td class="out">郵便番号・氏名・住所・電話…</td></tr>
+</table>
+<p class="cap">※出力する列名と順番は自由に編集できます。参考プリセットも用意していますが、取込仕様は各社で異なり変更されることもあるため、取り込む前に必ずご利用の送り状サービスの仕様をご確認ください。本ツールは整形を助けるもので、各社フォーマットへの適合を保証するものではありません。</p>
+
+<h2>4. よくある質問</h2>
+<h3>どのカートに対応していますか？</h3>
+<p>特定のカートに固定していません。ヘッダー行のあるCSVであれば、BASE・STORES・メルカリShops・Shopify・独自システムなど、画面で列を指定して変換できます。</p>
+<h3>料金はかかりますか？</h3>
+<p>この変換ツールは無料・登録不要です。「自分のショップ専用に設定・自動化してほしい」場合のみ、別途ご相談（先着は無料セットアップ）となります。</p>
+
+<div class="cta"><h3>うまく動かない／自分のショップ専用に設定してほしい方へ</h3>
+<p>上の無料ツールは「自分で列を選んで整形する」汎用版です。<b>あなたのカートと送り状サービスの組み合わせ専用に、列マッピングや自動化（Google スプレッドシート＋GAS でワンクリック変換）を設定してほしい</b>というご相談を受け付けています。制作はAIを活用して行います。</p>
+<p><b>実績づくりのため、先着数名は無料でセットアップ</b>します。使っているカート（BASE／STORES／メルカリShops など）と送り状サービス（クリックポスト／ヤマトB2 など）を、X（旧Twitter）のリプライ・DMで教えてください。</p>
+<a class="buy" href="../tools/order-csv-converter-jp.html">無料の変換ツールを使う →</a>
+<a class="alt" href="https://x.com/intent/tweet?text=%40KinoshitaTsks%20%E6%B3%A8%E6%96%87CSV%E2%86%92%E9%80%81%E3%82%8A%E7%8A%B6%E3%81%AE%E5%A4%89%E6%8F%9B%E3%81%AE%E4%BB%B6%E3%81%A7%E7%9B%B8%E8%AB%87%E3%81%A7%E3%81%99%E3%80%82%0A%E3%82%AB%E3%83%BC%E3%83%88%EF%BC%88BASE%2FSTORES%2F%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AAShops%E7%AD%89%EF%BC%89%3A%20%0A%E9%80%81%E3%82%8A%E7%8A%B6%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%EF%BC%88%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9D%E3%82%B9%E3%83%88%2F%E3%83%A4%E3%83%9E%E3%83%88B2%E7%AD%89%EF%BC%89%3A%20" target="_blank" rel="noopener">Xで無料セットアップを相談する（カート・送り状を下書きした状態で開きます）→</a>
+<a class="alt" href="https://x.com/KinoshitaTsks" target="_blank" rel="noopener">XのプロフィールからDMで相談 @KinoshitaTsks →</a>
+<p class="muted" style="margin-top:8px">日本円での購入・導入相談はこちら（ココナラ）：</p>
+<a class="alt" href="https://coconala.com/services/4426150" target="_blank" rel="noopener">ココナラの出品を見る →</a>
+<p class="muted" style="margin-top:12px">この無料ツールは「AIに会社を任せる実験」の一環として公開しています。整形結果は必ずご自身でご確認のうえご利用ください。本ツールの利用により生じた損害について作者は責任を負いません。</p>
+</div>
+</main></body></html>
