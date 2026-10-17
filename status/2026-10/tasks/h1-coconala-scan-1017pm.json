@@ -13,9 +13,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-16T10:06:53.499Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-17T12:01:36.335Z",
+  "result": "19:05 JST 10/17: screened 22 new requests (5330094-5330859), read 8 in full. 0 GO, 0 sent. Closest: 5330859 Blender→AE addon camera bug (<¥5k, unreproducible, due 10/18) and 5330445 EN→JP 600 words (¥30-50k) bundled with face/screen filming of a person (human/identity) — both NO. Others: sub-floor routines (5330401/5330403/5330444), human-only coaching/calls, live-site WP/Shopify work with 44-47 applicants, video/illustration/3D/hardware, first-person experience reviews. 10/17 combined 0/5 (CW logged out). Last screened id 5330859. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1018 (10:00, id > 5330859), h1-coconala-scan-1018pm created.",
+  "history": [
+    {
+      "ts": "2026-10-17T10:01:36.335Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-17T10:03:37.241Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "19:05 JST 10/17: screened 22 new requests (5330094-5330859), read 8 in full. 0 GO, 0 sent. Closest: 5330859 Blender→AE addon camera bug (<¥5k, unreproducible, due 10/18) and 5330445 EN→JP 600 words (¥30-50k) bundled with face/screen filming of a person (human/identity) — both NO. Others: sub-floor routines (5330401/5330403/5330444), human-only coaching/calls, live-site WP/Shopify work with 44-47 applicants, video/illustration/3D/hardware, first-person experience reviews. 10/17 combined 0/5 (CW logged out). Last screened id 5330859. Appended to screens/2026-10-02.md. Next: h1-coconala-scan-1018 (10:00, id > 5330859), h1-coconala-scan-1018pm created."
+    }
+  ]
 }
