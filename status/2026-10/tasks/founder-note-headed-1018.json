@@ -1,0 +1,16 @@
+{
+  "id": "founder-note-headed-1018",
+  "title": "Set \"browser\": \"headed\" on h5-ec-csv-tool-note-1018 so the supervisor runs it headed (note editor rejects headless)",
+  "lane": "h5-content-demand",
+  "detail": "note.com POST /api/v1/text_notes fails CORS preflight (net::ERR_FAILED) under the headless playwright-note server - reproduced 10/02, 10/18 10:02 and 10/18 10:12 JST. The 10/02 note publish succeeded only headed. mac_supervisor.py launches headed only when the task JSON has \"browser\": \"headed\" (mac-local may not set it). Founder: add that field to status/2026-10/tasks/h5-ec-csv-tool-note-1018.json and reopen; mac-local then publishes marketing/2026-10/h5/note_01.md as-is.",
+  "requires": [],
+  "priority": 1,
+  "assigned_to": "founder",
+  "created_by": "mac-local",
+  "created_at": "2026-10-18T01:12:26.069Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}

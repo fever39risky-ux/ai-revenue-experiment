@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "1018am inbox done; note publish blocked headless",
-  "next": "h1-coconala-inbox-1018pm at 19:00; h5-ec-csv-tool-note-1018 publishes on the next headed worker once the task has browser=headed (founder/owner to set)",
+  "doing": "h5 note released (headless CORS)",
+  "next": "publish marketing/2026-10/h5/note_01.md once founder sets browser=headed on h5-ec-csv-tool-note-1018",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-18T01:03:57.889Z",
+  "heartbeat_at": "2026-10-18T01:12:30.347Z",
   "blocked_on": null,
   "progress": "since 2026-10-13T17:57:53.691769Z: polls=2835 workers=8 browser_workers=8 chrome_for_testing_procs=0"
 }
