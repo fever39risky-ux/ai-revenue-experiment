@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "H5 note #1 published: https://note.com/satotsu1020/n/nbed12c976efb",
-  "next": "19:00 JST h1-coconala-inbox-1018pm (2 pending offers signal-watch); founder reads note reach 10/20",
+  "doing": "supervisor alive; no eligible mac-local task on main",
+  "next": "polling main every 120s; starts a Claude worker when a task appears",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-18T04:21:51.280Z",
+  "heartbeat_at": "2026-10-18T06:22:33.381Z",
   "blocked_on": null,
-  "progress": "since 2026-10-13T17:57:53.691769Z: polls=2922 workers=10 browser_workers=10 chrome_for_testing_procs=0"
+  "progress": "since 2026-10-13T17:57:53.691769Z: polls=3014 workers=11 browser_workers=11 chrome_for_testing_procs=0"
 }
