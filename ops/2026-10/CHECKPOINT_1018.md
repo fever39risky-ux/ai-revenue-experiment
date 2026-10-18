@@ -17,6 +17,12 @@ Answer these for every hypothesis:
 9. **FIRST CONVERSION** — the low-risk first offer for customer #1 (ignore the normal price/product if needed)
 10. **REPEATABILITY** — can #1 be repeated with the same customer profile?
 
+### WHO / PAIN granularity (owner rule 2026-10-18 — applies to every acquisition hypothesis from now on)
+- **WHO is an object**, never a broad label. 「中小企業」「フリーランス」「個人事業主」「小規模EC事業者」 alone fail. Required keys: `industry`, `role`, `company_size` (with a number), `task` (the work they actually do), `frequency` (how often), `current_method` (how they do it today), `pain_moment` (the concrete moment it hurts).
+  Example: 「従業員1〜10名のEC事業者で、毎週複数モールのCSVを手作業でまとめ、売上・在庫・広告の報告表を作っている担当者」.
+- **PAIN is the work they actually do, with numbers** — 「毎週2時間かけて3つのCSVを1つの表にまとめている」「問い合わせ50件を手作業で分類している」. Abstract wording (「効率化したい」「AIを使いたい」) fails.
+- Set `acquisition_spec_version: 2`. `decision_check.mjs` enforces this on every report written from 2026-10-18 12:00 that carries acquisition hypotheses (`checkpoint_1018`, `checkpoint_1018_amendment`, or `acquisition`). The 00:07 checkpoint predates the rule and was re-stated in `2026-10-18T1250.json`.
+
 ### Required comparison: ≥ 3 different acquisition hypotheses (`checkpoint_1018.acquisition_hypotheses[]`)
 Each: `id`, `who`, `pain`, `trigger`, `offer` (what/price/scope), `why_now`, `trust`, `where`, `how_to_reach`, `first_conversion`, `repeatability`, `steps_to_first_close` (the expected steps to the first deal), `first_market_test` (what we put in front of real customers), `signal_48h` (the signal we want within 48 h, observable and countable), and only then `channel`. The `who` values must be genuinely different customers.
 

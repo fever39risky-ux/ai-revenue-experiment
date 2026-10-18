@@ -25,6 +25,22 @@ export function check(obj) {
 }
 // 10/18 falsification checkpoint (ops/2026-10/CHECKPOINT_1018.md)
 export const CHECKPOINT_OPTIONS = ['buyer_segment', 'offer', 'price', 'job_selection', 'channel', 'other_sales_motion'];
+// WHO / PAIN granularity (owner rule 2026-10-18): a customer you could find 10 of, and the pain as the work they do.
+export const WHO_FIELDS = ['industry', 'role', 'company_size', 'task', 'frequency', 'current_method', 'pain_moment'];
+const BROAD = /^(中小企業|中小事業者|小規模事業者|小規模企業|スモールビジネス|フリーランス|個人事業主|個人|企業|事業者|会社|ビジネスパーソン|経営者|sme|smb|small business(es)?|freelancers?|businesses)$/i;
+const ABSTRACT_PAIN = /効率化したい|効率化|AIを使いたい|AI(を)?活用したい|DXしたい|DX化|業務改善したい|生産性(を)?上げたい|時間がない|手間がかかる|面倒/;
+export function checkWhoPain(h, where) {
+  const p = [], w = h?.who;
+  if (!w || typeof w !== 'object' || Array.isArray(w)) return [`${where}.who must be an object with ${WHO_FIELDS.join(', ')} (a broad label like 「中小企業」「フリーランス」「個人事業主」 fails)`];
+  for (const f of WHO_FIELDS) if (!String(w[f] ?? '').trim()) p.push(`${where}.who.${f} empty`);
+  if (BROAD.test(String(w.industry ?? '').trim())) p.push(`${where}.who.industry "${w.industry}" is a broad attribute, not an industry`);
+  if (w.company_size && !/\d/.test(String(w.company_size))) p.push(`${where}.who.company_size needs a number (e.g. 従業員1〜10名)`);
+  if (w.frequency && !/\d|毎日|毎週|毎月|毎回|日次|週次|月次|隔週|発送日/.test(String(w.frequency))) p.push(`${where}.who.frequency must state how often (毎週/月次/1日N件 …)`);
+  const pain = String(h?.pain ?? '');
+  if (!/\d/.test(pain) || !/(分|時間|件|行|枚|本|回|個|ファイル|列|CSV|名|人|日|週|月)/.test(pain)) p.push(`${where}.pain must describe the actual work with numbers (e.g. 毎週2時間かけて3つのCSVを1つの表にまとめている)`);
+  if (ABSTRACT_PAIN.test(pain) && !/\d/.test(pain)) p.push(`${where}.pain uses abstract wording (効率化/AIを使いたい …) — describe the task the customer actually does`);
+  return p;
+}
 export const ACQ_FIELDS = ['id', 'who', 'pain', 'trigger', 'offer', 'why_now', 'trust', 'where', 'how_to_reach', 'first_conversion', 'repeatability', 'steps_to_first_close', 'first_market_test', 'signal_48h', 'channel'];
 export function checkCheckpoint(c, taskExists = () => true) {
   const p = [];
@@ -49,9 +65,10 @@ export function checkCheckpoint(c, taskExists = () => true) {
   if (H.length < 3) p.push('checkpoint_1018.acquisition_hypotheses needs >= 3 different customer-acquisition hypotheses');
   for (const [i, h] of H.entries()) {
     for (const f of ACQ_FIELDS) if (!String(h?.[f] ? JSON.stringify(h[f]) : '').trim()) p.push(`checkpoint_1018.acquisition_hypotheses[${i}].${f} empty`);
-    if (/^\W*(coconala|crowdworks|lancers|x|twitter|ココナラ|クラウドワークス|ランサーズ)\b/i.test(String(h?.who ?? ''))) p.push(`checkpoint_1018.acquisition_hypotheses[${i}].who is a channel, not a customer — define the customer first`);
+    if (/^\W*(coconala|crowdworks|lancers|x|twitter|ココナラ|クラウドワークス|ランサーズ)\b/i.test(typeof h?.who === 'object' ? String(h.who.industry ?? '') : String(h?.who ?? ''))) p.push(`checkpoint_1018.acquisition_hypotheses[${i}].who is a channel, not a customer — define the customer first`);
   }
-  if (new Set(H.map(h => String(h?.who ?? '').trim())).size < H.length) p.push('checkpoint_1018.acquisition_hypotheses: who must differ per hypothesis');
+  if (c.acquisition_spec_version >= 2) for (const [i, h] of H.entries()) p.push(...checkWhoPain(h, `checkpoint_1018.acquisition_hypotheses[${i}]`));
+  if (new Set(H.map(h => JSON.stringify(h?.who ?? ''))).size < H.length) p.push('checkpoint_1018.acquisition_hypotheses: who must differ per hypothesis');
   if (!H.some(h => h?.id === c.chosen_hypothesis)) p.push('checkpoint_1018.chosen_hypothesis must be one of acquisition_hypotheses[].id');
   const ex = c.executed || {};
   const mt = ex.market_test || {};
@@ -105,8 +122,22 @@ if (isMain) {
       const first = readdirSync(dir).filter(x => x.startsWith('2026-10-18T') && x.endsWith('.json')).sort()[0];
       if (f.endsWith(first) || obj.checkpoint_1018) p.push(...checkCheckpoint(obj.checkpoint_1018, id => existsSync(join('status/2026-10/tasks', `${id}.json`))));
     }
+    // WHO/PAIN granularity applies to every acquisition-hypothesis set written from 2026-10-18 12:00 JST
+    const stamp = (f.match(/(\d{4}-\d{2}-\d{2}T\d{4})\.json$/) || [])[1] || '';
+    const acq = obj.checkpoint_1018_amendment || obj.acquisition || null;
+    if (stamp >= '2026-10-18T1200' && (acq || obj.checkpoint_1018)) {
+      const blk = acq || obj.checkpoint_1018;
+      if (!(blk.acquisition_spec_version >= 2)) p.push('acquisition hypotheses written after 2026-10-18 12:00 must set acquisition_spec_version: 2 (WHO/PAIN granularity)');
+      for (const [i, h] of [].concat(blk.acquisition_hypotheses || []).entries()) p.push(...checkWhoPain(h, `acquisition_hypotheses[${i}]`));
+      if ([].concat(blk.acquisition_hypotheses || []).length < 3) p.push('acquisition_hypotheses needs >= 3');
+      if (!String(blk.chosen_hypothesis ?? '').trim()) p.push('chosen_hypothesis empty');
+    }
     console.log(p.length ? `FAIL ${f}: ${p.join('; ')}` : `ok   ${f}`);
     bad += p.length ? 1 : 0;
   }
+  // the 10/18 checkpoint ran before the WHO/PAIN rule: a 10/18 report from 12:00 must re-state it at that granularity
+  const d18 = existsSync(dir) ? readdirSync(dir).filter(x => /^2026-10-18T\d{4}\.json$/.test(x)) : [];
+  if (!process.argv.slice(2).length && d18.length && !d18.some(x => { try { const o = JSON.parse(readFileSync(join(dir, x), 'utf8')); return (o.checkpoint_1018_amendment || o.checkpoint_1018 || {}).acquisition_spec_version >= 2; } catch { return false; } }))
+    { console.log('FAIL 2026-10-18: no report re-states the checkpoint WHO/PAIN at acquisition_spec_version 2 (owner rule 2026-10-18)'); bad++; }
   process.exit(bad ? 1 : 0);
 }

@@ -22,3 +22,6 @@ Proposals sent vs proposals needed for the goal (from §1), the supply rate of q
 
 ## 4. `executed`
 The tasks created, stopped or reassigned **in this fire** (ids), and STATE edits. "From the next fire" is not allowed for anything decided here.
+
+## 5. Customer hypotheses (any review that opens or changes one)
+Use an `acquisition` block with `acquisition_spec_version: 2` and the WHO/PAIN granularity of `ops/2026-10/CHECKPOINT_1018.md` (WHO object with industry/role/company_size/task/frequency/current_method/pain_moment; PAIN = the actual work with numbers). Broad labels and abstract pains are rejected by `decision_check.mjs`.
