@@ -14,10 +14,10 @@
   "assigned_to": "mac-local",
   "created_by": "founder",
   "created_at": "2026-10-17T15:15:00.000Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-18T06:18:28.164Z",
+  "result": "Published headed on note @satotsu1020: https://note.com/satotsu1020/n/nbed12c976efb (status=published 2026-10-18T13:21+09:00, PUT text_notes 200). Title: BASE・STORES・メルカリShopsの注文CSVを送り状用に一発整形する無料ツール…; links tool+guide+X+Coconala 4426150; tags #ネットショップ #EC #BASE #業務効率化 #無料ツール; opening re-targeted to WHO/PAIN (0-3名店主, 週2-5回×10-40件, 1回30-60分) per 12:50 amendment; AI-assist disclosed; no contest entry, no DM.",
   "history": [
     {
       "ts": "2026-10-18T01:01:09.377Z",
@@ -40,6 +40,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "3rd repro 10/18 10:12 JST: headless editor.note.com/new loads (current_user 200) but POST note.com/api/v1/text_notes fails CORS preflight net::ERR_FAILED. Not circumventing; needs browser=headed on the task (founder-note-headed-1018). Nothing published."
+    },
+    {
+      "ts": "2026-10-18T04:18:28.164Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-18T04:21:45.566Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Published headed on note @satotsu1020: https://note.com/satotsu1020/n/nbed12c976efb (status=published 2026-10-18T13:21+09:00, PUT text_notes 200). Title: BASE・STORES・メルカリShopsの注文CSVを送り状用に一発整形する無料ツール…; links tool+guide+X+Coconala 4426150; tags #ネットショップ #EC #BASE #業務効率化 #無料ツール; opening re-targeted to WHO/PAIN (0-3名店主, 週2-5回×10-40件, 1回30-60分) per 12:50 amendment; AI-assist disclosed; no contest entry, no DM."
     }
   ],
   "blocked_by": [],
