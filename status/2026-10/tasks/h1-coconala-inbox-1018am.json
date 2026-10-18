@@ -13,9 +13,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-17T10:02:40.185Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-18T03:02:29.103Z",
+  "result": "10/18 10:03 JST: /message only thread 10281068 (our 10/13 q, 5d, no buyer reply); notifications = RPA job-matching recos + coupon lottery only; transaction = 1 operator notice (IWAN0_0 募集終了, unadopted); offers: 5328251 + 5329177 still pending, no buyer message; others 募集終了. 0 inquiry / 0 sales_conversation; nothing to reply under PG-1. Next: h1-coconala-inbox-1018pm created.",
+  "history": [
+    {
+      "ts": "2026-10-18T01:02:29.103Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-18T01:03:44.190Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10/18 10:03 JST: /message only thread 10281068 (our 10/13 q, 5d, no buyer reply); notifications = RPA job-matching recos + coupon lottery only; transaction = 1 operator notice (IWAN0_0 募集終了, unadopted); offers: 5328251 + 5329177 still pending, no buyer message; others 募集終了. 0 inquiry / 0 sales_conversation; nothing to reply under PG-1. Next: h1-coconala-inbox-1018pm created."
+    }
+  ]
 }

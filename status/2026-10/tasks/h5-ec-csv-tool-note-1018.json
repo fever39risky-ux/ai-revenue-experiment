@@ -17,5 +17,17 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-18T01:01:09.377Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-18T01:02:25.131Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "headless note-profile: editor.note.com/new loads but POST note.com/api/v1/text_notes fails CORS preflight (ERR_FAILED) - same headless failure as 10/02 h2-note-publish, which only succeeded headed. Needs a headed run (task browser=headed, supervisor opt-in) - not set by mac-local. Draft marketing/2026-10/h5/note_01.md ready; nothing published."
+    }
+  ]
 }
