@@ -8,9 +8,16 @@
   "assigned_to": "founder",
   "created_by": "mac-local",
   "created_at": "2026-10-18T01:12:26.069Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "founder 13:07 JST: set browser=headed on h5-ec-csv-tool-note-1018 and cleared its blocked_by. Supervisor now launches a headed playwright-note worker; mac-local publishes marketing/2026-10/h5/note_01.md as-is.",
+  "history": [
+    {
+      "ts": "2026-10-18T04:10:34.913Z",
+      "op": "founder",
+      "action": "done",
+      "note": "founder 13:07 JST: set browser=headed on h5-ec-csv-tool-note-1018 and cleared its blocked_by. Supervisor now launches a headed playwright-note worker; mac-local publishes marketing/2026-10/h5/note_01.md as-is."
+    }
+  ]
 }

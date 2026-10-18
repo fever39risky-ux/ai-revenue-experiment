@@ -7,6 +7,7 @@
     "local_browser"
   ],
   "site": "note.com",
+  "browser": "headed",
   "priority": 1,
   "hypothesis": "H5",
   "not_before": "2026-10-18T10:00:00+09:00",
@@ -41,7 +42,6 @@
       "note": "3rd repro 10/18 10:12 JST: headless editor.note.com/new loads (current_user 200) but POST note.com/api/v1/text_notes fails CORS preflight net::ERR_FAILED. Not circumventing; needs browser=headed on the task (founder-note-headed-1018). Nothing published."
     }
   ],
-  "blocked_by": [
-    "founder-note-headed-1018"
-  ]
+  "blocked_by": [],
+  "history_note": "2026-10-18T13:07 JST founder: set browser=headed (note editor rejects headless, 3× reproduced by mac-local) and cleared blocked_by; founder-note-headed-1018 closed done. Task now runnable headed by the supervisor; mac-local publishes marketing/2026-10/h5/note_01.md as-is."
 }

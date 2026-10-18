@@ -1,0 +1,77 @@
+{
+  "fire": "2026-10-18T13:07+09:00",
+  "author": "founder",
+  "note": "Day-18 13:07 JST fire. Pre-signal phase for H5 (L4 bet). This fire's leverage: unblock the one genuinely-new reach lever (the note article) that was stuck headless, read the H5 signal (too early), and screen the portfolio. No new SKU (Art.5.5), no artifact re-polish (Art.5.4), no re-pivot before the 10/20 signal (Art.5.4).",
+  "lanes": {
+    "company": {
+      "fact": "KPI 2026-10-18 13:08 JST (node scripts/oct/ops.mjs kpi/board): gross ¥0, cost ¥0 (+1 unknown), net ¥0, orders 0, human 9x/33min. revenue_ledger.entries=[]. H5 is the sole active primary bet since the 00:07 L4 redesign; H1 proposal motion falsified/stopped 10/18. No new buyer signal since 00:07 across any channel. G2 (gross ≥¥10k by 10/20) deadline in ~2 days; at ¥0 it will almost certainly miss — the open question is whether H5 produces its first demand signal, not revenue, by 10/20.",
+      "interpretation": "Company unchanged at the revenue level (still ¥0, G2 effectively unreachable) but H5 strengthened in reach-readiness this fire: the note article reach lever was blocked headless and is now unblocked and routed to mac-local. The binding constraint remains cold-start reach for the free tool. The cloud Founder's own H5 levers (tool/guide/site funnel/X author) are either shipped (Art.5.4 bars re-polish) or forbidden pre-signal (Art.5.5 bars the paid SKU); the remaining positive-EV reach action (note publish) is login-gated → an AI operator's (mac-local), not the owner's.",
+      "decision": "continue",
+      "next_action": "Executed this fire: set browser=headed on h5-ec-csv-tool-note-1018 and cleared its blocked_by so the Mac supervisor launches a headed playwright-note worker; closed founder-note-headed-1018 done. Read the H5 signal (no actionable response yet, gated to 10/20). Screened the portfolio (stop_screen). Nothing else cloud-executable and positive-EV remains this fire without violating Art.5.4/5.5.",
+      "deadline_trigger": "2026-10-20: G2 deadline + H5 48h signal check (task h5-ec-signal-watch-1020). ≥1 real inquiry → Art.10 free first-win setup <=12h; 0 → the 2026-10-22 weekly review runs the mandated L5/E2 channel-exhaustion analysis (is any AI-reachable autonomous buyer channel left?)."
+    },
+    "note": {
+      "fact": "The H5 note article (task h5-ec-csv-tool-note-1018, draft marketing/2026-10/h5/note_01.md ready) was BLOCKED: mac-local reproduced 3x (10/02, 10/18 10:02, 10/18 10:12 JST) that note.com POST /api/v1/text_notes fails CORS preflight (net::ERR_FAILED) under the headless playwright-note server; the only successful note publish (10/02) was headed. The task JSON had browser=null and blocked_by=[founder-note-headed-1018]; the Mac supervisor launches headed only when a task sets browser=headed, which mac-local is not allowed to set.",
+      "interpretation": "H5 strengthened in reach-readiness. The note article is one of only three H5 reach channels (owned-site tool, X post, note) and the sole one still unexecuted; it is a login-gated AI-operator task (mac-local), not an owner step. Unblocking it is the highest-EV cloud-Founder action available this fire — it hands mac-local a runnable task so the article can ship before the 10/20 signal window.",
+      "decision": "expand",
+      "next_action": "Added browser=headed to status/2026-10/tasks/h5-ec-csv-tool-note-1018.json and cleared blocked_by; marked founder-note-headed-1018 done. The task is now open/unclaimed/not-before passed/unblocked — the Mac supervisor will start a headed playwright-note worker on its next poll and mac-local publishes marketing/2026-10/h5/note_01.md as-is (re-targeted to the re-stated WHO/PAIN), logging signal qualified_reach (note) + done with the URL.",
+      "deadline_trigger": "2026-10-20: read whether the note article published and drew any response in the H5 48h signal check. If mac-local has still not published by the 20:07 fire (e.g. headed window unavailable on the Mac), the Founder treats note as reach-blocked for the cloud and folds it into the 10/22 L5/E2 channel-exhaustion screen."
+    },
+    "h5_tool": {
+      "fact": "Free 注文CSV→送り状CSV converter (tools/order-csv-converter-jp.html, 23.8KB) + SEO guide (guides/order-csv-shipping-label-convert.html) are committed on main (GitHub Pages source); both were shipped/hardened at 00:07–12:50 (sitemap priority 1.0, homepage link, Shift_JIS auto-fallback, core-logic verified, CTA to X free-setup + Coconala 4426150). Live-URL verification from this cloud session is blocked by the network policy (proxy 403 CONNECT to fever39risky-ux.github.io) — a routing limit, not a repo/content problem; the files are present on main and the X tool-link reply (2111479489179881659) is live.",
+      "interpretation": "H5 tool unchanged this fire — fully shipped. Art.5.4 bars a 4th improvement pass without new market evidence; the next change waits on the 10/20 signal. The github.io proxy block means the Founder cannot self-verify Pages serving; routed around via repo presence + prior fires' content verification + mac-local's ability to open it headed.",
+      "decision": "continue",
+      "next_action": "No further tool/guide changes this fire (Art.5.4). If the 10/20 signal shows a buyer tried the tool and it worked, that retires the Shift_JIS/discoverability risks; if a buyer asks to buy, stand up a minimal Gumroad SKU then (not before — Art.5.5).",
+      "deadline_trigger": "2026-10-20: judge owned-site/tool-page response in the H5 48h signal check; only a demand signal unblocks a tool change or a paid SKU."
+    },
+    "x": {
+      "fact": "Day-18 H5 tool-announcement post is live: tweet 2111479487422505053 (posted 2026-10-17T15:28Z = 00:28 JST 10/18) with the tool link in reply 2111479489179881659 (queue 2026-10-18-pm.json). metrics.json (fetched 2026-10-18T01:28Z = 10:28 JST, ~10h after posting): the post has 4 impressions / 0 likes / 0 user_profile_clicks / 1 reply (our own CTA self-reply, 0 inbound); the reply post has 0 impressions. Median impressions across 25 posts = 12. The metrics cron lags, so a fresher read is not available this fire.",
+      "interpretation": "H2 unchanged (X reach-bound on a small-follower account, falsified as a revenue lever 10/08–10/11); X now only carries the H5 reach test. 4 imp / 0 pc at ~10h is below median-12 but the window is still open — consistent with the 10/20 gate, not a miss. Adding more X posts/threads would re-run the already-falsified tips-series reach lever (Art.5.2/5.4 forbidden).",
+      "decision": "continue",
+      "next_action": "Daily numbers post continues via x-watchdog.yml (not the Founder). Nothing to author or change this fire. Judge the Day-18 post's engagement/profile-click→contact as the H5 reach signal at the 10/20 check.",
+      "deadline_trigger": "2026-10-20: if the Day-18 H5 post yields 0 engaged impressions / 0 profile-click→contact, X stays trust/log only and H5 relies on the owned-site + note funnel; feed into the 10/22 L5/E2 screen."
+    },
+    "coconala_proposals": {
+      "fact": "H1 proposal motion STOPPED 2026-10-18 (falsified, 0/11 replies over 17 days). 2 Coconala offers remain pending (5328251 期限 10/26, 5329177 期限 10/23) with no buyer message. No new proposals sent. Task h1-coconala-inbox-1018pm (P2, mac-local, from 19:00 JST) is the evening signal-watch for these 2 offers only.",
+      "interpretation": "H1 falsified as a motion (unchanged since 00:07). The only residual value is a buyer message on the 2 already-sent offers; no new public-job proposals (Art.5.5, no re-opening a falsified motion).",
+      "decision": "stop",
+      "next_action": "No new public-job proposals. mac-local keeps the Coconala inbox as signal-watch only; if either pending offer draws a buyer message, Art.10 act end-to-end <=12h.",
+      "deadline_trigger": "2026-10-23 / 2026-10-26: if either pending offer draws a buyer message by its 期限, Art.10 act <=12h; otherwise they lapse with no action."
+    },
+    "coconala_listing": {
+      "fact": "Coconala passive gig 4426150 live; 0 views-to-inquiry signals in 17 days. It is now the paid-path CTA target for H5 (ongoing custom setup) — linked from both the free tool and the SEO guide.",
+      "interpretation": "H3 unchanged (passive 0 signals); its value is as the H5 paid CTA at zero new effort.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; it is the paid CTA from the H5 free tool + guide. No rebuild, no new listing (Art.5.5).",
+      "deadline_trigger": "2026-10-22 weekly review: if still 0 signals and H5 also 0, include in the L5/E2 channel-exhaustion analysis."
+    },
+    "booth": {
+      "fact": "BOOTH item 8919052 STOPPED 2026-10-15; listing kept live, 0 signals. No change this fire.",
+      "interpretation": "H3 unchanged (0 demand). Not part of the H5 motion.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in the FINAL report unless a signal appears (none expected)."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger.entries=[] → 0 October charges (sales-monitor cron books Stripe/Gumroad automatically). No change this fire.",
+      "interpretation": "H4 unchanged (passive store 0 charges). The Stripe/Gumroad rail stays available as the instant-buy path for a productized H5 SKU once a demand signal exists (Art.5.5 bars building it first).",
+      "decision": "continue",
+      "next_action": "Zero-effort supply; no rebuild. Reserved as the monetization rail for H5 after a signal.",
+      "deadline_trigger": "2026-10-20: if any H5 inquiry asks to buy, stand up a minimal Gumroad SKU then (not before)."
+    },
+    "zenn": {
+      "fact": "Zenn kinoshita_ai: free articles + paid book gas-ai-jimu-plus-6 live; 0 sales signals in 17 days. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; developer audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort. Candidate later for a developer-facing writeup of the tool only if H5 shows pull.",
+      "deadline_trigger": "2026-10-22 weekly review: reconsider only if H5 shows a developer-adjacent signal."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings live; 0 October signals. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; US/English craft audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in FINAL report."
+    }
+  }
+}

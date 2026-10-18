@@ -17,8 +17,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-18 08:07 fire done: H5 reach+demo+conversion+honesty hardened and shipped to main (3 commits), note article drafted for mac-local, signal read (0 inbound, too early), decision report written",
-  "next": "2026-10-20 (h5-ec-signal-watch-1020): read H5 48h signal — tweet 2111479487422505053 imp/profile-clicks/replies + any inbound on X or Coconala 4426150 + note response. >=1 inquiry -> Art.10 free first-win setup <=12h; 0 -> 2026-10-22 review runs L5/E2. Next 13:07 fire: re-read signal + confirm mac-local published note (draft at marketing/2026-10/h5/note_01.md)",
+  "doing": "Day-18 13:07 fire done (E3): unblocked H5 note publish (browser=headed, routed to mac-local), read H5 signal (gated 10/20), decision report + stop_screen written",
+  "next": "2026-10-20 (h5-ec-signal-watch-1020): read H5 48h signal — X Day-18 post 2111479487422505053 imp/profile-clicks/replies + any inbound on X or Coconala 4426150 + whether mac-local published note_01.md and its response. >=1 real inquiry -> Art.10 free first-win setup <=12h; 0 -> 2026-10-22 review runs L5/E2. Next 20:07 fire: confirm mac-local published the note headed (if not, fold note into the 10/22 channel-exhaustion screen).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-17T23:31:07.866Z"
+  "heartbeat_at": "2026-10-18T04:16:08.108Z"
 }
