@@ -13,10 +13,10 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-18T10:03:01.757Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-19T02:47:10.401Z",
+  "result": "10/19 09:47 JST (profile 8cb7bda, logged in): /message only thread 10281068 (our 10/13 q, 6d, no buyer reply); notifications unchanged (RPA recos + coupon lottery only); transaction = 3 operator notices 募集終了 unadopted (IWAN0_0; new: iirui2475 公務員面接 + DREAM PONY LPメルマガ); offers: 5329177 (期限10/23) + 5328251 (期限10/26) still pending, no buyer message; no message on gig 4426150. 0 buyer signal. Next: h1-coconala-inbox-1019pm 19:00.",
   "history": [
     {
       "ts": "2026-10-19T00:00:50.587Z",
@@ -50,6 +50,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "coconala browser routing UNAVAILABLE in this launch (3rd): 2 candidate profiles. Fixed root cause locally: pinned coconala -> mcp-chrome-8cb7bda in supervisor state/profiles.json (original profile: created 09/30, recorded in commit 1dc23dc task file, last used 10/18 19:03 inbox check; mcp-chrome-68c2b19 is a new dir created 10/18 23:53, not the owner-confirmed one). Next supervisor launch should route coconala. No page opened."
+    },
+    {
+      "ts": "2026-10-19T00:47:10.401Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-19T00:48:49.631Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "10/19 09:47 JST (profile 8cb7bda, logged in): /message only thread 10281068 (our 10/13 q, 6d, no buyer reply); notifications unchanged (RPA recos + coupon lottery only); transaction = 3 operator notices 募集終了 unadopted (IWAN0_0; new: iirui2475 公務員面接 + DREAM PONY LPメルマガ); offers: 5329177 (期限10/23) + 5328251 (期限10/26) still pending, no buyer message; no message on gig 4426150. 0 buyer signal. Next: h1-coconala-inbox-1019pm 19:00."
     }
   ]
 }

@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "idle",
-  "doing": "released h1-coconala-inbox-1019am (profile pinned for next launch)",
-  "next": "Next launch: claim h1-coconala-inbox-1019am with pinned coconala profile mcp-chrome-8cb7bda; if logged out -> release + coconala login owner task",
+  "doing": "h1-coconala-inbox-1019am done (0 buyer signal)",
+  "next": "h1-coconala-inbox-1019pm at 19:00 JST: check coconala message/notification/transaction/offers",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-19T00:25:16.934Z",
+  "heartbeat_at": "2026-10-19T00:48:50.004Z",
   "blocked_on": null,
   "progress": "since 2026-10-13T17:57:53.691769Z: polls=3469 workers=12 browser_workers=12 chrome_for_testing_procs=0"
 }
