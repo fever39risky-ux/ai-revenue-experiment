@@ -17,10 +17,10 @@
   ],
   "status": "idle",
   "doing": "none",
-  "next": "await pinned coconala profile in state/profiles.json, then run h1-coconala-inbox",
+  "next": "await coconala pin in supervisor state/profiles.json (candidates mcp-chrome-68c2b19 / mcp-chrome-8cb7bda), then run h1-coconala-inbox (2 pending offers, PG-1)",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-19T00:00:56.701Z",
+  "heartbeat_at": "2026-10-19T00:12:59.200Z",
   "blocked_on": null,
   "progress": "since 2026-10-13T17:57:53.691769Z: polls=3469 workers=12 browser_workers=12 chrome_for_testing_procs=0"
 }

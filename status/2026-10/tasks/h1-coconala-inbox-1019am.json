@@ -28,6 +28,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "coconala browser routing UNAVAILABLE: 2 candidate coconala profiles; pin one in state/profiles.json (supervisor). No page opened."
+    },
+    {
+      "ts": "2026-10-19T00:12:58.955Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-19T00:12:59.078Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "coconala browser routing UNAVAILABLE (2nd launch 10/19): 2 candidate coconala profiles (~/Library/Caches/ms-playwright-mcp/mcp-chrome-68c2b19 cookies mtime 10/19 02:33, mcp-chrome-8cb7bda 10/18 19:03); supervisor needs one pinned in state/profiles.json {\"coconala\": \"<path>\"} by owner/supervisor config. Not guessed (would mean using an unconfirmed profile). No page opened."
     }
   ]
 }
