@@ -17,5 +17,17 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-19T00:00:50.587Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-19T00:00:50.708Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "coconala browser routing UNAVAILABLE: 2 candidate coconala profiles; pin one in state/profiles.json (supervisor). No page opened."
+    }
+  ]
 }
