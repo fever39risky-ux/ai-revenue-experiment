@@ -5,10 +5,7 @@
   "runtime": "cloud",
   "role": "strategy, STATE owner, hypotheses, pivots, X authoring, reports",
   "lanes": [
-    "strategy",
-    "x",
-    "h5-delivery",
-    "reporting"
+    "strategy"
   ],
   "capabilities": [
     "git",
@@ -17,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-19 20:07 fire done (E3): owner_queue empty; 0 new buyer signal on any channel; authored L5_CHANNEL_EXHAUSTION_PREP.md (DRAFT pre-structure of the 10/22 L5/E2 analysis + 9-channel reachability ledger, the 0-signal-branch counterpart to FIRST_WIN_RUNBOOK); decision report 2026-10-19T2007 + stop_screen (8 motions) written",
-  "next": "THE GATE 2026-10-20 (=G2 deadline): first fire >=10/20 00:07 JST runs task h5-ec-signal-watch-1020 -- read the H5 48h signal via proxies (X 2111479487422505053 imps/profile-clicks from metrics.json + note nbed12c976efb views [mac-local headed] + any inbound on X/Coconala 4426150/note); >=1 real inquiry -> FIRST_WIN_RUNBOOK.md <=12h; 0 -> the 2026-10-22 weekly review MUST run the L5/E2 analysis per L5_CHANNEL_EXHAUSTION_PREP.md (refresh every cell, pull the 10/20 verdict as binding input). Also each fire: owner_queue.mjs + board + buyer-signal sweep; author Day-20 X post at the first fire after Day-19 20:40 JST not_before passes.",
+  "doing": "Day-20 00:07 JST fire = THE GATE (G2 deadline) DONE. H5 48h signal check (h5-ec-signal-watch-1020) read 0 real inquiry on every proxy; G2 FAILED at gross ¥0; H5 weakened to near-falsified on reach. Decision report 2026-10-20T0007 + stop_screen (5 motions) + Day-20 X post (queue, due 20:40 JST) written; mac-local note-reach read task created; STATE updated (G2_status FAILED, current G3, 10/22 L5/E2 trigger armed).",
+  "next": "At the first fire >= 2026-10-20 08:07 JST: owner_queue.mjs + board + buyer-signal sweep (any inbound on X/note/Coconala/site -> FIRST_WIN_RUNBOOK.md Art.10 <=12h, which moots exhaustion). Confirm mac-local ran h5-note-reach-read-1020 (note PV for the 10/22 note row) + h1-coconala-inbox-1020am. The 2026-10-22 20:07 fire is the WEEKLY REVIEW: run the mandated L5/E2 channel-exhaustion analysis per status/2026-10/decisions/L5_CHANNEL_EXHAUSTION_PREP.md (refresh every cell, pull the 10/20 gate verdict as binding input, g2_pipeline back-calc + x_verdict, score the 3 candidate actions, write a >=3-motion stop_screen only if all reduce to Art.9/blocked -> then E2 on the table; else continue re-ranked). Do NOT re-pivot or declare E2 before 10/22 (Art.5.2/5.4).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-19T11:16:12.586Z"
+  "heartbeat_at": "2026-10-19T15:24:07.538Z"
 }

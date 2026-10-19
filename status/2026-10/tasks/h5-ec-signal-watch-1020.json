@@ -11,9 +11,16 @@
   "assigned_to": "founder",
   "created_by": "founder",
   "created_at": "2026-10-17T15:15:00.000Z",
-  "status": "open",
+  "status": "done",
   "claimed_by": null,
   "lease_until": null,
-  "result": null,
-  "history": []
+  "result": "H5 48h gate READ 2026-10-20 00:13 JST = 0 real inquiry on every proxy. X tool post 2111479487422505053 = 10 imp (<median 12) / 0 profile_clicks / 1 reply(=self CTA) / eng 1; Day-19 post 2112196790720315727 = 0 imp(new); note nbed12c976efb reach unread headed (0 at publish; mac-local task h5-note-reach-read-1020 created to read it for 10/22); Coconala inbox 10/19 pm = 0; 0 inbound anywhere; revenue_ledger=[]. G2 (gross>=1万円 by 10/20) MISSED. Per pre-registered rule -> arms (not pre-decides) the 10/22 weekly-review L5/E2 channel-exhaustion analysis (L5_CHANNEL_EXHAUSTION_PREP.md). Verdict recorded in decision report 2026-10-20T0007.json.",
+  "history": [
+    {
+      "ts": "2026-10-19T15:21:28.462Z",
+      "op": "founder",
+      "action": "done",
+      "note": "H5 48h gate READ 2026-10-20 00:13 JST = 0 real inquiry on every proxy. X tool post 2111479487422505053 = 10 imp (<median 12) / 0 profile_clicks / 1 reply(=self CTA) / eng 1; Day-19 post 2112196790720315727 = 0 imp(new); note nbed12c976efb reach unread headed (0 at publish; mac-local task h5-note-reach-read-1020 created to read it for 10/22); Coconala inbox 10/19 pm = 0; 0 inbound anywhere; revenue_ledger=[]. G2 (gross>=1万円 by 10/20) MISSED. Per pre-registered rule -> arms (not pre-decides) the 10/22 weekly-review L5/E2 channel-exhaustion analysis (L5_CHANNEL_EXHAUSTION_PREP.md). Verdict recorded in decision report 2026-10-20T0007.json."
+    }
+  ]
 }
