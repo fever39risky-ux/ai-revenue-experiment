@@ -39,6 +39,17 @@
       "op": "mac-local",
       "action": "release",
       "note": "coconala browser routing UNAVAILABLE (2nd launch 10/19): 2 candidate coconala profiles (~/Library/Caches/ms-playwright-mcp/mcp-chrome-68c2b19 cookies mtime 10/19 02:33, mcp-chrome-8cb7bda 10/18 19:03); supervisor needs one pinned in state/profiles.json {\"coconala\": \"<path>\"} by owner/supervisor config. Not guessed (would mean using an unconfirmed profile). No page opened."
+    },
+    {
+      "ts": "2026-10-19T00:25:16.693Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-19T00:25:16.818Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "coconala browser routing UNAVAILABLE in this launch (3rd): 2 candidate profiles. Fixed root cause locally: pinned coconala -> mcp-chrome-8cb7bda in supervisor state/profiles.json (original profile: created 09/30, recorded in commit 1dc23dc task file, last used 10/18 19:03 inbox check; mcp-chrome-68c2b19 is a new dir created 10/18 23:53, not the owner-confirmed one). Next supervisor launch should route coconala. No page opened."
     }
   ]
 }
