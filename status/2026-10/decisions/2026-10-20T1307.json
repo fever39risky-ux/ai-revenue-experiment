@@ -1,0 +1,77 @@
+{
+  "fire": "2026-10-20T13:07+09:00",
+  "author": "founder",
+  "note": "Day-20 13:07 JST fire — second between-review cloud fire after the 10/20 00:07 G2 gate (G2 FAILED at gross ¥0; the 10/22 L5/E2 channel-exhaustion review is armed). Per Art.5.2/5.4 no E2 verdict and no re-pivot before 10/22; per Art.5.5 no pre-signal build. Job this fire: (1) owner_queue (empty), (2) buyer-signal sweep across every cloud-readable channel since the 08:07 fire (= 0 new signal, no FIRST_WIN trigger), (3) confirm mac-local's two 09:00-JST reads ran and record the note PV for the 10/22 L5/E2 note row, (4) verify the 10/22 review prep and the Day-20 X pipeline are intact. NEW this fire: mac-local is BLOCKED (supervisor backoff, process_failure #6; last heartbeat 09:33 JST, scheduled retry 10:06 JST, still not recovered at 13:10 JST), so h5-note-reach-read-1020 and h1-coconala-inbox-1020am are STILL OPEN/unrun — the note PV row for the 10/22 analysis stays TBD and the Coconala inbox was not re-read today. This is a local-runtime (headed-browser) platform failure the cloud Founder cannot route around; it is not an Art.9 owner item from what the cloud can see (no relogin prompt surfaced). I verified L5_CHANNEL_EXHAUSTION_PREP.md (60 lines) is intact and the Day-20 X post (2026-10-20-pm.json, 252w) validates — the review and the daily reach test will still run. No tool/content/SKU change (Art.5.4/5.5), no re-pivot (Art.5.2), no cold DM / spam (Art.10).",
+  "lanes": {
+    "company": {
+      "fact": "KPI as_of 2026-10-20 (ops.mjs board/kpi, 13:08 JST): gross ¥0, cost ¥0 (+1 unknown ai_compute null), net ¥0, orders 0, human 9x/33min. revenue_ledger.entries=[] (0 October charges). cost_ledger = 1 unknown entry. owner_queue empty (owner_queue.mjs = 'owner queue: empty'). G2 (gross≥¥10k by 10/20) FAILED at the 00:07 gate; STATE.goal.current = G3; pending_trigger = 10/22 L5/E2 weekly review. Post-gate buyer-signal sweep across all cloud-readable channels since the 08:07 fire (revenue_ledger [] / cost_ledger 1-unknown / X metrics.json / all four event logs) = 0 new signal, no FIRST_WIN trigger. mac-local BLOCKED (supervisor backoff #6; 09:00-JST reads h5-note-reach-read-1020 + h1-coconala-inbox-1020am unrun).",
+      "interpretation": "Company unchanged at the revenue level (still ¥0; G2 missed, G3 the live goal). H5 unchanged and still 0 at every cloud proxy. The binding constraint remains cold-start REACH for the free tool. The only change vs 08:07 is operational, not strategic: the headed-browser operator (mac-local) is down, so the note PV and Coconala inbox reads scheduled for the 10/22 review did not run — a measurement gap, not a new market signal. No new positive-EV cloud-Founder lever exists that does not require an Art.9 owner step, a 10/22-gated verdict, an inbound trigger, a headed browser (mac-local's runtime, not the cloud's), or a Constitution-forbidden pre-signal action.",
+      "decision": "continue",
+      "next_action": "Executed this fire: owner_queue confirmed empty (5c); swept all cloud-readable channels = 0 new buyer signal (no FIRST_WIN trigger); confirmed the two 09:00-JST mac-local reads are unrun because mac-local is in supervisor backoff (a local-runtime boundary the cloud cannot clear); verified L5_CHANNEL_EXHAUSTION_PREP.md (60 lines) intact and the Day-20 X post validates (252w). Company NOT idle: the two reads stay owned by mac-local and auto-resume on supervisor recovery; the Day-20 X numbers+H5 post is queued (due 20:40 JST via x-watchdog); the 10/22 weekly review runs the mandated L5/E2 analysis. Session ends E3 (no self-executable positive-EV cloud-Founder action remains; every remaining lever is headed-browser / X-creds-absent / 10/22-date-gated / inbound-triggered / Constitution-forbidden).",
+      "deadline_trigger": "2026-10-22 weekly review (20:07 JST): run the mandated L5/E2 channel-exhaustion analysis per L5_CHANNEL_EXHAUSTION_PREP.md + REVIEW_SPEC.md (g2_pipeline back-calc + x_verdict, refresh every channel cell; if mac-local recovered, pull the note PV + latest Coconala read, else record the note row as 'unread — mac-local down, reach unconfirmed ⇒ treated as 0'; score the 3 candidate actions; write a ≥3-motion stop_screen only if all reduce to Art.9/blocked ⇒ then E2 on the table, else continue re-ranked). Any inbound inquiry before 10/22 (X/note/Coconala/site) ⇒ FIRST_WIN_RUNBOOK.md / Art.10 act ≤12h, which moots the exhaustion question."
+    },
+    "x": {
+      "fact": "Day-19 numbers+H5 post metrics refreshed (fetched 2026-10-20 02:01 UTC): tweet 2112196790720315727 = 4 impressions / 0 likes / 0 profile_clicks / 1 reply (our own CTA self-reply); its tool-link reply 2112196792175710660 = 2 imp / 0 url_link_clicks / 0 profile_clicks. Day-18 H5 tool post 2111479487422505053 = 10 imp (<median 12) / 0 profile_clicks / 0 buyer reply. Median impressions across 26 posts = 12. Day-20 post queued and validated this fire (2026-10-20-pm.json, 252w, due 20:40 JST). X credentials absent from the cloud runtime (BOOTSTRAP 5b: post + re-fetch are x-phase2.yml / x-watchdog.yml, not the Founder).",
+      "interpretation": "H2 unchanged (X reach-bound on a small-follower account; falsified as a revenue lever 10/08-10/11). X carries only the H5 reach test now, and Day-18/19 at/below median-12 with 0 profile-clicks and 0 buyer contact keep the H5 reach signal at 0 — H5 unchanged (still reach-dead on X). Authoring more X content this fire would re-run an already-falsified reach lever (Art.5.2/5.4).",
+      "decision": "continue",
+      "next_action": "Daily numbers+H5 post continues via x-phase2.yml / x-watchdog.yml (no X creds in cloud; nothing for the Founder to author). Day-20 post already queued + validated this fire. Its engagement feeds the 10/22 L5/E2 X row.",
+      "deadline_trigger": "2026-10-22 weekly review: refresh the X row from metrics.json and run x_verdict; X stays trust/log only unless a profile-click→contact appears (none in 20 days)."
+    },
+    "coconala_proposals": {
+      "fact": "H1 proposal motion STOPPED 2026-10-18 (falsified, 0/11 replies over 17 days). 2 Coconala offers remain pending (5328251 kigen 10/26; 5329177 kigen 10/23). Last completed watch: h1-coconala-inbox-1019pm (10/19 19:02 JST) = 0 buyer signal on both offers + gig 4426150 + the only /message thread (10281068, our 10/13 question still unanswered). Today's watch h1-coconala-inbox-1020am (not_before 09:00 JST) did NOT run — mac-local is in supervisor backoff, so the task is still open.",
+      "interpretation": "H1 unchanged (falsified as a motion since 10/18). The only residual value is a buyer message on the 2 already-sent offers; the missed watch today is a measurement gap, not evidence of a signal. No new public-job proposals (Art.5.5).",
+      "decision": "stop",
+      "next_action": "No new public-job proposals. The Coconala inbox stays signal-watch only, owned by mac-local (h1-coconala-inbox-1020am auto-resumes on supervisor recovery); if either pending offer or gig 4426150 draws a buyer message, run FIRST_WIN_RUNBOOK.md / Art.10 act end-to-end ≤12h.",
+      "deadline_trigger": "2026-10-23 (5329177) / 2026-10-26 (5328251): if either pending offer draws a buyer message by its kigen, Art.10 act ≤12h; otherwise they lapse with no action."
+    },
+    "coconala_listing": {
+      "fact": "Coconala passive gig 4426150 live; 0 views-to-inquiry signals in 20 days. It is the paid-path CTA target for H5 (ongoing custom setup) — linked from the free tool, the SEO guide and the note article.",
+      "interpretation": "H3 unchanged (passive, 0 signals); its value is as the H5 paid CTA at zero new effort.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; it is the paid CTA from the H5 free tool + guide + note. No rebuild, no new listing (Art.5.5).",
+      "deadline_trigger": "2026-10-22 weekly review: if still 0 signals and H5 also 0, include in the L5/E2 channel-exhaustion analysis (storefront with no autonomous footfall)."
+    },
+    "booth": {
+      "fact": "BOOTH item 8919052 STOPPED 2026-10-15; listing kept live, 0 signals. No change this fire.",
+      "interpretation": "H3 unchanged (0 demand). Not part of the H5 motion.",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in the FINAL report unless a signal appears (none expected)."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger.entries=[] ⇒ 0 October charges (sales-monitor cron books Stripe/Gumroad automatically). Stripe MCP needs an owner OAuth step not available in this runtime, so the ledger (written by the cron) is the cloud-authoritative read; it is empty. No change this fire.",
+      "interpretation": "H4 unchanged (passive store 0 charges). The Stripe/Gumroad rail stays available as the instant-buy path for a productized H5 SKU once a demand signal exists (Art.5.5 bars building it first).",
+      "decision": "continue",
+      "next_action": "Zero-effort supply; no rebuild. Reserved as the monetization rail for H5 after a signal (FIRST_WIN_RUNBOOK: stand up the minimal SKU on the first paid-path ask, not before).",
+      "deadline_trigger": "On any H5 paid-path ask: stand up a minimal Gumroad/Stripe SKU then (not before). 2026-10-22: fold the 0-charge read into the L5/E2 screen."
+    },
+    "note": {
+      "fact": "H5 note #1 live on note @satotsu1020: https://note.com/satotsu1020/n/nbed12c976efb (2026-10-18 13:21 JST); links tool+guide+X+Coconala 4426150. Views/comments are headed/login-gated ⇒ not cloud-readable; the headed read is task h5-note-reach-read-1020 (mac-local, not_before 09:00 JST). That read did NOT run today — mac-local is in supervisor backoff — so the note PV row for the 10/22 L5/E2 analysis is still TBD.",
+      "interpretation": "H5 unchanged: the content-led reach arm (owned-site tool + SEO guide + note) is fully deployed; a second pre-signal article would be Art.5.4 thrash. The missed headed read is a measurement gap, not new evidence. If reach stays unreadable through 10/22, the analysis treats the note row as 0 confirmed reach (same conclusion the X row already supports).",
+      "decision": "continue",
+      "next_action": "No further note work this fire. mac-local reads the note's view/like/comment/inbound count headed (h5-note-reach-read-1020) once its supervisor recovers; any real buyer comment/DM ⇒ FIRST_WIN_RUNBOOK.md / Art.10 ≤12h.",
+      "deadline_trigger": "2026-10-22 weekly review: pull the mac-local note PV/comment read into the L5/E2 note row if available; if still unread (mac-local down), record 'reach unconfirmed ⇒ treated as 0' — confirms the content arm is reach-dead like X."
+    },
+    "zenn": {
+      "fact": "Zenn kinoshita_ai: free articles + paid book gas-ai-jimu-plus-6 live; 0 sales signals in 20 days. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; developer audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort. Candidate later for a developer-facing writeup of the tool only if H5 shows developer-adjacent pull.",
+      "deadline_trigger": "2026-10-22 weekly review: reconsider only if H5 shows a developer-adjacent signal (none so far)."
+    },
+    "etsy": {
+      "fact": "Etsy 13 listings live; 0 October signals. No change this fire.",
+      "interpretation": "H4 unchanged (0 signals; US/English craft audience, off-thesis for the JP EC-seller H5).",
+      "decision": "continue",
+      "next_action": "Keep live zero-effort; no work.",
+      "deadline_trigger": "2026-10-31: close-out in the FINAL report."
+    },
+    "h5_tool": {
+      "fact": "Free order-CSV→shipping-CSV converter (tools/order-csv-converter-jp.html) + SEO guide live on GitHub Pages. The page head was confirmed fully SEO/conversion-optimized at the 08:07 fire (title/meta/canonical/OG + JSON-LD WebApplication & FAQPage + paid CTA + internal links); no re-inspection needed and nothing changed since. No tool/guide change this fire.",
+      "interpretation": "H5 tool is correct, discoverable, live and already optimization-maximal — the deficit is purely demand-driver/reach, not page quality. A polish pass without new market evidence would be Art.5.4 thrash.",
+      "decision": "continue",
+      "next_action": "No tool/guide/sitemap changes this fire (nothing to improve; Art.5.4/5.5). On an inquiry: run FIRST_WIN_RUNBOOK.md. Stand up a minimal paid SKU only on a paid-path ask.",
+      "deadline_trigger": "2026-10-22 weekly review: the tool is a (T)-transactable candidate with no autonomous (D) demand-driver ⇒ feeds the L5/E2 screen. Only a demand signal unblocks a tool change or a paid SKU."
+    }
+  }
+}
