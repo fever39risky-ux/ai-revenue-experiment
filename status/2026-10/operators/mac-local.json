@@ -16,11 +16,11 @@
     "playwright-mcp-dedicated-profile"
   ],
   "status": "blocked",
-  "doing": "supervisor backoff after process_failure (failure 1)",
-  "next": "retry at 2026-10-20T00:03:09.174705Z",
+  "doing": "supervisor backoff after process_failure (failure 3)",
+  "next": "retry at 2026-10-20T00:09:23.409734Z",
   "registered_by": "founder (Day 0)",
   "registered_at": "2026-09-30T02:43:15Z",
-  "heartbeat_at": "2026-10-20T00:01:53.289Z",
+  "heartbeat_at": "2026-10-20T00:05:23.528Z",
   "blocked_on": "process_failure",
   "progress": "since 2026-10-13T17:57:53.691769Z: polls=4179 workers=17 browser_workers=17 chrome_for_testing_procs=0"
 }
