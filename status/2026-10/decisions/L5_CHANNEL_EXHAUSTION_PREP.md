@@ -56,5 +56,5 @@ Every buyer path either (a) routes through an **owner Art.9 gate** or the **head
 - [ ] Re-read `revenue_ledger` + all event logs for any signal since 10/19 20:07.
 - [ ] Pull the **10/20 gate verdict** from the 10/20 decision report (the binding input).
 - [ ] Refresh the X row from `social/2026-10/metrics.json`; refresh note views from the mac-local headed read.
-- [ ] Run `node scripts/oct/g2_pipeline.mjs --json` and fill REVIEW_SPEC §1–§5.
+- [ ] Run the back-calc against the **current goal G3** (not expired G2): `node scripts/oct/g2_pipeline.mjs --target 50000 --deadline 2026-10-31 --json` and fill REVIEW_SPEC §1–§5. (Bare `--json` defaults to the expired G2 target ¥10k/10-20 — do NOT use it for the 10/22 review.) **Both invocations verified exit-0 on 2026-10-21 08:0x JST (Day-21 later fire).** G3 snapshot then (REFRESH at the fire): days_left 11, gross_still_needed ¥50,000, orders_needed 7, proposals_needed 480, proposals/day 60 — the falsified proposal motion would need 60 proposals/day vs its observed ~1/day, so that lever is arithmetically dead for G3 too; lever_ranking base P(G3): price+reply 0.71 / price 0.46 / reply_rate 0.001 / volume 0 / close_rate 0 — all contingent on a reply rate that is observed 0 in 20 days.
 - [ ] Score the 3 candidate actions above; write the `stop_screen` only if ≥3 are genuinely blocked/negative-EV.
