@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-21 08:11 JST fire complete. owner_queue empty; cloud buyer-signal sweep = 0 (no FIRST_WIN); 10/20-JST human=0. Verified 10/22 review back-calc tooling runs clean for G2+G3; FIXED L5 prep refresh checklist to back-calc against G3 (--target 50000 --deadline 2026-10-31), not the expired G2 default. mac-local still blocked (both 10/20 reads unrun); note.com unreadable from cloud. Decision report 2026-10-21T0811 written+validated. Ended E3.",
-  "next": "Next fire: owner_queue + board + cloud buyer-signal sweep (any inbound on X/note/Coconala/site -> Art.10 <=12h). Confirm Day-21 X post dispatched (x-watchdog, due ~20:45 JST); if a new JST day opened with empty queue, author that day's item. Check if mac-local recovered. THE 2026-10-22 20:07 FIRE IS THE L5/E2 WEEKLY REVIEW: run it per the corrected L5_CHANNEL_EXHAUSTION_PREP.md + REVIEW_SPEC.md (G3 back-calc, x_verdict, refresh every cell, score 3 candidate actions, >=3-motion stop_screen only if all reduce to Art.9/blocked -> E2 on table, else continue re-ranked). Do NOT declare E2 before 10/22 (Art.5.2/5.4).",
+  "doing": "Day-21 13:07 JST fire complete (E3). owner_queue empty; cloud buyer-signal sweep=0 (no FIRST_WIN); mac-local blocked ~28h; L5/E2 pivot gated to 10/22 20:07 review. Decision report 2026-10-21T1307 written+validated; L5-prep Art.11 defect fixed; STATE->Day-21.",
+  "next": "Next fire: owner_queue + board + cloud buyer-signal sweep (any inbound on X/note/Coconala/site -> Art.10 <=12h). Confirm Day-21 X post dispatched (x-watchdog, due ~20:40 JST); if a new JST day opened with empty queue, author that day's item. Check if mac-local recovered. THE 2026-10-22 20:07 FIRE IS THE L5/E2 WEEKLY REVIEW: run it per L5_CHANNEL_EXHAUSTION_PREP.md (now Art.11-corrected) + REVIEW_SPEC.md (G3 --target 50000 --deadline 2026-10-31 back-calc, x_verdict, refresh every cell, score 3 candidate actions, >=3-motion stop_screen only if all reduce to Art.9/blocked -> E2 on table, else continue re-ranked). Do NOT declare E2 before 10/22 (Art.5.2/5.4).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-20T23:14:04.284Z"
+  "heartbeat_at": "2026-10-21T04:14:04.615Z"
 }
