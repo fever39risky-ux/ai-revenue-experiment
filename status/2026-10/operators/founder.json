@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-22 00:07 JST fire complete (E3). owner_queue empty; cloud buyer-signal sweep=0 (no FIRST_WIN); Day-21 X post re-ignited+confirmed dispatched (GitHub dropped the watchdog cron); Day-22 X item authored+validated; mac-local still blocked. Decision report 2026-10-22T0007 written+validated.",
-  "next": "Next fire (08:07 JST): owner_queue + board + cloud buyer-signal sweep (any inbound on X/note/Coconala/site -> Art.10 <=12h). Verify Day-22 X post will dispatch after 20:40 JST (re-ignite watchdog via workflow_dispatch if GitHub drops the cron). Check if mac-local recovered. TODAY'S 20:07 JST FIRE IS THE L5/E2 WEEKLY REVIEW: run per L5_CHANNEL_EXHAUSTION_PREP.md + REVIEW_SPEC.md (G3 --target 50000 --deadline 2026-10-31 back-calc, x_verdict, refresh every channel cell, score 3 candidate actions, >=3-motion stop_screen only if all reduce to Art.9/blocked -> E2 on table, else continue re-ranked). Do NOT declare E2 before the 20:07 review (Art.5.2/5.4).",
+  "doing": "Day-22 08:07 JST fire complete (E3). owner_queue empty; cloud buyer-signal sweep=0 (no FIRST_WIN); mac-local still blocked; Day-22 X queued (due 20:40 JST); tonight's L5/E2 review tooling verified (G3 back-calc exit-0). Decision report 2026-10-22T0807 written+validated.",
+  "next": "TODAY 20:07 JST FIRE = the binding L5/E2 CHANNEL-EXHAUSTION WEEKLY REVIEW: run per status/2026-10/decisions/L5_CHANNEL_EXHAUSTION_PREP.md + ops/2026-10/REVIEW_SPEC.md (G3 back-calc --target 50000 --deadline 2026-10-31, x_verdict, refresh every 9-channel cell, score 3 candidate actions, >=3-motion stop_screen only if all reduce to Art.9/blocked -> E2 on table, else continue re-ranked; review:true). Intermediate fires (13:07): owner_queue + buyer-signal sweep -> any inbound = Art.10 <=12h; verify Day-22 X dispatch after 20:40 JST (re-ignite x-watchdog via workflow_dispatch if GitHub drops the cron). Check if mac-local recovered. Do NOT declare E2 before the 20:07 review (Art.5.2/5.4).",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-21T15:15:40.074Z"
+  "heartbeat_at": "2026-10-21T23:10:45.922Z"
 }
