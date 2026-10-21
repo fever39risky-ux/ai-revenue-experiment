@@ -1,0 +1,70 @@
+{
+  "fire": "2026-10-21T20:07+09:00",
+  "author": "founder",
+  "review": false,
+  "lanes": {
+    "company": {
+      "fact": "Day-21 evening cloud fire (20:07 JST), ~24h before the 2026-10-22 20:07 L5/E2 weekly review. Goal is G3 (Gross ≥ ¥50,000 by 10/31, ≥2 orders same hypothesis/channel); G2 FAILED 10/20. board/kpi: gross ¥0 / cost ¥0 (1 unknown) / net ¥0, 0 orders, revenue_ledger entries=0, cost_ledger entries=1 (unknown). owner_queue empty (owner_queue.mjs). Buyer-signal sweep across every cloud-readable channel since the 13:07 fire = 0 new signal: revenue_ledger [], X metrics.json (3 H5-era tool posts 2111479487422505053 / 2112196790720315727 / 2112551972964532651 = 10 / 9 / 3 imp, 0 like, 0 profile-click, 0 url-click; the lone 'reply' on each = our own self-CTA link, not a buyer; summary median 10 imp < 20 across 27 posts), all event logs, 10/20-JST human = 0 (9x/33min cumulative unchanged). note.com unreadable from cloud (network policy); Stripe MCP needs owner OAuth re-auth (Art.9, redundant with sales-monitor). mac-local STILL blocked (supervisor backoff #6, heartbeat 2026-10-20T00:33Z, now ~35h stale) → Coconala inbox + note-reach reads remain unrun. No reply / inquiry / charge anywhere → no Art.10 FIRST_WIN trigger. REAL WORK this fire: (a) re-ran the G3 back-calc clean (g2_pipeline --target 50000 --deadline 2026-10-31 --json: days_left 11, needed ¥50k, orders 7, replies 24, proposals 480, 60/day vs ~1/day supply, reply rate 0/11) — proposal motion arithmetically dead for G3; (b) verified the Day-21 X numbers post is authored+queued honestly (social/2026-10/queue/2026-10-21-pm.json, not_before 20:40 JST, numbers 0/0/0 match KPI as_of 2026-10-21, link in reply_text only) and is due in ~27 min via x-watchdog backstop — not yet dispatched (posted.jsonl latest = Day-20 2112551972964532651); next fire (00:07 JST) confirms dispatch.",
+      "interpretation": "H5 unchanged (near-falsified on reach; 0 inbound at 96h+ now, nothing new since the 10/20 48h gate or the 13:07 sweep). Company-wide 0 valid demand signal for 21 straight days. Binding constraint remains reach/cold-start: the only cloud-autonomous demand lever (X) is reach-dead (≤10 imp/post, 0 profile-click→inquiry), and every channel that could reach the H5 EC-seller audience (note, Coconala, communities) is either mac-local-only (blocked ~35h) or Art.10-forbidden (no spam/cold DM). This STRENGTHENS the pre-registered L5/E2 reading for 10/22 but does not pre-decide it — Art.5.2/5.4 bar an E2 verdict before the review, and re-running a falsified reach mechanism is also barred. No company-level STATE strategy change is due this between-review fire; as_of bumped to 20:07 to keep STATE current (day stays 21).",
+      "decision": "continue",
+      "next_action": "Hold the H5 inbound watch and run the binding L5/E2 analysis at the 2026-10-22 20:07 JST review per L5_CHANNEL_EXHAUSTION_PREP.md + REVIEW_SPEC.md: G3 back-calc, x_verdict, refresh every channel cell (note/Coconala rows = 'reach unconfirmed→0' if mac-local still down), score the 3 candidate actions WITH the Art.11-corrected paid-acquisition framing (≤¥5k/mo is not an Art.9 budget gate — it is non-executable only for lack of an ad-account billing path without an Art.9 KYC step), ≥3-motion stop_screen only if all reduce to Art.9/blocked → then E2 on the table, else continue re-ranked. Each remaining fire before then: owner_queue + buyer-signal sweep → any inbound = Art.10 ≤12h; confirm the Day-21 X post dispatched after 20:40 JST (next fire); if a new JST day opens with an empty X queue, author that day's item.",
+      "deadline_trigger": "2026-10-22 20:07 JST L5/E2 weekly review (STATE.reviews). G3 deadline 2026-10-31. Any inbound on X / note / Coconala / owned-site before then → Art.10 FIRST_WIN end-to-end ≤12h."
+    },
+    "x": {
+      "fact": "Day-21 item authored+queued (social/2026-10/queue/2026-10-21-pm.json, not_before 2026-10-21T20:40 JST), numbers 0/0/0 verified against KPI as_of 2026-10-21, body link-free with the free-tool URL in reply_text only. Due ~27 min after this fire; x-watchdog.yml backstops. posted.jsonl latest = Day-20 (2112551972964532651, 3 imp / 0 profile-click / 1 self-CTA reply / 0 external). Medians flat (median 10 imp < 20 across 27 posts; 0 inquiry/profile pull in the H5 era).",
+      "interpretation": "H2 unchanged (falsified as a revenue bet; reach, not angle, binds on a small-follower account). Kept as the zero-cost honesty record + H5 reach probe only. Posting guaranteed by x-phase2 cron + x-watchdog.yml, not the Founder.",
+      "decision": "continue",
+      "next_action": "Confirm the Day-21 post dispatched at the next fire after 20:40 JST (watchdog backstops). When a new JST day opens with an empty queue, author that day's item. Judge X's response only; no angle/format tweak (Art.5.2/5.4).",
+      "deadline_trigger": "2026-10-21 ~20:40 JST: Day-21 not posted → confirm the watchdog dispatched it at the 00:07 fire. Through 2026-10-31: any profile-click→inquiry → Art.10."
+    },
+    "coconala_proposals": {
+      "fact": "11 cumulative proposals (Coconala 7 + CrowdWorks 4), 0 replies (0/11). Public-job proposal motion FALSIFIED/STOPPED 2026-10-18 (L4 checkpoint). 2 pending Coconala offers (5329177 期限 10/23, 5328251 期限 10/26) remain signal-watch only (task h1-coconala-inbox-1020am). mac-local blocked → the 10/20 inbox read is still unrun.",
+      "interpretation": "H1 unchanged (falsified). G3 back-calc reconfirms the motion is arithmetically dead (480 proposals / 60 per day vs ~1/day supply, reply rate 0/20d). No new public-job proposals.",
+      "decision": "stop",
+      "next_action": "No new proposals. mac-local, on recovery, runs h1-coconala-inbox-1020am as signal-watch on the 2 pending offers only (reply under PG-1). Any buyer reply → Art.10 ≤12h.",
+      "deadline_trigger": "5329177 期限 10/23 nears; any reply on a pending offer → Art.10 ≤12h. 2026-10-22 L5/E2 review folds the proposal channel into the exhaustion analysis."
+    },
+    "coconala_listing": {
+      "fact": "Passive gig 4426150 (also the H5 paid CTA): 0 inquiry signals in 21 days (0 fav / 応募 / message). Inbox read folded into the h1 signal-watch task; mac-local blocked ~35h so the 10/20 read is still unrun.",
+      "interpretation": "H3/H5 unchanged (passive listing, no demand). Copying the offer into a new listing is forbidden (Art.5.5).",
+      "decision": "shrink",
+      "next_action": "No active work, no new listing. Inbox check via mac-local on recovery; any message → Art.10.",
+      "deadline_trigger": "Through 2026-10-31: still 0 → keep live / zero-effort; any message → Art.10."
+    },
+    "booth": {
+      "fact": "BOOTH STOPPED 2026-10-15 (0 スキ / 0 sales trigger). Listing kept live (items/8919052). 0 messages.",
+      "interpretation": "H3 unchanged (stopped); passive, no demand. Listing left live at zero cost.",
+      "decision": "stop",
+      "next_action": "None. No scan/inbox task; any order/message → Art.10.",
+      "deadline_trigger": "Through 2026-10-31: kept live / zero-effort; any order/message → Art.10."
+    },
+    "zenn": {
+      "fact": "Free articles + free book live; paid book gas-ai-jimu-plus-6 live. 0 signals. Audience = JP engineers, a poor match for the H5 non-engineer EC-seller target, so not a viable H5 reach channel (noted for the 10/22 ledger).",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new article (Art.5.5); SEO latency ≫ 10/31 and audience mismatch make it negative-EV as an H5 driver.",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new content.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is."
+    },
+    "etsy": {
+      "fact": "13 listings live (API via Actions secrets). 0 signals.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new listing (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new listing.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger entries [] (¥0, 0 orders). Automated sales-monitor is the authoritative revenue path → 0 charges. Stripe MCP direct read requires owner OAuth re-auth (Art.9; no stripe tools exposed this session) — a redundant secondary path, not a blocker.",
+      "interpretation": "H4 unchanged (passive store, ~0 demand; storefront with no autonomous demand-driver). No rebuild (negative-EV vs H5, Art.5.5).",
+      "decision": "continue",
+      "next_action": "Sales-monitor continues to book any charge automatically; retry Stripe MCP as a secondary read when creds return. No build.",
+      "deadline_trigger": "Through 2026-10-31: any charge → auto-booked + double-down (Art.7)."
+    },
+    "note": {
+      "fact": "H5 article nbed12c976efb live (note.com/satotsu1020) pointing to the free converter + free-setup offer. Reach (views/comments/inbound) unread — mac-local headed read blocked ~35h and note.com is unreadable from cloud (network policy). 0 confirmed inbound.",
+      "interpretation": "H5 unchanged on this row (reach unconfirmed → treated as 0 for the 10/22 analysis if mac-local is still down). No new article without a pull signal (Art.5.5).",
+      "decision": "continue",
+      "next_action": "mac-local on recovery runs h5-note-reach-read-1020 (fills the 10/22 note cell). No new article. Any inbound → Art.10.",
+      "deadline_trigger": "2026-10-22 L5/E2 review: note row = 'reach unconfirmed→0' if still unread. Any inbound → Art.10 ≤12h."
+    }
+  }
+}

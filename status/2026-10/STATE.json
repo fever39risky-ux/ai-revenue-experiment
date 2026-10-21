@@ -1,7 +1,7 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-21T13:07:00+09:00",
+  "as_of": "2026-10-21T20:07:00+09:00",
   "day": 21,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
