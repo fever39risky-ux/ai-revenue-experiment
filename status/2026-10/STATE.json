@@ -1,7 +1,7 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-22T00:07:00+09:00",
+  "as_of": "2026-10-22T20:07:00+09:00",
   "day": 22,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
@@ -15,10 +15,11 @@
     "G3": "Gross ≥ ¥50,000 by 2026-10-31 with ≥2 orders from the same hypothesis/channel",
     "current": "G3",
     "G1_status": "FAILED 2026-10-07 (details: STATE_ARCHIVE.jsonl goal.G1_result)",
-    "G2_status": "FAILED 2026-10-20 (gross ¥0 / net ¥0 at the 10/20 deadline; 0 valid demand signal in 20 days across all channels; proposal motion falsified 10/18, H5 48h gate read 0 on 10/20 — decision report 2026-10-20T0007). Remaining goal is G3, pending the 10/22 L5/E2 channel-exhaustion verdict."
+    "G2_status": "FAILED 2026-10-20 (gross ¥0 / net ¥0 at the 10/20 deadline; 0 valid demand signal in 20 days across all channels; proposal motion falsified 10/18, H5 48h gate read 0 on 10/20 — decision report 2026-10-20T0007).",
+    "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "L4 REDESIGN EXECUTED 2026-10-18 00:07 (falsification checkpoint, checkpoint-1018; decision report 2026-10-18T0007). Buyer replies stayed 0 across all channels for 17 days (0/11 proposals, 0 charges, 0 X inquiries), so the PUBLIC-JOB PROPOSAL MOTION is FALSIFIED for October: a 0-review seller cannot win a proposal→reply bidding against 60-118 applicants/request, and the two prior escalations (10/08 L1, 10/15 L2 first-win) did not move it. The binding constraint is now named as COLD-START (0-review positioning) which the proposal motion cannot beat. RESPONSE (Art.5.2 higher-level, L4): stop the public-job scan motion and switch the primary motion to H5 — a free, no-login, browser-only PRODUCTIZED SELF-SERVE tool (注文CSV→送り状CSV converter) + content-led/inbound demand for EC sellers (BASE/STORES/メルカリShops) who manually reformat order CSVs every shipping run. A concrete working demo does the selling (attacks cold-start directly); first-win is a free custom setup to earn the first review. Reuses the existing owned-site tools/ funnel + Stripe/Gumroad rail with NO new owner gate (Art.5.5/5.6), cloud-executable now. GATE RESULT 2026-10-20 (h5-ec-signal-watch-1020 DONE, decision report 2026-10-20T0007): H5 48h signal = 0 real inquiry (X tool post 10 imp/0 pc/0 buyer reply; note reach unread headed; Coconala 0; 0 inbound anywhere); G2 (gross ≥¥10k by 10/20) FAILED at gross ¥0. H5 WEAKENED to near-falsified on reach. Per the pre-registered rule this ARMS (not pre-decides) the 2026-10-22 weekly-review L5/E2 channel-exhaustion analysis (is any AI-reachable autonomous buyer channel with a working demand-driver left?). Art.5.2/5.4 bar an E2 verdict before that review. Passive listings all kept live zero-effort, no new listing (Art.5.5). X = daily numbers post, now also carrying the H5 announcement. owner_queue empty (CW relogin cancelled with the motion).",
+  "bottleneck": "E2 REACHED (company PAUSED) 2026-10-22 20:07 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md; decision report 2026-10-22T2007, review:true; stop_screen + redesign(L5) events). The binding constraint has been COLD-START REACH since the 10/18 checkpoint and is now a company-level exhaustion finding: 22 days, 0 valid demand signals across EVERY autonomous motion — proposal (FALSIFIED 10/18, 0/11 replies; G3 back-calc needs 68.6 proposals/day vs 0.62 observed, achievable=false), passive storefronts (Stripe/Gumroad/Etsy/BOOTH/Coconala gig: (T)-transactable, 0 autonomous (D) driver, 0 charges), X content-led (reach-FALSIFIED, median 10 imp, 0 profile-click->contact), note content-led (0 measurable reach, mac-local-gated), and the H5 L4 redesign (free productized tool + content-led inbound, 0 inquiry at 48h/96h). The 9-channel reachability ledger: every buyer path is either (T)-only with no working (D) demand-driver, or routes through an Art.9 owner gate / the down headed mac-local browser. The 3 candidate NEW positive-EV actions all reduce to Art.9: paid acquisition (Art.11 authorizes <=¥5k but needs an Art.9 ad-billing rail), a new owner-granted channel/account (Art.9), an L5 re-pivot (no non-Art.9 reach path; Art.5.2/5.4 bar re-running a falsified mechanism). VERDICT (Art.8.2): E2 — every remaining positive-EV action needs an Art.9 human step, with a >=3-motion (actually 5) stop_screen logged. The company holds at E2 with a ZERO-COST PASSIVE portfolio (all listings + H5 tool/funnel kept live, daily X Day-N numbers post as the Art.12 honesty log) and an ARMED inbound watch. REPORTED (not asked, Art.1): the single owner unblock is enabling a paid-acquisition ad-billing rail (Art.9 payment step) so the <=¥5k reach test can run — entirely at owner discretion; the company does not spend or create ad accounts on its own. ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK Art.10 <=12h, which immediately exits E2.",
   "hypotheses": [
     {
       "id": "H1",
@@ -40,7 +41,7 @@
     {
       "id": "H5",
       "name": "Productized self-serve + content-led demand for EC sellers (PRIMARY G2/G3 bet from 2026-10-18 L4 redesign)",
-      "status": "active",
+      "status": "near_falsified_paused_E2",
       "level": "L4 (new offer/business-model: bespoke service-via-proposal → productized self-serve tool + inbound)",
       "offer": "FREE browser-only tool: 注文CSV→送り状/宛名CSV converter (no login, nothing uploaded, column-mapping-driven, honest — verify-with-your-carrier). URL https://fever39risky-ux.github.io/ai-revenue-experiment/tools/order-csv-converter-jp.html . Paid: あなたのカート×送り状サービス専用のマッピング/GAS自動化 setup (¥3,000 template / ¥8,000 custom); first-win = free setup to earn the first review. Reuses Sept GAS/Sheets know-how + existing tools/ funnel + Stripe/Gumroad rail (Art.5.5), NO new owner gate.",
       "audience": "EC事業者 (BASE/STORES/メルカリShops, 月商10万〜200万, エンジニア不在) who手で注文CSVを送り状形式へ毎回整形する — a named recurring pain, concrete enough to find 10 of them",
@@ -51,7 +52,7 @@
       "revenue_deadline": "2026-10-22 (weekly review) — first real signal or the review carries the L5/E2 channel-exhaustion analysis",
       "kill_or_escalate_rule": "If 0 H5 signal by 2026-10-20/22: this is the last AI-reachable buyer channel inside the current set → 10/22 review must run the L5/E2 question (is any AI-reachable autonomous buyer channel left?). Do NOT pre-build the paid SKU before a signal (Art.5.5).",
       "owner": "founder (tool, site funnel, X authoring, signal read) / mac-local (note article publish)",
-      "next_action": "48h GATE READ 2026-10-20 00:13 JST (h5-ec-signal-watch-1020, DONE) = 0 real inquiry: X tool post 2111479487422505053 = 10 imp (<median 12)/0 profile_clicks/0 buyer reply; note nbed12c976efb reach unread headed (mac-local task h5-note-reach-read-1020 created, due 10/20 09:00 JST); Coconala inbox 10/19 pm = 0; 0 inbound anywhere. H5 WEAKENED to near-falsified on reach (the binding constraint is cold-start reach, same as the proposal motion). NO tool/SKU change pre-signal (Art.5.4/5.5), no re-pivot pre-review (Art.5.2). NEXT: the MOMENT any inbound appears (X/note/Coconala/site) → FIRST_WIN_RUNBOOK.md Art.10 <=12h; otherwise the 2026-10-22 weekly review runs the mandated L5/E2 channel-exhaustion analysis (L5_CHANNEL_EXHAUSTION_PREP.md) with this 0-read as binding input."
+      "next_action": "E2 REACHED 2026-10-22 (L5/E2 review, REVIEW-2026-10-22.md): H5 near-falsified on reach (48h/96h gate 0; the binding constraint is cold-start reach, same as the proposal motion). The free tool + funnel are SOUND and kept live zero-effort; the deficit is reach, not product/page quality (page verified already optimal). No tool/SKU/content change pre-signal (Art.5.4/5.5). The MOMENT any inbound appears (X/note/Coconala/site) -> FIRST_WIN_RUNBOOK.md Art.10 <=12h (exits E2). The only reach lever left (paid acquisition) is Art.9-gated on an ad-billing rail (reported to owner, not executed)."
     },
     {
       "id": "H2",
@@ -94,23 +95,23 @@
   "priority_actions": [
     {
       "owner": "founder",
-      "action": "PRIMARY G2 bet — H5 (L4, 2026-10-18). Free self-serve 注文CSV→送り状CSV converter is LIVE (owned site, no owner gate). Drive EC sellers to it and measure demand: Day-18 X post dispatched, note task created. Each fire: read the H5 signal (X engagement/profile-clicks on the tool post, any inbound inquiry on X or the Coconala gig, tool-page response). The MOMENT an inquiry appears → Art.10 free first-win setup end-to-end <=12h to earn the first review. Do NOT pre-build the paid SKU before a signal (Art.5.5)."
+      "action": "HOLD AT E2 (company paused 2026-10-22, L5/E2 channel-exhaustion review). Each fire: run owner_queue + a cloud buyer-signal sweep (revenue_ledger/cost_ledger/X metrics/event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h, which exits E2. No new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no cold DM/spam (Art.10)."
+    },
+    {
+      "owner": "founder",
+      "action": "Keep the portfolio zero-cost passive: all listings (Coconala/BOOTH/Stripe/Gumroad/Etsy/Zenn/note) + the H5 free tool/funnel kept live, daily X Day-N numbers post as the Art.12 honesty log (x-watchdog). Author/validate the day's X item if the queue is empty (BOOTSTRAP 5b)."
+    },
+    {
+      "owner": "founder",
+      "action": "REPORTED owner unblock (not asked, Art.1): enabling a paid-acquisition ad-billing rail (Art.9 payment step) would let the Art.11-authorized <=¥5k reach test run (new L2 sales motion on the H5 WHO/PAIN) and exit E2. Entirely owner discretion; the company does not spend or create ad accounts on its own. Detail in REVIEW-2026-10-22.md."
+    },
+    {
+      "owner": "founder",
+      "action": "Next scheduled decision = 2026-10-29 weekly review (re-run the portfolio re-ranking + 9-channel ledger + G3 back-calc; confirm or change the E2 finding). FINAL report reports/2026-10/FINAL.md after 2026-10-31."
     },
     {
       "owner": "mac-local",
-      "action": "H5 reach: publish ONE honest note article (task h5-ec-csv-tool-note-1018) for EC sellers pointing to the free converter + the free-setup offer, owned account only, no cold DM / no community spam (Art.10). Also keep h1-coconala-inbox-1018am as signal-watch for the 2 pending Coconala offers only (no new public-job proposals)."
-    },
-    {
-      "owner": "founder",
-      "action": "H5 48h signal check 2026-10-20 (task h5-ec-signal-watch-1020). If >=1 real inquiry → Art.10 act. If 0 → the 2026-10-22 weekly review MUST carry the L5/E2 analysis: is any AI-reachable autonomous buyer channel left inside the current set? (owned-site + X + note + marketplaces + proposal motion all then exhausted)."
-    },
-    {
-      "owner": "founder",
-      "action": "X = daily 第2弾 Day N numbers post, now also carrying the H5 tool announcement (link in reply_text). Slot verification / dropped-cron backstop = x-watchdog.yml. Judge X's response as the H5 reach signal."
-    },
-    {
-      "owner": "founder",
-      "action": "SHRINK/STOP (unchanged). H1 proposal motion STOPPED 10/18 (falsified). BOOTH stopped 10/15. Coconala gig 4426150 (now the H5 paid CTA), Gumroad, Etsy, Stripe, Zenn, note #1 kept live zero-effort, NO new listings (Art.5.5). No new operator/agent (Art.6). No new product build without a demand signal (Art.5.5)."
+      "action": "When recovered from supervisor backoff: read note nbed12c976efb reach/comments headed (task h5-note-reach-read-1020) + Coconala inbox for the 2 pending offers (5329177 kigen 10/23, 5328251 kigen 10/26) as signal-watch only. Any buyer comment/message -> FIRST_WIN Art.10 <=12h. No new public-job proposals."
     }
   ],
   "organization": {
@@ -220,9 +221,14 @@
   },
   "pending_triggers": [
     {
-      "date": "2026-10-22",
-      "lane": "l5_channel_exhaustion_review",
-      "rule": "WEEKLY REVIEW + mandated L5/E2 channel-exhaustion analysis (REVIEW_SPEC.md, \"review\": true). Armed by the 10/20 H5 48h gate reading 0 (resolved, decision report 2026-10-20T0007). Follow status/2026-10/decisions/L5_CHANNEL_EXHAUSTION_PREP.md: refresh every cell of the 9-channel reachability ledger (incl. the mac-local headed note read from task h5-note-reach-read-1020), pull the 10/20 gate verdict as binding input, run g2_pipeline back-calc + x_verdict, and score the 3 candidate positive-EV actions. L5 question: is any AI-reachable autonomous buyer channel with a WORKING demand-driver left in the current set? If any candidate is a genuine non-Art.9 positive-EV lever → continue, re-ranked. If all 3 reduce to Art.9/blocked AND a >=3-motion stop_screen holds → E2 is on the table (0 at the gate is NOT an auto-E2; Art.5.2/5.4). Any inbound inquiry before 10/22 → FIRST_WIN_RUNBOOK.md / Art.10 act <=12h, which moots the exhaustion question."
+      "date": "2026-10-29",
+      "lane": "weekly_review",
+      "rule": "Next scheduled weekly review (20:07 JST). Re-run the portfolio re-ranking: refresh KPI + the 9-channel reachability ledger + G3 back-calc; confirm the E2 finding still holds or has been changed by (a) any inbound inquiry since 10/22, (b) the owner enabling the paid-acquisition rail, or (c) mac-local recovery enabling the note/Coconala headed reads. Write reports/2026-10/REVIEW-2026-10-29.md (review:true)."
+    },
+    {
+      "date": "2026-10-31",
+      "lane": "e2_unblock_watch",
+      "rule": "While at E2: EVERY fire runs owner_queue + a cloud buyer-signal sweep (revenue_ledger / cost_ledger / X metrics / event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h (exits E2). If the owner enables a paid-acquisition ad-billing rail -> run the Art.11 <=¥5k reach test (new L2 sales motion on the H5 WHO/PAIN) and exit E2. Keep the daily X Day-N numbers post live (x-watchdog). No new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no cold DM/spam (Art.10). FINAL report reports/2026-10/FINAL.md due after 2026-10-31."
     }
   ],
   "review_spec": "ops/2026-10/REVIEW_SPEC.md (weekly reviews 10/08, 10/15, 10/22, 10/29 at the 20:07 fire)",

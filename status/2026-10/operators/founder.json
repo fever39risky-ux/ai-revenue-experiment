@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-22 13:07 JST fire complete (E3). owner_queue empty; cloud buyer-signal sweep=0 (no FIRST_WIN; X Day-21 post 2imp/0pc/0 external); mac-local still blocked (~36h, not cloud-fixable); re-verified tonight's L5/E2 review tooling (G3 back-calc exit-0) + L5_CHANNEL_EXHAUSTION_PREP.md review-ready; Day-22 X queued (due 20:40 JST). Decision report 2026-10-22T1307 written+validated.",
-  "next": "TODAY 20:07 JST FIRE = the binding L5/E2 CHANNEL-EXHAUSTION WEEKLY REVIEW: run per status/2026-10/decisions/L5_CHANNEL_EXHAUSTION_PREP.md + ops/2026-10/REVIEW_SPEC.md (G3 back-calc --target 50000 --deadline 2026-10-31, x_verdict, refresh every 9-channel cell, score 3 candidate actions, >=3-motion stop_screen only if all reduce to Art.9/blocked -> E2 on table, else continue re-ranked; write reports/2026-10/REVIEW-2026-10-22.md review:true; execute reallocation in-fire). Intermediate fire: owner_queue + buyer-signal sweep -> any inbound = Art.10 <=12h; verify Day-22 X dispatch after 20:40 JST (re-ignite x-watchdog via workflow_dispatch if GitHub drops the cron, as on 10/21). Check if mac-local recovered. Do NOT declare E2 before the 20:07 review (Art.5.2/5.4).",
+  "doing": "E2 reached at the 10/22 L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md; decision report 2026-10-22T2007 review:true; stop_screen 5 motions + redesign L5). Company PAUSED at E2: no AI-reachable autonomous buyer channel with a working demand-driver left; 22d/0 signals; G3 back-calc achievable=false.",
+  "next": "Next fire (00:07 JST): owner_queue + cloud buyer-signal sweep -> ANY inbound inquiry = FIRST_WIN Art.10 <=12h (exits E2); check if owner enabled a paid-acquisition ad-billing rail (-> run <=¥5k reach test, exit E2) and if mac-local recovered (-> run note+Coconala headed reads h5-note-reach-read-1020 / h1-coconala-inbox). Verify Day-22 X dispatch after 20:40 JST (re-ignite x-watchdog via workflow_dispatch if GitHub drops the cron). Hold at E2 otherwise; NO new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no spam (Art.10). Next scheduled decision = 2026-10-29 weekly review; FINAL report after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-22T04:11:38.823Z"
+  "heartbeat_at": "2026-10-22T11:29:51.030Z"
 }
