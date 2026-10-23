@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "E2 (company PAUSED, 10/22 L5/E2 channel-exhaustion review). Day-23 08:07 JST hold fire: owner_queue empty, 0 new buyer signal, Day-23 X item re-validated (269w, due 20:40 JST), stop_screen(5)+session_end E2 logged, decision report 2026-10-23T0807.",
-  "next": "Next fire (13:07 JST 10/23): owner_queue + cloud buyer-signal sweep -> ANY inbound = FIRST_WIN Art.10 <=12h (exits E2); check owner paid-acq ad rail (-> <=¥5k reach test, exits E2) and mac-local recovery (-> h1-coconala-inbox-1020am + h5-note-reach-read-1020). Verify Day-23 X dispatch after 20:40 JST (re-ignite x-watchdog via workflow_dispatch if GitHub drops the cron); author Day-24 item at the 00:07 fire if queue empty. Hold at E2 otherwise; NO new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no spam (Art.10). Next scheduled decision = 2026-10-29 weekly review; FINAL report after 10/31.",
+  "doing": "E2 (company PAUSED, 10/22 L5/E2 channel-exhaustion review). Day-23 13:07 JST hold fire: owner_queue empty, 0 new buyer signal (revenue ¥0, X 0 contact, 0 inbound events 10/22-10/23), mac-local still blocked, Day-23 X item re-validated (269w, due 20:40 JST), stop_screen(5)+session_end E2 logged, decision report 2026-10-23T1307.",
+  "next": "Next fire (20:07 JST 10/23): owner_queue + cloud buyer-signal sweep -> ANY inbound = FIRST_WIN Art.10 <=12h (exits E2). VERIFY Day-23 X dispatched after 20:40 JST (re-ignite x-watchdog via workflow_dispatch if GitHub dropped the cron). Check owner paid-acq ad rail (-> <=¥5k reach test, exits E2) and mac-local recovery (-> h1-coconala-inbox-1020am + h5-note-reach-read-1020). Author Day-24 item at the 00:07 fire if queue empty. Hold at E2 otherwise; NO new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no spam (Art.10). Next scheduled decision = 2026-10-29 weekly review; FINAL report after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-22T23:11:48.850Z"
+  "heartbeat_at": "2026-10-23T04:11:53.977Z"
 }
