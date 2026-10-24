@@ -1,0 +1,70 @@
+{
+  "fire": "2026-10-25T08:07+09:00",
+  "author": "founder",
+  "note": "Day-25 08:07 JST fire. Company ACTIVE on H6 (E2 withdrawn at the 04:00 fire). Executed the required every-fire sweep (owner_queue + cloud buyer-signal) and built the H6 reply-handling kit so the reply→build SLA is real. Gmail reply-sweep could NOT run this session (connector connected at org but enabledInChat=false) — flagged as a per-session tooling gap, not a strategy change.",
+  "lanes": {
+    "company": {
+      "fact": "08:07 JST 10/25 (Day 25): gross ¥0, 0 orders, 0 charges (revenue_ledger []), cost ¥0. 0 new events on any operator log dated 2026-10-25 → 0 new inbound since the 04:00 fire. H6 live: offer page offer/monthly-csv-report-jp.html present, owner Gmail draft r3803382103790345428 pending send (URGENT owner-warm-network-send-1025, 9.8h to the 10/25 18:00 deadline; at top of OWNER_ACTION_REQUIRED.md + GitHub issue #39 open — BOOTSTRAP 5c satisfied). No LAPSED owner Art.9 job (Coconala 5329177 was a pending-offer expiry, not a deadline-bearing owner step). Required Gmail reply-sweep (BOOTSTRAP 5b2) could not run this session: Gmail connector is connected at org level but enabledInChat=false, no gmail tool loadable — E3-type tooling gap for that sub-task only.",
+      "interpretation": "H6 unchanged (active_primary, in-flight): launched at 04:00, now owner-send-gated (Art.9) with the 24h reply gate at 10/26 04:00. The reply-handling path was the one remaining non-gated positive-EV AI action this fire and was executed (REPLY_KIT built). All other motions unchanged (H1/H2/H5 falsified/near-falsified; H3/H4 passive). No new demand signal.",
+      "decision": "continue",
+      "next_action": "Executed: built marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → Google Sheet 集計表 build ≤1 day → 後払い ¥5,000 → referral) and pointed STATE H6.next_action at it, so a reply triggers a zero-latency ≤1-day build. Flagged the Gmail-connector-not-in-chat gap for the owner/next session. Held the zero-cost passive portfolio + armed inbound watch; no new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5).",
+      "deadline_trigger": "2026-10-25 18:00 JST: owner sends the Gmail draft (URGENT, issue #39). 2026-10-26 04:00: H6 24h gate = ≥1 concrete reply/forward; 0 replies by 10/27 04:00 → compare H7 (ads, Art.9 owner billing rail) at the 10/27 fire. 2026-10-29 weekly review. ANY inbound on any channel before then → REPLY_KIT / Art.10 FIRST_WIN ≤12h (exits E2)."
+    },
+    "x": {
+      "fact": "Day-24 item VERIFIED posted (tweet 2113963469254852616, 2026-10-24T11:59:01Z / 20:59 JST, 0/0/0, tool link in self-reply). Day-25 numbers item already AUTHORED+validated at the 04:00 fire (social/2026-10/queue/2026-10-25-pm.json, not_before 2026-10-25T20:40 JST). It is 08:07 JST — Day-25 not yet due; nothing to dispatch this fire. Dispatch crons intact: x-phase2.yml evening '37 11 * * *' UTC (20:37 JST) + x-watchdog.yml '*/10 * * * *' backstop. X aggregate 42 posts / 347 imp / median 10 / 2 cumulative profile-clicks / 0 external buyer reply.",
+      "interpretation": "H2 unchanged (falsified as a revenue bet; reach, not angle, binds on a small-follower account). Kept strictly as the zero-cost Art.12 honesty record + H5/H6 reach probe. No angle/format change this between-review fire (Art.5.2/5.4).",
+      "decision": "continue",
+      "next_action": "At the next fire (13:07 JST) nothing is due yet; at/after 20:40 JST verify Day-25 dispatched (posted.jsonl tweet_id + metrics entry); if GitHub dropped the cron, re-ignite via workflow_dispatch of x-watchdog.yml. Author the Day-26 numbers item once 10/25 numbers close. Judge X's market response only.",
+      "deadline_trigger": "2026-10-25 ~21:10 JST (checked at the next fire after 20:40): Day-25 not posted → re-ignite the watchdog/x-phase2 dispatch. Through 2026-10-31: any profile-click→inquiry or buyer reply → Art.10 FIRST_WIN ≤12h."
+    },
+    "coconala_proposals": {
+      "fact": "11 cumulative proposals (Coconala 7 + CrowdWorks 4), 0 replies (0/11). Public-job proposal motion FALSIFIED/STOPPED 2026-10-18 (L4), folded into the 10/22 L5/E2 finding. 2 pending Coconala offers: 5329177 (kigen 10/23, lapsed unread) and 5328251 (kigen 10/26, now <48h). mac-local partially recovered this fire (ran a headless note read 07:56 JST then ended E3 no-browser), so the headed Coconala inbox read is still pending — scheduled task h1-coconala-inbox-1025pm from 18:00 JST as signal-watch only.",
+      "interpretation": "H1 unchanged (falsified). Arithmetically dead for G3 (0/11; back-calc needs 68.6 proposals/day vs 0.62 observed). No new public-job proposals (Art.5.2/5.4).",
+      "decision": "stop",
+      "next_action": "No new proposals. mac-local runs h1-coconala-inbox-1025pm from 18:00 JST as pure signal-watch on 5328251 (reply under PG-1); any buyer reply → REPLY path / Art.10 FIRST_WIN ≤12h (exits E2).",
+      "deadline_trigger": "5328251 kigen 2026-10-26 is <48h but signal-watch only (no Art.9 step, no autonomous action owed) — any reply → Art.10 ≤12h. 2026-10-29 weekly review folds the proposal channel into the refreshed exhaustion ledger."
+    },
+    "coconala_listing": {
+      "fact": "Passive gig 4426150 (also the H5 paid CTA): 0 inquiry signals in 25 days (0 fav / oubo / message). Inbox read folded into h1-coconala-inbox-1025pm; mac-local recovering — headed read pending from 18:00 JST.",
+      "interpretation": "H3/H5 unchanged (passive listing, no demand). Copying the offer into a new listing is forbidden (Art.5.5).",
+      "decision": "shrink",
+      "next_action": "No active work, no new listing. Inbox check via mac-local from 18:00 JST; any message → Art.10 FIRST_WIN ≤12h.",
+      "deadline_trigger": "Through 2026-10-31: still 0 → keep live / zero-effort; any message → Art.10. 2026-10-29 review re-scores the listing cell."
+    },
+    "booth": {
+      "fact": "BOOTH STOPPED 2026-10-15 (0 suki / 0 sales trigger). Listing kept live (items/8919052). 0 messages in 25 days.",
+      "interpretation": "H3 unchanged (stopped); passive, no demand. Listing left live at zero cost under the passive portfolio.",
+      "decision": "stop",
+      "next_action": "None. No scan/inbox task; any order/message → Art.10 FIRST_WIN ≤12h.",
+      "deadline_trigger": "Through 2026-10-31: kept live / zero-effort; any order/message → Art.10."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger entries [] (¥0, 0 orders). Automated sales-monitor is the authoritative revenue path → 0 charges. Stripe MCP direct read requires owner OAuth re-auth (Art.9; stripe server listed as needing authorization this session) — a redundant secondary path, not a blocker.",
+      "interpretation": "H4 unchanged (passive store, ~0 demand). No rebuild (negative-EV vs the exhausted channel set, Art.5.5).",
+      "decision": "continue",
+      "next_action": "Sales-monitor continues to book any charge automatically; retry Stripe MCP as a secondary read when creds return. No build.",
+      "deadline_trigger": "Through 2026-10-31: any charge → auto-booked + double-down (Art.7) and exits E2."
+    },
+    "note": {
+      "fact": "note nbed12c976efb (H5/H6 funnel content) live. mac-local read public metrics without browser at 2026-10-24T22:56Z (07:56 JST 10/25): 0 スキ / 0 comments 7 days after publish → 0 qualified reach, no buyer inquiry in comments; FIRST_WIN not triggered. Task h5-note-reach-read-1020 now DONE. PV + DM inbox still login-gated (no note route in mac_supervisor).",
+      "interpretation": "H5 unchanged (reach confirmed ~0; 0 inbound). The 7-day engagement read closes the note reach row at 0/0. No new note content (Art.5.5); kept live at zero cost.",
+      "decision": "continue",
+      "next_action": "None from cloud. The note reach read is done; any future comment/inbound → Art.10 FIRST_WIN ≤12h. (A note profile/PV route in mac_supervisor would be needed to read PV; not worth building pre-signal.)",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is; any comment/inbound → Art.10. 2026-10-29 review records the note reach row = 0/0 engagement after 7d, PV unknown."
+    },
+    "zenn": {
+      "fact": "Free articles + free book live; paid book gas-ai-jimu-plus-6 live. 0 signals in 25 days. Audience = JP engineers, a poor match for the H5/H6 non-engineer target.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new article (Art.5.5); SEO latency >> 10/31 + audience mismatch make it negative-EV as a driver.",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new content.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is."
+    },
+    "etsy": {
+      "fact": "13 listings live (API via Actions secrets). 0 signals in 25 days.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new listing (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new listing.",
+      "deadline_trigger": "Through 2026-10-31: no signal → keep as-is; any order → Art.10."
+    }
+  }
+}
