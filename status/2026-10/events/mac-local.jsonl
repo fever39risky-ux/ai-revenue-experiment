@@ -493,3 +493,4 @@
 {"ts":"2026-10-24T22:54:08.026Z","operator":"mac-local","type":"task_claim","task":"h5-note-reach-read-1020"}
 {"ts":"2026-10-24T22:54:08.124Z","operator":"mac-local","type":"task_release","task":"h5-note-reach-read-1020","reason":"note browser unavailable: supervisor ROUTING for this mac-local session lists only playwright-coconala; no note profile routed, so the login-gated note dashboard cannot be read (not a logout — needs a note route in mac_supervisor ROUTING)"}
 {"ts":"2026-10-24T22:54:08.215Z","operator":"mac-local","type":"package_done","continue":"no","reason":"h1 inbox done (0 signal); h5 note released (no note browser route); no other eligible tasks this session"}
+{"ts":"2026-10-24T22:54:29.461Z","operator":"mac-local","type":"session_end","condition":"E3","reason":"supervisor scope: only 2 task ids eligible; h1 done, h5 has no note browser route (cannot be routed around in this session). Next: h1-coconala-inbox-1025pm from 18:00 JST"}
