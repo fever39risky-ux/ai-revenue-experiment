@@ -13,9 +13,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-19T10:03:15.843Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-25T00:52:11.849Z",
+  "result": "Coconala inbox read 2026-10-25 07:53 JST: /message 1 thread only (hidemasa0122, last 10/13, unchanged, no reply); notifications = platform recos/coupons only (RPA reco 15h ago, illustrator reco 3d ago), no buyer msg; transactions = 5 operator notices 募集終了 unadopted (hidemasa 3d, chunhye 4d, iirui2475, DREAM PONY, IWAN0_0); offers: 5329177 双葉つゆ now 募集終了 (not adopted), 5328251 meyusa still pending (期限10/26, ¥8,000). 0 buyer messages / 0 valid demand signal; nothing to reply under PG-1.",
+  "history": [
+    {
+      "ts": "2026-10-24T22:52:11.849Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-24T22:54:00.368Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Coconala inbox read 2026-10-25 07:53 JST: /message 1 thread only (hidemasa0122, last 10/13, unchanged, no reply); notifications = platform recos/coupons only (RPA reco 15h ago, illustrator reco 3d ago), no buyer msg; transactions = 5 operator notices 募集終了 unadopted (hidemasa 3d, chunhye 4d, iirui2475, DREAM PONY, IWAN0_0); offers: 5329177 双葉つゆ now 募集終了 (not adopted), 5328251 meyusa still pending (期限10/26, ¥8,000). 0 buyer messages / 0 valid demand signal; nothing to reply under PG-1."
+    }
+  ]
 }

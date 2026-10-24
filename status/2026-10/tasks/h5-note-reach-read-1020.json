@@ -14,5 +14,17 @@
   "claimed_by": null,
   "lease_until": null,
   "result": null,
-  "history": []
+  "history": [
+    {
+      "ts": "2026-10-24T22:54:08.025Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-24T22:54:08.123Z",
+      "op": "mac-local",
+      "action": "release",
+      "note": "note browser unavailable: supervisor ROUTING for this mac-local session lists only playwright-coconala; no note profile routed, so the login-gated note dashboard cannot be read (not a logout — needs a note route in mac_supervisor ROUTING)"
+    }
+  ]
 }
