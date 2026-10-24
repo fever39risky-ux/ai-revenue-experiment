@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月末のCSV集計を、貼るだけの1枚に（先着3名・後払い）</title>
+<meta name="description" content="毎月・毎週、複数のCSVをExcelに貼り付けて集計表を作っている方へ。Googleスプレッドシート1枚で「CSVを貼るだけで表が完成」する形に作ります。先着3名は5,000円・納品確認後の後払い・効果がなければ0円。">
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",Helvetica,sans-serif;color:#13202b;background:#f4f8fb;line-height:1.75}
+.wrap{max-width:820px;margin:0 auto;padding:32px 16px}h1{font-size:1.7rem;line-height:1.35;margin:0 0 10px}h2{font-size:1.2rem;margin:28px 0 8px}
+.lead{color:#40525f;font-size:1.05rem}.card{background:#fff;border:1px solid #dbe5ec;border-radius:12px;padding:16px 18px;margin:12px 0}
+.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.ba .card h3{margin:0 0 6px;font-size:1rem}
+.before h3{color:#a33}.after h3{color:#1f7f7a}table{border-collapse:collapse;width:100%;font-size:.95rem}td,th{border-bottom:1px solid #e3ebf0;padding:7px 6px;text-align:left;vertical-align:top}
+.price{font-size:1.5rem;font-weight:800;color:#1f7f7a}.muted{color:#5a6b77;font-size:.9rem}ul{padding-left:1.2em}a{color:#1a6fb0}
+</style>
+</head>
+<body><div class="wrap">
+<p class="muted">AIに会社を任せる実験（第2弾）</p>
+<h1>月末・毎週の「CSVを貼り合わせて集計表を作る作業」を、貼るだけの1枚にします</h1>
+<p class="lead">POSレジ・ネットショップ・銀行・勤怠アプリなどから出したCSVを、毎回Excelにコピペして並べ替え、合計を出して報告表を作っている方へ。Googleスプレッドシート1枚に、<b>CSVを所定のシートに貼るだけで集計表が完成する</b>仕組みを作ってお渡しします。</p>
+
+<div class="ba">
+<div class="card before"><h3>いま（例）</h3><ul>
+<li>月末に2〜4種類のCSVをダウンロード</li>
+<li>Excelに貼って列を並べ替え、日付・金額の形式を手で直す</li>
+<li>合計や前月比を出して報告表に転記（2〜5時間）</li>
+<li>転記ミスを探して、もう一度見直す</li></ul></div>
+<div class="card after"><h3>納品後</h3><ul>
+<li>CSVをそれぞれのシートに貼る（数分）</li>
+<li>列の並べ替え・形式の統一・合計・前月比は自動</li>
+<li>報告表のタブがそのまま完成</li>
+<li>次の月からも同じ手順で使えます</li></ul></div>
+</div>
+
+<h2>内容と範囲</h2>
+<div class="card"><table>
+<tr><th>作るもの</th><td>Googleスプレッドシート1ファイル（貼り付け用シート＋集計表1種類）と、使い方メモ</td></tr>
+<tr><th>対象</th><td>CSVの種類は最大4つまで、集計表は1種類（例：月次の売上・経費表、週次の売上報告、勤怠の月次集計）</td></tr>
+<tr><th>進め方</th><td>① いまの作業と、使っているCSVの見本（個人情報は消した数行で十分）を送ってもらう → ② 3日以内に完成品を共有 → ③ 実際の月末に使ってみて、修正は2回まで無料</td></tr>
+<tr><th>やらないこと</th><td>会計ソフトや業務システムへのログイン・設定変更、個人情報の入った実データの受け取り、継続保守の約束</td></tr>
+</table></div>
+
+<h2>料金</h2>
+<div class="card"><p><span class="price">5,000円</span>（先着3名・税込）<span class="muted">　通常想定 15,000円</span></p>
+<ul><li><b>後払い</b>：実際に使って役に立ったと確認してからお支払いください</li>
+<li><b>効果がなければ0円</b>：作業時間が減らなければ請求しません</li>
+<li>お支払い方法は完成後にご相談（銀行振込など）</li></ul></div>
+
+<h2>正直にお伝えすること</h2>
+<div class="card"><ul>
+<li>制作はAI（Claude）を活用して行います。そのぶん安く・早くできますが、確認と説明は責任を持って行います。</li>
+<li>この実験はまだ売上0円・実績0件です。最初のお客さまになっていただける方を探しています。</li>
+<li>動作は見本のCSVで確認してからお渡しします。形式が変わった場合の修正は2回まで無料です。</li></ul></div>
+
+<h2>相談のしかた</h2>
+<div class="card"><p>この案内を送った本人に、メッセージで「いま手でやっている集計作業」を一言送ってください（例：「毎月、POSとカードのCSVを合わせて売上表を作っている」）。合いそうかどうか、その場でお返事します。合わなければそれで終わりで構いません。</p>
+<p class="muted">参考：同じ考え方で作った無料ツール（ブラウザ内だけで処理）— <a href="../tools/order-csv-converter-jp.html">注文CSV → 送り状CSV 変換ツール</a></p></div>
+</div></body></html>

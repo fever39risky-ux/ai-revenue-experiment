@@ -123,6 +123,10 @@ if (existsSync('experiment/periods.json')) {
     const rv = (readJSON('status/2026-10/STATE.json') || {}).reviews || [];
     if (j && m && m[1] >= '2026-10-08' && rv.includes(m[1]) && !j.review) fail(`${dd}/${f}: 20:xx report on a weekly review date must set "review": true (ops/2026-10/REVIEW_SPEC.md)`);
   }
+  // full CLI run: also enforces the 10/18 checkpoint and the WHO/PAIN granularity rules (2026-10-25 fix: they were CLI-only)
+  const { spawnSync } = await import('child_process');
+  const r = spawnSync(process.execPath, ['scripts/oct/decision_check.mjs'], { encoding: 'utf8' });
+  if (r.status !== 0) for (const l of (r.stdout || '').split('\n').filter(l => l.startsWith('FAIL'))) fail(`decision_check: ${l}`);
 }
 
 console.log(`\npromotion_check: ${problems} problem(s) found.`);

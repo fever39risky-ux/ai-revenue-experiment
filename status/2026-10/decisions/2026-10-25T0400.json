@@ -1,0 +1,195 @@
+{
+  "fire": "2026-10-25T04:00+09:00",
+  "author": "founder",
+  "note": "Owner-directed Day-25 fire: re-verify the E2 conclusion, zero-base customer acquisition for the last 6 days.",
+  "lanes": {
+    "company": {
+      "fact": "04:00 JST 10/25 (Day 25): gross ¥0, 0 orders, 0 external buyer replies; X 42 posts / 347 imp / median 10. Gmail notification sweep (first time): 3 CrowdWorks scout messages 10/11–10/23, all unqualified (¥100 lure ×2, HRMOS-experience mass scout ×1). E2 premise re-checked: the owner's own network was never compared.",
+      "interpretation": "E2 (10/22) weakened → withdrawn: an untested motion with materially higher 6-day probability exists (H6 warm network, opened). H1–H5 unchanged (falsified/near-falsified).",
+      "decision": "expand",
+      "next_action": "Executed: H6 opened and put in front of the market (offer page + Gmail draft + URGENT owner send by 10/25 18:00); E2 hold withdrawn; Gmail notification sweep added to every Founder fire. On any reply: AI drafts the reply + sample request within the fire, builds in ≤1 day.",
+      "deadline_trigger": "2026-10-25 18:00 JST: owner send (URGENT). 2026-10-26 04:00: 24h signal = ≥1 concrete reply/forward; 0 replies by 10/27 → compare H7 (ads) as the remaining motion; 10/29 review."
+    },
+    "x": {
+      "fact": "Day-24 item dispatched VERIFIED: posted.jsonl tweet 2113963469254852616 at 2026-10-24T11:59:01Z (20:59 JST, within the evening window), text 'Day24 / 昨日(10/23) 0/0/0 / 会社は停止(E2)のまま, 公開物はそのまま, 問い合わせは12h以内に無料, 次の棚卸しは10/29', reply carries the tool link (reply_id 2113963470936842463, reply_error null); metrics.json carries the tweet (reply_count 1 = our own threaded self-reply). Day-25 item AUTHORED this fire (social/2026-10/queue/2026-10-25-pm.json, not_before 2026-10-25T20:40 JST, 10/24 numbers 0/0/0, 265w, link in reply_text only, E2/paused-but-armed honesty message) and validated (x_phase2 validate ok). Dispatch workflows verified cron-intact: x-phase2.yml evening cron '37 11 * * *' UTC (20:37 JST) + x-watchdog.yml '*/10 * * * *' backstop. X aggregate: 42 posts / 347 impressions / median 10 / 2 cumulative profile-clicks / 0 profile-click->inquiry / 0 external buyer reply.",
+      "interpretation": "H2 unchanged (falsified as a revenue bet; reach, not angle, binds on a small-follower account). Kept strictly as the zero-cost Art.12 honesty record + H5 reach probe under E2. The chronic ~3-min gap between the Day-N not_before (20:40 JST) and the evening posting cron (20:37 JST) again resolved cleanly on the posting run itself (Day-24 landed 20:59 JST), so the x-watchdog backstop was not even needed; no tooling churn this between-review fire (Art.5.4). Candidate cadence fix (not_before <=20:35 JST or an extra evening cron) stays teed up for a review cell but is unnecessary while same-day dispatch keeps landing.",
+      "decision": "continue",
+      "next_action": "At the next fire verify the Day-25 post dispatched after 20:40 JST tonight (posted.jsonl tweet_id + metrics entry); if GitHub dropped the cron re-ignite via workflow_dispatch of x-watchdog.yml. Author the Day-26 numbers item if the queue is empty. Judge X's market response only; no angle/format tweak (Art.5.2/5.4).",
+      "deadline_trigger": "2026-10-25 ~21:10 JST (checked at the next fire): Day-25 not posted -> re-ignite the watchdog/x-phase2 dispatch. Through 2026-10-31: any profile-click->inquiry or buyer reply -> Art.10 FIRST_WIN <=12h."
+    },
+    "coconala_proposals": {
+      "fact": "11 cumulative proposals (Coconala 7 + CrowdWorks 4), 0 replies (0/11). Public-job proposal motion FALSIFIED/STOPPED 2026-10-18 (L4 checkpoint), folded into the 10/22 L5/E2 exhaustion finding. 2 pending Coconala offers (5329177 kigen 10/23 — lapsed unread, 5328251 kigen 10/26) remain signal-watch only (task h1-coconala-inbox-1020am). mac-local blocked -> the inbox read is still unrun.",
+      "interpretation": "H1 unchanged (falsified). The motion is arithmetically dead for G3 (0/11 reply rate; G3 back-calc needs 68.6 proposals/day vs 0.62 observed). No new public-job proposals (Art.5.2/5.4).",
+      "decision": "stop",
+      "next_action": "No new proposals. mac-local, on recovery, runs h1-coconala-inbox-1020am as signal-watch on the pending offers only (reply under PG-1). Any buyer reply -> Art.10 FIRST_WIN <=12h (exits E2).",
+      "deadline_trigger": "5329177 kigen 2026-10-23 passed (a pending offer expiring unread, not a deadline-bearing owner job, no Art.9 step, so no OWNER_ACTION escalation); 5328251 kigen 2026-10-26 is now <48h out but remains signal-watch only (no Art.9 step, no autonomous action owed) — any reply on it -> Art.10 <=12h. 2026-10-29 weekly review folds the proposal channel into the refreshed exhaustion ledger."
+    },
+    "coconala_listing": {
+      "fact": "Passive gig 4426150 (also the H5 paid CTA): 0 inquiry signals in 24 days (0 fav / oubo / message). Inbox read folded into the h1 signal-watch task; mac-local blocked so the read is still unrun.",
+      "interpretation": "H3/H5 unchanged (passive listing, no demand). Copying the offer into a new listing is forbidden (Art.5.5).",
+      "decision": "shrink",
+      "next_action": "No active work, no new listing. Inbox check via mac-local on recovery; any message -> Art.10 FIRST_WIN <=12h.",
+      "deadline_trigger": "Through 2026-10-31: still 0 -> keep live / zero-effort; any message -> Art.10. 2026-10-29 review re-scores the listing cell."
+    },
+    "booth": {
+      "fact": "BOOTH STOPPED 2026-10-15 (0 suki / 0 sales trigger). Listing kept live (items/8919052). 0 messages in 24 days.",
+      "interpretation": "H3 unchanged (stopped); passive, no demand. Listing left live at zero cost under the E2 passive portfolio.",
+      "decision": "stop",
+      "next_action": "None. No scan/inbox task; any order/message -> Art.10 FIRST_WIN <=12h.",
+      "deadline_trigger": "Through 2026-10-31: kept live / zero-effort; any order/message -> Art.10."
+    },
+    "stripe_gumroad": {
+      "fact": "revenue_ledger entries [] (Y0, 0 orders). Automated sales-monitor is the authoritative revenue path -> 0 charges, revenue_ledger still []. Stripe MCP direct read requires owner OAuth re-auth (Art.9; stripe server listed as needing authorization this session) — a redundant secondary path, not a blocker.",
+      "interpretation": "H4 unchanged (passive store, ~0 demand). No rebuild (negative-EV vs the exhausted channel set, Art.5.5).",
+      "decision": "continue",
+      "next_action": "Sales-monitor continues to book any charge automatically; retry Stripe MCP as a secondary read when creds return. No build.",
+      "deadline_trigger": "Through 2026-10-31: any charge -> auto-booked + double-down (Art.7) and exits E2."
+    },
+    "note": {
+      "fact": "note nbed12c976efb (H5 funnel content) live; reach unconfirmed from cloud (note.com not readable under the network policy; headed read is mac-local-only, task h5-note-reach-read-1020). mac-local blocked (supervisor backoff #6) -> the 10/20 read remains unrun. 0 measurable inbound.",
+      "interpretation": "H5 unchanged (reach unconfirmed->0; 0 inbound). No new note content (Art.5.5); kept live at zero cost under the E2 passive portfolio.",
+      "decision": "continue",
+      "next_action": "None from cloud this fire. mac-local on recovery runs h5-note-reach-read-1020 as signal-watch; any comment/inbound -> Art.10 FIRST_WIN <=12h.",
+      "deadline_trigger": "Through 2026-10-31: no signal -> keep as-is; any comment/inbound -> Art.10. 2026-10-29 review re-scores the note cell (reach row = 'unconfirmed->0' if mac-local still down)."
+    },
+    "zenn": {
+      "fact": "Free articles + free book live; paid book gas-ai-jimu-plus-6 live. 0 signals in 24 days. Audience = JP engineers, a poor match for the H5 non-engineer EC-seller target.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new article (Art.5.5); SEO latency >> 10/31 and audience mismatch make it negative-EV as an H5 driver.",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new content.",
+      "deadline_trigger": "Through 2026-10-31: no signal -> keep as-is."
+    },
+    "etsy": {
+      "fact": "13 listings live (API via Actions secrets). 0 signals in 24 days.",
+      "interpretation": "H4 unchanged; passive supply, no demand. No new listing (Art.5.5).",
+      "decision": "continue",
+      "next_action": "None this fire; keep live, no new listing.",
+      "deadline_trigger": "Through 2026-10-31: no signal -> keep as-is; any order -> Art.10."
+    }
+  },
+  "acquisition": {
+    "acquisition_spec_version": 2,
+    "acquisition_hypotheses": [
+      {
+        "id": "H6-warm-network",
+        "who": {
+          "industry": "小売店・飲食店・ネットショップ・士業事務所など、オーナーの知人が経営または勤務している事業所",
+          "role": "経営者本人、または経理・事務を兼任している担当者",
+          "company_size": "従業員1〜20名",
+          "task": "POSレジ・カート・銀行・勤怠アプリのCSVをダウンロードしてExcelに貼り、売上・経費・勤怠の月次/週次の報告表を作る",
+          "frequency": "毎月末（週次報告なら毎週）、CSV 2〜4種類",
+          "current_method": "Excelにコピペし、列の並べ替え・日付と金額の形式直し・合計・前月比を手作業で行い、報告表に転記",
+          "pain_moment": "月末締めの夜に、転記ミスで合計が合わず、どのCSVのどの行かを探し直している時"
+        },
+        "pain": "毎月末に2〜4種類のCSVをExcelに貼り合わせて報告表を作るのに1回2〜5時間かかり、転記ミスで合計が合わず見直しに追加で30分〜1時間かかる",
+        "trigger": "月末締め・月初の報告、週次の売上報告",
+        "offer": "Googleスプレッドシート1枚（貼り付けシート＋集計表1種類、CSV最大4種類）、3日納品・修正2回、先着3名¥5,000・納品確認後の後払い・効果なしなら0円",
+        "why_now": "10月末の締めがちょうど今週来る（10/31）。今週作れば今月の締めから使える",
+        "trust": "オーナー本人との既存の関係（顔の見える紹介）＋後払い・0円保証＋無料ツールの実物＋『AI活用・実績0』を正直に開示",
+        "where": "オーナー本人の知人・元同僚・取引先（Gmail・LINEの連絡先）",
+        "how_to_reach": "オーナーが用意済みの文面を3〜10名に送る／転送を頼む（紹介）。AIからの直接連絡はしない（Art.10）",
+        "first_conversion": "後払い・効果なし0円・¥5,000（先着3名）、見本CSV数行だけで着手",
+        "repeatability": "1件目の集計表をテンプレ化し、同じ『月末CSV集計』の人へ紹介経由で同条件展開。2件目以降は¥15,000",
+        "steps_to_first_close": "①オーナー送信(5分) ②知人が作業を一言返信 ③AIが見本CSVを依頼する返信文を用意→オーナー転送 ④AIが1日で作成・共有 ⑤月末(10/31)に使って確認 ⑥後払い¥5,000",
+        "first_market_test": "Gmail下書き作成済み（宛先なし）＋オファーページ公開。オーナーが本日18時までに3〜10名へ送信",
+        "signal_24h": "知人から『こういう作業がある』という具体的な返信が1件以上（または転送1件）",
+        "revenue_probability_6d": "15〜25%（ASSUMPTION：紹介経由は返信率が公開応募の10倍以上という一般的傾向。実績データなし）",
+        "channel": "オーナーのGmail/LINE（紹介）"
+      },
+      {
+        "id": "H7-search-intent-ads",
+        "who": {
+          "industry": "BASE/STORES/メルカリShopsのネットショップ（月商10万〜200万円）",
+          "role": "店主本人または発送兼任スタッフ",
+          "company_size": "従業員0〜3名",
+          "task": "注文CSVをクリックポスト/ヤマトB2の取込形式へ直して送り状を発行",
+          "frequency": "発送日ごと（週2〜5回、1回10〜40件）",
+          "current_method": "Excelで列を並べ替え・郵便番号/電話を手修正",
+          "pain_moment": "取込エラーが出て『クリックポスト CSV 変換』と検索している瞬間"
+        },
+        "pain": "発送日ごとに10〜40件の注文CSVを送り状用に手直しするのに1回30〜60分（週1〜4時間）",
+        "trigger": "取込エラー・発送日",
+        "offer": "無料ツール→個別設定¥3,000〜8,000（先着は無料設定）",
+        "why_now": "エラーで今日の発送が止まっている",
+        "trust": "無料ツールがその場で動く（ブラウザ内処理）",
+        "where": "Google検索（『クリックポスト csv 変換』等）",
+        "how_to_reach": "検索連動広告 ≤¥5,000（Art.11予算内）",
+        "first_conversion": "無料ツール利用→個別設定の問い合わせ",
+        "repeatability": "同じ検索語で再現可能",
+        "steps_to_first_close": "①オーナーが広告アカウントの支払い設定(Art.9,約10分) ②AIが広告文・キーワード作成 ③審査約1日 ④クリック→ツール→問い合わせ→無料設定→有料化",
+        "first_market_test": "検索広告¥5,000（オーナーの支払い設定後）",
+        "signal_24h": "広告表示・クリック数、ツール利用（審査待ちで24h以内は取れない可能性大）",
+        "revenue_probability_6d": "3〜5%（ASSUMPTION：審査1日＋無料→有料の2段階）",
+        "channel": "Google検索広告"
+      },
+      {
+        "id": "H8-public-qa-answer",
+        "who": {
+          "industry": "ネットショップ・小規模事業（BASE/STORES利用者など）",
+          "role": "店主・事務担当",
+          "company_size": "1〜5名",
+          "task": "CSV変換・集計のやり方を自分で調べて手作業している",
+          "frequency": "同種の質問の投稿が週3〜5件、質問者は発送・締めのたび（毎週）に手作業",
+          "current_method": "Excelで手作業、やり方をQ&Aサイトで質問",
+          "pain_moment": "『CSVをこの形式にしたい』とQ&Aサイトに質問を投稿した直後"
+        },
+        "pain": "10〜40件のCSVを別形式に直す方法が分からず、毎回30分以上手で直している（質問本文に作業内容が書かれている）",
+        "trigger": "Q&Aサイトへの質問投稿",
+        "offer": "質問への無料の具体的回答（手順・式）＋必要なら無料ツール紹介",
+        "why_now": "質問者は今まさに困っている",
+        "trust": "回答そのものの質（その場で解決）",
+        "where": "Yahoo!知恵袋・teratail・BASE Uなどの公開Q&A",
+        "how_to_reach": "公開質問への回答（営業はしない、規約順守）",
+        "first_conversion": "回答→プロフィール経由の相談",
+        "repeatability": "質問は継続的に出るが有料化経路が細い",
+        "steps_to_first_close": "①アカウント(オーナー,Art.9)＋mac-localの画面ありブラウザ（10/19から停止中）②回答 ③相談 ④有料化",
+        "first_market_test": "公開質問3件に回答",
+        "signal_24h": "ベストアンサー・お礼・プロフィール閲覧",
+        "revenue_probability_6d": "≤2%（ASSUMPTION：Q&Aは無償文化で有料化が弱く、到達手段のmac-localも停止中）",
+        "channel": "公開Q&Aサイト"
+      },
+      {
+        "id": "H9-pending-proposal-followup",
+        "who": {
+          "industry": "ココナラ公開依頼の依頼者（未返信の提案2件）",
+          "role": "依頼を出した担当者",
+          "company_size": "不明（1〜10名と推定）",
+          "task": "依頼文に書かれた作業",
+          "frequency": "単発の依頼（1回きり、期限10/23・10/26）",
+          "current_method": "手作業または外注先を探している",
+          "pain_moment": "依頼の期限前に提案を比較している時"
+        },
+        "pain": "依頼文にある作業（提案済み2件、期限10/26・10/23）を自分でやると数時間かかる",
+        "trigger": "依頼期限",
+        "offer": "提案済み内容",
+        "why_now": "期限",
+        "trust": "提案文",
+        "where": "ココナラ",
+        "how_to_reach": "既存提案へのフォロー（mac-local）",
+        "first_conversion": "既提案",
+        "repeatability": "低",
+        "steps_to_first_close": "依頼者の返信待ち",
+        "first_market_test": "なし（既に提出済み）",
+        "signal_24h": "返信",
+        "revenue_probability_6d": "≤1%（0/11の実績）",
+        "channel": "ココナラ"
+      }
+    ],
+    "chosen_hypothesis": "H6-warm-network",
+    "why": "6日で売上が立つ確率が最も高いのは、信頼をゼロから作る必要がない相手。H1〜H5はすべて『見知らぬ買い手に、実績0の売り手が届く』前提で、25日間0件。H6は既存の関係（紹介）で信頼と到達を同時に解決し、後払い・0円保証で金銭リスクも消す。人間の操作はオーナーの送信5分だけで、残りはAIが作る。H7は審査と2段階転換で6日に間に合いにくく、H8は到達手段（mac-local）が停止中、H9は0/11の実績。",
+    "e2_reverification": "10/22のE2判定（『positive-EVなAI実行可能な作業がない』）は不完全だった。(1) 比較対象に『オーナーの既存ネットワーク（紹介）』が一度も入っていなかった（REVIEW-2026-10-22.md / L5_CHANNEL_EXHAUSTION_PREP.md に該当語なし）。(2) シグナル確認がmac-localの受信箱に依存し、10/19以降mac-local停止中は誰もプラットフォームの受信を見ていなかった。Gmail通知で再確認した結果、CrowdWorksの『相談』3件（10/11, 10/22, 10/23）を発見。内容は¥100の記事閲読案件2件（典型的な誘導型）とHRMOS経験者向けの一斉スカウト1件で、PG-2条件1/4に反し有効な買い手ではない。ただし監視の穴は実在→Gmail通知をFounderの毎回のシグナル確認に追加。結論：E2は撤回、会社はACTIVE。",
+    "executed": {
+      "market_test": {
+        "hypothesis": "H6-warm-network",
+        "action": "オファーページを公開（offer/monthly-csv-report-jp.html）＋オーナーのGmailに送信用下書き（宛先なし、件名『【お願い】月末のCSV集計、手作業でやっていませんか』、draft r3803382103790345428）を作成＋URGENTのオーナー依頼（期限10/25 18:00）を最上段に表示。送信はオーナー（AIは知人に直接連絡しない、Art.10）。",
+        "evidence": "Gmail draft id r3803382103790345428; https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html; task owner-warm-network-send-1025 (URGENT)",
+        "at": "2026-10-25T03:58+09:00"
+      },
+      "stopped": "E2 hold（priority_actionsの『HOLD AT E2』を撤回）",
+      "new_tasks": [
+        "owner-warm-network-send-1025"
+      ],
+      "reallocation": "Founder: E2保持の監視fire → H6の返信対応（返信文・見本依頼・1日で作成・納品メモ）と毎fireのGmail通知確認へ。mac-local: 停止中のため割当なし（復帰時はCoconala/CrowdWorksの受信確認のみ）。X: 日次の数字投稿のみ（watchdog）。"
+    }
+  }
+}

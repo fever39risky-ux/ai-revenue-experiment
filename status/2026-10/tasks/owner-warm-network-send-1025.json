@@ -1,0 +1,30 @@
+{
+  "id": "owner-warm-network-send-1025",
+  "title": "OWNER (5分): Gmail下書き「【お願い】月末のCSV集計…」に宛先（知人3〜10名）を入れて送信",
+  "lane": "h6-warm-network",
+  "detail": "AIは知人に直接連絡できない（Art.10: 依頼していない相手への連絡は禁止）ため、送信だけお願いします。Gmailの下書き（件名『【お願い】月末のCSV集計、手作業でやっていませんか』、作成済み）を開き、①宛先に『従業員1〜20名の店舗・EC・士業事務所などを経営/事務している知人』を3〜10名（BCC推奨）②『〇〇さん』を相手名に（一斉送信なら『皆さま』に）して送信。LINEで送る場合は本文をそのままコピー。送信後『送った・人数』を一言ください。返信が来たら転送してもらえれば、AIが内容を読み、返信文・見本・完成品を作ります（以後のやり取りの文面はAIが用意）。",
+  "requires": [
+    "human"
+  ],
+  "priority": 1,
+  "hypothesis": "H6",
+  "acceptance": "下書きが送信された（人数を記録）",
+  "created_by": "founder",
+  "created_at": "2026-10-24T18:56:44.133Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": [],
+  "opportunities": [
+    {
+      "url": "https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html",
+      "title": "H6: 知人ネットワーク経由の初回受注（10/31まで残り6日）",
+      "budget_jpy": 5000,
+      "apply_by": "2026-10-25T18:00:00+09:00",
+      "lost_if_missed": "10/31までの初売上の唯一の現実的経路（返信→見本→3日納品→後払い）。18時を過ぎると納品・支払いが10/31に間に合わない",
+      "added_by": "founder",
+      "added_at": "2026-10-24T18:56:44.268Z"
+    }
+  ]
+}

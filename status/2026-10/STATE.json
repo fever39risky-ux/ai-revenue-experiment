@@ -19,8 +19,24 @@
     "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "E2 REACHED (company PAUSED) 2026-10-22 20:07 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md; decision report 2026-10-22T2007, review:true; stop_screen + redesign(L5) events). The binding constraint has been COLD-START REACH since the 10/18 checkpoint and is now a company-level exhaustion finding: 22 days, 0 valid demand signals across EVERY autonomous motion — proposal (FALSIFIED 10/18, 0/11 replies; G3 back-calc needs 68.6 proposals/day vs 0.62 observed, achievable=false), passive storefronts (Stripe/Gumroad/Etsy/BOOTH/Coconala gig: (T)-transactable, 0 autonomous (D) driver, 0 charges), X content-led (reach-FALSIFIED, median 10 imp, 0 profile-click->contact), note content-led (0 measurable reach, mac-local-gated), and the H5 L4 redesign (free productized tool + content-led inbound, 0 inquiry at 48h/96h). The 9-channel reachability ledger: every buyer path is either (T)-only with no working (D) demand-driver, or routes through an Art.9 owner gate / the down headed mac-local browser. The 3 candidate NEW positive-EV actions all reduce to Art.9: paid acquisition (Art.11 authorizes <=¥5k but needs an Art.9 ad-billing rail), a new owner-granted channel/account (Art.9), an L5 re-pivot (no non-Art.9 reach path; Art.5.2/5.4 bar re-running a falsified mechanism). VERDICT (Art.8.2): E2 — every remaining positive-EV action needs an Art.9 human step, with a >=3-motion (actually 5) stop_screen logged. The company holds at E2 with a ZERO-COST PASSIVE portfolio (all listings + H5 tool/funnel kept live, daily X Day-N numbers post as the Art.12 honesty log) and an ARMED inbound watch. REPORTED (not asked, Art.1): the single owner unblock is enabling a paid-acquisition ad-billing rail (Art.9 payment step) so the <=¥5k reach test can run — entirely at owner discretion; the company does not spend or create ad accounts on its own. ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK Art.10 <=12h, which immediately exits E2.",
+  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/25 18:00 (URGENT); 24h signal = ≥1 concrete reply. Decision report 2026-10-25T0400.",
   "hypotheses": [
+    {
+      "id": "H6",
+      "name": "Warm-network first customer: monthly CSV report automation",
+      "status": "active_primary",
+      "level": "L5 (motion+audience) 2026-10-25",
+      "offer": "Sheets 1枚（CSV最大4種→集計表1種）、3日納品、先着3名¥5,000・後払い・効果なし0円",
+      "audience": "従業員1〜20名の店舗/EC/士業事務所でCSVを貼り合わせて月次・週次の報告表を作っている、オーナーの知人",
+      "channel": "owner's Gmail/LINE referral (owner sends; AI never contacts people directly, Art.10)",
+      "sales_motion": "referral / warm introduction",
+      "leading_metric": "concrete replies describing a real task",
+      "check_at": "2026-10-26T04:00+09:00",
+      "revenue_deadline": "2026-10-31",
+      "kill_or_escalate_rule": "0 replies by 10/27 04:00 → compare H7 search ads (needs owner billing, Art.9) at the 10/27 fire; reply → sample request + build ≤1 day",
+      "owner": "founder (+ owner send)",
+      "next_action": "Owner sends Gmail draft r3803382103790345428 by 10/25 18:00; Founder reads Gmail every fire and drafts each reply."
+    },
     {
       "id": "H1",
       "name": "Demand capture: answer buyer-posted requests (PRIMARY until 10/18 — FALSIFIED & STOPPED as a motion)",
@@ -95,15 +111,11 @@
   "priority_actions": [
     {
       "owner": "founder",
-      "action": "HOLD AT E2 (company paused 2026-10-22, L5/E2 channel-exhaustion review). Each fire: run owner_queue + a cloud buyer-signal sweep (revenue_ledger/cost_ledger/X metrics/event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h, which exits E2. No new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no cold DM/spam (Art.10)."
+      "action": "H6 (primary): owner_queue URGENT owner-warm-network-send-1025 (send by 10/25 18:00). Every fire: Gmail sweep (from:crowdworks/coconala/stripe + replies to the H6 mail) → any reply: draft the answer + sample request in-fire, build the sheet ≤1 day (marketing/2026-10/h5/FIRST_WIN_RUNBOOK.md §2–4 adapted), deliver via the owner. 24h gate 10/26 04:00."
     },
     {
       "owner": "founder",
       "action": "Keep the portfolio zero-cost passive: all listings (Coconala/BOOTH/Stripe/Gumroad/Etsy/Zenn/note) + the H5 free tool/funnel kept live, daily X Day-N numbers post as the Art.12 honesty log (x-watchdog). Author/validate the day's X item if the queue is empty (BOOTSTRAP 5b)."
-    },
-    {
-      "owner": "founder",
-      "action": "REPORTED owner unblock (not asked, Art.1): enabling a paid-acquisition ad-billing rail (Art.9 payment step) would let the Art.11-authorized <=¥5k reach test run (new L2 sales motion on the H5 WHO/PAIN) and exit E2. Entirely owner discretion; the company does not spend or create ad accounts on its own. Detail in REVIEW-2026-10-22.md."
     },
     {
       "owner": "founder",
