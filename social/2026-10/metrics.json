@@ -523,7 +523,7 @@
     },
     "2112196790720315727": {
       "created_at": "2026-10-19T14:58:52.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 9,
@@ -540,7 +540,7 @@
     },
     "2112196792175710660": {
       "created_at": "2026-10-19T14:58:52.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 2,
@@ -559,10 +559,10 @@
     },
     "2112551972964532651": {
       "created_at": "2026-10-20T14:30:14.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 5,
+        "impression_count": 7,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -570,13 +570,13 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 5,
+        "impression_count": 7,
         "user_profile_clicks": 0
       }
     },
     "2112551974373925178": {
       "created_at": "2026-10-20T14:30:14.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 1,
@@ -595,10 +595,10 @@
     },
     "2112924649969324358": {
       "created_at": "2026-10-21T15:11:07.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 5,
+        "impression_count": 6,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -606,16 +606,16 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 5,
+        "impression_count": 6,
         "user_profile_clicks": 0
       }
     },
     "2112924651672203707": {
       "created_at": "2026-10-21T15:11:07.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -623,7 +623,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "url_link_clicks": 0,
         "user_profile_clicks": 0
       },
@@ -631,10 +631,10 @@
     },
     "2113235320003232083": {
       "created_at": "2026-10-22T11:45:36.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 6,
+        "impression_count": 7,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -642,16 +642,16 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 6,
+        "impression_count": 7,
         "user_profile_clicks": 0
       }
     },
     "2113235321341235242": {
       "created_at": "2026-10-22T11:45:37.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -659,7 +659,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "url_link_clicks": 0,
         "user_profile_clicks": 0
       },
@@ -667,10 +667,10 @@
     },
     "2113603426701693194": {
       "created_at": "2026-10-23T12:08:20.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 5,
+        "impression_count": 7,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -678,16 +678,16 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 5,
+        "impression_count": 7,
         "user_profile_clicks": 0
       }
     },
     "2113603428215861289": {
       "created_at": "2026-10-23T12:08:20.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 3,
+        "impression_count": 4,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -695,7 +695,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 3,
+        "impression_count": 4,
         "url_link_clicks": 0,
         "user_profile_clicks": 0
       },
@@ -703,10 +703,10 @@
     },
     "2113963469254852616": {
       "created_at": "2026-10-24T11:59:01.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 4,
+        "impression_count": 5,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -714,16 +714,16 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 4,
+        "impression_count": 5,
         "user_profile_clicks": 0
       }
     },
     "2113963470936842463": {
       "created_at": "2026-10-24T11:59:01.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -731,7 +731,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 2,
+        "impression_count": 3,
         "url_link_clicks": 0,
         "user_profile_clicks": 0
       },
@@ -739,10 +739,10 @@
     },
     "2114327710486946266": {
       "created_at": "2026-10-25T12:06:23.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 0,
+        "impression_count": 1,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 1,
@@ -750,16 +750,16 @@
       },
       "non_public_metrics": {
         "engagements": 1,
-        "impression_count": 0,
+        "impression_count": 1,
         "user_profile_clicks": 0
       }
     },
     "2114327712038826169": {
       "created_at": "2026-10-25T12:06:23.000Z",
-      "fetched_at": "2026-10-25T12:06:23.956Z",
+      "fetched_at": "2026-10-25T15:02:31.376Z",
       "public_metrics": {
         "bookmark_count": 0,
-        "impression_count": 0,
+        "impression_count": 1,
         "like_count": 0,
         "quote_count": 0,
         "reply_count": 0,
@@ -767,7 +767,7 @@
       },
       "non_public_metrics": {
         "engagements": 0,
-        "impression_count": 0,
+        "impression_count": 1,
         "url_link_clicks": 0,
         "user_profile_clicks": 0
       },
@@ -777,6 +777,6 @@
   "summary": {
     "posts": 32,
     "median_impressions": 10,
-    "updated_at": "2026-10-25T12:06:23.957Z"
+    "updated_at": "2026-10-25T15:02:31.376Z"
   }
 }
