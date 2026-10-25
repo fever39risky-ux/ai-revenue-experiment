@@ -1,8 +1,8 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-22T20:07:00+09:00",
-  "day": 22,
+  "as_of": "2026-10-25T20:07:00+09:00",
+  "day": 25,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -19,7 +19,7 @@
     "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/25 18:00 (URGENT); 24h signal = ≥1 concrete reply. Decision report 2026-10-25T0400.",
+  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/26 18:00 (URGENT; original 10/25 18:00 window LAPSED with 0 send, ops_failure logged 2026-10-25T2007, absolute last send 10/27 for 3-day delivery before 10/31); 24h signal = ≥1 concrete reply. Decision reports 2026-10-25T0400 / 2026-10-25T2007.",
   "hypotheses": [
     {
       "id": "H6",
@@ -31,11 +31,11 @@
       "channel": "owner's Gmail/LINE referral (owner sends; AI never contacts people directly, Art.10)",
       "sales_motion": "referral / warm introduction",
       "leading_metric": "concrete replies describing a real task",
-      "check_at": "2026-10-26T04:00+09:00",
+      "check_at": "2026-10-27T04:00+09:00",
       "revenue_deadline": "2026-10-31",
       "kill_or_escalate_rule": "0 replies by 10/27 04:00 → compare H7 search ads (needs owner billing, Art.9) at the 10/27 fire; reply → sample request + build ≤1 day",
       "owner": "founder (+ owner send)",
-      "next_action": "Owner sends Gmail draft r3803382103790345428 by 10/25 18:00; Founder reads Gmail every fire and drafts each reply. On any reply, execute marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → build Google Sheet 集計表 ≤1 day → 後払い ¥5,000)."
+      "next_action": "Owner sends Gmail draft r3803382103790345428 by 10/26 18:00 (revised; 10/25 window lapsed, absolute last 10/27); Founder reads Gmail every fire (connector-gated — unavailable 10/25, record the gap) and drafts each reply. On any reply, execute marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → build Google Sheet 集計表 ≤1 day → 後払い ¥5,000)."
     },
     {
       "id": "H1",
@@ -111,7 +111,7 @@
   "priority_actions": [
     {
       "owner": "founder",
-      "action": "H6 (primary): owner_queue URGENT owner-warm-network-send-1025 (send by 10/25 18:00). Every fire: Gmail sweep (from:crowdworks/coconala/stripe + replies to the H6 mail) → any reply: draft the answer + sample request in-fire, build the sheet ≤1 day (marketing/2026-10/h5/FIRST_WIN_RUNBOOK.md §2–4 adapted), deliver via the owner. 24h gate 10/26 04:00."
+      "action": "H6 (primary): owner_queue URGENT owner-warm-network-send-1025 (send by 10/26 18:00; 10/25 window lapsed, absolute last 10/27). Every fire: Gmail sweep (from:crowdworks/coconala/stripe + replies to the H6 mail) → any reply: draft the answer + sample request in-fire, build the sheet ≤1 day (marketing/2026-10/h5/FIRST_WIN_RUNBOOK.md §2–4 adapted), deliver via the owner. 24h reply gate 10/27 04:00."
     },
     {
       "owner": "founder",

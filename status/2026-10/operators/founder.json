@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-25 13:07 JST fire done: every-fire sweep (owner_queue URGENT #39, 0 new inbound, Gmail connector not in chat), refreshed owner countdown, decision report 2026-10-25T1307 green, session_end E2 (6-motion stop_screen). H6 live, owner send pending to 18:00.",
-  "next": "20:07 JST 10/25: owner_queue + Gmail reply-sweep (if connector enabled) + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). After 20:40 JST verify Day-25 X dispatched (posted.jsonl+metrics); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-26 X once 10/25 numbers close. mac-local Coconala read from 18:00 JST. H6 24h gate 10/26 04:00. Next scheduled decision = 10/29 review.",
+  "doing": "Day-25 20:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: corrected dishonest queued Day-25 X post (false 'halted at E2' -> honest H6 pivot, Art.12) + validated; ops_failure for LAPSED owner send + revised deadline 10/26 18:00 (reopened issue #39, OWNER_ACTION_REQUIRED URGENT); authored+validated Day-26 X; STATE current-state updated; decision report 2026-10-25T2007 green; leak/promotion/decision/x all green. Gmail sweep not possible (no connector, E3-type gap). mac-local recovered (Coconala inbox 09:03Z, 0 signal). 0 new inbound.",
+  "next": "00:07 JST 10/26: (1) owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). (2) Check if owner sent the H6 Gmail (any 送った/forward -> log human_intervention + REPLY_KIT; deadline issue #39 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). (3) Verify Day-25 X posted (posted.jsonl+metrics); if cron dropped workflow_dispatch x-watchdog.yml. (4) Re-verify 10/25 FINAL gross/cost/human and CORRECT the Day-26 X item (social/2026-10/queue/2026-10-26-pm.json, currently 0/0/0) before its 20:40 dispatch. 0 replies by 10/27 04:00 -> compare H7 ads at the 10/27 fire. Next review 10/29; FINAL report after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-25T04:10:33.770Z"
+  "heartbeat_at": "2026-10-25T11:23:19.443Z"
 }
