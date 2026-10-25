@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-25T09:04:34.025Z (JST 2026-10-25) ===
+=== Phase 2 board — 2026-10-25T11:04:58.336Z (JST 2026-10-25) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/25 18:00 (URGENT); 24h signal = ≥1 concrete reply. Decision report 2026-10-25T0400.
 PRIORITY
@@ -9,7 +9,7 @@ PRIORITY
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
   NORMAL owner-warm-network-send-1025
 OPERATORS
-  actions                working   STALE 36381m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 36502m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -18,15 +18,15 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 35952m lanes=
+  codex                  idle      STALE 36072m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      STALE 294m  lanes=strategy
+  founder                idle      STALE 414m  lanes=strategy
       doing: Day-25 13:07 JST fire done: every-fire sweep (owner_queue URGENT #39, 0 new inbound, Gmail connector not in chat), refreshed owner countdown, decision report 2026-10-25T1307 green, session_end E2 (6-motion stop_screen). H6 live, owner send pending to 18:00.
       next:  20:07 JST 10/25: owner_queue + Gmail reply-sweep (if connector enabled) + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). After 20:40 JST verify Day-25 X dispatched (posted.jsonl+metrics); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-26 X once 10/25 numbers close. mac-local Coconala read from 18:00 JST. H6 24h gate 10/26 04:00. Next scheduled decision = 10/29 review.
-  mac-local              idle      live 1m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: idle
-      next:  h1-coconala-inbox-1026am from 2026-10-26 09:00 JST (5328251 kigen 10/26)
+  mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
+      doing: supervisor alive; no eligible mac-local task on main
+      next:  polling main every 120s; starts a Claude worker when a task appears
 TASKS (3 not done)
   P1 owner-warm-network-send-1025   open      [human] OWNER (5分): Gmail下書き「【お願い】月末のCSV集計…」に宛先（知人3〜10名）を入れて送信
   P2 h1-coconala-inbox-1026am       open      [local_browser] H1: Coconala inbox signal-watch (pending offer 5328251 kigen 10/26; reply under PG-1) (from 2026-10-26T09:00:00+09:00)
