@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-25T15:08:33.125Z (JST 2026-10-26) ===
+=== Phase 2 board — 2026-10-25T15:48:54.787Z (JST 2026-10-26) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/26 18:00 (URGENT; original 10/25 18:00 window LAPSED with 0 send, ops_failure logged 2026-10-25T2007, absolute last send 10/27 for 3-day delivery before 10/31); 24h signal = ≥1 concrete reply. Decision reports 2026-10-25T0400 / 2026-10-25T2007.
 PRIORITY
@@ -7,9 +7,9 @@ PRIORITY
   - [founder] Next scheduled decision = 2026-10-29 weekly review (re-run the portfolio re-ranking + 9-channel ledger + G3 back-calc; confirm or change the E2 finding). FINAL report reports/2026-10/FINAL.md after 2026-10-31.
   - [mac-local] When recovered from supervisor backoff: read note nbed12c976efb reach/comments headed (task h5-note-reach-read-1020) + Coconala inbox for the 2 pending offers (5329177 kigen 10/23, 5328251 kigen 10/26) as signal-watch only. Any buyer comment/message -> FIRST_WIN Art.10 <=12h. No new public-job proposals.
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
-  URGENT owner-warm-network-send-1025 17.9h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
+  URGENT owner-warm-network-send-1025 17.2h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
 OPERATORS
-  actions                working   STALE 36745m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 36786m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -18,13 +18,13 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 36316m lanes=
+  codex                  idle      STALE 36356m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      STALE 225m  lanes=strategy
-      doing: Day-25 20:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: corrected dishonest queued Day-25 X post (false 'halted at E2' -> honest H6 pivot, Art.12) + validated; ops_failure for LAPSED owner send + revised deadline 10/26 18:00 (reopened issue #39, OWNER_ACTION_REQUIRED URGENT); authored+validated Day-26 X; STATE current-state updated; decision report 2026-10-25T2007 green; leak/promotion/decision/x all green. Gmail sweep not possible (no connector, E3-type gap). mac-local recovered (Coconala inbox 09:03Z, 0 signal). 0 new inbound.
-      next:  00:07 JST 10/26: (1) owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). (2) Check if owner sent the H6 Gmail (any 送った/forward -> log human_intervention + REPLY_KIT; deadline issue #39 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). (3) Verify Day-25 X posted (posted.jsonl+metrics); if cron dropped workflow_dispatch x-watchdog.yml. (4) Re-verify 10/25 FINAL gross/cost/human and CORRECT the Day-26 X item (social/2026-10/queue/2026-10-26-pm.json, currently 0/0/0) before its 20:40 dispatch. 0 replies by 10/27 04:00 -> compare H7 ads at the 10/27 fire. Next review 10/29; FINAL report after 10/31.
-  mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
+  founder                idle      live 36m    lanes=strategy
+      doing: Day-26 00:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: verified Day-25 X dispatched (tweet 2114327710486946266, H6 honest pivot live); re-verified final 10/25 numbers (gross 0/cost 0/human 0, no owner send) and confirmed Day-26 X item 0/0/0 correct (no correction needed); owner_queue refreshed URGENT owner-warm-network-send-1025 (17h to 10/26 18:00, issue #39 open); cloud buyer-signal sweep 0 new inbound everywhere; Gmail sweep still blocked (no connector, E3-type gap); decision report 2026-10-26T0007 + x validate green.
+      next:  08:07 JST 10/26: owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). Check whether owner sent the H6 Gmail (any 送った/forward -> log human_intervention + run REPLY_KIT; deadline issue #39 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). Confirm Day-26 X item still queued for 20:40 JST dispatch. 0 replies by 10/27 04:00 -> compare H7 ads at the 10/27 fire. Next review 10/29; FINAL report after 10/31.
+  mac-local              idle      live 41m    lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
 TASKS (3 not done)
