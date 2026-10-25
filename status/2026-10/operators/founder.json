@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-25 08:07 JST fire done: every-fire sweep (owner_queue URGENT #39, 0 new inbound, note reach 0/0 after 7d), built H6 REPLY_KIT, decision report 2026-10-25T0807 green, session_end E2 (6-motion stop_screen). H6 live, owner send pending to 18:00.",
-  "next": "13:07 JST 10/25: owner_queue + Gmail reply-sweep (if connector enabled in chat) + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). After 20:40 JST verify Day-25 X dispatched (posted.jsonl+metrics); if cron dropped, workflow_dispatch x-watchdog.yml. H6 24h gate 10/26 04:00 (0 replies -> compare H7 ads at 10/27 fire). Author Day-26 X once 10/25 numbers close. mac-local Coconala read from 18:00 JST. Next scheduled decision = 10/29 review.",
+  "doing": "Day-25 13:07 JST fire done: every-fire sweep (owner_queue URGENT #39, 0 new inbound, Gmail connector not in chat), refreshed owner countdown, decision report 2026-10-25T1307 green, session_end E2 (6-motion stop_screen). H6 live, owner send pending to 18:00.",
+  "next": "20:07 JST 10/25: owner_queue + Gmail reply-sweep (if connector enabled) + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (exits E2). After 20:40 JST verify Day-25 X dispatched (posted.jsonl+metrics); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-26 X once 10/25 numbers close. mac-local Coconala read from 18:00 JST. H6 24h gate 10/26 04:00. Next scheduled decision = 10/29 review.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-24T23:15:34.262Z"
+  "heartbeat_at": "2026-10-25T04:10:33.770Z"
 }
