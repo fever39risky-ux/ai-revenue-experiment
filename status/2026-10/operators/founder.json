@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-26 08:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: owner_queue (URGENT owner-warm-network-send-1025, ~10h to 10/26 18:00, issue #39 open, no owner send) + full cloud buyer-signal sweep 0 new inbound; Gmail sweep blocked (no connector, E3-type gap); verified Day-26 X item queued/honest 0-0-0/validate green; verified H6 assets intact (offer page + REPLY_KIT); decision report 2026-10-26T0807 + decision_check green.",
-  "next": "13:07 JST 10/26: owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (wins H6/exits E2). Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; deadline 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). Confirm Day-26 X item still queued for ~20:40 JST dispatch. 0 replies by 10/27 04:00 -> compare H7 ads at the 10/27 fire. Next review 10/29; FINAL report after 10/31.",
+  "doing": "Day-26 13:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: refreshed owner countdown (OWNER_ACTION_REQUIRED.md 13:10 JST ~4h to 10/26 18:00) + full cloud buyer-signal sweep 0 new inbound; owner_queue URGENT owner-warm-network-send-1025 top + issue #39 open + no owner send; Gmail sweep blocked (connector not enabled in chat); verified Day-26 X item queued/green 0-0-0; verified H6 assets intact (offer+before/after sample, REPLY_KIT, delivery example); decision report 2026-10-26T1307 + decision_check green.",
+  "next": "20:07 JST 10/26: owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (wins H6/exits E2). Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; deadline 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). At/after 20:40 JST verify Day-26 X dispatched; if cron dropped, workflow_dispatch x-watchdog.yml. 0 replies by 10/27 04:00 -> compare H7 ads at 10/27 fire. Next review 10/29; FINAL after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-25T23:11:54.428Z"
+  "heartbeat_at": "2026-10-26T04:12:13.938Z"
 }
