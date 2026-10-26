@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-26 20:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Caught+corrected the 2nd owner-send lapse: H6 send window restored to HARD 10/27 18:00 URGENT; H1 fully closed (both offers expired unhired); STATE/decision report updated; Day-26 X queued+validated (0/0/0); all checks green.",
-  "next": "00:07 JST 10/27: owner_queue + cloud buyer-signal sweep + Gmail reply-sweep IF connector enabled -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h. Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; HARD last send 10/27 18:00). Verify Day-26 X dispatched (posted.jsonl tweet_id); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-27 X once 10/26 numbers close (00:00 JST). 10/27 18:00 lapse with 0 send -> H7 ads comparison. Next review 10/29; FINAL after 10/31.",
+  "doing": "Day-27 00:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Day-26 X verified dispatched; Day-27 X authored+queued (0/0/0); owner_queue URGENT + issue #40 confirmed; 0 new inbound; H6 Gmail still unsent (10/27 18:00 window open); decision report 2026-10-27T0007 green.",
+  "next": "08:07 JST 10/27: owner_queue + cloud buyer-signal sweep + Gmail reply-sweep IF connector enabled -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h. Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; HARD last send 10/27 18:00). Verify Day-27 X dispatched after 20:40 JST (posted.jsonl tweet_id); if cron dropped, workflow_dispatch x-watchdog.yml. If 10/27 18:00 lapses with 0 send -> log ops_failure + open H7 ads comparison. Author Day-28 X once 10/27 numbers close (00:00 JST 10/28). Next review 10/29; FINAL after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-26T11:24:11.417Z"
+  "heartbeat_at": "2026-10-26T15:26:31.202Z"
 }
