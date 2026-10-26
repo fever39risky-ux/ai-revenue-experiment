@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-26 13:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: refreshed owner countdown (OWNER_ACTION_REQUIRED.md 13:10 JST ~4h to 10/26 18:00) + full cloud buyer-signal sweep 0 new inbound; owner_queue URGENT owner-warm-network-send-1025 top + issue #39 open + no owner send; Gmail sweep blocked (connector not enabled in chat); verified Day-26 X item queued/green 0-0-0; verified H6 assets intact (offer+before/after sample, REPLY_KIT, delivery example); decision report 2026-10-26T1307 + decision_check green.",
-  "next": "20:07 JST 10/26: owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (wins H6/exits E2). Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; deadline 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). At/after 20:40 JST verify Day-26 X dispatched; if cron dropped, workflow_dispatch x-watchdog.yml. 0 replies by 10/27 04:00 -> compare H7 ads at 10/27 fire. Next review 10/29; FINAL after 10/31.",
+  "doing": "Day-26 20:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Caught+corrected the 2nd owner-send lapse: H6 send window restored to HARD 10/27 18:00 URGENT; H1 fully closed (both offers expired unhired); STATE/decision report updated; Day-26 X queued+validated (0/0/0); all checks green.",
+  "next": "00:07 JST 10/27: owner_queue + cloud buyer-signal sweep + Gmail reply-sweep IF connector enabled -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h. Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; HARD last send 10/27 18:00). Verify Day-26 X dispatched (posted.jsonl tweet_id); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-27 X once 10/26 numbers close (00:00 JST). 10/27 18:00 lapse with 0 send -> H7 ads comparison. Next review 10/29; FINAL after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-26T04:12:13.938Z"
+  "heartbeat_at": "2026-10-26T11:24:11.417Z"
 }

@@ -1,8 +1,8 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-25T20:07:00+09:00",
-  "day": 25,
+  "as_of": "2026-10-26T20:07:00+09:00",
+  "day": 26,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -19,7 +19,7 @@
     "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/26 18:00 (URGENT; original 10/25 18:00 window LAPSED with 0 send, ops_failure logged 2026-10-25T2007, absolute last send 10/27 for 3-day delivery before 10/31); 24h signal = ≥1 concrete reply. Decision reports 2026-10-25T0400 / 2026-10-25T2007.",
+  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by the HARD absolute-last 10/27 18:00 JST (URGENT; both the original 10/25 18:00 and the revised 10/26 18:00 windows LAPSED with 0 send — ops_failure 2026-10-25T2007 + 2026-10-26T2007; 10/27 send → 3-day build → deliver by 10/30, the last window before 10/31); 24h signal = ≥1 concrete reply after the send. If 10/27 also lapses, the owner-send path is structurally falsified → 10/27 fire opens the H7 (paid ads, Art.9 billing rail) comparison. Decision reports 2026-10-25T0400 / 2026-10-25T2007 / 2026-10-26T2007.",
   "hypotheses": [
     {
       "id": "H6",
@@ -31,11 +31,11 @@
       "channel": "owner's Gmail/LINE referral (owner sends; AI never contacts people directly, Art.10)",
       "sales_motion": "referral / warm introduction",
       "leading_metric": "concrete replies describing a real task",
-      "check_at": "2026-10-27T04:00+09:00",
+      "check_at": "2026-10-27T18:00+09:00 (HARD absolute-last owner-send window)",
       "revenue_deadline": "2026-10-31",
-      "kill_or_escalate_rule": "0 replies by 10/27 04:00 → compare H7 search ads (needs owner billing, Art.9) at the 10/27 fire; reply → sample request + build ≤1 day",
+      "kill_or_escalate_rule": "Owner-send gate has slipped twice (10/25 + 10/26 18:00, both ops_failure). HARD absolute-last send = 10/27 18:00 JST (3-day build → 10/30 delivery). If no owner send by 10/27 18:00 OR 0 concrete replies within 24h of a send → owner-send path structurally falsified → compare H7 search ads (needs owner billing rail, Art.9) at the 10/27/10/28 fire; reply → sample request + build ≤1 day (REPLY_KIT).",
       "owner": "founder (+ owner send)",
-      "next_action": "Owner sends Gmail draft r3803382103790345428 by 10/26 18:00 (revised; 10/25 window lapsed, absolute last 10/27); Founder reads Gmail every fire (connector-gated — unavailable 10/25, record the gap) and drafts each reply. On any reply, execute marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → build Google Sheet 集計表 ≤1 day → 後払い ¥5,000)."
+      "next_action": "Owner sends Gmail draft r3803382103790345428 by the HARD absolute-last 10/27 18:00 JST (both 10/25 and 10/26 18:00 windows lapsed, ops_failure logged each); owner_queue re-rendered URGENT (21.7h) + fresh GitHub issue on push. Founder reads Gmail every fire (connector-gated — unavailable 10/25/10/26, record the gap) and drafts each reply. On any reply, execute marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → build Google Sheet 集計表 ≤1 day → 後払い ¥5,000). If 10/27 18:00 lapses with 0 send → H6 owner-send path structurally falsified → H7 ads comparison next fire."
     },
     {
       "id": "H1",
@@ -46,12 +46,12 @@
       "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
       "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "proposals_sent = 11 (Coconala 7 + CrowdWorks 4). First-win-motion sends to date = 2, both Coconala ¥8k on 10/16: 5328251 (closet-storage layout, 納品10/22, 10th applicant) + 5329177 (radio-style voice script, 納品10/28, 15th applicant) — ended the 16-scan 0-GO streak. CW (under old motion): 308916973/308917020 ¥8k 10/11, 308944942 ¥10k 10/12, 309019001 ¥10k 10/13 eBay->Sheets all under PG-2. replies 0 / sales_conversation 0 / orders 0 / ¥0 (0/11). The gate is REPLY RATE — a 0-review seller's proposal->reply conversion is unproven (0/11; only 2 sends under the first-win motion, both <48h). Track: first reply on either board + first-win send rate once CrowdWorks is back online.",
+      "leading_metric": "FINAL: proposals_sent 11 (Coconala 7 + CrowdWorks 4), replies 0 / orders 0 / ¥0 (0/11 over 26 days). All offers now closed; the last 2 pending (5328251, 5329177) expired unhired 2026-10-26. Gate was REPLY RATE — a 0-review seller's proposal→reply conversion stayed 0/11. History: events/decisions + STATE_ARCHIVE.jsonl.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
       "kill_or_escalate_rule": "L2 executed 2026-10-15 (first-win motion). Next decision 10/18: combined ≥10 proposals/0 replies → demand-falsified → L4 (new offer/business-model; NOT another marketplace copy — Art.5.5); still <10 even with early-applicant gate dropped → supply-falsified → L4. G2 deadline 10/20.",
       "owner": "founder (GO criteria, proposal drafts, KYC request) / mac-local (browse, screen, send, talk room)",
-      "selection_rule": "REWRITTEN 2026-10-15 20:07 (Day-15 review, L2 escalation, lever still price_plus_reply = calculator #1 base P(G2) 0.442/pess 0.143). FIRST-WIN / first-review motion: the ≤3rd-5th EARLY-APPLICANT sub-filter is DROPPED — it was the component starving volume to 0 GO/day despite ~86 post-filter candidates/day. New rule: among the widened GO lane, SELECT the SMALLEST, fastest, objective-done jobs (clear done-condition, deliverable with existing capability/assets) at a competitive-but-PG-profitable price (¥5,000-10,000; PG-1/PG-2 condition 2 \"profitable after fees\" MUST still hold — never free/loss-leader) and lead the proposal with a free dummy-data sample + explicit done-definition. Goal: win the FIRST order→first review to break the 0-review cold-start that unlocks the rest of October, rather than only chasing one ¥10-15k order by 10/20. Target ≥3-5/day combined (off zero). Still ≤5/day combined, honest AI-assisted disclosure, no over-promise.",
+      "selection_rule": "N/A — motion stopped/falsified 2026-10-18, channel fully closed 2026-10-26. (Historical first-win/first-review selection rule archived in STATE_ARCHIVE.jsonl + the 10/15 review.)",
       "next_action": "STOPPED 2026-10-18 (checkpoint-1018). Scan/propose tasks h1-coconala-scan-1018/1018pm + h1-crowdworks-scan-1016 marked done; owner-crowdworks-relogin-1016 cancelled. ONLY residual: keep h1-coconala-inbox-1018am as pure signal-watch for the 2 already-sent Coconala offers (5328251 期限10/26, 5329177 期限10/23) — if a buyer messages, Art.10 act <=12h. No new public-job proposals. Primary motion is now H5."
     },
     {
