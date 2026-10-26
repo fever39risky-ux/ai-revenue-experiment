@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-25T23:14:55.770Z (JST 2026-10-26) ===
+=== Phase 2 board — 2026-10-26T00:03:24.477Z (JST 2026-10-26) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by 10/26 18:00 (URGENT; original 10/25 18:00 window LAPSED with 0 send, ops_failure logged 2026-10-25T2007, absolute last send 10/27 for 3-day delivery before 10/31); 24h signal = ≥1 concrete reply. Decision reports 2026-10-25T0400 / 2026-10-25T2007.
 PRIORITY
@@ -7,9 +7,9 @@ PRIORITY
   - [founder] Next scheduled decision = 2026-10-29 weekly review (re-run the portfolio re-ranking + 9-channel ledger + G3 back-calc; confirm or change the E2 finding). FINAL report reports/2026-10/FINAL.md after 2026-10-31.
   - [mac-local] When recovered from supervisor backoff: read note nbed12c976efb reach/comments headed (task h5-note-reach-read-1020) + Coconala inbox for the 2 pending offers (5329177 kigen 10/23, 5328251 kigen 10/26) as signal-watch only. Any buyer comment/message -> FIRST_WIN Art.10 <=12h. No new public-job proposals.
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
-  URGENT owner-warm-network-send-1025 9.8h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
+  URGENT owner-warm-network-send-1025 8.9h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
 OPERATORS
-  actions                working   STALE 37232m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 37280m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -18,16 +18,16 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 36802m lanes=
+  codex                  idle      STALE 36851m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 3m     lanes=strategy
+  founder                idle      live 52m    lanes=strategy
       doing: Day-26 08:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Real work: owner_queue (URGENT owner-warm-network-send-1025, ~10h to 10/26 18:00, issue #39 open, no owner send) + full cloud buyer-signal sweep 0 new inbound; Gmail sweep blocked (no connector, E3-type gap); verified Day-26 X item queued/honest 0-0-0/validate green; verified H6 assets intact (offer page + REPLY_KIT); decision report 2026-10-26T0807 + decision_check green.
       next:  13:07 JST 10/26: owner_queue + Gmail reply-sweep IF connector enabled + cloud buyer-signal sweep -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h (wins H6/exits E2). Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; deadline 10/26 18:00, absolute last 10/27, reply gate 10/27 04:00). Confirm Day-26 X item still queued for ~20:40 JST dispatch. 0 replies by 10/27 04:00 -> compare H7 ads at the 10/27 fire. Next review 10/29; FINAL report after 10/31.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
-      doing: supervisor alive; no eligible mac-local task on main
-      next:  polling main every 120s; starts a Claude worker when a task appears
+      doing: h1-coconala-inbox-1026am done
+      next:  h1-coconala-inbox-1026pm at/after 2026-10-26 18:00 JST (5328251 final day)
 TASKS (3 not done)
   P1 owner-warm-network-send-1025   open      [human] OWNER (5分): Gmail下書き「【お願い】月末のCSV集計…」に宛先（知人3〜10名）を入れて送信
-  P2 h1-coconala-inbox-1026am       open      [local_browser] H1: Coconala inbox signal-watch (pending offer 5328251 kigen 10/26; reply under PG-1) (from 2026-10-26T09:00:00+09:00)
+  P2 h1-coconala-inbox-1026pm       open      [local_browser] H1: Coconala inbox signal-watch (offer 5328251 kigen 10/26 final day; reply under PG-1) (from 2026-10-26T18:00:00+09:00)
   P5 day0-lease-codex               claimed  codex [] Cross-machine lease test (codex holds; Founder must be rejected until lease expiry, then may take over)
