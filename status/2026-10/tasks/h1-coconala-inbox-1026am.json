@@ -13,9 +13,21 @@
   "assigned_to": "mac-local",
   "created_by": "mac-local",
   "created_at": "2026-10-25T09:03:57.800Z",
-  "status": "open",
-  "claimed_by": null,
-  "lease_until": null,
-  "result": null,
-  "history": []
+  "status": "done",
+  "claimed_by": "mac-local",
+  "lease_until": "2026-10-26T02:01:35.821Z",
+  "result": "Coconala read 2026-10-26 09:02-09:03 JST: /message = only hidemasa0122 (10/13, unchanged); notification = platform recos/coupons only (latest RPA reco 1d ago, nothing new); transaction = same 5 募集終了 notices; offers: 5328251 meyusa ¥8,000 期限10/26 still pending (no buyer reply), voice scenario 双葉つゆ 募集終了. 0 buyer messages -> no PG-1 reply needed, FIRST_WIN not triggered. Next: h1-coconala-inbox-1026pm (5328251 deadline today).",
+  "history": [
+    {
+      "ts": "2026-10-26T00:01:35.821Z",
+      "op": "mac-local",
+      "action": "claim"
+    },
+    {
+      "ts": "2026-10-26T00:02:57.045Z",
+      "op": "mac-local",
+      "action": "done",
+      "note": "Coconala read 2026-10-26 09:02-09:03 JST: /message = only hidemasa0122 (10/13, unchanged); notification = platform recos/coupons only (latest RPA reco 1d ago, nothing new); transaction = same 5 募集終了 notices; offers: 5328251 meyusa ¥8,000 期限10/26 still pending (no buyer reply), voice scenario 双葉つゆ 募集終了. 0 buyer messages -> no PG-1 reply needed, FIRST_WIN not triggered. Next: h1-coconala-inbox-1026pm (5328251 deadline today)."
+    }
+  ]
 }

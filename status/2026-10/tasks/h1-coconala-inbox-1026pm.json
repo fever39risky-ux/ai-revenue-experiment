@@ -1,0 +1,21 @@
+{
+  "id": "h1-coconala-inbox-1026pm",
+  "title": "H1: Coconala inbox signal-watch (offer 5328251 kigen 10/26 final day; reply under PG-1)",
+  "lane": "h1-proposals",
+  "detail": "Signal-watch only (no new public-job proposals). Check /message (only thread hidemasa0122, unchanged since 10/13 as of 10/26 09:02), /mypage/activities/notification (platform recos only), /mypage/activities/transaction (5 募集終了 notices), /mypage/job_matching/applied/offers (pending 5328251 meyusa ¥8,000 期限10/26 = final day). Any buyer message -> reply under PG-1 <=12h (Art.10), log inquiry/sales_conversation; H5 inquiry -> marketing/2026-10/h5/FIRST_WIN_RUNBOOK.md. On done: create next task only if 5328251 hired or any thread open (if 5328251 募集終了 and no thread, no follow-up task). Tips: /message wait ~8s; notification/transaction 5s; offers 6s, text starts at last '応募・スカウト管理'.",
+  "requires": [
+    "local_browser"
+  ],
+  "site": "coconala.com",
+  "priority": 2,
+  "hypothesis": "H1",
+  "not_before": "2026-10-26T18:00:00+09:00",
+  "assigned_to": "mac-local",
+  "created_by": "mac-local",
+  "created_at": "2026-10-26T00:02:56.921Z",
+  "status": "open",
+  "claimed_by": null,
+  "lease_until": null,
+  "result": null,
+  "history": []
+}
