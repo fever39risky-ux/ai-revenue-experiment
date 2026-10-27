@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-27 08:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). owner_queue URGENT (9.9h) + issue #40 confirmed open; Day-27 X verified queued+validated (dispatch 20:40 JST); full buyer-signal sweep 0 new inbound; H6 Gmail still unsent (10/27 18:00 window open); decision report 2026-10-27T0807 green.",
-  "next": "13:07 JST 10/27: owner_queue + cloud buyer-signal sweep + Gmail reply-sweep IF connector enabled -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h. Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT; HARD last send 10/27 18:00). X monitor only until 20:40 JST. At the first fire after 20:40 JST verify Day-27 X dispatched (posted.jsonl tweet_id); if cron dropped, workflow_dispatch x-watchdog.yml. If 10/27 18:00 lapses with 0 send -> 20:07 fire logs ops_failure + opens H7 ads comparison. Author Day-28 X once 10/27 numbers close (00:00 JST 10/28). Next review 10/29; FINAL after 10/31.",
+  "doing": "Day-27 13:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). owner_queue URGENT (4.8h) + issue #40 confirmed open; Day-27 X verified queued+validated (dispatch 20:40 JST); full buyer-signal sweep 0 new inbound; H6 Gmail still unsent (10/27 18:00 window open ~4.8h); decision report 2026-10-27T1307 green.",
+  "next": "20:07 JST 10/27 (first fire after BOTH 18:00 owner-send window AND 20:40 X dispatch): owner_queue + cloud buyer-signal sweep + Gmail reply-sweep IF connector enabled -> ANY inbound = REPLY_KIT/Art.10 FIRST_WIN <=12h. Check whether owner sent the H6 Gmail (any send -> log human_intervention + run REPLY_KIT). If 10/27 18:00 LAPSED with 0 send -> log ops_failure + open H7 (paid ads, Art.9 billing rail) comparison per H6 kill_or_escalate_rule. Verify Day-27 X dispatched (posted.jsonl tweet_id); if cron dropped, workflow_dispatch x-watchdog.yml. Author Day-28 X once 10/27 numbers close (00:00 JST 10/28). Next review 10/29; FINAL after 10/31.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-26T23:11:49.794Z"
+  "heartbeat_at": "2026-10-27T04:11:34.421Z"
 }
