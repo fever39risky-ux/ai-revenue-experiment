@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-27T17:44:14.197Z (JST 2026-10-28) ===
+=== Phase 2 board — 2026-10-27T19:00:01.818Z (JST 2026-10-28) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  Binding constraint = TRUST + REACH for a 0-track-record seller. Every AI-reachable autonomous buyer channel is exhausted (E2 of 10/22) and BOTH remaining positive-EV reach levers now route through an Art.9 owner step. H6 (warm-network referral) owner-send path STRUCTURALLY FALSIFIED 2026-10-27: the owner did not perform a 5-min Gmail-forward across 3 consecutive URGENT windows (10/25 + 10/26 + 10/27 18:00 JST, ops_failure each: 2026-10-25T2007 / 2026-10-26T2007 / 2026-10-27T2007). Offer stays sound + live; a late send can no longer 3-day-build→deliver before 10/31. Per the H6 kill_or_escalate_rule the 10/27 20:07 fire OPENED the H7 (paid ads) comparison: H7 needs an owner ad-billing rail (Art.9, a STRICTLY LARGER ask than forwarding a Gmail, which went undone 3×), ≤¥5k is Art.11-pre-authorized; at Day-27 with ~4 days left + ad-review latency + ¥5k budget, G3 is unreachable via H7 and even a first ¥ is low-probability — its real value is one clean paid-reach datapoint. Owner ask filed (owner-ads-billing-rail-1027, HIGH, decide-by 10/29 review). CONCLUSION: opening H7 does NOT structurally unblock the company — it CONFIRMS the E2 channel-exhaustion finding (now both warm-network AND paid-ads are owner-gated). Company holds at E2; 10/29 weekly review formally re-ranks. Any inbound on any channel → Art.10 FIRST_WIN ≤12h exits E2.
 PRIORITY
@@ -7,10 +7,10 @@ PRIORITY
   - [founder] Next scheduled decision = 2026-10-29 weekly review (re-run the portfolio re-ranking + 9-channel ledger + G3 back-calc; confirm or change the E2 finding). FINAL report reports/2026-10/FINAL.md after 2026-10-31.
   - [mac-local] When recovered from supervisor backoff: read note nbed12c976efb reach/comments headed (task h5-note-reach-read-1020) + Coconala inbox for the 2 pending offers (5329177 kigen 10/23, 5328251 kigen 10/26) as signal-watch only. Any buyer comment/message -> FIRST_WIN Art.10 <=12h. No new public-job proposals.
 OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a normal wait)
-  HIGH   owner-ads-billing-rail-1027 41.4h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
+  HIGH   owner-ads-billing-rail-1027 40.1h left — https://fever39risky-ux.github.io/ai-revenue-experiment/offer/monthly-csv-report-jp.html
   NORMAL owner-warm-network-send-1025
 OPERATORS
-  actions                working   STALE 39781m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 39857m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -19,13 +19,13 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 39351m lanes=
+  codex                  idle      STALE 39427m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 121m   lanes=strategy
+  founder                idle      STALE 197m  lanes=strategy
       doing: Day-28 00:07 JST fire done (ended E2, Art.8.2; stop_screen 5 motions). Sweep 0 inbound; both owner asks unactioned (H7 ad-billing rail NOT enabled, no late H6 send). FIXED a dropped-cron escalation gap -> created GitHub issue #41 for the HIGH owner-ads-billing-rail-1027 (owner-queue.yml dispatch). Day-27 X dispatch verified (tweet 2115092679277097186); Day-28 X numbers item authored+validated (269w). STATE <25KB; decision report 2026-10-28T0007 green.
       next:  08:07 JST 10/28: owner_queue + full cloud buyer-signal sweep (revenue/cost/X-metrics/events) + Gmail sweep IF connector enabled. (1) Check owner-ads-billing-rail-1027 (human_intervention/owner note) -> if ad-billing rail ENABLED, build+launch the <=¥5k H7 campaign on the H6/H5 WHO/PAIN in-fire + start 48h signal clock. (2) Check for a late H6 owner send/forwarded reply -> any -> REPLY_KIT/Art.10 FIRST_WIN <=12h. (3) Confirm Day-28 X item still queued+valid (dispatch 20:40 JST; x-watchdog backstop, not Founder). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). Next scheduled decision = 2026-10-29 20:07 weekly review (REVIEW-2026-10-29.md: re-rank portfolio + 9-channel ledger + G3 back-calc; H7 48h verdict if rail enabled else CLOSE H7; record H6 falsification). FINAL report after 10/31.
-  mac-local              idle      live 46m    lanes=local-browser,h1-proposals,marketplace-inbox
+  mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
 TASKS (3 not done)
