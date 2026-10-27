@@ -1,8 +1,8 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-26T20:07:00+09:00",
-  "day": 26,
+  "as_of": "2026-10-27T20:07:00+09:00",
+  "day": 27,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
     "CLAUDE.md",
@@ -16,16 +16,16 @@
     "current": "G3",
     "G1_status": "FAILED 2026-10-07 (details: STATE_ARCHIVE.jsonl goal.G1_result)",
     "G2_status": "FAILED 2026-10-20 (gross ¥0 / net ¥0 at the 10/20 deadline; 0 valid demand signal in 20 days across all channels; proposal motion falsified 10/18, H5 48h gate read 0 on 10/20 — decision report 2026-10-20T0007).",
-    "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
+    "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. UPDATE 2026-10-27: H6 (warm-network) owner-send path STRUCTURALLY FALSIFIED (3 consecutive lapsed owner-send windows, 0 send); the H7 paid-ads comparison was opened and the owner ad-billing-rail unblock filed (owner-ads-billing-rail-1027) — this CONFIRMS the E2 finding (both remaining reach levers are Art.9 owner-gated) rather than overturning it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "ACTIVE again 2026-10-25 04:00 (E2 of 10/22 withdrawn: the owner's existing network was never compared, and platform inboxes went unread while mac-local was down). Binding constraint = TRUST + REACH for a 0-track-record seller with strangers; H6 removes both by referral. Next gate: owner sends the prepared Gmail draft by the HARD absolute-last 10/27 18:00 JST (URGENT; both the original 10/25 18:00 and the revised 10/26 18:00 windows LAPSED with 0 send — ops_failure 2026-10-25T2007 + 2026-10-26T2007; 10/27 send → 3-day build → deliver by 10/30, the last window before 10/31); 24h signal = ≥1 concrete reply after the send. If 10/27 also lapses, the owner-send path is structurally falsified → 10/27 fire opens the H7 (paid ads, Art.9 billing rail) comparison. Decision reports 2026-10-25T0400 / 2026-10-25T2007 / 2026-10-26T2007.",
+  "bottleneck": "Binding constraint = TRUST + REACH for a 0-track-record seller. Every AI-reachable autonomous buyer channel is exhausted (E2 of 10/22) and BOTH remaining positive-EV reach levers now route through an Art.9 owner step. H6 (warm-network referral) owner-send path STRUCTURALLY FALSIFIED 2026-10-27: the owner did not perform a 5-min Gmail-forward across 3 consecutive URGENT windows (10/25 + 10/26 + 10/27 18:00 JST, ops_failure each: 2026-10-25T2007 / 2026-10-26T2007 / 2026-10-27T2007). Offer stays sound + live; a late send can no longer 3-day-build→deliver before 10/31. Per the H6 kill_or_escalate_rule the 10/27 20:07 fire OPENED the H7 (paid ads) comparison: H7 needs an owner ad-billing rail (Art.9, a STRICTLY LARGER ask than forwarding a Gmail, which went undone 3×), ≤¥5k is Art.11-pre-authorized; at Day-27 with ~4 days left + ad-review latency + ¥5k budget, G3 is unreachable via H7 and even a first ¥ is low-probability — its real value is one clean paid-reach datapoint. Owner ask filed (owner-ads-billing-rail-1027, HIGH, decide-by 10/29 review). CONCLUSION: opening H7 does NOT structurally unblock the company — it CONFIRMS the E2 channel-exhaustion finding (now both warm-network AND paid-ads are owner-gated). Company holds at E2; 10/29 weekly review formally re-ranks. Any inbound on any channel → Art.10 FIRST_WIN ≤12h exits E2.",
   "hypotheses": [
     {
       "id": "H6",
       "name": "Warm-network first customer: monthly CSV report automation",
-      "status": "active_primary",
-      "level": "L5 (motion+audience) 2026-10-25",
+      "status": "owner_send_path_falsified_offer_kept_live",
+      "level": "L5 (motion+audience) 2026-10-25; owner-send delivery path FALSIFIED 2026-10-27 (3 consecutive lapsed owner-send windows, 0 send)",
       "offer": "Sheets 1枚（CSV最大4種→集計表1種）、3日納品、先着3名¥5,000・後払い・効果なし0円",
       "audience": "従業員1〜20名の店舗/EC/士業事務所でCSVを貼り合わせて月次・週次の報告表を作っている、オーナーの知人",
       "channel": "owner's Gmail/LINE referral (owner sends; AI never contacts people directly, Art.10)",
@@ -35,32 +35,48 @@
       "revenue_deadline": "2026-10-31",
       "kill_or_escalate_rule": "Owner-send gate has slipped twice (10/25 + 10/26 18:00, both ops_failure). HARD absolute-last send = 10/27 18:00 JST (3-day build → 10/30 delivery). If no owner send by 10/27 18:00 OR 0 concrete replies within 24h of a send → owner-send path structurally falsified → compare H7 search ads (needs owner billing rail, Art.9) at the 10/27/10/28 fire; reply → sample request + build ≤1 day (REPLY_KIT).",
       "owner": "founder (+ owner send)",
-      "next_action": "Owner sends Gmail draft r3803382103790345428 by the HARD absolute-last 10/27 18:00 JST (both 10/25 and 10/26 18:00 windows lapsed, ops_failure logged each); owner_queue re-rendered URGENT (21.7h) + fresh GitHub issue on push. Founder reads Gmail every fire (connector-gated — unavailable 10/25/10/26, record the gap) and drafts each reply. On any reply, execute marketing/2026-10/h6/REPLY_KIT.md (intake 2 Qs → owner forwards → build Google Sheet 集計表 ≤1 day → 後払い ¥5,000). If 10/27 18:00 lapses with 0 send → H6 owner-send path structurally falsified → H7 ads comparison next fire."
+      "next_action": "FALSIFIED 2026-10-27 20:07 (ops_failure 2026-10-27T2007): the 10/27 18:00 JST HARD absolute-last owner-send window lapsed with 0 send — 3rd consecutive lapse (10/25 + 10/26 + 10/27). The offer (offer/monthly-csv-report-jp.html) + Gmail draft stay live at zero cost; a late owner send still → REPLY_KIT/Art.10 ≤12h but can no longer 3-day-build→deliver before 10/31 (October revenue path closed). No further owner escalation on THIS task (3 URGENT windows + issue #40 already exhausted). Replaced as the primary reach lever by H7 (paid ads). Any late reply forwarded by the owner → marketing/2026-10/h6/REPLY_KIT.md."
+    },
+    {
+      "id": "H7",
+      "name": "Paid-acquisition reach test: search/social ads → H6 offer landing page",
+      "status": "contingency_owner_billing_gated",
+      "level": "L2 (new sales motion: paid acquisition) opened 2026-10-27 after H6 owner-send falsified — the last untested buyer-acquisition lever in the set",
+      "offer": "Same H6 productized offer (CSV月次集計表の自動化 Google Sheet 1枚, 3日納品, 先着3名 ¥5,000, 後払い, 効果なし0円) — no new product (Art.5.5); only the reach motion is new. Landing: offer/monthly-csv-report-jp.html.",
+      "audience": "従業員1〜20名の店舗/EC/士業事務所で月次CSV集計を手作業している担当者 — reached by keyword/interest targeting instead of a warm introduction",
+      "channel": "Google Search ads or Meta ads (owner ad-billing rail required, Art.9) → owned landing page → inquiry form/contact",
+      "sales_motion": "paid acquisition (content/demo-led landing, no bidding, no reviews needed)",
+      "leading_metric": "≥1 inbound inquiry from a paid click within 48h of campaign live",
+      "check_at": "2026-10-29T20:07+09:00 (weekly review: is the ad-billing rail enabled? if yes, 48h signal; if no, close H7)",
+      "revenue_deadline": "2026-10-31",
+      "kill_or_escalate_rule": "H7 is owner-billing-gated (Art.9: owner-ads-billing-rail-1027, HIGH, decide-by 10/29 review). ≤¥5k is Art.11-pre-authorized — AI runs the campaign once the rail exists. HONEST EV: at Day-27 with ~4 days + ad-review latency + ¥5k budget, G3 (¥50k/2 orders) is NOT reachable via H7; a first inquiry/first ¥ is low-probability; primary value = one clean paid-reach datapoint for FINAL + any continuation. If the rail is NOT enabled by the 10/29 review → H7 CLOSES; FINAL records 'paid reach untested — owner-billing-gated'. If enabled → run the L2 ≤¥5k campaign on the H6 WHO/PAIN and read the 48h signal; any inquiry → Art.10 FIRST_WIN ≤12h (exits E2).",
+      "owner": "founder (campaign build/copy/targeting/budget-cap once the rail exists) + owner (ad-billing rail, Art.9)",
+      "next_action": "Owner ask FILED (owner-ads-billing-rail-1027, HIGH in owner_queue, opportunity apply-by 10/29 20:07 JST). AI-executable work pre-rail is DONE (comparison written in decision report 2026-10-27T2007; landing page already live/optimal; no campaign build pre-rail — spending effort on a campaign the owner may never enable is negative-EV per Art.5.2/5.4). Every fire: check whether the rail was enabled (human_intervention/owner note); if enabled → build + launch the ≤¥5k campaign in-fire and start the 48h signal clock. Company HOLDS at E2 until the rail exists or an inbound arrives."
     },
     {
       "id": "H1",
       "name": "Demand capture: answer buyer-posted requests (PRIMARY until 10/18 — FALSIFIED & STOPPED as a motion)",
       "status": "stopped_falsified",
       "level": "L4 verdict 2026-10-18 (falsification checkpoint): proposal motion falsified for October (0/11 replies, 17d), replaced by H5. Prior: L1 10/08, L2 10/15.",
-      "offer": "WIDENED 2026-10-07: any digital task the AI can honestly complete end-to-end within the deadline — Sheets/GAS/ChatGPT-API/Excel automation AND data entry, data cleanup, CSV/format conversion, transcription from clean audio/text, document formatting, spreadsheet/report building, light web research, drafting/writing-assist — where the buyer does NOT require a human-only deliverable or a track record we lack. Price ¥3,000–¥50,000 (accept small first-order jobs for velocity). AI-assist disclosed per Art.10.",
-      "audience": "JP small businesses / solo operators who already posted a request (state their own pain + budget). Note: Coconala 公開依頼's pool skews creative/anti-AI; a higher-volume task board (CrowdWorks) is expected to fit better.",
-      "channel": "Coconala 公開依頼 (owner account, broadened GO) + CrowdWorks (higher-volume JP task board; owner KYC DONE 2026-10-08, lane LIVE; L3 bet validated 2026-10-07 — request-board model fits the proposal motion, prioritize judgment work over commodity data-entry; playbook marketing/2026-10/h1/CROWDWORKS_PLAYBOOK.md). Lancers is the fallback if CrowdWorks KYC is declined.",
+      "offer": "(archived STATE_ARCHIVE.jsonl 2026-10-27) WIDENED 2026-10-07: any digital task the AI could honestly deliver end-to-end, ¥3,000–¥50,000, AI-assist disclosed.",
+      "audience": "JP small businesses / solo operators who already posted a request.",
+      "channel": "Coconala 公開依頼 + CrowdWorks (both owner accounts) — fully closed.",
       "sales_motion": "proposal (Constitution Art.10)",
-      "leading_metric": "FINAL: proposals_sent 11 (Coconala 7 + CrowdWorks 4), replies 0 / orders 0 / ¥0 (0/11 over 26 days). All offers now closed; the last 2 pending (5328251, 5329177) expired unhired 2026-10-26. Gate was REPLY RATE — a 0-review seller's proposal→reply conversion stayed 0/11. History: events/decisions + STATE_ARCHIVE.jsonl.",
+      "leading_metric": "FINAL: proposals_sent 11 (Coconala 7 + CrowdWorks 4), replies 0 / orders 0 / ¥0 (0/11 over 26 days). Channel closed; last 2 offers expired unhired 2026-10-26. Gate was REPLY RATE (0-review seller). History: events/decisions + STATE_ARCHIVE.jsonl.",
       "check_at": "2026-10-08 (revenue_deadline + scheduled weekly review)",
       "revenue_deadline": "2026-10-08",
-      "kill_or_escalate_rule": "L2 executed 2026-10-15 (first-win motion). Next decision 10/18: combined ≥10 proposals/0 replies → demand-falsified → L4 (new offer/business-model; NOT another marketplace copy — Art.5.5); still <10 even with early-applicant gate dropped → supply-falsified → L4. G2 deadline 10/20.",
-      "owner": "founder (GO criteria, proposal drafts, KYC request) / mac-local (browse, screen, send, talk room)",
-      "selection_rule": "N/A — motion stopped/falsified 2026-10-18, channel fully closed 2026-10-26. (Historical first-win/first-review selection rule archived in STATE_ARCHIVE.jsonl + the 10/15 review.)",
-      "next_action": "STOPPED 2026-10-18 (checkpoint-1018). Scan/propose tasks h1-coconala-scan-1018/1018pm + h1-crowdworks-scan-1016 marked done; owner-crowdworks-relogin-1016 cancelled. ONLY residual: keep h1-coconala-inbox-1018am as pure signal-watch for the 2 already-sent Coconala offers (5328251 期限10/26, 5329177 期限10/23) — if a buyer messages, Art.10 act <=12h. No new public-job proposals. Primary motion is now H5."
+      "kill_or_escalate_rule": "Falsified 2026-10-18 (0/11); channel fully closed 2026-10-26.",
+      "owner": "founder (proposal drafts) / mac-local (browse, send)",
+      "selection_rule": "N/A — motion stopped/falsified 2026-10-18.",
+      "next_action": "STOPPED/CLOSED. No new public-job proposals (Art.5.2/5.4). Any future buyer message → Art.10 ≤12h. Primary motion moved to H6→H7."
     },
     {
       "id": "H5",
       "name": "Productized self-serve + content-led demand for EC sellers (PRIMARY G2/G3 bet from 2026-10-18 L4 redesign)",
       "status": "near_falsified_paused_E2",
       "level": "L4 (new offer/business-model: bespoke service-via-proposal → productized self-serve tool + inbound)",
-      "offer": "FREE browser-only tool: 注文CSV→送り状/宛名CSV converter (no login, nothing uploaded, column-mapping-driven, honest — verify-with-your-carrier). URL https://fever39risky-ux.github.io/ai-revenue-experiment/tools/order-csv-converter-jp.html . Paid: あなたのカート×送り状サービス専用のマッピング/GAS自動化 setup (¥3,000 template / ¥8,000 custom); first-win = free setup to earn the first review. Reuses Sept GAS/Sheets know-how + existing tools/ funnel + Stripe/Gumroad rail (Art.5.5), NO new owner gate.",
-      "audience": "EC事業者 (BASE/STORES/メルカリShops, 月商10万〜200万, エンジニア不在) who手で注文CSVを送り状形式へ毎回整形する — a named recurring pain, concrete enough to find 10 of them",
+      "offer": "FREE browser-only tool: 注文CSV→送り状/宛名CSV converter. URL tools/order-csv-converter-jp.html . Paid: マッピング/GAS自動化 setup (¥3,000/¥8,000). Reuses Sept assets (Art.5.5), no new owner gate.",
+      "audience": "EC事業者 (BASE/STORES/メルカリShops, 月商10万〜200万, エンジニア不在) who手で注文CSVを送り状形式へ整形する",
       "channel": "owned-site tool (GitHub Pages, git push) + X @KinoshitaTsks (API) + note @satotsu1020 (mac-local) — all cloud/AI-reachable, no owner gate",
       "sales_motion": "productized self-serve + content-led/inbound (a concrete working demo sells; no bidding against 100 applicants, no reviews needed to try)",
       "leading_metric": "H5 48h signal: >=1 inbound inquiry about the tool/custom setup, OR X profile_click→contact, OR the Day-18 tool post beats median 12 imp with engagement",
@@ -68,23 +84,23 @@
       "revenue_deadline": "2026-10-22 (weekly review) — first real signal or the review carries the L5/E2 channel-exhaustion analysis",
       "kill_or_escalate_rule": "If 0 H5 signal by 2026-10-20/22: this is the last AI-reachable buyer channel inside the current set → 10/22 review must run the L5/E2 question (is any AI-reachable autonomous buyer channel left?). Do NOT pre-build the paid SKU before a signal (Art.5.5).",
       "owner": "founder (tool, site funnel, X authoring, signal read) / mac-local (note article publish)",
-      "next_action": "E2 REACHED 2026-10-22 (L5/E2 review, REVIEW-2026-10-22.md): H5 near-falsified on reach (48h/96h gate 0; the binding constraint is cold-start reach, same as the proposal motion). The free tool + funnel are SOUND and kept live zero-effort; the deficit is reach, not product/page quality (page verified already optimal). No tool/SKU/content change pre-signal (Art.5.4/5.5). The MOMENT any inbound appears (X/note/Coconala/site) -> FIRST_WIN_RUNBOOK.md Art.10 <=12h (exits E2). The only reach lever left (paid acquisition) is Art.9-gated on an ad-billing rail (reported to owner, not executed)."
+      "next_action": "E2 REACHED 2026-10-22 (near-falsified on reach; cold-start reach binds, same as the proposal motion). Free tool + funnel SOUND, kept live zero-effort. No tool/SKU/content change pre-signal (Art.5.4/5.5). Any inbound (X/note/Coconala/site) → Art.10 ≤12h. The paid-acquisition reach lever is now registered as H7 (owner-billing-gated)."
     },
     {
       "id": "H2",
       "name": "Content-led demand-gen: practical automation value for the H1 buyer audience (reaimed 2026-10-04; SHRUNK to low-effort 2026-10-07)",
       "status": "active_low_effort",
       "level": "L2 reaim 2026-10-04; SHRINK 2026-10-07 (G1 FAILED) — X is NOT a G2/G3 revenue bet (0 reach, 0 profile_clicks in 7 days); kept only as a low-effort credibility/trust log + a pre-registered 10/09 reach test. A sale via X in the remaining window is not a realistic path; resources moved to H1.",
-      "offer": "Free: daily 第2弾 Day N numbers post + 自動化の小ネタ (concrete Sheets/GAS/Excel→Sheets tips) with a soft Coconala offer in self-reply. note/Zenn long-form. Paid note article only after a real pull signal.",
-      "audience": "REAIMED to the H1 audience: JP small-biz / solo operators who need (and post) automation work — not the meta-experiment watchers",
-      "channel": "X @KinoshitaTsks (ACTIVE, the company's only cloud-autonomous demand channel), note @satotsu1020, Zenn kinoshita_ai",
-      "sales_motion": "content-led demand-gen (feeds H1; X inquiry = valid demand signal under Art.10)",
-      "leading_metric": "Day-4 (10/04) MISSED: median imp ~11<20 AND profile_clicks 0 across 6 posts. Reaimed metric for Day-8: any profile_visit/link_click/inquiry from the practical series OR median ≥ 20-100 (X_PHASE2 §4)",
+      "offer": "(archived STATE_ARCHIVE.jsonl 2026-10-27) Free: daily 第2弾 Day N numbers post (Art.12 honesty log). Tips series STOPPED 10/11.",
+      "audience": "JP small-biz / solo operators (reaimed to H1 audience).",
+      "channel": "X @KinoshitaTsks, note @satotsu1020, Zenn kinoshita_ai",
+      "sales_motion": "content-led demand-gen (feeds H1)",
+      "leading_metric": "(archived) median imp ~10 (<20), profile_clicks→inquiry 0 through Day-10; reach (not angle) binds on a small-follower account.",
       "check_at": "2026-10-04 DONE -> next 2026-10-08 (Day-8)",
       "revenue_deadline": "2026-10-12",
-      "kill_or_escalate_rule": "per X_PHASE2.md §4; Day-8: median 20-100 & 0 signals -> L3 different segment; paid note only if profile clicks/note views/inquiries show pull; Day 15 stop/reduce test",
+      "kill_or_escalate_rule": "Falsified as revenue 10/08; tips series stopped 10/11.",
       "owner": "founder (writing, queue) / actions (x-phase2.yml) / mac-local (note publishing)",
-      "next_action": "Day-8 CHECK (2026-10-08 review) = MISS: 小ネタ①-④ median imp 10 (<20), profile_clicks 0, link clicks 0 -> the pre-registered 10/08 X trigger FIRED exactly. H2 is WEAKENED to falsified as a revenue hypothesis (the 10/04 re-aim did not move profile_clicks: 0->0; reach, not angle, is binding on a small-follower account). DECISION: DEMOTE X from a G2/G3 revenue bet to trust/log only. KEEP (low-effort): the daily 第2弾 Day N numbers post (honesty record, Art.12, ~0 cost via cron). RUN the pre-registered 10/09 L1 reach test: 小ネタ⑤ with 1-2 buyer-searched hashtags (#スプレッドシート #業務効率化), ①-④ (median 10) as control — authored+queued 2026-10-09-am.json this fire. If 小ネタ⑤-⑥ still median<20 by 10/11, stop the tips series too, keep only the Day-N numbers post. No X sales resources."
+      "next_action": "DEMOTED to trust/log only. Keep the daily 第2弾 Day N numbers post (x-watchdog, ~0 cost). No tips, no X sales resources (Art.5.2/5.4). Any profile-click→inquiry / buyer reply → Art.10 ≤12h."
     },
     {
       "id": "H3",
@@ -105,13 +121,13 @@
       "revenue_deadline": "n/a",
       "kill_or_escalate_rule": "Existing assets are reusable supply: improve/repackage/re-price/re-route/re-channel whenever market response or a hypothesis justifies it. Only NEW product development requires a prior demand signal (Constitution Art.5.5). Zenn paid book retry DONE 2026-10-06 (touch+push gas-ai-jimu-plus-6, verify-url dispatched); 10/07 trigger decides keep/stop.",
       "owner": "founder (decides reuse) / actions (sales-monitor)",
-      "next_action": "H1 delivery kit DONE. DIAGNOSED (2026-10-01, cloud Stripe livemode read now WORKS): Sept signal = 3 checkout sessions (cs_live), all $19 USD, all expired/unpaid; 0 payment_intents + 0 charges => every buyer left BEFORE the payment step. Retro's '5件/9/26頃3件' is unsupported by provider data (correct=3, JST 09-06 09:22, 09-06 11:15, 09-09 16:26). Root cause = offer/price/trust at first sight of a generic $19 USD hosted page (automatic_tax location prompt adds friction; payment methods card+cashapp are irrelevant since nobody reached that step). CONCLUSION: reinforces H1 (buyer-defined jobs) over the passive store; store stays zero-cost supply, NO rebuild for ~3 clicks/mo (negative-EV vs H1). Founder can now read Stripe demand signals directly each fire."
+      "next_action": "Passive supply kept live zero-cost. Sept diagnosis (archived): 3 expired checkout sessions, 0 charges — buyers left before payment; store rebuild negative-EV (Art.5.5). No new SKU. Any charge → sales-monitor auto-books + Art.7 double-down."
     }
   ],
   "priority_actions": [
     {
       "owner": "founder",
-      "action": "H6 (primary): owner_queue URGENT owner-warm-network-send-1025 (send by 10/26 18:00; 10/25 window lapsed, absolute last 10/27). Every fire: Gmail sweep (from:crowdworks/coconala/stripe + replies to the H6 mail) → any reply: draft the answer + sample request in-fire, build the sheet ≤1 day (marketing/2026-10/h5/FIRST_WIN_RUNBOOK.md §2–4 adapted), deliver via the owner. 24h reply gate 10/27 04:00."
+      "action": "H7 (primary reach lever, owner-billing-gated): owner ask owner-ads-billing-rail-1027 (HIGH, decide-by 10/29 review) surfaces the ad-billing rail (Art.9). If enabled → build + launch ≤¥5k campaign on the H6 WHO/PAIN in-fire + 48h signal clock. H6 owner-send FALSIFIED 2026-10-27 (3 lapsed windows) — offer kept live, any late forwarded reply → REPLY_KIT/Art.10 ≤12h. Every fire: cloud buyer-signal sweep (revenue/cost/X/events) + Gmail sweep IF connector enabled; ANY inbound on ANY channel → Art.10 FIRST_WIN ≤12h (exits E2)."
     },
     {
       "owner": "founder",
@@ -235,12 +251,12 @@
     {
       "date": "2026-10-29",
       "lane": "weekly_review",
-      "rule": "Next scheduled weekly review (20:07 JST). Re-run the portfolio re-ranking: refresh KPI + the 9-channel reachability ledger + G3 back-calc; confirm the E2 finding still holds or has been changed by (a) any inbound inquiry since 10/22, (b) the owner enabling the paid-acquisition rail, or (c) mac-local recovery enabling the note/Coconala headed reads. Write reports/2026-10/REVIEW-2026-10-29.md (review:true)."
+      "rule": "Next scheduled weekly review (20:07 JST). Re-run the portfolio re-ranking: refresh KPI + the 9-channel reachability ledger + G3 back-calc; confirm the E2 finding still holds or has been changed by (a) any inbound inquiry since 10/22, (b) the owner enabling the H7 paid-acquisition ad-billing rail (owner-ads-billing-rail-1027) — if enabled, H7 48h-signal verdict; if not, CLOSE H7 and record 'paid reach untested, owner-billing-gated', or (c) mac-local recovery enabling the note/Coconala headed reads. Record the H6 owner-send structural-falsification (3 lapsed windows) in the exhaustion ledger. Write reports/2026-10/REVIEW-2026-10-29.md (review:true)."
     },
     {
       "date": "2026-10-31",
       "lane": "e2_unblock_watch",
-      "rule": "While at E2: EVERY fire runs owner_queue + a cloud buyer-signal sweep (revenue_ledger / cost_ledger / X metrics / event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h (exits E2). If the owner enables a paid-acquisition ad-billing rail -> run the Art.11 <=¥5k reach test (new L2 sales motion on the H5 WHO/PAIN) and exit E2. Keep the daily X Day-N numbers post live (x-watchdog). No new build/listing/proposal/content pre-signal (Art.5.2/5.4/5.5), no cold DM/spam (Art.10). FINAL report reports/2026-10/FINAL.md due after 2026-10-31."
+      "rule": "While at E2: EVERY fire runs owner_queue + a cloud buyer-signal sweep (revenue_ledger / cost_ledger / X metrics / event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h (exits E2). If the owner enables the H7 paid-acquisition ad-billing rail (owner-ads-billing-rail-1027) -> build + launch the Art.11 <=¥5k reach test (L2 sales motion on the H6/H5 WHO/PAIN, landing offer/monthly-csv-report-jp.html) in-fire and read the 48h signal; any inquiry exits E2. H6 owner-send falsified 10/27 (offer kept live; late forwarded reply -> REPLY_KIT/Art.10 <=12h). Keep the daily X Day-N numbers post live (x-watchdog). No new build/listing/proposal/content/campaign pre-signal-or-pre-rail (Art.5.2/5.4/5.5), no cold DM/spam (Art.10). FINAL report reports/2026-10/FINAL.md due after 2026-10-31."
     }
   ],
   "review_spec": "ops/2026-10/REVIEW_SPEC.md (weekly reviews 10/08, 10/15, 10/22, 10/29 at the 20:07 fire)",
