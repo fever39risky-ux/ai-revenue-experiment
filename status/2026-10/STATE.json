@@ -1,7 +1,7 @@
 {
   "_doc": "CURRENT STATE ONLY (owner rule 2026-10-15): strategy, KPI pointer, active lanes, pending (unresolved) triggers, owner queue, next actions. History (day notes, decisions, resolved triggers, lessons) goes to events/decisions/reports and status/2026-10/STATE_ARCHIVE.jsonl — promotion_check rejects history keys and > 25 KB.",
   "phase": "2026-10",
-  "as_of": "2026-10-29T08:14+09:00",
+  "as_of": "2026-10-29T20:07+09:00",
   "day": 29,
   "mission": "Earn third-party revenue and maximize October Net Profit, while proving the AI can redesign its own strategy, organization, agents and execution from failure — without the owner directing it.",
   "read_first": [
@@ -16,10 +16,10 @@
     "current": "G3",
     "G1_status": "FAILED 2026-10-07 (details: STATE_ARCHIVE.jsonl goal.G1_result)",
     "G2_status": "FAILED 2026-10-20 (gross ¥0 / net ¥0 at the 10/20 deadline; 0 valid demand signal in 20 days across all channels; proposal motion falsified 10/18, H5 48h gate read 0 on 10/20 — decision report 2026-10-20T0007).",
-    "G3_status": "E2-REACHED (PAUSED) 2026-10-22 at the L5/E2 channel-exhaustion weekly review (REVIEW-2026-10-22.md, decision report 2026-10-22T2007, review:true). Back-calc achievable=false (68.6 proposals/day needed vs 0.62 observed). No AI-reachable autonomous buyer channel with a working demand-driver remains in the current set; stop_screen (5 motions) logged; all 3 candidate new positive-EV actions reduce to Art.9. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the single owner unblock (enable a paid-acquisition ad-billing rail, Art.9; <=¥5k is Art.11-authorized) would re-open it. UPDATE 2026-10-27: H6 (warm-network) owner-send path STRUCTURALLY FALSIFIED (3 consecutive lapsed owner-send windows, 0 send); the H7 paid-ads comparison was opened and the owner ad-billing-rail unblock filed (owner-ads-billing-rail-1027) — this CONFIRMS the E2 finding (both remaining reach levers are Art.9 owner-gated) rather than overturning it. Next scheduled decision = 2026-10-29 review; FINAL report after 10/31."
+    "G3_status": "E2-REACHED (PAUSED) 2026-10-22, RE-CONFIRMED + HARDENED at the fifth/final weekly review 2026-10-29 (REVIEW-2026-10-29.md, decision report 2026-10-29T2007, review:true). Back-calc achievable=false (480 proposals / Infinity-per-day over 0 selling days after the 7-day delivery lag vs 0.44/day observed) — with 0 selling days left any build->deliver motion is arithmetically closed even if a signal arrives tonight. The two reach levers opened since 10/22 both lapsed: H6 (warm-network owner-send) STRUCTURALLY FALSIFIED 10/27 (3 consecutive lapsed owner-send windows, 0 send); H7 (paid acquisition) owner ad-billing rail (owner-ads-billing-rail-1027, decide-by 10/29) NOT enabled -> H7 CLOSED ('paid reach untested — owner-billing-gated'). Both CONFIRM the E2 channel-exhaustion finding (every remaining reach lever is Art.9 owner-gated and un-actioned) rather than overturning it. 6-motion stop_screen logged 2026-10-29. The company holds at E2 (Art.8.2) with a zero-cost passive portfolio + armed inbound watch through 10/31. G3 is NOT abandoned: any inbound inquiry -> FIRST_WIN Art.10 <=12h (moots E2), and the owner enabling the paid-acquisition rail would still re-open H7. Next & final document = reports/2026-10/FINAL.md after 10/31."
   },
   "kpi_source": "node scripts/oct/ops.mjs kpi (ledgers status/2026-10/*, events status/2026-10/events/*)",
-  "bottleneck": "Binding constraint = TRUST + REACH for a 0-track-record seller. Every AI-reachable autonomous buyer channel is exhausted (E2 of 10/22) and BOTH remaining positive-EV reach levers now route through an Art.9 owner step. H6 (warm-network referral) owner-send path STRUCTURALLY FALSIFIED 2026-10-27: the owner did not perform a 5-min Gmail-forward across 3 consecutive URGENT windows (10/25 + 10/26 + 10/27 18:00 JST, ops_failure each: 2026-10-25T2007 / 2026-10-26T2007 / 2026-10-27T2007). Offer stays sound + live; a late send can no longer 3-day-build→deliver before 10/31. Per the H6 kill_or_escalate_rule the 10/27 20:07 fire OPENED the H7 (paid ads) comparison: H7 needs an owner ad-billing rail (Art.9, a STRICTLY LARGER ask than forwarding a Gmail, which went undone 3×), ≤¥5k is Art.11-pre-authorized; at Day-27 with ~4 days left + ad-review latency + ¥5k budget, G3 is unreachable via H7 and even a first ¥ is low-probability — its real value is one clean paid-reach datapoint. Owner ask filed (owner-ads-billing-rail-1027, HIGH, decide-by 10/29 review). CONCLUSION: opening H7 does NOT structurally unblock the company — it CONFIRMS the E2 channel-exhaustion finding (now both warm-network AND paid-ads are owner-gated). Company holds at E2; 10/29 weekly review formally re-ranks. Any inbound on any channel → Art.10 FIRST_WIN ≤12h exits E2.",
+  "bottleneck": "Binding constraint = TRUST + REACH for a 0-track-record seller. Every AI-reachable autonomous buyer channel is exhausted (E2 of 10/22, RE-CONFIRMED at the 10/29 fifth/final weekly review). The two reach levers opened since 10/22 both route through an Art.9 owner step and NEITHER was actioned: (H6 warm-network) owner Gmail-forward STRUCTURALLY FALSIFIED 2026-10-27 across 3 consecutive URGENT windows (10/25+10/26+10/27 18:00 JST, ops_failure each); (H7 paid ads) owner ad-billing rail (owner-ads-billing-rail-1027, decide-by 10/29) NOT enabled -> H7 CLOSED 2026-10-29 ('paid reach untested — owner-billing-gated'). Both lapsed un-actioned, left to owner discretion (reported, not asked — Art.1). With 0 selling days left after the 7-day delivery lag, G3 via any build->deliver motion is now arithmetically closed even if a signal arrives tonight. CONCLUSION: the two levers CONFIRM the E2 channel-exhaustion finding (both warm-network AND paid-ads owner-gated + un-actioned) rather than overturning it. 6-motion stop_screen logged 2026-10-29. Company holds at E2 through 10/31; FINAL report after. Any inbound on any channel → Art.10 FIRST_WIN ≤12h exits E2.",
   "hypotheses": [
     {
       "id": "H6",
@@ -40,8 +40,8 @@
     {
       "id": "H7",
       "name": "Paid-acquisition reach test: search/social ads → H6 offer landing page",
-      "status": "contingency_owner_billing_gated",
-      "level": "L2 (new sales motion: paid acquisition) opened 2026-10-27 after H6 owner-send falsified — the last untested buyer-acquisition lever in the set",
+      "status": "closed_owner_billing_gated",
+      "level": "L2 (new sales motion: paid acquisition) opened 2026-10-27 after H6 owner-send falsified — the last untested buyer-acquisition lever in the set; CLOSED 2026-10-29 (owner ad-billing rail never enabled)",
       "offer": "Same H6 productized offer (CSV月次集計表の自動化 Google Sheet 1枚, 3日納品, 先着3名 ¥5,000, 後払い, 効果なし0円) — no new product (Art.5.5); only the reach motion is new. Landing: offer/monthly-csv-report-jp.html.",
       "audience": "従業員1〜20名の店舗/EC/士業事務所で月次CSV集計を手作業している担当者 — reached by keyword/interest targeting instead of a warm introduction",
       "channel": "Google Search ads or Meta ads (owner ad-billing rail required, Art.9) → owned landing page → inquiry form/contact",
@@ -51,7 +51,7 @@
       "revenue_deadline": "2026-10-31",
       "kill_or_escalate_rule": "H7 is owner-billing-gated (Art.9: owner-ads-billing-rail-1027, HIGH, decide-by 10/29 review). ≤¥5k is Art.11-pre-authorized — AI runs the campaign once the rail exists. HONEST EV: at Day-27 with ~4 days + ad-review latency + ¥5k budget, G3 (¥50k/2 orders) is NOT reachable via H7; a first inquiry/first ¥ is low-probability; primary value = one clean paid-reach datapoint for FINAL + any continuation. If the rail is NOT enabled by the 10/29 review → H7 CLOSES; FINAL records 'paid reach untested — owner-billing-gated'. If enabled → run the L2 ≤¥5k campaign on the H6 WHO/PAIN and read the 48h signal; any inquiry → Art.10 FIRST_WIN ≤12h (exits E2).",
       "owner": "founder (campaign build/copy/targeting/budget-cap once the rail exists) + owner (ad-billing rail, Art.9)",
-      "next_action": "Owner ask FILED (owner-ads-billing-rail-1027, HIGH in owner_queue, opportunity apply-by 10/29 20:07 JST). AI-executable work pre-rail is DONE (comparison written in decision report 2026-10-27T2007; landing page already live/optimal; no campaign build pre-rail — spending effort on a campaign the owner may never enable is negative-EV per Art.5.2/5.4). Every fire: check whether the rail was enabled (human_intervention/owner note); if enabled → build + launch the ≤¥5k campaign in-fire and start the 48h signal clock. Company HOLDS at E2 until the rail exists or an inbound arrives."
+      "next_action": "CLOSED 2026-10-29 20:07 (fifth/final weekly review, per H7 kill_or_escalate_rule): the owner ad-billing rail (owner-ads-billing-rail-1027) was NOT enabled by its 10/29 decide-by (task still open + LAPSED, 0 owner action since filing 10/27) -> FINAL records 'paid reach untested — owner-billing-gated'. ≤¥5k was Art.11-pre-authorized and the campaign was ready to run the instant a rail existed; the gate was never the budget, it was the Art.9 payment step, un-actioned. Landing page offer/monthly-csv-report-jp.html kept live zero-cost. If the owner enables the rail before 10/31 -> H7 can still re-open (build + launch the ≤¥5k test in-fire + 48h clock, exits E2). This CONFIRMS the E2 finding (both remaining reach levers owner-gated + un-actioned)."
     },
     {
       "id": "H1",
@@ -127,7 +127,7 @@
   "priority_actions": [
     {
       "owner": "founder",
-      "action": "H7 (primary reach lever, owner-billing-gated): owner ask owner-ads-billing-rail-1027 (HIGH, decide-by 10/29 review) surfaces the ad-billing rail (Art.9). If enabled → build + launch ≤¥5k campaign on the H6 WHO/PAIN in-fire + 48h signal clock. H6 owner-send FALSIFIED 2026-10-27 (3 lapsed windows) — offer kept live, any late forwarded reply → REPLY_KIT/Art.10 ≤12h. Every fire: cloud buyer-signal sweep (revenue/cost/X/events) + Gmail sweep IF connector enabled; ANY inbound on ANY channel → Art.10 FIRST_WIN ≤12h (exits E2)."
+      "action": "HOLD at E2 (re-confirmed 10/29 final weekly review). Both reach levers closed/falsified: H6 warm-network owner-send FALSIFIED 10/27 (3 lapsed windows; offer kept live, any late forwarded reply → REPLY_KIT/Art.10 ≤12h), H7 paid-ads CLOSED 10/29 (owner ad-billing rail never enabled). Every fire: owner_queue + cloud buyer-signal sweep (revenue/cost/X/events) + Gmail sweep IF connector enabled; ANY inbound on ANY channel → Art.10 FIRST_WIN ≤12h (exits E2). If the owner still enables the ad-billing rail before 10/31 → H7 re-opens (build+launch ≤¥5k test in-fire + 48h clock)."
     },
     {
       "owner": "founder",
@@ -135,7 +135,7 @@
     },
     {
       "owner": "founder",
-      "action": "Next scheduled decision = 2026-10-29 weekly review (re-run the portfolio re-ranking + 9-channel ledger + G3 back-calc; confirm or change the E2 finding). FINAL report reports/2026-10/FINAL.md after 2026-10-31."
+      "action": "Next & final document = reports/2026-10/FINAL.md (Phase 1 vs Phase 2) after 2026-10-31. The 10/29 review (REVIEW-2026-10-29.md, decision 2026-10-29T2007) was the last scheduled re-ranking; no further scheduled review before close-out."
     },
     {
       "owner": "mac-local",
@@ -249,14 +249,14 @@
   },
   "pending_triggers": [
     {
-      "date": "2026-10-29",
-      "lane": "weekly_review",
-      "rule": "Next scheduled weekly review (20:07 JST). Re-run the portfolio re-ranking: refresh KPI + the 9-channel reachability ledger + G3 back-calc; confirm the E2 finding still holds or has been changed by (a) any inbound inquiry since 10/22, (b) the owner enabling the H7 paid-acquisition ad-billing rail (owner-ads-billing-rail-1027) — if enabled, H7 48h-signal verdict; if not, CLOSE H7 and record 'paid reach untested, owner-billing-gated', or (c) mac-local recovery enabling the note/Coconala headed reads. Record the H6 owner-send structural-falsification (3 lapsed windows) in the exhaustion ledger. Write reports/2026-10/REVIEW-2026-10-29.md (review:true)."
+      "date": "2026-10-31",
+      "lane": "final_report",
+      "rule": "After 2026-10-31 23:59 JST write reports/2026-10/FINAL.md (Phase 1 vs Phase 2) if it does not exist, then stop (BOOTSTRAP §0). Content: KPI (gross/net/orders/human/signals), the hypothesis ladder H1-H7 with each verdict, the E2 channel-exhaustion finding + its two owner-gated confirmations (H6 warm-network send falsified, H7 paid-ads rail never enabled), the cold-start-reach binding constraint, the Art.1 learn-from-failure/self-redesign record, and Phase-1-vs-Phase-2 comparison."
     },
     {
       "date": "2026-10-31",
       "lane": "e2_unblock_watch",
-      "rule": "While at E2: EVERY fire runs owner_queue + a cloud buyer-signal sweep (revenue_ledger / cost_ledger / X metrics / event logs). ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h (exits E2). If the owner enables the H7 paid-acquisition ad-billing rail (owner-ads-billing-rail-1027) -> build + launch the Art.11 <=¥5k reach test (L2 sales motion on the H6/H5 WHO/PAIN, landing offer/monthly-csv-report-jp.html) in-fire and read the 48h signal; any inquiry exits E2. H6 owner-send falsified 10/27 (offer kept live; late forwarded reply -> REPLY_KIT/Art.10 <=12h). Keep the daily X Day-N numbers post live (x-watchdog). No new build/listing/proposal/content/campaign pre-signal-or-pre-rail (Art.5.2/5.4/5.5), no cold DM/spam (Art.10). FINAL report reports/2026-10/FINAL.md due after 2026-10-31."
+      "rule": "While at E2 (re-confirmed 10/29): EVERY fire runs owner_queue + a cloud buyer-signal sweep (revenue_ledger / cost_ledger / X metrics / event logs) + Gmail sweep IF the connector is enabled. ANY inbound inquiry on ANY channel -> FIRST_WIN_RUNBOOK.md / Art.10 free first-win <=12h (exits E2). H7 CLOSED 10/29 (rail never enabled), BUT if the owner still enables the paid-acquisition ad-billing rail (owner-ads-billing-rail-1027) before 10/31 -> H7 can re-open: build + launch the Art.11 <=¥5k reach test (L2 sales motion on the H6/H5 WHO/PAIN, landing offer/monthly-csv-report-jp.html) in-fire + 48h signal; any inquiry exits E2. H6 owner-send falsified 10/27 (offer kept live; late forwarded reply -> REPLY_KIT/Art.10 <=12h). Keep the daily X Day-N numbers post live (x-watchdog). No new build/listing/proposal/content/campaign pre-signal-or-pre-rail (Art.5.2/5.4/5.5), no cold DM/spam (Art.10). FINAL report reports/2026-10/FINAL.md due after 2026-10-31."
     }
   ],
   "review_spec": "ops/2026-10/REVIEW_SPEC.md (weekly reviews 10/08, 10/15, 10/22, 10/29 at the 20:07 fire)",
