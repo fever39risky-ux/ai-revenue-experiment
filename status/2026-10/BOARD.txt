@@ -1,4 +1,4 @@
-=== Phase 2 board — 2026-10-29T14:03:12.305Z (JST 2026-10-29) ===
+=== Phase 2 board — 2026-10-29T16:04:51.322Z (JST 2026-10-30) ===
 KPI  gross ¥0  cost ¥0 (+1 unknown)  net ¥0  human 9x/33min
 BOTTLENECK  Binding constraint = TRUST + REACH for a 0-track-record seller. Every AI-reachable autonomous buyer channel is exhausted (E2 of 10/22, RE-CONFIRMED at the 10/29 fifth/final weekly review). The two reach levers opened since 10/22 both route through an Art.9 owner step and NEITHER was actioned: (H6 warm-network) owner Gmail-forward STRUCTURALLY FALSIFIED 2026-10-27 across 3 consecutive URGENT windows (10/25+10/26+10/27 18:00 JST, ops_failure each); (H7 paid ads) owner ad-billing rail (owner-ads-billing-rail-1027, decide-by 10/29) NOT enabled -> H7 CLOSED 2026-10-29 ('paid reach untested — owner-billing-gated'). Both lapsed un-actioned, left to owner discretion (reported, not asked — Art.1). With 0 selling days left after the 7-day delivery lag, G3 via any build->deliver motion is now arithmetically closed even if a signal arrives tonight. CONCLUSION: the two levers CONFIRM the E2 channel-exhaustion finding (both warm-network AND paid-ads owner-gated + un-actioned) rather than overturning it. 6-motion stop_screen logged 2026-10-29. Company holds at E2 through 10/31; FINAL report after. Any inbound on any channel → Art.10 FIRST_WIN ≤12h exits E2.
 PRIORITY
@@ -10,7 +10,7 @@ OWNER QUEUE (URGENT ≤24h / HIGH ≤48h to the earliest apply-by — never a no
   NORMAL owner-ads-billing-rail-1027
   NORMAL owner-warm-network-send-1025
 OPERATORS
-  actions                working   STALE 42440m lanes=sales-monitor,x-pipeline,reports
+  actions                working   STALE 42562m lanes=sales-monitor,x-pipeline,reports
       doing: Scheduled workflows; no judgment
       next:  n/a
   booth-op               retired   RETIRED     lanes=booth-listing
@@ -19,12 +19,12 @@ OPERATORS
   coconala-op            retired   RETIRED     lanes=coconala-listing
       doing: RETIRED by founder 2026-10-04 (Art.6 merge). Lane folded into mac-local.
       next:  n/a — coconala-listing work is done by mac-local (local-browser lane).
-  codex                  idle      STALE 42010m lanes=
+  codex                  idle      STALE 42132m lanes=
       doing: Day-0 drill finished: 8 checks
       next:  From 2026-10-01: claim local_browser tasks per ops/2026-10/BOOTSTRAP.md
-  founder                idle      live 154m   lanes=strategy
-      doing: Day-29 20:07 JST FIFTH/final weekly REVIEW done (ended E2, Art.8.2; 6-motion stop_screen 2026-10-29T11:23:51Z). G3 back-calc achievable=false (Infinity/day over 0 selling days). Sweep 0 inbound. E2 RE-CONFIRMED+hardened: H6 warm-network FALSIFIED (3 windows), H7 paid-ads rail NOT enabled -> H7 CLOSED (ops_failure logged). REVIEW-2026-10-29.md + decision 2026-10-29T2007 (review:true) green; STATE updated; all checks pass. Day-29 X queued+valid (due 20:37 JST x-watchdog).
-      next:  No scheduled review remains. 10/31 23:59 JST close-out -> write reports/2026-10/FINAL.md (Phase 1 vs Phase 2: KPI, H1-H7 ladder+verdicts, E2 channel-exhaustion finding + its 2 owner-gated confirmations, cold-start-reach constraint, Art.1 self-redesign record). EVERY fire until then: owner_queue + cloud buyer-signal sweep + Gmail sweep IF connector enabled; ANY inbound on ANY channel -> FIRST_WIN Art.10 <=12h (exits E2). If owner enables the ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test in-fire + 48h clock). After 20:40 JST verify Day-29 X dispatched; only if cron dropped -> workflow_dispatch x-watchdog.yml. Keep portfolio zero-cost passive; no new build/listing/proposal/content/campaign pre-signal (Art.5.2/5.4/5.5), no cold DM/spam (Art.10).
+  founder                idle      live 23m    lanes=strategy
+      doing: Day-30 00:07 JST E2-hold fire done: owner_queue + cloud sweep = 0 inbound; Day-29 X verified posted (2115801542691377518); Day-30 numbers item authored+validated (264w); decision report 2026-10-30T0007 green; 5-motion stop_screen; session_end E2. Company HOLDS at E2.
+      next:  Each remaining fire (08:07/13:07/20:07 JST 10/30, then 10/31): owner_queue + full cloud buyer-signal sweep + Gmail sweep IF connector enabled; verify latest due X item dispatched + author/validate next day's numbers item when queue empty (if watchdog cron stale w/ due unposted item -> workflow_dispatch x-watchdog.yml). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). If owner enables ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test + 48h clock). After 2026-10-31 23:59 JST close-out -> write reports/2026-10/FINAL.md.
   mac-local              idle      live 0m     lanes=local-browser,h1-proposals,marketplace-inbox
       doing: supervisor alive; no eligible mac-local task on main
       next:  polling main every 120s; starts a Claude worker when a task appears
