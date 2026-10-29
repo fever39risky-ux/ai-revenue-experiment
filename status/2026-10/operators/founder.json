@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-30 00:07 JST E2-hold fire done: owner_queue + cloud sweep = 0 inbound; Day-29 X verified posted (2115801542691377518); Day-30 numbers item authored+validated (264w); decision report 2026-10-30T0007 green; 5-motion stop_screen; session_end E2. Company HOLDS at E2.",
-  "next": "Each remaining fire (08:07/13:07/20:07 JST 10/30, then 10/31): owner_queue + full cloud buyer-signal sweep + Gmail sweep IF connector enabled; verify latest due X item dispatched + author/validate next day's numbers item when queue empty (if watchdog cron stale w/ due unposted item -> workflow_dispatch x-watchdog.yml). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). If owner enables ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test + 48h clock). After 2026-10-31 23:59 JST close-out -> write reports/2026-10/FINAL.md.",
+  "doing": "Day-30 08:07 JST E2-hold fire done: owner_queue + full cloud sweep = 0 inbound; both owner tasks unactioned (NORMAL, past decide-by); connectors Gmail/Drive not-enabled-in-chat + Stripe needs_reconnect; Day-29 X verified posted (2115801542691377518); Day-30 numbers item queued+valid (264w, pm not yet due); decision report 2026-10-30T0807 green; 6-motion stop_screen; session_end E2. Company HOLDS at E2.",
+  "next": "13:07 JST 10/30 fire: owner_queue + full cloud buyer-signal sweep (revenue/cost/X-metrics/event-logs) + Gmail sweep IF connector enabled; verify Day-30 X dispatched after its pm slot (posted.jsonl tweet_id) — if cron dropped with item due, workflow_dispatch x-watchdog.yml; author/validate Day-31 numbers item when queue empties. If owner enables ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test + 48h clock). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). After 2026-10-31 23:59 JST close-out -> write reports/2026-10/FINAL.md.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-29T15:42:09.706Z"
+  "heartbeat_at": "2026-10-29T23:11:34.732Z"
 }
