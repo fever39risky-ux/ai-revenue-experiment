@@ -14,8 +14,8 @@
     "web-fetch"
   ],
   "status": "idle",
-  "doing": "Day-30 08:07 JST E2-hold fire done: owner_queue + full cloud sweep = 0 inbound; both owner tasks unactioned (NORMAL, past decide-by); connectors Gmail/Drive not-enabled-in-chat + Stripe needs_reconnect; Day-29 X verified posted (2115801542691377518); Day-30 numbers item queued+valid (264w, pm not yet due); decision report 2026-10-30T0807 green; 6-motion stop_screen; session_end E2. Company HOLDS at E2.",
-  "next": "13:07 JST 10/30 fire: owner_queue + full cloud buyer-signal sweep (revenue/cost/X-metrics/event-logs) + Gmail sweep IF connector enabled; verify Day-30 X dispatched after its pm slot (posted.jsonl tweet_id) — if cron dropped with item due, workflow_dispatch x-watchdog.yml; author/validate Day-31 numbers item when queue empties. If owner enables ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test + 48h clock). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). After 2026-10-31 23:59 JST close-out -> write reports/2026-10/FINAL.md.",
+  "doing": "Day-30 13:07 JST E2-hold fire done: owner_queue (2 NORMAL/LAPSED, 0 URGENT/HIGH) + full cloud sweep (revenue []/cost 0+1null/X 36 posts median 9 imp/events/GitHub) = 0 inbound; Day-29 X reply_count 1 = own self-reply (not external); GitHub 3 open issues all automated promotion-blocked, 0 buyer inbound; connectors Gmail/Drive connected-but-not-enabled-in-chat + Stripe needs_reconnect; Day-30 X numbers item queued+valid (264w, 20:40 JST not yet due); decision report 2026-10-30T1307 green; 6-motion stop_screen; session_end E2. Company HOLDS at E2.",
+  "next": "20:07 JST 10/30 fire: owner_queue + full cloud buyer-signal sweep (revenue/cost/X-metrics/event-logs/GitHub) + Gmail sweep IF connector enabled; verify Day-30 X dispatched after its 20:40 JST slot (posted.jsonl tweet_id) — if cron dropped with item due, workflow_dispatch x-watchdog.yml; if owner enables ad-billing rail before 10/31 -> H7 re-opens (build+launch <=¥5k test + 48h clock). Author/validate Day-31 numbers item at the 00:07 JST 10/31 fire (once 10/30 closes). ANY inbound on ANY channel -> Art.10 FIRST_WIN <=12h (exits E2). After 2026-10-31 23:59 JST close-out -> write reports/2026-10/FINAL.md.",
   "blocked_on": null,
-  "heartbeat_at": "2026-10-29T23:11:34.732Z"
+  "heartbeat_at": "2026-10-30T04:11:56.446Z"
 }
