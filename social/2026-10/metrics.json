@@ -919,7 +919,7 @@
     },
     "2116187021609664700": {
       "created_at": "2026-10-30T15:14:37.000Z",
-      "fetched_at": "2026-11-06T03:36:54.320Z",
+      "fetched_at": "2026-11-06T11:26:03.068Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 7,
@@ -936,7 +936,7 @@
     },
     "2116187023375544460": {
       "created_at": "2026-10-30T15:14:37.000Z",
-      "fetched_at": "2026-11-06T03:36:54.320Z",
+      "fetched_at": "2026-11-06T11:26:03.068Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 3,
@@ -955,7 +955,7 @@
     },
     "2116512975850741860": {
       "created_at": "2026-10-31T12:49:51.000Z",
-      "fetched_at": "2026-11-06T03:36:54.320Z",
+      "fetched_at": "2026-11-06T11:26:03.068Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 10,
@@ -972,7 +972,7 @@
     },
     "2116512978363171241": {
       "created_at": "2026-10-31T12:49:51.000Z",
-      "fetched_at": "2026-11-06T03:36:54.320Z",
+      "fetched_at": "2026-11-06T11:26:03.068Z",
       "public_metrics": {
         "bookmark_count": 0,
         "impression_count": 3,
@@ -993,6 +993,6 @@
   "summary": {
     "posts": 38,
     "median_impressions": 10,
-    "updated_at": "2026-11-06T03:36:54.320Z"
+    "updated_at": "2026-11-06T11:26:03.068Z"
   }
 }
